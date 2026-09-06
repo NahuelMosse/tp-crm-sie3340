@@ -1,0 +1,41 @@
+services:
+  espocrm-db:
+    image: mariadb:11
+    container_name: tp-espocrm-db
+    environment:
+      MARIADB_ROOT_PASSWORD: rootpass
+      MARIADB_DATABASE: espocrm
+      MARIADB_USER: espocrm
+      MARIADB_PASSWORD: espocrm
+    volumes:
+      - espocrm-db:/var/lib/mysql
+    restart: unless-stopped
+
+  espocrm:
+    image: espocrm/espocrm:latest
+    container_name: tp-espocrm
+    depends_on:
+      - espocrm-db
+    environment:
+      ESPOCRM_DATABASE_HOST: espocrm-db
+      ESPOCRM_DATABASE_NAME: espocrm
+      ESPOCRM_DATABASE_USER: espocrm
+      ESPOCRM_DATABASE_PASSWORD: espocrm
+      ESPOCRM_ADMIN_USERNAME: admin
+      ESPOCRM_ADMIN_PASSWORD: Admin1234!
+      ESPOCRM_SITE_URL: http://localhost:8705
+      ESPOCRM_CONFIG_LANGUAGE: es_ES
+      ESPOCRM_CONFIG_DEFAULT_CURRENCY: ARS
+    ports:
+      - "8705:80"
+    volumes:
+      - espocrm-custom:/var/www/html/custom
+      - espocrm-data:/var/www/html/data
+      - espocrm-client:/var/www/html/client/custom
+    restart: unless-stopped
+
+volumes:
+  espocrm-db:
+  espocrm-custom:
+  espocrm-data:
+  espocrm-client:

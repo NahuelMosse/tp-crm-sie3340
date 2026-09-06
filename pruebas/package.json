@@ -1,0 +1,13 @@
+{
+  "name": "tp-crm-pruebas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pruebas automatizadas de CRMs - TP SIE 3340",
+  "scripts": {
+    "test": "playwright test",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.50.0"
+  }
+}
