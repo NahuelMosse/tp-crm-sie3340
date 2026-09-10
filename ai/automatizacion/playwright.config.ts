@@ -1,4 +1,5 @@
 import { defineConfig } from '@playwright/test';
+import { existsSync } from 'node:fs';
 
 export default defineConfig({
   testDir: './tests',
@@ -26,10 +27,19 @@ export default defineConfig({
       testMatch: [/espocrm[\\/].*\.spec\.ts/, /descubrir\.spec\.ts/],
       use: { baseURL: 'http://localhost:8705' },
     },
+    // Genera auth-twenty.json una vez: Twenty encadena pantallas de onboarding
+    {
+      name: 'twenty-login',
+      testMatch: /twenty[\\/]guardar-sesion\.spec\.ts/,
+      use: { baseURL: 'http://localhost:8704' },
+    },
     {
       name: 'twenty',
-      testMatch: [/twenty[\\/].*\.spec\.ts/, /descubrir\.spec\.ts/],
-      use: { baseURL: 'http://localhost:8704' },
+      testMatch: [/twenty[\\/](?!guardar-sesion).*\.spec\.ts/, /descubrir\.spec\.ts/],
+      use: {
+        baseURL: 'http://localhost:8704',
+        storageState: existsSync('auth-twenty.json') ? 'auth-twenty.json' : undefined,
+      },
     },
     // Login manual: se corre UNA vez con --headed para generar auth-bitrix.json
     {
