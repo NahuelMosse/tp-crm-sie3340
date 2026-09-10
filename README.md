@@ -1,111 +1,119 @@
 # TP SIE 3340 — Evaluación de sistemas CRM
 
 Universidad de Morón · Sistemas de Información de la Empresa (3340)
-Herramientas evaluadas: **EspoCRM 10.0.4 · Twenty v2.37.4 · Bitrix24 Free**
+**EspoCRM 10.0.4 · Twenty v2.37.4 · Bitrix24 Free**
 
 ---
 
-## Cómo trabajar acá (sin saber Git)
+## Dos carpetas, dos públicos
 
-Todo se edita **desde el navegador**, no hace falta instalar nada:
+```
+humanos/     ← acá trabajan ustedes
+ai/          ← acá trabaja Claude
+```
 
-1. Entrá al archivo que quieras editar (por ejemplo `informe/01-introduccion.md`)
+**Regla:** ustedes editan `humanos/`. Yo mantengo `ai/`. Si algo de `ai/` les sirve, lo leen — pero no hace falta que lo toquen.
+
+---
+
+## `humanos/` — lo que importa para entregar
+
+| Carpeta | Qué es |
+|---|---|
+| **`informe/`** | **El documento a entregar.** Una sección por archivo, versionado |
+| **`pruebas/`** | Evidencia: capturas y videos de las pruebas sobre las 3 herramientas |
+| **`consigna/`** | Los PDF de la cátedra |
+
+### El informe
+
+| Archivo | Contenido | Responsable |
+|---|---|---|
+| `01-introduccion.md` | Objetivo, alcance, rubro del caso de estudio | |
+| `02-herramientas.md` | Presentación de las 3 herramientas | |
+| `03-criterios.md` | Los 13 criterios evaluados, con evidencia | |
+| `04-foda.md` | Matriz FODA de cada herramienta | |
+| `05-propuesta.md` | Recomendación final y justificación | |
+
+*(Completar Responsable en la primera reunión. **Un archivo por persona** evita pisarse.)*
+
+---
+
+## `ai/` — el trabajo de fondo
+
+| Carpeta | Qué hay |
+|---|---|
+| `analisis/` | Investigación: comparativas, casos de prueba, fortalezas, precios |
+| `automatizacion/` | Tests de Playwright, docker-compose de las instancias |
+| `datos/` | Dataset común para cargar en las 3 herramientas |
+
+Lo consultable si les sirve:
+
+| Documento | Para qué |
+|---|---|
+| [`Propuestas-CRM.md`](ai/analisis/Propuestas-CRM.md) | Comparativa de 12 CRMs y por qué quedaron estos 3 |
+| [`Casos-de-prueba.md`](ai/analisis/Casos-de-prueba.md) | 271 casos sobre 21 criterios |
+| [`Fortalezas-cruzadas.md`](ai/analisis/Fortalezas-cruzadas.md) | 244 fortalezas de cada uno contra los otros |
+| [`Planes-de-pago.md`](ai/analisis/Planes-de-pago.md) | Precios verificados |
+| [`RESULTADOS-VIABILIDAD.md`](ai/analisis/RESULTADOS-VIABILIDAD.md) | Qué se probó y qué se encontró |
+
+---
+
+## Cómo editar sin saber Git
+
+Todo desde el navegador, sin instalar nada:
+
+1. Abrí el archivo (ej. `humanos/informe/01-introduccion.md`)
 2. Botón del **lápiz** ✏️ arriba a la derecha
 3. Escribí
-4. Abajo, **Commit changes** → poné en una línea qué cambiaste → **Commit**
+4. Abajo: **Commit changes** → una línea de qué cambiaste → **Commit**
 
-Listo. Queda guardado, con tu nombre y la fecha.
+Queda guardado con tu nombre y la fecha.
 
-**Si dos editan el mismo archivo al mismo tiempo**, GitHub avisa y no se pisa nada — pero para evitar el problema, mejor repartirse archivos distintos (ver *Reparto* más abajo).
+### Markdown en 5 líneas
 
-### Formato: Markdown
-
-| Lo que escribís | Cómo se ve |
+| Escribís | Sale |
 |---|---|
 | `# Título` | Título grande |
 | `## Subtítulo` | Subtítulo |
 | `**negrita**` | **negrita** |
-| `- item` | lista con viñetas |
-| `![](../evidencia/foto.png)` | inserta una imagen |
-
-No hace falta más que eso. El formato final (tipografías, portada, índice) se aplica al exportar.
+| `- item` | viñeta |
+| `![](../pruebas/foto.png)` | inserta una imagen |
 
 ---
 
-## Qué hay en cada carpeta
+## Estado
 
-| Carpeta | Qué contiene | Quién la toca |
-|---|---|---|
-| `informe/` | **El documento a entregar**, dividido en secciones | Los 3 |
-| `analisis/` | Investigación previa: comparativas, casos de prueba, precios | Generado, se consulta |
-| `evidencia/` | Capturas y videos de las pruebas | Se genera solo |
-| `datos/` | El dataset común (CSV) para cargar en las 3 herramientas | — |
-| `pruebas/` | Tests automatizados con Playwright | — |
-
-### Documentos de análisis ya hechos
-
-| Archivo | Para qué sirve |
-|---|---|
-| [`analisis/Propuestas-CRM.md`](analisis/Propuestas-CRM.md) | Comparativa de 12 CRMs y por qué quedaron estos 3 |
-| [`analisis/Casos-de-prueba.md`](analisis/Casos-de-prueba.md) | **271 casos** sobre 21 criterios |
-| [`analisis/Fortalezas-cruzadas.md`](analisis/Fortalezas-cruzadas.md) | **244 fortalezas** de cada herramienta contra las otras |
-| [`analisis/Planes-de-pago.md`](analisis/Planes-de-pago.md) | Precios verificados de los 3 |
-| [`analisis/RESULTADOS-VIABILIDAD.md`](analisis/RESULTADOS-VIABILIDAD.md) | Qué se probó y qué se encontró |
-| [`analisis/Plan-de-pruebas.md`](analisis/Plan-de-pruebas.md) | Metodología y cronograma |
-
----
-
-## Reparto sugerido del informe
-
-Cada uno toma sus archivos y no toca los del otro. Así no hay conflictos.
-
-| Archivo | Contenido | Responsable |
-|---|---|---|
-| `informe/01-introduccion.md` | Objetivo, alcance, rubro del caso de estudio | |
-| `informe/02-herramientas.md` | Presentación de las 3 herramientas | |
-| `informe/03-criterios.md` | Los 13 criterios evaluados, con evidencia | |
-| `informe/04-foda.md` | Matriz FODA de cada herramienta | |
-| `informe/05-propuesta.md` | Recomendación final y justificación | |
-
-*(Completar la columna Responsable en la primera reunión.)*
-
----
-
-## Estado del trabajo
-
-- [x] Investigación de mercado y selección de herramientas
-- [x] Las 3 instancias levantadas y accesibles
-- [x] Automatización con Playwright funcionando en las 3
+- [x] Investigación de mercado y selección de las 3 herramientas
+- [x] Instancias levantadas y accesibles
+- [x] Automatización con Playwright andando en las 3
 - [x] Casos de prueba y fortalezas cruzadas definidos
-- [ ] Dataset común cargado en las 3
+- [ ] Dataset común cargado
 - [ ] Ejecución de los 21 criterios
 - [ ] Redacción del informe
 - [ ] Presentación
 
 ---
 
-## Recordatorios importantes
+## Ojo con esto
 
-> ⚠️ **Bitrix24 se elimina a los 50 días sin login.** No lo suspende: lo **borra**, con los datos adentro. Entrar al portal al menos una vez por mes y exportar los datos después de cada avance.
+> ⚠️ **Bitrix24 se borra a los 50 días sin login.** No lo suspende: lo elimina con los datos adentro. Entrar una vez por mes y exportar después de cada avance.
 
-> ⚠️ **Twenty trae 5 personas y 5 empresas de ejemplo.** Borrarlas antes de cargar el dataset o las mediciones de volumen salen contaminadas.
+> ⚠️ **Twenty trae 5 personas y 5 empresas de ejemplo.** Borrarlas antes de cargar el dataset o las mediciones salen contaminadas.
 
 ---
 
-## Entorno de pruebas
+## Entorno
 
 | | URL | Acceso |
 |---|---|---|
-| EspoCRM 10.0.4 | http://localhost:8705 | admin / *(ver con el equipo)* |
+| EspoCRM 10.0.4 | http://localhost:8705 | admin |
 | Twenty v2.37.4 | http://localhost:8704 | tp@unimoron.test |
 | Bitrix24 Free | https://b24-orshha.bitrix24.es | cuenta del grupo |
 
-Las dos primeras corren en Docker en la máquina de un integrante; no son públicas.
+Las dos primeras corren en Docker en una máquina del grupo; no son públicas.
 
----
-
-## Exportar el informe final
+## Exportar el informe
 
 ```bash
-pandoc informe/*.md -o TP-SIE3340.docx --toc
+pandoc humanos/informe/*.md -o TP-SIE3340.docx --toc
 ```
