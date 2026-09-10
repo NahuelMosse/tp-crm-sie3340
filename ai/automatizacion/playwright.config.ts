@@ -2,20 +2,23 @@ import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
-  outputDir: './evidencia',
-  timeout: 90_000,
+  outputDir: './test-results',   // Playwright LIMPIA esta carpeta en cada corrida
+  timeout: 180_000,
   expect: { timeout: 20_000 },
   fullyParallel: false,
   workers: 1,
   reporter: [['list'], ['html', { outputFolder: 'informe', open: 'never' }]],
   use: {
-    video: 'on',
+    // Video didáctico: resolución del viewport y ritmo humano
+    video: { mode: 'on', size: { width: 1440, height: 900 } },
     screenshot: 'on',
     trace: 'on',
     locale: 'es-AR',
     viewport: { width: 1440, height: 900 },
-    actionTimeout: 20_000,
+    actionTimeout: 25_000,
     ignoreHTTPSErrors: true,
+    // slowMo solo en modo narrado: si no, contamina los tiempos medidos
+    launchOptions: { slowMo: process.env.NARRAR === '1' ? 450 : 0 },
   },
   projects: [
     {
