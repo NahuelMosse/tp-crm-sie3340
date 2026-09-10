@@ -21,8 +21,18 @@ ai/          ← acá trabaja Claude
 | Carpeta | Qué es |
 |---|---|
 | **`informe/`** | **El documento a entregar.** Una sección por archivo, versionado |
-| **`pruebas/`** | Evidencia: capturas y videos de las pruebas sobre las 3 herramientas |
+| **`documentacion/`** | **Las pruebas indexadas en HTML**: abrí `index.html` en el navegador |
 | **`consigna/`** | Los PDF de la cátedra |
+
+### La documentación de pruebas
+
+`humanos/documentacion/index.html` — se abre con doble click y muestra:
+
+- Índice lateral por herramienta y por caso
+- Cada prueba con su **video didáctico** embebido y sus capturas
+- Qué se probó, el hallazgo y el veredicto de cada una
+
+> GitHub no muestra HTML renderizado. Para verla: cloná el repo y abrí el archivo, o descargalo desde la web (botón *Download raw file*).
 
 ### El informe
 
@@ -43,8 +53,17 @@ ai/          ← acá trabaja Claude
 | Carpeta | Qué hay |
 |---|---|
 | `analisis/` | Investigación: comparativas, casos de prueba, fortalezas, precios |
-| `automatizacion/` | Tests de Playwright, docker-compose de las instancias |
+| `automatizacion/` | Tests de Playwright, docker-compose, generador de la documentación |
+| `pruebas/` | Evidencia cruda: capturas `.png` y videos `.webm` |
 | `datos/` | Dataset común para cargar en las 3 herramientas |
+
+Para regenerar todo, desde `ai/automatizacion/`:
+
+```bash
+npx playwright test                    # medición limpia (tiempos válidos)
+$env:NARRAR="1"; npx playwright test   # video didáctico con carteles
+node generar-doc.mjs ../..             # rearma la documentación HTML
+```
 
 Lo consultable si les sirve:
 

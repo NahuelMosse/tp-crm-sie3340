@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pruebas · TP SIE 3340 — Evaluación de CRM</title>
+<style>
+  :root {
+    --bg: #0f1720; --panel: #16212e; --linea: #24344a;
+    --txt: #e8eef6; --tenue: #93a6bd; --ok: #3ecf8e; --no: #ff6b6b; --acc: #ffd166;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--txt);
+         font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  a { color: inherit; }
+
+  .top { padding: 40px 32px 26px; border-bottom: 1px solid var(--linea);
+         background: linear-gradient(180deg, #16212e, #0f1720); }
+  .top h1 { margin: 0 0 6px; font-size: 30px; letter-spacing: -.4px; }
+  .top p { margin: 0; color: var(--tenue); }
+  .cifras { display: flex; gap: 28px; margin-top: 22px; flex-wrap: wrap; }
+  .cifra b { display: block; font-size: 26px; color: var(--acc); }
+  .cifra span { font-size: 13px; color: var(--tenue); text-transform: uppercase; letter-spacing: .6px; }
+
+  .layout { display: grid; grid-template-columns: 290px 1fr; align-items: start; }
+  nav { position: sticky; top: 0; max-height: 100vh; overflow-y: auto;
+        padding: 26px 18px; border-right: 1px solid var(--linea); }
+  .nav-grupo { margin-bottom: 22px; }
+  .nav-h { font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: .8px;
+           color: var(--c); padding-bottom: 8px; border-bottom: 1px solid var(--linea); margin-bottom: 8px; }
+  nav a { display: flex; gap: 9px; padding: 7px 9px; border-radius: 7px; text-decoration: none;
+          font-size: 14px; color: var(--tenue); }
+  nav a:hover { background: var(--panel); color: var(--txt); }
+  .cid { font-family: ui-monospace, monospace; font-size: 11px; color: var(--acc);
+         background: rgba(255,209,102,.1); padding: 1px 6px; border-radius: 4px; height: fit-content; }
+
+  main { padding: 26px 32px 80px; max-width: 1100px; }
+  .herr { margin-bottom: 52px; }
+  .herr h2 { display: flex; align-items: center; gap: 11px; font-size: 24px; margin: 0 0 3px; }
+  .herr h2 small { color: var(--tenue); font-weight: 400; font-size: 15px; }
+  .punto { width: 12px; height: 12px; border-radius: 50%; background: var(--c); }
+  .tipo { margin: 0 0 20px 23px; color: var(--tenue); font-size: 14px; }
+
+  .caso { background: var(--panel); border: 1px solid var(--linea); border-radius: 12px;
+          padding: 22px; margin-bottom: 20px; scroll-margin-top: 16px; }
+  .caso header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+  .badge { font-family: ui-monospace, monospace; font-size: 12px; font-weight: 700;
+           background: var(--c); color: #08111b; padding: 5px 10px; border-radius: 6px; white-space: nowrap; }
+  .caso h3 { margin: 0; font-size: 18px; }
+  .crit { color: var(--tenue); font-size: 13px; margin-top: 2px; }
+  .veredicto { margin-left: auto; font-size: 13px; font-weight: 700; padding: 6px 12px;
+               border-radius: 20px; white-space: nowrap; }
+  .veredicto.ok { background: rgba(62,207,142,.14); color: var(--ok); }
+  .veredicto.no { background: rgba(255,107,107,.14); color: var(--no); }
+  .preg { color: var(--tenue); font-size: 14.5px; margin: 0 0 10px; }
+  .hallazgo { background: rgba(255,209,102,.08); border-left: 3px solid var(--acc);
+              padding: 11px 15px; border-radius: 0 7px 7px 0; font-size: 14.5px; margin: 0 0 16px; }
+
+  .videos { margin-bottom: 16px; }
+  .video video { width: 100%; max-height: 460px; border-radius: 9px; background: #000; display: block; }
+  figure { margin: 0; }
+  figcaption { color: var(--tenue); font-size: 12.5px; margin-top: 6px; text-align: center; }
+
+  .galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+  .galeria img { width: 100%; border-radius: 7px; border: 1px solid var(--linea);
+                 display: block; transition: transform .15s; background: #fff; }
+  .galeria a:hover img { transform: scale(1.02); border-color: var(--c); }
+
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+    nav { position: static; max-height: none; border-right: 0; border-bottom: 1px solid var(--linea); }
+  }
+</style>
+</head>
+<body>
+  <div class="top">
+    <h1>Pruebas sobre los sistemas CRM</h1>
+    <p>TP SIE 3340 · Sistemas de Información de la Empresa · Universidad de Morón</p>
+    <div class="cifras">
+      <div class="cifra"><b>3</b><span>Herramientas</span></div>
+      <div class="cifra"><b>5</b><span>Pruebas</span></div>
+      <div class="cifra"><b>3</b><span>Videos</span></div>
+      <div class="cifra"><b>11</b><span>Capturas</span></div>
+      <div class="cifra"><b>10/9/2026</b><span>Actualizado</span></div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <nav><div class="nav-grupo"><div class="nav-h" style="--c:#00aeef">Bitrix24</div><a href="#bitrix24-limites"><span class="cid">limites</span>Límites reales del plan Free</a><a href="#bitrix24-usuarios"><span class="cid">usuarios</span>Usuarios del portal</a></div><div class="nav-grupo"><div class="nav-h" style="--c:#2d7ff9">EspoCRM</div><a href="#espocrm-C03-01"><span class="cid">C03-01</span>Clicks y tiempo hasta crear un contacto</a><a href="#espocrm-C04-06"><span class="cid">C04-06</span>La interfaz está en español</a><a href="#espocrm-varios"><span class="cid">varios</span>Capturas sueltas</a></div></nav>
+    <main><section class="herr" style="--c:#00aeef">
+    <h2><span class="punto"></span>Bitrix24 <small>Free</small></h2>
+    <p class="tipo">SaaS · plan gratuito</p><article class="caso" id="bitrix24-limites">
+      <header>
+        <div class="badge">limites</div>
+        <div><h3>Límites reales del plan Free</h3><div class="crit">Criterio E5 — Rendimiento con volumen</div></div>
+        <div class="veredicto no">! Se borra a los 50 días</div>
+      </header>
+      <p class="preg"><b>Qué se probó:</b> ¿Qué topes tiene el plan gratuito y dónde aprieta?</p>
+      <p class="hallazgo">El portal se ELIMINA si no se inicia sesión en 50 días. No lo suspende: lo borra con los datos adentro.</p><div class="videos"><figure class="video">
+          <video controls preload="metadata" src="../../ai/pruebas/bitrix24-limites-l%C3%ADmites-reales-del-plan-Free-bitrix24.webm"></video>
+          <figcaption>Video de la prueba</figcaption>
+        </figure></div><div class="galeria"><figure>
+          <a href="../../ai/pruebas/bitrix24-limites.png" target="_blank">
+            <img loading="lazy" src="../../ai/pruebas/bitrix24-limites.png" alt="bitrix24-limites.png">
+          </a>
+          <figcaption>captura</figcaption>
+        </figure></div></article><article class="caso" id="bitrix24-usuarios">
+      <header>
+        <div class="badge">usuarios</div>
+        <div><h3>Usuarios del portal</h3><div class="crit">Criterio 5 — Usuarios</div></div>
+        
+      </header>
+      <p class="preg"><b>Qué se probó:</b> ¿Cuántos usuarios permite el plan?</p>
+      <div class="galeria"><figure>
+          <a href="../../ai/pruebas/bitrix24-usuarios.png" target="_blank">
+            <img loading="lazy" src="../../ai/pruebas/bitrix24-usuarios.png" alt="bitrix24-usuarios.png">
+          </a>
+          <figcaption>captura</figcaption>
+        </figure></div></article></section><section class="herr" style="--c:#2d7ff9">
+    <h2><span class="punto"></span>EspoCRM <small>10.0.4</small></h2>
+    <p class="tipo">Self-hosted · AGPL v3</p><article class="caso" id="espocrm-C03-01">
+      <header>
+        <div class="badge">C03-01</div>
+        <div><h3>Clicks y tiempo hasta crear un contacto</h3><div class="crit">Criterio 3 — Navegabilidad</div></div>
+        <div class="veredicto ok">✓ 4 clicks · 10,0 s</div>
+      </header>
+      <p class="preg"><b>Qué se probó:</b> ¿Cuántos clicks y cuántos segundos hace falta para cargar un contacto desde cero?</p>
+      <p class="hallazgo">Login en 5,6 s. Formulario con nombre y apellido separados.</p><div class="galeria"><figure>
+          <a href="../../ai/pruebas/espocrm-C03-01-narrado-banner.png" target="_blank">
+            <img loading="lazy" src="../../ai/pruebas/espocrm-C03-01-narrado-banner.png" alt="espocrm-C03-01-narrado-banner.png">
+          </a>
+          <figcaption>con carteles</figcaption>
+        </figure><figure>
+          <a href="../../ai/pruebas/espocrm-C03-01-narrado-portada.png" target="_blank">
+            <img loading="lazy" src="../../ai/pruebas/espocrm-C03-01-narrado-portada.png" alt="espocrm-C03-01-narrado-portada.png">
+          </a>
+          <figcaption>con carteles</figcaption>
+        </figure><figure>
+          <a href="../../ai/pruebas/espocrm-C03-01-a-login.png" target="_blank">
+            <img loading="lazy" src="../../ai/pruebas/espocrm-C03-01-a-login.png" alt="espocrm-C03-01-a-login.png">
+          </a>
+          <figcaption>paso A</figcaption>
+        </figure><figure>
+          <a href="../../ai/pruebas/espocrm-C03-01-b-dentro.png" target="_blank">
+            <img loading="lazy" src="../../ai/pruebas/espocrm-C03-01-b-dentro.png" alt="espocrm-C03-01-b-dentro.png">
+          </a>
+          <figcaption>paso B</figcaption>
+        </figure><figure>
+          <a href="../../ai/pruebas/espocrm-C03-01-c-contactos.png" target="_blank">
+            <img loading="lazy" src="../../ai/pruebas/espocrm-C03-01-c-contactos.png" alt="espocrm-C03-01-c-contactos.png">
+          </a>
+          <figcaption>paso C</figcaption>
+        </figure><figure>
+          <a href="../../ai/pruebas/espocrm-C03-01-d-formulario.png" target="_blank">
+            <img loading="lazy" src="../../ai/pruebas/espocrm-C03-01-d-formulario.png" alt="espocrm-C03-01-d-formulario.png">
+          </a>
+          <figcaption>paso D</figcaption>
+        </figure><figure>
+          <a href="../../ai/pruebas/espocrm-C03-01-e-creado.png" target="_blank">
+            <img loading="lazy" src="../../ai/pruebas/espocrm-C03-01-e-creado.png" alt="espocrm-C03-01-e-creado.png">
+          </a>
+          <figcaption>paso E</figcaption>
+        </figure></div></article><article class="caso" id="espocrm-C04-06">
+      <header>
+        <div class="badge">C04-06</div>
+        <div><h3>La interfaz está en español</h3><div class="crit">Criterio 4 — Idioma de la interfaz</div></div>
+        <div class="veredicto ok">✓ Español completo</div>
+      </header>
+      <p class="preg"><b>Qué se probó:</b> ¿Traduce solo los botones o también los nombres del modelo de datos?</p>
+      <p class="hallazgo">Traduce el modelo: Cuentas, Contactos, Posibles clientes, Oportunidades. 36 idiomas de fábrica.</p><div class="galeria"><figure>
+          <a href="../../ai/pruebas/espocrm-C04-06-a-login-es.png" target="_blank">
+            <img loading="lazy" src="../../ai/pruebas/espocrm-C04-06-a-login-es.png" alt="espocrm-C04-06-a-login-es.png">
+          </a>
+          <figcaption>paso A</figcaption>
+        </figure><figure>
+          <a href="../../ai/pruebas/espocrm-C04-06-b-menu-es.png" target="_blank">
+            <img loading="lazy" src="../../ai/pruebas/espocrm-C04-06-b-menu-es.png" alt="espocrm-C04-06-b-menu-es.png">
+          </a>
+          <figcaption>paso B</figcaption>
+        </figure></div></article><article class="caso" id="espocrm-varios">
+      <header>
+        <div class="badge">varios</div>
+        <div><h3>Capturas sueltas</h3><div class="crit">Sin clasificar</div></div>
+        
+      </header>
+      
+      <div class="videos"><figure class="video">
+          <video controls preload="metadata" src="../../ai/pruebas/espocrm-criterio-03-navega-la-interfaz-est%C3%A1-en-espa%C3%B1ol-espocrm.webm"></video>
+          <figcaption>Video de la prueba</figcaption>
+        </figure><figure class="video">
+          <video controls preload="metadata" src="../../ai/pruebas/espocrm-criterio-03-navega-mpo-crear-un-contacto-espocrm.webm"></video>
+          <figcaption>Video de la prueba</figcaption>
+        </figure></div></article></section></main>
+  </div>
+</body>
+</html>
