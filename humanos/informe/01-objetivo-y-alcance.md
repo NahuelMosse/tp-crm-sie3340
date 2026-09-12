@@ -6,7 +6,7 @@ Las tres plataformas se instalaron o se dieron de alta, se configuraron y se ope
 
 ## 1.1 Qué queda fuera del alcance
 
-**La comparación de precios de los planes pagos.** Las tres plataformas ofrecen versiones gratuitas suficientes para el volumen de una aseguradora pequeña, y ese es el escenario evaluado. Los planes pagos se describen en cuanto a qué funcionalidad habilitan, porque eso sí incide en la decisión, pero no se comparan por su monto: el precio depende del proveedor, del volumen contratado y del momento, de modo que cualquier cifra sería válida para un caso puntual y engañosa como criterio general.
+**La negociación de condiciones comerciales.** El análisis económico toma los precios de lista publicados por cada fabricante y los proyecta a tres y cinco años. No contempla descuentos por volumen ni condiciones particulares, que dependen de una negociación concreta y no admiten comparación general.
 
 **La migración desde un sistema preexistente.** Se evalúa la capacidad de importar datos, no el proyecto de migración, que depende del sistema de origen y excede el análisis de producto.
 
@@ -14,7 +14,19 @@ Las tres plataformas se instalaron o se dieron de alta, se configuraron y se ope
 
 **La evaluación de los módulos de emisión y siniestros.** Ninguna de las tres plataformas los incorpora: son sistemas de gestión comercial. El informe evalúa su capacidad de representar la póliza como objeto de negocio, no de reemplazar al sistema de emisión.
 
-## 1.2 Por qué el rubro define el análisis
+## 1.2 Análisis técnico y análisis económico, separados
+
+El informe distingue dos evaluaciones que se mantienen diferenciadas hasta la conclusión.
+
+La **oferta técnica** mide en qué medida cada plataforma cubre las funciones que el negocio necesita. La **oferta económica** mide el costo total de sostenerla, proyectado a tres y cinco años.
+
+Se mantienen separadas porque responden preguntas distintas y porque mezclarlas oculta el análisis: una plataforma puede cubrir mejor las funciones y aun así resultar inconveniente por su costo de crecimiento, y esa tensión es información para decidir, no un empate que haya que resolver promediando.
+
+La integración de ambas se hace al final, mediante un polinomio de valor que asigna un peso explícito a cada una. En la oferta económica, la alternativa de menor costo total recibe el puntaje máximo y las demás se ubican en proporción.
+
+La proyección a tres y cinco años es deliberada: las tres plataformas son gratuitas en su punto de partida, y es el paso del tiempo el que revela la diferencia entre un pago único de licencia, un abono por usuario y un abono por organización.
+
+## 1.3 Por qué el rubro define el análisis
 
 La operación de una aseguradora se organiza alrededor de cuatro objetos: el **asegurado**, la **póliza** que lo vincula a una cobertura, el **siniestro** que la activa y el **productor** que vende y atiende la cartera.
 
@@ -24,7 +36,7 @@ Esto determina el eje del informe. Si la póliza no viene incorporada, la pregun
 
 Tres requerimientos del cliente dependen por completo de esa capacidad: el seguimiento de pólizas, la gestión de la información de ventas y pólizas para prospección, y la administración de la cartera para generar venta cruzada. Una plataforma que no permita modelar la póliza no puede cumplirlos, por completo que sea el resto de su funcionalidad.
 
-## 1.3 Origen de las características evaluadas
+## 1.4 Origen de las características evaluadas
 
 Las características provienen de tres fuentes, y la distinción importa porque no todas tienen el mismo carácter obligatorio.
 
@@ -36,7 +48,7 @@ Las características provienen de tres fuentes, y la distinción importa porque 
 
 A esas tres se suma una cuarta categoría, evaluada por separado y fuera del puntaje principal: las **capacidades diferenciales** que ninguna fuente solicita, detectadas durante las pruebas, que sirven para desempatar entre alternativas equivalentes.
 
-## 1.4 Dos salvedades sobre el conjunto de características
+## 1.5 Dos salvedades sobre el conjunto de características
 
 **El conjunto no es neutral.** Veinte características salieron del pedido del cliente y trece de la consigna; las restantes se buscaron a propósito, enumerando las condiciones que el negocio asegurador impone y las capacidades que aparecieron al operar los sistemas. Ese último grupo se seleccionó con un criterio explícito: solo entró la característica que discrimina entre las tres plataformas. Una capacidad que las tres resuelven de manera equivalente no aporta información para decidir, y quedó documentada sin evaluarse. Bajo esa regla se descartaron, entre otras, la cantidad de idiomas disponibles, el estilo de la interfaz de programación y la existencia de tableros nativos.
 
