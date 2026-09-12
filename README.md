@@ -38,13 +38,19 @@ ai/          ← acá trabaja Claude
 
 | Archivo | Contenido | Responsable |
 |---|---|---|
-| `01-introduccion.md` | Objetivo, alcance, rubro del caso de estudio | |
-| `02-herramientas.md` | Presentación de las 3 herramientas | |
-| `03-criterios.md` | Los 13 criterios evaluados, con evidencia | |
-| `04-foda.md` | Matriz FODA de cada herramienta | |
-| `05-propuesta.md` | Recomendación final y justificación | |
+| `00-portada.md` | Portada e índice | — |
+| `01-objetivo-y-alcance.md` | Objetivo, qué queda fuera, origen de los criterios | ✅ |
+| `02-plataformas.md` | Las tres plataformas evaluadas | ✅ |
+| `03-matriz-de-veredictos.md` | Matriz de 44 características × 3 plataformas | ✅ borrador |
+| `04-analisis-por-categoria.md` | Cada característica con su veredicto y justificación | ⬜ |
+| `05-por-plataforma.md` | Fortalezas y limitaciones de cada una | ⬜ |
+| `06-conclusiones.md` | Ponderación, propuesta y esquema de decisión | ⬜ |
+| `07-metodo-y-trazabilidad.md` | Cómo se verificó cada punto | ✅ |
+| `08-fuentes.md` | Documentación consultada y anexo de evidencia | ⬜ |
 
-*(Completar Responsable en la primera reunión. **Un archivo por persona** evita pisarse.)*
+**Integrantes:** Nestor Arakaki · Nahuel Mosse · Pedro Zornio
+
+*(Repartir las secciones pendientes en la próxima reunión. **Un archivo por persona** evita pisarse.)*
 
 ---
 

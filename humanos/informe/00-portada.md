@@ -6,7 +6,7 @@
 
 | | |
 |---|---|
-| **Elaborado por** | *(integrantes del grupo)* |
+| **Elaborado por** | Nestor Arakaki · Nahuel Mosse · Pedro Zornio |
 | **Institución** | Universidad de Morón |
 | **Asignatura** | Sistemas de Información de la Empresa (3340) |
 | **Fecha** | *(fecha de entrega)* |
