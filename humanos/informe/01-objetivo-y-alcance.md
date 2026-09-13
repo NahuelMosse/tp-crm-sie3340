@@ -12,8 +12,6 @@ Las tres plataformas se instalaron o se dieron de alta, se configuraron y se ope
 
 **El dimensionamiento para una aseguradora grande.** La evidencia sobre volumen se tomó en instalaciones de prueba con decenas de miles de registros. Una compañía con millones de pólizas exige un análisis de infraestructura que este informe no aborda.
 
-**La evaluación de los módulos de emisión y siniestros.** Ninguna de las tres plataformas los incorpora: son sistemas de gestión comercial. El informe evalúa su capacidad de representar la póliza como objeto de negocio, no de reemplazar al sistema de emisión.
-
 ## 1.2 Análisis técnico y análisis económico, separados
 
 El informe distingue dos evaluaciones que se mantienen diferenciadas hasta la conclusión.
@@ -28,9 +26,9 @@ La proyección a tres y cinco años es deliberada: las tres plataformas son grat
 
 ## 1.3 Por qué el rubro define el análisis
 
-La operación de una aseguradora se organiza alrededor de cuatro objetos: el **asegurado**, la **póliza** que lo vincula a una cobertura, el **siniestro** que la activa y el **productor** que vende y atiende la cartera.
+El cliente pide seguir sus pólizas: conocer *"qué tipo de póliza tiene, el estado de pago y si hay una posibilidad de cambio"*, y gestionarlas para generar nuevas oportunidades de venta. La póliza es, por lo tanto, un objeto central del pedido.
 
-De los cuatro, los CRM del mercado modelan solamente dos. El asegurado equivale al contacto y el productor al usuario del sistema, pero **la póliza y el siniestro no existen como módulos nativos en ninguna de las tres plataformas evaluadas**. Son sistemas de gestión comercial genéricos, pensados para vender productos, no para administrar contratos de cobertura con vigencia, prima y estado de cobranza.
+Y **ninguna de las tres plataformas la incorpora como módulo nativo**. Los tres son sistemas de gestión comercial genéricos: modelan el contacto y la oportunidad de venta, que alcanzan para vender un producto, pero no un contrato de cobertura con vigencia, prima y estado de cobranza.
 
 Esto determina el eje del informe. Si la póliza no viene incorporada, la pregunta deja de ser cuál de las tres tiene mejores funciones de venta y pasa a ser **cuál permite construir el modelo del negocio asegurador sobre su propia estructura**. La capacidad de parametrización —que en un análisis genérico sería un criterio técnico de segundo orden— se convierte acá en la condición que habilita el núcleo del negocio.
 
