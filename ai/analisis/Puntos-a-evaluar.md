@@ -74,10 +74,10 @@ Cómo tiene que **comportarse**. Los 13 de la consigna van completos, **adaptado
 | NF-03 | Menú y navegabilidad `[CONS 3]` | Pasos para la operación diaria del corredor: cargar asegurado y póliza |
 | NF-04 | Interfaz y aprendizaje `[CONS 4]` | Cuánto tarda un corredor nuevo en operar sin capacitación |
 | NF-05 | Usuarios concurrentes `[CONS 5]` | Varios corredores sobre la misma cartera al mismo tiempo |
-| NF-06 | **Parametrización** `[CONS 6]` | **Modelar pólizas, siniestros y coberturas sin programar.** Es el criterio que habilita RF-02, RF-03 y RF-17 |
+| NF-06 | **Parametrización** `[CONS 6]` | **Modelar la póliza y sus coberturas sin programar.** Es el criterio que habilita RF-02, RF-03 y RF-17 |
 | NF-07 | Importación y exportación `[CONS 7]` | Migrar la cartera existente sin perder datos |
 | NF-08 | Seguridad, roles y auditoría `[CONS 8]` | Que un corredor vea solo su cartera, y que quede registro de quién tocó qué |
-| NF-09 | Explotación de datos `[CONS 9]` | Indicadores de producción, siniestralidad y cobranza |
+| NF-09 | Explotación de datos `[CONS 9]` | Indicadores de producción por agente, cartera y cobranza |
 | NF-10 | Reportes `[CONS 10]` | Informes de producción por agente y de vencimientos |
 | NF-11 | Interfaz con otras aplicaciones `[CONS 11]` | Conectar con el sistema de emisión de pólizas o de facturación |
 | NF-12 | Posibilidades de integración `[CONS 12]` | Ecosistema disponible para crecer |
@@ -100,7 +100,7 @@ Solo los que discriminan de verdad entre las tres.
 | NF-20 | **Persistencia de los datos sin uso continuo** | Una cartera de pólizas no se puede perder por falta de actividad; la póliza vive años aunque nadie la toque por meses |
 | NF-21 | **Búsqueda y operación con volumen productivo** | Una aseguradora chica maneja decenas de miles de pólizas; el sistema tiene que seguir encontrando un asegurado con esa masa de datos |
 | NF-22 | **Control sobre dónde residen los datos** | Los seguros de salud implican datos sensibles bajo la Ley 25.326 |
-| NF-24 | **Continuidad y respaldo propio** | Si el CRM no está disponible no se emiten pólizas ni se atienden siniestros |
+| NF-24 | **Continuidad y respaldo propio** | Si el CRM no está disponible, la cartera de pólizas y los reclamos en curso quedan inaccesibles |
 | NF-26 | **Autonomía frente al proveedor** | Poder migrar o seguir operando sin depender de decisiones de un tercero |
 
 > **El eje del análisis.** Ninguno de los tres tiene módulo de pólizas: son CRM genéricos. **RF-02, RF-03 y RF-17 se resuelven a través de NF-06 (parametrización).** Sin capacidad de modelar entidades propias, esos tres requerimientos del cliente son inalcanzables. Ese puente es la conclusión central del informe.
@@ -113,7 +113,7 @@ No las pidió el cliente. Suman aparte. **Solo las que inclinan la decisión** �
 
 | ID | Capacidad | Por qué importa en una aseguradora |
 |---|---|---|
-| **NR-01** | **Asistente de IA incluido sin costo** | Resumir el historial de un siniestro o redactar la respuesta a un reclamo |
+| **NR-01** | **Asistente de IA incluido sin costo** | Resumir el historial de un asegurado o redactar la respuesta a un reclamo |
 | **NR-02** | **Suite de trabajo integrada** (chat, drive, calendario, videollamada, firma electrónica) | Un corredor opera todo el día en una sola herramienta; la firma electrónica sirve para la póliza |
 | **NR-03** | **Aplicación móvil nativa** | El productor visita al cliente y carga la operación en el momento |
 | **NR-04** | **Localización completa al español, incluido el modelo de datos** | El corredor no tiene por qué leer "Opportunities" o "Policy"; afecta la adopción real |
