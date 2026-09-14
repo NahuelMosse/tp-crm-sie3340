@@ -152,7 +152,7 @@ Las pruebas se automatizaron con Playwright, una herramienta de automatización 
 
 **El mismo procedimiento se ejecuta sobre las tres plataformas.** Cargar un asegurado en una y en otra no es una comparación entre dos personas operando a distinta velocidad, sino el mismo recorrido medido de igual manera.
 
-**La evidencia se genera sola.** Cada prueba produce video, capturas y una traza navegable sin trabajo adicional. El registro completo está en el anexo de evidencia, indexado por característica.
+**La evidencia queda registrada.** Cada ejecución produce un video del recorrido y capturas de cada paso. Ese registro respalda los valores asignados y permite reconstruir cómo se llegó a cada uno. Los hallazgos que surgieron de esas ejecuciones están volcados en las secciones 5 a 8 de este informe.
 
 **Las mediciones se toman sin intervención.** Para la cantidad de pasos y los tiempos de operación se ejecutan dos corridas: una limpia, que produce los números, y otra con carteles explicativos para el video. Los tiempos de la segunda no se usan como dato: la misma prueba dio diez segundos en la corrida limpia y treinta y ocho en la narrada.
 

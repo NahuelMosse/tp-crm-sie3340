@@ -1,6 +1,31 @@
 # 2. Las tres plataformas evaluadas
 
-Las tres surgen de un relevamiento previo de doce sistemas del mercado. El criterio de selección exigió que fueran utilizables sin costo durante todo el período de evaluación, que contaran con interfaz en español y que pudieran obtenerse por autogestión, sin intermediación comercial.
+## 2.1 Cómo se llegó a estas tres
+
+Se relevaron doce sistemas del mercado y se aplicaron tres condiciones de admisión:
+
+| Condición | Fundamento |
+|---|---|
+| Utilizable sin costo durante todo el período de evaluación | Permite operar el sistema en profundidad, no limitarse a una demostración |
+| Interfaz en español | Los usuarios finales son productores y personal administrativo |
+| Obtenible por autogestión, sin intermediación comercial | Evita que la evaluación dependa de la disponibilidad de un vendedor |
+
+Nueve quedaron excluidos:
+
+| Sistema | Motivo de la exclusión |
+|---|---|
+| Pipedrive, monday CRM | Sin versión gratuita permanente: solo período de prueba |
+| Freshsales | El registro exige correo corporativo y su versión gratuita carece de informes y de campos propios |
+| EngageBay | Interfaz sin traducción al español |
+| Odoo | Su versión gratuita habilita una sola aplicación; incorporar el CRM junto a otra función obliga a licencia |
+| SuiteCRM | El español requiere instalar un paquete de idioma por separado, con traducción incompleta |
+| Vtiger | Versión gratuita acotada en volumen, orientada a evaluación y no a operación |
+| Salesforce | Su edición gratuita es para desarrollo y prohíbe el uso productivo |
+| HubSpot | Versión gratuita limitada a dos usuarios, insuficiente para una cartera con varios productores |
+
+Las tres restantes son las que se analizan en este informe.
+
+## 2.2 Las plataformas
 
 ## 2.1 EspoCRM 10.0.4 Community — instalación propia
 
