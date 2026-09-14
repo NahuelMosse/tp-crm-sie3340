@@ -23,23 +23,27 @@ Documento de uso interno. Análisis independiente de productos y proveedores.
 
 **2. Las tres plataformas evaluadas**
 
-**3. Criterios de análisis**
-  3.1 De dónde provienen
-  3.2 Por qué se dividen en dos partes
-  3.3 Del requerimiento al criterio verificable
-  3.4 Cómo se evalúa cada criterio
-  3.5 Parte A — Criterios solicitados
-  3.6 Parte B — Criterios no solicitados
-  3.7 Criterios descartados
+**3. Metodología de evaluación y trazabilidad**
+  3.1 Qué mide la escala
+  3.2 Cómo se determina el nivel
+  3.3 Evidencia exigida por nivel
+  3.4 Cuando una función exige licencia
+  3.5 Características sin verificar
+  3.6 Ponderación
+  3.7 Cálculo del resultado
 
-**4. Matriz de veredictos**
+**4. Criterios de análisis**
+  4.4 Cómo se evalúa cada criterio
+  4.5 Parte A — Criterios solicitados
+  4.6 Parte B — Criterios no solicitados
+  4.7 Criterios descartados
 
-**5. Análisis por categoría**
+**5. Matriz de veredictos**
 
-**6. Fortalezas y limitaciones por plataforma**
+**6. Análisis por categoría**
 
-**7. Conclusiones y propuesta**
+**7. Fortalezas y limitaciones por plataforma**
 
-**8. Metodología de evaluación y trazabilidad**
+**8. Conclusiones y propuesta**
 
 **9. Fuentes**
