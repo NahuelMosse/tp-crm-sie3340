@@ -24,15 +24,13 @@ La integración de ambas se hace al final, mediante un polinomio de valor que as
 
 La proyección a tres y cinco años es deliberada: las tres plataformas son gratuitas en su punto de partida, y es el paso del tiempo el que revela la diferencia entre un pago único de licencia, un abono por usuario y un abono por organización.
 
-## 1.3 Por qué el rubro define el análisis
+## 1.3 El negocio asegurador
 
-El cliente pide seguir sus pólizas: conocer *"qué tipo de póliza tiene, el estado de pago y si hay una posibilidad de cambio"*, y gestionarlas para generar nuevas oportunidades de venta. La póliza es, por lo tanto, un objeto central del pedido.
+El sector atraviesa una situación competitiva particular. Los bancos ingresaron al negocio y proliferaron las plataformas de comparación en línea, lo que trasladó la prioridad de las aseguradoras hacia la captación y la retención. En ese contexto la calidad del vínculo con el asegurado pasa a ser el factor competitivo central, y de ahí que el cliente haya definido sus requerimientos alrededor de conocer, atender y retener.
 
-Y **ninguna de las tres plataformas la incorpora como módulo nativo**. Los tres son sistemas de gestión comercial genéricos: modelan el contacto y la oportunidad de venta, que alcanzan para vender un producto, pero no un contrato de cobertura con vigencia, prima y estado de cobranza.
+La operación diaria involucra tres actores y un objeto de negocio. El **asegurado** contrata una cobertura; el **productor o corredor** la vende y atiende la cartera; la **compañía** administra el conjunto. El objeto que los vincula es la **póliza**: el contrato con su tipo de cobertura, su vigencia, su prima y su estado de cobranza.
 
-Esto determina el eje del informe. Si la póliza no viene incorporada, la pregunta deja de ser cuál de las tres tiene mejores funciones de venta y pasa a ser **cuál permite construir el modelo del negocio asegurador sobre su propia estructura**. La capacidad de parametrización —que en un análisis genérico sería un criterio técnico de segundo orden— se convierte acá en la condición que habilita el núcleo del negocio.
-
-Tres requerimientos del cliente dependen por completo de esa capacidad: el seguimiento de pólizas, la gestión de la información de ventas y pólizas para prospección, y la administración de la cartera para generar venta cruzada. Una plataforma que no permita modelar la póliza no puede cumplirlos, por completo que sea el resto de su funcionalidad.
+Esa estructura explica varios de los requerimientos del pedido. El seguimiento de pólizas, la evaluación de la producción por corredor y la gestión de reclamos no son funciones genéricas de venta: responden a la forma en que opera una aseguradora. Su evaluación se desarrolla en la sección 4, con el resto de las características.
 
 ## 1.4 Origen de las características evaluadas
 
