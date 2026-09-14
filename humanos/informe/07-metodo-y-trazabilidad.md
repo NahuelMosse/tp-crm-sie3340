@@ -18,8 +18,8 @@ La distinción importa porque durante las pruebas aparecieron diferencias entre 
 
 | Referencia | Significado |
 |---|---|
-| `[REQ]` | Frase textual del documento de requerimientos del cliente |
-| `[CONS n]` | Criterio n de la consigna de la cátedra |
+| `[REQ]` | Frase textual del pedido del cliente |
+| `[CRIT n]` | Criterio n del marco técnico de evaluación |
 | `[UI:sistema ruta]` | Comprobado en la instalación, en la pantalla indicada |
 | `[API:método]` | Ejecutado contra la interfaz de programación, con su respuesta |
 | `[TEST:id]` | Demostrado mediante prueba automatizada, con video |
@@ -42,7 +42,7 @@ Las pruebas se automatizaron con Playwright, una herramienta de automatización 
 
 **Las instalaciones corrieron en una máquina compartida.** Los tiempos absolutos de instalación y de arranque están afectados por la carga de esa máquina y deben leerse como comparación relativa entre las tres, no como valores de referencia.
 
-**El conjunto de características no es neutral.** Treinta y tres provienen del pedido del cliente y de la consigna; el resto se buscó a propósito, enumerando las condiciones del negocio asegurador y las capacidades que aparecieron al operar los sistemas. Ese último grupo se filtró con un criterio explícito —solo entra la característica que discrimina entre las tres— y ese filtro inclina el recuento hacia las diferencias, no hacia las coincidencias.
+**El conjunto de características no es neutral.** Treinta y tres provienen del pedido del cliente y del marco técnico de evaluación; el resto se buscó a propósito, enumerando las condiciones del negocio asegurador y las capacidades que aparecieron al operar los sistemas. Ese último grupo se filtró con un criterio explícito —solo entra la característica que discrimina entre las tres— y ese filtro inclina el recuento hacia las diferencias, no hacia las coincidencias.
 
 **Una de las tres plataformas es un servicio en la nube y no admite inspección interna.** De EspoCRM y Twenty se pudo revisar el código, la base de datos y los archivos de configuración. De Bitrix24 solo lo que expone su interfaz y su documentación. Esa asimetría no se puede resolver y afecta al bloque de características técnicas: varias que en las otras dos se comprobaron directamente, en Bitrix24 quedaron como declaradas.
 

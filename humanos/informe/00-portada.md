@@ -8,11 +8,10 @@
 |---|---|
 | **Elaborado por** | Nestor Arakaki · Nahuel Mosse · Pedro Zornio |
 | **Institución** | Universidad de Morón |
-| **Asignatura** | Sistemas de Información de la Empresa (3340) |
 | **Fecha** | *(fecha de entrega)* |
 | **Versión** | 0.1 — borrador |
 
-Documento de uso académico. Análisis independiente de productos y proveedores.
+Documento de uso interno. Análisis independiente de productos y proveedores.
 
 ---
 

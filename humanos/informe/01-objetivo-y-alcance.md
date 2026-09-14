@@ -36,9 +36,9 @@ Esa estructura explica varios de los requerimientos del pedido. El seguimiento d
 
 Las características provienen de tres fuentes, y la distinción importa porque no todas tienen el mismo carácter obligatorio.
 
-**Los veinte requerimientos del cliente**, tomados del documento de requerimientos de la cátedra. Describen qué debe hacer el sistema y entran todos, sin excepción, porque constituyen el pedido a satisfacer.
+**Los veinte requerimientos funcionales del pedido**, relevados con el cliente. Describen qué debe hacer el sistema y entran todos, sin excepción, porque constituyen la necesidad a satisfacer.
 
-**Los trece criterios mínimos de la consigna**, que describen cómo debe comportarse una herramienta con independencia de su función. Se incorporan completos, pero leídos en clave del rubro: no se evalúa la facilidad de uso en abstracto sino la facilidad con que un productor carga una póliza.
+**Los trece criterios técnicos de evaluación de software**, que describen cómo debe comportarse una herramienta con independencia de su función: restricciones tecnológicas, instalación, navegabilidad, usabilidad, concurrencia, parametrización, intercambio de datos, seguridad, explotación de la información, reportes, interfaces, integración y soporte. Se incorporan completos, pero leídos en clave del rubro: no se evalúa la facilidad de uso en abstracto sino la facilidad con que un productor carga una póliza.
 
 **Las condiciones que impone el negocio asegurador**, que ninguna de las dos fuentes anteriores menciona. Una póliza de vida permanece vigente durante décadas y los seguros de salud involucran datos sensibles alcanzados por la Ley 25.326: de ahí salen exigencias de persistencia, de volumen y de control sobre la localización de los datos que una empresa de otro rubro no tendría.
 
@@ -46,6 +46,6 @@ A esas tres se suma una cuarta categoría, evaluada por separado y fuera del pun
 
 ## 1.5 Dos salvedades sobre el conjunto de características
 
-**El conjunto no es neutral.** Veinte características salieron del pedido del cliente y trece de la consigna; las restantes se buscaron a propósito, enumerando las condiciones que el negocio asegurador impone y las capacidades que aparecieron al operar los sistemas. Ese último grupo se seleccionó con un criterio explícito: solo entró la característica que discrimina entre las tres plataformas. Una capacidad que las tres resuelven de manera equivalente no aporta información para decidir, y quedó documentada sin evaluarse. Bajo esa regla se descartaron, entre otras, la cantidad de idiomas disponibles, el estilo de la interfaz de programación y la existencia de tableros nativos.
+**El conjunto no es neutral.** Veinte características salieron del pedido del cliente y trece del marco técnico de evaluación; las restantes se buscaron a propósito, enumerando las condiciones que el negocio asegurador impone y las capacidades que aparecieron al operar los sistemas. Ese último grupo se seleccionó con un criterio explícito: solo entró la característica que discrimina entre las tres plataformas. Una capacidad que las tres resuelven de manera equivalente no aporta información para decidir, y quedó documentada sin evaluarse. Bajo esa regla se descartaron, entre otras, la cantidad de idiomas disponibles, el estilo de la interfaz de programación y la existencia de tableros nativos.
 
 **El escenario evaluado es el de las versiones gratuitas.** Las tres plataformas ofrecen planes pagos que habilitan funcionalidad adicional, y varias características que aparecen como desventaja en la matriz se resuelven pagando. El informe lo señala en cada caso, porque la decisión de una aseguradora pequeña con presupuesto acotado no es la misma que la de una que puede afrontar una licencia. Donde una funcionalidad existe pero exige un plan pago, el veredicto refleja el escenario evaluado y el texto aclara qué plan la habilita.
