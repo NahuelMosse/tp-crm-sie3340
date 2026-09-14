@@ -1,0 +1,7 @@
+{
+  "criterio": "A.1.1",
+  "plataforma": "bitrix24",
+  "verificado": false,
+  "motivo": "La sección Automatización Inteligente de Procesos ofrece la creación de entidades y su diálogo abre con tres opciones de tipo, pero no se logró completar la creación de forma automatizada. Pendiente de comprobación manual para determinar si el plan gratuito permite finalizarla.",
+  "momento": "2026-09-14T02:53:23.308Z"
+}
