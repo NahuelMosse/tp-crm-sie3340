@@ -13,7 +13,7 @@ Cada criterio indica el valor asignado a cada plataforma, la vía por la que se 
 
 **Twenty** · **4** (configurable) — Configuración → Modelo de datos ofrece la acción "Añadir objeto", que crea la entidad desde la interfaz sin escribir código. El objeto Póliza se creó y figura en el listado de objetos del espacio de trabajo. No alcanza el nivel máximo porque requiere configuración previa. *Objeto creado en 29 segundos desde el ingreso.*
 
-**Bitrix24** — sin verificar. La sección Automatización Inteligente de Procesos ofrece la creación de entidades y su diálogo abre con tres opciones de tipo, pero no se logró completar la creación de forma automatizada. Pendiente de comprobación manual para determinar si el plan gratuito permite finalizarla.
+**Bitrix24** — *sin verificar.* La sección Automatización Inteligente de Procesos ofrece la creación de entidades y su diálogo abre con tres opciones de tipo, pero no se logró completar la creación de forma automatizada. Pendiente de comprobación manual para determinar si el plan gratuito permite finalizarla.
 
 
 ### A.1.2 Tipos de dato adecuados para prima, vigencia y cobranza

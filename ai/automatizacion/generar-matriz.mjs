@@ -107,11 +107,16 @@ if (existsSync(RESULTADOS)) {
   }
 }
 
+const SIN_PUNTAJE = { 'sin-verificar': '◍', 'no-aplica': '—', 'condicionado': '◇' };
+
 const simbolo = (d) => {
-  if (!d || d.verificado === false) return '◍';
+  if (!d) return '◍';
+  if (d.puntua === false) return SIN_PUNTAJE[d.estado] ?? '◍';
   if (d.nivel === 1) return '○';
   return d.licencia ? '◐' : '●';
 };
+
+const puntua = (d) => d && d.puntua !== false;
 
 // ── matriz ───────────────────────────────────────────────────────────────────
 let matriz = '';
@@ -138,8 +143,13 @@ for (const [gid, gnombre, items] of CRITERIOS) {
       acum[parte][nom].push({ d, crit });
       if (!d) continue;
       algo = true;
-      if (d.verificado === false) {
-        analisis += `**${nom}** — sin verificar. ${d.motivo}\n\n`;
+      if (d.puntua === false) {
+        const ETIQUETA = {
+          'sin-verificar': 'sin verificar',
+          'no-aplica': 'no aplica a esta plataforma',
+          'condicionado': 'depende de la implementación',
+        };
+        analisis += `**${nom}** — *${ETIQUETA[d.estado] ?? 'sin verificar'}.* ${d.motivo}\n\n`;
       } else {
         const lic = d.licencia ? ` Requiere licencia${d.detalleLicencia ? `: ${d.detalleLicencia}` : ''}.` : '';
         const med = d.medicion ? ` *${d.medicion}.*` : '';
@@ -155,12 +165,14 @@ function resumen(parte) {
   let t = `\n| | ${PLATAFORMAS.map(p => p[1]).join(' | ')} |\n|---|${PLATAFORMAS.map(() => ':---:').join('|')}|\n`;
   const fila = (etiqueta, fn) =>
     `| ${etiqueta} | ${PLATAFORMAS.map(([, nom]) => acum[parte][nom].filter(fn).length).join(' | ')} |\n`;
-  t += fila('Cubiertas de fábrica ●', x => x.d && x.d.verificado !== false && x.d.nivel > 1 && !x.d.licencia);
-  t += fila('Cubiertas con licencia ◐', x => x.d && x.d.verificado !== false && x.d.nivel > 1 && x.d.licencia);
-  t += fila('No disponibles ○', x => x.d && x.d.verificado !== false && x.d.nivel === 1);
-  t += fila('Sin verificar ◍', x => !x.d || x.d.verificado === false);
+  t += fila('Cubiertas de fábrica ●', x => puntua(x.d) && x.d.nivel > 1 && !x.d.licencia);
+  t += fila('Cubiertas con licencia ◐', x => puntua(x.d) && x.d.nivel > 1 && x.d.licencia);
+  t += fila('No disponibles ○', x => puntua(x.d) && x.d.nivel === 1);
+  t += fila('Sin verificar ◍', x => !x.d || x.d.estado === 'sin-verificar');
+  t += fila('No aplica —', x => x.d?.estado === 'no-aplica');
+  t += fila('Condicionado ◇', x => x.d?.estado === 'condicionado');
   t += `| **% de cumplimiento** | ${PLATAFORMAS.map(([, nom]) => {
-    const v = acum[parte][nom].filter(x => x.d && x.d.verificado !== false);
+    const v = acum[parte][nom].filter(x => puntua(x.d));
     if (!v.length) return '—';
     const obt = v.reduce((s, x) => s + x.d.nivel * PESO[x.crit], 0);
     const max = v.reduce((s, x) => s + 5 * PESO[x.crit], 0);
@@ -174,7 +186,10 @@ const cab = `# 5. Matriz de veredictos
 
 *Generada automáticamente a partir de los resultados registrados por las pruebas. No se transcribe ningún valor a mano.*
 
-**● cubierta  ◐ cubierta mediante licencia adicional  ○ no disponible en ninguna edición  ◍ sin verificar**
+**● cubierta  ◐ cubierta mediante licencia adicional  ○ no disponible en ninguna edición**
+**◍ sin verificar  — no aplica a esta plataforma  ◇ depende de la implementación**
+
+Los tres últimos no reciben puntaje y quedan fuera del cálculo, tanto del obtenido como del máximo posible. Se distinguen entre sí porque significan cosas distintas: uno es una comprobación pendiente, otro una pregunta que no corresponde, y el tercero un resultado que depende de una decisión de la organización.
 
 La distinción entre ● y ◐ no altera el veredicto técnico: ambas indican que el producto resuelve la necesidad. El símbolo ◐ marca las que requieren una licencia, y esas filas alimentan la oferta económica. El símbolo ○ se reserva para lo que no existe en ninguna edición.
 
