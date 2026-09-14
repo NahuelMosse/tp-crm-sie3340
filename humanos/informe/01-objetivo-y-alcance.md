@@ -22,6 +22,8 @@ Se mantienen separadas porque responden preguntas distintas y porque mezclarlas 
 
 La integración de ambas se hace al final, mediante un polinomio de valor que asigna un peso explícito a cada una. En la oferta económica, la alternativa de menor costo total recibe el puntaje máximo y las demás se ubican en proporción.
 
+De esa separación se desprende la regla que gobierna toda la evaluación técnica: **una función que el producto puede realizar está cubierta, con independencia del plan que la habilite**. Si exige una licencia adicional, eso encarece la solución y se refleja en el costo proyectado, no en el puntaje funcional.
+
 La proyección a tres y cinco años es deliberada: las tres plataformas son gratuitas en su punto de partida, y es el paso del tiempo el que revela la diferencia entre un pago único de licencia, un abono por usuario y un abono por organización.
 
 ## 1.3 El negocio asegurador
@@ -48,4 +50,8 @@ A esas tres se suma una cuarta categoría, evaluada por separado y fuera del pun
 
 **El conjunto no es neutral.** Veinte características salieron del pedido del cliente y trece del marco técnico de evaluación; las restantes se buscaron a propósito, enumerando las condiciones que el negocio asegurador impone y las capacidades que aparecieron al operar los sistemas. Ese último grupo se seleccionó con un criterio explícito: solo entró la característica que discrimina entre las tres plataformas. Una capacidad que las tres resuelven de manera equivalente no aporta información para decidir, y quedó documentada sin evaluarse. Bajo esa regla se descartaron, entre otras, la cantidad de idiomas disponibles, el estilo de la interfaz de programación y la existencia de tableros nativos.
 
-**El escenario evaluado es el de las versiones gratuitas.** Las tres plataformas ofrecen planes pagos que habilitan funcionalidad adicional, y varias características que aparecen como desventaja en la matriz se resuelven pagando. El informe lo señala en cada caso, porque la decisión de una aseguradora pequeña con presupuesto acotado no es la misma que la de una que puede afrontar una licencia. Donde una funcionalidad existe pero exige un plan pago, el veredicto refleja el escenario evaluado y el texto aclara qué plan la habilita.
+**La evaluación técnica mide la capacidad del producto, no la del plan contratado.** Si una plataforma dispone de una función —aunque requiera una licencia, un módulo adicional o un plan superior— la característica se considera cubierta. Lo que ese requisito cuesta se traslada íntegramente a la oferta económica, donde corresponde.
+
+El criterio evita un error de análisis frecuente: penalizar dos veces lo mismo. Una plataforma que resuelve una necesidad mediante un módulo pago no es funcionalmente inferior a otra que la trae incluida; es más cara. Esa diferencia es económica y se mide como tal.
+
+Solo se consigna como no cubierta la característica que **no existe en ninguna edición del producto**. Esa es una limitación real y ningún presupuesto la resuelve.
