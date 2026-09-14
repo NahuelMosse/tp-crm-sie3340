@@ -1,4 +1,4 @@
-# 4. Analisis por categoria
+# 5. Analisis por categoria
 
 > Pendiente. Desarrolla cada caracteristica de la matriz con el veredicto de cada plataforma y su justificacion, siguiendo el formato:
 >
