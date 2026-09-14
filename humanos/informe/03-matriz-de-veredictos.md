@@ -10,6 +10,8 @@ La separación responde a un riesgo concreto de este análisis: una plataforma q
 
 **● cubierta  ◐ cubierta mediante licencia adicional  ○ no disponible en ninguna edición  ◍ sin verificar**
 
+Los símbolos resumen el estado de cada característica. El **puntaje de 1 a 5** que recibe cada una —según el esfuerzo que exige obtenerla— se detalla en la sección 4, y la escala que lo determina está definida en la sección 7.
+
 La distinción entre ● y ◐ no altera el veredicto técnico: ambas indican que el producto resuelve la necesidad. El símbolo ◐ marca las que requieren una licencia, y esas filas alimentan la oferta económica. El símbolo ○ se reserva para lo que no existe en ninguna edición, que es la única carencia que ningún presupuesto resuelve.
 
 ---

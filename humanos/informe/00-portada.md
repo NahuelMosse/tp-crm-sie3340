@@ -40,6 +40,6 @@ Documento de uso interno. Análisis independiente de productos y proveedores.
 
 **6. Conclusiones y propuesta**
 
-**7. Método de verificación y trazabilidad**
+**7. Metodología de evaluación y trazabilidad**
 
 **8. Fuentes**
