@@ -24,7 +24,7 @@ export default defineConfig({
   projects: [
     {
       name: 'espocrm',
-      testMatch: [/espocrm[\\/].*\.spec\.ts/, /descubrir\.spec\.ts/],
+      testMatch: [/espocrm[\\/].*\.spec\.ts/, /criterios[\\/].*\.spec\.ts/, /descubrir\.spec\.ts/],
       use: { baseURL: 'http://localhost:8705' },
     },
     // Genera auth-twenty.json una vez: Twenty encadena pantallas de onboarding
@@ -35,7 +35,7 @@ export default defineConfig({
     },
     {
       name: 'twenty',
-      testMatch: [/twenty[\\/](?!guardar-sesion).*\.spec\.ts/, /descubrir\.spec\.ts/],
+      testMatch: [/twenty[\\/](?!guardar-sesion).*\.spec\.ts/, /criterios[\\/].*\.spec\.ts/, /descubrir\.spec\.ts/],
       use: {
         baseURL: 'http://localhost:8704',
         storageState: existsSync('auth-twenty.json') ? 'auth-twenty.json' : undefined,
@@ -50,7 +50,7 @@ export default defineConfig({
     // Tests normales: reusan la sesión guardada, nunca ven el captcha
     {
       name: 'bitrix24',
-      testMatch: /bitrix24[\\/](?!login-manual).*\.spec\.ts/,
+      testMatch: [/bitrix24[\\/](?!login-manual).*\.spec\.ts/, /criterios[\\/].*\.spec\.ts/],
       use: {
         baseURL: 'https://b24-orshha.bitrix24.es',
         storageState: 'auth-bitrix.json',
