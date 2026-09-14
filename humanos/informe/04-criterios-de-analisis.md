@@ -1,8 +1,8 @@
-# 3. Criterios de análisis
+# 4. Criterios de análisis
 
-Esta sección define **qué se evalúa y cómo**. Cada criterio se enuncia como una capacidad y se acompaña del procedimiento concreto que determina su cumplimiento. La escala que convierte ese resultado en un valor de 1 a 5 está en la sección 8; los resultados obtenidos, en las secciones 4 y 5.
+Esta sección define **qué se evalúa**. Cada criterio se enuncia como una capacidad y se acompaña del procedimiento concreto que se ejecuta para comprobarla. El resultado de ese procedimiento se convierte en un valor de 1 a 5 mediante la escala definida en la sección anterior; los resultados obtenidos se presentan en las secciones 5 y 6.
 
-## 3.1 De dónde provienen
+## 4.1 De dónde provienen
 
 Los criterios tienen tres orígenes, y la distinción determina su peso en el resultado.
 
@@ -14,7 +14,7 @@ Los criterios tienen tres orígenes, y la distinción determina su peso en el re
 
 A esas tres se suma lo que apareció al operar los sistemas: **capacidades que las plataformas ofrecen por encima de lo pedido**.
 
-## 3.2 Por qué se dividen en dos partes
+## 4.2 Por qué se dividen en dos partes
 
 | Parte | Contiene | Peso |
 |---|---|:---:|
@@ -23,7 +23,7 @@ A esas tres se suma lo que apareció al operar los sistemas: **capacidades que l
 
 La separación responde a un riesgo concreto. Una plataforma puede ofrecer inteligencia artificial, aplicación móvil y telefonía integrada —ninguna solicitada— y compensar con eso el incumplimiento de algo que la compañía sí necesita. Con los conjuntos separados y ponderados, ese intercambio no es posible.
 
-## 3.3 Del requerimiento al criterio verificable
+## 4.3 Del requerimiento al criterio verificable
 
 Los requerimientos del cliente están escritos en lenguaje de negocio y no son verificables tal como se enuncian. *"Mejora de la calidad del servicio y la atención al cliente"* no admite comprobación.
 
@@ -31,7 +31,7 @@ El trabajo previo consistió en traducirlos a capacidades comprobables, aplicand
 
 > **Ejemplo.** El requerimiento *"seguimiento de pólizas: qué tipo tiene, el estado de pago y si hay posibilidad de cambio"* se descompone en el modelado de la póliza como objeto, los tipos de dato que admite, su vinculación con el asegurado y la operación sobre el conjunto. Cada uno se comprueba por separado.
 
-## 3.4 Cómo se evalúa cada criterio
+## 4.4 Cómo se evalúa cada criterio
 
 Cada criterio lleva un **procedimiento de verificación**: la acción concreta que se ejecuta sobre cada plataforma. El procedimiento es idéntico en las tres, lo que hace comparables los resultados.
 
@@ -40,13 +40,13 @@ De la ejecución surgen dos datos:
 1. **Si la capacidad existe**, y por qué vía se obtuvo: disponible al instalar, configurando desde la administración, programando, o solo por fuera del sistema.
 2. **Si requiere licencia**, dato que no afecta el valor técnico y se traslada a la oferta económica.
 
-El primero determina el valor de 1 a 5 según el árbol de decisión de la sección 8. El procedimiento describe **qué hacer**; el árbol, **cómo puntuar lo observado**.
+El primero determina el valor de 1 a 5 según el árbol de decisión de la sección 3. El procedimiento describe **qué hacer**; el árbol, **cómo puntuar lo observado**.
 
 Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, de modo que la misma secuencia de acciones corriera sobre las tres plataformas sin variaciones de operador.
 
 ---
 
-## 3.5 Parte A — Criterios solicitados
+## 4.5 Parte A — Criterios solicitados
 
 ### A.1 Gestión de la cartera de pólizas
 
@@ -117,7 +117,7 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 
 ---
 
-## 3.6 Parte B — Criterios no solicitados
+## 4.6 Parte B — Criterios no solicitados
 
 ### B.1 Condiciones que impone el negocio asegurador
 
@@ -145,7 +145,7 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 
 ---
 
-## 3.7 Criterios descartados
+## 4.7 Criterios descartados
 
 Se evaluó su incorporación y se resolvió excluirlos. El motivo común: **no discriminan**. Una capacidad que las tres plataformas resuelven de manera equivalente no aporta información para decidir.
 
@@ -157,7 +157,7 @@ Se evaluó su incorporación y se resolvió excluirlos. El motivo común: **no d
 | Navegación por teclado | Diferencia real entre las plataformas, pero sin impacto medible en la operación |
 | Gestión de inventario y constructor de sitios web | Funciones ajenas al problema que se busca resolver |
 
-## 3.8 Resumen
+## 4.8 Resumen
 
 | Parte | Categoría | Criterios |
 |---|---|:---:|

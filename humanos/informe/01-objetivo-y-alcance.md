@@ -32,7 +32,7 @@ El sector atraviesa una situación competitiva particular. Los bancos ingresaron
 
 La operación diaria involucra tres actores y un objeto de negocio. El **asegurado** contrata una cobertura; el **productor o corredor** la vende y atiende la cartera; la **compañía** administra el conjunto. El objeto que los vincula es la **póliza**: el contrato con su tipo de cobertura, su vigencia, su prima y su estado de cobranza.
 
-Esa estructura explica varios de los requerimientos del pedido. El seguimiento de pólizas, la evaluación de la producción por corredor y la gestión de reclamos no son funciones genéricas de venta: responden a la forma en que opera una aseguradora. Su evaluación se desarrolla en la sección 5, con el resto de las características.
+Esa estructura explica varios de los requerimientos del pedido. El seguimiento de pólizas, la evaluación de la producción por corredor y la gestión de reclamos no son funciones genéricas de venta: responden a la forma en que opera una aseguradora. Su evaluación se desarrolla en la sección 6, con el resto de las características.
 
 ## 1.4 Origen de las características evaluadas
 

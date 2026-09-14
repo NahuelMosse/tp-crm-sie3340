@@ -1,6 +1,8 @@
-# 8. Metodología de evaluación y trazabilidad
+# 3. Metodología de evaluación y trazabilidad
 
-## 7.1 Qué mide la escala
+Esta sección define **cómo se puntúa**. Se presenta antes del catálogo de criterios porque cada uno de ellos remite a esta escala: sin conocerla, los criterios de la sección 4 no se pueden interpretar.
+
+## 3.1 Qué mide la escala
 
 Cada característica recibe un valor de **1 a 5** que mide una sola cosa: **cuánto esfuerzo exige la plataforma para cubrir esa necesidad**.
 
@@ -14,7 +16,7 @@ No mide qué tan completa es la función, ni qué tan bien resuelta está, ni cu
 | **2** | **Resoluble por fuera** | La única vía es salir del sistema: exportar a planilla, usar otra herramienta, ejecutar un proceso manual |
 | **1** | **No disponible** | No existe forma de obtenerla en ninguna edición del producto |
 
-## 7.2 Cómo se determina el nivel
+## 3.2 Cómo se determina el nivel
 
 El valor no se elige: se deriva de cinco preguntas cerradas, en este orden. La primera que se responde afirmativamente fija el nivel.
 
@@ -36,7 +38,7 @@ El orden importa: una función que se puede resolver tanto configurando como pro
 
 **Un límite cuantitativo no baja el nivel; lo marca.** Si una función opera pero con un tope —cantidad de registros, de envíos o de llamadas—, el nivel refleja el esfuerzo de obtenerla y el tope se consigna aparte, porque se levanta con una licencia y eso pertenece a la oferta económica.
 
-## 7.3 Evidencia exigida por nivel
+## 3.3 Evidencia exigida por nivel
 
 Ningún valor se asigna sin el respaldo que le corresponde.
 
@@ -50,23 +52,23 @@ Ningún valor se asigna sin el respaldo que le corresponde.
 
 El nivel 1 es el más exigente de demostrar, y es deliberado. Que una función no aparezca en la instalación de prueba no prueba que el producto no la tenga: puede estar en otro menú, requerir activación o depender de un módulo. Afirmar que algo no existe requiere respaldo del propio fabricante.
 
-## 7.4 Cuando una función exige licencia
+## 3.4 Cuando una función exige licencia
 
 El puntaje técnico **no se modifica**. Una función nativa de un módulo pago vale 5, igual que si viniera incluida: el producto la tiene y la resuelve sin esfuerzo de implementación.
 
-Lo que se registra es un **indicador de licencia** junto al valor, que alimenta la oferta económica de la sección 7.
+Lo que se registra es un **indicador de licencia** junto al valor, que alimenta la oferta económica de la sección 8.
 
 > **Ejemplo.** La generación de informes es nativa en EspoCRM dentro del Advanced Pack y nativa en Bitrix24 dentro de sus planes pagos. Ambas puntúan **5**. La diferencia entre una licencia de pago único y un abono mensual no aparece en el puntaje técnico: aparece en la proyección de costo a tres y cinco años, que es donde esa diferencia se vuelve material.
 
 El criterio evita penalizar dos veces el mismo hecho. Una plataforma que resuelve mediante un módulo pago no es funcionalmente inferior a otra que lo trae incluido; es más cara, y eso se mide donde corresponde.
 
-## 7.5 Características sin verificar
+## 3.5 Características sin verificar
 
 Una característica no verificada **no recibe valor** y se excluye del cálculo, tanto del puntaje obtenido como del máximo posible. No se le asigna un valor intermedio ni se completa por deducción.
 
 La consecuencia es que el porcentaje de cumplimiento se calcula sobre las características efectivamente verificadas, y el informe declara cuántas quedaron fuera. Un resultado sobre treinta características verificadas es más sólido que uno sobre cuarenta donde diez se completaron por suposición.
 
-## 7.6 Ponderación
+## 3.6 Ponderación
 
 No todas las características pesan igual. Se aplican dos ponderaciones sucesivas.
 
@@ -87,7 +89,7 @@ No todas las características pesan igual. Se aplican dos ponderaciones sucesiva
 
 La diferencia de peso responde a un riesgo concreto: las capacidades no solicitadas no deben compensar el incumplimiento de lo que el cliente pidió. Con esta proporción, una plataforma que cubriera la totalidad de la Parte B y la mitad de la Parte A quedaría por debajo de otra que cubriera la Parte A completa sin ninguna capacidad adicional, que es el orden correcto.
 
-## 7.7 Cálculo del resultado
+## 3.7 Cálculo del resultado
 
 **Puntaje de cada parte:**
 
@@ -117,7 +119,7 @@ valor total = 0,70 × oferta técnica + 0,30 × oferta económica
 
 La proporción 70/30 refleja que la decisión es primero funcional: un sistema barato que no cubre lo que la compañía necesita no resuelve el problema. El 30 % asignado al costo es suficiente para que una diferencia económica significativa altere el orden entre alternativas técnicamente parejas, que es exactamente lo que debe hacer.
 
-## 7.8 Ejemplos resueltos
+## 3.8 Ejemplos resueltos
 
 Tres casos del análisis, con el árbol de decisión aplicado.
 
@@ -130,7 +132,7 @@ Tres casos del análisis, con el árbol de decisión aplicado.
 **Captación de prospectos desde redes sociales — Bitrix24: 5**
 ¿Existe? Sí. ¿Viene lista al instalar? **Sí** — la sección de marketing ofrece audiencias de Facebook y anuncios de Instagram sin configuración previa. Nivel **5**, con indicador de licencia pendiente de verificar: falta confirmar si su uso efectivo exige un plan pago.
 
-## 7.9 Origen de cada afirmación
+## 3.9 Origen de cada afirmación
 
 | Referencia | Significado |
 |---|---|
@@ -144,7 +146,7 @@ Tres casos del análisis, con el árbol de decisión aplicado.
 
 La distinción entre lo comprobado y lo declarado por el fabricante es deliberada: durante las pruebas aparecieron diferencias entre ambas fuentes.
 
-## 7.10 Cómo se produjo la evidencia
+## 3.10 Cómo se produjo la evidencia
 
 Las pruebas se automatizaron con Playwright, una herramienta de automatización de navegador. Esa decisión tuvo tres consecuencias sobre la calidad del análisis.
 
@@ -154,7 +156,7 @@ Las pruebas se automatizaron con Playwright, una herramienta de automatización 
 
 **Las mediciones se toman sin intervención.** Para la cantidad de pasos y los tiempos de operación se ejecutan dos corridas: una limpia, que produce los números, y otra con carteles explicativos para el video. Los tiempos de la segunda no se usan como dato: la misma prueba dio diez segundos en la corrida limpia y treinta y ocho en la narrada.
 
-## 7.11 Limitaciones de la evidencia
+## 3.11 Limitaciones de la evidencia
 
 **El escenario es una instalación de prueba, no una compañía en operación.** Los volúmenes cargados son de decenas de miles de registros. Las conclusiones sobre rendimiento valen para una compañía pequeña o mediana.
 
@@ -164,7 +166,7 @@ Las pruebas se automatizaron con Playwright, una herramienta de automatización 
 
 **Una de las tres plataformas no admite inspección interna.** De las dos instalaciones propias se pudo revisar el código, la base de datos y los archivos de configuración. De la plataforma en la nube, solo lo que exponen su interfaz y su documentación. Esa asimetría no se puede resolver y explica que concentre la mayor cantidad de características sin verificar.
 
-## 7.12 Correcciones aplicadas durante el análisis
+## 3.12 Correcciones aplicadas durante el análisis
 
 Se registran porque afectan la lectura de los resultados.
 
