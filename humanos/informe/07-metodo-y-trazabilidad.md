@@ -12,6 +12,8 @@ Ningún veredicto de la matriz se completa por deducción. Cada uno se apoya en 
 
 La distinción importa porque durante las pruebas aparecieron diferencias entre lo declarado y lo verificado. Presentar ambas cosas como equivalentes debilitaría las conclusiones que sí se comprobaron.
 
+**Una función que exige licencia está cubierta.** El veredicto técnico registra si el producto puede realizar la operación, no si la habilita el plan contratado. Lo que la licencia cuesta se traslada a la oferta económica. Solo se consigna como no disponible aquello que no existe en ninguna edición del producto, y para afirmarlo se exige constancia en la documentación oficial del fabricante, no la mera ausencia en la instalación de prueba.
+
 **Una operación que no se pudo completar no se convierte en veredicto negativo.** Si una función no se logró ejecutar, el informe registra que no se verificó, no que la plataforma carece de ella. La diferencia entre "no lo pude hacer" y "no se puede hacer" es la que separa una evaluación de una opinión.
 
 ## 7.2 Origen de cada afirmación
