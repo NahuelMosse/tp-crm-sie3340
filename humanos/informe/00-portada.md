@@ -23,23 +23,22 @@ Documento de uso interno. Análisis independiente de productos y proveedores.
 
 **2. Las tres plataformas evaluadas**
 
-**3. Matriz de veredictos**
+**3. Criterios de análisis**
+  3.1 De dónde provienen
+  3.2 Por qué se dividen en dos partes
+  3.3 Del requerimiento al criterio verificable
+  3.4 Parte A — Criterios solicitados
+  3.5 Parte B — Criterios no solicitados
+  3.6 Criterios descartados
 
-**4. Análisis por categoría**
-  4.1 Gestión de la cartera de pólizas
-  4.2 Gestión comercial y de marketing
-  4.3 Atención al asegurado
-  4.4 Parametrización y modelo de datos
-  4.5 Tecnología e implantación
-  4.6 Seguridad, roles y trazabilidad
-  4.7 Interfaces e integración
-  4.8 Continuidad y autonomía
-  4.9 Soporte y capacitación
+**4. Matriz de veredictos**
 
-**5. Fortalezas y limitaciones por plataforma**
+**5. Análisis por categoría**
 
-**6. Conclusiones y propuesta**
+**6. Fortalezas y limitaciones por plataforma**
 
-**7. Metodología de evaluación y trazabilidad**
+**7. Conclusiones y propuesta**
 
-**8. Fuentes**
+**8. Metodología de evaluación y trazabilidad**
+
+**9. Fuentes**

@@ -1,4 +1,4 @@
-# 3. Matriz de veredictos
+# 4. Matriz de veredictos
 
 La matriz se divide en dos partes que no se mezclan:
 
@@ -6,11 +6,11 @@ La matriz se divide en dos partes que no se mezclan:
 
 **Parte B — Características no solicitadas.** Las que ninguna de esas dos fuentes menciona: condiciones que impone el negocio asegurador y capacidades que las plataformas ofrecen por encima de lo pedido. Aportan valor, pero se puntúan aparte y con menor peso.
 
-La separación responde a un riesgo concreto de este análisis: una plataforma que suma inteligencia artificial, aplicación móvil y suite integrada —ninguna solicitada— no debe compensar con eso el incumplimiento de algo que el cliente sí pidió. El peso relativo de cada parte se fija en la sección 6.
+La separación responde a un riesgo concreto de este análisis: una plataforma que suma inteligencia artificial, aplicación móvil y suite integrada —ninguna solicitada— no debe compensar con eso el incumplimiento de algo que el cliente sí pidió. El peso relativo de cada parte se fija en la sección 8.
 
 **● cubierta  ◐ cubierta mediante licencia adicional  ○ no disponible en ninguna edición  ◍ sin verificar**
 
-Los símbolos resumen el estado de cada característica. El **puntaje de 1 a 5** que recibe cada una —según el esfuerzo que exige obtenerla— se detalla en la sección 4, y la escala que lo determina está definida en la sección 7.
+Los símbolos resumen el estado de cada característica. El **puntaje de 1 a 5** que recibe cada una —según el esfuerzo que exige obtenerla— se detalla en la sección 5, y la escala que lo determina está definida en la sección 8.
 
 La distinción entre ● y ◐ no altera el veredicto técnico: ambas indican que el producto resuelve la necesidad. El símbolo ◐ marca las que requieren una licencia, y esas filas alimentan la oferta económica. El símbolo ○ se reserva para lo que no existe en ninguna edición, que es la única carencia que ningún presupuesto resuelve.
 
@@ -143,25 +143,25 @@ Sobre 14 características no solicitadas:
 
 ---
 
-## 3.1 Lectura conjunta
+## 4.1 Lectura conjunta
 
 | | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
 | **Solicitadas cubiertas** (sobre 42) | **35** | **16** | **26** |
 | **No solicitadas cubiertas** (sobre 14) | **10** | **8** | **7** |
 
-El recuento es provisorio y no constituye la conclusión: dentro de la Parte A una ventaja en la interfaz de programación no pesa lo mismo que modelar una póliza. La ponderación por criticidad, el peso relativo de cada parte y el polinomio de valor se desarrollan en la sección 6.
+El recuento es provisorio y no constituye la conclusión: dentro de la Parte A una ventaja en la interfaz de programación no pesa lo mismo que modelar una póliza. La ponderación por criticidad, el peso relativo de cada parte y el polinomio de valor se desarrollan en la sección 7.
 
-## 3.2 Qué muestra la separación
+## 4.2 Qué muestra la separación
 
 **Las dos partes ordenan a las plataformas de manera distinta, y por eso se separan.** En la Parte B, Bitrix24 cubre 7 características y EspoCRM 10: la distancia entre ambas se acorta respecto de la Parte A. Bitrix24 aporta inteligencia artificial, aplicación móvil, telefonía y suite integrada, ninguna pedida por el cliente. Sumar ambas partes sin distinción permitiría que esas funciones compensaran lo que falta en lo que la compañía efectivamente necesita. La separación mantiene visible esa tensión en lugar de disolverla en un total.
 
 **Las carencias reales se concentran en una plataforma.** De las 18 características no disponibles en ninguna edición dentro de la Parte A, 13 corresponden a Twenty. No es una cuestión de plan contratado: son funciones que el producto no tiene, y ningún presupuesto las incorpora.
 
-**Bitrix24 concentra las licencias adicionales.** 8 de sus 26 características solicitadas cubiertas requieren un plan pago. Funcionalmente resuelve buena parte de lo pedido; la pregunta que abre es económica y se responde en la sección 6.
+**Bitrix24 concentra las licencias adicionales.** 8 de sus 26 características solicitadas cubiertas requieren un plan pago. Funcionalmente resuelve buena parte de lo pedido; la pregunta que abre es económica y se responde en la sección 7.
 
 **El bloque B.1 se resuelve por modalidad, no por producto.** Sus siete características favorecen a las instalaciones propias por la misma razón estructural: quien controla el servidor controla el respaldo, el momento de actualizar y la permanencia de los datos. No son siete hallazgos independientes sino una consecuencia de la modalidad de despliegue.
 
-## 3.3 Estado de verificación
+## 4.3 Estado de verificación
 
 35 celdas siguen sin verificar y ninguna se completa por deducción. El recuento debe leerse como provisorio: Twenty concentra 14 y Bitrix24 16, esta última por ser la única plataforma que no admite inspección interna.

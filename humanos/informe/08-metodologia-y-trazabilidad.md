@@ -1,4 +1,4 @@
-# 7. Metodología de evaluación y trazabilidad
+# 8. Metodología de evaluación y trazabilidad
 
 ## 7.1 Qué mide la escala
 
@@ -54,7 +54,7 @@ El nivel 1 es el más exigente de demostrar, y es deliberado. Que una función n
 
 El puntaje técnico **no se modifica**. Una función nativa de un módulo pago vale 5, igual que si viniera incluida: el producto la tiene y la resuelve sin esfuerzo de implementación.
 
-Lo que se registra es un **indicador de licencia** junto al valor, que alimenta la oferta económica de la sección 6.
+Lo que se registra es un **indicador de licencia** junto al valor, que alimenta la oferta económica de la sección 7.
 
 > **Ejemplo.** La generación de informes es nativa en EspoCRM dentro del Advanced Pack y nativa en Bitrix24 dentro de sus planes pagos. Ambas puntúan **5**. La diferencia entre una licencia de pago único y un abono mensual no aparece en el puntaje técnico: aparece en la proyección de costo a tres y cinco años, que es donde esa diferencia se vuelve material.
 
