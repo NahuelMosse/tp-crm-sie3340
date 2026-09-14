@@ -1,6 +1,6 @@
 # 3. Criterios de análisis
 
-Esta sección define **qué se evalúa**. Cada criterio se enuncia como una capacidad, se indica de dónde proviene y qué demuestra su cumplimiento. La escala con que se puntúa está en la sección 8; los resultados, en las secciones 4 y 5.
+Esta sección define **qué se evalúa y cómo**. Cada criterio se enuncia como una capacidad y se acompaña del procedimiento concreto que determina su cumplimiento. La escala que convierte ese resultado en un valor de 1 a 5 está en la sección 8; los resultados obtenidos, en las secciones 4 y 5.
 
 ## 3.1 De dónde provienen
 
@@ -16,153 +16,148 @@ A esas tres se suma lo que apareció al operar los sistemas: **capacidades que l
 
 ## 3.2 Por qué se dividen en dos partes
 
-Los criterios se agrupan en dos conjuntos que no se mezclan:
-
 | Parte | Contiene | Peso |
 |---|---|:---:|
 | **A — Solicitados** | Pedido del cliente + marco técnico de evaluación | 85 % |
 | **B — No solicitados** | Condiciones del negocio + capacidades por encima de lo pedido | 15 % |
 
-La separación responde a un riesgo concreto. Una plataforma puede ofrecer inteligencia artificial, aplicación móvil y telefonía integrada —ninguna solicitada— y compensar con eso el incumplimiento de algo que la compañía sí necesita. Con los conjuntos separados y ponderados, ese intercambio no es posible: cubrir la totalidad de la Parte B no alcanza para superar a quien cubre la Parte A.
+La separación responde a un riesgo concreto. Una plataforma puede ofrecer inteligencia artificial, aplicación móvil y telefonía integrada —ninguna solicitada— y compensar con eso el incumplimiento de algo que la compañía sí necesita. Con los conjuntos separados y ponderados, ese intercambio no es posible.
 
 ## 3.3 Del requerimiento al criterio verificable
 
-Los requerimientos del cliente están escritos en lenguaje de negocio y no son verificables tal como se enuncian. *"Mejora de la calidad del servicio y la atención al cliente"* no admite una comprobación: no hay forma de determinar si un sistema la cumple.
+Los requerimientos del cliente están escritos en lenguaje de negocio y no son verificables tal como se enuncian. *"Mejora de la calidad del servicio y la atención al cliente"* no admite comprobación.
 
-El trabajo previo a la evaluación consistió en traducirlos a capacidades comprobables, aplicando una regla: **si un requerimiento admite verificaciones independientes, se divide hasta que cada criterio tenga una sola respuesta posible.**
+El trabajo previo consistió en traducirlos a capacidades comprobables, aplicando una regla: **si un requerimiento admite verificaciones independientes, se divide hasta que cada criterio tenga una sola respuesta posible.**
 
-> **Ejemplo.** El requerimiento *"seguimiento de pólizas: qué tipo tiene, el estado de pago y si hay posibilidad de cambio"* no se evalúa como una unidad. Se descompone en el modelado de la póliza como objeto, los tipos de dato que admite para prima y vigencia, su vinculación con el asegurado y la conservación de su historial. Cada uno se comprueba por separado y recibe su propio valor.
+> **Ejemplo.** El requerimiento *"seguimiento de pólizas: qué tipo tiene, el estado de pago y si hay posibilidad de cambio"* se descompone en el modelado de la póliza como objeto, los tipos de dato que admite, su vinculación con el asegurado y la operación sobre el conjunto. Cada uno se comprueba por separado.
 
-Esa descomposición lleva los veinte requerimientos del pedido —sumados a los trece del marco técnico— a los cuarenta y dos criterios de la Parte A.
+## 3.4 Cómo se evalúa cada criterio
+
+Cada criterio lleva un **procedimiento de verificación**: la acción concreta que se ejecuta sobre cada plataforma. El procedimiento es idéntico en las tres, lo que hace comparables los resultados.
+
+De la ejecución surgen dos datos:
+
+1. **Si la capacidad existe**, y por qué vía se obtuvo: disponible al instalar, configurando desde la administración, programando, o solo por fuera del sistema.
+2. **Si requiere licencia**, dato que no afecta el valor técnico y se traslada a la oferta económica.
+
+El primero determina el valor de 1 a 5 según el árbol de decisión de la sección 8. El procedimiento describe **qué hacer**; el árbol, **cómo puntuar lo observado**.
+
+Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, de modo que la misma secuencia de acciones corriera sobre las tres plataformas sin variaciones de operador.
 
 ---
 
-## 3.4 Parte A — Criterios solicitados
+## 3.5 Parte A — Criterios solicitados
 
 ### A.1 Gestión de la cartera de pólizas
 
-Derivan de los requerimientos de seguimiento de pólizas, gestión de la información de ventas y administración de la cartera para generar venta cruzada.
-
-| ID | Criterio | Qué se comprueba | Criticidad |
+| ID | Criterio | Procedimiento de verificación | Criticidad |
 |---|---|---|:---:|
-| A.1.1 | Modelado de la póliza como objeto propio | Que el sistema permita representar la póliza como una entidad con identidad propia, no como un campo de texto dentro del contacto | Núcleo |
-| A.1.2 | Tipos de dato adecuados para prima, vigencia y cobranza | Que admita importe con moneda, rango de fechas y estado seleccionable de una lista | Núcleo |
-| A.1.3 | Vinculación de la póliza con el asegurado | Que la relación sea navegable en ambos sentidos: desde el asegurado se ven sus pólizas y desde la póliza su titular | Núcleo |
-| A.1.4 | Consulta y filtrado de la cartera para prospección | Que permita obtener el subconjunto de pólizas que cumple una condición, por ejemplo las que vencen en un plazo dado | Núcleo |
-| A.1.5 | Operación masiva sobre la cartera | Que permita modificar varios registros en una sola acción, sin recorrerlos de a uno | Soporte |
+| A.1.1 | Modelado de la póliza como objeto propio | Crear una entidad Póliza con identidad propia y comprobar que aparece en el menú del sistema y admite registros | Núcleo |
+| A.1.2 | Tipos de dato adecuados para prima, vigencia y cobranza | Agregar a esa entidad un campo de importe con moneda, dos de fecha y uno de lista con los estados de cobranza; cargar un registro con los cuatro completos | Núcleo |
+| A.1.3 | Vinculación de la póliza con el asegurado | Relacionar la póliza con un contacto, abrir la ficha del contacto y comprobar que la póliza figura allí; abrir la póliza y comprobar que muestra al titular | Núcleo |
+| A.1.4 | Consulta y filtrado de la cartera para prospección | Filtrar las pólizas cuya vigencia vence en los próximos treinta días y obtener el listado resultante | Núcleo |
+| A.1.5 | Operación masiva sobre la cartera | Seleccionar varias pólizas del listado y modificar un campo en todas con una sola acción | Soporte |
 
 ### A.2 Gestión comercial y de marketing
 
-Derivan de los requerimientos de registro y calificación del solicitante, detección de oportunidades, campañas, segmentación, análisis de competencia, pronóstico y presencia en redes.
-
-| ID | Criterio | Qué se comprueba | Criticidad |
+| ID | Criterio | Procedimiento de verificación | Criticidad |
 |---|---|---|:---:|
-| A.2.1 | Registro y calificación del solicitante | Que permita registrar a quien solicita una cobertura junto con los datos que determinan su perfil de riesgo | Núcleo |
-| A.2.2 | Embudo de oportunidades vinculado al asegurado | Que la oportunidad de venta exista como objeto con etapas, asociada al asegurado | Núcleo |
-| A.2.3 | Embudos múltiples por ramo | Que admita procesos de venta distintos según el tipo de cobertura, con etapas propias | Soporte |
-| A.2.4 | Segmentación reutilizable de la cartera | Que un conjunto de asegurados definido por criterios pueda guardarse y volver a usarse | Núcleo |
-| A.2.5 | Campañas con medición de resultados | Que permita enviar comunicaciones masivas y registrar qué ocurrió con ellas | Soporte |
-| A.2.6 | Captación de prospectos desde redes sociales | Que exista conexión con alguna red social que permita incorporar interesados al sistema | Soporte |
-| A.2.7 | Escucha de menciones y reputación | Que permita conocer lo que se dice de la compañía en canales públicos | Accesorio |
-| A.2.8 | Proyección de ventas | Que estime el resultado comercial futuro a partir de las oportunidades en curso | Soporte |
-| A.2.9 | Registro de la competencia y motivos de pérdida | Que permita consignar por qué se perdió un negocio y ante quién | Soporte |
+| A.2.1 | Registro y calificación del solicitante | Crear un prospecto, agregarle un campo propio de calificación de riesgo y convertirlo en oportunidad | Núcleo |
+| A.2.2 | Embudo de oportunidades vinculado al asegurado | Crear una oportunidad desde la ficha de un asegurado y comprobar que avanza entre etapas | Núcleo |
+| A.2.3 | Embudos múltiples por ramo | Crear un segundo embudo con etapas distintas al primero y asignarle una oportunidad | Soporte |
+| A.2.4 | Segmentación reutilizable de la cartera | Definir un conjunto de asegurados por un criterio, guardarlo con nombre y volver a abrirlo | Núcleo |
+| A.2.5 | Campañas con medición de resultados | Crear una campaña sobre ese segmento y comprobar que el sistema registra envíos, aperturas o respuestas | Soporte |
+| A.2.6 | Captación de prospectos desde redes sociales | Buscar en el sistema la conexión con alguna red social y comprobar que permite incorporar interesados | Soporte |
+| A.2.7 | Escucha de menciones y reputación | Buscar la función de seguimiento de menciones en canales públicos | Accesorio |
+| A.2.8 | Proyección de ventas | Cargar oportunidades con monto y probabilidad, y comprobar si el sistema calcula un total proyectado | Soporte |
+| A.2.9 | Registro de la competencia y motivos de pérdida | Marcar una oportunidad como perdida y comprobar si admite registrar el motivo y el competidor | Soporte |
 
 ### A.3 Atención al asegurado
 
-Derivan de los requerimientos de manejo de quejas y reclamaciones, centralización de la información, mejora de la atención, creación de tareas y optimización de la actividad comercial.
-
-| ID | Criterio | Qué se comprueba | Criticidad |
+| ID | Criterio | Procedimiento de verificación | Criticidad |
 |---|---|---|:---:|
-| A.3.1 | Gestión de reclamos como casos con seguimiento | Que el reclamo exista como objeto con estado, responsable y fecha, no como una nota | Núcleo |
-| A.3.2 | Ficha integral del asegurado | Que desde la ficha se acceda a sus pólizas, su actividad, sus comunicaciones y sus reclamos sin navegar a otra pantalla | Núcleo |
-| A.3.3 | Base de conocimiento para la atención | Que exista un repositorio consultable de condiciones y procedimientos | Soporte |
-| A.3.4 | Tareas con responsable y vencimiento | Que una tarea pueda asignarse a otro usuario con fecha de vencimiento y estado | Soporte |
-| A.3.5 | Agenda y carga de trabajo por productor | Que cada usuario disponga de una vista de sus pendientes y compromisos | Soporte |
+| A.3.1 | Gestión de reclamos como casos con seguimiento | Crear un reclamo asociado a un asegurado, asignarle responsable y estado, y cambiarlo de estado | Núcleo |
+| A.3.2 | Ficha integral del asegurado | Abrir la ficha de un asegurado con póliza, actividad y reclamo cargados, y contar cuántos de esos elementos se ven sin navegar a otra pantalla | Núcleo |
+| A.3.3 | Base de conocimiento para la atención | Crear un artículo con una condición de cobertura y recuperarlo mediante búsqueda | Soporte |
+| A.3.4 | Tareas con responsable y vencimiento | Crear una tarea, asignarla a otro usuario con fecha de vencimiento y verificarla desde la cuenta de ese usuario | Soporte |
+| A.3.5 | Agenda y carga de trabajo por productor | Ingresar con un usuario y comprobar que dispone de una vista de sus pendientes | Soporte |
 
 ### A.4 Intercambio de datos y correo
 
-Derivan de los requerimientos de importación de contactos y sincronización del correo con las fichas.
-
-| ID | Criterio | Qué se comprueba | Criticidad |
+| ID | Criterio | Procedimiento de verificación | Criticidad |
 |---|---|---|:---:|
-| A.4.1 | Importación desde los formatos que usa el cliente | Que admita los orígenes solicitados: planilla de cálculo, correo electrónico y agenda de contactos | Soporte |
-| A.4.2 | Sincronización de correo multiusuario | Que la sincronización alcance a las casillas de todos los usuarios, no a una sola | Núcleo |
-| A.4.3 | Vinculación automática del correo a la ficha | Que un mensaje intercambiado con un asegurado quede registrado en su ficha sin acción manual | Núcleo |
-| A.4.4 | Exportación de la cartera sin pérdida de datos | Que la información pueda extraerse completa y en formato abierto | Soporte |
+| A.4.1 | Importación desde los formatos que usa el cliente | Intentar importar un archivo de planilla de cálculo, y verificar si ofrece conexión con correo electrónico y agenda de contactos | Soporte |
+| A.4.2 | Sincronización de correo multiusuario | Configurar una casilla y comprobar si la configuración admite hacerlo para varios usuarios o solo para uno | Núcleo |
+| A.4.3 | Vinculación automática del correo a la ficha | Enviar un mensaje a la dirección de un asegurado cargado y comprobar si queda registrado en su ficha sin intervención | Núcleo |
+| A.4.4 | Exportación de la cartera sin pérdida de datos | Exportar los registros importados y comparar el archivo resultante con el original: cantidad de filas, acentuación y campos vacíos | Soporte |
 
 ### A.5 Criterios técnicos de evaluación
 
-Corresponden al marco técnico, leídos en clave del negocio asegurador.
-
-| ID | Criterio | Qué se comprueba | Criticidad |
+| ID | Criterio | Procedimiento de verificación | Criticidad |
 |---|---|---|:---:|
-| A.5.1 | Requerimientos de infraestructura moderados | Que la infraestructura necesaria esté al alcance de una compañía pequeña | Soporte |
-| A.5.2 | Instalación guiada sin conocimientos técnicos | Que la puesta en marcha no exija un perfil especializado | Soporte |
-| A.5.3 | Navegabilidad: pocos pasos para la operación diaria | Cantidad de acciones necesarias para registrar un asegurado con su póliza | Soporte |
-| A.5.4 | Aprendizaje sin capacitación previa | Que un usuario nuevo complete las tareas frecuentes sin instrucción | Soporte |
-| A.5.5 | Localización completa al español, modelo incluido | Que la traducción alcance a los nombres de los objetos del sistema y no solo a los botones | Núcleo |
-| A.5.6 | Operación concurrente sobre la misma cartera | Comportamiento del sistema cuando varios usuarios trabajan sobre el mismo registro | Núcleo |
-| A.5.7 | Creación de entidades sin programar | Que puedan definirse objetos nuevos desde la administración | Núcleo |
-| A.5.8 | Relaciones entre entidades desde la interfaz | Que los objetos creados puedan vincularse entre sí sin desarrollo | Núcleo |
-| A.5.9 | Campos calculados sobre datos propios | Que un valor pueda derivarse de otros, por ejemplo el vencimiento a partir del inicio de vigencia | Soporte |
-| A.5.10 | Automatización de procesos | Que el sistema ejecute acciones ante un evento, sin intervención | Soporte |
-| A.5.11 | Restricción de la cartera por productor | Que un usuario acceda solo a los asegurados que le corresponden | Núcleo |
-| A.5.12 | Registro de quién modificó cada dato | Que quede constancia de autor y momento de cada cambio | Núcleo |
-| A.5.13 | Indicadores de producción y cobranza | Que ofrezca visualizaciones del estado del negocio | Soporte |
-| A.5.14 | Generación de informes | Que permita producir informes con criterios definidos por el usuario | Soporte |
-| A.5.15 | Interfaz de programación sin restricciones de uso | Que exista una interfaz de programación y que su uso no esté limitado por volumen | Soporte |
-| A.5.16 | Ecosistema de integraciones disponible | Que existan conectores con otras herramientas del mercado | Soporte |
-| A.5.17 | Documentación en español | Que la documentación oficial esté disponible en el idioma de los usuarios | Soporte |
-| A.5.18 | Comunidad activa de usuarios | Que exista un espacio donde consultar problemas y obtener respuesta | Soporte |
-| A.5.19 | Soporte técnico con compromiso de respuesta | Que exista un canal de soporte con plazo comprometido | Soporte |
+| A.5.1 | Requerimientos de infraestructura moderados | Medir memoria y procesador consumidos en reposo y con la cartera cargada | Soporte |
+| A.5.2 | Instalación guiada sin conocimientos técnicos | Instalar desde cero registrando pasos, tiempo y si exige uso de consola | Soporte |
+| A.5.3 | Navegabilidad: pocos pasos para la operación diaria | Contar las acciones necesarias para registrar un asegurado con su póliza, desde el ingreso al sistema | Soporte |
+| A.5.4 | Aprendizaje sin capacitación previa | Pedir a una persona ajena al proyecto que complete cinco tareas frecuentes sin instrucción, y registrar cuántas logra | Soporte |
+| A.5.5 | Localización completa al español, modelo incluido | Recorrer el menú principal y una ficha, y contar cuántos nombres de objetos y campos permanecen en otro idioma | Núcleo |
+| A.5.6 | Operación concurrente sobre la misma cartera | Abrir el mismo registro con tres usuarios simultáneos, modificarlo en los tres y observar el comportamiento del sistema | Núcleo |
+| A.5.7 | Creación de entidades sin programar | Crear una entidad nueva desde la administración y registrar si fue necesario escribir código | Núcleo |
+| A.5.8 | Relaciones entre entidades desde la interfaz | Vincular dos entidades creadas y comprobar que la relación queda navegable | Núcleo |
+| A.5.9 | Campos calculados sobre datos propios | Definir un campo cuyo valor derive de otro y comprobar que se calcula al guardar | Soporte |
+| A.5.10 | Automatización de procesos | Definir una acción automática ante un evento y provocar ese evento para comprobar que se ejecuta | Soporte |
+| A.5.11 | Restricción de la cartera por productor | Crear un usuario con acceso restringido e intentar abrir un registro ajeno, incluso por dirección directa | Núcleo |
+| A.5.12 | Registro de quién modificó cada dato | Modificar un registro con un usuario y buscar desde otro la constancia del cambio, con autor y momento | Núcleo |
+| A.5.13 | Indicadores de producción y cobranza | Construir una vista que muestre el total de primas por estado de cobranza | Soporte |
+| A.5.14 | Generación de informes | Producir un informe de producción por productor con criterios definidos por el usuario y exportarlo | Soporte |
+| A.5.15 | Interfaz de programación sin restricciones de uso | Crear un registro mediante la interfaz de programación y verificar la existencia de límites de volumen en la documentación | Soporte |
+| A.5.16 | Ecosistema de integraciones disponible | Revisar el catálogo de conectores disponibles y su accesibilidad | Soporte |
+| A.5.17 | Documentación en español | Consultar la documentación oficial y verificar la disponibilidad del idioma | Soporte |
+| A.5.18 | Comunidad activa de usuarios | Publicar una consulta real en el foro oficial y medir el tiempo hasta la primera respuesta | Soporte |
+| A.5.19 | Soporte técnico con compromiso de respuesta | Verificar en la documentación comercial la existencia de un canal con plazo comprometido | Soporte |
 
 ---
 
-## 3.5 Parte B — Criterios no solicitados
+## 3.6 Parte B — Criterios no solicitados
 
 ### B.1 Condiciones que impone el negocio asegurador
 
-Ninguna aparece en el pedido, pero una compañía de seguros no puede operar sin resolverlas. Se incorporan con su fundamento.
-
-| ID | Criterio | Fundamento |
-|---|---|---|
-| B.1.1 | Persistencia de los datos sin uso continuo | Una póliza permanece vigente durante años aunque nadie la consulte; la cartera no puede depender de la frecuencia de acceso al sistema |
-| B.1.2 | Respaldo bajo control de la organización | La cartera es el activo principal de la compañía y su resguardo no debería depender de un tercero |
-| B.1.3 | Búsqueda y operación con volumen productivo | Una compañía pequeña administra decenas de miles de pólizas; el sistema debe seguir localizando un asegurado con ese volumen |
-| B.1.4 | Control sobre el momento de actualizar | Una actualización aplicada durante la operación interrumpe la atención |
-| B.1.5 | Control sobre la localización de los datos | Los seguros de personas involucran datos sensibles alcanzados por la Ley 25.326 de Protección de Datos Personales |
-| B.1.6 | Integridad de la ficha única del asegurado | La duplicación de fichas es el error más costoso en la administración de una cartera |
-| B.1.7 | Operación sin conexión a internet | La atención no debería interrumpirse ante una caída del enlace |
+| ID | Criterio | Procedimiento de verificación | Fundamento |
+|---|---|---|---|
+| B.1.1 | Persistencia de los datos sin uso continuo | Verificar en las condiciones del servicio si existe un plazo de inactividad que afecte la cuenta o los datos | Una póliza permanece vigente años aunque nadie la consulte |
+| B.1.2 | Respaldo bajo control de la organización | Intentar obtener una copia completa de la información, incluidos los archivos adjuntos | La cartera es el activo principal de la compañía |
+| B.1.3 | Búsqueda y operación con volumen productivo | Cargar mil doscientos registros y buscar uno por texto; repetir el filtrado por campo | Una compañía pequeña administra decenas de miles de pólizas |
+| B.1.4 | Control sobre el momento de actualizar | Verificar si la organización decide cuándo se aplica una actualización o la impone el proveedor | Una actualización durante la operación interrumpe la atención |
+| B.1.5 | Control sobre la localización de los datos | Determinar dónde residen los datos y si la organización puede elegirlo | Los seguros de personas involucran datos sensibles (Ley 25.326) |
+| B.1.6 | Integridad de la ficha única del asegurado | Cargar dos veces el mismo asegurado y observar si el sistema advierte la duplicación | La doble ficha es el error más costoso de una cartera |
+| B.1.7 | Operación sin conexión a internet | Interrumpir la conexión externa y comprobar si el sistema sigue operando | La atención no debería detenerse ante una caída del enlace |
 
 ### B.2 Capacidades por encima de lo solicitado
 
-Funciones detectadas al operar los sistemas, que el cliente no pidió y tienen aplicación en el rubro.
-
-| ID | Criterio | Aplicación en una compañía de seguros |
-|---|---|---|
-| B.2.1 | Asistente de inteligencia artificial | Resumir el historial de un asegurado o redactar la respuesta a un reclamo |
-| B.2.2 | Aplicación móvil nativa | El productor registra la operación durante la visita al cliente |
-| B.2.3 | Suite de trabajo integrada | Mensajería, documentos y firma electrónica en el mismo entorno de trabajo |
-| B.2.4 | Telefonía y videollamada integradas | Atención del asegurado sin cambiar de herramienta |
-| B.2.5 | Detección de registros duplicados al cargar | Evita la doble ficha antes de que se produzca, en lugar de corregirla después |
-| B.2.6 | Acceso directo a la base de datos | Permite cruces con otros sistemas de la compañía y auditorías propias |
-| B.2.7 | Uso sin restricciones comerciales en la interfaz | Operación sin avisos de venta permanentes en pantalla |
+| ID | Criterio | Procedimiento de verificación | Aplicación en el rubro |
+|---|---|---|---|
+| B.2.1 | Asistente de inteligencia artificial | Buscar la función en el sistema y solicitarle el resumen de un registro | Resumir el historial de un asegurado o redactar una respuesta |
+| B.2.2 | Aplicación móvil nativa | Verificar la existencia de aplicación oficial en las tiendas de aplicaciones | El productor registra la operación durante la visita |
+| B.2.3 | Suite de trabajo integrada | Enumerar las herramientas incluidas más allá del CRM y comprobar que operan sobre los mismos datos | Mensajería, documentos y firma en el mismo entorno |
+| B.2.4 | Telefonía y videollamada integradas | Verificar la existencia de la función dentro del sistema | Atención sin cambiar de herramienta |
+| B.2.5 | Detección de registros duplicados al cargar | Intentar crear un asegurado ya existente y observar si el sistema lo advierte antes de guardar | Evita la doble ficha antes de que se produzca |
+| B.2.6 | Acceso directo a la base de datos | Intentar una consulta directa sobre el almacenamiento del sistema | Cruces con otros sistemas y auditorías propias |
+| B.2.7 | Uso sin restricciones comerciales en la interfaz | Recorrer las pantallas de uso diario y registrar la presencia de avisos de venta | Operación sin interrupciones comerciales |
 
 ---
 
-## 3.6 Criterios descartados
+## 3.7 Criterios descartados
 
-Se evaluó su incorporación y se resolvió excluirlos. El motivo común: **no discriminan**. Una capacidad que las tres plataformas resuelven de manera equivalente no aporta información para decidir, y agregarla solo diluye el resultado.
+Se evaluó su incorporación y se resolvió excluirlos. El motivo común: **no discriminan**. Una capacidad que las tres plataformas resuelven de manera equivalente no aporta información para decidir.
 
 | Criterio considerado | Motivo de la exclusión |
 |---|---|
-| Cantidad de idiomas disponibles | Las tres superan holgadamente lo necesario; solo importa la calidad del español, que sí se evalúa en A.5.5 |
+| Cantidad de idiomas disponibles | Las tres superan holgadamente lo necesario; solo importa la calidad del español, evaluada en A.5.5 |
 | Estilo de la interfaz de programación | Las tres ofrecen una; el estilo es una preferencia técnica sin consecuencia para el negocio |
 | Existencia de tableros visuales | Cubierto por A.5.13, que evalúa la capacidad y no su presentación |
-| Navegación por teclado | Diferencia real entre las plataformas, pero sin impacto medible en la operación de una aseguradora |
+| Navegación por teclado | Diferencia real entre las plataformas, pero sin impacto medible en la operación |
 | Gestión de inventario y constructor de sitios web | Funciones ajenas al problema que se busca resolver |
 
-## 3.7 Resumen
+## 3.8 Resumen
 
 | Parte | Categoría | Criterios |
 |---|---|:---:|
