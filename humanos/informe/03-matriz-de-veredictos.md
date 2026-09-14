@@ -64,26 +64,28 @@ La distinción entre ● y ◐ no altera el veredicto técnico: ambas indican qu
 
 ## 3.1 Recuento provisorio
 
+Sobre 44 características evaluadas:
+
 | | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
-| Cubiertas de fábrica ● | 30 | 17 | 12 |
-| Cubiertas con licencia ◐ | 3 | 1 | 9 |
-| **Total cubiertas** | **33** | **18** | **21** |
-| No disponibles ○ | 3 | 15 | 5 |
-| Sin verificar ◍ | 3 | 8 | 12 |
+| Cubiertas de fábrica ● | 34 | 18 | 15 |
+| Cubiertas con licencia ◐ | 4 | 1 | 10 |
+| **Total cubiertas** | **38** | **19** | **25** |
+| No disponibles ○ | 3 | 14 | 5 |
+| Sin verificar ◍ | 3 | 11 | 14 |
 
 El recuento es provisorio y no constituye la conclusión: una ventaja en la interfaz de programación no pesa lo mismo que modelar una póliza. La ponderación por criticidad y el polinomio de valor se desarrollan en la sección 6.
 
 ## 3.2 Qué muestra la distribución de símbolos
 
-**Las carencias reales se concentran en una plataforma.** De las veintitrés características no disponibles en ninguna edición, quince corresponden a Twenty. No es una cuestión de plan contratado: son funciones que el producto no tiene, y ningún presupuesto las incorpora. El contraste con su bajo número de licencias adicionales (una sola) describe con precisión su posición: lo que ofrece es completo y gratuito, pero ofrece menos.
+**Las carencias reales se concentran en una plataforma.** De las veintidós características no disponibles en ninguna edición, catorce corresponden a Twenty. No es una cuestión de plan contratado: son funciones que el producto no tiene, y ningún presupuesto las incorpora. El contraste con su única licencia adicional describe su posición con precisión: lo que ofrece es completo y sin costo, pero ofrece menos.
 
-**Bitrix24 concentra las licencias adicionales.** Nueve de sus veintiún características cubiertas requieren un plan pago. Funcionalmente resuelve casi todo lo que se le pide; la pregunta que abre es económica y se responde en la sección 6, con el costo proyectado.
+**Bitrix24 concentra las licencias adicionales.** Diez de sus veinticinco características cubiertas requieren un plan pago. Funcionalmente resuelve buena parte de lo que se le pide; la pregunta que abre es económica y se responde en la sección 6, con el costo proyectado.
 
-**EspoCRM cubre más con menos licencias.** Treinta de fábrica y tres con el módulo adicional. Sus tres carencias reales son acotadas y de ellas dos corresponden a redes sociales, que también faltan en Twenty.
+**EspoCRM cubre más con menos licencias.** Treinta y cuatro de fábrica y cuatro con el módulo adicional. Sus tres carencias reales son acotadas, y dos de ellas corresponden a redes sociales, que también faltan en Twenty.
 
 ## 3.3 Dos observaciones sobre la lectura de la matriz
 
 **El bloque 4.8 se resuelve por modalidad, no por producto.** Las cuatro características de continuidad y autonomía favorecen a las instalaciones propias por la misma razón estructural: quien controla el servidor controla el respaldo, el momento de actualizar y la permanencia de los datos. No son cuatro hallazgos independientes sino una consecuencia de la modalidad de despliegue, y así se interpretan en las conclusiones.
 
-**Veintitrés celdas siguen sin verificar.** Ninguna se completa por deducción. Hasta que se comprueben sobre el sistema, el recuento debe leerse como provisorio, en particular el de Bitrix24, que concentra doce de ellas por ser la única plataforma que no admite inspección interna.
+**Veintiocho celdas siguen sin verificar.** Ninguna se completa por deducción. Hasta que se comprueben sobre el sistema, el recuento debe leerse como provisorio, en particular el de Bitrix24, que concentra catorce de ellas por ser la única plataforma que no admite inspección interna.
