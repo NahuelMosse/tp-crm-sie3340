@@ -168,6 +168,23 @@ El valor 1 es el más exigente de demostrar, y es deliberado. Que algo no aparez
 
 **Entre solicitados y no solicitados:** Parte A **85 %**, Parte B **15 %**. Con esa proporción, una plataforma que cubriera toda la Parte B y la mitad de la Parte A queda por debajo de otra que cubra la Parte A completa sin ninguna capacidad adicional. Lo que el cliente pidió pesa más que lo que no pidió.
 
+### Las dos ponderaciones no se superponen
+
+Podría parecer que la criticidad y la proporción 85/15 miden lo mismo dos veces: que un criterio de la Parte B ya pesa poco por ser accesorio, y encima se lo multiplica por 0,15. No es así, porque **cada parte se normaliza por su propio máximo**:
+
+```
+% de la parte = Σ(valor × peso) / Σ(3 × peso)
+```
+
+Al dividir por el máximo de esa misma parte, el resultado queda entre 0 y 100 con independencia de si sus criterios son de núcleo o accesorios. Los pesos no agrandan ni achican el total de la parte: **solo ordenan la importancia de los criterios entre sí dentro de ella.**
+
+| Ponderación | Qué decide |
+|---|---|
+| **Criticidad ×3 / ×2 / ×1** | Cuánto pesa un criterio frente a los otros **de su misma parte** |
+| **85 / 15** | Cuánto pesa **cada parte** en el resultado final |
+
+De ahí se desprende cómo asignar la criticidad: **se compara cada criterio con los de su propia parte, no con los de la otra.** Dentro de la Parte B, la persistencia de la cartera pesa más que el asistente de inteligencia artificial, y eso se refleja con criticidades distintas. Sería un error asignarles a todos los criterios de la Parte B la criticidad más baja «porque la Parte B importa menos»: esa diferencia ya la introduce el 15 %, y repetirla anularía la distinción entre lo importante y lo marginal dentro del propio grupo.
+
 ## 3.7 Cálculo del resultado
 
 **Oferta técnica**, a partir de la primera escala:
