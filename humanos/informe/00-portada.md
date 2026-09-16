@@ -24,9 +24,9 @@ Documento de uso interno. Análisis independiente de productos y proveedores.
 **2. Las tres plataformas evaluadas**
 
 **3. Metodología de evaluación y trazabilidad**
-  3.1 La regla, en una frase
-  3.2 Lo que el escalón no mide
-  3.3 Cómo se escribe una escalera
+  3.1 La escala
+  3.2 Por qué tres valores y no cinco
+  3.3 Lo que la escala no mide
   3.4 Cuando el criterio no puntúa
   3.5 Evidencia exigida
   3.6 Ponderación
