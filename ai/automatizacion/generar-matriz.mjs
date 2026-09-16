@@ -77,26 +77,34 @@ const CRITERIOS = [
     ['A.5.19', 'Soporte técnico con compromiso de respuesta', 'soporte'],
   ]],
   ['B.1', 'Condiciones que impone el negocio asegurador', [
-    ['B.1.1', 'Persistencia de los datos sin uso continuo', 'soporte'],
-    ['B.1.2', 'Respaldo bajo control de la organización', 'soporte'],
-    ['B.1.3', 'Búsqueda y operación con volumen productivo', 'soporte'],
-    ['B.1.4', 'Control sobre el momento de actualizar', 'soporte'],
-    ['B.1.5', 'Control sobre la localización de los datos', 'soporte'],
-    ['B.1.6', 'Integridad de la ficha única del asegurado', 'soporte'],
-    ['B.1.7', 'Operación sin conexión a internet', 'soporte'],
+    ['B.1.1', 'Persistencia de los datos sin uso continuo', 'relevante'],
+    ['B.1.2', 'Respaldo bajo control de la organización', 'relevante'],
+    ['B.1.3', 'Búsqueda y operación con volumen productivo', 'relevante'],
+    ['B.1.4', 'Control sobre el momento de actualizar', 'relevante'],
+    ['B.1.5', 'Control sobre la localización de los datos', 'relevante'],
+    ['B.1.6', 'Integridad de la ficha única del asegurado', 'relevante'],
+    ['B.1.7', 'Operación sin conexión a internet', 'relevante'],
   ]],
   ['B.2', 'Capacidades por encima de lo solicitado', [
-    ['B.2.1', 'Asistente de inteligencia artificial', 'accesorio'],
-    ['B.2.2', 'Aplicación móvil nativa', 'accesorio'],
-    ['B.2.3', 'Suite de trabajo integrada', 'accesorio'],
-    ['B.2.4', 'Telefonía y videollamada integradas', 'accesorio'],
-    ['B.2.5', 'Detección de registros duplicados al cargar', 'accesorio'],
-    ['B.2.6', 'Acceso directo a la base de datos', 'accesorio'],
-    ['B.2.7', 'Uso sin restricciones comerciales en la interfaz', 'accesorio'],
+    ['B.2.1', 'Asistente de inteligencia artificial', 'marginal'],
+    ['B.2.2', 'Aplicación móvil nativa', 'marginal'],
+    ['B.2.3', 'Suite de trabajo integrada', 'marginal'],
+    ['B.2.4', 'Telefonía y videollamada integradas', 'marginal'],
+    ['B.2.5', 'Detección de registros duplicados al cargar', 'marginal'],
+    ['B.2.6', 'Acceso directo a la base de datos', 'marginal'],
+    ['B.2.7', 'Uso sin restricciones comerciales en la interfaz', 'marginal'],
   ]],
 ];
 
-const PESO = { nucleo: 3, soporte: 2, accesorio: 1 };
+// Peso por criterio. Unica ponderacion del calculo: la proporcion entre las
+// partes surge de la distribucion de los criterios, no de un segundo reparto.
+const PESO = {
+  nucleo: 6,      // solicitado, indispensable
+  soporte: 4,     // solicitado, mejora la operacion
+  accesorio: 2,   // solicitado, valor marginal
+  relevante: 2,   // no solicitado, condicion del negocio
+  marginal: 1,    // no solicitado, capacidad extra
+};
 
 // ── cargar resultados ────────────────────────────────────────────────────────
 const res = {};
