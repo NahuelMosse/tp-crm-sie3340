@@ -27,7 +27,7 @@ Documento de uso interno. Análisis independiente de productos y proveedores.
   3.1 La escala
   3.2 Por qué tres valores y no cinco
   3.3 Lo que la escala no mide, y la segunda escala
-  3.4 Cuando el criterio no puntúa
+  3.4 Criterios que no reciben valor
   3.5 Evidencia exigida
   3.6 Ponderación
   3.7 Cálculo del resultado
