@@ -124,29 +124,25 @@ La licencia no es trabajo sino dinero, así que no entra en ninguna de las dos e
 
 > Dos plataformas pueden obtener **3 en cumplimiento y 3 en costo** para el mismo criterio, y aun así diferir: una lo trae incluido y la otra dentro de un plan pago. La primera escala dice que ambas resuelven la necesidad; la segunda, que ninguna exige trabajo de implementación; y el registro de licencia, que una cuesta dinero y la otra no. **Las tres cosas son distintas y se miden por separado.**
 
-## 3.4 Criterios que no reciben valor
+## 3.4 Todos los criterios se puntúan en las tres plataformas
 
-No todos los criterios se pueden puntuar en las tres plataformas. Hay tres situaciones, y conviene distinguirlas porque significan cosas distintas.
+**Un criterio bien escrito siempre admite respuesta.** Si alguna plataforma no se puede evaluar en alguno, el criterio está formulado desde la solución en lugar de desde la necesidad, y corresponde reescribirlo.
 
-**No aplica.** La pregunta no tiene sentido para esa plataforma. Cuánta memoria consume el servidor es una pregunta válida para un sistema que se instala, y ninguna pregunta para uno que se contrata como servicio: no hay servidor que dimensionar.
+> **Ejemplo.** *"Cuánta memoria consume el servidor"* no tiene respuesta para un servicio en la nube: no hay servidor. Pero la necesidad detrás existe en los tres casos, y es otra: **qué recursos debe disponer la compañía para sostener el sistema.** Formulado así las tres responden — una no exige nada, otra corre en una máquina de escritorio, otra pide un servidor dedicado— y la comparación vuelve a ser posible.
 
-**Sin verificar.** La pregunta es válida pero no se pudo responder: la operación no se completó, o la plataforma no expone ese aspecto a la inspección.
+Esto importa sobre todo por imparcialidad. Un criterio escrito con las características de una modalidad adentro —*"acceso directo a la base de datos"*, *"control del servidor"*— le da la ventaja a esa modalidad **por definición y no por evaluación**: la alternativa en la nube no puede ganarlo nunca, no porque resuelva peor la necesidad sino por cómo está redactada la pregunta. Reescrito desde la necesidad —*"explotación de los datos por fuera del sistema"*— la ventaja puede seguir existiendo, pero como resultado del análisis y no como supuesto de partida.
 
-**Condicionado.** La respuesta no depende del producto sino de cómo lo implemente la compañía. Dónde van a residir los datos de una instalación propia lo decide quien la instala, no el sistema.
+Ocho criterios del catálogo tenían ese defecto y se reescribieron por esta razón.
 
-### Qué se hace con ellos
+### El único estado sin valor: sin verificar
 
-**Se excluyen del cálculo por los dos lados**: no suman al puntaje obtenido ni al máximo posible. El porcentaje de cada plataforma se calcula solo sobre los criterios que efectivamente recibieron valor.
+Queda una sola situación en la que un criterio no recibe valor, y **no es un problema del criterio sino del avance del trabajo**: todavía no se comprobó.
 
-> **Por qué.** Supongamos que un criterio no aplica a la plataforma en la nube. Si lo contáramos como incumplimiento, esa plataforma perdería puntos por no tener un servidor que nunca necesitó. Si lo contáramos como cumplimiento, ganaría puntos gratis por lo mismo. Sacarlo del cálculo es lo único que refleja la situación: **esa pregunta no forma parte de su evaluación.**
+Ocurre cuando la operación no se pudo completar o cuando la plataforma no expone ese aspecto a la inspección. Es un estado transitorio: cuando la comprobación se realiza, el criterio puntúa como cualquier otro.
 
-La misma lógica vale para los otros dos. Asignar un valor a algo que no se comprobó **convierte una ausencia de dato en un dato**, que es precisamente lo que una evaluación no debe hacer.
+**Se excluye del cálculo por los dos lados**: no suma al puntaje obtenido ni al máximo posible. El porcentaje de cada plataforma se calcula solo sobre lo efectivamente comprobado, porque **asignar un valor a algo que no se verificó convierte una ausencia de dato en un dato.**
 
-### Lo que el informe declara
-
-Cada plataforma publica cuántos criterios quedaron en cada estado, junto a su porcentaje. Sin ese dato el porcentaje engaña: **un 90 % sobre veinte criterios verificados no significa lo mismo que un 90 % sobre cincuenta.**
-
-Los criterios condicionados, además, se retoman en las conclusiones. No puntúan, pero son insumo de la recomendación: que la localización de los datos dependa de la compañía es, en sí mismo, una diferencia frente a una plataforma donde no se puede decidir.
+Cada plataforma publica cuántos criterios quedaron sin verificar junto a su porcentaje. Sin ese dato el porcentaje engaña: **un 90 % sobre veinte criterios comprobados no significa lo mismo que un 90 % sobre cincuenta.**
 
 ## 3.5 Evidencia exigida
 
