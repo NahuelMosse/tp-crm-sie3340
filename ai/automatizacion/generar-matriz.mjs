@@ -107,7 +107,7 @@ if (existsSync(RESULTADOS)) {
   }
 }
 
-const SIN_PUNTAJE = { 'sin-verificar': '◍', 'no-aplica': '—', 'condicionado': '◇' };
+const SIN_PUNTAJE = { 'sin-verificar': '◍' };
 
 const simbolo = (d) => {
   if (!d) return '◍';
@@ -168,9 +168,7 @@ function resumen(parte) {
   t += fila('Cubiertas de fábrica ●', x => puntua(x.d) && x.d.nivel > 1 && !x.d.licencia);
   t += fila('Cubiertas con licencia ◐', x => puntua(x.d) && x.d.nivel > 1 && x.d.licencia);
   t += fila('No disponibles ○', x => puntua(x.d) && x.d.nivel === 1);
-  t += fila('Sin verificar ◍', x => !x.d || x.d.estado === 'sin-verificar');
-  t += fila('No aplica —', x => x.d?.estado === 'no-aplica');
-  t += fila('Condicionado ◇', x => x.d?.estado === 'condicionado');
+  t += fila('Sin verificar ◍', x => !x.d || x.d.puntua === false);
   t += `| **% de cumplimiento** | ${PLATAFORMAS.map(([, nom]) => {
     const v = acum[parte][nom].filter(x => puntua(x.d));
     if (!v.length) return '—';
@@ -187,9 +185,9 @@ const cab = `# 5. Matriz de veredictos
 *Generada automáticamente a partir de los resultados registrados por las pruebas. No se transcribe ningún valor a mano.*
 
 **● cubierta  ◐ cubierta mediante licencia adicional  ○ no disponible en ninguna edición**
-**◍ sin verificar  — no aplica a esta plataforma  ◇ depende de la implementación**
+**◍ sin verificar**
 
-Los tres últimos no reciben puntaje y quedan fuera del cálculo, tanto del obtenido como del máximo posible. Se distinguen entre sí porque significan cosas distintas: uno es una comprobación pendiente, otro una pregunta que no corresponde, y el tercero un resultado que depende de una decisión de la organización.
+Lo no verificado no recibe puntaje y queda fuera del cálculo, tanto del obtenido como del máximo posible. Es un estado transitorio del trabajo, no una característica de la plataforma.
 
 La distinción entre ● y ◐ no altera el veredicto técnico: ambas indican que el producto resuelve la necesidad. El símbolo ◐ marca las que requieren una licencia, y esas filas alimentan la oferta económica. El símbolo ○ se reserva para lo que no existe en ninguna edición.
 

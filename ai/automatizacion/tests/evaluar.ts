@@ -74,43 +74,21 @@ export function registrar(e: Evaluacion) {
 }
 
 /**
- * Estados que no reciben puntaje. Los tres quedan fuera del cálculo, tanto del
- * puntaje obtenido como del máximo posible, pero por razones distintas y el
- * informe las distingue.
+ * Declara un criterio como no verificado. Es el único estado sin puntaje, y
+ * responde al avance del trabajo, no a una característica de la plataforma:
+ * cuando la comprobación se realiza, el criterio puntúa como cualquier otro.
+ *
+ * Si un criterio parece no aplicar a una plataforma, está mal formulado:
+ * corresponde reescribirlo desde la necesidad del negocio, no declararlo aparte.
  */
-export type SinPuntaje =
-  | 'sin-verificar'  // no se pudo comprobar
-  | 'no-aplica'      // la pregunta no corresponde a esta plataforma
-  | 'condicionado';  // depende de una decisión de la organización, no del producto
-
-function registrarSinPuntaje(
-  estado: SinPuntaje, criterio: string, plataforma: Plataforma, motivo: string,
-) {
+export function sinVerificar(criterio: string, plataforma: Plataforma, motivo: string) {
   if (!motivo?.trim()) {
     throw new Error(`[${criterio}/${plataforma}] el motivo es obligatorio`);
   }
   mkdirSync(DIR, { recursive: true });
   const archivo = join(DIR, `${criterio.replace(/\./g, '-')}.${plataforma}.json`);
   writeFileSync(archivo, JSON.stringify({
-    criterio, plataforma, puntua: false, estado, motivo, momento: new Date().toISOString(),
+    criterio, plataforma, puntua: false, motivo, momento: new Date().toISOString(),
   }, null, 2), 'utf8');
-  console.log(`  → ${criterio} · ${plataforma}: ${estado.toUpperCase()} — ${motivo}`);
+  console.log(`  → ${criterio} · ${plataforma}: SIN VERIFICAR — ${motivo}`);
 }
-
-/** La comprobación no se pudo completar. No se deduce ni se estima: se declara. */
-export const sinVerificar = (criterio: string, plataforma: Plataforma, motivo: string) =>
-  registrarSinPuntaje('sin-verificar', criterio, plataforma, motivo);
-
-/**
- * El criterio carece de sentido para esta plataforma: el consumo de servidor en
- * un servicio en la nube, por ejemplo. No es ventaja ni desventaja.
- */
-export const noAplica = (criterio: string, plataforma: Plataforma, motivo: string) =>
-  registrarSinPuntaje('no-aplica', criterio, plataforma, motivo);
-
-/**
- * El resultado no lo determina el producto sino cómo lo implemente la
- * organización. Aporta a las conclusiones, no al puntaje.
- */
-export const condicionado = (criterio: string, plataforma: Plataforma, motivo: string) =>
-  registrarSinPuntaje('condicionado', criterio, plataforma, motivo);
