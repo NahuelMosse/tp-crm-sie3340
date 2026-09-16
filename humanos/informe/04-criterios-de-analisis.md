@@ -105,8 +105,8 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 
 | ID | Criterio | Procedimiento de verificación | Criticidad |
 |---|---|---|:---:|
-| A.5.1 | Requerimientos de infraestructura moderados | Medir memoria y procesador consumidos en reposo y con la cartera cargada | Soporte |
-| A.5.2 | Instalación guiada sin conocimientos técnicos | Instalar desde cero registrando pasos, tiempo y si exige uso de consola | Soporte |
+| A.5.1 | Recursos que la compañía debe disponer para sostenerlo | Determinar qué infraestructura exige el sistema y contrastarla con la que una compañía pequeña tiene disponible | Soporte |
+| A.5.2 | Puesta en marcha sin perfil técnico especializado | Llevar el sistema desde cero hasta operativo, registrando pasos, tiempo y si exige conocimientos que la compañía no tiene | Soporte |
 | A.5.3 | Navegabilidad: pocos pasos para la operación diaria | Contar las acciones necesarias para registrar un asegurado con su póliza, desde el ingreso al sistema | Soporte |
 | A.5.4 | Aprendizaje sin capacitación previa | Pedir a una persona ajena al proyecto que complete cinco tareas frecuentes sin instrucción, y registrar cuántas logra | Soporte |
 | A.5.5 | Localización completa al español, modelo incluido | Recorrer el menú principal y una ficha, y contar cuántos nombres de objetos y campos permanecen en otro idioma | Núcleo |
@@ -119,7 +119,7 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 | A.5.12 | Registro de quién modificó cada dato | Modificar un registro con un usuario y buscar desde otro la constancia del cambio, con autor y momento | Núcleo |
 | A.5.13 | Indicadores de producción y cobranza | Construir una vista que muestre el total de primas por estado de cobranza | Soporte |
 | A.5.14 | Generación de informes | Producir un informe de producción por productor con criterios definidos por el usuario y exportarlo | Soporte |
-| A.5.15 | Interfaz de programación sin restricciones de uso | Crear un registro mediante la interfaz de programación y verificar la existencia de límites de volumen en la documentación | Soporte |
+| A.5.15 | Intercambio de datos con otros sistemas de la compañía | Crear y consultar registros desde fuera del sistema, y verificar si existen límites de volumen que condicionen el intercambio | Soporte |
 | A.5.16 | Ecosistema de integraciones disponible | Revisar el catálogo de conectores disponibles y su accesibilidad | Soporte |
 | A.5.17 | Documentación en español | Consultar la documentación oficial y verificar la disponibilidad del idioma | Soporte |
 | A.5.18 | Comunidad activa de usuarios | Publicar una consulta real en el foro oficial y medir el tiempo hasta la primera respuesta | Soporte |
@@ -136,12 +136,12 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 | ID | Criterio | Procedimiento de verificación | Fundamento |
 |---|---|---|---|
 | B.1.1 | Persistencia de los datos sin uso continuo | Verificar en las condiciones del servicio si existe un plazo de inactividad que afecte la cuenta o los datos | Una póliza permanece vigente años aunque nadie la consulte |
-| B.1.2 | Respaldo bajo control de la organización | Intentar obtener una copia completa de la información, incluidos los archivos adjuntos | La cartera es el activo principal de la compañía |
+| B.1.2 | Posibilidad de conservar una copia propia de la cartera | Obtener una copia completa de la información, incluidos los archivos adjuntos, y verificar si puede repetirse de forma periódica | La cartera es el activo principal de la compañía |
 | B.1.3 | Búsqueda y operación con volumen productivo | Cargar mil doscientos registros y buscar uno por texto; repetir el filtrado por campo | Una compañía pequeña administra decenas de miles de pólizas |
-| B.1.4 | Control sobre el momento de actualizar | Verificar si la organización decide cuándo se aplica una actualización o la impone el proveedor | Una actualización durante la operación interrumpe la atención |
-| B.1.5 | Control sobre la localización de los datos | Determinar dónde residen los datos y si la organización puede elegirlo | Los seguros de personas involucran datos sensibles (Ley 25.326) |
+| B.1.4 | Previsibilidad de los cambios del sistema | Determinar quién decide cuándo se aplica una actualización y con cuánta anticipación se anuncia | Un cambio inesperado durante la operación interrumpe la atención |
+| B.1.5 | Conocimiento y decisión sobre dónde residen los datos | Determinar dónde se alojan los datos y en qué medida la compañía puede elegirlo | Los seguros de personas involucran datos sensibles (Ley 25.326) |
 | B.1.6 | Integridad de la ficha única del asegurado | Cargar dos veces el mismo asegurado y observar si el sistema advierte la duplicación | La doble ficha es el error más costoso de una cartera |
-| B.1.7 | Operación sin conexión a internet | Interrumpir la conexión externa y comprobar si el sistema sigue operando | La atención no debería detenerse ante una caída del enlace |
+| B.1.7 | Continuidad de la atención ante una caída del enlace | Interrumpir la conexión externa y determinar qué parte de la operación diaria sigue siendo posible | La atención no debería detenerse por una falla de conectividad |
 
 ### B.2 Capacidades por encima de lo solicitado
 
@@ -154,7 +154,7 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 | B.2.3 | Suite de trabajo integrada | Enumerar las herramientas incluidas más allá del CRM y comprobar que operan sobre los mismos datos | Mensajería, documentos y firma en el mismo entorno |
 | B.2.4 | Telefonía y videollamada integradas | Verificar la existencia de la función dentro del sistema | Atención sin cambiar de herramienta |
 | B.2.5 | Detección de registros duplicados al cargar | Intentar crear un asegurado ya existente y observar si el sistema lo advierte antes de guardar | Evita la doble ficha antes de que se produzca |
-| B.2.6 | Acceso directo a la base de datos | Intentar una consulta directa sobre el almacenamiento del sistema | Cruces con otros sistemas y auditorías propias |
+| B.2.6 | Explotación de los datos por fuera del sistema | Extraer información para cruzarla con otros sistemas o auditarla, por la vía que cada plataforma habilite | Cruces con el sistema de emisión y auditorías propias |
 | B.2.7 | Uso sin restricciones comerciales en la interfaz | Recorrer las pantallas de uso diario y registrar la presencia de avisos de venta | Operación sin interrupciones comerciales |
 
 ---
