@@ -24,11 +24,11 @@ Documento de uso interno. Análisis independiente de productos y proveedores.
 **2. Las tres plataformas evaluadas**
 
 **3. Metodología de evaluación y trazabilidad**
-  3.1 Qué mide la escala
-  3.2 Cómo se determina el nivel
-  3.3 Evidencia exigida por nivel
-  3.4 Cuando una función exige licencia
-  3.5 Características sin verificar
+  3.1 La regla, en una frase
+  3.2 Lo que el escalón no mide
+  3.3 Cómo se escribe una escalera
+  3.4 Cuando el criterio no puntúa
+  3.5 Evidencia exigida
   3.6 Ponderación
   3.7 Cálculo del resultado
 
