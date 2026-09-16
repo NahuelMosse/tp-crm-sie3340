@@ -50,6 +50,8 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 
 ### A.1 Gestión de la cartera de pólizas
 
+*Criterios funcionales. Pregunta: ¿el usuario puede hacerlo desde el sistema?*
+
 | ID | Criterio | Procedimiento de verificación | Criticidad |
 |---|---|---|:---:|
 | A.1.1 | Modelado de la póliza como objeto propio | Crear una entidad Póliza con identidad propia y comprobar que aparece en el menú del sistema y admite registros | Núcleo |
@@ -59,6 +61,8 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 | A.1.5 | Operación masiva sobre la cartera | Seleccionar varias pólizas del listado y modificar un campo en todas con una sola acción | Soporte |
 
 ### A.2 Gestión comercial y de marketing
+
+*Criterios funcionales. Pregunta: ¿el usuario puede hacerlo desde el sistema?*
 
 | ID | Criterio | Procedimiento de verificación | Criticidad |
 |---|---|---|:---:|
@@ -74,6 +78,8 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 
 ### A.3 Atención al asegurado
 
+*Criterios funcionales. Pregunta: ¿el usuario puede hacerlo desde el sistema?*
+
 | ID | Criterio | Procedimiento de verificación | Criticidad |
 |---|---|---|:---:|
 | A.3.1 | Gestión de reclamos como casos con seguimiento | Crear un reclamo asociado a un asegurado, asignarle responsable y estado, y cambiarlo de estado | Núcleo |
@@ -84,6 +90,8 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 
 ### A.4 Intercambio de datos y correo
 
+*Criterios funcionales. Pregunta: ¿el usuario puede hacerlo desde el sistema?*
+
 | ID | Criterio | Procedimiento de verificación | Criticidad |
 |---|---|---|:---:|
 | A.4.1 | Importación desde los formatos que usa el cliente | Intentar importar un archivo de planilla de cálculo, y verificar si ofrece conexión con correo electrónico y agenda de contactos | Soporte |
@@ -92,6 +100,8 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 | A.4.4 | Exportación de la cartera sin pérdida de datos | Exportar los registros importados y comparar el archivo resultante con el original: cantidad de filas, acentuación y campos vacíos | Soporte |
 
 ### A.5 Criterios técnicos de evaluación
+
+*Criterios no funcionales. Pregunta: ¿el sistema satisface la condición que el negocio requiere?*
 
 | ID | Criterio | Procedimiento de verificación | Criticidad |
 |---|---|---|:---:|
@@ -121,6 +131,8 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 
 ### B.1 Condiciones que impone el negocio asegurador
 
+*Criterios no funcionales. Pregunta: ¿el sistema satisface la condición que el negocio requiere?*
+
 | ID | Criterio | Procedimiento de verificación | Fundamento |
 |---|---|---|---|
 | B.1.1 | Persistencia de los datos sin uso continuo | Verificar en las condiciones del servicio si existe un plazo de inactividad que afecte la cuenta o los datos | Una póliza permanece vigente años aunque nadie la consulte |
@@ -132,6 +144,8 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 | B.1.7 | Operación sin conexión a internet | Interrumpir la conexión externa y comprobar si el sistema sigue operando | La atención no debería detenerse ante una caída del enlace |
 
 ### B.2 Capacidades por encima de lo solicitado
+
+*Criterios funcionales. Pregunta: ¿el usuario puede hacerlo desde el sistema?*
 
 | ID | Criterio | Procedimiento de verificación | Aplicación en el rubro |
 |---|---|---|---|
