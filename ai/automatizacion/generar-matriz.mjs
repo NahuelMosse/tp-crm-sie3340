@@ -102,8 +102,8 @@ const PESO = {
   nucleo: 6,      // solicitado, indispensable
   soporte: 4,     // solicitado, mejora la operacion
   accesorio: 2,   // solicitado, valor marginal
-  relevante: 2,   // no solicitado, condicion del negocio
-  marginal: 1,    // no solicitado, capacidad extra
+  relevante: 3,   // no solicitado, condicion del negocio
+  marginal: 2,    // no solicitado, capacidad extra
 };
 
 // ── cargar resultados ────────────────────────────────────────────────────────

@@ -165,8 +165,8 @@ El valor 1 es el más exigente de demostrar, y es deliberado. Que algo no aparez
 | **6** | Solicitado — núcleo | Lo que la compañía no puede dejar de hacer: cartera, reclamos, ficha del asegurado |
 | **4** | Solicitado — soporte | Lo que mejora la operación sin ser indispensable |
 | **2** | Solicitado — accesorio | Lo solicitado que aporta valor marginal |
-| **2** | No solicitado — relevante | Condiciones que el negocio impone aunque el cliente no las haya enunciado |
-| **1** | No solicitado — marginal | Capacidades que ninguna fuente pidió |
+| **3** | No solicitado — relevante | Condiciones que el negocio impone aunque el cliente no las haya enunciado |
+| **2** | No solicitado — marginal | Capacidades que ninguna fuente pidió |
 
 ### La proporción entre lo solicitado y lo no solicitado surge de los pesos
 
@@ -174,10 +174,10 @@ No hace falta un segundo cálculo que reparta entre las dos partes: **la distrib
 
 | Parte | Criterios | Peso acumulado | Participación |
 |---|:---:|:---:|:---:|
-| **A — Solicitados** | 23 | 112 | **84,2 %** |
-| **B — No solicitados** | 14 | 21 | **15,8 %** |
+| **A — Solicitados** | 42 | 200 | **85,1 %** |
+| **B — No solicitados** | 14 | 35 | **14,9 %** |
 
-Con estos pesos, lo que el cliente pidió representa cinco sextos del máximo posible. Una plataforma que cubriera la totalidad de la Parte B y la mitad de la Parte A queda por debajo de otra que cubra la Parte A completa sin ninguna capacidad adicional, que es el orden correcto.
+Con estos pesos, lo que el cliente pidió representa casi seis séptimos del máximo posible. Una plataforma que cubriera la totalidad de la Parte B y la mitad de la Parte A queda por debajo de otra que cubra la Parte A completa sin ninguna capacidad adicional, que es el orden correcto.
 
 **Esa proporción es una consecuencia verificable de la tabla de pesos, no un supuesto agregado.** Si se incorporan o retiran criterios, la participación se recalcula sola y el informe la publica actualizada.
 
