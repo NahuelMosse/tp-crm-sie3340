@@ -2,19 +2,19 @@
 
 ## 3.1 La escala
 
-Cada criterio recibe uno de tres valores. La pregunta es siempre la misma:
-
-> **¿El usuario puede hacerlo desde el sistema, cada vez que lo necesita?**
+Todos los criterios se puntúan con los mismos tres valores:
 
 | Valor | | Significa |
 |:---:|---|---|
-| **3** | **Cumple** | Sí. El sistema lo resuelve |
-| **2** | **Cumple con reparo** | Lo logra, pero saliendo del sistema o repitiendo un paso manual cada vez |
-| **1** | **No cumple** | No hay forma de lograrlo |
+| **3** | **Cumple** | La necesidad queda resuelta |
+| **2** | **Cumple con reparo** | Queda resuelta, pero con un costo o una salvedad permanente |
+| **1** | **No cumple** | No queda resuelta |
 
-Eso es todo. **Una sola regla para los cincuenta y seis criterios.**
+Lo único que cambia es **la pregunta**, y depende de qué clase de criterio se esté evaluando.
 
-### Qué cae en cada valor
+### Criterios funcionales — qué hace el sistema
+
+> **¿El usuario puede hacerlo desde el sistema, cada vez que lo necesita?**
 
 | Situación | Valor |
 |---|:---:|
@@ -23,12 +23,41 @@ Eso es todo. **Una sola regla para los cincuenta y seis criterios.**
 | Está en un plan pago, y contratándolo funciona | **3** |
 | Hay que exportar a una planilla y trabajar afuera | **2** |
 | Hay que repetir un procedimiento manual en cada uso | **2** |
-| Hay que usar otra herramienta para completarlo | **2** |
 | No existe en ninguna edición del producto | **1** |
 
-La frontera entre 3 y 2 es **si el trabajo extra se hace una vez o cada vez**. Configurar es una vez: después el usuario opera normal. Exportar a una planilla es cada vez: el sistema no resuelve la necesidad, la resuelve el usuario por fuera.
+**Entre 3 y 2**, la frontera es si el trabajo extra se hace **una vez o cada vez**. Configurar es una vez: después el usuario opera normal. Exportar a una planilla es cada vez: la necesidad la resuelve el usuario por fuera, no el sistema.
 
-La frontera entre 2 y 1 es **si existe alguna vía**. Si hay una forma de lograrlo, aunque sea incómoda, es 2.
+**Entre 2 y 1**, la frontera es si existe alguna vía. Si hay forma de lograrlo, aunque sea incómoda, es 2.
+
+Aplica a los criterios de los grupos A.1 a A.4 y B.2: capacidades concretas que alguien ejecuta.
+
+### Criterios no funcionales — cómo se comporta el sistema
+
+Acá la pregunta anterior no tiene sentido: nadie *ejecuta* la documentación en español ni el consumo de memoria. Son condiciones que el sistema satisface o no.
+
+> **¿El sistema satisface la condición que el negocio requiere?**
+
+| Situación | Valor |
+|---|:---:|
+| La satisface | **3** |
+| La satisface con una limitación que la compañía debe asumir | **2** |
+| No la satisface | **1** |
+
+| Ejemplo de criterio | 3 | 2 | 1 |
+|---|---|---|---|
+| Documentación en español | Oficial y completa | Parcial, o mantenida por la comunidad | No hay |
+| Persistencia sin uso continuo | Los datos permanecen sin condiciones | Permanecen si se cumple una condición de uso | Se pierden |
+| Volumen productivo | Opera con el volumen esperado | Opera con degradación advertible | No opera |
+| Concurrencia sobre un registro | Resuelve el conflicto entre usuarios | Lo permite pero deja constancia | Se pierden datos sin aviso |
+| Consumo de infraestructura | Dentro de lo que la compañía puede sostener | Exige infraestructura por encima de lo previsto | Fuera de su alcance |
+
+Aplica a los criterios del grupo A.5 y B.1: cualidades del sistema, no acciones sobre él.
+
+**El valor 2 significa lo mismo en ambos casos**: la necesidad queda cubierta, pero con un costo o una salvedad que la compañía carga de forma permanente. Esa equivalencia es lo que permite sumar ambos tipos de criterio en un mismo puntaje.
+
+### Dónde se declara qué pregunta corresponde
+
+Cada grupo de criterios de la sección 4 indica cuál de las dos preguntas se le aplica. No se decide criterio por criterio: **está fijado por grupo**, y esa asignación no cambia durante la evaluación.
 
 ## 3.2 Por qué tres valores y no cinco
 
@@ -82,6 +111,12 @@ Los dos valores son independientes y juntos describen la situación completa:
 Cuando el cumplimiento es **1**, el costo de implementación no se puntúa: no hay nada que implementar.
 
 Cuando el cumplimiento es **2**, el costo es siempre **1**: un procedimiento que se repite en cada uso es la forma más cara de resolver una necesidad, aunque no requiera ninguna puesta en marcha.
+
+### Los criterios no funcionales no llevan costo de implementación
+
+La segunda escala solo tiene sentido donde hay algo que poner en marcha. Que la documentación esté en español, que exista una comunidad activa o que los datos persistan sin uso son cualidades del producto: no se implementan, vienen con él.
+
+Esos criterios reciben **un solo valor**, el de cumplimiento, y quedan fuera del índice de implementación. La excepción son los pocos criterios no funcionales que sí describen algo configurable —la automatización de procesos, por ejemplo, o la restricción de acceso por usuario—, que llevan los dos valores como cualquier criterio funcional.
 
 ### La licencia va aparte
 

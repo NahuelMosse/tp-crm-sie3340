@@ -24,7 +24,7 @@ Documento de uso interno. Análisis independiente de productos y proveedores.
 **2. Las tres plataformas evaluadas**
 
 **3. Metodología de evaluación y trazabilidad**
-  3.1 La escala
+  3.1 La escala y las dos preguntas
   3.2 Por qué tres valores y no cinco
   3.3 Lo que la escala no mide, y la segunda escala
   3.4 Criterios que no reciben valor
