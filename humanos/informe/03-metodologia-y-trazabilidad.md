@@ -1,98 +1,87 @@
 # 3. Metodología de evaluación y trazabilidad
 
-## 3.1 La regla, en una frase
+## 3.1 La escala
 
-**Cada criterio tiene cinco escalones. Se marca el más alto que el sistema alcanza.**
+Cada criterio recibe uno de tres valores. La pregunta es siempre la misma:
 
-Los escalones describen **qué resuelve** el sistema, en orden creciente. Cada uno incluye al anterior: si alcanza el cuarto, cumple también el tercero. Evaluar un criterio consiste en leer los cinco renglones y señalar hasta dónde llega.
+> **¿El usuario puede hacerlo desde el sistema, cada vez que lo necesita?**
 
-> **Ejemplo — modelado de la póliza**
+| Valor | | Significa |
+|:---:|---|---|
+| **3** | **Cumple** | Sí. El sistema lo resuelve |
+| **2** | **Cumple con reparo** | Lo logra, pero saliendo del sistema o repitiendo un paso manual cada vez |
+| **1** | **No cumple** | No hay forma de lograrlo |
+
+Eso es todo. **Una sola regla para los cincuenta y seis criterios.**
+
+### Qué cae en cada valor
+
+| Situación | Valor |
+|---|:---:|
+| El sistema lo hace | **3** |
+| Hay que configurarlo una vez, después funciona | **3** |
+| Está en un plan pago, y contratándolo funciona | **3** |
+| Hay que exportar a una planilla y trabajar afuera | **2** |
+| Hay que repetir un procedimiento manual en cada uso | **2** |
+| Hay que usar otra herramienta para completarlo | **2** |
+| No existe en ninguna edición del producto | **1** |
+
+La frontera entre 3 y 2 es **si el trabajo extra se hace una vez o cada vez**. Configurar es una vez: después el usuario opera normal. Exportar a una planilla es cada vez: el sistema no resuelve la necesidad, la resuelve el usuario por fuera.
+
+La frontera entre 2 y 1 es **si existe alguna vía**. Si hay una forma de lograrlo, aunque sea incómoda, es 2.
+
+## 3.2 Por qué tres valores y no cinco
+
+La precisión no viene de graduar cada criterio, viene de **tener muchos criterios finos**.
+
+Una escala de cinco valores obliga a distinguir entre "cumple bastante" y "cumple casi del todo", y esa distinción depende de quién puntúa. Con tres valores la pregunta es cerrada y la respuesta es la misma para cualquiera que mire el sistema.
+
+Lo que se pierde en graduación se recupera dividiendo el criterio.
+
+> **Ejemplo.** *"Seguimiento de pólizas"* no se evalúa como una sola cosa con una nota de 1 a 5. Se divide en criterios independientes —representar la póliza, registrar su prima y vigencia, vincularla al asegurado, conservar su historial— y cada uno recibe 3, 2 o 1.
 >
-> | | Escalón |
-> |:---:|---|
-> | **1** | La póliza no se puede representar |
-> | **2** | Se representa con campos agregados a una entidad existente |
-> | **3** | Se representa como entidad propia, con sus campos |
-> | **4** | Además, vinculada al asegurado en ambos sentidos |
-> | **5** | Además, con historial de cambios de cada póliza |
->
-> EspoCRM alcanza el escalón 5. Twenty, el 3: su objeto propio existe pero no conserva historial.
+> Una plataforma que modela la póliza pero no guarda historial obtiene 3 en los primeros y 1 en el último. Otra que hace las cuatro cosas obtiene 3 en las cuatro. **La diferencia aparece en el total, con más nitidez que si ambas hubieran recibido una nota global.**
 
-No hay cuentas, ni promedios, ni escalas que interpretar. **Dos personas que miren el mismo sistema marcan el mismo escalón**, porque cada uno describe un hecho observable y no un grado de satisfacción.
+Esta es la razón por la que los veinte requerimientos del pedido se convirtieron en cuarenta y dos criterios: la granularidad está en el catálogo, no en la escala.
 
-## 3.2 Lo que el escalón NO mide
+## 3.3 Lo que la escala no mide
 
-**Cómo el sistema consigue resolverlo no cambia el escalón.** Si una plataforma trae la capacidad de fábrica y otra exige configurarla, ambas alcanzan el mismo escalón siempre que el resultado sea el mismo. La necesidad del cliente queda igualmente satisfecha.
+**Cómo el sistema resuelve la necesidad no cambia el valor.** Si una plataforma trae la capacidad de fábrica y otra exige configurarla una vez, ambas obtienen **3**: el usuario termina haciendo su trabajo desde el sistema en los dos casos.
 
-Lo que cambia es el **costo**, y ahí sí se distinguen:
+Lo que cambia es el costo, y ahí sí se distinguen:
 
-| Vía | Costo que implica | Dónde se mide |
+| Vía | Costo | Dónde se mide |
 |---|---|---|
 | Viene de fábrica | Ninguno | — |
 | Se configura | Horas de puesta en marcha | Oferta económica |
-| Se programa | Horas de desarrollo y de mantenimiento posterior | Oferta económica |
-| Exige un plan pago | Licencia | Oferta económica |
+| Se programa | Horas de desarrollo y mantenimiento | Oferta económica |
+| Exige plan pago | Licencia | Oferta económica |
 
-Cada evaluación registra la vía junto al escalón, pero como insumo del costo. **Configurar no hace peor al sistema: hace más caro el proyecto.**
-
-Esta separación corrige un error de la primera versión de esta metodología, que puntuaba según la vía de obtención. Producía un resultado engañoso: una plataforma que modela la póliza con relaciones e historial obtenía el mismo valor que otra que solo admite campos sueltos, porque ambas requerían configuración. El puntaje medía el camino en lugar del destino.
-
-## 3.3 Cómo se escribe una escalera
-
-Cada criterio de la sección 4 publica la suya. Se construyen con tres reglas.
-
-**Cada escalón describe un hecho observable, no un grado.** No *"cumple parcialmente"* sino *"se representa como entidad propia"*. La prueba de que un escalón está bien escrito es que dos personas no puedan discrepar sobre si el sistema lo alcanza.
-
-**El escalón 5 es lo que el negocio necesita, no lo máximo imaginable.** No se reserva para una capacidad ideal que ningún producto tiene: se ubica en lo que resuelve la necesidad de una compañía de seguros. Una plataforma puede y debe poder alcanzarlo.
-
-**El escalón 1 es la ausencia.** Siempre significa que la necesidad no se cubre por ninguna vía.
-
-Las escaleras de criterios con medición numérica fijan sus cortes **antes de medir**, contra lo que la operación requiere y no contra lo que obtuvo la mejor de las tres. Si los cortes dependieran de los resultados, el valor de una plataforma cambiaría al agregar o quitar otra del análisis.
-
-> **Ejemplo con medición — consumo de memoria**
->
-> | | Escalón |
-> |:---:|---|
-> | **1** | Más de 4 GB |
-> | **2** | Entre 2 y 4 GB |
-> | **3** | Entre 1 y 2 GB |
-> | **4** | Entre 500 MB y 1 GB |
-> | **5** | Menos de 500 MB |
-
-> **Ejemplo con comportamiento — carga de un asegurado duplicado**
->
-> | | Escalón |
-> |:---:|---|
-> | **1** | Crea el duplicado y afecta la ficha original |
-> | **2** | Crea el duplicado sin dejar rastro |
-> | **3** | Crea el duplicado, pero queda registrado quién y cuándo |
-> | **4** | Advierte antes de guardar y permite decidir |
-> | **5** | Advierte y ofrece unificar las fichas |
-
-La misma forma sirve para capacidades, mediciones y comportamientos. **No hay tipos de escala que elegir ni casos que caigan en dos categorías.**
+Cada evaluación registra la vía junto al valor, pero como insumo del costo. **Configurar no hace peor al sistema: hace más caro el proyecto.**
 
 ## 3.4 Cuando el criterio no puntúa
-
-Tres situaciones quedan fuera. En todas el criterio se documenta pero **no recibe escalón**, y se excluye del puntaje obtenido y del máximo posible.
 
 | Estado | Cuándo | Ejemplo |
 |---|---|---|
 | **No aplica** | La pregunta carece de sentido para esa plataforma | El consumo de servidor en un servicio en la nube |
 | **Sin verificar** | La comprobación no se pudo completar | Un aspecto que la plataforma no expone |
-| **Condicionado** | El resultado lo determina la organización, no el producto | Dónde residen los datos en una instalación propia |
+| **Condicionado** | Lo determina la organización, no el producto | Dónde residen los datos en una instalación propia |
 
-Si "no aplica" contara como cumplimiento, la plataforma en la nube ganaría puntos por no tener servidor; si contara como incumplimiento, los perdería por lo mismo. Ninguna refleja la realidad. **Completar por deducción convierte una ausencia de dato en un dato.**
+Los tres se documentan pero no reciben valor, y quedan fuera del puntaje obtenido y del máximo posible.
+
+Si "no aplica" contara como cumplimiento, la plataforma en la nube ganaría puntos por no tener servidor; si contara como incumplimiento, los perdería por lo mismo. **Completar por deducción convierte una ausencia de dato en un dato.**
 
 El informe declara cuántos criterios quedaron en cada estado: un porcentaje calculado sobre veinte criterios no es comparable con uno calculado sobre cincuenta.
 
 ## 3.5 Evidencia exigida
 
-| Situación | Qué se exige |
-|---|---|
-| Se marca un escalón | Registro del sistema alcanzándolo: captura, respuesta de la interfaz de programación o video |
-| Se marca el escalón 1 | **Constancia en la documentación oficial del fabricante** de que la capacidad no existe |
+| Valor | Qué se exige |
+|:---:|---|
+| **3** | Registro del sistema resolviéndolo: captura, respuesta de la interfaz de programación o video |
+| **2** | Descripción del procedimiento externo y del trabajo que agrega en cada uso |
+| **1** | **Constancia en la documentación oficial del fabricante** de que la capacidad no existe |
 
-La segunda es la más exigente, y es deliberado. Que algo no aparezca en la instalación de prueba no prueba que el producto no lo tenga: puede estar en otro menú, requerir activación o depender de un módulo.
+El valor 1 es el más exigente de demostrar, y es deliberado. Que algo no aparezca en la instalación de prueba no prueba que el producto no lo tenga: puede estar en otro menú, requerir activación o depender de un módulo.
 
 **Una prueba que falla no prueba que la plataforma falle.** Cada resultado negativo se revisa antes de convertirse en veredicto: se descarta primero que el fallo provenga del procedimiento, del instrumento de prueba o de una decisión de configuración propia.
 
@@ -111,8 +100,8 @@ La segunda es la más exigente, y es deliberado. Que algo no aparezca en la inst
 ## 3.7 Cálculo del resultado
 
 ```
-puntaje obtenido  =  Σ (escalón × peso de criticidad)
-puntaje máximo    =  Σ (5 × peso de criticidad)      solo sobre los criterios puntuados
+puntaje obtenido  =  Σ (valor × peso de criticidad)
+puntaje máximo    =  Σ (3 × peso de criticidad)      solo sobre los criterios puntuados
 % de cumplimiento =  puntaje obtenido / puntaje máximo × 100
 
 oferta técnica    =  0,85 × (% Parte A)  +  0,15 × (% Parte B)
@@ -122,7 +111,7 @@ valor total       =  0,70 × oferta técnica  +  0,30 × puntaje económico
 
 El costo proyectado a cinco años incluye licencias, infraestructura, horas de implementación según la vía registrada en cada criterio, y administración.
 
-La proporción 70/30 refleja que la decisión es primero funcional: un sistema barato que no cubre lo que la compañía necesita no resuelve el problema. El 30 % alcanza para que una diferencia económica significativa altere el orden entre alternativas técnicamente parejas, que es lo que debe hacer.
+La proporción 70/30 refleja que la decisión es primero funcional: un sistema barato que no cubre lo que la compañía necesita no resuelve el problema. El 30 % alcanza para que una diferencia económica significativa altere el orden entre alternativas técnicamente parejas.
 
 ## 3.8 Origen de cada afirmación
 
@@ -140,11 +129,11 @@ La proporción 70/30 refleja que la decisión es primero funcional: un sistema b
 
 Las pruebas se automatizaron con una herramienta de automatización de navegador, con tres consecuencias sobre la calidad del análisis.
 
-**El mismo procedimiento se ejecuta sobre las tres plataformas.** Cargar un asegurado en una y en otra no es una comparación entre dos personas operando a distinta velocidad, sino el mismo recorrido evaluado con la misma escalera.
+**El mismo procedimiento se ejecuta sobre las tres plataformas.** Cargar un asegurado en una y en otra no es una comparación entre dos personas operando a distinta velocidad, sino el mismo recorrido evaluado con la misma pregunta.
 
-**El escalón se marca durante la ejecución**, junto al código que lo comprueba. La matriz de la sección 5 se genera a partir de esos registros: **ningún valor del informe se transcribe a mano.**
+**El valor se registra durante la ejecución**, junto al código que lo comprueba. La matriz de la sección 5 se genera a partir de esos registros: **ningún valor del informe se transcribe a mano.**
 
-**La evidencia queda registrada.** Cada ejecución produce video y capturas que respaldan el escalón marcado y permiten reconstruir cómo se llegó a él.
+**La evidencia queda registrada.** Cada ejecución produce video y capturas que respaldan el valor asignado y permiten reconstruir cómo se llegó a él.
 
 ## 3.10 Limitaciones de la evidencia
 
@@ -158,7 +147,7 @@ Las pruebas se automatizaron con una herramienta de automatización de navegador
 
 ## 3.11 Correcciones aplicadas durante el análisis
 
-**El sistema de puntuación se rehízo.** La primera versión puntuaba según la vía de obtención, lo que hacía que dos plataformas con capacidades distintas obtuvieran el mismo valor por requerir ambas configuración. Se reemplazó por la escalera de cinco escalones, y el esfuerzo de implementación pasó a la oferta económica.
+**El sistema de puntuación se rehízo dos veces.** La primera versión puntuaba de 1 a 5 según la vía de obtención de cada capacidad, lo que hacía que dos plataformas con capacidades distintas obtuvieran el mismo valor por requerir ambas configuración: medía el camino en lugar del destino. La segunda definía una escala propia para cada criterio, lo que eliminaba la ambigüedad pero obligaba a manejar cincuenta y seis reglas distintas. La versión definitiva usa una sola pregunta y tres valores, y recupera la precisión dividiendo los criterios en unidades más finas.
 
 **Detección de restricciones comerciales por texto de pantalla.** El primer procedimiento buscaba expresiones como "mejore su plan" en el contenido de la página. Daba positivo siempre en una de las plataformas, porque ese botón está fijo en su menú lateral con independencia de la función que se use. Se descartó: la restricción se determina completando la operación, nunca por la presencia de un texto.
 
