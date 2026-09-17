@@ -16,10 +16,14 @@ const RAIZ = process.argv[2] ?? AQUI;
 const RESULTADOS = join(AQUI, 'resultados');
 const SALIDA = join(RAIZ, 'humanos', 'informe');
 
+// Alternativas, no plataformas: un plan que cambia lo que el producto
+// resuelve se evalua por separado. Los que solo agregan volumen no entran.
 const PLATAFORMAS = [
-  ['espocrm', 'EspoCRM'],
-  ['twenty', 'Twenty'],
-  ['bitrix24', 'Bitrix24'],
+  ['espocrm', 'EspoCRM Community'],
+  ['espocrm-advanced', 'EspoCRM + Advanced Pack'],
+  ['twenty', 'Twenty autoalojado'],
+  ['bitrix24', 'Bitrix24 Free'],
+  ['bitrix24-basic', 'Bitrix24 Basic'],
 ];
 
 // Catálogo de criterios: id, nombre y criticidad. Debe coincidir con la sección 4.
@@ -75,6 +79,8 @@ const CRITERIOS = [
     ['A.5.17', 'Documentación en español', 'soporte'],
     ['A.5.18', 'Comunidad activa de usuarios', 'soporte'],
     ['A.5.19', 'Soporte técnico con compromiso de respuesta', 'soporte'],
+    ['A.5.20', 'Actualización conservando la parametrización', 'nucleo'],
+    ['A.5.21', 'Continuidad de las versiones en uso', 'soporte'],
   ]],
   ['B.1', 'Condiciones que impone el negocio asegurador', [
     ['B.1.1', 'Persistencia de los datos sin uso continuo', 'relevante'],
@@ -232,7 +238,7 @@ Que una capacidad requiera un plan pago no cambia su símbolo: eso es dinero, no
 
 Lo no verificado no recibe valor y queda fuera del cálculo, tanto del obtenido como del máximo posible. Es un estado transitorio del trabajo, no una característica de la plataforma.
 
-Estado: **${evaluadas} de ${CRITERIOS.reduce((n, g) => n + g[2].length, 0) * 3} evaluaciones registradas.**
+Estado: **${evaluadas} de ${CRITERIOS.reduce((n, g) => n + g[2].length, 0) * PLATAFORMAS.length} evaluaciones registradas.**
 
 ---
 
@@ -267,4 +273,4 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 ${analisis}`, 'utf8');
 
 console.log(`Matriz y análisis generados en ${SALIDA}`);
-console.log(`  ${evaluadas} evaluaciones registradas de ${CRITERIOS.reduce((n, g) => n + g[2].length, 0) * 3} posibles`);
+console.log(`  ${evaluadas} evaluaciones registradas de ${CRITERIOS.reduce((n, g) => n + g[2].length, 0) * PLATAFORMAS.length} posibles`);

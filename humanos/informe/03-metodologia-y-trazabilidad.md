@@ -20,7 +20,8 @@ Lo único que cambia es **la pregunta**, y depende de qué clase de criterio se 
 |---|:---:|
 | El sistema lo hace | **3** |
 | Hay que configurarlo una vez, después funciona | **3** |
-| Está en un plan pago, y contratándolo funciona | **3** |
+| Está incluido en el plan que se evalúa | **3** |
+| Requiere un plan superior al que se evalúa | **1** |
 | Hay que exportar a una planilla y trabajar afuera | **2** |
 | Hay que repetir un procedimiento manual en cada uso | **2** |
 | No existe en ninguna edición del producto | **1** |
@@ -123,6 +124,26 @@ Esos criterios reciben **un solo valor**, el de cumplimiento, y quedan fuera del
 La licencia no es trabajo sino dinero, así que no entra en ninguna de las dos escalas. Se registra como un dato con su monto y su modalidad —pago único o abono recurrente— y se suma directamente a la proyección de costo a cinco años.
 
 > Dos plataformas pueden obtener **3 en cumplimiento y 3 en costo** para el mismo criterio, y aun así diferir: una lo trae incluido y la otra dentro de un plan pago. La primera escala dice que ambas resuelven la necesidad; la segunda, que ninguna exige trabajo de implementación; y el registro de licencia, que una cuesta dinero y la otra no. **Las tres cosas son distintas y se miden por separado.**
+
+### Cada plan que cambia el producto es una alternativa propia
+
+Una plataforma con varios planes no es una alternativa: son varias. La misma capacidad puede estar ausente en el plan gratuito, presente con límites en uno intermedio y completa en uno superior, y esas tres situaciones no se resumen en un solo valor.
+
+Por eso **cada plan que modifica lo que el producto resuelve se evalúa por separado, con la matriz completa y su costo.** La compañía no elige entre tres productos sino entre estas alternativas:
+
+| Alternativa | Costo | Por qué se evalúa aparte |
+|---|---|---|
+| EspoCRM Community | Gratis | Producto completo, instalable sin restricciones de uso |
+| EspoCRM Community + Advanced Pack | $395, pago único | Incorpora informes, flujos de trabajo y gestión de procesos |
+| Twenty autoalojado | Gratis | Producto completo: sus planes de nube no retienen capacidades del sistema |
+| Bitrix24 Free | Gratis | Opera hasta aproximadamente mil registros |
+| Bitrix24 Basic | $49 por mes | Incorpora automatización e informes |
+
+**Un plan que solo agrega volumen no genera una alternativa nueva**: más usuarios, más almacenamiento o alojamiento gestionado no cambian ninguna respuesta de la matriz. Ese precio entra en la proyección económica como costo del tamaño de la operación, no como capacidad.
+
+Dentro de cada alternativa, la pregunta de la escala se responde contra **ese** plan: si la capacidad requiere uno superior, en esa alternativa no está disponible.
+
+Así el informe responde la pregunta que la compañía necesita: **cuánto más cubre cada plataforma por cada escalón que se paga**, y si ese escalón se justifica.
 
 ## 3.4 Todos los criterios se puntúan en las tres plataformas
 
