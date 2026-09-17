@@ -7,37 +7,62 @@ import { join } from 'node:path';
  * La matriz del informe se genera a partir de estos archivos: ningún valor
  * se transcribe a mano. La justificación se escribe acá, junto al código que
  * comprueba el hecho, para que la escriba quien vio el resultado.
+ *
+ * Las reglas que valida este módulo son las de la sección 3 del informe.
+ * Si una evaluación no las cumple, el test falla en vez de generar un dato
+ * que después haya que corregir en la matriz.
  */
 
-/** Vía por la que se obtiene la capacidad. Determina el nivel según el árbol de la sección 3. */
-export type Via =
-  | 'nativo'        // 5 — disponible al instalar, sin configuración
-  | 'configurable'  // 4 — desde el panel de administración, sin escribir código
-  | 'desarrollo'    // 3 — mediante código, interfaz de programación o extensión
-  | 'externo'       // 2 — solo operando fuera del sistema
-  | 'inexistente';  // 1 — no existe en ninguna edición
+/**
+ * Primera escala — ¿queda resuelta la necesidad?
+ *
+ *   3  La necesidad queda resuelta (de fábrica, configurando una vez, o con plan pago)
+ *   2  Queda resuelta con un costo o salvedad permanente (procedimiento en cada uso)
+ *   1  No queda resuelta: no existe en ninguna edición del producto
+ */
+export type Cumplimiento = 3 | 2 | 1;
 
-const NIVEL: Record<Via, 1 | 2 | 3 | 4 | 5> = {
-  nativo: 5,
-  configurable: 4,
-  desarrollo: 3,
-  externo: 2,
-  inexistente: 1,
-};
+/**
+ * Segunda escala — ¿cuánto trabajo cuesta dejarlo funcionando?
+ *
+ *   3  Viene listo, no hay nada que implementar
+ *   2  Se resuelve una vez con las opciones del sistema, sin programar
+ *   1  Hay que escribir código, o el procedimiento se repite en cada uso
+ *
+ * No se puntúa en los criterios no funcionales —no hay nada que poner en
+ * marcha— ni cuando el cumplimiento es 1.
+ */
+export type Costo = 3 | 2 | 1;
 
 export type Plataforma = 'espocrm' | 'twenty' | 'bitrix24';
+
+/** La licencia no es trabajo sino dinero: va a la proyección de costo, no a las escalas. */
+export interface Licencia {
+  /** Plan o módulo que habilita la capacidad */
+  plan: string;
+  /** Monto conocido, tal como lo publica el fabricante */
+  monto: string;
+  modalidad: 'unico' | 'recurrente';
+}
 
 export interface Evaluacion {
   /** Identificador del criterio, por ejemplo 'A.1.1' */
   criterio: string;
   plataforma: Plataforma;
-  via: Via;
-  /** Si la capacidad exige un plan pago o un módulo adicional. No altera el nivel. */
-  licencia?: boolean;
-  /** Qué habilita esa licencia y a qué costo, si se conoce */
-  detalleLicencia?: string;
+  cumple: Cumplimiento;
+  /**
+   * Costo de implementación. Se omite en los criterios no funcionales.
+   * Con cumple 1 no corresponde; con cumple 2 es siempre 1.
+   */
+  costo?: Costo;
+  licencia?: Licencia;
   /** Por qué ese valor y no otro. Obligatoria: un registro sin esto no se acepta. */
   justificacion: string;
+  /**
+   * Documentación oficial del fabricante. Obligatoria cuando cumple es 1:
+   * que algo no aparezca en la instalación de prueba no prueba que no exista.
+   */
+  documentacion?: string;
   /** Capturas o videos que respaldan el veredicto */
   evidencia?: string[];
   /** Dato medido, cuando el criterio lo produce: cantidad de pasos, segundos, memoria */
@@ -51,14 +76,38 @@ const DIR = 'resultados';
  * Un archivo por evaluación: dos tests en paralelo no se pisan.
  */
 export function registrar(e: Evaluacion) {
+  const donde = `[${e.criterio}/${e.plataforma}]`;
+
   if (!e.justificacion?.trim()) {
-    throw new Error(`[${e.criterio}/${e.plataforma}] la justificación es obligatoria`);
+    throw new Error(`${donde} la justificación es obligatoria`);
   }
+  if (![3, 2, 1].includes(e.cumple)) {
+    throw new Error(`${donde} cumple debe ser 3, 2 o 1 — llegó ${e.cumple}`);
+  }
+
+  // Sección 3.5: el valor 1 es el más exigente de demostrar.
+  if (e.cumple === 1 && !e.documentacion?.trim()) {
+    throw new Error(
+      `${donde} el valor 1 exige constancia en la documentación oficial del fabricante. ` +
+      `Que no aparezca en la instalación de prueba no prueba que el producto no lo tenga.`,
+    );
+  }
+
+  // Sección 3.3: cuando no lo resuelve, no hay implementación que costear.
+  if (e.cumple === 1 && e.costo !== undefined) {
+    throw new Error(`${donde} con cumple 1 el costo no se puntúa: no hay nada que implementar`);
+  }
+
+  // Sección 3.3: repetir un procedimiento en cada uso es la forma más cara.
+  if (e.cumple === 2 && e.costo !== undefined && e.costo !== 1) {
+    throw new Error(`${donde} con cumple 2 el costo es siempre 1 — llegó ${e.costo}`);
+  }
+  const costo = e.cumple === 2 ? 1 : e.costo;
 
   const registro = {
     ...e,
-    nivel: NIVEL[e.via],
-    licencia: e.licencia ?? false,
+    costo,
+    licencia: e.licencia ?? null,
     evidencia: e.evidencia ?? [],
     momento: new Date().toISOString(),
   };
@@ -67,14 +116,16 @@ export function registrar(e: Evaluacion) {
   const archivo = join(DIR, `${e.criterio.replace(/\./g, '-')}.${e.plataforma}.json`);
   writeFileSync(archivo, JSON.stringify(registro, null, 2), 'utf8');
 
-  const marca = registro.licencia ? ' (requiere licencia)' : '';
-  console.log(`  → ${e.criterio} · ${e.plataforma}: ${registro.nivel} ${e.via}${marca}`);
+  const partes = [`cumple ${e.cumple}`];
+  if (costo !== undefined) partes.push(`costo ${costo}`);
+  if (e.licencia) partes.push(`licencia: ${e.licencia.plan}`);
+  console.log(`  → ${e.criterio} · ${e.plataforma}: ${partes.join(' · ')}`);
   console.log(`    ${e.justificacion}`);
   return registro;
 }
 
 /**
- * Declara un criterio como no verificado. Es el único estado sin puntaje, y
+ * Declara un criterio como no verificado. Es el único estado sin valor, y
  * responde al avance del trabajo, no a una característica de la plataforma:
  * cuando la comprobación se realiza, el criterio puntúa como cualquier otro.
  *

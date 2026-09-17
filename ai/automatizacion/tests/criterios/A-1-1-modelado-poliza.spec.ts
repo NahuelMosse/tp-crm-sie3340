@@ -34,12 +34,14 @@ test('A.1.1 — modelado de la póliza como objeto propio', async ({ page }, inf
     registrar({
       criterio: 'A.1.1',
       plataforma,
-      via: 'configurable',
+      cumple: 3,
+      costo: 2,
       justificacion:
         'El Administrador de Entidades permite crear la entidad Póliza desde la interfaz de administración, ' +
         'sin escribir código. Queda disponible en el sistema con listado propio y admite registros: ' +
         `se cargó la póliza POL-2026-0001 y ${enMenu ? 'figura en su listado' : 'se verificó su alta por interfaz de programación'}. ` +
-        'No alcanza el nivel máximo porque la entidad no viene incorporada: hay trabajo de configuración previo.',
+        'Una vez creada el usuario opera con ella como con cualquier otra entidad, de modo que la necesidad ' +
+        'queda resuelta desde el sistema; el trabajo de configuración inicial se refleja en el costo de implementación.',
       evidencia: [`A-1-1-espocrm-1-modelo.png`, `A-1-1-espocrm-2-listado.png`],
       medicion: 'Entidad creada y operativa en menos de 25 segundos desde el ingreso',
     });
@@ -54,12 +56,14 @@ test('A.1.1 — modelado de la póliza como objeto propio', async ({ page }, inf
     registrar({
       criterio: 'A.1.1',
       plataforma,
-      via: 'configurable',
+      cumple: 3,
+      costo: 2,
       justificacion:
         'Configuración → Modelo de datos ofrece la acción "Añadir objeto", que crea la entidad desde la ' +
         'interfaz sin escribir código. El objeto Póliza se creó y ' +
         `${existe ? 'figura en el listado de objetos del espacio de trabajo' : 'quedó registrado en el modelo'}. ` +
-        'No alcanza el nivel máximo porque requiere configuración previa.',
+        'Queda operativo para el usuario final sin trabajo adicional en cada uso; la configuración inicial ' +
+        'se refleja en el costo de implementación.',
       evidencia: [`A-1-1-twenty-1-modelo.png`, `A-1-1-twenty-2-objetos.png`],
       medicion: 'Objeto creado en 29 segundos desde el ingreso',
     });

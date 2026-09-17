@@ -2,12 +2,13 @@
 
 *Generada automáticamente a partir de los resultados registrados por las pruebas. No se transcribe ningún valor a mano.*
 
-**● cubierta  ◐ cubierta mediante licencia adicional  ○ no disponible en ninguna edición**
-**◍ sin verificar**
+**● 3 cumple  ◐ 2 cumple con reparo  ○ 1 no cumple  ◍ sin verificar**
 
-Lo no verificado no recibe puntaje y queda fuera del cálculo, tanto del obtenido como del máximo posible. Es un estado transitorio del trabajo, no una característica de la plataforma.
+Ambos, ● y ◐, indican que la necesidad queda resuelta. El ◐ marca que queda resuelta con un costo o una salvedad que la compañía carga de forma permanente. El ○ se reserva para lo que no existe en ninguna edición del producto, y exige constancia del fabricante.
 
-La distinción entre ● y ◐ no altera el veredicto técnico: ambas indican que el producto resuelve la necesidad. El símbolo ◐ marca las que requieren una licencia, y esas filas alimentan la oferta económica. El símbolo ○ se reserva para lo que no existe en ninguna edición.
+Que una capacidad requiera un plan pago no cambia su símbolo: eso es dinero, no cumplimiento, y se contabiliza aparte para la oferta económica.
+
+Lo no verificado no recibe valor y queda fuera del cálculo, tanto del obtenido como del máximo posible. Es un estado transitorio del trabajo, no una característica de la plataforma.
 
 Estado: **3 de 168 evaluaciones registradas.**
 
@@ -86,11 +87,12 @@ Estado: **3 de 168 evaluaciones registradas.**
 
 | | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
-| Cubiertas de fábrica ● | 1 | 1 | 0 |
-| Cubiertas con licencia ◐ | 0 | 0 | 0 |
-| No disponibles ○ | 0 | 0 | 0 |
+| Cumple ● | 1 | 1 | 0 |
+| Cumple con reparo ◐ | 0 | 0 | 0 |
+| No cumple ○ | 0 | 0 | 0 |
 | Sin verificar ◍ | 41 | 41 | 42 |
-| **% de cumplimiento** | **80.0 %** | **80.0 %** | — |
+| *— de los que cumplen, requieren licencia* | 0 | 0 | 0 |
+| **% de cumplimiento** | **100.0 %** | **100.0 %** | — |
 
 ---
 
@@ -124,17 +126,28 @@ Estado: **3 de 168 evaluaciones registradas.**
 
 | | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
-| Cubiertas de fábrica ● | 0 | 0 | 0 |
-| Cubiertas con licencia ◐ | 0 | 0 | 0 |
-| No disponibles ○ | 0 | 0 | 0 |
+| Cumple ● | 0 | 0 | 0 |
+| Cumple con reparo ◐ | 0 | 0 | 0 |
+| No cumple ○ | 0 | 0 | 0 |
 | Sin verificar ◍ | 14 | 14 | 14 |
+| *— de los que cumplen, requieren licencia* | 0 | 0 | 0 |
 | **% de cumplimiento** | — | — | — |
 
 
 ---
 
-## 5.1 Cómo leer estos recuentos
+## 5.1 Oferta técnica
 
-El porcentaje de cumplimiento se calcula **solo sobre las características verificadas**, ponderadas por criticidad: núcleo ×3, soporte ×2, accesorio ×1. Las no verificadas quedan fuera del cálculo, tanto del puntaje obtenido como del máximo posible.
+| | EspoCRM | Twenty | Bitrix24 |
+|---|:---:|:---:|:---:|
+| Parte A — solicitados (85 %) | 100.0 % | 100.0 % | — |
+| Parte B — no solicitados (15 %) | — | — | — |
+| **Oferta técnica** | **100.0 %** | **100.0 %** | — |
+
+## 5.2 Cómo leer estos recuentos
+
+El porcentaje de cada parte se calcula **solo sobre las características verificadas**, ponderadas por criticidad: núcleo ×3, soporte ×2, accesorio ×1. Las no verificadas quedan fuera del cálculo, tanto del puntaje obtenido como del máximo posible.
+
+La oferta técnica combina las dos partes según lo que el cliente pidió: **85 % la Parte A y 15 % la Parte B.** Como cada parte se mide contra su propio máximo, los pesos de criticidad ordenan los criterios dentro de la parte pero no alteran cuánto vale esa parte en el total.
 
 Un porcentaje alto sobre pocas características verificadas no es comparable con uno sobre el total. La cantidad de evaluaciones registradas por plataforma figura en la fila correspondiente.
