@@ -18,13 +18,28 @@ const SALIDA = join(RAIZ, 'humanos', 'informe');
 
 // Alternativas, no plataformas: un plan que cambia lo que el producto
 // resuelve se evalua por separado. Los que solo agregan volumen no entran.
+//
+// El tercer campo es la alternativa base. Un plan superior es el mismo
+// producto con capacidades agregadas, asi que hereda todos sus veredictos y
+// solo se registra lo que el plan cambia. Sin esto habria que repetir a mano
+// los criterios que ningun plan altera.
 const PLATAFORMAS = [
   ['espocrm', 'EspoCRM Community'],
-  ['espocrm-advanced', 'EspoCRM + Advanced Pack'],
+  ['espocrm-advanced', 'EspoCRM + Advanced Pack', 'espocrm'],
   ['twenty', 'Twenty autoalojado'],
   ['bitrix24', 'Bitrix24 Free'],
-  ['bitrix24-basic', 'Bitrix24 Basic'],
+  ['bitrix24-basic', 'Bitrix24 Basic', 'bitrix24'],
 ];
+
+const BASE = Object.fromEntries(PLATAFORMAS.filter(p => p[2]).map(p => [p[0], p[2]]));
+
+/** Veredicto de un criterio en una alternativa: el propio, o el heredado de su base. */
+function veredicto(res, cid, clave) {
+  const propio = res[cid]?.[clave];
+  if (propio) return propio;
+  const base = BASE[clave];
+  return base ? res[cid]?.[base] : undefined;
+}
 
 // Catálogo de criterios: id, nombre y criticidad. Debe coincidir con la sección 4.
 const CRITERIOS = [
@@ -116,6 +131,11 @@ const PESO = {
 // Reparto ENTRE partes: lo que el cliente pidio pesa mas que lo que no pidio.
 const PARTE = { A: 0.85, B: 0.15 };
 
+// Trabajo de evaluacion: las alternativas base, en todos los criterios. Los
+// planes superiores heredan sus veredictos y solo suman los que modifican.
+const BASES = PLATAFORMAS.filter(p => !p[2]).length;
+const TOTAL_BASE = CRITERIOS.reduce((n, g) => n + g[2].length, 0) * BASES;
+
 // ── cargar resultados ────────────────────────────────────────────────────────
 const res = {};
 if (existsSync(RESULTADOS)) {
@@ -150,16 +170,23 @@ for (const [gid, gnombre, items] of CRITERIOS) {
   analisis += `\n## ${gid} ${gnombre}\n`;
 
   for (const [cid, cnombre, crit] of items) {
-    matriz += `| ${cid} ${cnombre} | ${PLATAFORMAS.map(([k]) => simbolo(res[cid]?.[k])).join(' | ')} |\n`;
+    matriz += `| ${cid} ${cnombre} | ${PLATAFORMAS.map(([k]) => simbolo(veredicto(res, cid, k))).join(' | ')} |\n`;
 
     analisis += `\n### ${cid} ${cnombre}\n`;
     analisis += `*Criticidad: ${crit}.*\n\n`;
     let algo = false;
     for (const [k, nom] of PLATAFORMAS) {
-      const d = res[cid]?.[k];
+      const d = veredicto(res, cid, k);
       acum[parte][nom].push({ d, crit });
       if (!d) continue;
       algo = true;
+      // Lo heredado no se repite: solo se deja constancia de que el plan no lo altera
+      if (!res[cid]?.[k]) {
+        analisis += `**${nom}** — el plan no modifica este aspecto.
+
+`;
+        continue;
+      }
       if (d.puntua === false) {
         analisis += `**${nom}** — *sin verificar.* ${d.motivo}\n\n`;
       } else {
@@ -173,7 +200,7 @@ for (const [gid, gnombre, items] of CRITERIOS) {
         analisis += `**${nom}** · **${d.cumple}** (${ETIQUETA[d.cumple]})${costo} — ${d.justificacion}${lic}${doc}${med}\n\n`;
       }
     }
-    if (!algo) analisis += `*Pendiente de evaluación en las tres plataformas.*\n\n`;
+    if (!algo) analisis += `*Pendiente de evaluación en todas las alternativas.*\n\n`;
   }
 }
 
@@ -238,7 +265,7 @@ Que una capacidad requiera un plan pago no cambia su símbolo: eso es dinero, no
 
 Lo no verificado no recibe valor y queda fuera del cálculo, tanto del obtenido como del máximo posible. Es un estado transitorio del trabajo, no una característica de la plataforma.
 
-Estado: **${evaluadas} de ${CRITERIOS.reduce((n, g) => n + g[2].length, 0) * PLATAFORMAS.length} evaluaciones registradas.**
+Estado: **${evaluadas} de ${TOTAL_BASE} evaluaciones registradas.**
 
 ---
 
@@ -273,4 +300,4 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 ${analisis}`, 'utf8');
 
 console.log(`Matriz y análisis generados en ${SALIDA}`);
-console.log(`  ${evaluadas} evaluaciones registradas de ${CRITERIOS.reduce((n, g) => n + g[2].length, 0) * PLATAFORMAS.length} posibles`);
+console.log(`  ${evaluadas} evaluaciones registradas de ${TOTAL_BASE} posibles`);

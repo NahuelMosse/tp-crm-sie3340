@@ -10,7 +10,7 @@ Que una capacidad requiera un plan pago no cambia su símbolo: eso es dinero, no
 
 Lo no verificado no recibe valor y queda fuera del cálculo, tanto del obtenido como del máximo posible. Es un estado transitorio del trabajo, no una característica de la plataforma.
 
-Estado: **3 de 290 evaluaciones registradas.**
+Estado: **3 de 174 evaluaciones registradas.**
 
 ---
 
@@ -20,7 +20,7 @@ Estado: **3 de 290 evaluaciones registradas.**
 
 | Criterio | EspoCRM Community | EspoCRM + Advanced Pack | Twenty autoalojado | Bitrix24 Free | Bitrix24 Basic |
 |---|:---:|:---:|:---:|:---:|:---:|
-| A.1.1 Modelado de la póliza como objeto propio | ● | ◍ | ● | ◍ | ◍ |
+| A.1.1 Modelado de la póliza como objeto propio | ● | ● | ● | ◍ | ◍ |
 | A.1.2 Tipos de dato adecuados para prima, vigencia y cobranza | ◍ | ◍ | ◍ | ◍ | ◍ |
 | A.1.3 Vinculación de la póliza con el asegurado | ◍ | ◍ | ◍ | ◍ | ◍ |
 | A.1.4 Consulta y filtrado de la cartera para prospección | ◍ | ◍ | ◍ | ◍ | ◍ |
@@ -89,12 +89,12 @@ Estado: **3 de 290 evaluaciones registradas.**
 
 | | EspoCRM Community | EspoCRM + Advanced Pack | Twenty autoalojado | Bitrix24 Free | Bitrix24 Basic |
 |---|:---:|:---:|:---:|:---:|:---:|
-| Cumple ● | 1 | 0 | 1 | 0 | 0 |
+| Cumple ● | 1 | 1 | 1 | 0 | 0 |
 | Cumple con reparo ◐ | 0 | 0 | 0 | 0 | 0 |
 | No cumple ○ | 0 | 0 | 0 | 0 | 0 |
-| Sin verificar ◍ | 43 | 44 | 43 | 44 | 44 |
+| Sin verificar ◍ | 43 | 43 | 43 | 44 | 44 |
 | *— de los que cumplen, requieren licencia* | 0 | 0 | 0 | 0 | 0 |
-| **% de cumplimiento** | **100.0 %** | — | **100.0 %** | — | — |
+| **% de cumplimiento** | **100.0 %** | **100.0 %** | **100.0 %** | — | — |
 
 ---
 
@@ -142,9 +142,9 @@ Estado: **3 de 290 evaluaciones registradas.**
 
 | | EspoCRM Community | EspoCRM + Advanced Pack | Twenty autoalojado | Bitrix24 Free | Bitrix24 Basic |
 |---|:---:|:---:|:---:|:---:|:---:|
-| Parte A — solicitados (85 %) | 100.0 % | — | 100.0 % | — | — |
+| Parte A — solicitados (85 %) | 100.0 % | 100.0 % | 100.0 % | — | — |
 | Parte B — no solicitados (15 %) | — | — | — | — | — |
-| **Oferta técnica** | **100.0 %** | — | **100.0 %** | — | — |
+| **Oferta técnica** | **100.0 %** | **100.0 %** | **100.0 %** | — | — |
 
 ## 5.2 Cómo leer estos recuentos
 

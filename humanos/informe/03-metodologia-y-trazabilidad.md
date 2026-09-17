@@ -141,6 +141,8 @@ Por eso **cada plan que modifica lo que el producto resuelve se evalúa por sepa
 
 **Un plan que solo agrega volumen no genera una alternativa nueva**: más usuarios, más almacenamiento o alojamiento gestionado no cambian ninguna respuesta de la matriz. Ese precio entra en la proyección económica como costo del tamaño de la operación, no como capacidad.
 
+**Un plan superior hereda los veredictos del que amplía.** Es el mismo producto con capacidades agregadas: la documentación sigue en el mismo idioma, la infraestructura es la misma y la interfaz no cambia. Solo se evalúa **lo que el plan modifica**, y el resto se arrastra del plan base.
+
 Dentro de cada alternativa, la pregunta de la escala se responde contra **ese** plan: si la capacidad requiere uno superior, en esa alternativa no está disponible.
 
 Así el informe responde la pregunta que la compañía necesita: **cuánto más cubre cada plataforma por cada escalón que se paga**, y si ese escalón se justifica.
