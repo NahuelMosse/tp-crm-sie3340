@@ -158,44 +158,40 @@ El valor 1 es el más exigente de demostrar, y es deliberado. Que algo no aparez
 
 ## 3.6 Ponderación
 
-**Cada criterio tiene un peso. Es la única ponderación del cálculo.**
+No todos los criterios valen lo mismo. Se aplican dos pesos, y cada uno responde una pregunta distinta.
 
-| Peso | Categoría | Qué incluye |
-|:---:|---|---|
-| **6** | Solicitado — núcleo | Lo que la compañía no puede dejar de hacer: cartera, reclamos, ficha del asegurado |
-| **4** | Solicitado — soporte | Lo que mejora la operación sin ser indispensable |
-| **2** | Solicitado — accesorio | Lo solicitado que aporta valor marginal |
-| **3** | No solicitado — relevante | Condiciones que el negocio impone aunque el cliente no las haya enunciado |
-| **2** | No solicitado — marginal | Capacidades que ninguna fuente pidió |
+**¿Cuánto importa este criterio?** Dentro de cada parte, según lo que significa para la operación:
 
-### La proporción entre lo solicitado y lo no solicitado surge de los pesos
+| Criticidad | Peso | Qué incluye |
+|---|:---:|---|
+| **Núcleo** | ×3 | Lo que la compañía no puede dejar de hacer: cartera, reclamos, ficha del asegurado |
+| **Soporte** | ×2 | Lo que mejora la operación sin ser indispensable |
+| **Accesorio** | ×1 | Lo que aporta valor marginal |
 
-No hace falta un segundo cálculo que reparta entre las dos partes: **la distribución de los criterios ya produce esa proporción.**
+**¿Cuánto vale cada grupo?** Lo que el cliente pidió pesa más que lo que no pidió:
 
-| Parte | Criterios | Peso acumulado | Participación |
-|---|:---:|:---:|:---:|
-| **A — Solicitados** | 42 | 200 | **85,1 %** |
-| **B — No solicitados** | 14 | 35 | **14,9 %** |
+| Parte | Peso |
+|---|:---:|
+| **A — Solicitados** | **85 %** |
+| **B — No solicitados** | **15 %** |
 
-Con estos pesos, lo que el cliente pidió representa casi seis séptimos del máximo posible. Una plataforma que cubriera la totalidad de la Parte B y la mitad de la Parte A queda por debajo de otra que cubra la Parte A completa sin ninguna capacidad adicional, que es el orden correcto.
+Con esa proporción, una plataforma que cubriera toda la Parte B y la mitad de la Parte A queda por debajo de otra que cubra la Parte A completa sin ninguna capacidad adicional.
 
-**Esa proporción es una consecuencia verificable de la tabla de pesos, no un supuesto agregado.** Si se incorporan o retiran criterios, la participación se recalcula sola y el informe la publica actualizada.
-
-### Cómo se asigna el peso
-
-El peso responde a una sola pregunta: **¿cuánto le importa este criterio a la compañía?** Un criterio del núcleo del negocio vale seis veces uno que nadie pidió, y esa relación se decide una vez, mirando los cincuenta y seis criterios juntos.
-
-No hay una segunda decisión sobre cuánto vale cada grupo. Esa era la fuente de confusión de la versión anterior de esta metodología, que ponderaba primero por criticidad dentro de cada parte y después entre partes: dos mecanismos para explicar donde alcanza con uno.
+> **No se pondera dos veces lo mismo.** El porcentaje de cada parte se calcula sobre su propio máximo, así que los pesos de criticidad ordenan los criterios *dentro* de la parte pero no cambian cuánto vale esa parte en el total. Eso lo decide únicamente el 85/15.
+>
+> De ahí se desprende cómo asignar la criticidad: **comparando cada criterio con los de su propia parte.** Dentro de la Parte B, que la cartera persista pesa más que tener un asistente de inteligencia artificial, aunque toda la parte valga 15 %.
 
 ## 3.7 Cálculo del resultado
 
-**Oferta técnica**, a partir de la primera escala. Un solo cálculo sobre los cincuenta y seis criterios:
+**Oferta técnica**, a partir de la primera escala. Se calcula cada parte contra su propio máximo y después se combinan:
 
 ```
-oferta técnica  =  Σ (cumplimiento × peso)  /  Σ (3 × peso)  × 100
+% de la parte    =  Σ (cumplimiento × criticidad)  /  Σ (3 × criticidad)  × 100
+
+oferta técnica   =  0,85 × % Parte A  +  0,15 × % Parte B
 ```
 
-El denominador se calcula solo sobre los criterios verificados. El informe publica además el resultado desglosado por parte, para poder leer por separado cómo le fue a cada plataforma en lo solicitado y en lo que no lo era, pero **el número que entra al valor total sale de una sola cuenta.**
+El denominador de cada parte se calcula solo sobre sus criterios verificados. El informe publica los dos porcentajes junto al total, para poder leer por separado cómo le fue a cada plataforma en lo solicitado y en lo que no lo era.
 
 **Índice de implementación**, a partir de la segunda escala. Se calcula solo sobre los criterios que la plataforma cumple, porque lo que no resuelve no se implementa:
 

@@ -96,15 +96,19 @@ const CRITERIOS = [
   ]],
 ];
 
-// Peso por criterio. Unica ponderacion del calculo: la proporcion entre las
-// partes surge de la distribucion de los criterios, no de un segundo reparto.
+// Criticidad DENTRO de cada parte: ordena los criterios entre si, no decide
+// cuanto vale la parte en el total. Cada parte se normaliza por su propio
+// maximo, asi que estos pesos no se superponen con el reparto de abajo.
 const PESO = {
-  nucleo: 6,      // solicitado, indispensable
-  soporte: 4,     // solicitado, mejora la operacion
-  accesorio: 2,   // solicitado, valor marginal
-  relevante: 3,   // no solicitado, condicion del negocio
-  marginal: 2,    // no solicitado, capacidad extra
+  nucleo: 3,      // indispensable para operar
+  soporte: 2,     // mejora la operacion
+  accesorio: 1,   // valor marginal
+  relevante: 2,   // Parte B: condicion que impone el negocio
+  marginal: 1,    // Parte B: capacidad extra
 };
+
+// Reparto ENTRE partes: lo que el cliente pidio pesa mas que lo que no pidio.
+const PARTE = { A: 0.85, B: 0.15 };
 
 // ── cargar resultados ────────────────────────────────────────────────────────
 const res = {};
@@ -115,14 +119,13 @@ if (existsSync(RESULTADOS)) {
   }
 }
 
-const SIN_PUNTAJE = { 'sin-verificar': '◍' };
+// Escala de la seccion 3: 3 cumple, 2 cumple con reparo, 1 no cumple.
+const MAXIMO = 3;
+const SIMBOLO = { 3: '●', 2: '◐', 1: '○' };
 
-const simbolo = (d) => {
-  if (!d) return '◍';
-  if (d.puntua === false) return SIN_PUNTAJE[d.estado] ?? '◍';
-  if (d.nivel === 1) return '○';
-  return d.licencia ? '◐' : '●';
-};
+// La licencia no cambia el simbolo: es dinero, no cumplimiento. Va en su
+// propia fila del recuento y alimenta la oferta economica.
+const simbolo = (d) => (puntua(d) ? SIMBOLO[d.cumple] : '◍');
 
 const puntua = (d) => d && d.puntua !== false;
 
@@ -152,16 +155,16 @@ for (const [gid, gnombre, items] of CRITERIOS) {
       if (!d) continue;
       algo = true;
       if (d.puntua === false) {
-        const ETIQUETA = {
-          'sin-verificar': 'sin verificar',
-          'no-aplica': 'no aplica a esta plataforma',
-          'condicionado': 'depende de la implementación',
-        };
-        analisis += `**${nom}** — *${ETIQUETA[d.estado] ?? 'sin verificar'}.* ${d.motivo}\n\n`;
+        analisis += `**${nom}** — *sin verificar.* ${d.motivo}\n\n`;
       } else {
-        const lic = d.licencia ? ` Requiere licencia${d.detalleLicencia ? `: ${d.detalleLicencia}` : ''}.` : '';
+        const ETIQUETA = { 3: 'cumple', 2: 'cumple con reparo', 1: 'no cumple' };
+        const costo = d.costo ? ` · costo de implementación **${d.costo}**` : '';
+        const lic = d.licencia
+          ? ` Requiere ${d.licencia.plan}: ${d.licencia.monto} (${d.licencia.modalidad === 'unico' ? 'pago único' : 'abono recurrente'}).`
+          : '';
+        const doc = d.documentacion ? ` Constancia del fabricante: ${d.documentacion}.` : '';
         const med = d.medicion ? ` *${d.medicion}.*` : '';
-        analisis += `**${nom}** · **${d.nivel}** (${d.via}) — ${d.justificacion}${lic}${med}\n\n`;
+        analisis += `**${nom}** · **${d.cumple}** (${ETIQUETA[d.cumple]})${costo} — ${d.justificacion}${lic}${doc}${med}\n\n`;
       }
     }
     if (!algo) analisis += `*Pendiente de evaluación en las tres plataformas.*\n\n`;
@@ -169,20 +172,49 @@ for (const [gid, gnombre, items] of CRITERIOS) {
 }
 
 // ── recuentos ────────────────────────────────────────────────────────────────
+
+/** % de cumplimiento de una plataforma en una parte, sobre el maximo de esa misma parte. */
+function cumplimiento(parte, nom) {
+  const v = acum[parte][nom].filter(x => puntua(x.d));
+  if (!v.length) return null;
+  const obt = v.reduce((s, x) => s + x.d.cumple * PESO[x.crit], 0);
+  const max = v.reduce((s, x) => s + MAXIMO * PESO[x.crit], 0);
+  return obt / max * 100;
+}
+
 function resumen(parte) {
   let t = `\n| | ${PLATAFORMAS.map(p => p[1]).join(' | ')} |\n|---|${PLATAFORMAS.map(() => ':---:').join('|')}|\n`;
   const fila = (etiqueta, fn) =>
     `| ${etiqueta} | ${PLATAFORMAS.map(([, nom]) => acum[parte][nom].filter(fn).length).join(' | ')} |\n`;
-  t += fila('Cubiertas de fábrica ●', x => puntua(x.d) && x.d.nivel > 1 && !x.d.licencia);
-  t += fila('Cubiertas con licencia ◐', x => puntua(x.d) && x.d.nivel > 1 && x.d.licencia);
-  t += fila('No disponibles ○', x => puntua(x.d) && x.d.nivel === 1);
+  t += fila('Cumple ●', x => puntua(x.d) && x.d.cumple === 3);
+  t += fila('Cumple con reparo ◐', x => puntua(x.d) && x.d.cumple === 2);
+  t += fila('No cumple ○', x => puntua(x.d) && x.d.cumple === 1);
   t += fila('Sin verificar ◍', x => !x.d || x.d.puntua === false);
+  t += fila('*— de los que cumplen, requieren licencia*', x => puntua(x.d) && x.d.cumple > 1 && x.d.licencia);
   t += `| **% de cumplimiento** | ${PLATAFORMAS.map(([, nom]) => {
-    const v = acum[parte][nom].filter(x => puntua(x.d));
-    if (!v.length) return '—';
-    const obt = v.reduce((s, x) => s + x.d.nivel * PESO[x.crit], 0);
-    const max = v.reduce((s, x) => s + 5 * PESO[x.crit], 0);
-    return `**${(obt / max * 100).toFixed(1)} %**`;
+    const c = cumplimiento(parte, nom);
+    return c === null ? '—' : `**${c.toFixed(1)} %**`;
+  }).join(' | ')} |\n`;
+  return t;
+}
+
+/** Puntaje tecnico: las dos partes combinadas segun el reparto 85/15. */
+function tecnico() {
+  let t = `\n| | ${PLATAFORMAS.map(p => p[1]).join(' | ')} |\n|---|${PLATAFORMAS.map(() => ':---:').join('|')}|\n`;
+  const fila = (etiqueta, parte) =>
+    `| ${etiqueta} | ${PLATAFORMAS.map(([, nom]) => {
+      const c = cumplimiento(parte, nom);
+      return c === null ? '—' : `${c.toFixed(1)} %`;
+    }).join(' | ')} |\n`;
+  t += fila(`Parte A — solicitados (${(PARTE.A * 100).toFixed(0)} %)`, 'A');
+  t += fila(`Parte B — no solicitados (${(PARTE.B * 100).toFixed(0)} %)`, 'B');
+  t += `| **Oferta técnica** | ${PLATAFORMAS.map(([, nom]) => {
+    const a = cumplimiento('A', nom), b = cumplimiento('B', nom);
+    if (a === null && b === null) return '—';
+    // Si una parte no tiene evaluaciones, el total se reparte sobre la otra.
+    const pa = a === null ? 0 : PARTE.A, pb = b === null ? 0 : PARTE.B;
+    const total = ((a ?? 0) * pa + (b ?? 0) * pb) / (pa + pb);
+    return `**${total.toFixed(1)} %**`;
   }).join(' | ')} |\n`;
   return t;
 }
@@ -192,12 +224,13 @@ const cab = `# 5. Matriz de veredictos
 
 *Generada automáticamente a partir de los resultados registrados por las pruebas. No se transcribe ningún valor a mano.*
 
-**● cubierta  ◐ cubierta mediante licencia adicional  ○ no disponible en ninguna edición**
-**◍ sin verificar**
+**● 3 cumple  ◐ 2 cumple con reparo  ○ 1 no cumple  ◍ sin verificar**
 
-Lo no verificado no recibe puntaje y queda fuera del cálculo, tanto del obtenido como del máximo posible. Es un estado transitorio del trabajo, no una característica de la plataforma.
+Ambos, ● y ◐, indican que la necesidad queda resuelta. El ◐ marca que queda resuelta con un costo o una salvedad que la compañía carga de forma permanente. El ○ se reserva para lo que no existe en ninguna edición del producto, y exige constancia del fabricante.
 
-La distinción entre ● y ◐ no altera el veredicto técnico: ambas indican que el producto resuelve la necesidad. El símbolo ◐ marca las que requieren una licencia, y esas filas alimentan la oferta económica. El símbolo ○ se reserva para lo que no existe en ninguna edición.
+Que una capacidad requiera un plan pago no cambia su símbolo: eso es dinero, no cumplimiento, y se contabiliza aparte para la oferta económica.
+
+Lo no verificado no recibe valor y queda fuera del cálculo, tanto del obtenido como del máximo posible. Es un estado transitorio del trabajo, no una característica de la plataforma.
 
 Estado: **${evaluadas} de ${CRITERIOS.reduce((n, g) => n + g[2].length, 0) * 3} evaluaciones registradas.**
 
@@ -212,9 +245,13 @@ const salidaMatriz = cab + partes[0] +
   partes[1] +
   `\n### Recuento de la Parte B\n${resumen('B')}
 \n---\n
-## 5.1 Cómo leer estos recuentos
+## 5.1 Oferta técnica
+${tecnico()}
+## 5.2 Cómo leer estos recuentos
 
-El porcentaje de cumplimiento se calcula **solo sobre las características verificadas**, ponderadas por criticidad: núcleo ×3, soporte ×2, accesorio ×1. Las no verificadas quedan fuera del cálculo, tanto del puntaje obtenido como del máximo posible.
+El porcentaje de cada parte se calcula **solo sobre las características verificadas**, ponderadas por criticidad: núcleo ×3, soporte ×2, accesorio ×1. Las no verificadas quedan fuera del cálculo, tanto del puntaje obtenido como del máximo posible.
+
+La oferta técnica combina las dos partes según lo que el cliente pidió: **85 % la Parte A y 15 % la Parte B.** Como cada parte se mide contra su propio máximo, los pesos de criticidad ordenan los criterios dentro de la parte pero no alteran cuánto vale esa parte en el total.
 
 Un porcentaje alto sobre pocas características verificadas no es comparable con uno sobre el total. La cantidad de evaluaciones registradas por plataforma figura en la fila correspondiente.
 `;
@@ -226,7 +263,7 @@ writeFileSync(join(SALIDA, '06-analisis-por-categoria.md'),
 
 *Generado automáticamente a partir de las justificaciones registradas durante las pruebas.*
 
-Cada criterio indica el valor asignado a cada plataforma, la vía por la que se obtuvo la capacidad y la razón del valor. La escala está definida en la sección 3; los procedimientos, en la sección 4.
+Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo de implementación cuando corresponde y la razón del valor. Las dos escalas están definidas en la sección 3; los procedimientos, en la sección 4.
 ${analisis}`, 'utf8');
 
 console.log(`Matriz y análisis generados en ${SALIDA}`);
