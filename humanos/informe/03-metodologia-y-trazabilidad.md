@@ -20,8 +20,8 @@ Lo único que cambia es **la pregunta**, y depende de qué clase de criterio se 
 |---|:---:|
 | El sistema lo hace | **3** |
 | Hay que configurarlo una vez, después funciona | **3** |
-| Está incluido en el plan que se evalúa | **3** |
-| Requiere un plan superior al que se evalúa | **1** |
+| Está incluido en la edición gratuita | **3** |
+| Solo existe en un plan pago | **1**, y se registra aparte su valor con ese plan |
 | Hay que exportar a una planilla y trabajar afuera | **2** |
 | Hay que repetir un procedimiento manual en cada uso | **2** |
 | No existe en ninguna edición del producto | **1** |
@@ -125,27 +125,22 @@ La licencia no es trabajo sino dinero, así que no entra en ninguna de las dos e
 
 > Dos plataformas pueden obtener **3 en cumplimiento y 3 en costo** para el mismo criterio, y aun así diferir: una lo trae incluido y la otra dentro de un plan pago. La primera escala dice que ambas resuelven la necesidad; la segunda, que ninguna exige trabajo de implementación; y el registro de licencia, que una cuesta dinero y la otra no. **Las tres cosas son distintas y se miden por separado.**
 
-### Cada plan que cambia el producto es una alternativa propia
+### Los criterios que un plan pago cambia se puntúan en cada nivel
 
-Una plataforma con varios planes no es una alternativa: son varias. La misma capacidad puede estar ausente en el plan gratuito, presente con límites en uno intermedio y completa en uno superior, y esas tres situaciones no se resumen en un solo valor.
+Las tres plataformas se evalúan en su **edición gratuita**, que es la que cualquier compañía puede poner en funcionamiento sin contratar nada. Ese es el veredicto que entra en la matriz.
 
-Por eso **cada plan que modifica lo que el producto resuelve se evalúa por separado, con la matriz completa y su costo.** La compañía no elige entre tres productos sino entre estas alternativas:
+Pero una capacidad puede no existir en la edición gratuita y sí en un plan pago, y esa diferencia es información que la compañía necesita. Por eso **los criterios que un plan modifica reciben un valor adicional por cada nivel que los cambia**, con el precio de ese nivel:
 
-| Alternativa | Costo | Por qué se evalúa aparte |
-|---|---|---|
-| EspoCRM Community | Gratis | Producto completo, instalable sin restricciones de uso |
-| EspoCRM Community + Advanced Pack | $395, pago único | Incorpora informes, flujos de trabajo y gestión de procesos |
-| Twenty autoalojado | Gratis | Producto completo: sus planes de nube no retienen capacidades del sistema |
-| Bitrix24 Free | Gratis | Opera hasta aproximadamente mil registros |
-| Bitrix24 Basic | $49 por mes | Incorpora automatización e informes |
+| | Plan | Cumplimiento |
+|---|---|:---:|
+| Edición gratuita | — | 1 |
+| Con el plan que lo habilita | $49 por mes | 3 |
 
-**Un plan que solo agrega volumen no genera una alternativa nueva**: más usuarios, más almacenamiento o alojamiento gestionado no cambian ninguna respuesta de la matriz. Ese precio entra en la proyección económica como costo del tamaño de la operación, no como capacidad.
+Solo se evalúa dos veces **lo que de verdad cambia al pagar**. La documentación en español, los recursos de infraestructura o la navegabilidad son los mismos en todos los planes de un producto, y se evalúan una vez.
 
-**Un plan superior hereda los veredictos del que amplía.** Es el mismo producto con capacidades agregadas: la documentación sigue en el mismo idioma, la infraestructura es la misma y la interfaz no cambia. Solo se evalúa **lo que el plan modifica**, y el resto se arrastra del plan base.
+**Un plan que solo agrega volumen no genera un valor nuevo**: más usuarios, más almacenamiento o alojamiento gestionado no cambian ninguna respuesta de la matriz. Ese precio entra en la proyección económica como costo del tamaño de la operación, no como capacidad.
 
-Dentro de cada alternativa, la pregunta de la escala se responde contra **ese** plan: si la capacidad requiere uno superior, en esa alternativa no está disponible.
-
-Así el informe responde la pregunta que la compañía necesita: **cuánto más cubre cada plataforma por cada escalón que se paga**, y si ese escalón se justifica.
+La matriz marca con **↑** los criterios que mejoran contratando, y publica dos porcentajes por plataforma: el de la edición gratuita y el que se alcanza contratando los planes señalados. Así el informe responde la pregunta que la compañía necesita: **cuánto más cubre cada plataforma por lo que cuesta, y si ese gasto se justifica.**
 
 ## 3.4 Todos los criterios se puntúan en las tres plataformas
 
