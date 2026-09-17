@@ -16,30 +16,18 @@ const RAIZ = process.argv[2] ?? AQUI;
 const RESULTADOS = join(AQUI, 'resultados');
 const SALIDA = join(RAIZ, 'humanos', 'informe');
 
-// Alternativas, no plataformas: un plan que cambia lo que el producto
-// resuelve se evalua por separado. Los que solo agregan volumen no entran.
+// Tres herramientas, tres columnas. El veredicto se registra sobre la edicion
+// gratuita, que es la que cualquiera puede usar sin contratar nada.
 //
-// El tercer campo es la alternativa base. Un plan superior es el mismo
-// producto con capacidades agregadas, asi que hereda todos sus veredictos y
-// solo se registra lo que el plan cambia. Sin esto habria que repetir a mano
-// los criterios que ningun plan altera.
+// Los criterios que un plan pago resuelve de otra manera llevan ademas un
+// veredicto por cada plan que los cambia, dentro del mismo criterio. Eso da el
+// desglose por nivel de pago sin multiplicar las columnas ni el trabajo: solo
+// se evalua dos veces lo que de verdad cambia al pagar.
 const PLATAFORMAS = [
-  ['espocrm', 'EspoCRM Community'],
-  ['espocrm-advanced', 'EspoCRM + Advanced Pack', 'espocrm'],
-  ['twenty', 'Twenty autoalojado'],
-  ['bitrix24', 'Bitrix24 Free'],
-  ['bitrix24-basic', 'Bitrix24 Basic', 'bitrix24'],
+  ['espocrm', 'EspoCRM'],
+  ['twenty', 'Twenty'],
+  ['bitrix24', 'Bitrix24'],
 ];
-
-const BASE = Object.fromEntries(PLATAFORMAS.filter(p => p[2]).map(p => [p[0], p[2]]));
-
-/** Veredicto de un criterio en una alternativa: el propio, o el heredado de su base. */
-function veredicto(res, cid, clave) {
-  const propio = res[cid]?.[clave];
-  if (propio) return propio;
-  const base = BASE[clave];
-  return base ? res[cid]?.[base] : undefined;
-}
 
 // Catálogo de criterios: id, nombre y criticidad. Debe coincidir con la sección 4.
 const CRITERIOS = [
@@ -131,10 +119,7 @@ const PESO = {
 // Reparto ENTRE partes: lo que el cliente pidio pesa mas que lo que no pidio.
 const PARTE = { A: 0.85, B: 0.15 };
 
-// Trabajo de evaluacion: las alternativas base, en todos los criterios. Los
-// planes superiores heredan sus veredictos y solo suman los que modifican.
-const BASES = PLATAFORMAS.filter(p => !p[2]).length;
-const TOTAL_BASE = CRITERIOS.reduce((n, g) => n + g[2].length, 0) * BASES;
+const TOTAL_BASE = CRITERIOS.reduce((n, g) => n + g[2].length, 0) * PLATAFORMAS.length;
 
 // ── cargar resultados ────────────────────────────────────────────────────────
 const res = {};
@@ -151,7 +136,17 @@ const SIMBOLO = { 3: '●', 2: '◐', 1: '○' };
 
 // La licencia no cambia el simbolo: es dinero, no cumplimiento. Va en su
 // propia fila del recuento y alimenta la oferta economica.
-const simbolo = (d) => (puntua(d) ? SIMBOLO[d.cumple] : '◍');
+const simbolo = (d) => {
+  if (!puntua(d)) return '◍';
+  // La flecha avisa que un plan pago mejora este veredicto; el detalle va en la seccion 6
+  return SIMBOLO[d.cumple] + (d.conPlan?.length ? '↑' : '');
+};
+
+/** Mejor veredicto alcanzable contratando un plan, o el de la edicion gratuita. */
+const conPlanPago = (d) => {
+  if (!puntua(d) || !d.conPlan?.length) return d;
+  return d.conPlan.reduce((mejor, x) => (x.cumple > mejor.cumple ? x : mejor), d);
+};
 
 const puntua = (d) => d && d.puntua !== false;
 
@@ -170,23 +165,17 @@ for (const [gid, gnombre, items] of CRITERIOS) {
   analisis += `\n## ${gid} ${gnombre}\n`;
 
   for (const [cid, cnombre, crit] of items) {
-    matriz += `| ${cid} ${cnombre} | ${PLATAFORMAS.map(([k]) => simbolo(veredicto(res, cid, k))).join(' | ')} |\n`;
+    matriz += `| ${cid} ${cnombre} | ${PLATAFORMAS.map(([k]) => simbolo(res[cid]?.[k])).join(' | ')} |\n`;
 
     analisis += `\n### ${cid} ${cnombre}\n`;
     analisis += `*Criticidad: ${crit}.*\n\n`;
     let algo = false;
     for (const [k, nom] of PLATAFORMAS) {
-      const d = veredicto(res, cid, k);
+      const d = res[cid]?.[k];
       acum[parte][nom].push({ d, crit });
+      if (d?.conPlan?.length) acum[parte].mejoraConPlan = true;
       if (!d) continue;
       algo = true;
-      // Lo heredado no se repite: solo se deja constancia de que el plan no lo altera
-      if (!res[cid]?.[k]) {
-        analisis += `**${nom}** — el plan no modifica este aspecto.
-
-`;
-        continue;
-      }
       if (d.puntua === false) {
         analisis += `**${nom}** — *sin verificar.* ${d.motivo}\n\n`;
       } else {
@@ -198,6 +187,13 @@ for (const [gid, gnombre, items] of CRITERIOS) {
         const doc = d.documentacion ? ` Constancia del fabricante: ${d.documentacion}.` : '';
         const med = d.medicion ? ` *${d.medicion}.*` : '';
         analisis += `**${nom}** · **${d.cumple}** (${ETIQUETA[d.cumple]})${costo} — ${d.justificacion}${lic}${doc}${med}\n\n`;
+        for (const x of d.conPlan ?? []) {
+          const c = x.costo ? ` · costo de implementación **${x.costo}**` : '';
+          const precio = `${x.monto}${x.modalidad === 'unico' ? ', pago único' : ' por mes'}`;
+          analisis += `   ↳ **Con ${x.plan}** (${precio}) · **${x.cumple}** (${ETIQUETA[x.cumple]})${c} — ${x.justificacion}
+
+`;
+        }
       }
     }
     if (!algo) analisis += `*Pendiente de evaluación en todas las alternativas.*\n\n`;
@@ -207,10 +203,11 @@ for (const [gid, gnombre, items] of CRITERIOS) {
 // ── recuentos ────────────────────────────────────────────────────────────────
 
 /** % de cumplimiento de una plataforma en una parte, sobre el maximo de esa misma parte. */
-function cumplimiento(parte, nom) {
+function cumplimiento(parte, nom, conPago = false) {
   const v = acum[parte][nom].filter(x => puntua(x.d));
   if (!v.length) return null;
-  const obt = v.reduce((s, x) => s + x.d.cumple * PESO[x.crit], 0);
+  const valor = (d) => (conPago ? conPlanPago(d) : d).cumple;
+  const obt = v.reduce((s, x) => s + valor(x.d) * PESO[x.crit], 0);
   const max = v.reduce((s, x) => s + MAXIMO * PESO[x.crit], 0);
   return obt / max * 100;
 }
@@ -228,6 +225,13 @@ function resumen(parte) {
     const c = cumplimiento(parte, nom);
     return c === null ? '—' : `**${c.toFixed(1)} %**`;
   }).join(' | ')} |\n`;
+  // Solo cuando algun criterio mejora al contratar: si no, la fila repite la anterior
+  if (acum[parte].mejoraConPlan) {
+    t += `| *% contratando el plan que lo habilita* | ${PLATAFORMAS.map(([, nom]) => {
+      const c = cumplimiento(parte, nom, true);
+      return c === null ? '—' : `*${c.toFixed(1)} %*`;
+    }).join(' | ')} |\n`;
+  }
   return t;
 }
 

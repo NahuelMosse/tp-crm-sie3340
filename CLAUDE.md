@@ -54,7 +54,9 @@ Configurar una vez es **3**: lo que distingue al 3 del 2 es si el trabajo extra 
 **Costo de implementación** — ¿cuánto trabajo cuesta dejarlo funcionando? `3` viene listo · `2` configuración · `1` desarrollo o trabajo permanente.
 No lo llevan los criterios no funcionales ni los que no cumplen.
 
-**La licencia no es ninguna de las dos: es dinero.** Una capacidad en plan pago cumple igual; el costo va a la oferta económica.
+**El veredicto se registra sobre la edición gratuita de cada herramienta.** Son tres herramientas y tres columnas.
+
+**Un criterio que un plan pago cambia lleva un valor adicional por cada nivel que lo cambia**, en `conPlan`, con el precio de ese plan. Solo se evalúa dos veces lo que de verdad cambia al pagar: la documentación, la infraestructura y la navegabilidad son iguales en todos los planes. Un plan que solo agrega volumen no genera valor nuevo; su precio va a la proyección económica.
 
 **Ponderación en dos pasos:** criticidad ×3/×2/×1 dentro de cada parte, y 85 % Parte A / 15 % Parte B entre partes. No se superponen porque cada parte se normaliza contra su propio máximo.
 

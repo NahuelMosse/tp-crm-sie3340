@@ -34,16 +34,7 @@ export type Cumplimiento = 3 | 2 | 1;
  */
 export type Costo = 3 | 2 | 1;
 
-/**
- * Alternativa evaluada. Un plan que cambia lo que el producto resuelve es una
- * alternativa propia; los que solo agregan volumen no generan una nueva.
- */
-export type Plataforma =
-  | 'espocrm'
-  | 'espocrm-advanced'
-  | 'twenty'
-  | 'bitrix24'
-  | 'bitrix24-basic';
+export type Plataforma = 'espocrm' | 'twenty' | 'bitrix24';
 
 /** La licencia no es trabajo sino dinero: va a la proyección de costo, no a las escalas. */
 export interface Licencia {
@@ -52,6 +43,21 @@ export interface Licencia {
   /** Monto conocido, tal como lo publica el fabricante */
   monto: string;
   modalidad: 'unico' | 'recurrente';
+}
+
+/**
+ * Veredicto de un criterio contratando un plan que lo cambia. Solo se registra
+ * donde el plan modifica la respuesta: lo que es igual en todos los planes se
+ * evalua una sola vez, sobre la edicion gratuita.
+ */
+export interface ConPlan {
+  /** Nombre comercial del plan */
+  plan: string;
+  monto: string;
+  modalidad: 'unico' | 'recurrente';
+  cumple: Cumplimiento;
+  costo?: Costo;
+  justificacion: string;
 }
 
 export interface Evaluacion {
@@ -65,6 +71,8 @@ export interface Evaluacion {
    */
   costo?: Costo;
   licencia?: Licencia;
+  /** Valores alcanzables contratando un plan, cuando el plan cambia la respuesta */
+  conPlan?: ConPlan[];
   /** Por qué ese valor y no otro. Obligatoria: un registro sin esto no se acepta. */
   justificacion: string;
   /**
@@ -117,6 +125,7 @@ export function registrar(e: Evaluacion) {
     ...e,
     costo,
     licencia: e.licencia ?? null,
+    conPlan: e.conPlan ?? [],
     evidencia: e.evidencia ?? [],
     momento: new Date().toISOString(),
   };
