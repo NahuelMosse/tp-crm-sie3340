@@ -34,7 +34,16 @@ export type Cumplimiento = 3 | 2 | 1;
  */
 export type Costo = 3 | 2 | 1;
 
-export type Plataforma = 'espocrm' | 'twenty' | 'bitrix24';
+/**
+ * Alternativa evaluada. Un plan que cambia lo que el producto resuelve es una
+ * alternativa propia; los que solo agregan volumen no generan una nueva.
+ */
+export type Plataforma =
+  | 'espocrm'
+  | 'espocrm-advanced'
+  | 'twenty'
+  | 'bitrix24'
+  | 'bitrix24-basic';
 
 /** La licencia no es trabajo sino dinero: va a la proyección de costo, no a las escalas. */
 export interface Licencia {

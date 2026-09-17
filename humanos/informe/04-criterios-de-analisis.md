@@ -124,6 +124,8 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 | A.5.17 | Documentación en español | Consultar la documentación oficial y verificar la disponibilidad del idioma | Soporte |
 | A.5.18 | Comunidad activa de usuarios | Publicar una consulta real en el foro oficial y medir el tiempo hasta la primera respuesta | Soporte |
 | A.5.19 | Soporte técnico con compromiso de respuesta | Verificar en la documentación comercial la existencia de un canal con plazo comprometido | Soporte |
+| A.5.20 | Actualización a versiones nuevas conservando la parametrización | Consultar el procedimiento de actualización documentado y determinar quién la ejecuta, qué esfuerzo exige y qué ocurre con las entidades y campos creados por la compañía | Núcleo |
+| A.5.21 | Continuidad de las versiones en uso | Determinar durante cuánto tiempo el fabricante mantiene con correcciones una versión publicada, y con cuánta anticipación anuncia el fin de ese período | Soporte |
 
 ---
 
