@@ -129,14 +129,17 @@ La licencia no es trabajo sino dinero, así que no entra en ninguna de las dos e
 
 Las tres plataformas se evalúan en su **edición gratuita**, que es la que cualquier compañía puede poner en funcionamiento sin contratar nada. Ese es el veredicto que entra en la matriz.
 
-Pero una capacidad puede no existir en la edición gratuita y sí en un plan pago, y esa diferencia es información que la compañía necesita. Por eso **los criterios que un plan modifica reciben un valor adicional por cada nivel que los cambia**, con el precio de ese nivel:
+Pero una capacidad puede no existir en la edición gratuita y sí en un plan pago, y esa diferencia es información que la compañía necesita. **Cuando un criterio no se resuelve en la edición gratuita, se recorren todos los planes del producto** —enumerados en la sección 2— hasta determinar en cuáles queda resuelto, y se registra un valor por cada nivel en que la respuesta cambia:
 
-| | Plan | Cumplimiento |
-|---|---|:---:|
-| Edición gratuita | — | 1 |
-| Con el plan que lo habilita | $49 por mes | 3 |
+| | Plan | Precio | Cumplimiento |
+|---|---|---|:---:|
+| Edición gratuita | Free | — | 1 |
+| Primer plan que lo resuelve | Basic | $49 por mes | 2 |
+| Plan donde queda resuelto del todo | Professional | $199 por mes | 3 |
 
-Solo se evalúa dos veces **lo que de verdad cambia al pagar**. La documentación en español, los recursos de infraestructura o la navegabilidad son los mismos en todos los planes de un producto, y se evalúan una vez.
+**No alcanza con saber que "se consigue pagando".** Que una capacidad exija el plan de entrada o el más caro de la escala cambia por completo la decisión, y esa distancia solo aparece si se recorre la progresión entera.
+
+Solo se evalúa más de una vez **lo que de verdad cambia al pagar**. La documentación en español, los recursos de infraestructura o la navegabilidad son los mismos en todos los planes de un producto, y se evalúan una sola vez.
 
 **Un plan que solo agrega volumen no genera un valor nuevo**: más usuarios, más almacenamiento o alojamiento gestionado no cambian ninguna respuesta de la matriz. Ese precio entra en la proyección económica como costo del tamaño de la operación, no como capacidad.
 
