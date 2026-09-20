@@ -219,28 +219,28 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 
 ---
 
-## 4.7 Umbrales de los criterios que producen una medición
+## 4.7 Qué significa cada valor en los criterios que producen una medición
 
-Algunos procedimientos no devuelven un hecho sino un número: cuántos pasos, cuántos segundos, cuánta memoria. Para esos criterios **el umbral se fija antes de medir**, y se publica acá.
+Algunos procedimientos no devuelven un hecho sino un número: cuántos pasos, cuántos segundos, cuánta memoria. **El número se registra como evidencia, pero no es el que decide el valor**: el valor sale de la misma pregunta de la sección 3, y esta tabla declara qué significa cada respuesta en esos criterios.
 
-Sin esta tabla el número quedaría a interpretación de quien lo lee, y la comparación dejaría de ser repetible.
+La distinción importa. Un corte numérico —"hasta ocho pasos vale 3, nueve vale 2"— parece objetivo y no lo es: alguien eligió el ocho, y esa elección decide el resultado sin que nadie pueda discutirla. La sección 3 evita eso de forma deliberada, anclando cada valor en **lo que la compañía puede sostener** y no en una cifra universal.
 
-| Criterio | Qué se mide | 3 | 2 | 1 |
+| Criterio | Lo que se mide | 3 | 2 | 1 |
 |---|---|---|---|---|
 | A.6.2 Ficha integral del asegurado | Cuántos de los tres elementos —póliza, actividad y reclamo— se ven sin cambiar de pantalla | Los tres | Dos | Uno o ninguno |
+| A.7.1 Importación desde planilla | Registros que ingresan completos, sobre el total del archivo | Ingresan todos, sin pérdida | Ingresan todos, con pérdida de acentuación o de algún campo | Quedan registros sin ingresar, o no hay importación |
+| A.7.5 Exportación de la cartera | Diferencias entre el archivo exportado y el original | Ninguna | Pérdida de acentuación o de campos vacíos | Faltan filas, o no hay exportación |
+| A.10.5 Intercambio sin límite de volumen | Operaciones que admite el intercambio, contra las que exige sincronizar la cartera a diario | El límite queda holgado frente a esa operación | Se alcanza en una jornada de uso intenso y obliga a espaciar los envíos | Impide sincronizar la cartera, o no está publicado |
 | A.11.1 Recursos que la compañía debe disponer | Qué infraestructura hay que aportar para sostener el sistema con la cartera cargada | No exige ninguna | Corre en un equipo de escritorio ya disponible | Exige un servidor dedicado |
-| A.11.3 Navegabilidad | Acciones necesarias para registrar un asegurado con su póliza, desde el ingreso | Hasta 8 | Entre 9 y 15 | Más de 15 |
-| A.11.4 Aprendizaje sin capacitación previa | Tareas completadas sin instrucción, sobre cinco, promediadas entre las tres personas | 4 o más | 3 | 2 o menos |
-| A.11.5 Localización completa al español | Nombres de objetos y campos en otro idioma, en el menú principal y en una ficha | Ninguno | Entre 1 y 5 | Más de 5 |
-| A.11.9 Comunidad activa de usuarios | Tiempo hasta la primera respuesta a una consulta real publicada en el foro oficial | Hasta 48 horas | Entre 48 horas y 7 días | Sin respuesta a los 7 días |
-| A.7.1 Importación desde planilla | Registros que ingresan completos, sobre el total del archivo | Todos, sin pérdida | Ingresan todos, con pérdida de acentuación o de algún campo | Quedan registros sin ingresar, o no hay importación |
-| A.7.5 Exportación de la cartera | Diferencias entre el archivo exportado y el original: filas, acentuación y campos vacíos | Ninguna | Pérdida de acentuación o de campos vacíos | Faltan filas, o no hay exportación |
-| A.10.5 Intercambio sin límite de volumen | Operaciones por día que admite el intercambio, contra las que exige sincronizar una cartera de veinticinco mil registros | Más de 10.000 | Entre 1.000 y 10.000 | Menos de 1.000, o no está documentado |
-| A.11.2 Puesta en marcha | Tiempo desde cero hasta el sistema operativo, y si exige conocimientos que la compañía no tiene | Hasta una hora, sin perfil técnico | Hasta una jornada, o exige conocimientos puntuales | Más de una jornada, o exige perfil especializado |
-| A.11.11 Continuidad de las versiones | Meses durante los que el fabricante mantiene con correcciones una versión publicada | 24 o más | Entre 12 y 24 | Menos de 12, o sin compromiso publicado |
-| B.1.4 Volumen productivo | Tiempo de una búsqueda por texto con veinticinco mil registros cargados | Hasta 2 segundos | Entre 2 y 10 segundos | Más de 10 segundos, o la operación falla |
+| A.11.2 Puesta en marcha | Qué hace falta para llevar el sistema de cero a operativo | Lo completa alguien sin perfil técnico | Lo completa alguien con conocimientos puntuales, siguiendo la documentación | Exige un perfil técnico que la compañía no tiene |
+| A.11.3 Navegabilidad | Acciones necesarias para registrar un asegurado con su póliza, desde el ingreso | El registro se completa en un solo recorrido | Obliga a volver sobre pantallas ya visitadas o a repetir datos | No se completa sin recurrir a otra vía |
+| A.11.4 Aprendizaje sin capacitación previa | Tareas completadas sin instrucción, sobre cinco, por cada una de las tres personas | Las tres completan las cinco | Alguna queda sin completar, y quien la intentó sabe decir qué le faltó | Hay tareas que ninguna de las tres logra completar |
+| A.11.5 Localización completa al español | Nombres de objetos y campos en otro idioma, en el menú principal y en una ficha | Ninguno | Queda alguno, y aun así se entiende qué hace | Hay nombres que impiden saber qué guarda el campo |
+| A.11.9 Comunidad activa de usuarios | Qué respuesta recibe una consulta real publicada en el foro oficial | Respuesta que resuelve la consulta, en el plazo de una semana | Respuesta tardía, o que no resuelve | Sin respuesta |
+| A.11.11 Continuidad de las versiones | Por cuánto tiempo el fabricante sostiene con correcciones una versión publicada | Publica el plazo, y alcanza para planificar la actualización con tiempo | Publica el plazo, pero obliga a actualizar antes de lo que la compañía preveía | No hay compromiso publicado |
+| B.1.4 Volumen productivo | Comportamiento de una búsqueda por texto con veinticinco mil registros cargados | Responde sin espera perceptible | Responde con una demora que el usuario nota y tolera | La operación se vuelve impracticable, o falla |
 
-Los umbrales se fijaron desde la operación de la compañía, no desde lo que las plataformas ofrecen: **ninguno se eligió después de ver los resultados.**
+**El dato medido se publica junto al veredicto.** Que EspoCRM ocupe 203 MB y otra plataforma 1.770 no cambia el valor de ninguna de las dos si ambas corren en el equipo que la compañía ya tiene, pero es información que la compañía necesita y queda registrada en el análisis por criterio.
 
 ## 4.8 Criterios descartados
 
