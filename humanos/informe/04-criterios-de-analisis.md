@@ -1,6 +1,6 @@
 # 4. Criterios de análisis
 
-Esta sección define **qué se evalúa**. Cada criterio se enuncia como una capacidad y se acompaña del procedimiento concreto que se ejecuta para comprobarla. El resultado de ese procedimiento se convierte en un valor de 1 a 5 mediante la escala definida en la sección anterior; los resultados obtenidos se presentan en las secciones 5 y 6.
+Esta sección define **qué se evalúa**. Cada criterio se enuncia como una capacidad y se acompaña del procedimiento concreto que se ejecuta para comprobarla. El resultado de ese procedimiento se convierte en un valor de 1 a 3 mediante la escala definida en la sección anterior; los resultados obtenidos se presentan en las secciones 5 y 6.
 
 ## 4.1 De dónde provienen
 
@@ -40,7 +40,7 @@ De la ejecución surgen dos datos:
 1. **Si la capacidad existe**, y por qué vía se obtuvo: disponible al instalar, configurando desde la administración, programando, o solo por fuera del sistema.
 2. **Si requiere licencia**, dato que no afecta el valor técnico y se traslada a la oferta económica.
 
-El primero determina el valor de 1 a 5 según el árbol de decisión de la sección 3. El procedimiento describe **qué hacer**; el árbol, **cómo puntuar lo observado**.
+El primero determina el valor de 1 a 3 según el árbol de decisión de la sección 3. El procedimiento describe **qué hacer**; el árbol, **cómo puntuar lo observado**.
 
 Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, de modo que la misma secuencia de acciones corriera sobre las tres plataformas sin variaciones de operador.
 
