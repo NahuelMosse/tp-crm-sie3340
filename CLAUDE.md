@@ -54,7 +54,7 @@ No lo llevan los criterios no funcionales ni los que no cumplen.
 
 **Un criterio que un plan pago cambia lleva un valor adicional por cada nivel que lo cambia**, en `conPlan`, con el precio de ese plan. Cuando algo no está en la edición gratuita se recorren **todos** los planes: no es lo mismo resolverlo con el de entrada que necesitar el más caro. Solo se evalúa dos veces lo que de verdad cambia al pagar; la documentación, la infraestructura y la navegabilidad son iguales en todos los planes. Un plan que solo agrega volumen no genera valor nuevo.
 
-**Los criterios que devuelven un número llevan umbral publicado** en la sección 4.6. Sin umbral fijado de antemano el valor queda a interpretación y la comparación deja de ser repetible.
+**Cuando un procedimiento devuelve un número, el número es evidencia y no el veredicto.** El valor sale de la misma pregunta de la sección 3, anclada en lo que la compañía puede sostener; la sección 4.7 declara qué significa cada valor en esos criterios. **No inventes cortes numéricos** —"hasta ocho pasos vale 3"—: parecen objetivos, pero alguien eligió el ocho y esa elección decide el resultado sin que nadie pueda discutirla. Es justo lo que la escala de tres valores evita.
 
 **Ponderación en dos pasos:** criticidad ×3/×2/×1 dentro de cada parte, y 85 % Parte A / 15 % Parte B entre partes. No se superponen porque cada parte se normaliza contra su propio máximo.
 
