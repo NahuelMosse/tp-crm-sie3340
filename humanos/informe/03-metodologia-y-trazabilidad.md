@@ -20,8 +20,7 @@ Lo único que cambia es **la pregunta**, y depende de qué clase de criterio se 
 |---|:---:|
 | El sistema lo hace | **3** |
 | Hay que configurarlo una vez, después funciona | **3** |
-| Está incluido en la edición gratuita | **3** |
-| Solo existe en un plan pago | **1**, y se registra aparte su valor con ese plan |
+| Está en un plan pago, y contratándolo funciona | **3**, y se registra en qué plan |
 | Hay que exportar a una planilla y trabajar afuera | **2** |
 | Hay que repetir un procedimiento manual en cada uso | **2** |
 | No existe en ninguna edición del producto | **1** |
@@ -30,7 +29,9 @@ Lo único que cambia es **la pregunta**, y depende de qué clase de criterio se 
 
 **Entre 2 y 1**, la frontera es si existe alguna vía. Si hay forma de lograrlo, aunque sea incómoda, es 2.
 
-Aplica a los criterios de los grupos A.1 a A.4 y B.2: capacidades concretas que alguien ejecuta.
+Aplica a los criterios de los grupos A.1 a A.10 y B.2: capacidades concretas que alguien ejecuta.
+
+Varias de ellas pasarían por técnicas en un análisis genérico —crear una entidad, definir un campo calculado, restringir el acceso, construir un informe—, pero acá son **acciones que una persona realiza para que el negocio funcione**, y por eso responden esta pregunta y no la siguiente.
 
 ### Criterios no funcionales — cómo se comporta el sistema
 
@@ -52,7 +53,7 @@ Acá la pregunta anterior no tiene sentido: nadie *ejecuta* la documentación en
 | Concurrencia sobre un registro | Resuelve el conflicto entre usuarios | Lo permite pero deja constancia | Se pierden datos sin aviso |
 | Consumo de infraestructura | Dentro de lo que la compañía puede sostener | Exige infraestructura por encima de lo previsto | Fuera de su alcance |
 
-Aplica a los criterios del grupo A.5 y B.1: cualidades del sistema, no acciones sobre él.
+Aplica a los criterios del grupo A.11 y B.1: cualidades del sistema, no acciones sobre él.
 
 **El valor 2 significa lo mismo en ambos casos**: la necesidad queda cubierta, pero con un costo o una salvedad que la compañía carga de forma permanente. Esa equivalencia es lo que permite sumar ambos tipos de criterio en un mismo puntaje.
 
@@ -72,7 +73,7 @@ Lo que se pierde en graduación se recupera dividiendo el criterio.
 >
 > Una plataforma que modela la póliza pero no guarda historial obtiene 3 en los primeros y 1 en el último. Otra que hace las cuatro cosas obtiene 3 en las cuatro. **La diferencia aparece en el total, con más nitidez que si ambas hubieran recibido una nota global.**
 
-Esta es la razón por la que los veinte requerimientos del pedido se convirtieron en cuarenta y dos criterios: la granularidad está en el catálogo, no en la escala.
+Esta es la razón por la que los veinte requerimientos del pedido se convirtieron en cuarenta y ocho criterios funcionales: la granularidad está en el catálogo, no en la escala.
 
 ## 3.3 Lo que la escala no mide, y la segunda escala
 
@@ -117,7 +118,7 @@ Cuando el cumplimiento es **2**, el costo es siempre **1**: un procedimiento que
 
 La segunda escala solo tiene sentido donde hay algo que poner en marcha. Que la documentación esté en español, que exista una comunidad activa o que los datos persistan sin uso son cualidades del producto: no se implementan, vienen con él.
 
-Esos criterios reciben **un solo valor**, el de cumplimiento, y quedan fuera del índice de implementación. La excepción son los pocos criterios no funcionales que sí describen algo configurable —la automatización de procesos, por ejemplo, o la restricción de acceso por usuario—, que llevan los dos valores como cualquier criterio funcional.
+Esos criterios reciben **un solo valor**, el de cumplimiento, y quedan fuera del índice de implementación. No hay excepciones: todo lo que se pone en marcha —crear una entidad, automatizar un proceso, restringir un acceso— está clasificado como funcional precisamente porque alguien lo ejecuta.
 
 ### La licencia va aparte
 
@@ -127,9 +128,9 @@ La licencia no es trabajo sino dinero, así que no entra en ninguna de las dos e
 
 ### Los criterios que un plan pago cambia se puntúan en cada nivel
 
-Las tres plataformas se evalúan en su **edición gratuita**, que es la que cualquier compañía puede poner en funcionamiento sin contratar nada. Ese es el veredicto que entra en la matriz.
+**El cumplimiento mide la capacidad del producto, no la del plan contratado**, según la regla que fija la sección 1: si una plataforma resuelve la necesidad, la resuelve, y lo que cueste habilitarla se traslada íntegramente a la oferta económica. Penalizar el plan en la escala funcional cobraría dos veces lo mismo.
 
-Pero una capacidad puede no existir en la edición gratuita y sí en un plan pago, y esa diferencia es información que la compañía necesita. **Cuando un criterio no se resuelve en la edición gratuita, se recorren todos los planes del producto** —enumerados en la sección 2— hasta determinar en cuáles queda resuelto, y se registra un valor por cada nivel en que la respuesta cambia:
+Eso no borra la diferencia entre conseguir algo gratis y conseguirlo pagando, y esa diferencia es información que la compañía necesita. **Cuando un criterio no se resuelve en la edición gratuita, se recorren todos los planes del producto** —enumerados en la sección 2— hasta determinar en cuáles queda resuelto, y se registra un valor por cada nivel en que la respuesta cambia:
 
 | | Plan | Precio | Cumplimiento |
 |---|---|---|:---:|
@@ -143,7 +144,14 @@ Solo se evalúa más de una vez **lo que de verdad cambia al pagar**. La documen
 
 **Un plan que solo agrega volumen no genera un valor nuevo**: más usuarios, más almacenamiento o alojamiento gestionado no cambian ninguna respuesta de la matriz. Ese precio entra en la proyección económica como costo del tamaño de la operación, no como capacidad.
 
-La matriz marca con **↑** los criterios que mejoran contratando, y publica dos porcentajes por plataforma: el de la edición gratuita y el que se alcanza contratando los planes señalados. Así el informe responde la pregunta que la compañía necesita: **cuánto más cubre cada plataforma por lo que cuesta, y si ese gasto se justifica.**
+La matriz marca con **↑** los criterios que mejoran contratando, y publica dos porcentajes por plataforma:
+
+| Porcentaje | Qué responde | Dónde se usa |
+|---|---|---|
+| **Oferta técnica** | Qué resuelve el producto, contratando lo que haga falta | Entra en el valor total, junto a la oferta económica |
+| *Solo con la edición gratuita* | Qué se consigue sin pagar nada | Informativo: muestra el punto de partida y qué exige desembolso |
+
+Así el informe responde la pregunta que la compañía necesita: **cuánto más cubre cada plataforma por lo que cuesta, y si ese gasto se justifica.**
 
 ## 3.4 Todos los criterios se puntúan en las tres plataformas
 
@@ -242,19 +250,7 @@ valor total  =  0,70 × oferta técnica  +  0,30 × puntaje económico
 
 La proporción 70/30 refleja que la decisión es primero funcional: un sistema barato que no cubre lo que la compañía necesita no resuelve el problema. El 30 % alcanza para que una diferencia económica significativa altere el orden entre alternativas técnicamente parejas.
 
-## 3.8 Origen de cada afirmación
-
-| Referencia | Significado |
-|---|---|
-| `[REQ]` | Frase textual del pedido del cliente |
-| `[CRIT n]` | Criterio n del marco técnico de evaluación |
-| `[UI:sistema ruta]` | Comprobado en la instalación, en la pantalla indicada |
-| `[API:método]` | Ejecutado contra la interfaz de programación, con su respuesta |
-| `[TEST:id]` | Demostrado mediante prueba automatizada, con video |
-| `[DOC:dirección]` | Documentación oficial del fabricante, no comprobado |
-| `[RUBRO]` | Derivado de las características del negocio asegurador |
-
-## 3.9 Cómo se produjo la evidencia
+## 3.8 Cómo se produjo la evidencia
 
 Las pruebas se automatizaron con una herramienta de automatización de navegador, con tres consecuencias sobre la calidad del análisis.
 
@@ -264,7 +260,25 @@ Las pruebas se automatizaron con una herramienta de automatización de navegador
 
 **La evidencia queda registrada.** Cada ejecución produce video y capturas que respaldan el valor asignado y permiten reconstruir cómo se llegó a él.
 
-## 3.10 Limitaciones de la evidencia
+### Lo que no se puede automatizar
+
+No todos los criterios se responden operando el sistema. Tres clases quedan fuera de la automatización, y cada una tiene su propia forma de registro:
+
+| Clase | Ejemplos | Cómo se resuelve |
+|---|---|---|
+| **Observación con personas** | Aprendizaje sin capacitación previa | Tres personas ajenas ejecutan la misma consigna; se registra el resultado de cada una |
+| **Medición con espera** | Tiempo hasta la primera respuesta del foro | Se publica una consulta real y se mide el tiempo transcurrido |
+| **Verificación documental** | Continuidad de las versiones, plazo de respuesta comprometido | Se consulta la documentación del fabricante y se cita la fuente |
+
+En los tres casos el valor **se registra con el mismo procedimiento y entra en la misma matriz**: lo que cambia es el instrumento, no la escala ni la exigencia de justificación.
+
+### Cuándo vale la documentación del fabricante como prueba
+
+Un compromiso de servicio, un plazo de soporte o una política de versiones no son observables en la instalación: **existen como compromiso del fabricante o no existen.** Para esos criterios la documentación oficial es la prueba adecuada, y se cita con su dirección y su fecha de consulta.
+
+Fuera de esa clase, la documentación **no sustituye a la comprobación**. Que un fabricante afirme que su producto hace algo no es evidencia de que lo haga: cuando la capacidad es observable, se observa. La documentación del fabricante solo alcanza por sí sola para sostener el valor **1**, según la regla de la subsección 3.5, porque probar que algo no existe exige una fuente que lo declare.
+
+## 3.9 Limitaciones de la evidencia
 
 **El escenario es una instalación de prueba, no una compañía en operación.** Los volúmenes cargados son de decenas de miles de registros; las conclusiones sobre rendimiento valen para una compañía pequeña o mediana.
 
@@ -274,9 +288,9 @@ Las pruebas se automatizaron con una herramienta de automatización de navegador
 
 **Una de las tres plataformas no admite inspección interna.** De las dos instalaciones propias se pudo revisar el código, la base de datos y los archivos de configuración; de la plataforma en la nube, solo lo que exponen su interfaz y su documentación. Esa asimetría explica que concentre la mayor cantidad de criterios sin verificar.
 
-## 3.11 Correcciones aplicadas durante el análisis
+## 3.10 Correcciones aplicadas durante el análisis
 
-**El sistema de puntuación se rehízo dos veces.** La primera versión puntuaba de 1 a 5 según la vía de obtención de cada capacidad, lo que hacía que dos plataformas con capacidades distintas obtuvieran el mismo valor por requerir ambas configuración: medía el camino en lugar del destino. La segunda definía una escala propia para cada criterio, lo que eliminaba la ambigüedad pero obligaba a manejar cincuenta y seis reglas distintas. La versión definitiva usa una sola pregunta y tres valores, y recupera la precisión dividiendo los criterios en unidades más finas.
+**El sistema de puntuación se rehízo dos veces.** La primera versión puntuaba de 1 a 5 según la vía de obtención de cada capacidad, lo que hacía que dos plataformas con capacidades distintas obtuvieran el mismo valor por requerir ambas configuración: medía el camino en lugar del destino. La segunda definía una escala propia para cada criterio, lo que eliminaba la ambigüedad pero obligaba a manejar tantas reglas distintas como criterios tiene el catálogo. La versión definitiva usa una sola pregunta y tres valores, y recupera la precisión dividiendo los criterios en unidades más finas.
 
 **Detección de restricciones comerciales por texto de pantalla.** El primer procedimiento buscaba expresiones como "mejore su plan" en el contenido de la página. Daba positivo siempre en una de las plataformas, porque ese botón está fijo en su menú lateral con independencia de la función que se use. Se descartó: la restricción se determina completando la operación, nunca por la presencia de un texto.
 
