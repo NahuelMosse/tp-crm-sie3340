@@ -3,4 +3,5 @@ test-results/
 auth-bitrix.json
 auth-twenty.json
 playwright-report/
+ai/automatizacion/informe/
 .env
