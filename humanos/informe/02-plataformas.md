@@ -10,21 +10,6 @@ Se relevaron doce sistemas del mercado y se aplicaron tres condiciones de admisi
 | Interfaz en español | Los usuarios finales son productores y personal administrativo |
 | Obtenible por autogestión, sin intermediación comercial | Evita que la evaluación dependa de la disponibilidad de un vendedor |
 
-Nueve quedaron excluidos:
-
-| Sistema | Motivo de la exclusión |
-|---|---|
-| Pipedrive, monday CRM | Sin versión gratuita permanente: solo período de prueba |
-| Freshsales | El registro exige correo corporativo y su versión gratuita carece de informes y de campos propios |
-| EngageBay | Interfaz sin traducción al español |
-| Odoo | Su versión gratuita habilita una sola aplicación; incorporar el CRM junto a otra función obliga a licencia |
-| SuiteCRM | El español requiere instalar un paquete de idioma por separado, con traducción incompleta |
-| Vtiger | Versión gratuita acotada en volumen, orientada a evaluación y no a operación |
-| Salesforce | Su edición gratuita es para desarrollo y prohíbe el uso productivo |
-| HubSpot | Versión gratuita limitada a dos usuarios, insuficiente para una cartera con varios productores |
-
-Las tres restantes son las que se analizan en este informe.
-
 ## 2.2 EspoCRM 10.0.4 Community — instalación propia
 
 CRM de código abierto bajo licencia AGPL v3, desarrollado desde 2014. Se instala sobre una plataforma PHP con base de datos MySQL o MariaDB, sin límite de usuarios ni de registros impuesto por licencia.
