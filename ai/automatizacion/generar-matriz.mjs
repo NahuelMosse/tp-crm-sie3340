@@ -31,77 +31,102 @@ const PLATAFORMAS = [
 
 // Catálogo de criterios: id, nombre y criticidad. Debe coincidir con la sección 4.
 const CRITERIOS = [
-  ['A.1', 'Gestión de la cartera de pólizas', [
+  ['A.1', 'Cartera de pólizas', [
     ['A.1.1', 'Modelado de la póliza como objeto propio', 'nucleo'],
-    ['A.1.2', 'Tipos de dato adecuados para prima, vigencia y cobranza', 'nucleo'],
-    ['A.1.3', 'Vinculación de la póliza con el asegurado', 'nucleo'],
-    ['A.1.4', 'Consulta y filtrado de la cartera para prospección', 'nucleo'],
-    ['A.1.5', 'Operación masiva sobre la cartera', 'soporte'],
+    ['A.1.2', 'Campos de lista para el ramo y el estado de cobranza', 'nucleo'],
+    ['A.1.3', 'Prima con importe y moneda', 'nucleo'],
+    ['A.1.4', 'Vigencia con fecha de inicio y de fin', 'nucleo'],
+    ['A.1.5', 'Aviso anticipado de vencimiento', 'soporte'],
+    ['A.1.6', 'Consulta y filtrado de la cartera', 'nucleo'],
+    ['A.1.7', 'Operación masiva sobre la cartera', 'soporte'],
   ]],
-  ['A.2', 'Gestión comercial y de marketing', [
-    ['A.2.1', 'Registro y calificación del solicitante', 'nucleo'],
-    ['A.2.2', 'Embudo de oportunidades vinculado al asegurado', 'nucleo'],
-    ['A.2.3', 'Embudos múltiples por ramo', 'soporte'],
-    ['A.2.4', 'Segmentación reutilizable de la cartera', 'nucleo'],
-    ['A.2.5', 'Campañas con medición de resultados', 'soporte'],
-    ['A.2.6', 'Captación de prospectos desde redes sociales', 'soporte'],
-    ['A.2.7', 'Escucha de menciones y reputación', 'accesorio'],
-    ['A.2.8', 'Proyección de ventas', 'soporte'],
-    ['A.2.9', 'Registro de la competencia y motivos de pérdida', 'soporte'],
+  ['A.2', 'Captación y proceso de venta', [
+    ['A.2.1', 'Registro del solicitante con sus datos de contacto', 'nucleo'],
+    ['A.2.2', 'Calificación y priorización del solicitante', 'nucleo'],
+    ['A.2.3', 'Conversión del solicitante en oportunidad de venta', 'nucleo'],
+    ['A.2.4', 'Embudo de oportunidades con etapas', 'nucleo'],
+    ['A.2.5', 'Embudos diferenciados por ramo', 'soporte'],
+    ['A.2.6', 'Detección de oportunidades sobre la cartera existente', 'nucleo'],
   ]],
-  ['A.3', 'Atención al asegurado', [
-    ['A.3.1', 'Gestión de reclamos como casos con seguimiento', 'nucleo'],
-    ['A.3.2', 'Ficha integral del asegurado', 'nucleo'],
-    ['A.3.3', 'Base de conocimiento para la atención', 'soporte'],
-    ['A.3.4', 'Tareas con responsable y vencimiento', 'soporte'],
-    ['A.3.5', 'Agenda y carga de trabajo por productor', 'soporte'],
+  ['A.3', 'Productores y actividad comercial', [
+    ['A.3.1', 'Registro de productores y asignación de cartera', 'nucleo'],
+    ['A.3.2', 'Bitácora de la actividad con el cliente', 'nucleo'],
+    ['A.3.3', 'Agenda y carga de trabajo del productor', 'soporte'],
+    ['A.3.4', 'Proyección de los movimientos comerciales', 'soporte'],
   ]],
-  ['A.4', 'Intercambio de datos y correo', [
-    ['A.4.1', 'Importación desde los formatos que usa el cliente', 'soporte'],
-    ['A.4.2', 'Sincronización de correo multiusuario', 'nucleo'],
-    ['A.4.3', 'Vinculación automática del correo a la ficha', 'nucleo'],
-    ['A.4.4', 'Exportación de la cartera sin pérdida de datos', 'soporte'],
+  ['A.4', 'Marketing, segmentación y reputación', [
+    ['A.4.1', 'Segmentación reutilizable de la cartera', 'nucleo'],
+    ['A.4.2', 'Diseño de campañas sobre un segmento', 'soporte'],
+    ['A.4.3', 'Medición de los resultados de la campaña', 'soporte'],
+    ['A.4.4', 'Captación de interesados desde redes sociales', 'soporte'],
+    ['A.4.5', 'Escucha de menciones en canales públicos', 'accesorio'],
+    ['A.4.6', 'Registro de la competencia y del motivo de pérdida', 'soporte'],
   ]],
-  ['A.5', 'Criterios técnicos de evaluación', [
-    ['A.5.1', 'Requerimientos de infraestructura moderados', 'soporte'],
-    ['A.5.2', 'Instalación guiada sin conocimientos técnicos', 'soporte'],
-    ['A.5.3', 'Navegabilidad: pocos pasos para la operación diaria', 'soporte'],
-    ['A.5.4', 'Aprendizaje sin capacitación previa', 'soporte'],
-    ['A.5.5', 'Localización completa al español, modelo incluido', 'nucleo'],
-    ['A.5.6', 'Operación concurrente sobre la misma cartera', 'nucleo'],
-    ['A.5.7', 'Creación de entidades sin programar', 'nucleo'],
-    ['A.5.8', 'Relaciones entre entidades desde la interfaz', 'nucleo'],
-    ['A.5.9', 'Campos calculados sobre datos propios', 'soporte'],
-    ['A.5.10', 'Automatización de procesos', 'soporte'],
-    ['A.5.11', 'Restricción de la cartera por productor', 'nucleo'],
-    ['A.5.12', 'Registro de quién modificó cada dato', 'nucleo'],
-    ['A.5.13', 'Indicadores de producción y cobranza', 'soporte'],
-    ['A.5.14', 'Generación de informes', 'soporte'],
-    ['A.5.15', 'Interfaz de programación sin restricciones de uso', 'soporte'],
-    ['A.5.16', 'Ecosistema de integraciones disponible', 'soporte'],
-    ['A.5.17', 'Documentación en español', 'soporte'],
-    ['A.5.18', 'Comunidad activa de usuarios', 'soporte'],
-    ['A.5.19', 'Soporte técnico con compromiso de respuesta', 'soporte'],
-    ['A.5.20', 'Actualización conservando la parametrización', 'nucleo'],
-    ['A.5.21', 'Continuidad de las versiones en uso', 'soporte'],
+  ['A.5', 'Atención al asegurado y reclamos', [
+    ['A.5.1', 'Reclamo como caso con identidad propia', 'nucleo'],
+    ['A.5.2', 'Estado y seguimiento del reclamo', 'nucleo'],
+    ['A.5.3', 'Responsable asignado a cada reclamo', 'nucleo'],
+    ['A.5.4', 'Base de conocimiento para la atención', 'soporte'],
+    ['A.5.5', 'Tareas asignables con responsable y vencimiento', 'nucleo'],
+    ['A.5.6', 'Aviso al usuario al que se le asigna una tarea', 'soporte'],
+  ]],
+  ['A.6', 'Ficha única del asegurado', [
+    ['A.6.1', 'Vinculación de la póliza con su titular', 'nucleo'],
+    ['A.6.2', 'Ficha integral del asegurado', 'nucleo'],
+    ['A.6.3', 'Campos propios del rubro en la ficha', 'nucleo'],
+    ['A.6.4', 'Unicidad de la ficha del asegurado', 'nucleo'],
+  ]],
+  ['A.7', 'Intercambio de datos y correo', [
+    ['A.7.1', 'Importación de contactos desde planilla de cálculo', 'nucleo'],
+    ['A.7.2', 'Importación de contactos desde las agendas de correo', 'soporte'],
+    ['A.7.3', 'Sincronización del correo de varios usuarios', 'nucleo'],
+    ['A.7.4', 'Vinculación automática del correo a la ficha', 'nucleo'],
+    ['A.7.5', 'Exportación de la cartera sin pérdida de datos', 'soporte'],
+  ]],
+  ['A.8', 'Parametrización del modelo de negocio', [
+    ['A.8.1', 'Creación de entidades sin programar', 'nucleo'],
+    ['A.8.2', 'Campos calculados sobre datos propios', 'soporte'],
+    ['A.8.3', 'Automatización de procesos', 'soporte'],
+    ['A.8.4', 'Conservación de la parametrización al actualizar', 'nucleo'],
+  ]],
+  ['A.9', 'Control de acceso y trazabilidad', [
+    ['A.9.1', 'Restricción de la cartera por productor', 'nucleo'],
+    ['A.9.2', 'Registro de quién modificó cada dato', 'nucleo'],
+  ]],
+  ['A.10', 'Explotación de la información', [
+    ['A.10.1', 'Indicadores sobre la operación', 'soporte'],
+    ['A.10.2', 'Generación de informes definidos por el usuario', 'nucleo'],
+    ['A.10.3', 'Intercambio de datos con otros sistemas de la compañía', 'soporte'],
+    ['A.10.4', 'Intercambio sin límite de volumen que condicione la operación', 'soporte'],
+  ]],
+  ['A.11', 'Condiciones técnicas del producto', [
+    ['A.11.1', 'Recursos que la compañía debe disponer para sostenerlo', 'soporte'],
+    ['A.11.2', 'Puesta en marcha sin perfil técnico especializado', 'soporte'],
+    ['A.11.3', 'Navegabilidad: pocos pasos para la operación diaria', 'soporte'],
+    ['A.11.4', 'Aprendizaje sin capacitación previa', 'soporte'],
+    ['A.11.5', 'Localización completa al español, modelo incluido', 'nucleo'],
+    ['A.11.6', 'Operación concurrente sobre la misma cartera', 'nucleo'],
+    ['A.11.7', 'Ecosistema de integraciones disponible', 'soporte'],
+    ['A.11.8', 'Documentación en español', 'soporte'],
+    ['A.11.9', 'Comunidad activa de usuarios', 'soporte'],
+    ['A.11.10', 'Soporte técnico con compromiso de respuesta', 'soporte'],
+    ['A.11.11', 'Continuidad de las versiones en uso', 'soporte'],
   ]],
   ['B.1', 'Condiciones que impone el negocio asegurador', [
-    ['B.1.1', 'Persistencia de los datos sin uso continuo', 'relevante'],
-    ['B.1.2', 'Respaldo bajo control de la organización', 'relevante'],
-    ['B.1.3', 'Búsqueda y operación con volumen productivo', 'relevante'],
-    ['B.1.4', 'Control sobre el momento de actualizar', 'relevante'],
-    ['B.1.5', 'Control sobre la localización de los datos', 'relevante'],
-    ['B.1.6', 'Integridad de la ficha única del asegurado', 'relevante'],
-    ['B.1.7', 'Operación sin conexión a internet', 'relevante'],
+    ['B.1.1', 'Persistencia de los datos sin uso continuo', 'nucleo'],
+    ['B.1.2', 'Copia propia y completa de la cartera', 'nucleo'],
+    ['B.1.3', 'Copia periódica sin intervención manual', 'soporte'],
+    ['B.1.4', 'Búsqueda y operación con volumen productivo', 'nucleo'],
+    ['B.1.5', 'Previsibilidad de los cambios del sistema', 'soporte'],
+    ['B.1.6', 'Conocimiento y decisión sobre dónde residen los datos', 'soporte'],
+    ['B.1.7', 'Continuidad de la atención ante una caída del enlace', 'soporte'],
   ]],
   ['B.2', 'Capacidades por encima de lo solicitado', [
-    ['B.2.1', 'Asistente de inteligencia artificial', 'marginal'],
-    ['B.2.2', 'Aplicación móvil nativa', 'marginal'],
-    ['B.2.3', 'Suite de trabajo integrada', 'marginal'],
-    ['B.2.4', 'Telefonía y videollamada integradas', 'marginal'],
-    ['B.2.5', 'Detección de registros duplicados al cargar', 'marginal'],
-    ['B.2.6', 'Acceso directo a la base de datos', 'marginal'],
-    ['B.2.7', 'Uso sin restricciones comerciales en la interfaz', 'marginal'],
+    ['B.2.1', 'Asistente de inteligencia artificial', 'accesorio'],
+    ['B.2.2', 'Aplicación móvil nativa', 'soporte'],
+    ['B.2.3', 'Suite de trabajo integrada', 'accesorio'],
+    ['B.2.4', 'Telefonía y videollamada integradas', 'accesorio'],
+    ['B.2.5', 'Uso sin restricciones comerciales en la interfaz', 'soporte'],
   ]],
 ];
 
@@ -203,10 +228,10 @@ for (const [gid, gnombre, items] of CRITERIOS) {
 // ── recuentos ────────────────────────────────────────────────────────────────
 
 /** % de cumplimiento de una plataforma en una parte, sobre el maximo de esa misma parte. */
-function cumplimiento(parte, nom, conPago = false) {
+function cumplimiento(parte, nom, soloGratuito = false) {
   const v = acum[parte][nom].filter(x => puntua(x.d));
   if (!v.length) return null;
-  const valor = (d) => (conPago ? conPlanPago(d) : d).cumple;
+  const valor = (d) => (soloGratuito ? d : conPlanPago(d)).cumple;
   const obt = v.reduce((s, x) => s + valor(x.d) * PESO[x.crit], 0);
   const max = v.reduce((s, x) => s + MAXIMO * PESO[x.crit], 0);
   return obt / max * 100;
@@ -227,12 +252,26 @@ function resumen(parte) {
   }).join(' | ')} |\n`;
   // Solo cuando algun criterio mejora al contratar: si no, la fila repite la anterior
   if (acum[parte].mejoraConPlan) {
-    t += `| *% contratando el plan que lo habilita* | ${PLATAFORMAS.map(([, nom]) => {
+    t += `| *% solo con la edición gratuita* | ${PLATAFORMAS.map(([, nom]) => {
       const c = cumplimiento(parte, nom, true);
       return c === null ? '—' : `*${c.toFixed(1)} %*`;
     }).join(' | ')} |\n`;
   }
   return t;
+}
+
+/**
+ * Extremos en que caeria el porcentaje de una parte si todo lo pendiente
+ * resultara 3, o todo 1. Mide cuanto depende el resultado de lo que falta.
+ */
+function banda(parte, nom) {
+  const t = acum[parte][nom];
+  const obt = t.filter(x => puntua(x.d))
+    .reduce((s, x) => s + conPlanPago(x.d).cumple * PESO[x.crit], 0);
+  const max = t.reduce((s, x) => s + MAXIMO * PESO[x.crit], 0);
+  if (!max) return null;
+  const pendiente = t.filter(x => !puntua(x.d)).reduce((s, x) => s + PESO[x.crit], 0);
+  return { min: (obt + pendiente) / max * 100, max: (obt + pendiente * MAXIMO) / max * 100 };
 }
 
 /** Puntaje tecnico: las dos partes combinadas segun el reparto 85/15. */
@@ -245,6 +284,17 @@ function tecnico() {
     }).join(' | ')} |\n`;
   t += fila(`Parte A — solicitados (${(PARTE.A * 100).toFixed(0)} %)`, 'A');
   t += fila(`Parte B — no solicitados (${(PARTE.B * 100).toFixed(0)} %)`, 'B');
+  const falta = PLATAFORMAS.some(([, nom]) =>
+    ['A', 'B'].some(p => acum[p][nom].some(x => !puntua(x.d))));
+  if (falta) {
+    t += `| *Rango posible según lo que falta verificar* | ${PLATAFORMAS.map(([, nom]) => {
+      const a = banda('A', nom), b = banda('B', nom);
+      if (!a || !b) return '—';
+      const lo = a.min * PARTE.A + b.min * PARTE.B;
+      const hi = a.max * PARTE.A + b.max * PARTE.B;
+      return `*${lo.toFixed(1)} a ${hi.toFixed(1)} %*`;
+    }).join(' | ')} |\n`;
+  }
   t += `| **Oferta técnica** | ${PLATAFORMAS.map(([, nom]) => {
     const a = cumplimiento('A', nom), b = cumplimiento('B', nom);
     if (a === null && b === null) return '—';
@@ -289,6 +339,8 @@ ${tecnico()}
 El porcentaje de cada parte se calcula **solo sobre las características verificadas**, ponderadas por criticidad: núcleo ×3, soporte ×2, accesorio ×1. Las no verificadas quedan fuera del cálculo, tanto del puntaje obtenido como del máximo posible.
 
 La oferta técnica combina las dos partes según lo que el cliente pidió: **85 % la Parte A y 15 % la Parte B.** Como cada parte se mide contra su propio máximo, los pesos de criticidad ordenan los criterios dentro de la parte pero no alteran cuánto vale esa parte en el total.
+
+El **rango posible** muestra dónde caería el resultado si todo lo pendiente resultara favorable y dónde si resultara desfavorable. Mientras esa banda sea ancha, el orden entre plataformas todavía no está decidido por la evidencia sino por lo que falta medir.
 
 Un porcentaje alto sobre pocas características verificadas no es comparable con uno sobre el total. La cantidad de evaluaciones registradas por plataforma figura en la fila correspondiente.
 `;

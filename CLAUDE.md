@@ -13,11 +13,7 @@ Todo vive acá: informe, automatización, resultados y evidencia. Remoto: `githu
 
 **Antes de editar, `git fetch` y comprobá que estás al día.** Existen copias sueltas del proyecto fuera del repositorio; una edición sobre cualquiera de ellas se pierde y el equipo no la ve. Si un archivo no está bajo `git status`, no es parte del trabajo.
 
-La carpeta de la materia contiene **ocho espacios de no separación (U+00A0)** en el nombre. `Read`, `Glob` y `cd` fallan sobre ella. Para alcanzarla, comodín:
-
-```python
-glob.glob('D:/desktop folders/*/Universidad de moron/Sistemas*/TP3/*')[0]
-```
+**Tres personas trabajan sobre este repositorio.** No commitees ni pushees por tu cuenta: dejá los cambios en el árbol y avisá qué quedó listo, para no pisar lo que otro está escribiendo.
 
 ## El informe
 
@@ -54,9 +50,11 @@ Configurar una vez es **3**: lo que distingue al 3 del 2 es si el trabajo extra 
 **Costo de implementación** — ¿cuánto trabajo cuesta dejarlo funcionando? `3` viene listo · `2` configuración · `1` desarrollo o trabajo permanente.
 No lo llevan los criterios no funcionales ni los que no cumplen.
 
-**El veredicto se registra sobre la edición gratuita de cada herramienta.** Son tres herramientas y tres columnas.
+**El cumplimiento mide la capacidad del producto, no la del plan contratado.** Si una función existe en un plan pago, cumple: lo que cuesta habilitarla va a la oferta económica. Penalizarla en la escala la cobraría dos veces. Son tres herramientas y tres columnas.
 
-**Un criterio que un plan pago cambia lleva un valor adicional por cada nivel que lo cambia**, en `conPlan`, con el precio de ese plan. Solo se evalúa dos veces lo que de verdad cambia al pagar: la documentación, la infraestructura y la navegabilidad son iguales en todos los planes. Un plan que solo agrega volumen no genera valor nuevo; su precio va a la proyección económica.
+**Un criterio que un plan pago cambia lleva un valor adicional por cada nivel que lo cambia**, en `conPlan`, con el precio de ese plan. Cuando algo no está en la edición gratuita se recorren **todos** los planes: no es lo mismo resolverlo con el de entrada que necesitar el más caro. Solo se evalúa dos veces lo que de verdad cambia al pagar; la documentación, la infraestructura y la navegabilidad son iguales en todos los planes. Un plan que solo agrega volumen no genera valor nuevo.
+
+**Los criterios que devuelven un número llevan umbral publicado** en la sección 4.6. Sin umbral fijado de antemano el valor queda a interpretación y la comparación deja de ser repetible.
 
 **Ponderación en dos pasos:** criticidad ×3/×2/×1 dentro de cada parte, y 85 % Parte A / 15 % Parte B entre partes. No se superponen porque cada parte se normaliza contra su propio máximo.
 
