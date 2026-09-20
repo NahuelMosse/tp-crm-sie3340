@@ -84,7 +84,7 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 *Pendiente de evaluación en todas las alternativas.*
 
 
-### A.2.6 Detección de oportunidades sobre la cartera existente
+### A.2.6 Oportunidades de cambio y ampliación sobre la cartera
 *Criticidad: nucleo.*
 
 *Pendiente de evaluación en todas las alternativas.*
@@ -284,7 +284,13 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 *Pendiente de evaluación en todas las alternativas.*
 
 
-### A.9.2 Registro de quién modificó cada dato
+### A.9.2 Autenticación de los usuarios bajo control de la compañía
+*Criticidad: nucleo.*
+
+*Pendiente de evaluación en todas las alternativas.*
+
+
+### A.9.3 Registro de quién modificó cada dato
 *Criticidad: nucleo.*
 
 *Pendiente de evaluación en todas las alternativas.*
@@ -304,13 +310,19 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 *Pendiente de evaluación en todas las alternativas.*
 
 
-### A.10.3 Intercambio de datos con otros sistemas de la compañía
+### A.10.3 Informe paramétrico reutilizable
 *Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
 
-### A.10.4 Intercambio sin límite de volumen que condicione la operación
+### A.10.4 Intercambio de datos con otros sistemas de la compañía
+*Criticidad: soporte.*
+
+*Pendiente de evaluación en todas las alternativas.*
+
+
+### A.10.5 Intercambio sin límite de volumen que condicione la operación
 *Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*

@@ -46,7 +46,7 @@ const CRITERIOS = [
     ['A.2.3', 'Conversión del solicitante en oportunidad de venta', 'nucleo'],
     ['A.2.4', 'Embudo de oportunidades con etapas', 'nucleo'],
     ['A.2.5', 'Embudos diferenciados por ramo', 'soporte'],
-    ['A.2.6', 'Detección de oportunidades sobre la cartera existente', 'nucleo'],
+    ['A.2.6', 'Oportunidades de cambio y ampliación sobre la cartera', 'nucleo'],
   ]],
   ['A.3', 'Productores y actividad comercial', [
     ['A.3.1', 'Registro de productores y asignación de cartera', 'nucleo'],
@@ -91,13 +91,15 @@ const CRITERIOS = [
   ]],
   ['A.9', 'Control de acceso y trazabilidad', [
     ['A.9.1', 'Restricción de la cartera por productor', 'nucleo'],
-    ['A.9.2', 'Registro de quién modificó cada dato', 'nucleo'],
+    ['A.9.2', 'Autenticación de los usuarios bajo control de la compañía', 'nucleo'],
+    ['A.9.3', 'Registro de quién modificó cada dato', 'nucleo'],
   ]],
   ['A.10', 'Explotación de la información', [
     ['A.10.1', 'Indicadores sobre la operación', 'soporte'],
     ['A.10.2', 'Generación de informes definidos por el usuario', 'nucleo'],
-    ['A.10.3', 'Intercambio de datos con otros sistemas de la compañía', 'soporte'],
-    ['A.10.4', 'Intercambio sin límite de volumen que condicione la operación', 'soporte'],
+    ['A.10.3', 'Informe paramétrico reutilizable', 'soporte'],
+    ['A.10.4', 'Intercambio de datos con otros sistemas de la compañía', 'soporte'],
+    ['A.10.5', 'Intercambio sin límite de volumen que condicione la operación', 'soporte'],
   ]],
   ['A.11', 'Condiciones técnicas del producto', [
     ['A.11.1', 'Recursos que la compañía debe disponer para sostenerlo', 'soporte'],

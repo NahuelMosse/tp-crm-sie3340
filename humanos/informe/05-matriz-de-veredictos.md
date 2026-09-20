@@ -10,7 +10,7 @@ Que una capacidad requiera un plan pago no cambia su símbolo: eso es dinero, no
 
 Lo no verificado no recibe valor y queda fuera del cálculo, tanto del obtenido como del máximo posible. Es un estado transitorio del trabajo, no una característica de la plataforma.
 
-Estado: **3 de 213 evaluaciones registradas.**
+Estado: **3 de 219 evaluaciones registradas.**
 
 ---
 
@@ -37,7 +37,7 @@ Estado: **3 de 213 evaluaciones registradas.**
 | A.2.3 Conversión del solicitante en oportunidad de venta | ◍ | ◍ | ◍ |
 | A.2.4 Embudo de oportunidades con etapas | ◍ | ◍ | ◍ |
 | A.2.5 Embudos diferenciados por ramo | ◍ | ◍ | ◍ |
-| A.2.6 Detección de oportunidades sobre la cartera existente | ◍ | ◍ | ◍ |
+| A.2.6 Oportunidades de cambio y ampliación sobre la cartera | ◍ | ◍ | ◍ |
 
 ### A.3 Productores y actividad comercial
 
@@ -103,7 +103,8 @@ Estado: **3 de 213 evaluaciones registradas.**
 | Criterio | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
 | A.9.1 Restricción de la cartera por productor | ◍ | ◍ | ◍ |
-| A.9.2 Registro de quién modificó cada dato | ◍ | ◍ | ◍ |
+| A.9.2 Autenticación de los usuarios bajo control de la compañía | ◍ | ◍ | ◍ |
+| A.9.3 Registro de quién modificó cada dato | ◍ | ◍ | ◍ |
 
 ### A.10 Explotación de la información
 
@@ -111,8 +112,9 @@ Estado: **3 de 213 evaluaciones registradas.**
 |---|:---:|:---:|:---:|
 | A.10.1 Indicadores sobre la operación | ◍ | ◍ | ◍ |
 | A.10.2 Generación de informes definidos por el usuario | ◍ | ◍ | ◍ |
-| A.10.3 Intercambio de datos con otros sistemas de la compañía | ◍ | ◍ | ◍ |
-| A.10.4 Intercambio sin límite de volumen que condicione la operación | ◍ | ◍ | ◍ |
+| A.10.3 Informe paramétrico reutilizable | ◍ | ◍ | ◍ |
+| A.10.4 Intercambio de datos con otros sistemas de la compañía | ◍ | ◍ | ◍ |
+| A.10.5 Intercambio sin límite de volumen que condicione la operación | ◍ | ◍ | ◍ |
 
 ### A.11 Condiciones técnicas del producto
 
@@ -137,7 +139,7 @@ Estado: **3 de 213 evaluaciones registradas.**
 | Cumple ● | 1 | 1 | 0 |
 | Cumple con reparo ◐ | 0 | 0 | 0 |
 | No cumple ○ | 0 | 0 | 0 |
-| Sin verificar ◍ | 58 | 58 | 59 |
+| Sin verificar ◍ | 60 | 60 | 61 |
 | *— de los que cumplen, requieren licencia* | 0 | 0 | 0 |
 | **% de cumplimiento** | **100.0 %** | **100.0 %** | — |
 
@@ -187,7 +189,7 @@ Estado: **3 de 213 evaluaciones registradas.**
 |---|:---:|:---:|:---:|
 | Parte A — solicitados (85 %) | 100.0 % | 100.0 % | — |
 | Parte B — no solicitados (15 %) | — | — | — |
-| *Rango posible según lo que falta verificar* | *34.5 a 100.0 %* | *34.5 a 100.0 %* | *33.3 a 100.0 %* |
+| *Rango posible según lo que falta verificar* | *34.4 a 100.0 %* | *34.4 a 100.0 %* | *33.3 a 100.0 %* |
 | **Oferta técnica** | **100.0 %** | **100.0 %** | — |
 
 ## 5.2 Cómo leer estos recuentos

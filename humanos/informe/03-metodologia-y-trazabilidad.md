@@ -159,7 +159,7 @@ Así el informe responde la pregunta que la compañía necesita: **cuánto más 
 
 > **Ejemplo.** *"Cuánta memoria consume el servidor"* no tiene respuesta para un servicio en la nube: no hay servidor. Pero la necesidad detrás existe en los tres casos, y es otra: **qué recursos debe disponer la compañía para sostener el sistema.** Formulado así las tres responden — una no exige nada, otra corre en una máquina de escritorio, otra pide un servidor dedicado— y la comparación vuelve a ser posible.
 
-Esto importa sobre todo por imparcialidad. Un criterio escrito con las características de una modalidad adentro —*"acceso directo a la base de datos"*, *"control del servidor"*— le da la ventaja a esa modalidad **por definición y no por evaluación**: la alternativa en la nube no puede ganarlo nunca, no porque resuelva peor la necesidad sino por cómo está redactada la pregunta. Reescrito desde la necesidad —*"explotación de los datos por fuera del sistema"*— la ventaja puede seguir existiendo, pero como resultado del análisis y no como supuesto de partida.
+Esto importa sobre todo por imparcialidad. Un criterio escrito con las características de una modalidad adentro —*"acceso directo a la base de datos"*, *"control del servidor"*— le da la ventaja a esa modalidad **por definición y no por evaluación**: la alternativa en la nube no puede ganarlo nunca, no porque resuelva peor la necesidad sino por cómo está redactada la pregunta. Reescrito desde la necesidad —*"intercambio de datos con otros sistemas de la compañía"*— la ventaja puede seguir existiendo, pero como resultado del análisis y no como supuesto de partida.
 
 Ocho criterios del catálogo tenían ese defecto y se reescribieron por esta razón.
 
