@@ -17,7 +17,7 @@ A esas tres se suma lo que apareció al operar los sistemas: **capacidades que l
 ## 4.2 Por qué se dividen en dos partes
 
 | Parte | Contiene | Peso |
-|---|---|:---:|:---:|
+|---|---|:---:|
 | **A — Solicitados** | Pedido del cliente + marco técnico de evaluación | 85 % |
 | **B — No solicitados** | Condiciones del negocio + capacidades por encima de lo pedido | 15 % |
 
@@ -35,12 +35,13 @@ El trabajo previo consistió en traducirlos a capacidades comprobables, aplicand
 
 Cada criterio lleva un **procedimiento de verificación**: la acción concreta que se ejecuta sobre cada plataforma. El procedimiento es idéntico en las tres, lo que hace comparables los resultados.
 
-De la ejecución surgen dos datos:
+De la ejecución surgen tres datos, uno por cada cosa que el informe mide por separado:
 
-1. **Si la capacidad existe**, y por qué vía se obtuvo: disponible al instalar, configurando desde la administración, programando, o solo por fuera del sistema.
-2. **Si requiere licencia**, dato que no afecta el valor técnico y se traslada a la oferta económica.
+1. **Si la capacidad existe**, que determina el valor de **cumplimiento**.
+2. **Por qué vía se obtuvo** —disponible al instalar, configurando desde la administración, o programando—, que determina el **costo de implementación**.
+3. **Si requiere un plan pago**, que no afecta ninguno de los dos valores y se traslada a la oferta económica.
 
-El primero determina el valor de cumplimiento, de 1 a 3, según las escalas de la sección 3. El procedimiento describe **qué hacer**; la escala, **cómo puntuar lo observado**.
+Los tres se puntúan de 1 a 3 según las escalas de la sección 3. El procedimiento describe **qué hacer**; la escala, **cómo puntuar lo observado**.
 
 Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, de modo que la misma secuencia de acciones corriera sobre las tres plataformas sin variaciones de operador.
 
@@ -73,7 +74,7 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 | A.2.3 | Conversión del solicitante en oportunidad de venta | Convertir el solicitante en oportunidad y comprobar que los datos cargados se trasladan sin volver a escribirlos | Núcleo |
 | A.2.4 | Embudo de oportunidades con etapas | Crear una oportunidad desde la ficha de un asegurado y hacerla avanzar entre etapas hasta el cierre | Núcleo |
 | A.2.5 | Embudos diferenciados por ramo | Crear un segundo embudo con etapas distintas del primero y asignarle una oportunidad | Soporte |
-| A.2.6 | Detección de oportunidades sobre la cartera existente | Obtener el conjunto de asegurados que tienen un ramo contratado y no otro, como base para ofrecer una cobertura adicional | Núcleo |
+| A.2.6 | Oportunidades de cambio y ampliación sobre la cartera | Obtener el conjunto de asegurados que tienen un ramo contratado y no otro, y el de los que están próximos a vencer, como base para ofrecer una cobertura adicional o un cambio de póliza | Núcleo |
 
 ### A.3 Productores y actividad comercial
 
@@ -153,7 +154,8 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 | ID | Criterio | Procedimiento de verificación | Criticidad |
 |---|---|---|:---:|
 | A.9.1 | Restricción de la cartera por productor | Crear un usuario con acceso restringido e intentar abrir un registro ajeno, incluso por dirección directa | Núcleo |
-| A.9.2 | Registro de quién modificó cada dato | Cambiar el ramo de una póliza vigente con un usuario y buscar desde otro la constancia del cambio: valor anterior, autor y momento | Núcleo |
+| A.9.2 | Autenticación de los usuarios bajo control de la compañía | Revisar qué exige el sistema para validar la identidad: política de contraseñas, segundo factor y acceso unificado con el directorio de la compañía | Núcleo |
+| A.9.3 | Registro de quién modificó cada dato | Cambiar el ramo de una póliza vigente con un usuario y buscar desde otro la constancia del cambio: valor anterior, autor y momento | Núcleo |
 
 ### A.10 Explotación de la información
 
@@ -163,8 +165,9 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 |---|---|---|:---:|
 | A.10.1 | Indicadores sobre la operación | Construir vistas que muestren el total de primas por estado de cobranza y el tiempo promedio de resolución de los reclamos | Soporte |
 | A.10.2 | Generación de informes definidos por el usuario | Producir un informe con el total de primas vendidas por cada productor en un período, eligiendo los criterios, y exportarlo | Núcleo |
-| A.10.3 | Intercambio de datos con otros sistemas de la compañía | Crear y consultar registros desde fuera del sistema, por la vía que la plataforma habilite | Soporte |
-| A.10.4 | Intercambio sin límite de volumen que condicione la operación | Determinar cuántas operaciones por unidad de tiempo admite ese intercambio y contrastarlo con el movimiento diario de una cartera | Soporte |
+| A.10.3 | Informe paramétrico reutilizable | Guardar un informe con el período como parámetro y volver a ejecutarlo para otro período sin rehacerlo | Soporte |
+| A.10.4 | Intercambio de datos con otros sistemas de la compañía | Crear y consultar registros desde fuera del sistema, por la vía que la plataforma habilite | Soporte |
+| A.10.5 | Intercambio sin límite de volumen que condicione la operación | Determinar cuántas operaciones por unidad de tiempo admite ese intercambio y contrastarlo con el movimiento diario de una cartera | Soporte |
 
 ### A.11 Condiciones técnicas del producto
 
@@ -225,11 +228,16 @@ Sin esta tabla el número quedaría a interpretación de quien lo lee, y la comp
 | Criterio | Qué se mide | 3 | 2 | 1 |
 |---|---|---|---|---|
 | A.6.2 Ficha integral del asegurado | Cuántos de los tres elementos —póliza, actividad y reclamo— se ven sin cambiar de pantalla | Los tres | Dos | Uno o ninguno |
-| A.11.1 Recursos que la compañía debe disponer | Memoria que ocupa el sistema en reposo con la cartera cargada | Hasta 512 MB | Entre 512 MB y 2 GB | Más de 2 GB |
+| A.11.1 Recursos que la compañía debe disponer | Qué infraestructura hay que aportar para sostener el sistema con la cartera cargada | No exige ninguna | Corre en un equipo de escritorio ya disponible | Exige un servidor dedicado |
 | A.11.3 Navegabilidad | Acciones necesarias para registrar un asegurado con su póliza, desde el ingreso | Hasta 8 | Entre 9 y 15 | Más de 15 |
 | A.11.4 Aprendizaje sin capacitación previa | Tareas completadas sin instrucción, sobre cinco, promediadas entre las tres personas | 4 o más | 3 | 2 o menos |
 | A.11.5 Localización completa al español | Nombres de objetos y campos en otro idioma, en el menú principal y en una ficha | Ninguno | Entre 1 y 5 | Más de 5 |
 | A.11.9 Comunidad activa de usuarios | Tiempo hasta la primera respuesta a una consulta real publicada en el foro oficial | Hasta 48 horas | Entre 48 horas y 7 días | Sin respuesta a los 7 días |
+| A.7.1 Importación desde planilla | Registros que ingresan completos, sobre el total del archivo | Todos, sin pérdida | Ingresan todos, con pérdida de acentuación o de algún campo | Quedan registros sin ingresar, o no hay importación |
+| A.7.5 Exportación de la cartera | Diferencias entre el archivo exportado y el original: filas, acentuación y campos vacíos | Ninguna | Pérdida de acentuación o de campos vacíos | Faltan filas, o no hay exportación |
+| A.10.5 Intercambio sin límite de volumen | Operaciones por día que admite el intercambio, contra las que exige sincronizar una cartera de veinticinco mil registros | Más de 10.000 | Entre 1.000 y 10.000 | Menos de 1.000, o no está documentado |
+| A.11.2 Puesta en marcha | Tiempo desde cero hasta el sistema operativo, y si exige conocimientos que la compañía no tiene | Hasta una hora, sin perfil técnico | Hasta una jornada, o exige conocimientos puntuales | Más de una jornada, o exige perfil especializado |
+| A.11.11 Continuidad de las versiones | Meses durante los que el fabricante mantiene con correcciones una versión publicada | 24 o más | Entre 12 y 24 | Menos de 12, o sin compromiso publicado |
 | B.1.4 Volumen productivo | Tiempo de una búsqueda por texto con veinticinco mil registros cargados | Hasta 2 segundos | Entre 2 y 10 segundos | Más de 10 segundos, o la operación falla |
 
 Los umbrales se fijaron desde la operación de la compañía, no desde lo que las plataformas ofrecen: **ninguno se eligió después de ver los resultados.**
@@ -256,7 +264,12 @@ Se evaluó su incorporación y se resolvió excluirlos, por tres motivos distint
 | Criterio considerado | Por qué no entra |
 |---|---|
 | Navegación por teclado | La diferencia es real, pero no altera el tiempo ni la calidad de la operación diaria |
-| Gestión de inventario y constructor de sitios web | Funciones ajenas al problema que se busca resolver |
+
+**Están fuera del alcance.** Resuelven un problema distinto del que la compañía planteó.
+
+| Criterio considerado | Por qué no entra |
+|---|---|
+| Gestión de inventario y constructor de sitios web | Funciones ajenas a la relación con el asegurado, que es lo que este análisis evalúa |
 
 ## 4.9 Resumen
 
@@ -264,25 +277,28 @@ Cada grupo pesa dentro de su parte lo que suman las criticidades de sus criterio
 
 | Parte | Categoría | Criterios | Peso en su parte |
 |---|---|:---:|:---:|
-| A | A.1 Cartera de pólizas | 7 | 12.8 % |
-| A | A.2 Captación y proceso de venta | 6 | 11.5 % |
-| A | A.3 Productores y actividad comercial | 4 | 6.8 % |
-| A | A.4 Marketing, segmentación y reputación | 6 | 8.1 % |
-| A | A.5 Atención al asegurado y reclamos | 6 | 10.8 % |
-| A | A.6 Ficha única del asegurado | 4 | 8.1 % |
-| A | A.7 Intercambio de datos y correo | 5 | 8.8 % |
-| A | A.8 Parametrización del modelo de negocio | 4 | 6.8 % |
-| A | A.9 Control de acceso y trazabilidad | 2 | 4.1 % |
-| A | A.10 Explotación de la información | 4 | 6.1 % |
-| A | A.11 Condiciones técnicas del producto | 11 | 16.2 % |
-| | **Subtotal Parte A** | **59** | **100 %** |
+| A | A.1 Cartera de pólizas | 7 | 12.4 % |
+| A | A.2 Captación y proceso de venta | 6 | 11.1 % |
+| A | A.3 Productores y actividad comercial | 4 | 6.5 % |
+| A | A.4 Marketing, segmentación y reputación | 6 | 7.8 % |
+| A | A.5 Atención al asegurado y reclamos | 6 | 10.5 % |
+| A | A.6 Ficha única del asegurado | 4 | 7.8 % |
+| A | A.7 Intercambio de datos y correo | 5 | 8.5 % |
+| A | A.8 Parametrización del modelo de negocio | 4 | 6.5 % |
+| A | A.9 Control de acceso y trazabilidad | 3 | 5.9 % |
+| A | A.10 Explotación de la información | 5 | 7.2 % |
+| A | A.11 Condiciones técnicas del producto | 11 | 15.7 % |
+| | **Subtotal Parte A** | **61** | **100 %** |
 | B | B.1 Condiciones que impone el negocio asegurador | 7 | 70.8 % |
 | B | B.2 Capacidades por encima de lo solicitado | 5 | 29.2 % |
 | | **Subtotal Parte B** | **12** | **100 %** |
-| | **Total** | **71** | |
+| | **Total** | **73** | |
 
-**48 de los 59 criterios de la Parte A son funcionales**: describen algo que un usuario ejecuta sobre el sistema. Reúnen el 84 % del peso. Las condiciones técnicas del producto —lo que se cumple o no con independencia de quién lo use— quedan en 11 criterios y el 16 % restante.
+**50 de los 61 criterios de la Parte A son funcionales**: describen algo que un usuario ejecuta sobre el sistema. Reúnen el 84 % del peso. Las condiciones técnicas del producto —lo que se cumple o no con independencia de quién lo use— quedan en 11 criterios y el 16 % restante.
 
 La proporción es deliberada: **lo que la compañía pidió pesa más que las condiciones generales que cualquier software debe cumplir.** Varias capacidades que un análisis genérico trataría como técnicas —crear entidades, definir un campo calculado, construir un informe— se evalúan como funcionales, porque en este rubro son la vía por la que se modela la póliza y se mide la producción.
-
 **Ningún criterio repite el procedimiento de otro.** Cuando dos capacidades se comprobaban con la misma acción sobre distinto objeto —el historial de una póliza y el de cualquier registro, el total de primas por productor y el informe que lo produce— se conservó una sola, con el procedimiento ampliado para cubrir ambos casos. Evaluar dos veces lo mismo le daría a esa capacidad un peso que nadie decidió.
+
+**Cuando un procedimiento ampliado abarca dos objetos y el sistema resuelve solo uno, el criterio puntúa 2.** Si una plataforma conecta con la agenda del correo web pero no con la del gestor de escritorio, la necesidad queda cubierta con una salvedad permanente, que es exactamente lo que la sección 3 define como *cumple con reparo*.
+
+**Tres criterios dependen del mismo motor de automatización** —el aviso de vencimiento, el aviso al usuario asignado y la automatización de procesos— porque responden a disparadores distintos: una fecha, una asignación y un evento. Una plataforma sin ese motor pierde los tres, y eso está decidido a propósito: en una compañía de seguros el trabajo que nadie dispara a mano —renovaciones, avisos de cobranza, derivación de reclamos— es la diferencia entre una cartera atendida y una cartera olvidada.
