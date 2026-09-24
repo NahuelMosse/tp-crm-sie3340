@@ -120,8 +120,8 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 | ID | Criterio | Procedimiento de verificación | Criticidad |
 |---|---|---|:---:|
 | A.6.1 | Vinculación de la póliza con su titular | Relacionar la póliza con un contacto, abrir la ficha del contacto y comprobar que la póliza figura allí; abrir la póliza y comprobar que muestra al titular | Núcleo |
-| A.6.2 | Ficha integral del asegurado | Abrir la ficha de un asegurado con póliza, actividad y reclamo cargados, y contar cuántos de esos elementos se ven sin navegar a otra pantalla | Núcleo |
-| A.6.3 | Campos propios del rubro en la ficha | Agregar a la ficha del asegurado dos campos que el producto no trae —uno de ellos para registrar la valoración que dejó— y comprobar que quedan disponibles en el alta y en la búsqueda | Núcleo |
+| A.6.2 | La ficha reúne lo relacionado con el asegurado | Abrir la ficha de un asegurado que tiene actividad registrada y un reclamo abierto, y comprobar si la ficha los muestra junto a sus datos sin navegar a otra pantalla | Núcleo |
+| A.6.3 | Campos propios del rubro en la ficha | Agregar a la ficha del asegurado un campo que el producto no trae —la valoración que dejó sobre la atención recibida— y comprobar que queda disponible en el alta y en la búsqueda | Núcleo |
 | A.6.4 | Unicidad de la ficha del asegurado | Cargar dos veces un asegurado con el mismo documento y comprobar si el sistema advierte la duplicación | Núcleo |
 
 ### A.7 Intercambio de datos y correo
@@ -227,7 +227,7 @@ La distinción importa. Un corte numérico —"hasta ocho pasos vale 3, nueve va
 
 | Criterio | Lo que se mide | 3 | 2 | 1 |
 |---|---|---|---|---|
-| A.6.2 Ficha integral del asegurado | Cuántos de los tres elementos —póliza, actividad y reclamo— se ven sin cambiar de pantalla | Los tres | Dos | Uno o ninguno |
+| A.6.2 La ficha reúne lo relacionado | Qué muestra la ficha del asegurado sin cambiar de pantalla | Su actividad y sus reclamos, junto a sus datos | Alguno de los dos; el otro exige navegar | Solo sus datos propios |
 | A.7.1 Importación desde planilla | Registros que ingresan completos, sobre el total del archivo | Ingresan todos, sin pérdida | Ingresan todos, con pérdida de acentuación o de algún campo | Quedan registros sin ingresar, o no hay importación |
 | A.7.5 Exportación de la cartera | Diferencias entre el archivo exportado y el original | Ninguna | Pérdida de acentuación o de campos vacíos | Faltan filas, o no hay exportación |
 | A.10.5 Intercambio sin límite de volumen | Operaciones que admite el intercambio, contra las que exige sincronizar la cartera a diario | El límite queda holgado frente a esa operación | Se alcanza en una jornada de uso intenso y obliga a espaciar los envíos | Impide sincronizar la cartera, o no está publicado |
