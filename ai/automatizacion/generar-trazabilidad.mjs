@@ -58,7 +58,7 @@ const ORIGEN = {
   'A.2.4': 'REQ 6, REQ 4', 'A.2.5': 'REQ 6, RUBRO', 'A.2.6': 'REQ 2, REQ 17, REQ 6',
   'A.3.1': 'REQ 4', 'A.3.2': 'REQ 4', 'A.3.3': 'REQ 8', 'A.3.4': 'REQ 9',
   'A.4.1': 'REQ 11, REQ 16', 'A.4.2': 'REQ 10', 'A.4.3': 'REQ 10',
-  'A.4.4': 'REQ 13', 'A.4.5': 'REQ 14, REQ 13', 'A.4.6': 'REQ 5',
+  'A.4.4': 'REQ 13', 'A.4.5': 'REQ 14, REQ 13', 'A.4.6': 'REQ 14', 'A.4.7': 'REQ 5',
   'A.5.1': 'REQ 12', 'A.5.2': 'REQ 12', 'A.5.3': 'REQ 12',
   'A.5.4': 'REQ 15', 'A.5.5': 'REQ 20', 'A.5.6': 'REQ 20',
   'A.6.1': 'REQ 2, REQ 7', 'A.6.2': 'REQ 7', 'A.6.3': 'REQ 16, REQ 14', 'A.6.4': 'REQ 7, RUBRO',

@@ -98,7 +98,8 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 | A.4.3 | Medición de los resultados de la campaña | Comprobar que el sistema registra envíos, aperturas o respuestas de la campaña realizada | Soporte |
 | A.4.4 | Captación de interesados desde redes sociales | Buscar la conexión con alguna red social y comprobar que permite incorporar interesados a la base | Soporte |
 | A.4.5 | Escucha de menciones en canales públicos | Buscar la función de seguimiento de menciones de la compañía y de la competencia | Accesorio |
-| A.4.6 | Registro de la competencia y del motivo de pérdida | Marcar una oportunidad como perdida y comprobar si admite registrar el motivo y el competidor que la ganó | Soporte |
+| A.4.6 | Publicación en redes desde el sistema | Componer una publicación y emitirla a una red conectada desde el propio sistema, sin pasar por la herramienta de la red | Soporte |
+| A.4.7 | Registro de la competencia y del motivo de pérdida | Marcar una oportunidad como perdida y comprobar si admite registrar el motivo y el competidor que la ganó | Soporte |
 
 ### A.5 Atención al asegurado y reclamos
 
