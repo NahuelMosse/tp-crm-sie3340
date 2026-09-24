@@ -120,7 +120,7 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 | ID | Criterio | Procedimiento de verificación | Criticidad |
 |---|---|---|:---:|
 | A.6.1 | Vinculación de la póliza con su titular | Relacionar la póliza con un contacto, abrir la ficha del contacto y comprobar que la póliza figura allí; abrir la póliza y comprobar que muestra al titular | Núcleo |
-| A.6.2 | La ficha reúne lo relacionado con el asegurado | Abrir la ficha de un asegurado que tiene actividad registrada y un reclamo abierto, y comprobar si la ficha los muestra junto a sus datos sin navegar a otra pantalla | Núcleo |
+| A.6.2 | Vista única del asegurado | Abrir la ficha de un asegurado y comprobar si desde allí se llega a todo lo suyo —pólizas, actividad y reclamos— sin buscarlo en otro menú | Núcleo |
 | A.6.3 | Campos propios del rubro en la ficha | Agregar a la ficha del asegurado un campo que el producto no trae —la valoración que dejó sobre la atención recibida— y comprobar que queda disponible en el alta y en la búsqueda | Núcleo |
 | A.6.4 | Unicidad de la ficha del asegurado | Cargar dos veces un asegurado con el mismo documento y comprobar si el sistema advierte la duplicación | Núcleo |
 
@@ -130,11 +130,11 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 
 | ID | Criterio | Procedimiento de verificación | Criticidad |
 |---|---|---|:---:|
-| A.7.1 | Importación de contactos desde planilla de cálculo | Importar un archivo de planilla con contactos y comprobar cuántos ingresan completos | Núcleo |
+| A.7.1 | Importación de contactos desde planilla de cálculo | Importar un archivo de planilla con contactos y determinar si ingresan todos conservando la acentuación y los campos, o si hay pérdida | Núcleo |
 | A.7.2 | Importación de contactos desde las agendas de correo | Buscar la conexión con el correo web y con el gestor de escritorio que usa la compañía, e incorporar contactos desde la agenda de cada uno | Soporte |
 | A.7.3 | Sincronización del correo de varios usuarios | Configurar una casilla y comprobar si la configuración admite hacerlo para varios usuarios o solo para uno | Núcleo |
 | A.7.4 | Vinculación automática del correo a la ficha | Enviar un mensaje a la dirección de un asegurado cargado y comprobar si queda registrado en su ficha sin intervención | Núcleo |
-| A.7.5 | Exportación de la cartera sin pérdida de datos | Exportar los registros importados y comparar el archivo resultante con el original: cantidad de filas, acentuación y campos vacíos | Soporte |
+| A.7.5 | Exportación de la cartera sin pérdida de datos | Exportar los registros importados y comparar el archivo con el original: si coincide, si pierde acentuación o campos, o si faltan filas | Soporte |
 
 ### A.8 Parametrización del modelo de negocio
 
@@ -167,7 +167,7 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 | A.10.2 | Generación de informes definidos por el usuario | Producir un informe con el total de primas vendidas por cada productor en un período, eligiendo los criterios, y exportarlo | Núcleo |
 | A.10.3 | Informe paramétrico reutilizable | Guardar un informe con el período como parámetro y volver a ejecutarlo para otro período sin rehacerlo | Soporte |
 | A.10.4 | Intercambio de datos con otros sistemas de la compañía | Crear y consultar registros desde fuera del sistema, por la vía que la plataforma habilite | Soporte |
-| A.10.5 | Intercambio sin límite de volumen que condicione la operación | Determinar cuántas operaciones por unidad de tiempo admite ese intercambio y contrastarlo con el movimiento diario de una cartera | Soporte |
+| A.10.5 | Intercambio sin límite de volumen que condicione la operación | Determinar si el límite de operaciones del intercambio deja holgura sobre el movimiento diario de la cartera, si se alcanza en una jornada intensa, o si impide sincronizarla | Soporte |
 
 ### A.11 Condiciones técnicas del producto
 
@@ -175,17 +175,17 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 
 | ID | Criterio | Procedimiento de verificación | Criticidad |
 |---|---|---|:---:|
-| A.11.1 | Recursos que la compañía debe disponer para sostenerlo | Determinar qué infraestructura exige el sistema y contrastarla con la que una compañía pequeña tiene disponible | Soporte |
-| A.11.2 | Puesta en marcha sin perfil técnico especializado | Llevar el sistema desde cero hasta operativo, registrando pasos, tiempo y si exige conocimientos que la compañía no tiene | Soporte |
-| A.11.3 | Navegabilidad: pocos pasos para la operación diaria | Contar las acciones necesarias para registrar un asegurado con su póliza, desde el ingreso al sistema | Soporte |
-| A.11.4 | Aprendizaje sin capacitación previa | Pedir a tres personas ajenas al proyecto que completen las mismas cinco tareas frecuentes sin instrucción, y registrar cuántas logra cada una | Soporte |
-| A.11.5 | Localización completa al español, modelo incluido | Recorrer el menú principal y una ficha, y contar cuántos nombres de objetos y campos permanecen en otro idioma | Núcleo |
+| A.11.1 | Recursos que la compañía debe disponer para sostenerlo | Determinar si el sistema no exige infraestructura propia, si corre en un equipo de escritorio de los que la compañía ya tiene, o si pide un servidor dedicado | Soporte |
+| A.11.2 | Puesta en marcha sin perfil técnico especializado | Llevar el sistema de cero a operativo y determinar si lo completa alguien sin perfil técnico, si exige conocimientos puntuales guiados por la documentación, o si requiere un perfil que la compañía no tiene | Soporte |
+| A.11.3 | Navegabilidad: pocos pasos para la operación diaria | Registrar un asegurado con su póliza desde el ingreso, y determinar si se completa en un solo recorrido o si obliga a volver sobre pantallas ya visitadas y repetir datos | Soporte |
+| A.11.4 | Aprendizaje sin capacitación previa | Pedir a tres personas ajenas al proyecto que completen las mismas cinco tareas sin instrucción, y registrar si las tres las completan, si alguna queda pendiente aunque quien la intentó sepa decir qué le faltó, o si hay tareas que ninguna logra | Soporte |
+| A.11.5 | Localización completa al español, modelo incluido | Recorrer el menú principal y una ficha, y determinar si todo está en español, si queda algún nombre en otro idioma que igual se entiende, o si hay nombres que impiden saber qué guarda el campo | Núcleo |
 | A.11.6 | Operación concurrente sobre la misma cartera | Abrir el mismo registro con tres usuarios simultáneos, modificarlo en los tres y observar el comportamiento del sistema | Núcleo |
 | A.11.7 | Ecosistema de integraciones disponible | Revisar el catálogo de conectores disponibles y su accesibilidad | Soporte |
 | A.11.8 | Documentación en español | Consultar la documentación oficial y verificar la disponibilidad del idioma | Soporte |
-| A.11.9 | Comunidad activa de usuarios | Publicar una consulta real en el foro oficial y medir el tiempo hasta la primera respuesta | Soporte |
+| A.11.9 | Comunidad activa de usuarios | Publicar una consulta real en el foro oficial y registrar si recibe una respuesta que la resuelve dentro de la espera aceptable, si llega más tarde o sin resolver, o si no llega | Soporte |
 | A.11.10 | Soporte técnico con compromiso de respuesta | Verificar en la documentación comercial la existencia de un canal con plazo comprometido | Soporte |
-| A.11.11 | Continuidad de las versiones en uso | Determinar durante cuánto tiempo el fabricante mantiene con correcciones una versión publicada | Soporte |
+| A.11.11 | Continuidad de las versiones en uso | Determinar si el fabricante publica por cuánto tiempo sostiene con correcciones una versión, y si ese plazo cubre el horizonte de planificación o fuerza a adelantar la actualización | Soporte |
 
 ---
 
@@ -200,7 +200,7 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 | B.1.1 | Persistencia de los datos sin uso continuo | Verificar en las condiciones del servicio si existe un plazo de inactividad que afecte la cuenta o los datos | Una póliza permanece vigente años aunque nadie la consulte | Núcleo |
 | B.1.2 | Copia propia y completa de la cartera | Obtener una copia de toda la información, incluidos los archivos adjuntos, y comprobar que puede restituirse | La cartera es el activo principal de la compañía | Núcleo |
 | B.1.3 | Copia periódica sin intervención manual | Determinar si esa copia puede programarse para repetirse sola, sin que alguien la ejecute cada vez | Una copia que depende de que alguien se acuerde no es un resguardo | Soporte |
-| B.1.4 | Búsqueda y operación con volumen productivo | Cargar veinticinco mil registros y buscar uno por texto; repetir el filtrado por campo | Una cartera de cinco mil asegurados con dos pólizas y media en promedio, más sus contactos y reclamos, supera los veinte mil registros | Núcleo |
+| B.1.4 | Búsqueda y operación con volumen productivo | Cargar la cartera de referencia, buscar un registro por texto y repetir el filtrado por campo: determinar si responde sin espera perceptible, con una demora que el usuario nota y tolera, o de forma impracticable | Una cartera de cinco mil asegurados con dos pólizas y media en promedio, más sus contactos y reclamos, supera los veinte mil registros | Núcleo |
 | B.1.5 | Previsibilidad de los cambios del sistema | Determinar quién decide cuándo se aplica una actualización y con cuánta anticipación se anuncia | Un cambio inesperado durante la operación interrumpe la atención | Soporte |
 | B.1.6 | Conocimiento y decisión sobre dónde residen los datos | Determinar dónde se alojan los datos y en qué medida la compañía puede elegirlo | Los seguros de personas involucran datos sensibles (Ley 25.326) | Soporte |
 | B.1.7 | Continuidad de la atención ante una caída del enlace | Interrumpir la conexión externa y determinar qué parte de la operación diaria sigue siendo posible | La atención no debería detenerse por una falla de conectividad | Soporte |
@@ -219,28 +219,19 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 
 ---
 
-## 4.7 Qué significa cada valor en los criterios que producen una medición
+## 4.7 Cifras de referencia
 
-Algunos procedimientos no devuelven un hecho sino un número: cuántos pasos, cuántos segundos, cuánta memoria. **El número se registra como evidencia, pero no es el que decide el valor**: el valor sale de la misma pregunta de la sección 3, y esta tabla declara qué significa cada respuesta en esos criterios.
+Cinco criterios no se pueden responder sin saber **contra qué se compara**: cuántos registros son "muchos", cuánta espera es "tarde". Esas cifras salen del tamaño y del funcionamiento de la compañía, se fijan antes de medir y se publican acá.
 
-La distinción importa. Un corte numérico —"hasta ocho pasos vale 3, nueve vale 2"— parece objetivo y no lo es: alguien eligió el ocho, y esa elección decide el resultado sin que nadie pueda discutirla. La sección 3 evita eso de forma deliberada, anclando cada valor en **lo que la compañía puede sostener** y no en una cifra universal.
+| Cifra | Valor | De dónde sale |
+|---|---|---|
+| **Tamaño de la cartera** | 25.000 registros | Cinco mil asegurados con dos pólizas y media en promedio, más sus contactos y reclamos |
+| **Movimiento diario** | 500 operaciones | Altas, cambios de estado y cierres de reclamo de una jornada sobre esa cartera |
+| **Prueba de aprendizaje** | 5 tareas, 3 personas | Las cinco operaciones que un productor repite a diario; tres personas para que una dificultad individual no defina el resultado |
+| **Espera aceptable en el foro** | 1 semana | Una consulta de configuración no puede detener la operación más de un ciclo semanal de trabajo |
+| **Horizonte de planificación** | 12 meses | La compañía planifica sus cambios de sistema por ejercicio anual |
 
-| Criterio | Lo que se mide | 3 | 2 | 1 |
-|---|---|---|---|---|
-| A.6.2 La ficha reúne lo relacionado | Qué muestra la ficha del asegurado sin cambiar de pantalla | Su actividad y sus reclamos, junto a sus datos | Alguno de los dos; el otro exige navegar | Solo sus datos propios |
-| A.7.1 Importación desde planilla | Registros que ingresan completos, sobre el total del archivo | Ingresan todos, sin pérdida | Ingresan todos, con pérdida de acentuación o de algún campo | Quedan registros sin ingresar, o no hay importación |
-| A.7.5 Exportación de la cartera | Diferencias entre el archivo exportado y el original | Ninguna | Pérdida de acentuación o de campos vacíos | Faltan filas, o no hay exportación |
-| A.10.5 Intercambio sin límite de volumen | Operaciones que admite el intercambio, contra las que exige sincronizar la cartera a diario | El límite queda holgado frente a esa operación | Se alcanza en una jornada de uso intenso y obliga a espaciar los envíos | Impide sincronizar la cartera, o no está publicado |
-| A.11.1 Recursos que la compañía debe disponer | Qué infraestructura hay que aportar para sostener el sistema con la cartera cargada | No exige ninguna | Corre en un equipo de escritorio ya disponible | Exige un servidor dedicado |
-| A.11.2 Puesta en marcha | Qué hace falta para llevar el sistema de cero a operativo | Lo completa alguien sin perfil técnico | Lo completa alguien con conocimientos puntuales, siguiendo la documentación | Exige un perfil técnico que la compañía no tiene |
-| A.11.3 Navegabilidad | Acciones necesarias para registrar un asegurado con su póliza, desde el ingreso | El registro se completa en un solo recorrido | Obliga a volver sobre pantallas ya visitadas o a repetir datos | No se completa sin recurrir a otra vía |
-| A.11.4 Aprendizaje sin capacitación previa | Tareas completadas sin instrucción, sobre cinco, por cada una de las tres personas | Las tres completan las cinco | Alguna queda sin completar, y quien la intentó sabe decir qué le faltó | Hay tareas que ninguna de las tres logra completar |
-| A.11.5 Localización completa al español | Nombres de objetos y campos en otro idioma, en el menú principal y en una ficha | Ninguno | Queda alguno, y aun así se entiende qué hace | Hay nombres que impiden saber qué guarda el campo |
-| A.11.9 Comunidad activa de usuarios | Qué respuesta recibe una consulta real publicada en el foro oficial | Respuesta que resuelve la consulta, en el plazo de una semana | Respuesta tardía, o que no resuelve | Sin respuesta |
-| A.11.11 Continuidad de las versiones | Por cuánto tiempo el fabricante sostiene con correcciones una versión publicada | Publica el plazo, y alcanza para planificar la actualización con tiempo | Publica el plazo, pero obliga a actualizar antes de lo que la compañía preveía | No hay compromiso publicado |
-| B.1.4 Volumen productivo | Comportamiento de una búsqueda por texto con veinticinco mil registros cargados | Responde sin espera perceptible | Responde con una demora que el usuario nota y tolera | La operación se vuelve impracticable, o falla |
-
-**El dato medido se publica junto al veredicto.** Que EspoCRM ocupe 203 MB y otra plataforma 1.770 no cambia el valor de ninguna de las dos si ambas corren en el equipo que la compañía ya tiene, pero es información que la compañía necesita y queda registrada en el análisis por criterio.
+Estas cinco son las únicas cifras del análisis. **Fuera de ellas no hay cortes numéricos**: los demás criterios se responden con la escala de la sección 3, como explica su propio procedimiento.
 
 ## 4.8 Criterios descartados
 

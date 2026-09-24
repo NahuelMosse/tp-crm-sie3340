@@ -200,7 +200,7 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 *Pendiente de evaluación en todas las alternativas.*
 
 
-### A.6.2 La ficha reúne lo relacionado con el asegurado
+### A.6.2 Vista única del asegurado
 *Criticidad: nucleo.*
 
 *Pendiente de evaluación en todas las alternativas.*

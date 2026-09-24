@@ -72,7 +72,7 @@ const CRITERIOS = [
   ]],
   ['A.6', 'Ficha única del asegurado', [
     ['A.6.1', 'Vinculación de la póliza con su titular', 'nucleo'],
-    ['A.6.2', 'La ficha reúne lo relacionado con el asegurado', 'nucleo'],
+    ['A.6.2', 'Vista única del asegurado', 'nucleo'],
     ['A.6.3', 'Campos propios del rubro en la ficha', 'nucleo'],
     ['A.6.4', 'Unicidad de la ficha del asegurado', 'nucleo'],
   ]],
