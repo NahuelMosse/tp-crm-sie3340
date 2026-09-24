@@ -148,7 +148,13 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 *Pendiente de evaluación en todas las alternativas.*
 
 
-### A.4.6 Registro de la competencia y del motivo de pérdida
+### A.4.6 Publicación en redes desde el sistema
+*Criticidad: soporte.*
+
+*Pendiente de evaluación en todas las alternativas.*
+
+
+### A.4.7 Registro de la competencia y del motivo de pérdida
 *Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*

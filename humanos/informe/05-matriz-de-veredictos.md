@@ -10,7 +10,7 @@ Que una capacidad requiera un plan pago no cambia su símbolo: eso es dinero, no
 
 Lo no verificado no recibe valor y queda fuera del cálculo, tanto del obtenido como del máximo posible. Es un estado transitorio del trabajo, no una característica de la plataforma.
 
-Estado: **3 de 219 evaluaciones registradas.**
+Estado: **3 de 222 evaluaciones registradas.**
 
 ---
 
@@ -57,7 +57,8 @@ Estado: **3 de 219 evaluaciones registradas.**
 | A.4.3 Medición de los resultados de la campaña | ◍ | ◍ | ◍ |
 | A.4.4 Captación de interesados desde redes sociales | ◍ | ◍ | ◍ |
 | A.4.5 Escucha de menciones en canales públicos | ◍ | ◍ | ◍ |
-| A.4.6 Registro de la competencia y del motivo de pérdida | ◍ | ◍ | ◍ |
+| A.4.6 Publicación en redes desde el sistema | ◍ | ◍ | ◍ |
+| A.4.7 Registro de la competencia y del motivo de pérdida | ◍ | ◍ | ◍ |
 
 ### A.5 Atención al asegurado y reclamos
 
@@ -139,7 +140,7 @@ Estado: **3 de 219 evaluaciones registradas.**
 | Cumple ● | 1 | 1 | 0 |
 | Cumple con reparo ◐ | 0 | 0 | 0 |
 | No cumple ○ | 0 | 0 | 0 |
-| Sin verificar ◍ | 60 | 60 | 61 |
+| Sin verificar ◍ | 61 | 61 | 62 |
 | *— de los que cumplen, requieren licencia* | 0 | 0 | 0 |
 | **% de cumplimiento** | **100.0 %** | **100.0 %** | — |
 

@@ -60,7 +60,8 @@ const CRITERIOS = [
     ['A.4.3', 'Medición de los resultados de la campaña', 'soporte'],
     ['A.4.4', 'Captación de interesados desde redes sociales', 'soporte'],
     ['A.4.5', 'Escucha de menciones en canales públicos', 'accesorio'],
-    ['A.4.6', 'Registro de la competencia y del motivo de pérdida', 'soporte'],
+    ['A.4.6', 'Publicación en redes desde el sistema', 'soporte'],
+    ['A.4.7', 'Registro de la competencia y del motivo de pérdida', 'soporte'],
   ]],
   ['A.5', 'Atención al asegurado y reclamos', [
     ['A.5.1', 'Reclamo como caso con identidad propia', 'nucleo'],

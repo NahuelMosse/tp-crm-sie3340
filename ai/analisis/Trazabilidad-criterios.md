@@ -24,7 +24,7 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | **2** | Realizar un seguimiento de pólizas. Gestionando los datos de los clientes queremos saber qué tipo de póliza tiene, el estado de pago y si hay una posibilidad de cambio de póliza. | A.1.1, A.1.2, A.2.6, A.6.1 |
 | **3** | Gestionar una amplia fuente de información sobre ventas y pólizas que podemos utilizar para captar nuevos clientes. | A.1.6, A.10.1 |
 | **4** | Gestión de los corredores y agentes de seguros y podremos conocer y evaluar las ventas de seguros por parte de los empleados y el seguimiento de los clientes potenciales. Ver todas las actividades que los agentes o corredores de seguros realizan en torno al cliente. | A.2.4, A.3.1, A.3.2, A.9.1, A.10.2 |
-| **5** | Analizar los factores de la competencia, para podemos ofrecer un mejor servicio que aumente nuestras ventas y fidelice nuevos clientes al ofrecer un servicio adecuado a sus necesidades. | A.4.6 |
+| **5** | Analizar los factores de la competencia, para podemos ofrecer un mejor servicio que aumente nuestras ventas y fidelice nuevos clientes al ofrecer un servicio adecuado a sus necesidades. | A.4.7 |
 | **6** | Conocer nuevas oportunidades de negocio, a partir de las necesidades de nuestros clientes y prospectos. | A.2.2, A.2.4, A.2.5, A.2.6 |
 | **7** | Conocer la información del cliente, centralizarla y centrar a la organización alrededor del cliente. | A.6.1, A.6.2, A.6.4 |
 | **8** | Optimizar las actividades de los vendedores. | A.3.3, A.8.3 |
@@ -33,7 +33,7 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | **11** | Segmentación de clientes. | A.4.1 |
 | **12** | Manejar quejas y reclamaciones. | A.5.1, A.5.2, A.5.3 |
 | **13** | Información de los clientes y conseguir nuevos, así como conocer a la competencia que esté presente en las redes. | A.4.4, A.4.5 |
-| **14** | Conseguir cambiar la imagen y reputación, a partir de las opiniones y comentarios de los clientes y tener mayor repercusión en las redes. | A.4.5, A.6.3 |
+| **14** | Conseguir cambiar la imagen y reputación, a partir de las opiniones y comentarios de los clientes y tener mayor repercusión en las redes. | A.4.5, A.4.6, A.6.3 |
 | **15** | Mejora de la calidad del servicio y la atención al cliente. | A.5.4 |
 | **16** | Conocer y agrupar la información de los clientes. | A.4.1, A.6.3 |
 | **17** | Gestionar de manera eficaz todas las pólizas de los clientes y generar nuevas oportunidades e venta. | A.1.5, A.1.7, A.2.6 |
@@ -85,7 +85,8 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | A.4.3 | Medición de los resultados de la campaña | `REQ 10` | Soporte |
 | A.4.4 | Captación de interesados desde redes sociales | `REQ 13` | Soporte |
 | A.4.5 | Escucha de menciones en canales públicos | `REQ 14, REQ 13` | Accesorio |
-| A.4.6 | Registro de la competencia y del motivo de pérdida | `REQ 5` | Soporte |
+| A.4.6 | Publicación en redes desde el sistema | `REQ 14` | Soporte |
+| A.4.7 | Registro de la competencia y del motivo de pérdida | `REQ 5` | Soporte |
 | A.5.1 | Reclamo como caso con identidad propia | `REQ 12` | Núcleo |
 | A.5.2 | Estado y seguimiento del reclamo | `REQ 12` | Núcleo |
 | A.5.3 | Responsable asignado a cada reclamo | `REQ 12` | Núcleo |
@@ -147,4 +148,4 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 ## Resultado
 
 - **33 fuentes**: todas cubiertas.
-- **73 criterios**, todos con origen declarado.
+- **74 criterios**, todos con origen declarado.
