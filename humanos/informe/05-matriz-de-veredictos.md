@@ -75,7 +75,7 @@ Estado: **3 de 219 evaluaciones registradas.**
 | Criterio | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
 | A.6.1 Vinculación de la póliza con su titular | ◍ | ◍ | ◍ |
-| A.6.2 La ficha reúne lo relacionado con el asegurado | ◍ | ◍ | ◍ |
+| A.6.2 Vista única del asegurado | ◍ | ◍ | ◍ |
 | A.6.3 Campos propios del rubro en la ficha | ◍ | ◍ | ◍ |
 | A.6.4 Unicidad de la ficha del asegurado | ◍ | ◍ | ◍ |
 

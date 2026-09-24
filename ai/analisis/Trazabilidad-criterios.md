@@ -93,7 +93,7 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | A.5.5 | Tareas asignables con responsable y vencimiento | `REQ 20` | Núcleo |
 | A.5.6 | Aviso al usuario al que se le asigna una tarea | `REQ 20` | Soporte |
 | A.6.1 | Vinculación de la póliza con su titular | `REQ 2, REQ 7` | Núcleo |
-| A.6.2 | La ficha reúne lo relacionado con el asegurado | `REQ 7` | Núcleo |
+| A.6.2 | Vista única del asegurado | `REQ 7` | Núcleo |
 | A.6.3 | Campos propios del rubro en la ficha | `REQ 16, REQ 14` | Núcleo |
 | A.6.4 | Unicidad de la ficha del asegurado | `REQ 7, RUBRO` | Núcleo |
 | A.7.1 | Importación de contactos desde planilla de cálculo | `REQ 18, CRIT 7` | Núcleo |
