@@ -25,7 +25,7 @@ Todo vive acá: informe, automatización, resultados y evidencia. Remoto: `githu
 | `01-objetivo-y-alcance.md` | Objetivo y alcance |
 | `02-plataformas.md` | Las tres plataformas evaluadas |
 | `03-metodologia-y-trazabilidad.md` | Escalas, ponderación y trazabilidad |
-| `04-criterios-de-analisis.md` | Los 56 criterios con su procedimiento |
+| `04-criterios-de-analisis.md` | El catálogo de criterios con su procedimiento |
 | `05-matriz-de-veredictos.md` | **Generado** |
 | `06-analisis-por-categoria.md` | **Generado** |
 
