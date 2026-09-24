@@ -42,8 +42,8 @@ ai/          ← acá trabaja Claude
 | `01-objetivo-y-alcance.md` | Objetivo, qué queda fuera, origen de los criterios | ✅ |
 | `02-plataformas.md` | Las tres plataformas evaluadas | ✅ |
 | `03-metodologia-y-trazabilidad.md` | Las dos escalas, la ponderación y cómo se verificó cada punto | ✅ |
-| `04-criterios-de-analisis.md` | Los 56 criterios con su procedimiento de verificación | ✅ |
-| `05-matriz-de-veredictos.md` | Matriz de 56 criterios × 3 plataformas | 🔄 generado |
+| `04-criterios-de-analisis.md` | El catálogo de criterios con su procedimiento de verificación | ✅ |
+| `05-matriz-de-veredictos.md` | Cada criterio × 3 plataformas | 🔄 generado |
 | `06-analisis-por-categoria.md` | Cada criterio con su veredicto y justificación | 🔄 generado |
 | `07-por-plataforma.md` | Fortalezas y limitaciones de cada una | ⬜ |
 | `08-conclusiones.md` | Propuesta, polinomio de valor y esquema de decisión | ⬜ |

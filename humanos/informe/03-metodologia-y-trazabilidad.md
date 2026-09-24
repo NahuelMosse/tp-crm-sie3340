@@ -73,7 +73,7 @@ Lo que se pierde en graduación se recupera dividiendo el criterio.
 >
 > Una plataforma que modela la póliza pero no guarda historial obtiene 3 en los primeros y 1 en el último. Otra que hace las cuatro cosas obtiene 3 en las cuatro. **La diferencia aparece en el total, con más nitidez que si ambas hubieran recibido una nota global.**
 
-Esta es la razón por la que los veinte requerimientos del pedido se convirtieron en cuarenta y ocho criterios funcionales: la granularidad está en el catálogo, no en la escala.
+Esta es la razón por la que los veinte requerimientos del pedido se convirtieron en más del doble de criterios funcionales: la granularidad está en el catálogo, no en la escala. El recuento por grupo se publica al cierre de la sección 4.
 
 ## 3.3 Lo que la escala no mide, y la segunda escala
 
