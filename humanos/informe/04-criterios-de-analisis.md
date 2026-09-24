@@ -221,17 +221,49 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 
 ## 4.7 Cifras de referencia
 
-Cinco criterios no se pueden responder sin saber **contra qué se compara**: cuántos registros son "muchos", cuánta espera es "tarde". Esas cifras salen del tamaño y del funcionamiento de la compañía, se fijan antes de medir y se publican acá.
+Cinco criterios no se pueden responder sin saber **contra qué se compara**: cuántos registros son "muchos", cuánta espera es "tarde". Esas cifras salen del tamaño y del funcionamiento de la compañía, se fijan antes de medir y se publican acá con el criterio que las usa y el valor que produce cada resultado.
 
-| Cifra | Valor | De dónde sale |
-|---|---|---|
-| **Tamaño de la cartera** | 25.000 registros | Cinco mil asegurados con dos pólizas y media en promedio, más sus contactos y reclamos |
-| **Movimiento diario** | 500 operaciones | Altas, cambios de estado y cierres de reclamo de una jornada sobre esa cartera |
-| **Prueba de aprendizaje** | 5 tareas, 3 personas | Las cinco operaciones que un productor repite a diario; tres personas para que una dificultad individual no defina el resultado |
-| **Espera aceptable en el foro** | 1 semana | Una consulta de configuración no puede detener la operación más de un ciclo semanal de trabajo |
-| **Horizonte de planificación** | 12 meses | La compañía planifica sus cambios de sistema por ejercicio anual |
+### Tamaño de la cartera — **25.000 registros**
 
-Estas cinco son las únicas cifras del análisis. **Fuera de ellas no hay cortes numéricos**: los demás criterios se responden con la escala de la sección 3, como explica su propio procedimiento.
+Cinco mil asegurados con dos pólizas y media en promedio, más sus contactos y sus reclamos.
+
+| Criterio | 3 | 2 | 1 |
+|---|---|---|---|
+| **B.1.4** Volumen productivo | Con la cartera cargada, la búsqueda responde sin espera perceptible | Responde con una demora que el usuario nota y tolera | La operación se vuelve impracticable, o falla |
+
+### Movimiento diario — **500 operaciones**
+
+Altas, cambios de estado y cierres de reclamo de una jornada sobre esa cartera.
+
+| Criterio | 3 | 2 | 1 |
+|---|---|---|---|
+| **A.10.5** Intercambio sin límite de volumen | El límite publicado deja holgura sobre las 500 operaciones diarias | Las admite, pero se agota en una jornada intensa y obliga a espaciar los envíos | Queda por debajo de 500, o no está publicado |
+
+### Prueba de aprendizaje — **5 tareas, 3 personas**
+
+Las cinco operaciones que un productor repite a diario. Tres personas, para que una dificultad individual no defina el resultado.
+
+| Criterio | 3 | 2 | 1 |
+|---|---|---|---|
+| **A.11.4** Aprendizaje sin capacitación previa | Las tres personas completan las cinco tareas | Alguna queda sin completar, y quien la intentó sabe decir qué le faltó | Hay tareas que ninguna de las tres logra completar |
+
+### Espera aceptable en el foro — **1 semana**
+
+Una consulta de configuración no puede detener la operación más de un ciclo semanal de trabajo.
+
+| Criterio | 3 | 2 | 1 |
+|---|---|---|---|
+| **A.11.9** Comunidad activa de usuarios | Llega una respuesta que resuelve la consulta dentro de la semana | Llega después de la semana, o antes pero sin resolver | No llega respuesta |
+
+### Horizonte de planificación — **12 meses**
+
+La compañía planifica sus cambios de sistema por ejercicio anual.
+
+| Criterio | 3 | 2 | 1 |
+|---|---|---|---|
+| **A.11.11** Continuidad de las versiones | El fabricante sostiene cada versión doce meses o más, de modo que la actualización entra en el plan del ejercicio | Publica un plazo menor, que obliga a adelantar la actualización | No publica ningún compromiso |
+
+**Estas cinco son las únicas cifras del análisis.** Los demás criterios se responden con la escala de la sección 3, y su propio procedimiento dice qué distingue una respuesta de otra: no hay ningún otro número que decida un valor.
 
 ## 4.8 Criterios descartados
 
