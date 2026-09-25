@@ -4,13 +4,13 @@
  *
  *   node exportar-informe.mjs [raiz-del-repo] [--hasta 4]
  *
- * Produce el .docx y, si LibreOffice esta instalado, el .pdf. Los dos quedan
- * en la raiz del repositorio y no se versionan: se regeneran.
+ * El .docx es intermedio y queda en la raiz sin versionar; el .pdf va a
+ * humanos/entregas/, que si se versiona: es lo que se entrega.
  *
  * --hasta n  exporta solo hasta esa seccion, para entregar un avance.
  */
 import { execFileSync } from 'node:child_process';
-import { readdirSync, existsSync, readFileSync, writeFileSync, unlinkSync, mkdtempSync } from 'node:fs';
+import { readdirSync, existsSync, readFileSync, writeFileSync, unlinkSync, mkdtempSync, mkdirSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
@@ -53,6 +53,8 @@ writeFileSync(fIndice, indice.join('\n') + '\n' + SALTO, 'utf8');
 
 const sufijo = HASTA === null ? '' : `-secciones-1-a-${HASTA}`;
 const docx = join(RAIZ, `TP-SIE3340${sufijo}.docx`);
+const ENTREGAS = join(RAIZ, 'humanos', 'entregas');
+mkdirSync(ENTREGAS, { recursive: true });
 
 // La portada primero, despues el indice, despues el resto
 execFileSync('pandoc', [
@@ -70,7 +72,7 @@ if (!existsSync(SOFFICE)) {
   // Perfil propio: con una instancia de LibreOffice abierta, termina sin convertir
   execFileSync(SOFFICE, [
     '-env:UserInstallation=file:///C:/Temp/lo-informe',
-    '--headless', '--norestore', '--convert-to', 'pdf', '--outdir', RAIZ, docx,
+    '--headless', '--norestore', '--convert-to', 'pdf', '--outdir', ENTREGAS, docx,
   ], { stdio: 'ignore' });
-  console.log(`PDF:       ${resolve(docx).replace(/\.docx$/, '.pdf')}`);
+  console.log(`PDF:       ${join(resolve(ENTREGAS), `TP-SIE3340${sufijo}.pdf`)}`);
 }

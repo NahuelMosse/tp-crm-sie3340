@@ -6,4 +6,4 @@ playwright-report/
 ai/automatizacion/informe/
 .env
 TP-SIE3340*.docx
-TP-SIE3340*.pdf
+/TP-SIE3340*.pdf
