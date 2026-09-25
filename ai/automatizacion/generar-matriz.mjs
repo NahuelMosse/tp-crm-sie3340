@@ -154,9 +154,9 @@ if (existsSync(RESULTADOS)) {
   }
 }
 
-// Escala de la seccion 3: 3 cumple, 2 cumple con reparo, 1 no cumple.
-const MAXIMO = 3;
-const SIMBOLO = { 3: '●', 2: '◐', 1: '○' };
+// Escala de la seccion 3: 2 cumple, 1 cumple con reparo, 0 no cumple.
+const MAXIMO = 2;
+const SIMBOLO = { 2: '●', 1: '◐', 0: '○' };
 
 // La licencia no cambia el simbolo: es dinero, no cumplimiento. Va en su
 // propia fila del recuento y alimenta la oferta economica.
@@ -203,7 +203,7 @@ for (const [gid, gnombre, pesoGrupo, items] of CRITERIOS) {
       if (d.puntua === false) {
         analisis += `**${nom}** — *sin verificar.* ${d.motivo}\n\n`;
       } else {
-        const ETIQUETA = { 3: 'cumple', 2: 'cumple con reparo', 1: 'no cumple' };
+        const ETIQUETA = { 2: 'cumple', 1: 'cumple con reparo', 0: 'no cumple' };
         const costo = d.costo ? ` · costo de implementación **${d.costo}**` : '';
         const lic = d.licencia
           ? ` Requiere ${d.licencia.plan}: ${d.licencia.monto} (${d.licencia.modalidad === 'unico' ? 'pago único' : 'abono recurrente'}).`
@@ -245,11 +245,11 @@ function resumen(parte) {
   let t = `\n| | ${PLATAFORMAS.map(p => p[1]).join(' | ')} |\n|---|${PLATAFORMAS.map(() => ':---:').join('|')}|\n`;
   const fila = (etiqueta, fn) =>
     `| ${etiqueta} | ${PLATAFORMAS.map(([, nom]) => acum[parte][nom].filter(fn).length).join(' | ')} |\n`;
-  t += fila('Cumple ●', x => puntua(x.d) && x.d.cumple === 3);
-  t += fila('Cumple con reparo ◐', x => puntua(x.d) && x.d.cumple === 2);
-  t += fila('No cumple ○', x => puntua(x.d) && x.d.cumple === 1);
+  t += fila('Cumple ●', x => puntua(x.d) && x.d.cumple === 2);
+  t += fila('Cumple con reparo ◐', x => puntua(x.d) && x.d.cumple === 1);
+  t += fila('No cumple ○', x => puntua(x.d) && x.d.cumple === 0);
   t += fila('Sin verificar ◍', x => !x.d || x.d.puntua === false);
-  t += fila('*— de los que cumplen, requieren licencia*', x => puntua(x.d) && x.d.cumple > 1 && x.d.licencia);
+  t += fila('*— de los que cumplen, requieren licencia*', x => puntua(x.d) && x.d.cumple > 0 && x.d.licencia);
   t += `| **% de cumplimiento** | ${PLATAFORMAS.map(([, nom]) => {
     const c = cumplimiento(parte, nom);
     return c === null ? '—' : `**${c.toFixed(1)} %**`;
@@ -277,7 +277,7 @@ function banda(parte, nom) {
     const obt = t.filter(x => puntua(x.d)).reduce((s, x) => s + conPlanPago(x.d).cumple, 0);
     const falta = t.filter(x => !puntua(x.d)).length;
     const max = MAXIMO * t.length;
-    lo += (obt + falta) / max * 100 * pesoGrupo;
+    lo += obt / max * 100 * pesoGrupo;
     hi += (obt + falta * MAXIMO) / max * 100 * pesoGrupo;
     pesos += pesoGrupo;
   }
@@ -321,7 +321,7 @@ const cab = `# 5. Matriz de veredictos
 
 *Generada automáticamente a partir de los resultados registrados por las pruebas. No se transcribe ningún valor a mano.*
 
-**● 3 cumple  ◐ 2 cumple con reparo  ○ 1 no cumple  ◍ sin verificar**
+**● 2 cumple  ◐ 1 cumple con reparo  ○ 0 no cumple  ◍ sin verificar**
 
 Ambos, ● y ◐, indican que la necesidad queda resuelta. El ◐ marca que queda resuelta con un costo o una salvedad que la compañía carga de forma permanente. El ○ se reserva para lo que no existe en ninguna edición del producto, y exige constancia del fabricante.
 

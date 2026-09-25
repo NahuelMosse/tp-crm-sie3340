@@ -2,7 +2,7 @@
 
 *Generada automáticamente a partir de los resultados registrados por las pruebas. No se transcribe ningún valor a mano.*
 
-**● 3 cumple  ◐ 2 cumple con reparo  ○ 1 no cumple  ◍ sin verificar**
+**● 2 cumple  ◐ 1 cumple con reparo  ○ 0 no cumple  ◍ sin verificar**
 
 Ambos, ● y ◐, indican que la necesidad queda resuelta. El ◐ marca que queda resuelta con un costo o una salvedad que la compañía carga de forma permanente. El ○ se reserva para lo que no existe en ninguna edición del producto, y exige constancia del fabricante.
 
@@ -194,7 +194,7 @@ Estado: **3 de 234 evaluaciones registradas.**
 |---|:---:|:---:|:---:|
 | Parte A — solicitados (85 %) | 100.0 % | 100.0 % | — |
 | Parte B — no solicitados (15 %) | — | — | — |
-| *Rango posible según lo que falta verificar* | *34.1 a 100.0 %* | *34.1 a 100.0 %* | *33.3 a 100.0 %* |
+| *Rango posible según lo que falta verificar* | *1.1 a 100.0 %* | *1.1 a 100.0 %* | *0.0 a 100.0 %* |
 | **Oferta técnica** | **100.0 %** | **100.0 %** | — |
 
 ## 5.2 Cómo leer estos recuentos

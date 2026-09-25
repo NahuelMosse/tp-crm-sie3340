@@ -34,8 +34,8 @@ test('A.1.1 — modelado de la póliza como objeto propio', async ({ page }, inf
     registrar({
       criterio: 'A.1.1',
       plataforma,
-      cumple: 3,
-      costo: 2,
+      cumple: 2,
+      costo: 1,
       justificacion:
         'El Administrador de Entidades permite crear la entidad Póliza desde la interfaz de administración, ' +
         'sin escribir código. Queda disponible en el sistema con listado propio y admite registros: ' +
@@ -56,8 +56,8 @@ test('A.1.1 — modelado de la póliza como objeto propio', async ({ page }, inf
     registrar({
       criterio: 'A.1.1',
       plataforma,
-      cumple: 3,
-      costo: 2,
+      cumple: 2,
+      costo: 1,
       justificacion:
         'Configuración → Modelo de datos ofrece la acción "Añadir objeto", que crea la entidad desde la ' +
         'interfaz sin escribir código. El objeto Póliza se creó y ' +
