@@ -71,16 +71,16 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | A.1.6 | Consulta y filtrado de la cartera | `REQ 3` | Núcleo |
 | A.1.7 | Operación masiva sobre la cartera | `REQ 17` | Soporte |
 | A.2.1 | Registro del solicitante con sus datos de contacto | `REQ 1` | Núcleo |
-| A.2.2 | Calificación y priorización del solicitante | `REQ 1, REQ 6` | Núcleo |
-| A.2.3 | Conversión del solicitante en oportunidad de venta | `REQ 1` | Núcleo |
-| A.2.4 | Embudo de oportunidades con etapas | `REQ 6, REQ 4` | Núcleo |
+| A.2.2 | Calificación y priorización del solicitante | `REQ 1, REQ 6` | Soporte |
+| A.2.3 | Conversión del solicitante en oportunidad de venta | `REQ 1` | Soporte |
+| A.2.4 | Embudo de oportunidades con etapas | `REQ 6, REQ 4` | Soporte |
 | A.2.5 | Embudos diferenciados por ramo | `REQ 6, RUBRO` | Soporte |
-| A.2.6 | Oportunidades de cambio y ampliación sobre la cartera | `REQ 2, REQ 17, REQ 6` | Núcleo |
+| A.2.6 | Oportunidades de cambio y ampliación sobre la cartera | `REQ 2, REQ 17, REQ 6` | Soporte |
 | A.3.1 | Registro de productores y asignación de cartera | `REQ 4` | Núcleo |
-| A.3.2 | Bitácora de la actividad con el cliente | `REQ 4` | Núcleo |
+| A.3.2 | Bitácora de la actividad con el cliente | `REQ 4` | Soporte |
 | A.3.3 | Agenda y carga de trabajo del productor | `REQ 8` | Soporte |
 | A.3.4 | Proyección de los movimientos comerciales | `REQ 9` | Soporte |
-| A.4.1 | Segmentación reutilizable de la cartera | `REQ 11, REQ 16` | Núcleo |
+| A.4.1 | Segmentación reutilizable de la cartera | `REQ 11, REQ 16` | Soporte |
 | A.4.2 | Diseño de campañas sobre un segmento | `REQ 10` | Soporte |
 | A.4.3 | Medición de los resultados de la campaña | `REQ 10` | Soporte |
 | A.4.4 | Captación de interesados desde redes sociales | `REQ 13` | Soporte |
@@ -89,29 +89,29 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | A.4.7 | Registro de la competencia y del motivo de pérdida | `REQ 5` | Soporte |
 | A.5.1 | Reclamo como caso con identidad propia | `REQ 12` | Núcleo |
 | A.5.2 | Estado y seguimiento del reclamo | `REQ 12` | Núcleo |
-| A.5.3 | Responsable asignado a cada reclamo | `REQ 12` | Núcleo |
+| A.5.3 | Responsable asignado a cada reclamo | `REQ 12` | Soporte |
 | A.5.4 | Base de conocimiento para la atención | `REQ 15` | Soporte |
-| A.5.5 | Tareas asignables con responsable y vencimiento | `REQ 20` | Núcleo |
+| A.5.5 | Tareas asignables con responsable y vencimiento | `REQ 20` | Soporte |
 | A.5.6 | Aviso al usuario al que se le asigna una tarea | `REQ 20` | Soporte |
 | A.6.1 | Vinculación de la póliza con su titular | `REQ 2, REQ 7` | Núcleo |
-| A.6.2 | Vista única del asegurado | `REQ 7` | Núcleo |
+| A.6.2 | Vista única del asegurado | `REQ 7` | Soporte |
 | A.6.3 | Campos propios del rubro en la ficha | `REQ 16, REQ 14` | Núcleo |
-| A.6.4 | Unicidad de la ficha del asegurado | `REQ 7, RUBRO` | Núcleo |
+| A.6.4 | Unicidad de la ficha del asegurado | `REQ 7, RUBRO` | Soporte |
 | A.7.1 | Importación de contactos desde planilla de cálculo | `REQ 18, CRIT 7` | Núcleo |
 | A.7.2 | Importación de contactos desde las agendas de correo | `REQ 18` | Soporte |
-| A.7.3 | Sincronización del correo de varios usuarios | `REQ 19` | Núcleo |
-| A.7.4 | Vinculación automática del correo a la ficha | `REQ 19` | Núcleo |
+| A.7.3 | Sincronización del correo de varios usuarios | `REQ 19` | Soporte |
+| A.7.4 | Vinculación automática del correo a la ficha | `REQ 19` | Soporte |
 | A.7.5 | Formatos de intercambio aceptados | `CRIT 7` | Soporte |
-| A.7.6 | Exportación de la cartera sin pérdida de datos | `CRIT 7` | Soporte |
+| A.7.6 | Exportación de la cartera sin pérdida de datos | `CRIT 7` | Núcleo |
 | A.8.1 | Creación de entidades sin programar | `CRIT 6, RUBRO` | Núcleo |
 | A.8.2 | Campos calculados sobre datos propios | `CRIT 6` | Soporte |
 | A.8.3 | Automatización de procesos | `CRIT 6, REQ 8` | Soporte |
 | A.8.4 | Conservación de la parametrización al actualizar | `RUBRO` | Núcleo |
-| A.9.1 | Restricción de la cartera por productor | `CRIT 8, REQ 4` | Núcleo |
+| A.9.1 | Restricción de la cartera por productor | `CRIT 8, REQ 4` | Soporte |
 | A.9.2 | Autenticación de los usuarios bajo control de la compañía | `CRIT 8` | Núcleo |
-| A.9.3 | Registro de quién modificó cada dato | `CRIT 8` | Núcleo |
+| A.9.3 | Registro de quién modificó cada dato | `CRIT 8` | Soporte |
 | A.10.1 | Indicadores sobre la operación | `CRIT 9, REQ 3, REQ 15` | Soporte |
-| A.10.2 | Generación de informes definidos por el usuario | `CRIT 10, REQ 4` | Núcleo |
+| A.10.2 | Generación de informes definidos por el usuario | `CRIT 10, REQ 4` | Soporte |
 | A.10.3 | Informe paramétrico reutilizable | `CRIT 10` | Soporte |
 | A.10.4 | Intercambio de datos con otros sistemas de la compañía | `CRIT 11` | Soporte |
 | A.10.5 | Intercambio sin límite de volumen que condicione la operación | `CRIT 11` | Soporte |
@@ -123,7 +123,7 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | A.11.6 | Localización completa al español, modelo incluido | `CRIT 4, RUBRO` | Núcleo |
 | A.11.7 | Cantidad de usuarios sin límite que condicione la operación | `CRIT 5` | Núcleo |
 | A.11.8 | Operación concurrente sobre la misma cartera | `CRIT 5` | Núcleo |
-| A.11.9 | Ecosistema de integraciones disponible | `CRIT 12` | Soporte |
+| A.11.9 | Ecosistema de integraciones disponible | `CRIT 12` | Accesorio |
 | A.11.10 | Documentación en español | `CRIT 13` | Soporte |
 | A.11.11 | Material de capacitación para el usuario final | `CRIT 13` | Soporte |
 | A.11.12 | Comunidad activa de usuarios | `CRIT 13` | Soporte |

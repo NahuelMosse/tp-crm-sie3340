@@ -194,7 +194,7 @@ Estado: **3 de 234 evaluaciones registradas.**
 |---|:---:|:---:|:---:|
 | Parte A — solicitados (85 %) | 100.0 % | 100.0 % | — |
 | Parte B — no solicitados (15 %) | — | — | — |
-| *Rango posible según lo que falta verificar* | *34.4 a 100.0 %* | *34.4 a 100.0 %* | *33.3 a 100.0 %* |
+| *Rango posible según lo que falta verificar* | *34.5 a 100.0 %* | *34.5 a 100.0 %* | *33.3 a 100.0 %* |
 | **Oferta técnica** | **100.0 %** | **100.0 %** | — |
 
 ## 5.2 Cómo leer estos recuentos

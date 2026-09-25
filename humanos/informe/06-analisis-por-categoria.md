@@ -61,19 +61,19 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 
 
 ### A.2.2 Calificación y priorización del solicitante
-*Criticidad: nucleo.*
+*Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
 
 ### A.2.3 Conversión del solicitante en oportunidad de venta
-*Criticidad: nucleo.*
+*Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
 
 ### A.2.4 Embudo de oportunidades con etapas
-*Criticidad: nucleo.*
+*Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
@@ -85,7 +85,7 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 
 
 ### A.2.6 Oportunidades de cambio y ampliación sobre la cartera
-*Criticidad: nucleo.*
+*Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
@@ -99,7 +99,7 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 
 
 ### A.3.2 Bitácora de la actividad con el cliente
-*Criticidad: nucleo.*
+*Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
@@ -119,7 +119,7 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 ## A.4 Marketing, segmentación y reputación
 
 ### A.4.1 Segmentación reutilizable de la cartera
-*Criticidad: nucleo.*
+*Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
@@ -175,7 +175,7 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 
 
 ### A.5.3 Responsable asignado a cada reclamo
-*Criticidad: nucleo.*
+*Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
@@ -187,7 +187,7 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 
 
 ### A.5.5 Tareas asignables con responsable y vencimiento
-*Criticidad: nucleo.*
+*Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
@@ -207,7 +207,7 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 
 
 ### A.6.2 Vista única del asegurado
-*Criticidad: nucleo.*
+*Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
@@ -219,7 +219,7 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 
 
 ### A.6.4 Unicidad de la ficha del asegurado
-*Criticidad: nucleo.*
+*Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
@@ -239,13 +239,13 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 
 
 ### A.7.3 Sincronización del correo de varios usuarios
-*Criticidad: nucleo.*
+*Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
 
 ### A.7.4 Vinculación automática del correo a la ficha
-*Criticidad: nucleo.*
+*Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
@@ -257,7 +257,7 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 
 
 ### A.7.6 Exportación de la cartera sin pérdida de datos
-*Criticidad: soporte.*
+*Criticidad: nucleo.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
@@ -291,7 +291,7 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 ## A.9 Control de acceso y trazabilidad
 
 ### A.9.1 Restricción de la cartera por productor
-*Criticidad: nucleo.*
+*Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
@@ -303,7 +303,7 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 
 
 ### A.9.3 Registro de quién modificó cada dato
-*Criticidad: nucleo.*
+*Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
@@ -317,7 +317,7 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 
 
 ### A.10.2 Generación de informes definidos por el usuario
-*Criticidad: nucleo.*
+*Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
@@ -391,7 +391,7 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 
 
 ### A.11.9 Ecosistema de integraciones disponible
-*Criticidad: soporte.*
+*Criticidad: accesorio.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
