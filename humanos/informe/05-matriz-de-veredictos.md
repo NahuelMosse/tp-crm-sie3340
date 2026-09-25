@@ -10,7 +10,7 @@ Que una capacidad requiera un plan pago no cambia su símbolo: eso es dinero, no
 
 Lo no verificado no recibe valor y queda fuera del cálculo, tanto del obtenido como del máximo posible. Es un estado transitorio del trabajo, no una característica de la plataforma.
 
-Estado: **3 de 222 evaluaciones registradas.**
+Estado: **3 de 234 evaluaciones registradas.**
 
 ---
 
@@ -88,7 +88,8 @@ Estado: **3 de 222 evaluaciones registradas.**
 | A.7.2 Importación de contactos desde las agendas de correo | ◍ | ◍ | ◍ |
 | A.7.3 Sincronización del correo de varios usuarios | ◍ | ◍ | ◍ |
 | A.7.4 Vinculación automática del correo a la ficha | ◍ | ◍ | ◍ |
-| A.7.5 Exportación de la cartera sin pérdida de datos | ◍ | ◍ | ◍ |
+| A.7.5 Formatos de intercambio aceptados | ◍ | ◍ | ◍ |
+| A.7.6 Exportación de la cartera sin pérdida de datos | ◍ | ◍ | ◍ |
 
 ### A.8 Parametrización del modelo de negocio
 
@@ -122,16 +123,19 @@ Estado: **3 de 222 evaluaciones registradas.**
 | Criterio | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
 | A.11.1 Recursos que la compañía debe disponer para sostenerlo | ◍ | ◍ | ◍ |
-| A.11.2 Puesta en marcha sin perfil técnico especializado | ◍ | ◍ | ◍ |
-| A.11.3 Navegabilidad: pocos pasos para la operación diaria | ◍ | ◍ | ◍ |
-| A.11.4 Aprendizaje sin capacitación previa | ◍ | ◍ | ◍ |
-| A.11.5 Localización completa al español, modelo incluido | ◍ | ◍ | ◍ |
-| A.11.6 Operación concurrente sobre la misma cartera | ◍ | ◍ | ◍ |
-| A.11.7 Ecosistema de integraciones disponible | ◍ | ◍ | ◍ |
-| A.11.8 Documentación en español | ◍ | ◍ | ◍ |
-| A.11.9 Comunidad activa de usuarios | ◍ | ◍ | ◍ |
-| A.11.10 Soporte técnico con compromiso de respuesta | ◍ | ◍ | ◍ |
-| A.11.11 Continuidad de las versiones en uso | ◍ | ◍ | ◍ |
+| A.11.2 Compatibilidad con la plataforma que la compañía usa | ◍ | ◍ | ◍ |
+| A.11.3 Puesta en marcha sin perfil técnico especializado | ◍ | ◍ | ◍ |
+| A.11.4 Menú y navegabilidad para la operación diaria | ◍ | ◍ | ◍ |
+| A.11.5 Aprendizaje sin capacitación previa | ◍ | ◍ | ◍ |
+| A.11.6 Localización completa al español, modelo incluido | ◍ | ◍ | ◍ |
+| A.11.7 Cantidad de usuarios sin límite que condicione la operación | ◍ | ◍ | ◍ |
+| A.11.8 Operación concurrente sobre la misma cartera | ◍ | ◍ | ◍ |
+| A.11.9 Ecosistema de integraciones disponible | ◍ | ◍ | ◍ |
+| A.11.10 Documentación en español | ◍ | ◍ | ◍ |
+| A.11.11 Material de capacitación para el usuario final | ◍ | ◍ | ◍ |
+| A.11.12 Comunidad activa de usuarios | ◍ | ◍ | ◍ |
+| A.11.13 Soporte técnico con compromiso de respuesta | ◍ | ◍ | ◍ |
+| A.11.14 Continuidad de las versiones en uso | ◍ | ◍ | ◍ |
 
 ### Recuento de la Parte A
 
@@ -140,7 +144,7 @@ Estado: **3 de 222 evaluaciones registradas.**
 | Cumple ● | 1 | 1 | 0 |
 | Cumple con reparo ◐ | 0 | 0 | 0 |
 | No cumple ○ | 0 | 0 | 0 |
-| Sin verificar ◍ | 61 | 61 | 62 |
+| Sin verificar ◍ | 65 | 65 | 66 |
 | *— de los que cumplen, requieren licencia* | 0 | 0 | 0 |
 | **% de cumplimiento** | **100.0 %** | **100.0 %** | — |
 

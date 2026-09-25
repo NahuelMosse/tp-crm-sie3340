@@ -250,7 +250,13 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 *Pendiente de evaluación en todas las alternativas.*
 
 
-### A.7.5 Exportación de la cartera sin pérdida de datos
+### A.7.5 Formatos de intercambio aceptados
+*Criticidad: soporte.*
+
+*Pendiente de evaluación en todas las alternativas.*
+
+
+### A.7.6 Exportación de la cartera sin pérdida de datos
 *Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
@@ -342,61 +348,79 @@ Cada criterio indica, para cada plataforma, el valor de cumplimiento, el costo d
 *Pendiente de evaluación en todas las alternativas.*
 
 
-### A.11.2 Puesta en marcha sin perfil técnico especializado
+### A.11.2 Compatibilidad con la plataforma que la compañía usa
 *Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
 
-### A.11.3 Navegabilidad: pocos pasos para la operación diaria
+### A.11.3 Puesta en marcha sin perfil técnico especializado
 *Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
 
-### A.11.4 Aprendizaje sin capacitación previa
+### A.11.4 Menú y navegabilidad para la operación diaria
 *Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
 
-### A.11.5 Localización completa al español, modelo incluido
+### A.11.5 Aprendizaje sin capacitación previa
+*Criticidad: soporte.*
+
+*Pendiente de evaluación en todas las alternativas.*
+
+
+### A.11.6 Localización completa al español, modelo incluido
 *Criticidad: nucleo.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
 
-### A.11.6 Operación concurrente sobre la misma cartera
+### A.11.7 Cantidad de usuarios sin límite que condicione la operación
 *Criticidad: nucleo.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
 
-### A.11.7 Ecosistema de integraciones disponible
+### A.11.8 Operación concurrente sobre la misma cartera
+*Criticidad: nucleo.*
+
+*Pendiente de evaluación en todas las alternativas.*
+
+
+### A.11.9 Ecosistema de integraciones disponible
 *Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
 
-### A.11.8 Documentación en español
+### A.11.10 Documentación en español
 *Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
 
-### A.11.9 Comunidad activa de usuarios
+### A.11.11 Material de capacitación para el usuario final
 *Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
 
-### A.11.10 Soporte técnico con compromiso de respuesta
+### A.11.12 Comunidad activa de usuarios
 *Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
 
 
-### A.11.11 Continuidad de las versiones en uso
+### A.11.13 Soporte técnico con compromiso de respuesta
+*Criticidad: soporte.*
+
+*Pendiente de evaluación en todas las alternativas.*
+
+
+### A.11.14 Continuidad de las versiones en uso
 *Criticidad: soporte.*
 
 *Pendiente de evaluación en todas las alternativas.*
