@@ -83,7 +83,7 @@ const criterios = [];
 for (const linea of sec4.split('\n')) {
   const celdas = linea.trim().replace(/^\||\|$/g, '').split('|').map(c => c.trim());
   if (!/^(A|B)\.\d+\.\d+$/.test(celdas[0])) continue;
-  criterios.push({ id: celdas[0], nombre: celdas[1], criticidad: celdas.at(-1) });
+  criterios.push({ id: celdas[0], nombre: celdas[1], grupo: celdas[0].split('.').slice(0,2).join('.') });
 }
 
 const huerfanos = criterios.filter(c => !ORIGEN[c.id]).map(c => c.id);
@@ -125,8 +125,8 @@ for (const [fam, textos] of [['REQ', REQ], ['CRIT', CRIT]]) {
 }
 
 l.push('## Cada criterio y su fuente', '');
-l.push('| Criterio | | Origen | Criticidad |', '|---|---|:---:|:---:|');
-for (const c of criterios) l.push(`| ${c.id} | ${c.nombre} | \`${ORIGEN[c.id]}\` | ${c.criticidad} |`);
+l.push('| Criterio | | Origen |', '|---|---|:---:|');
+for (const c of criterios) l.push(`| ${c.id} | ${c.nombre} | \`${ORIGEN[c.id]}\` |`);
 l.push('');
 
 l.push('## Sin fuente externa', '');

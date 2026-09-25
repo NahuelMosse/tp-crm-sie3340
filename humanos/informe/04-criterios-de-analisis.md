@@ -17,7 +17,7 @@ A esas tres se suma lo que apareció al operar los sistemas: **capacidades que l
 ## 4.2 Por qué se dividen en dos partes
 
 | Parte | Contiene | Peso |
-|---|---|:---:|
+|---|---|
 | **A — Solicitados** | Pedido del cliente + marco técnico de evaluación | 85 % |
 | **B — No solicitados** | Condiciones del negocio + capacidades por encima de lo pedido | 15 % |
 
@@ -53,144 +53,144 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 
 *Criterios funcionales. Pregunta: ¿el usuario puede hacerlo desde el sistema?*
 
-| ID | Criterio | Procedimiento de verificación | Criticidad |
-|---|---|---|:---:|
-| A.1.1 | Modelado de la póliza como objeto propio | Crear una entidad Póliza con identidad propia y comprobar que aparece en el menú del sistema y admite registros | Núcleo |
-| A.1.2 | Campos de lista para el ramo y el estado de cobranza | Agregar dos campos de lista —uno con los ramos que comercializa la compañía y otro con los estados de cobranza—, cargar una póliza de cada ramo y cambiarle el estado | Núcleo |
-| A.1.3 | Prima con importe y moneda | Agregar un campo de importe con moneda y cargar una prima, comprobando que conserva los decimales y la denominación | Núcleo |
-| A.1.4 | Vigencia con fecha de inicio y de fin | Agregar dos campos de fecha y comprobar que el sistema los trata como fechas: admite orden y comparación | Núcleo |
-| A.1.5 | Aviso anticipado de vencimiento | Definir un aviso sobre las pólizas que vencen en los próximos treinta días y sobre los reclamos que alcanzan su plazo de resolución, y comprobar que el sistema los emite sin intervención | Soporte |
-| A.1.6 | Consulta y filtrado de la cartera | Filtrar de forma combinada por ramo, por estado de cobranza y por productor responsable, y obtener el listado resultante | Núcleo |
-| A.1.7 | Operación masiva sobre la cartera | Seleccionar varias pólizas del listado y modificar un campo en todas con una sola acción | Soporte |
+| ID | Criterio | Procedimiento de verificación |
+|---|---|---|
+| A.1.1 | Modelado de la póliza como objeto propio | Crear una entidad Póliza con identidad propia y comprobar que aparece en el menú del sistema y admite registros |
+| A.1.2 | Campos de lista para el ramo y el estado de cobranza | Agregar dos campos de lista —uno con los ramos que comercializa la compañía y otro con los estados de cobranza—, cargar una póliza de cada ramo y cambiarle el estado |
+| A.1.3 | Prima con importe y moneda | Agregar un campo de importe con moneda y cargar una prima, comprobando que conserva los decimales y la denominación |
+| A.1.4 | Vigencia con fecha de inicio y de fin | Agregar dos campos de fecha y comprobar que el sistema los trata como fechas: admite orden y comparación |
+| A.1.5 | Aviso anticipado de vencimiento | Definir un aviso sobre las pólizas que vencen en los próximos treinta días y sobre los reclamos que alcanzan su plazo de resolución, y comprobar que el sistema los emite sin intervención |
+| A.1.6 | Consulta y filtrado de la cartera | Filtrar de forma combinada por ramo, por estado de cobranza y por productor responsable, y obtener el listado resultante |
+| A.1.7 | Operación masiva sobre la cartera | Seleccionar varias pólizas del listado y modificar un campo en todas con una sola acción |
 
 ### A.2 Captación y proceso de venta
 
 *Criterios funcionales. Pregunta: ¿el usuario puede hacerlo desde el sistema?*
 
-| ID | Criterio | Procedimiento de verificación | Criticidad |
-|---|---|---|:---:|
-| A.2.1 | Registro del solicitante con sus datos de contacto | Crear un solicitante con nombre, teléfono, correo y domicilio, y recuperarlo por búsqueda | Núcleo |
-| A.2.2 | Calificación y priorización del solicitante | Registrar qué cobertura pide el solicitante y con cuánta urgencia, y obtener la lista ordenada por esa urgencia para atender primero a los que más cerca están de contratar | Soporte |
-| A.2.3 | Conversión del solicitante en oportunidad de venta | Convertir el solicitante en oportunidad y comprobar que los datos cargados se trasladan sin volver a escribirlos | Soporte |
-| A.2.4 | Embudo de oportunidades con etapas | Crear una oportunidad desde la ficha de un asegurado y hacerla avanzar entre etapas hasta el cierre | Soporte |
-| A.2.5 | Embudos diferenciados por ramo | Crear un segundo embudo con etapas distintas del primero y asignarle una oportunidad | Soporte |
-| A.2.6 | Oportunidades de cambio y ampliación sobre la cartera | Obtener el conjunto de asegurados que tienen un ramo contratado y no otro, y el de los que están próximos a vencer, como base para ofrecer una cobertura adicional o un cambio de póliza | Soporte |
+| ID | Criterio | Procedimiento de verificación |
+|---|---|---|
+| A.2.1 | Registro del solicitante con sus datos de contacto | Crear un solicitante con nombre, teléfono, correo y domicilio, y recuperarlo por búsqueda |
+| A.2.2 | Calificación y priorización del solicitante | Registrar qué cobertura pide el solicitante y con cuánta urgencia, y obtener la lista ordenada por esa urgencia para atender primero a los que más cerca están de contratar |
+| A.2.3 | Conversión del solicitante en oportunidad de venta | Convertir el solicitante en oportunidad y comprobar que los datos cargados se trasladan sin volver a escribirlos |
+| A.2.4 | Embudo de oportunidades con etapas | Crear una oportunidad desde la ficha de un asegurado y hacerla avanzar entre etapas hasta el cierre |
+| A.2.5 | Embudos diferenciados por ramo | Crear un segundo embudo con etapas distintas del primero y asignarle una oportunidad |
+| A.2.6 | Oportunidades de cambio y ampliación sobre la cartera | Obtener el conjunto de asegurados que tienen un ramo contratado y no otro, y el de los que están próximos a vencer, como base para ofrecer una cobertura adicional o un cambio de póliza |
 
 ### A.3 Productores y actividad comercial
 
 *Criterios funcionales. Pregunta: ¿el usuario puede hacerlo desde el sistema?*
 
-| ID | Criterio | Procedimiento de verificación | Criticidad |
-|---|---|---|:---:|
-| A.3.1 | Registro de productores y asignación de cartera | Crear un usuario productor y asignarle un conjunto de asegurados como responsable | Núcleo |
-| A.3.2 | Bitácora de la actividad con el cliente | Registrar una llamada y una reunión sobre un asegurado, y comprobar que ambas quedan visibles en orden cronológico con su autor | Soporte |
-| A.3.3 | Agenda y carga de trabajo del productor | Ingresar con un usuario productor y comprobar que dispone de una vista de sus pendientes y compromisos | Soporte |
-| A.3.4 | Proyección de los movimientos comerciales | Cargar oportunidades con monto y probabilidad, y comprobar si el sistema calcula un total proyectado por período | Soporte |
+| ID | Criterio | Procedimiento de verificación |
+|---|---|---|
+| A.3.1 | Registro de productores y asignación de cartera | Crear un usuario productor y asignarle un conjunto de asegurados como responsable |
+| A.3.2 | Bitácora de la actividad con el cliente | Registrar una llamada y una reunión sobre un asegurado, y comprobar que ambas quedan visibles en orden cronológico con su autor |
+| A.3.3 | Agenda y carga de trabajo del productor | Ingresar con un usuario productor y comprobar que dispone de una vista de sus pendientes y compromisos |
+| A.3.4 | Proyección de los movimientos comerciales | Cargar oportunidades con monto y probabilidad, y comprobar si el sistema calcula un total proyectado por período |
 
 ### A.4 Marketing, segmentación y reputación
 
 *Criterios funcionales. Pregunta: ¿el usuario puede hacerlo desde el sistema?*
 
-| ID | Criterio | Procedimiento de verificación | Criticidad |
-|---|---|---|:---:|
-| A.4.1 | Segmentación reutilizable de la cartera | Definir un conjunto de asegurados por un criterio, guardarlo con nombre y volver a abrirlo | Soporte |
-| A.4.2 | Diseño de campañas sobre un segmento | Crear una campaña dirigida a un segmento guardado y personalizar su contenido | Soporte |
-| A.4.3 | Medición de los resultados de la campaña | Comprobar que el sistema registra envíos, aperturas o respuestas de la campaña realizada | Soporte |
-| A.4.4 | Captación de interesados desde redes sociales | Buscar la conexión con alguna red social y comprobar que permite incorporar interesados a la base | Soporte |
-| A.4.5 | Escucha de menciones en canales públicos | Buscar la función de seguimiento de menciones de la compañía y de la competencia | Accesorio |
-| A.4.6 | Publicación en redes desde el sistema | Componer una publicación y emitirla a una red conectada desde el propio sistema, sin pasar por la herramienta de la red | Soporte |
-| A.4.7 | Registro de la competencia y del motivo de pérdida | Marcar una oportunidad como perdida y comprobar si admite registrar el motivo y el competidor que la ganó | Soporte |
+| ID | Criterio | Procedimiento de verificación |
+|---|---|---|
+| A.4.1 | Segmentación reutilizable de la cartera | Definir un conjunto de asegurados por un criterio, guardarlo con nombre y volver a abrirlo |
+| A.4.2 | Diseño de campañas sobre un segmento | Crear una campaña dirigida a un segmento guardado y personalizar su contenido |
+| A.4.3 | Medición de los resultados de la campaña | Comprobar que el sistema registra envíos, aperturas o respuestas de la campaña realizada |
+| A.4.4 | Captación de interesados desde redes sociales | Buscar la conexión con alguna red social y comprobar que permite incorporar interesados a la base |
+| A.4.5 | Escucha de menciones en canales públicos | Buscar la función de seguimiento de menciones de la compañía y de la competencia |
+| A.4.6 | Publicación en redes desde el sistema | Componer una publicación y emitirla a una red conectada desde el propio sistema, sin pasar por la herramienta de la red |
+| A.4.7 | Registro de la competencia y del motivo de pérdida | Marcar una oportunidad como perdida y comprobar si admite registrar el motivo y el competidor que la ganó |
 
 ### A.5 Atención al asegurado y reclamos
 
 *Criterios funcionales. Pregunta: ¿el usuario puede hacerlo desde el sistema?*
 
-| ID | Criterio | Procedimiento de verificación | Criticidad |
-|---|---|---|:---:|
-| A.5.1 | Reclamo como caso con identidad propia | Crear un reclamo asociado a un asegurado y comprobar que tiene número, listado y ficha propios | Núcleo |
-| A.5.2 | Estado y seguimiento del reclamo | Cambiar el reclamo de estado y comprobar que el sistema conserva la secuencia de estados por los que pasó | Núcleo |
-| A.5.3 | Responsable asignado a cada reclamo | Asignar el reclamo a un usuario y comprobar que aparece entre sus pendientes | Soporte |
-| A.5.4 | Base de conocimiento para la atención | Crear un artículo con una condición de cobertura y recuperarlo mediante búsqueda | Soporte |
-| A.5.5 | Tareas asignables con responsable y vencimiento | Crear una tarea, asignarla a otro usuario con fecha de vencimiento y verificarla desde la cuenta de ese usuario | Soporte |
-| A.5.6 | Aviso al usuario al que se le asigna una tarea | Comprobar si el usuario asignado recibe una notificación sin tener que consultar el listado | Soporte |
+| ID | Criterio | Procedimiento de verificación |
+|---|---|---|
+| A.5.1 | Reclamo como caso con identidad propia | Crear un reclamo asociado a un asegurado y comprobar que tiene número, listado y ficha propios |
+| A.5.2 | Estado y seguimiento del reclamo | Cambiar el reclamo de estado y comprobar que el sistema conserva la secuencia de estados por los que pasó |
+| A.5.3 | Responsable asignado a cada reclamo | Asignar el reclamo a un usuario y comprobar que aparece entre sus pendientes |
+| A.5.4 | Base de conocimiento para la atención | Crear un artículo con una condición de cobertura y recuperarlo mediante búsqueda |
+| A.5.5 | Tareas asignables con responsable y vencimiento | Crear una tarea, asignarla a otro usuario con fecha de vencimiento y verificarla desde la cuenta de ese usuario |
+| A.5.6 | Aviso al usuario al que se le asigna una tarea | Comprobar si el usuario asignado recibe una notificación sin tener que consultar el listado |
 
 ### A.6 Ficha única del asegurado
 
 *Criterios funcionales. Pregunta: ¿el usuario puede hacerlo desde el sistema?*
 
-| ID | Criterio | Procedimiento de verificación | Criticidad |
-|---|---|---|:---:|
-| A.6.1 | Vinculación de la póliza con su titular | Relacionar la póliza con un contacto, abrir la ficha del contacto y comprobar que la póliza figura allí; abrir la póliza y comprobar que muestra al titular | Núcleo |
-| A.6.2 | Vista única del asegurado | Abrir la ficha de un asegurado y comprobar si desde allí se llega a todo lo suyo —pólizas, actividad y reclamos— sin buscarlo en otro menú | Soporte |
-| A.6.3 | Campos propios del rubro en la ficha | Agregar a la ficha del asegurado un campo que el producto no trae —la valoración que dejó sobre la atención recibida— y comprobar que queda disponible en el alta y en la búsqueda | Núcleo |
-| A.6.4 | Unicidad de la ficha del asegurado | Cargar dos veces un asegurado con el mismo documento y comprobar si el sistema advierte la duplicación | Soporte |
+| ID | Criterio | Procedimiento de verificación |
+|---|---|---|
+| A.6.1 | Vinculación de la póliza con su titular | Relacionar la póliza con un contacto, abrir la ficha del contacto y comprobar que la póliza figura allí; abrir la póliza y comprobar que muestra al titular |
+| A.6.2 | Vista única del asegurado | Abrir la ficha de un asegurado y comprobar si desde allí se llega a todo lo suyo —pólizas, actividad y reclamos— sin buscarlo en otro menú |
+| A.6.3 | Campos propios del rubro en la ficha | Agregar a la ficha del asegurado un campo que el producto no trae —la valoración que dejó sobre la atención recibida— y comprobar que queda disponible en el alta y en la búsqueda |
+| A.6.4 | Unicidad de la ficha del asegurado | Cargar dos veces un asegurado con el mismo documento y comprobar si el sistema advierte la duplicación |
 
 ### A.7 Intercambio de datos y correo
 
 *Criterios funcionales. Pregunta: ¿el usuario puede hacerlo desde el sistema?*
 
-| ID | Criterio | Procedimiento de verificación | Criticidad |
-|---|---|---|:---:|
-| A.7.1 | Importación de contactos desde planilla de cálculo | Importar un archivo de planilla con contactos y determinar si ingresan todos conservando la acentuación y los campos, o si hay pérdida | Núcleo |
-| A.7.2 | Importación de contactos desde las agendas de correo | Buscar la conexión con el correo web y con el gestor de escritorio que usa la compañía, e incorporar contactos desde la agenda de cada uno | Soporte |
-| A.7.3 | Sincronización del correo de varios usuarios | Configurar una casilla y comprobar si la configuración admite hacerlo para varios usuarios o solo para uno | Soporte |
-| A.7.4 | Vinculación automática del correo a la ficha | Enviar un mensaje a la dirección de un asegurado cargado y comprobar si queda registrado en su ficha sin intervención | Soporte |
-| A.7.5 | Formatos de intercambio aceptados | Enumerar los formatos en que el sistema admite entrar y sacar datos, y determinar si incluyen los que la compañía usa con sus otros sistemas | Soporte |
-| A.7.6 | Exportación de la cartera sin pérdida de datos | Exportar los registros importados y comparar el archivo con el original: si coincide, si pierde acentuación o campos, o si faltan filas | Núcleo |
+| ID | Criterio | Procedimiento de verificación |
+|---|---|---|
+| A.7.1 | Importación de contactos desde planilla de cálculo | Importar un archivo de planilla con contactos y determinar si ingresan todos conservando la acentuación y los campos, o si hay pérdida |
+| A.7.2 | Importación de contactos desde las agendas de correo | Buscar la conexión con el correo web y con el gestor de escritorio que usa la compañía, e incorporar contactos desde la agenda de cada uno |
+| A.7.3 | Sincronización del correo de varios usuarios | Configurar una casilla y comprobar si la configuración admite hacerlo para varios usuarios o solo para uno |
+| A.7.4 | Vinculación automática del correo a la ficha | Enviar un mensaje a la dirección de un asegurado cargado y comprobar si queda registrado en su ficha sin intervención |
+| A.7.5 | Formatos de intercambio aceptados | Enumerar los formatos en que el sistema admite entrar y sacar datos, y determinar si incluyen los que la compañía usa con sus otros sistemas |
+| A.7.6 | Exportación de la cartera sin pérdida de datos | Exportar los registros importados y comparar el archivo con el original: si coincide, si pierde acentuación o campos, o si faltan filas |
 
 ### A.8 Parametrización del modelo de negocio
 
 *Criterios funcionales. Pregunta: ¿el usuario puede hacerlo desde el sistema?*
 
-| ID | Criterio | Procedimiento de verificación | Criticidad |
-|---|---|---|:---:|
-| A.8.1 | Creación de entidades sin programar | Crear una entidad nueva desde la administración y registrar si fue necesario escribir código | Núcleo |
-| A.8.2 | Campos calculados sobre datos propios | Definir un campo cuyo valor derive de otro y comprobar que se calcula al guardar | Soporte |
-| A.8.3 | Automatización de procesos | Definir una acción automática ante un evento y provocar ese evento para comprobar que se ejecuta | Soporte |
-| A.8.4 | Conservación de la parametrización al actualizar | Aplicar o consultar el procedimiento de actualización y determinar qué ocurre con las entidades y campos creados por la compañía | Núcleo |
+| ID | Criterio | Procedimiento de verificación |
+|---|---|---|
+| A.8.1 | Creación de entidades sin programar | Crear una entidad nueva desde la administración y registrar si fue necesario escribir código |
+| A.8.2 | Campos calculados sobre datos propios | Definir un campo cuyo valor derive de otro y comprobar que se calcula al guardar |
+| A.8.3 | Automatización de procesos | Definir una acción automática ante un evento y provocar ese evento para comprobar que se ejecuta |
+| A.8.4 | Conservación de la parametrización al actualizar | Aplicar o consultar el procedimiento de actualización y determinar qué ocurre con las entidades y campos creados por la compañía |
 
 ### A.9 Control de acceso y trazabilidad
 
 *Criterios funcionales. Pregunta: ¿el usuario puede hacerlo desde el sistema?*
 
-| ID | Criterio | Procedimiento de verificación | Criticidad |
-|---|---|---|:---:|
-| A.9.1 | Restricción de la cartera por productor | Crear un usuario con acceso restringido e intentar abrir un registro ajeno, incluso por dirección directa | Soporte |
-| A.9.2 | Autenticación de los usuarios bajo control de la compañía | Revisar qué exige el sistema para validar la identidad: política de contraseñas, segundo factor y acceso unificado con el directorio de la compañía | Núcleo |
-| A.9.3 | Registro de quién modificó cada dato | Cambiar el ramo de una póliza vigente con un usuario y buscar desde otro la constancia del cambio: valor anterior, autor y momento | Soporte |
+| ID | Criterio | Procedimiento de verificación |
+|---|---|---|
+| A.9.1 | Restricción de la cartera por productor | Crear un usuario con acceso restringido e intentar abrir un registro ajeno, incluso por dirección directa |
+| A.9.2 | Autenticación de los usuarios bajo control de la compañía | Revisar qué exige el sistema para validar la identidad: política de contraseñas, segundo factor y acceso unificado con el directorio de la compañía |
+| A.9.3 | Registro de quién modificó cada dato | Cambiar el ramo de una póliza vigente con un usuario y buscar desde otro la constancia del cambio: valor anterior, autor y momento |
 
 ### A.10 Explotación de la información
 
 *Criterios funcionales. Pregunta: ¿el usuario puede hacerlo desde el sistema?*
 
-| ID | Criterio | Procedimiento de verificación | Criticidad |
-|---|---|---|:---:|
-| A.10.1 | Indicadores sobre la operación | Construir vistas que muestren el total de primas por estado de cobranza y el tiempo promedio de resolución de los reclamos | Soporte |
-| A.10.2 | Generación de informes definidos por el usuario | Producir un informe con el total de primas vendidas por cada productor en un período, eligiendo los criterios, y exportarlo | Soporte |
-| A.10.3 | Informe paramétrico reutilizable | Guardar un informe con el período como parámetro y volver a ejecutarlo para otro período sin rehacerlo | Soporte |
-| A.10.4 | Intercambio de datos con otros sistemas de la compañía | Crear y consultar registros desde fuera del sistema, por la vía que la plataforma habilite | Soporte |
-| A.10.5 | Intercambio sin límite de volumen que condicione la operación | Determinar si el límite de operaciones del intercambio deja holgura sobre el movimiento diario de la cartera, si se alcanza en una jornada intensa, o si impide sincronizarla | Soporte |
+| ID | Criterio | Procedimiento de verificación |
+|---|---|---|
+| A.10.1 | Indicadores sobre la operación | Construir vistas que muestren el total de primas por estado de cobranza y el tiempo promedio de resolución de los reclamos |
+| A.10.2 | Generación de informes definidos por el usuario | Producir un informe con el total de primas vendidas por cada productor en un período, eligiendo los criterios, y exportarlo |
+| A.10.3 | Informe paramétrico reutilizable | Guardar un informe con el período como parámetro y volver a ejecutarlo para otro período sin rehacerlo |
+| A.10.4 | Intercambio de datos con otros sistemas de la compañía | Crear y consultar registros desde fuera del sistema, por la vía que la plataforma habilite |
+| A.10.5 | Intercambio sin límite de volumen que condicione la operación | Determinar si el límite de operaciones del intercambio deja holgura sobre el movimiento diario de la cartera, si se alcanza en una jornada intensa, o si impide sincronizarla |
 
 ### A.11 Condiciones técnicas del producto
 
 *Criterios no funcionales. Pregunta: ¿el sistema satisface la condición que el negocio requiere?*
 
-| ID | Criterio | Procedimiento de verificación | Criticidad |
-|---|---|---|:---:|
-| A.11.1 | Recursos que la compañía debe disponer para sostenerlo | Determinar si el sistema no exige infraestructura propia, si corre en un equipo de escritorio de los que la compañía ya tiene, o si pide un servidor dedicado | Soporte |
-| A.11.2 | Compatibilidad con la plataforma que la compañía usa | Determinar sobre qué sistemas operativos y motores de base de datos corre, y si alguno de ellos es de los que la compañía ya administra | Soporte |
-| A.11.3 | Puesta en marcha sin perfil técnico especializado | Llevar el sistema de cero a operativo y determinar si lo completa alguien sin perfil técnico, si exige conocimientos puntuales guiados por la documentación, o si requiere un perfil que la compañía no tiene | Soporte |
-| A.11.4 | Menú y navegabilidad para la operación diaria | Registrar un asegurado con su póliza desde el ingreso, y determinar si el menú lleva a cada función donde se la espera y si el alta se completa en un solo recorrido, o si obliga a volver sobre pantallas ya visitadas | Soporte |
-| A.11.5 | Aprendizaje sin capacitación previa | Pedir a tres personas ajenas al proyecto que completen las mismas cinco tareas sin instrucción, y registrar si las tres las completan, si alguna queda pendiente aunque quien la intentó sepa decir qué le faltó, o si hay tareas que ninguna logra | Soporte |
-| A.11.6 | Localización completa al español, modelo incluido | Recorrer el menú principal y una ficha, y determinar si todo está en español, si queda algún nombre en otro idioma que igual se entiende, o si hay nombres que impiden saber qué guarda el campo | Núcleo |
-| A.11.7 | Cantidad de usuarios sin límite que condicione la operación | Determinar cuántos usuarios admite la edición evaluada y contrastarlo con el plantel de productores y personal administrativo de la compañía | Núcleo |
-| A.11.8 | Operación concurrente sobre la misma cartera | Abrir el mismo registro con tres usuarios simultáneos, modificarlo en los tres y observar el comportamiento del sistema | Núcleo |
-| A.11.9 | Ecosistema de integraciones disponible | Revisar el catálogo de conectores disponibles y su accesibilidad | Accesorio |
-| A.11.10 | Documentación en español | Consultar la documentación oficial y verificar la disponibilidad del idioma | Soporte |
-| A.11.11 | Material de capacitación para el usuario final | Buscar en la oferta del fabricante material de formación —cursos, videos o guías de uso— dirigido a quien opera el sistema y no a quien lo administra | Soporte |
-| A.11.12 | Comunidad activa de usuarios | Publicar una consulta real en el foro oficial y registrar si recibe una respuesta que la resuelve dentro de la espera aceptable, si llega más tarde o sin resolver, o si no llega | Soporte |
-| A.11.13 | Soporte técnico con compromiso de respuesta | Verificar en la documentación comercial la existencia de un canal con plazo comprometido | Soporte |
-| A.11.14 | Continuidad de las versiones en uso | Determinar si el fabricante publica por cuánto tiempo sostiene con correcciones una versión, y si ese plazo cubre el horizonte de planificación o fuerza a adelantar la actualización | Soporte |
+| ID | Criterio | Procedimiento de verificación |
+|---|---|---|
+| A.11.1 | Recursos que la compañía debe disponer para sostenerlo | Determinar si el sistema no exige infraestructura propia, si corre en un equipo de escritorio de los que la compañía ya tiene, o si pide un servidor dedicado |
+| A.11.2 | Compatibilidad con la plataforma que la compañía usa | Determinar sobre qué sistemas operativos y motores de base de datos corre, y si alguno de ellos es de los que la compañía ya administra |
+| A.11.3 | Puesta en marcha sin perfil técnico especializado | Llevar el sistema de cero a operativo y determinar si lo completa alguien sin perfil técnico, si exige conocimientos puntuales guiados por la documentación, o si requiere un perfil que la compañía no tiene |
+| A.11.4 | Menú y navegabilidad para la operación diaria | Registrar un asegurado con su póliza desde el ingreso, y determinar si el menú lleva a cada función donde se la espera y si el alta se completa en un solo recorrido, o si obliga a volver sobre pantallas ya visitadas |
+| A.11.5 | Aprendizaje sin capacitación previa | Pedir a tres personas ajenas al proyecto que completen las mismas cinco tareas sin instrucción, y registrar si las tres las completan, si alguna queda pendiente aunque quien la intentó sepa decir qué le faltó, o si hay tareas que ninguna logra |
+| A.11.6 | Localización completa al español, modelo incluido | Recorrer el menú principal y una ficha, y determinar si todo está en español, si queda algún nombre en otro idioma que igual se entiende, o si hay nombres que impiden saber qué guarda el campo |
+| A.11.7 | Cantidad de usuarios sin límite que condicione la operación | Determinar cuántos usuarios admite la edición evaluada y contrastarlo con el plantel de productores y personal administrativo de la compañía |
+| A.11.8 | Operación concurrente sobre la misma cartera | Abrir el mismo registro con tres usuarios simultáneos, modificarlo en los tres y observar el comportamiento del sistema |
+| A.11.9 | Ecosistema de integraciones disponible | Revisar el catálogo de conectores disponibles y su accesibilidad |
+| A.11.10 | Documentación en español | Consultar la documentación oficial y verificar la disponibilidad del idioma |
+| A.11.11 | Material de capacitación para el usuario final | Buscar en la oferta del fabricante material de formación —cursos, videos o guías de uso— dirigido a quien opera el sistema y no a quien lo administra |
+| A.11.12 | Comunidad activa de usuarios | Publicar una consulta real en el foro oficial y registrar si recibe una respuesta que la resuelve dentro de la espera aceptable, si llega más tarde o sin resolver, o si no llega |
+| A.11.13 | Soporte técnico con compromiso de respuesta | Verificar en la documentación comercial la existencia de un canal con plazo comprometido |
+| A.11.14 | Continuidad de las versiones en uso | Determinar si el fabricante publica por cuánto tiempo sostiene con correcciones una versión, y si ese plazo cubre el horizonte de planificación o fuerza a adelantar la actualización |
 
 ---
 
@@ -200,27 +200,27 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 
 *Criterios no funcionales. Pregunta: ¿el sistema satisface la condición que el negocio requiere?*
 
-| ID | Criterio | Procedimiento de verificación | Fundamento | Criticidad |
-|---|---|---|---|:---:|
-| B.1.1 | Persistencia de los datos sin uso continuo | Verificar en las condiciones del servicio si existe un plazo de inactividad que afecte la cuenta o los datos | Una póliza permanece vigente años aunque nadie la consulte | Núcleo |
-| B.1.2 | Copia propia y completa de la cartera | Obtener una copia de toda la información, incluidos los archivos adjuntos, y comprobar que puede restituirse | La cartera es el activo principal de la compañía | Núcleo |
-| B.1.3 | Copia periódica sin intervención manual | Determinar si esa copia puede programarse para repetirse sola, sin que alguien la ejecute cada vez | Una copia que depende de que alguien se acuerde no es un resguardo | Soporte |
-| B.1.4 | Búsqueda y operación con volumen productivo | Cargar la cartera de referencia, buscar un registro por texto y repetir el filtrado por campo: determinar si responde sin espera perceptible, con una demora que el usuario nota y tolera, o de forma impracticable | Una cartera de cinco mil asegurados con dos pólizas y media en promedio, más sus contactos y reclamos, supera los veinte mil registros | Núcleo |
-| B.1.5 | Previsibilidad de los cambios del sistema | Determinar quién decide cuándo se aplica una actualización y con cuánta anticipación se anuncia | Un cambio inesperado durante la operación interrumpe la atención | Soporte |
-| B.1.6 | Conocimiento y decisión sobre dónde residen los datos | Determinar dónde se alojan los datos y en qué medida la compañía puede elegirlo | Los seguros de personas involucran datos sensibles (Ley 25.326) | Soporte |
-| B.1.7 | Continuidad de la atención ante una caída del enlace | Interrumpir la conexión externa y determinar qué parte de la operación diaria sigue siendo posible | La atención no debería detenerse por una falla de conectividad | Soporte |
+| ID | Criterio | Procedimiento de verificación | Fundamento |
+|---|---|---|---|
+| B.1.1 | Persistencia de los datos sin uso continuo | Verificar en las condiciones del servicio si existe un plazo de inactividad que afecte la cuenta o los datos | Una póliza permanece vigente años aunque nadie la consulte |
+| B.1.2 | Copia propia y completa de la cartera | Obtener una copia de toda la información, incluidos los archivos adjuntos, y comprobar que puede restituirse | La cartera es el activo principal de la compañía |
+| B.1.3 | Copia periódica sin intervención manual | Determinar si esa copia puede programarse para repetirse sola, sin que alguien la ejecute cada vez | Una copia que depende de que alguien se acuerde no es un resguardo |
+| B.1.4 | Búsqueda y operación con volumen productivo | Cargar la cartera de referencia, buscar un registro por texto y repetir el filtrado por campo: determinar si responde sin espera perceptible, con una demora que el usuario nota y tolera, o de forma impracticable | Una cartera de cinco mil asegurados con dos pólizas y media en promedio, más sus contactos y reclamos, supera los veinte mil registros |
+| B.1.5 | Previsibilidad de los cambios del sistema | Determinar quién decide cuándo se aplica una actualización y con cuánta anticipación se anuncia | Un cambio inesperado durante la operación interrumpe la atención |
+| B.1.6 | Conocimiento y decisión sobre dónde residen los datos | Determinar dónde se alojan los datos y en qué medida la compañía puede elegirlo | Los seguros de personas involucran datos sensibles (Ley 25.326) |
+| B.1.7 | Continuidad de la atención ante una caída del enlace | Interrumpir la conexión externa y determinar qué parte de la operación diaria sigue siendo posible | La atención no debería detenerse por una falla de conectividad |
 
 ### B.2 Capacidades por encima de lo solicitado
 
 *Criterios funcionales. Pregunta: ¿el usuario puede hacerlo desde el sistema?*
 
-| ID | Criterio | Procedimiento de verificación | Aplicación en el rubro | Criticidad |
-|---|---|---|---|:---:|
-| B.2.1 | Asistente de inteligencia artificial | Buscar la función en el sistema y solicitarle el resumen de un registro | Resumir el historial de un asegurado o redactar una respuesta | Accesorio |
-| B.2.2 | Aplicación móvil nativa | Verificar la existencia de aplicación oficial en las tiendas de aplicaciones | El productor registra la operación durante la visita | Soporte |
-| B.2.3 | Suite de trabajo integrada | Enumerar las herramientas incluidas más allá del CRM y comprobar que operan sobre los mismos datos | Mensajería, documentos y firma en el mismo entorno | Accesorio |
-| B.2.4 | Telefonía y videollamada integradas | Verificar la existencia de la función dentro del sistema | Atención sin cambiar de herramienta | Accesorio |
-| B.2.5 | Uso sin restricciones comerciales en la interfaz | Recorrer las pantallas de uso diario y registrar la presencia de avisos de venta | Operación sin interrupciones comerciales | Soporte |
+| ID | Criterio | Procedimiento de verificación | Aplicación en el rubro |
+|---|---|---|---|
+| B.2.1 | Asistente de inteligencia artificial | Buscar la función en el sistema y solicitarle el resumen de un registro | Resumir el historial de un asegurado o redactar una respuesta |
+| B.2.2 | Aplicación móvil nativa | Verificar la existencia de aplicación oficial en las tiendas de aplicaciones | El productor registra la operación durante la visita |
+| B.2.3 | Suite de trabajo integrada | Enumerar las herramientas incluidas más allá del CRM y comprobar que operan sobre los mismos datos | Mensajería, documentos y firma en el mismo entorno |
+| B.2.4 | Telefonía y videollamada integradas | Verificar la existencia de la función dentro del sistema | Atención sin cambiar de herramienta |
+| B.2.5 | Uso sin restricciones comerciales en la interfaz | Recorrer las pantallas de uso diario y registrar la presencia de avisos de venta | Operación sin interrupciones comerciales |
 
 ---
 
@@ -301,32 +301,30 @@ Se evaluó su incorporación y se resolvió excluirlos, por tres motivos distint
 
 ## 4.9 Resumen
 
-Cada grupo pesa dentro de su parte lo que suman las criticidades de sus criterios. La última columna publica ese reparto, que **es una consecuencia del catálogo y no una decisión aparte**: se muestra para poder discutirlo.
+Los grupos de cada parte pesan lo mismo entre sí, según la regla de la sección 3: el pedido del cliente no jerarquiza sus necesidades, y el análisis no las jerarquiza por él. La columna de peso se incluye para dejarlo a la vista.
 
 | Parte | Categoría | Criterios | Peso en su parte |
 |---|---|:---:|:---:|
-| A | A.1 Cartera de pólizas | 7 | 12.8 % |
-| A | A.2 Captación y proceso de venta | 6 | 8.7 % |
-| A | A.3 Productores y actividad comercial | 4 | 6.0 % |
-| A | A.4 Marketing, segmentación y reputación | 7 | 8.7 % |
-| A | A.5 Atención al asegurado y reclamos | 6 | 9.4 % |
-| A | A.6 Ficha única del asegurado | 4 | 6.7 % |
-| A | A.7 Intercambio de datos y correo | 6 | 9.4 % |
-| A | A.8 Parametrización del modelo de negocio | 4 | 6.7 % |
-| A | A.9 Control de acceso y trazabilidad | 3 | 4.7 % |
-| A | A.10 Explotación de la información | 5 | 6.7 % |
-| A | A.11 Condiciones técnicas del producto | 14 | 20.1 % |
+| A | A.1 Cartera de pólizas | 7 | 9.1 % |
+| A | A.2 Captación y proceso de venta | 6 | 9.1 % |
+| A | A.3 Productores y actividad comercial | 4 | 9.1 % |
+| A | A.4 Marketing, segmentación y reputación | 7 | 9.1 % |
+| A | A.5 Atención al asegurado y reclamos | 6 | 9.1 % |
+| A | A.6 Ficha única del asegurado | 4 | 9.1 % |
+| A | A.7 Intercambio de datos y correo | 6 | 9.1 % |
+| A | A.8 Parametrización del modelo de negocio | 4 | 9.1 % |
+| A | A.9 Control de acceso y trazabilidad | 3 | 9.1 % |
+| A | A.10 Explotación de la información | 5 | 9.1 % |
+| A | A.11 Condiciones técnicas del producto | 14 | 9.1 % |
 | | **Subtotal Parte A** | **66** | **100 %** |
-| B | B.1 Condiciones que impone el negocio asegurador | 7 | 70.8 % |
-| B | B.2 Capacidades por encima de lo solicitado | 5 | 29.2 % |
+| B | B.1 Condiciones que impone el negocio asegurador | 7 | 50.0 % |
+| B | B.2 Capacidades por encima de lo solicitado | 5 | 50.0 % |
 | | **Subtotal Parte B** | **12** | **100 %** |
 | | **Total** | **78** | |
 
-**52 de los 66 criterios de la Parte A son funcionales**: describen algo que un usuario ejecuta sobre el sistema. Reúnen el 80 % del peso. Las condiciones técnicas del producto quedan en 14 criterios y el 20 % restante.
+**52 de los 66 criterios de la Parte A son funcionales**: describen algo que un usuario ejecuta sobre el sistema. Las condiciones técnicas del producto —lo que se cumple o no con independencia de quién lo use— quedan en los 14 restantes.
 
-**22 criterios de los 78 son núcleo**, el 28 %. La regla de la sección 3 los reserva para lo que detiene la operación si falta, de modo que la mayoría quede en soporte: una ponderación donde casi todo pesa lo máximo no ordena nada.
-La proporción es deliberada: **lo que la compañía pidió pesa más que las condiciones generales que cualquier software debe cumplir.** Varias capacidades que un análisis genérico trataría como técnicas —crear entidades, definir un campo calculado, construir un informe— se evalúan como funcionales, porque en este rubro son la vía por la que se modela la póliza y se mide la producción.
-
+**La cantidad de criterios de un grupo no altera su peso.** Que un grupo tenga catorce y otro tres refleja cuánto hubo que dividir para que cada comprobación tuviera una sola respuesta, no cuánto le importa a la compañía. Por eso el catálogo puede afinarse sin mover ningún resultado.
 **Ningún criterio repite el procedimiento de otro.** Cuando dos capacidades se comprobaban con la misma acción sobre distinto objeto —el historial de una póliza y el de cualquier registro, el total de primas por productor y el informe que lo produce— se conservó una sola, con el procedimiento ampliado para cubrir ambos casos. Evaluar dos veces lo mismo le daría a esa capacidad un peso que nadie decidió.
 
 **Cuando un procedimiento ampliado abarca dos objetos y el sistema resuelve solo uno, el criterio puntúa 2.** Si una plataforma conecta con la agenda del correo web pero no con la del gestor de escritorio, la necesidad queda cubierta con una salvedad permanente, que es exactamente lo que la sección 3 define como *cumple con reparo*.

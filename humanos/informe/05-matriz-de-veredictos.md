@@ -194,14 +194,14 @@ Estado: **3 de 234 evaluaciones registradas.**
 |---|:---:|:---:|:---:|
 | Parte A — solicitados (85 %) | 100.0 % | 100.0 % | — |
 | Parte B — no solicitados (15 %) | — | — | — |
-| *Rango posible según lo que falta verificar* | *34.5 a 100.0 %* | *34.5 a 100.0 %* | *33.3 a 100.0 %* |
+| *Rango posible según lo que falta verificar* | *34.1 a 100.0 %* | *34.1 a 100.0 %* | *33.3 a 100.0 %* |
 | **Oferta técnica** | **100.0 %** | **100.0 %** | — |
 
 ## 5.2 Cómo leer estos recuentos
 
-El porcentaje de cada parte se calcula **solo sobre las características verificadas**, ponderadas por criticidad: núcleo ×3, soporte ×2, accesorio ×1. Las no verificadas quedan fuera del cálculo, tanto del puntaje obtenido como del máximo posible.
+El porcentaje de cada grupo se calcula **solo sobre sus características verificadas**, y el de la parte es el promedio de sus grupos. Un grupo sin nada verificado queda fuera, de modo que el resultado nunca depende de lo que todavía no se midió.
 
-La oferta técnica combina las dos partes según lo que el cliente pidió: **85 % la Parte A y 15 % la Parte B.** Como cada parte se mide contra su propio máximo, los pesos de criticidad ordenan los criterios dentro de la parte pero no alteran cuánto vale esa parte en el total.
+La oferta técnica combina las dos partes según lo que el cliente pidió: **85 % la Parte A y 15 % la Parte B.** Dentro de cada parte los grupos pesan lo mismo entre sí: el pedido del cliente no jerarquiza sus necesidades, de modo que el análisis tampoco lo hace.
 
 El **rango posible** muestra dónde caería el resultado si todo lo pendiente resultara favorable y dónde si resultara desfavorable. Mientras esa banda sea ancha, el orden entre plataformas todavía no está decidido por la evidencia sino por lo que falta medir.
 
