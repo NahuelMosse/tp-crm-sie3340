@@ -56,7 +56,7 @@ No lo llevan los criterios no funcionales ni los que no cumplen.
 
 **Cuando un procedimiento devuelve un número, el número es evidencia y no el veredicto.** El valor sale de la misma pregunta de la sección 3, anclada en lo que la compañía puede sostener; la sección 4.7 declara qué significa cada valor en esos criterios. **No inventes cortes numéricos** —"hasta ocho pasos vale 3"—: parecen objetivos, pero alguien eligió el ocho y esa elección decide el resultado sin que nadie pueda discutirla. Es justo lo que la escala de tres valores evita.
 
-**Ponderación en dos pasos:** criticidad ×3/×2/×1 dentro de cada parte, y 85 % Parte A / 15 % Parte B entre partes. No se superponen porque cada parte se normaliza contra su propio máximo.
+**Ponderación en tres niveles:** el criterio da su nota, el grupo promedia las de sus criterios, y la parte promedia las de sus grupos. **Todos los grupos pesan igual** —el pedido del cliente no jerarquiza sus necesidades y el análisis no las jerarquiza por él— y entre partes rige 85 % / 15 %. Que un grupo tenga más criterios no lo hace pesar más: así el catálogo se puede afinar sin mover ningún resultado.
 
 **`sin verificar` es el único estado sin valor**, y describe el avance del trabajo, no a la plataforma. Si un criterio parece "no aplicar" a alguna, está mal escrito: se reformula desde la necesidad del negocio.
 

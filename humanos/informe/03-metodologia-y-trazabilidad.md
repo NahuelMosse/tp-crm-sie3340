@@ -187,23 +187,35 @@ El valor 1 es el más exigente de demostrar, y es deliberado. Que algo no aparez
 
 ## 3.6 Ponderación
 
-No todos los criterios valen lo mismo. Se aplican dos pesos, y cada uno responde una pregunta distinta.
+El puntaje se arma en tres niveles: **cada criterio da su nota, las notas forman la del grupo, y los grupos dan el resultado de la parte.**
 
-**¿Cuánto importa este criterio?** Dentro de cada parte, según lo que significa para la operación:
+```
+criterio  ──►  grupo  ──►  parte  ──►  oferta técnica
+   3/2/1      promedio    todos los    85 % / 15 %
+                          grupos igual
+```
 
-| Criticidad | Peso | Qué incluye |
-|---|:---:|---|
-| **Núcleo** | ×3 | Sin esa capacidad la compañía no puede emitir, cobrar o atender, o debe hacerlo por fuera del sistema todos los días |
-| **Soporte** | ×2 | La operación sigue, con más trabajo, más demora o menos información |
-| **Accesorio** | ×1 | La operación no cambia de forma apreciable |
+### Todos los grupos pesan lo mismo
 
-**La pregunta que decide es siempre la misma: ¿qué hace la compañía el lunes si el sistema no tiene esto?** Si el trabajo se detiene o se muda a una planilla, es núcleo. Si se hace igual pero peor, es soporte. Si nadie lo nota, es accesorio.
+**El pedido del cliente no jerarquiza.** Enumera necesidades sin decir cuál le importa más, y nada en él permite deducir que la gestión de la cartera valga más que el seguimiento de los productores o que la atención de reclamos.
 
-Hace falta una regla porque **el pedido del cliente no jerarquiza**: enumera veinte necesidades sin decir cuál pesa más. La jerarquía la aporta el negocio asegurador, y se decide contra sus tres funciones inevitables —emitir una póliza, cobrarla y atender un reclamo—, no contra el orden en que aparecen las necesidades en el pedido.
+Asignarle un peso mayor a un grupo sería **suponer lo que el cliente necesita en lugar de evaluarlo**. Quien decide esa jerarquía es la compañía, no quien analiza las herramientas, y este informe no tiene el dato: lo que tiene es una lista de necesidades que el cliente enunció como igualmente suyas.
 
-> **Que casi todo sea núcleo es señal de que la regla no se aplicó.** Si la mayoría de los criterios fuera indispensable, la ponderación dejaría de distinguir y el resultado sería el mismo que contar criterios sin pesar. El reparto obtenido se publica al cierre de la sección 4 para poder controlarlo.
+Por eso **los once grupos de la Parte A valen lo mismo, y los dos de la Parte B también**. Lo único que el informe pondera es lo que sí está fundado: que lo solicitado pese más que lo no solicitado.
 
-**¿Cuánto vale cada grupo?** Lo que el cliente pidió pesa más que lo que no pidió:
+### Dentro de un grupo, todos los criterios valen lo mismo
+
+Un grupo reúne criterios de una misma función del negocio. No hace falta ordenarlos entre sí: lo que importa es qué parte de esa función queda resuelta, y eso lo dice el promedio.
+
+### Por qué el peso va en el grupo y no en el criterio
+
+Porque **la cantidad de criterios de un grupo no debe decidir cuánto pesa.** Que la cartera de pólizas tenga siete criterios y el marketing también no significa que valgan lo mismo por mérito propio: significa que se dividieron con parecido detalle. Si el peso dependiera de cuántos criterios tiene cada grupo, afinar el catálogo movería el resultado sin que nadie lo hubiera decidido —y dividir un criterio en dos, que es una mejora de precisión, pasaría a ser una forma de inflar su importancia.
+
+Con el peso en el grupo, **el catálogo puede crecer o dividirse sin mover ningún puntaje.**
+
+### Las dos ponderaciones no se superponen
+
+El porcentaje de cada grupo se calcula contra su propio máximo, y el de cada parte contra el suyo. Los grupos reparten **dentro** de la parte; el 85/15 decide cuánto vale la parte en el total. Son dos repartos encadenados, no dos veces el mismo.
 
 | Parte | Peso |
 |---|:---:|
@@ -212,21 +224,19 @@ Hace falta una regla porque **el pedido del cliente no jerarquiza**: enumera vei
 
 Con esa proporción, una plataforma que cubriera toda la Parte B y la mitad de la Parte A queda por debajo de otra que cubra la Parte A completa sin ninguna capacidad adicional.
 
-> **No se pondera dos veces lo mismo.** El porcentaje de cada parte se calcula sobre su propio máximo, así que los pesos de criticidad ordenan los criterios *dentro* de la parte pero no cambian cuánto vale esa parte en el total. Eso lo decide únicamente el 85/15.
->
-> De ahí se desprende cómo asignar la criticidad: **comparando cada criterio con los de su propia parte.** Dentro de la Parte B, que la cartera persista pesa más que tener un asistente de inteligencia artificial, aunque toda la parte valga 15 %.
-
 ## 3.7 Cálculo del resultado
 
-**Oferta técnica**, a partir de la primera escala. Se calcula cada parte contra su propio máximo y después se combinan:
+**Oferta técnica**, a partir de la primera escala. Se resuelve un nivel por vez:
 
 ```
-% de la parte    =  Σ (cumplimiento × criticidad)  /  Σ (3 × criticidad)  × 100
+% del grupo      =  Σ (cumplimiento)  /  (3 × criterios verificados del grupo)  × 100
+
+% de la parte    =  promedio de los % de sus grupos
 
 oferta técnica   =  0,85 × % Parte A  +  0,15 × % Parte B
 ```
 
-El denominador de cada parte se calcula solo sobre sus criterios verificados. El informe publica los dos porcentajes junto al total, para poder leer por separado cómo le fue a cada plataforma en lo solicitado y en lo que no lo era.
+Un grupo sin ningún criterio verificado queda fuera del cálculo, y su peso se reparte entre los demás: así el resultado nunca depende de lo que todavía no se midió. El informe publica los dos porcentajes junto al total, para poder leer por separado cómo le fue a cada plataforma en lo solicitado y en lo que no lo era.
 
 **Índice de implementación**, a partir de la segunda escala. Se calcula solo sobre los criterios que la plataforma cumple, porque lo que no resuelve no se implementa:
 
