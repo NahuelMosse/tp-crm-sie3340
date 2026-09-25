@@ -187,42 +187,66 @@ El valor 1 es el más exigente de demostrar, y es deliberado. Que algo no aparez
 
 ## 3.6 Ponderación
 
-El puntaje se arma en tres niveles: **cada criterio da su nota, las notas forman la del grupo, y los grupos dan el resultado de la parte.**
+Cada criterio recibe 3, 2 o 1. Falta decir cómo esas notas sueltas se convierten en un número por plataforma. Se resuelve en tres pasos, y en cada uno se promedia.
 
-```
-criterio  ──►  grupo  ──►  parte  ──►  oferta técnica
-   3/2/1      promedio    todos los    85 % / 15 %
-                          grupos igual
-```
+### Paso 1 — Cada grupo saca su nota
 
-### Todos los grupos pesan lo mismo
+El grupo es una función del negocio: la cartera de pólizas, la atención de reclamos, el intercambio de datos. Su nota es **qué porcentaje del máximo alcanzaron sus criterios**.
 
-**El pedido del cliente no jerarquiza.** Enumera necesidades sin decir cuál le importa más, y nada en él permite deducir que la gestión de la cartera valga más que el seguimiento de los productores o que la atención de reclamos.
+> **Ejemplo.** El grupo *Cartera de pólizas* tiene siete criterios. Una plataforma saca 3 en cinco de ellos, 2 en uno y 1 en el último:
+>
+> ```
+> 3 + 3 + 3 + 3 + 3 + 2 + 1  =  18
+> máximo posible: 7 × 3      =  21
+> nota del grupo: 18 / 21    =  85,7 %
+> ```
 
-Asignarle un peso mayor a un grupo sería **suponer lo que el cliente necesita en lugar de evaluarlo**. Quien decide esa jerarquía es la compañía, no quien analiza las herramientas, y este informe no tiene el dato: lo que tiene es una lista de necesidades que el cliente enunció como igualmente suyas.
+Dentro del grupo todos los criterios valen lo mismo. Como el grupo reúne criterios de una misma función, no hace falta ordenarlos entre sí: lo que importa es qué parte de esa función queda resuelta.
 
-Por eso **los once grupos de la Parte A valen lo mismo, y los dos de la Parte B también**. Lo único que el informe pondera es lo que sí está fundado: que lo solicitado pese más que lo no solicitado.
+### Paso 2 — La parte promedia sus grupos
 
-### Dentro de un grupo, todos los criterios valen lo mismo
+La Parte A tiene once grupos; la Parte B, dos. **La nota de la parte es el promedio simple de las notas de sus grupos.**
 
-Un grupo reúne criterios de una misma función del negocio. No hace falta ordenarlos entre sí: lo que importa es qué parte de esa función queda resuelta, y eso lo dice el promedio.
+> Siguiendo el ejemplo, si *Cartera de pólizas* sacó 85,7 %, *Marketing* sacó 40 % y los otros nueve grupos promedian 70 %, la Parte A obtiene:
+>
+> ```
+> (85,7 + 40 + 70 × 9) / 11  =  68,7 %
+> ```
 
-### Por qué el peso va en el grupo y no en el criterio
+Un grupo sin ningún criterio verificado no entra en el promedio: el resultado nunca depende de lo que todavía no se midió.
 
-Porque **la cantidad de criterios de un grupo no debe decidir cuánto pesa.** Que la cartera de pólizas tenga siete criterios y el marketing también no significa que valgan lo mismo por mérito propio: significa que se dividieron con parecido detalle. Si el peso dependiera de cuántos criterios tiene cada grupo, afinar el catálogo movería el resultado sin que nadie lo hubiera decidido —y dividir un criterio en dos, que es una mejora de precisión, pasaría a ser una forma de inflar su importancia.
-
-Con el peso en el grupo, **el catálogo puede crecer o dividirse sin mover ningún puntaje.**
-
-### Las dos ponderaciones no se superponen
-
-El porcentaje de cada grupo se calcula contra su propio máximo, y el de cada parte contra el suyo. Los grupos reparten **dentro** de la parte; el 85/15 decide cuánto vale la parte en el total. Son dos repartos encadenados, no dos veces el mismo.
+### Paso 3 — Las dos partes se combinan
 
 | Parte | Peso |
 |---|:---:|
 | **A — Solicitados** | **85 %** |
 | **B — No solicitados** | **15 %** |
 
+```
+oferta técnica  =  0,85 × Parte A  +  0,15 × Parte B
+```
+
 Con esa proporción, una plataforma que cubriera toda la Parte B y la mitad de la Parte A queda por debajo de otra que cubra la Parte A completa sin ninguna capacidad adicional.
+
+---
+
+### Por qué se promedia por grupo y no se suman todos los criterios juntos
+
+Porque **sumarlos le daría más peso a los grupos que tienen más criterios**, y la cantidad de criterios de un grupo no dice cuánto importa esa función: dice cuánto hubo que dividirla para que cada comprobación tuviera una sola respuesta.
+
+> *Condiciones técnicas del producto* tiene catorce criterios y *Control de acceso y trazabilidad* tiene tres. Sumando todo junto, el primero pesaría casi cinco veces más que el segundo, sin que nadie lo hubiera decidido. Promediando por grupo, los dos valen lo mismo: un onceavo de la Parte A.
+
+La consecuencia práctica es que **el catálogo se puede afinar sin mover ningún resultado.** Dividir un criterio en dos vuelve a ser lo que debe ser —una mejora de precisión— y no una forma de inflar la importancia de su grupo.
+
+### Por qué todos los grupos pesan igual
+
+**El pedido del cliente no jerarquiza.** Enumera sus necesidades sin decir cuál le importa más, y nada en él permite deducir que la gestión de la cartera valga más que el seguimiento de los productores, o que la atención de reclamos.
+
+Ponerle un peso mayor a un grupo sería **suponer lo que el cliente necesita en lugar de evaluarlo**. Esa jerarquía la fija la compañía según su propia operación, y este informe no tiene ese dato: tiene una lista de necesidades que el cliente enunció como igualmente suyas.
+
+Lo único que el informe pondera es lo que sí está fundado: **que lo que el cliente pidió pese más que lo que no pidió.** Ese es el 85/15, y es el único número de la ponderación que no sale de un promedio.
+
+> Si la compañía quisiera darle más peso a una función —porque conoce su operación y sabe que ahí se le va el día—, el cálculo lo admite sin rehacer nada: alcanza con cambiar el peso de ese grupo en el paso 2. El informe entrega el reparto parejo porque es lo que la información disponible justifica.
 
 ## 3.7 Cálculo del resultado
 
