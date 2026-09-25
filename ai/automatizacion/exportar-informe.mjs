@@ -4,14 +4,15 @@
  *
  *   node exportar-informe.mjs [raiz-del-repo] [--hasta 4]
  *
- * Produce un .docx con los estilos del informe anterior y, si LibreOffice
- * esta instalado, tambien el .pdf. Ambos quedan en la carpeta del repositorio.
+ * Produce el .docx y, si LibreOffice esta instalado, el .pdf. Los dos quedan
+ * en la raiz del repositorio y no se versionan: se regeneran.
  *
  * --hasta n  exporta solo hasta esa seccion, para entregar un avance.
  */
 import { execFileSync } from 'node:child_process';
-import { readdirSync, existsSync, readFileSync, writeFileSync, unlinkSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import { readdirSync, existsSync, readFileSync, writeFileSync, unlinkSync, mkdtempSync } from 'node:fs';
+import { join, dirname, resolve } from 'node:path';
+import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 
 const AQUI = dirname(fileURLToPath(import.meta.url));
@@ -21,38 +22,55 @@ const iHasta = args.indexOf('--hasta');
 const HASTA = iHasta >= 0 ? Number(args[iHasta + 1]) : null;
 
 const INFORME = join(RAIZ, 'humanos', 'informe');
-const PLANTILLA = join(RAIZ, 'ai', 'plantilla-informe.docx');
-
 const secciones = readdirSync(INFORME)
   .filter(f => /^\d\d-.*\.md$/.test(f))
   .filter(f => HASTA === null || Number(f.slice(0, 2)) <= HASTA)
   .sort();
-
 if (!secciones.length) throw new Error(`No hay secciones en ${INFORME}`);
+
+/**
+ * Indice armado desde los titulos de cada seccion.
+ *
+ * Pandoc sabe generar uno con --toc, pero en docx lo deja como un campo de
+ * Word que solo se rellena al abrir el archivo en Word: convertido a PDF sale
+ * vacio. Escribirlo como texto evita esa dependencia, a cambio de no llevar
+ * numeros de pagina.
+ */
+const SALTO = '\n```{=openxml}\n<w:p><w:r><w:br w:type="page"/></w:r></w:p>\n```\n';
+const indice = ['## Índice'];
+for (const f of secciones.slice(1)) {          // la portada no se indexa a si misma
+  for (const l of readFileSync(join(INFORME, f), 'utf8').split('\n')) {
+    const h1 = l.match(/^# (.+)$/);
+    const h2 = l.match(/^## (.+)$/);
+    if (h1) indice.push('', `**${h1[1]}**`, '');
+    else if (h2) indice.push(`> ${h2[1]}`, '');
+  }
+}
+
+const tmp = mkdtempSync(join(tmpdir(), 'informe-'));
+const fIndice = join(tmp, 'indice.md');
+writeFileSync(fIndice, indice.join('\n') + '\n' + SALTO, 'utf8');
 
 const sufijo = HASTA === null ? '' : `-secciones-1-a-${HASTA}`;
 const docx = join(RAIZ, `TP-SIE3340${sufijo}.docx`);
 
+// La portada primero, despues el indice, despues el resto
 execFileSync('pandoc', [
-  ...secciones.map(f => join(INFORME, f)),
+  join(INFORME, secciones[0]), fIndice, ...secciones.slice(1).map(f => join(INFORME, f)),
   '-o', docx,
-  '--toc',
-  '--toc-depth=2',
-  '-M', 'toc-title=Índice',
-  ...(existsSync(PLANTILLA) ? ['--reference-doc=' + PLANTILLA] : []),
 ], { stdio: 'inherit' });
-
-console.log(`Documento: ${docx}`);
+unlinkSync(fIndice);
+console.log(`Documento: ${resolve(docx)}`);
 
 // ── PDF, si hay LibreOffice ──────────────────────────────────────────────────
 const SOFFICE = 'C:\\Program Files\\LibreOffice\\program\\soffice.com';
 if (!existsSync(SOFFICE)) {
-  console.log('  LibreOffice no está instalado: el PDF se genera abriendo el .docx en Word');
+  console.log('  LibreOffice no está instalado: el PDF se obtiene abriendo el .docx en Word');
 } else {
-  // Perfil propio: si no, una instancia abierta hace que termine sin convertir
+  // Perfil propio: con una instancia de LibreOffice abierta, termina sin convertir
   execFileSync(SOFFICE, [
-    '-env:UserInstallation=file:///C:/Temp/lo-tp3',
+    '-env:UserInstallation=file:///C:/Temp/lo-informe',
     '--headless', '--norestore', '--convert-to', 'pdf', '--outdir', RAIZ, docx,
   ], { stdio: 'ignore' });
-  console.log(`PDF:       ${docx.replace(/\.docx$/, '.pdf')}`);
+  console.log(`PDF:       ${resolve(docx).replace(/\.docx$/, '.pdf')}`);
 }
