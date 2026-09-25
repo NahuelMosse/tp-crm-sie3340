@@ -193,9 +193,15 @@ No todos los criterios valen lo mismo. Se aplican dos pesos, y cada uno responde
 
 | Criticidad | Peso | Qué incluye |
 |---|:---:|---|
-| **Núcleo** | ×3 | Lo que la compañía no puede dejar de hacer: cartera, reclamos, ficha del asegurado |
-| **Soporte** | ×2 | Lo que mejora la operación sin ser indispensable |
-| **Accesorio** | ×1 | Lo que aporta valor marginal |
+| **Núcleo** | ×3 | Sin esa capacidad la compañía no puede emitir, cobrar o atender, o debe hacerlo por fuera del sistema todos los días |
+| **Soporte** | ×2 | La operación sigue, con más trabajo, más demora o menos información |
+| **Accesorio** | ×1 | La operación no cambia de forma apreciable |
+
+**La pregunta que decide es siempre la misma: ¿qué hace la compañía el lunes si el sistema no tiene esto?** Si el trabajo se detiene o se muda a una planilla, es núcleo. Si se hace igual pero peor, es soporte. Si nadie lo nota, es accesorio.
+
+Hace falta una regla porque **el pedido del cliente no jerarquiza**: enumera veinte necesidades sin decir cuál pesa más. La jerarquía la aporta el negocio asegurador, y se decide contra sus tres funciones inevitables —emitir una póliza, cobrarla y atender un reclamo—, no contra el orden en que aparecen las necesidades en el pedido.
+
+> **Que casi todo sea núcleo es señal de que la regla no se aplicó.** Si la mayoría de los criterios fuera indispensable, la ponderación dejaría de distinguir y el resultado sería el mismo que contar criterios sin pesar. El reparto obtenido se publica al cierre de la sección 4 para poder controlarlo.
 
 **¿Cuánto vale cada grupo?** Lo que el cliente pidió pesa más que lo que no pidió:
 
