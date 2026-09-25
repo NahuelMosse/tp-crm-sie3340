@@ -124,7 +124,7 @@ Esos criterios reciben **un solo valor**, el de cumplimiento, y quedan fuera del
 
 ### La licencia va aparte
 
-La licencia no es trabajo sino dinero, así que no entra en ninguna de las dos escalas. Se registra como un dato con su monto y su modalidad —pago único o abono recurrente— y se suma directamente a la proyección de costo a cinco años.
+La licencia no es trabajo sino dinero, así que no entra en ninguna de las dos escalas. Se registra como un dato con su monto y su modalidad —pago único o abono recurrente— y se suma directamente a la proyección de costo a tres y cinco años.
 
 > Dos plataformas pueden obtener **2 en cumplimiento y 2 en costo** para el mismo criterio, y aun así diferir: una lo trae incluido y la otra dentro de un plan pago. La primera escala dice que ambas resuelven la necesidad; la segunda, que ninguna exige trabajo de implementación; y el registro de licencia, que una cuesta dinero y la otra no. **Las tres cosas son distintas y se miden por separado.**
 
@@ -272,7 +272,7 @@ esfuerzo de implementación  =  Σ (costo) / (2 × criterios cumplidos) × 100
 
 **Acá conviene lo bajo:** un 0 significa que todo viene listo, y un 100 que cada capacidad exige programar o repetir trabajo en cada uso. Ese porcentaje se traduce a horas de puesta en marcha y entra en la oferta económica, no en la técnica.
 
-**Oferta económica.** Combina tres componentes, proyectados a cinco años:
+**Oferta económica.** Combina tres componentes, proyectados a tres y cinco años:
 
 | Componente | De dónde sale |
 |---|---|
