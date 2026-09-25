@@ -149,8 +149,9 @@ node exportar-informe.mjs ../..              # informe completo
 node exportar-informe.mjs ../.. --hasta 4    # solo hasta la seccion 4
 ```
 
-Deja el `.docx` y el `.pdf` en la raiz del repositorio, sin versionar: se regeneran cuando haga
-falta. El PDF lo produce LibreOffice; si no esta instalado, queda el `.docx` para abrir en Word.
+El PDF queda en `humanos/entregas/` y se versiona: es lo que se entrega. El `.docx` es
+intermedio y no se versiona. El PDF lo produce LibreOffice; si no esta instalado, queda el `.docx`
+para abrir en Word y guardar desde ahi.
 
 El indice se arma leyendo los titulos de cada seccion, asi que nunca queda desactualizado. No lleva
 numeros de pagina: el indice automatico de pandoc es un campo de Word que solo se rellena al abrir
