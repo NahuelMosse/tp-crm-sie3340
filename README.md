@@ -149,12 +149,9 @@ node exportar-informe.mjs ../..              # informe completo
 node exportar-informe.mjs ../.. --hasta 4    # solo hasta la seccion 4
 ```
 
-Deja el `.docx` y el `.pdf` en la carpeta que contiene al repositorio. Toma los estilos del informe
-del TP1 (`ai/plantilla-informe.docx`) para que los dos documentos se vean iguales, y arma el indice
-con sus numeros de pagina; por eso ninguna seccion lleva un indice escrito a mano.
+Deja el `.docx` y el `.pdf` en la raiz del repositorio, sin versionar: se regeneran cuando haga
+falta. El PDF lo produce LibreOffice; si no esta instalado, queda el `.docx` para abrir en Word.
 
-El PDF lo produce LibreOffice. Si no esta instalado, el script deja el `.docx` y el PDF se obtiene
-abriendolo en Word y guardando como PDF.
-
-> Pandoc coloca el indice **antes** de la caratula. Para dejarlo en la pagina 2, como en el TP1,
-> hay que moverlo en Word antes de exportar.
+El indice se arma leyendo los titulos de cada seccion, asi que nunca queda desactualizado. No lleva
+numeros de pagina: el indice automatico de pandoc es un campo de Word que solo se rellena al abrir
+el archivo en Word, y convertido a PDF sale vacio.
