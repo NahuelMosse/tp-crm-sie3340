@@ -142,11 +142,19 @@ Las dos primeras corren en Docker en una máquina del grupo; no son públicas.
 
 ## Exportar el informe
 
+Desde `ai/automatizacion/`:
+
 ```bash
-pandoc humanos/informe/*.md -o TP-SIE3340.docx --toc        --reference-doc=ai/plantilla-informe.docx
+node exportar-informe.mjs ../..              # informe completo
+node exportar-informe.mjs ../.. --hasta 4    # solo hasta la seccion 4
 ```
 
-`--reference-doc` toma los estilos del informe del TP1, así los dos documentos se ven iguales.
-`--toc` arma el índice con sus números de página; por eso las secciones no llevan uno escrito a mano.
+Deja el `.docx` y el `.pdf` en la carpeta que contiene al repositorio. Toma los estilos del informe
+del TP1 (`ai/plantilla-informe.docx`) para que los dos documentos se vean iguales, y arma el indice
+con sus numeros de pagina; por eso ninguna seccion lleva un indice escrito a mano.
 
-Para el PDF, abrir el `.docx` en Word y guardar como PDF: conserva el índice navegable y los saltos de página.
+El PDF lo produce LibreOffice. Si no esta instalado, el script deja el `.docx` y el PDF se obtiene
+abriendolo en Word y guardando como PDF.
+
+> Pandoc coloca el indice **antes** de la caratula. Para dejarlo en la pagina 2, como en el TP1,
+> hay que moverlo en Word antes de exportar.
