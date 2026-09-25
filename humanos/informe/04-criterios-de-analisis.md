@@ -17,7 +17,7 @@ A esas tres se suma lo que apareció al operar los sistemas: **capacidades que l
 ## 4.2 Por qué se dividen en dos partes
 
 | Parte | Contiene | Peso |
-|---|---|
+|---|---|:---:|
 | **A — Solicitados** | Pedido del cliente + marco técnico de evaluación | 85 % |
 | **B — No solicitados** | Condiciones del negocio + capacidades por encima de lo pedido | 15 % |
 
@@ -325,6 +325,7 @@ Los grupos de cada parte pesan lo mismo entre sí, según la regla de la secció
 **52 de los 66 criterios de la Parte A son funcionales**: describen algo que un usuario ejecuta sobre el sistema. Las condiciones técnicas del producto —lo que se cumple o no con independencia de quién lo use— quedan en los 14 restantes.
 
 **La cantidad de criterios de un grupo no altera su peso.** Que un grupo tenga catorce y otro tres refleja cuánto hubo que dividir para que cada comprobación tuviera una sola respuesta, no cuánto le importa a la compañía. Por eso el catálogo puede afinarse sin mover ningún resultado.
+
 **Ningún criterio repite el procedimiento de otro.** Cuando dos capacidades se comprobaban con la misma acción sobre distinto objeto —el historial de una póliza y el de cualquier registro, el total de primas por productor y el informe que lo produce— se conservó una sola, con el procedimiento ampliado para cubrir ambos casos. Evaluar dos veces lo mismo le daría a esa capacidad un peso que nadie decidió.
 
 **Cuando un procedimiento ampliado abarca dos objetos y el sistema resuelve solo uno, el criterio puntúa 1.** Si una plataforma conecta con la agenda del correo web pero no con la del gestor de escritorio, la necesidad queda cubierta con una salvedad permanente, que es exactamente lo que la sección 3 define como *cumple con reparo*.
