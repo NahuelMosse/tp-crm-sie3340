@@ -143,5 +143,10 @@ Las dos primeras corren en Docker en una máquina del grupo; no son públicas.
 ## Exportar el informe
 
 ```bash
-pandoc humanos/informe/*.md -o TP-SIE3340.docx --toc
+pandoc humanos/informe/*.md -o TP-SIE3340.docx --toc        --reference-doc=ai/plantilla-informe.docx
 ```
+
+`--reference-doc` toma los estilos del informe del TP1, así los dos documentos se ven iguales.
+`--toc` arma el índice con sus números de página; por eso las secciones no llevan uno escrito a mano.
+
+Para el PDF, abrir el `.docx` en Word y guardar como PDF: conserva el índice navegable y los saltos de página.
