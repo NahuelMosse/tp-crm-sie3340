@@ -44,10 +44,10 @@ Faltan las secciones de análisis por plataforma, conclusiones y fuentes.
 
 Dos escalas de tres valores, definidas en la sección 3. **Si cambian, cambian ahí primero**, y después en `evaluar.ts` y `generar-matriz.mjs`.
 
-**Cumplimiento** — ¿queda resuelta la necesidad? `3` cumple · `2` cumple con reparo · `1` no cumple.
+**Cumplimiento** — ¿queda resuelta la necesidad? `2` cumple · `1` cumple con reparo · `0` no cumple. No cumplir vale cero para que el resultado recorra de 0 a 100: si el minimo sumara, ninguna plataforma podria quedar en cero.
 Configurar una vez es **3**: lo que distingue al 3 del 2 es si el trabajo extra se hace una vez o en cada uso.
 
-**Costo de implementación** — ¿cuánto trabajo cuesta dejarlo funcionando? `3` viene listo · `2` configuración · `1` desarrollo o trabajo permanente.
+**Costo de implementación** — ¿cuánto trabajo cuesta dejarlo funcionando? `0` viene listo · `1` configuración · `2` desarrollo o trabajo permanente. **Corre al reves que el cumplimiento**: mide costo, no merito, asi que acá el cero es lo bueno.
 No lo llevan los criterios no funcionales ni los que no cumplen.
 
 **El cumplimiento mide la capacidad del producto, no la del plan contratado.** Si una función existe en un plan pago, cumple: lo que cuesta habilitarla va a la oferta económica. Penalizarla en la escala la cobraría dos veces. Son tres herramientas y tres columnas.

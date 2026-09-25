@@ -16,23 +16,27 @@ import { join } from 'node:path';
 /**
  * Primera escala — ¿queda resuelta la necesidad?
  *
- *   3  La necesidad queda resuelta (de fábrica, configurando una vez, o con plan pago)
- *   2  Queda resuelta con un costo o salvedad permanente (procedimiento en cada uso)
- *   1  No queda resuelta: no existe en ninguna edición del producto
+ *   2  La necesidad queda resuelta (de fábrica, configurando una vez, o con plan pago)
+ *   1  Queda resuelta con un costo o salvedad permanente (procedimiento en cada uso)
+ *   0  No queda resuelta: no existe en ninguna edición del producto
+ *
+ * No cumplir vale cero para que el resultado recorra el rango completo: si el
+ * valor mas bajo sumara, ninguna plataforma podria quedar en cero.
  */
-export type Cumplimiento = 3 | 2 | 1;
+export type Cumplimiento = 2 | 1 | 0;
 
 /**
  * Segunda escala — ¿cuánto trabajo cuesta dejarlo funcionando?
  *
- *   3  Viene listo, no hay nada que implementar
- *   2  Se resuelve una vez con las opciones del sistema, sin programar
- *   1  Hay que escribir código, o el procedimiento se repite en cada uso
+ *   0  Viene listo, no hay nada que implementar
+ *   1  Se resuelve una vez con las opciones del sistema, sin programar
+ *   2  Hay que escribir código, o el procedimiento se repite en cada uso
  *
- * No se puntúa en los criterios no funcionales —no hay nada que poner en
- * marcha— ni cuando el cumplimiento es 1.
+ * Corre al reves que el cumplimiento porque mide costo, no merito: acá el
+ * cero es lo bueno. No se puntúa en los criterios no funcionales —no hay
+ * nada que poner en marcha— ni cuando el cumplimiento es 0.
  */
-export type Costo = 3 | 2 | 1;
+export type Costo = 2 | 1 | 0;
 
 export type Plataforma = 'espocrm' | 'twenty' | 'bitrix24';
 
@@ -67,7 +71,7 @@ export interface Evaluacion {
   cumple: Cumplimiento;
   /**
    * Costo de implementación. Se omite en los criterios no funcionales.
-   * Con cumple 1 no corresponde; con cumple 2 es siempre 1.
+   * Con cumple 0 no corresponde; con cumple 1 es siempre 2.
    */
   costo?: Costo;
   licencia?: Licencia;
@@ -98,28 +102,28 @@ export function registrar(e: Evaluacion) {
   if (!e.justificacion?.trim()) {
     throw new Error(`${donde} la justificación es obligatoria`);
   }
-  if (![3, 2, 1].includes(e.cumple)) {
-    throw new Error(`${donde} cumple debe ser 3, 2 o 1 — llegó ${e.cumple}`);
+  if (![2, 1, 0].includes(e.cumple)) {
+    throw new Error(`${donde} cumple debe ser 2, 1 o 0 — llegó ${e.cumple}`);
   }
 
-  // Sección 3.5: el valor 1 es el más exigente de demostrar.
-  if (e.cumple === 1 && !e.documentacion?.trim()) {
+  // Sección 3.5: el valor 0 es el más exigente de demostrar.
+  if (e.cumple === 0 && !e.documentacion?.trim()) {
     throw new Error(
-      `${donde} el valor 1 exige constancia en la documentación oficial del fabricante. ` +
+      `${donde} el valor 0 exige constancia en la documentación oficial del fabricante. ` +
       `Que no aparezca en la instalación de prueba no prueba que el producto no lo tenga.`,
     );
   }
 
   // Sección 3.3: cuando no lo resuelve, no hay implementación que costear.
-  if (e.cumple === 1 && e.costo !== undefined) {
-    throw new Error(`${donde} con cumple 1 el costo no se puntúa: no hay nada que implementar`);
+  if (e.cumple === 0 && e.costo !== undefined) {
+    throw new Error(`${donde} con cumple 0 el costo no se puntúa: no hay nada que implementar`);
   }
 
   // Sección 3.3: repetir un procedimiento en cada uso es la forma más cara.
-  if (e.cumple === 2 && e.costo !== undefined && e.costo !== 1) {
-    throw new Error(`${donde} con cumple 2 el costo es siempre 1 — llegó ${e.costo}`);
+  if (e.cumple === 1 && e.costo !== undefined && e.costo !== 2) {
+    throw new Error(`${donde} con cumple 1 el costo es siempre 2 — llegó ${e.costo}`);
   }
-  const costo = e.cumple === 2 ? 1 : e.costo;
+  const costo = e.cumple === 1 ? 2 : e.costo;
 
   const registro = {
     ...e,

@@ -1,8 +1,8 @@
 {
   "criterio": "A.1.1",
   "plataforma": "espocrm",
-  "cumple": 3,
-  "costo": 2,
+  "cumple": 2,
+  "costo": 1,
   "justificacion": "El Administrador de Entidades permite crear la entidad Póliza desde la interfaz de administración, sin escribir código. Queda disponible en el sistema con listado propio y admite registros: se cargó la póliza POL-2026-0001 y figura en su listado. Una vez creada el usuario opera con ella como con cualquier otra entidad, de modo que la necesidad queda resuelta desde el sistema; el trabajo de configuración inicial se refleja en el costo de implementación.",
   "evidencia": [
     "A-1-1-espocrm-1-modelo.png",

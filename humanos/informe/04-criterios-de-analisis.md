@@ -1,6 +1,6 @@
 # 4. Criterios de análisis
 
-Esta sección define **qué se evalúa**. Cada criterio se enuncia como una capacidad y se acompaña del procedimiento concreto que se ejecuta para comprobarla. El resultado de ese procedimiento se convierte en un valor de 1 a 3 en cada una de las dos escalas definidas en la sección anterior; los resultados obtenidos se presentan en las secciones 5 y 6.
+Esta sección define **qué se evalúa**. Cada criterio se enuncia como una capacidad y se acompaña del procedimiento concreto que se ejecuta para comprobarla. El resultado de ese procedimiento se convierte en un valor de 0 a 2 en cada una de las dos escalas definidas en la sección anterior; los resultados obtenidos se presentan en las secciones 5 y 6.
 
 ## 4.1 De dónde provienen
 
@@ -41,7 +41,7 @@ De la ejecución surgen tres datos, uno por cada cosa que el informe mide por se
 2. **Por qué vía se obtuvo** —disponible al instalar, configurando desde la administración, o programando—, que determina el **costo de implementación**.
 3. **Si requiere un plan pago**, que no afecta ninguno de los dos valores y se traslada a la oferta económica.
 
-Los tres se puntúan de 1 a 3 según las escalas de la sección 3. El procedimiento describe **qué hacer**; la escala, **cómo puntuar lo observado**.
+Los tres se puntúan de 0 a 2 según las escalas de la sección 3. El procedimiento describe **qué hacer**; la escala, **cómo puntuar lo observado**.
 
 Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, de modo que la misma secuencia de acciones corriera sobre las tres plataformas sin variaciones de operador.
 
@@ -232,7 +232,7 @@ Cinco criterios no se pueden responder sin saber **contra qué se compara**: cu�
 
 Cinco mil asegurados con dos pólizas y media en promedio, más sus contactos y sus reclamos.
 
-| Criterio | 3 | 2 | 1 |
+| Criterio | 2 | 1 | 0 |
 |---|---|---|---|
 | **B.1.4** Volumen productivo | Con la cartera cargada, la búsqueda responde sin espera perceptible | Responde con una demora que el usuario nota y tolera | La operación se vuelve impracticable, o falla |
 
@@ -240,7 +240,7 @@ Cinco mil asegurados con dos pólizas y media en promedio, más sus contactos y 
 
 Altas, cambios de estado y cierres de reclamo de una jornada sobre esa cartera.
 
-| Criterio | 3 | 2 | 1 |
+| Criterio | 2 | 1 | 0 |
 |---|---|---|---|
 | **A.10.5** Intercambio sin límite de volumen | El límite publicado deja holgura sobre las 500 operaciones diarias | Las admite, pero se agota en una jornada intensa y obliga a espaciar los envíos | Queda por debajo de 500, o no está publicado |
 
@@ -248,7 +248,7 @@ Altas, cambios de estado y cierres de reclamo de una jornada sobre esa cartera.
 
 Las cinco operaciones que un productor repite a diario. Tres personas, para que una dificultad individual no defina el resultado.
 
-| Criterio | 3 | 2 | 1 |
+| Criterio | 2 | 1 | 0 |
 |---|---|---|---|
 | **A.11.4** Aprendizaje sin capacitación previa | Las tres personas completan las cinco tareas | Alguna queda sin completar, y quien la intentó sabe decir qué le faltó | Hay tareas que ninguna de las tres logra completar |
 
@@ -256,7 +256,7 @@ Las cinco operaciones que un productor repite a diario. Tres personas, para que 
 
 Una consulta de configuración no puede detener la operación más de un ciclo semanal de trabajo.
 
-| Criterio | 3 | 2 | 1 |
+| Criterio | 2 | 1 | 0 |
 |---|---|---|---|
 | **A.11.9** Comunidad activa de usuarios | Llega una respuesta que resuelve la consulta dentro de la semana | Llega después de la semana, o antes pero sin resolver | No llega respuesta |
 
@@ -264,7 +264,7 @@ Una consulta de configuración no puede detener la operación más de un ciclo s
 
 La compañía planifica sus cambios de sistema por ejercicio anual.
 
-| Criterio | 3 | 2 | 1 |
+| Criterio | 2 | 1 | 0 |
 |---|---|---|---|
 | **A.11.11** Continuidad de las versiones | El fabricante sostiene cada versión doce meses o más, de modo que la actualización entra en el plan del ejercicio | Publica un plazo menor, que obliga a adelantar la actualización | No publica ningún compromiso |
 
@@ -327,6 +327,6 @@ Los grupos de cada parte pesan lo mismo entre sí, según la regla de la secció
 **La cantidad de criterios de un grupo no altera su peso.** Que un grupo tenga catorce y otro tres refleja cuánto hubo que dividir para que cada comprobación tuviera una sola respuesta, no cuánto le importa a la compañía. Por eso el catálogo puede afinarse sin mover ningún resultado.
 **Ningún criterio repite el procedimiento de otro.** Cuando dos capacidades se comprobaban con la misma acción sobre distinto objeto —el historial de una póliza y el de cualquier registro, el total de primas por productor y el informe que lo produce— se conservó una sola, con el procedimiento ampliado para cubrir ambos casos. Evaluar dos veces lo mismo le daría a esa capacidad un peso que nadie decidió.
 
-**Cuando un procedimiento ampliado abarca dos objetos y el sistema resuelve solo uno, el criterio puntúa 2.** Si una plataforma conecta con la agenda del correo web pero no con la del gestor de escritorio, la necesidad queda cubierta con una salvedad permanente, que es exactamente lo que la sección 3 define como *cumple con reparo*.
+**Cuando un procedimiento ampliado abarca dos objetos y el sistema resuelve solo uno, el criterio puntúa 1.** Si una plataforma conecta con la agenda del correo web pero no con la del gestor de escritorio, la necesidad queda cubierta con una salvedad permanente, que es exactamente lo que la sección 3 define como *cumple con reparo*.
 
 **Tres criterios dependen del mismo motor de automatización** —el aviso de vencimiento, el aviso al usuario asignado y la automatización de procesos— porque responden a disparadores distintos: una fecha, una asignación y un evento. Una plataforma sin ese motor pierde los tres, y eso está decidido a propósito: en una compañía de seguros el trabajo que nadie dispara a mano —renovaciones, avisos de cobranza, derivación de reclamos— es la diferencia entre una cartera atendida y una cartera olvidada.
