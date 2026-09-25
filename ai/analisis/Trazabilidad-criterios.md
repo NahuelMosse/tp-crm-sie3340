@@ -34,7 +34,7 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | **12** | Manejar quejas y reclamaciones. | A.5.1, A.5.2, A.5.3 |
 | **13** | Información de los clientes y conseguir nuevos, así como conocer a la competencia que esté presente en las redes. | A.4.4, A.4.5 |
 | **14** | Conseguir cambiar la imagen y reputación, a partir de las opiniones y comentarios de los clientes y tener mayor repercusión en las redes. | A.4.5, A.4.6, A.6.3 |
-| **15** | Mejora de la calidad del servicio y la atención al cliente. | A.5.4 |
+| **15** | Mejora de la calidad del servicio y la atención al cliente. | A.5.4, A.10.1 |
 | **16** | Conocer y agrupar la información de los clientes. | A.4.1, A.6.3 |
 | **17** | Gestionar de manera eficaz todas las pólizas de los clientes y generar nuevas oportunidades e venta. | A.1.5, A.1.7, A.2.6 |
 | **18** | Importar contactos desde Excel, Gmail y Outlook. | A.7.1, A.7.2 |
@@ -45,19 +45,19 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 
 | | Enunciado textual | La comprueban |
 |:---:|---|---|
-| **1** | Restricciones de tipo tecnológicas, como ser plataforma, Sistema Operativo, requerimientos de hardware, de almacenamiento, memoria de trabajo, etc. | A.11.1 |
-| **2** | Facilidad en su instalación y configuración. | A.11.2 |
-| **3** | Facilidades y menú de funcionalidades. Despliegue y navegabilidad. | A.11.3 |
-| **4** | Interface con usuarios, facilidad de uso y aprendizaje para usuarios finales, etc. | A.11.4, A.11.5 |
-| **5** | Usuarios concurrentes. Limitaciones. | A.11.6 |
+| **1** | Restricciones de tipo tecnológicas, como ser plataforma, Sistema Operativo, requerimientos de hardware, de almacenamiento, memoria de trabajo, etc. | A.11.1, A.11.2 |
+| **2** | Facilidad en su instalación y configuración. | A.11.3 |
+| **3** | Facilidades y menú de funcionalidades. Despliegue y navegabilidad. | A.11.4 |
+| **4** | Interface con usuarios, facilidad de uso y aprendizaje para usuarios finales, etc. | A.11.5, A.11.6 |
+| **5** | Usuarios concurrentes. Limitaciones. | A.11.7, A.11.8 |
 | **6** | Parametrización, facilidad y posibilidades de cambios. | A.8.1, A.8.2, A.8.3 |
-| **7** | Importación / Exportación de datos. Flexibilidad | A.7.1, A.7.5 |
+| **7** | Importación / Exportación de datos. Flexibilidad | A.7.1, A.7.5, A.7.6 |
 | **8** | Seguridad de la información, autentificación de usuarios, esquema de roles y perfiles, pistas de auditoría, etc. | A.9.1, A.9.2, A.9.3 |
 | **9** | Herramientas de explotación de datos y medición de resultados. | A.10.1 |
 | **10** | Generación de reportes e informes. Paramétricos y Ad Hoc | A.10.2, A.10.3 |
 | **11** | Factibilidad de interfaz con otras aplicaciones locales o remotas. | A.10.4, A.10.5 |
-| **12** | Posibilidades de integración: relacionado con la facilidad que posee para ser incorporada en un contexto más amplio. | A.11.7 |
-| **13** | Soporte técnico, capacitación, blog de usuarios, etc. | A.11.8, A.11.9, A.11.10 |
+| **12** | Posibilidades de integración: relacionado con la facilidad que posee para ser incorporada en un contexto más amplio. | A.11.9 |
+| **13** | Soporte técnico, capacitación, blog de usuarios, etc. | A.11.10, A.11.11, A.11.12, A.11.13 |
 
 ## Cada criterio y su fuente
 
@@ -101,7 +101,8 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | A.7.2 | Importación de contactos desde las agendas de correo | `REQ 18` | Soporte |
 | A.7.3 | Sincronización del correo de varios usuarios | `REQ 19` | Núcleo |
 | A.7.4 | Vinculación automática del correo a la ficha | `REQ 19` | Núcleo |
-| A.7.5 | Exportación de la cartera sin pérdida de datos | `CRIT 7` | Soporte |
+| A.7.5 | Formatos de intercambio aceptados | `CRIT 7` | Soporte |
+| A.7.6 | Exportación de la cartera sin pérdida de datos | `CRIT 7` | Soporte |
 | A.8.1 | Creación de entidades sin programar | `CRIT 6, RUBRO` | Núcleo |
 | A.8.2 | Campos calculados sobre datos propios | `CRIT 6` | Soporte |
 | A.8.3 | Automatización de procesos | `CRIT 6, REQ 8` | Soporte |
@@ -109,22 +110,25 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | A.9.1 | Restricción de la cartera por productor | `CRIT 8, REQ 4` | Núcleo |
 | A.9.2 | Autenticación de los usuarios bajo control de la compañía | `CRIT 8` | Núcleo |
 | A.9.3 | Registro de quién modificó cada dato | `CRIT 8` | Núcleo |
-| A.10.1 | Indicadores sobre la operación | `CRIT 9, REQ 3` | Soporte |
+| A.10.1 | Indicadores sobre la operación | `CRIT 9, REQ 3, REQ 15` | Soporte |
 | A.10.2 | Generación de informes definidos por el usuario | `CRIT 10, REQ 4` | Núcleo |
 | A.10.3 | Informe paramétrico reutilizable | `CRIT 10` | Soporte |
 | A.10.4 | Intercambio de datos con otros sistemas de la compañía | `CRIT 11` | Soporte |
 | A.10.5 | Intercambio sin límite de volumen que condicione la operación | `CRIT 11` | Soporte |
 | A.11.1 | Recursos que la compañía debe disponer para sostenerlo | `CRIT 1` | Soporte |
-| A.11.2 | Puesta en marcha sin perfil técnico especializado | `CRIT 2` | Soporte |
-| A.11.3 | Navegabilidad: pocos pasos para la operación diaria | `CRIT 3` | Soporte |
-| A.11.4 | Aprendizaje sin capacitación previa | `CRIT 4` | Soporte |
-| A.11.5 | Localización completa al español, modelo incluido | `CRIT 4, RUBRO` | Núcleo |
-| A.11.6 | Operación concurrente sobre la misma cartera | `CRIT 5` | Núcleo |
-| A.11.7 | Ecosistema de integraciones disponible | `CRIT 12` | Soporte |
-| A.11.8 | Documentación en español | `CRIT 13` | Soporte |
-| A.11.9 | Comunidad activa de usuarios | `CRIT 13` | Soporte |
-| A.11.10 | Soporte técnico con compromiso de respuesta | `CRIT 13` | Soporte |
-| A.11.11 | Continuidad de las versiones en uso | `RUBRO` | Soporte |
+| A.11.2 | Compatibilidad con la plataforma que la compañía usa | `CRIT 1` | Soporte |
+| A.11.3 | Puesta en marcha sin perfil técnico especializado | `CRIT 2` | Soporte |
+| A.11.4 | Menú y navegabilidad para la operación diaria | `CRIT 3` | Soporte |
+| A.11.5 | Aprendizaje sin capacitación previa | `CRIT 4` | Soporte |
+| A.11.6 | Localización completa al español, modelo incluido | `CRIT 4, RUBRO` | Núcleo |
+| A.11.7 | Cantidad de usuarios sin límite que condicione la operación | `CRIT 5` | Núcleo |
+| A.11.8 | Operación concurrente sobre la misma cartera | `CRIT 5` | Núcleo |
+| A.11.9 | Ecosistema de integraciones disponible | `CRIT 12` | Soporte |
+| A.11.10 | Documentación en español | `CRIT 13` | Soporte |
+| A.11.11 | Material de capacitación para el usuario final | `CRIT 13` | Soporte |
+| A.11.12 | Comunidad activa de usuarios | `CRIT 13` | Soporte |
+| A.11.13 | Soporte técnico con compromiso de respuesta | `CRIT 13` | Soporte |
+| A.11.14 | Continuidad de las versiones en uso | `RUBRO` | Soporte |
 | B.1.1 | Persistencia de los datos sin uso continuo | `RUBRO` | Núcleo |
 | B.1.2 | Copia propia y completa de la cartera | `RUBRO` | Núcleo |
 | B.1.3 | Copia periódica sin intervención manual | `RUBRO` | Soporte |
@@ -142,10 +146,10 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 
 | Origen | Criterios |
 |---|---|
-| `RUBRO` | A.1.3, A.1.4, A.2.5, A.6.4, A.8.1, A.8.4, A.11.5, A.11.11, B.1.1, B.1.2, B.1.3, B.1.4, B.1.5, B.1.6, B.1.7 |
+| `RUBRO` | A.1.3, A.1.4, A.2.5, A.6.4, A.8.1, A.8.4, A.11.6, A.11.14, B.1.1, B.1.2, B.1.3, B.1.4, B.1.5, B.1.6, B.1.7 |
 | `OBS` | B.2.1, B.2.2, B.2.3, B.2.4, B.2.5 |
 
 ## Resultado
 
 - **33 fuentes**: todas cubiertas.
-- **74 criterios**, todos con origen declarado.
+- **78 criterios**, todos con origen declarado.

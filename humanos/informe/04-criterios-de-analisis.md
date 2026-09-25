@@ -70,7 +70,7 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 | ID | Criterio | Procedimiento de verificación | Criticidad |
 |---|---|---|:---:|
 | A.2.1 | Registro del solicitante con sus datos de contacto | Crear un solicitante con nombre, teléfono, correo y domicilio, y recuperarlo por búsqueda | Núcleo |
-| A.2.2 | Calificación y priorización del solicitante | Asignar a los solicitantes un nivel de urgencia y obtener la lista ordenada por ese nivel, para atender primero a los que más cerca están de contratar | Núcleo |
+| A.2.2 | Calificación y priorización del solicitante | Registrar qué cobertura pide el solicitante y con cuánta urgencia, y obtener la lista ordenada por esa urgencia para atender primero a los que más cerca están de contratar | Núcleo |
 | A.2.3 | Conversión del solicitante en oportunidad de venta | Convertir el solicitante en oportunidad y comprobar que los datos cargados se trasladan sin volver a escribirlos | Núcleo |
 | A.2.4 | Embudo de oportunidades con etapas | Crear una oportunidad desde la ficha de un asegurado y hacerla avanzar entre etapas hasta el cierre | Núcleo |
 | A.2.5 | Embudos diferenciados por ramo | Crear un segundo embudo con etapas distintas del primero y asignarle una oportunidad | Soporte |
@@ -135,7 +135,8 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 | A.7.2 | Importación de contactos desde las agendas de correo | Buscar la conexión con el correo web y con el gestor de escritorio que usa la compañía, e incorporar contactos desde la agenda de cada uno | Soporte |
 | A.7.3 | Sincronización del correo de varios usuarios | Configurar una casilla y comprobar si la configuración admite hacerlo para varios usuarios o solo para uno | Núcleo |
 | A.7.4 | Vinculación automática del correo a la ficha | Enviar un mensaje a la dirección de un asegurado cargado y comprobar si queda registrado en su ficha sin intervención | Núcleo |
-| A.7.5 | Exportación de la cartera sin pérdida de datos | Exportar los registros importados y comparar el archivo con el original: si coincide, si pierde acentuación o campos, o si faltan filas | Soporte |
+| A.7.5 | Formatos de intercambio aceptados | Enumerar los formatos en que el sistema admite entrar y sacar datos, y determinar si incluyen los que la compañía usa con sus otros sistemas | Soporte |
+| A.7.6 | Exportación de la cartera sin pérdida de datos | Exportar los registros importados y comparar el archivo con el original: si coincide, si pierde acentuación o campos, o si faltan filas | Soporte |
 
 ### A.8 Parametrización del modelo de negocio
 
@@ -177,16 +178,19 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 | ID | Criterio | Procedimiento de verificación | Criticidad |
 |---|---|---|:---:|
 | A.11.1 | Recursos que la compañía debe disponer para sostenerlo | Determinar si el sistema no exige infraestructura propia, si corre en un equipo de escritorio de los que la compañía ya tiene, o si pide un servidor dedicado | Soporte |
-| A.11.2 | Puesta en marcha sin perfil técnico especializado | Llevar el sistema de cero a operativo y determinar si lo completa alguien sin perfil técnico, si exige conocimientos puntuales guiados por la documentación, o si requiere un perfil que la compañía no tiene | Soporte |
-| A.11.3 | Navegabilidad: pocos pasos para la operación diaria | Registrar un asegurado con su póliza desde el ingreso, y determinar si se completa en un solo recorrido o si obliga a volver sobre pantallas ya visitadas y repetir datos | Soporte |
-| A.11.4 | Aprendizaje sin capacitación previa | Pedir a tres personas ajenas al proyecto que completen las mismas cinco tareas sin instrucción, y registrar si las tres las completan, si alguna queda pendiente aunque quien la intentó sepa decir qué le faltó, o si hay tareas que ninguna logra | Soporte |
-| A.11.5 | Localización completa al español, modelo incluido | Recorrer el menú principal y una ficha, y determinar si todo está en español, si queda algún nombre en otro idioma que igual se entiende, o si hay nombres que impiden saber qué guarda el campo | Núcleo |
-| A.11.6 | Operación concurrente sobre la misma cartera | Abrir el mismo registro con tres usuarios simultáneos, modificarlo en los tres y observar el comportamiento del sistema | Núcleo |
-| A.11.7 | Ecosistema de integraciones disponible | Revisar el catálogo de conectores disponibles y su accesibilidad | Soporte |
-| A.11.8 | Documentación en español | Consultar la documentación oficial y verificar la disponibilidad del idioma | Soporte |
-| A.11.9 | Comunidad activa de usuarios | Publicar una consulta real en el foro oficial y registrar si recibe una respuesta que la resuelve dentro de la espera aceptable, si llega más tarde o sin resolver, o si no llega | Soporte |
-| A.11.10 | Soporte técnico con compromiso de respuesta | Verificar en la documentación comercial la existencia de un canal con plazo comprometido | Soporte |
-| A.11.11 | Continuidad de las versiones en uso | Determinar si el fabricante publica por cuánto tiempo sostiene con correcciones una versión, y si ese plazo cubre el horizonte de planificación o fuerza a adelantar la actualización | Soporte |
+| A.11.2 | Compatibilidad con la plataforma que la compañía usa | Determinar sobre qué sistemas operativos y motores de base de datos corre, y si alguno de ellos es de los que la compañía ya administra | Soporte |
+| A.11.3 | Puesta en marcha sin perfil técnico especializado | Llevar el sistema de cero a operativo y determinar si lo completa alguien sin perfil técnico, si exige conocimientos puntuales guiados por la documentación, o si requiere un perfil que la compañía no tiene | Soporte |
+| A.11.4 | Menú y navegabilidad para la operación diaria | Registrar un asegurado con su póliza desde el ingreso, y determinar si el menú lleva a cada función donde se la espera y si el alta se completa en un solo recorrido, o si obliga a volver sobre pantallas ya visitadas | Soporte |
+| A.11.5 | Aprendizaje sin capacitación previa | Pedir a tres personas ajenas al proyecto que completen las mismas cinco tareas sin instrucción, y registrar si las tres las completan, si alguna queda pendiente aunque quien la intentó sepa decir qué le faltó, o si hay tareas que ninguna logra | Soporte |
+| A.11.6 | Localización completa al español, modelo incluido | Recorrer el menú principal y una ficha, y determinar si todo está en español, si queda algún nombre en otro idioma que igual se entiende, o si hay nombres que impiden saber qué guarda el campo | Núcleo |
+| A.11.7 | Cantidad de usuarios sin límite que condicione la operación | Determinar cuántos usuarios admite la edición evaluada y contrastarlo con el plantel de productores y personal administrativo de la compañía | Núcleo |
+| A.11.8 | Operación concurrente sobre la misma cartera | Abrir el mismo registro con tres usuarios simultáneos, modificarlo en los tres y observar el comportamiento del sistema | Núcleo |
+| A.11.9 | Ecosistema de integraciones disponible | Revisar el catálogo de conectores disponibles y su accesibilidad | Soporte |
+| A.11.10 | Documentación en español | Consultar la documentación oficial y verificar la disponibilidad del idioma | Soporte |
+| A.11.11 | Material de capacitación para el usuario final | Buscar en la oferta del fabricante material de formación —cursos, videos o guías de uso— dirigido a quien opera el sistema y no a quien lo administra | Soporte |
+| A.11.12 | Comunidad activa de usuarios | Publicar una consulta real en el foro oficial y registrar si recibe una respuesta que la resuelve dentro de la espera aceptable, si llega más tarde o sin resolver, o si no llega | Soporte |
+| A.11.13 | Soporte técnico con compromiso de respuesta | Verificar en la documentación comercial la existencia de un canal con plazo comprometido | Soporte |
+| A.11.14 | Continuidad de las versiones en uso | Determinar si el fabricante publica por cuánto tiempo sostiene con correcciones una versión, y si ese plazo cubre el horizonte de planificación o fuerza a adelantar la actualización | Soporte |
 
 ---
 
@@ -301,25 +305,24 @@ Cada grupo pesa dentro de su parte lo que suman las criticidades de sus criterio
 
 | Parte | Categoría | Criterios | Peso en su parte |
 |---|---|:---:|:---:|
-| A | A.1 Cartera de pólizas | 7 | 12.4 % |
-| A | A.2 Captación y proceso de venta | 6 | 11.1 % |
-| A | A.3 Productores y actividad comercial | 4 | 6.5 % |
-| A | A.4 Marketing, segmentación y reputación | 6 | 7.8 % |
-| A | A.5 Atención al asegurado y reclamos | 6 | 10.5 % |
-| A | A.6 Ficha única del asegurado | 4 | 7.8 % |
-| A | A.7 Intercambio de datos y correo | 5 | 8.5 % |
-| A | A.8 Parametrización del modelo de negocio | 4 | 6.5 % |
-| A | A.9 Control de acceso y trazabilidad | 3 | 5.9 % |
-| A | A.10 Explotación de la información | 5 | 7.2 % |
-| A | A.11 Condiciones técnicas del producto | 11 | 15.7 % |
-| | **Subtotal Parte A** | **61** | **100 %** |
+| A | A.1 Cartera de pólizas | 7 | 11.6 % |
+| A | A.2 Captación y proceso de venta | 6 | 10.4 % |
+| A | A.3 Productores y actividad comercial | 4 | 6.1 % |
+| A | A.4 Marketing, segmentación y reputación | 7 | 8.5 % |
+| A | A.5 Atención al asegurado y reclamos | 6 | 9.8 % |
+| A | A.6 Ficha única del asegurado | 4 | 7.3 % |
+| A | A.7 Intercambio de datos y correo | 6 | 9.1 % |
+| A | A.8 Parametrización del modelo de negocio | 4 | 6.1 % |
+| A | A.9 Control de acceso y trazabilidad | 3 | 5.5 % |
+| A | A.10 Explotación de la información | 5 | 6.7 % |
+| A | A.11 Condiciones técnicas del producto | 14 | 18.9 % |
+| | **Subtotal Parte A** | **66** | **100 %** |
 | B | B.1 Condiciones que impone el negocio asegurador | 7 | 70.8 % |
 | B | B.2 Capacidades por encima de lo solicitado | 5 | 29.2 % |
 | | **Subtotal Parte B** | **12** | **100 %** |
-| | **Total** | **73** | |
+| | **Total** | **78** | |
 
-**50 de los 61 criterios de la Parte A son funcionales**: describen algo que un usuario ejecuta sobre el sistema. Reúnen el 84 % del peso. Las condiciones técnicas del producto —lo que se cumple o no con independencia de quién lo use— quedan en 11 criterios y el 16 % restante.
-
+**52 de los 66 criterios de la Parte A son funcionales**: describen algo que un usuario ejecuta sobre el sistema. Reúnen el 81 % del peso. Las condiciones técnicas del producto —lo que se cumple o no con independencia de quién lo use— quedan en 14 criterios y el 19 % restante.
 La proporción es deliberada: **lo que la compañía pidió pesa más que las condiciones generales que cualquier software debe cumplir.** Varias capacidades que un análisis genérico trataría como técnicas —crear entidades, definir un campo calculado, construir un informe— se evalúan como funcionales, porque en este rubro son la vía por la que se modela la póliza y se mide la producción.
 
 **Ningún criterio repite el procedimiento de otro.** Cuando dos capacidades se comprobaban con la misma acción sobre distinto objeto —el historial de una póliza y el de cualquier registro, el total de primas por productor y el informe que lo produce— se conservó una sola, con el procedimiento ampliado para cubrir ambos casos. Evaluar dos veces lo mismo le daría a esa capacidad un peso que nadie decidió.
