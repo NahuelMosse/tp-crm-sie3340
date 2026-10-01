@@ -1,0 +1,27 @@
+{
+  "criterio": "A.4.6",
+  "plataforma": "bitrix24",
+  "cumple": 0,
+  "justificacion": "El sistema no publica en las redes: lo único que emite hacia Facebook e Instagram son anuncios pagos sobre publicaciones que ya existen en la red o sobre un segmento del CRM, desde «Marketing › Anuncios de Facebook», que en la edición gratuita pide actualizar al plan Standard o Professional. No hay donde componer un texto y emitirlo a la página conectada. El fabricante lo declara en su documentación de la integración con Facebook e Instagram: publicar en la página de Facebook figura entre las opciones que todavía no están disponibles. La conexión de la página que sí existe es la de comentarios y mensajes recibidos, no la de publicación.",
+  "evidencia": [
+    "A-4-6-bitrix24-1-anuncio-de-facebook.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://helpdesk.bitrix24.com/open/24788840/",
+      "cita": "Options like Post on Facebook page, Facebook page card, and Messenger chat are not available yet.",
+      "consultado": "2026-09-30",
+      "captura": "A-4-6-bitrix24-3-publicar-en-facebook-no-disponible.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
+      "cita": "Facebook Lance anuncios en Facebook dirigidos a un segmento de clientes específico. Esta es una excelente manera de optimizar sus gastos en publicidad.",
+      "consultado": "2026-09-30",
+      "captura": "A-4-6-bitrix24-2-anuncios-por-plan.png"
+    }
+  ],
+  "criterioNombre": "Publicación en redes desde el sistema",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-30T12:38:55.039Z"
+}

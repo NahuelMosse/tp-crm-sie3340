@@ -1,0 +1,25 @@
+{
+  "criterio": "A.1.5",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Las reglas de automatización de la negociación aceptan un momento de ejecución relativo a una fecha: «N días antes» del valor de un campo de tipo fecha. Se definieron desde la pantalla, sin código, dos avisos por notificación al responsable: treinta días antes del fin de vigencia de la póliza y dos días antes del plazo de resolución del reclamo —que en la edición gratuita, sin entidad propia, es un campo de fecha de la negociación—, con fecha y hora. Se cargaron una póliza que vence dentro de treinta días y unos minutos, otra en 200, un reclamo que agota su plazo dentro de dos días y unos minutos y otro en 25 días, y nadie tocó nada más: a los 10 minutos llegaron las notificaciones de la póliza y del reclamo cuyo momento de aviso había llegado, y no las de los que todavía están lejos. El aviso se calcula sobre el valor del campo —la fecha y hora menos treinta días—, y un campo de solo fecha lo calcularía a la medianoche; el sistema lo ejecuta con su programador, con una demora de unos minutos sobre el instante calculado, sin consecuencia para avisos de días de anticipación. Cada aviso se marca «En paralelo»: por omisión una regla espera a que termine la anterior de su etapa, y con una regla previa de un día de retraso el aviso saldría un día tarde. La edición gratuita admite hasta 5 reglas y disparadores en total: el portal trae 2 reglas de muestra en la etapa inicial y, con ellas, los dos avisos entran sin pedir otro plan. Armar cada aviso es configuración de una vez.",
+  "evidencia": [
+    "A-1-5-bitrix24-1-avisos-definidos.png",
+    "A-1-5-bitrix24-2-avisos-guardados.png",
+    "A-1-5-bitrix24-3-avisos-emitidos.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://helpdesk.bitrix24.com/open/21174186/",
+      "cita": "Time ranges are available for fields with the Date and Date and time types.",
+      "consultado": "2026-09-30",
+      "captura": "A-1-5-bitrix24-4-regla-segun-fecha.png"
+    }
+  ],
+  "medicion": "Avisos emitidos sin intervención: 2, a los 10 minutos",
+  "criterioNombre": "Aviso anticipado de vencimiento",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-30T20:23:49.933Z"
+}

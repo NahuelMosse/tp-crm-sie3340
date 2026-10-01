@@ -1,0 +1,25 @@
+{
+  "criterio": "A.8.3",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Las reglas de automatización de la negociación se arman desde la pantalla, sin código: se elige la etapa, la acción —comunicar, crear tareas, modificar campos, dejar comentarios— y el momento. Se definió una que deja un comentario en el historial al llegar a «En progreso». Para provocar el evento se abrió una póliza desde el listado y se la pasó a esa etapa con un clic en la barra de etapas de su ficha: sin que nadie hiciera nada más, el comentario «Póliza en emisión: verificar la documentación del asegurado» apareció en el historial de la póliza. La edición gratuita admite hasta 5 reglas y disparadores en total: con las de muestra del portal dejadas en 2, la regla entra. Definir cada regla es configuración de una vez.",
+  "evidencia": [
+    "A-8-3-bitrix24-1-regla.png",
+    "A-8-3-bitrix24-2-al-guardar.png",
+    "A-8-3-bitrix24-3-comentario-en-el-historial.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://helpdesk.bitrix24.com/open/22396442/",
+      "cita": "When a CRM entity reaches a certain stage, the automation rule modifies the field values in that entity. For example, when a new deal appears in CRM, the rule changes its name and assigns another responsible user.",
+      "consultado": "2026-09-30",
+      "captura": "A-8-3-bitrix24-3-regla-por-etapa.png"
+    }
+  ],
+  "medicion": "Comentarios en la póliza tras el cambio de etapa: 1",
+  "criterioNombre": "Automatización de procesos",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-30T18:10:46.721Z"
+}

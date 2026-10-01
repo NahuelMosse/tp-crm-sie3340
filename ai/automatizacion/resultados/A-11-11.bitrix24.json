@@ -1,0 +1,25 @@
+{
+  "criterio": "A.11.11",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "justificacion": "El fabricante reúne en un mismo centro los cursos y la documentación de uso diario —CRM, tareas, mensajería, calendario—, con artículos paso a paso y videos, separados de la documentación de la interfaz de programación. Está dirigido a quien opera el sistema todos los días, no solo a quien lo administra, y está publicado en español.",
+  "documentacion": [
+    {
+      "url": "https://helpdesk.bitrix24.es/documentation.php",
+      "cita": "Todos los cursos de formación y documentación",
+      "consultado": "2026-09-29",
+      "captura": "A-11-11-bitrix24-1-centro-de-cursos.png"
+    },
+    {
+      "url": "https://helpdesk.bitrix24.es/open/20616588/",
+      "cita": "Bitrix24 Helpdesk",
+      "consultado": "2026-09-29",
+      "captura": "A-11-11-bitrix24-2-guia-de-uso.png"
+    }
+  ],
+  "criterioNombre": "Material de capacitación para el usuario final",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-29T14:29:55.861Z"
+}

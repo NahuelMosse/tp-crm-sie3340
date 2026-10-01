@@ -1,0 +1,140 @@
+{
+  "criterio": "A.11.12",
+  "plataforma": "bitrix24",
+  "cumple": 0,
+  "justificacion": "El foro oficial público del fabricante está en ruso (dev.1c-bitrix.ru, subforo de Bitrix24), y la comunidad de la nube conversa en un espacio que exige cuenta para leer, así que la medición se hizo sobre el foro ruso; su muestra mezcla consultas de la instalación propia con las de la nube. Se tomaron las 21 consultas más recientes, sin los temas fijados, con más de una semana, que alcanzan hasta 2026-04-22. En 0 otro usuario respondió dentro de la semana y quien consultó confirmó después que la respuesta le había servido; en 5 hubo respuesta, pero llegó más tarde o sin que el autor confirmara que lo resolvía; 16 no recibieron respuesta. La primera respuesta llegó, en el caso típico, a las 44 horas. La consulta típica queda sin respuesta: la compañía no puede contar con la comunidad para resolver un problema de configuración.",
+  "documentacion": [
+    {
+      "url": "https://dev.1c-bitrix.ru/community/forums/forum23/topic164572/",
+      "cita": "Всем добрый день. Поставил Битрикс24 26.150.0 на BitrixVM (VMWare 17 Player)Захотел создать CRM форму. Захожу в раздел CRM формы (http://192.168.138.128/crm/webform/) Жму кнопку \"Добавить\" и почему то появляется раздел, где написано \"Форма не найдена. Обратитесь к администратору…",
+      "consultado": "2026-09-30",
+      "captura": "A-11-12-bitrix24-01.png"
+    },
+    {
+      "url": "https://dev.1c-bitrix.ru/community/forums/forum23/topic164568/",
+      "cita": "Мой облачный портал заблокирован из-за инструмента Потоки, который я тестировал. При использовании функционала система не предупредила меня, что после тестирования я потеряю доступ ко всему порталу и не смогу самостоятельно отключить этот инструмент. Сейчас я физически не могу выполнить инструкции…",
+      "consultado": "2026-09-30",
+      "captura": "A-11-12-bitrix24-02.png"
+    },
+    {
+      "url": "https://dev.1c-bitrix.ru/community/forums/forum23/topic164512/",
+      "cita": "Всем привет!Есть проблема. В шаблоне компонента iblock.element.add.form отображаются поля для редактирования элемента инфоблока.Я хочу сделать так, чтоб по клику на кнопку подгружалась бы дополнительная информация по элементу инфоблока, и чтоб эта дополнительная информация отображалась бы в боковой…",
+      "consultado": "2026-09-30",
+      "captura": "A-11-12-bitrix24-03.png"
+    },
+    {
+      "url": "https://dev.1c-bitrix.ru/community/forums/forum23/topic164360/",
+      "cita": "После обновления исчезла возможность при формировании шаблона регулярной задачи задавать в настройках опцию \"Проконтролировать задачу после завершения\".Регулярные задачи после завершения их исполнителем не становятся на контроль постановщику, много задач уходит из фокуса внимания, так как…",
+      "consultado": "2026-09-30",
+      "captura": "A-11-12-bitrix24-04.png"
+    },
+    {
+      "url": "https://dev.1c-bitrix.ru/community/forums/forum23/topic164358/",
+      "cita": "При создании нового элемента можно передать пользовательские поля и они поддянутся, но вот с полями привязки к элементам смарта такое не работает.Что нужно передать?UF_NAC_GUID строковое -- отработает. (списки, числа работают)UF_LINK -- привязка к элементам смарта. не…",
+      "consultado": "2026-09-30",
+      "captura": "A-11-12-bitrix24-05.png"
+    },
+    {
+      "url": "https://dev.1c-bitrix.ru/community/forums/forum23/topic164332/",
+      "cita": "Добрый день!Создаю лид используя CRest из Битрикс CMS в Битрикс24.В Б24 имеется пользовательское поле UF_CRM_XXXXXXXXXXX типа файл множественное. Лид создается, но кириллические имена файлов в лиде выглядят, как кракозябры. Константа C_REST_CURRENT_ENCODING в файле settings.php (пакета CRest) не…",
+      "consultado": "2026-09-30",
+      "captura": "A-11-12-bitrix24-06.png"
+    },
+    {
+      "url": "https://dev.1c-bitrix.ru/community/forums/forum23/topic164324/",
+      "cita": "Вчера вечером обновлял наш портал, сегодня утром посыпались вопросы от сотрудников:1. Не работает прямой переход в чат из правой колонки2. Телефония не работает - из карточки клиента/компании при нажатии на кнопку звонка появляется такое сообщение3. В чате при выборе кнопки \"Переслать\" не работает…",
+      "consultado": "2026-09-30",
+      "captura": "A-11-12-bitrix24-07.png"
+    },
+    {
+      "url": "https://dev.1c-bitrix.ru/community/forums/forum23/topic164322/",
+      "cita": "Добрый деньМного лет централизованно обновляли Windows версию Битрикс24 через установку exe приложения с ключом /SПри установке обычно закрывалось открытое приложение и устанавливалось новое приложение.Начиная с новой версии 23_0_32_91 при запуске с ключом /S ничего не происходит.Запускается…",
+      "consultado": "2026-09-30",
+      "captura": "A-11-12-bitrix24-08.png"
+    },
+    {
+      "url": "https://dev.1c-bitrix.ru/community/forums/forum23/topic164306/",
+      "cita": "Зайдите в /home/bitrix/www/index.php - у вас, похоже, обрезана index-страница.",
+      "consultado": "2026-09-30",
+      "captura": "A-11-12-bitrix24-09.png"
+    },
+    {
+      "url": "https://dev.1c-bitrix.ru/community/forums/forum23/topic164298/",
+      "cita": "А свой модуль подключили перед этим?",
+      "consultado": "2026-09-30",
+      "captura": "A-11-12-bitrix24-10.png"
+    },
+    {
+      "url": "https://dev.1c-bitrix.ru/community/forums/forum23/topic164280/",
+      "cita": "Добрый день, поковырялся в новых компонентах задач на BitrixVue3, чтобы кастомизировать новую карточку, можно использовать вот этот инструментарий.https://apidocs.bitrix24.ru/api-reference/widgets/task/view-tab.htmlЭто если есть возможность использовать REST. Для нашей коробки же документации…",
+      "consultado": "2026-09-30",
+      "captura": "A-11-12-bitrix24-11.png"
+    },
+    {
+      "url": "https://dev.1c-bitrix.ru/community/forums/forum23/topic164266/",
+      "cita": "Присоединяюсь, у нас таже проблема",
+      "consultado": "2026-09-30",
+      "captura": "A-11-12-bitrix24-12.png"
+    },
+    {
+      "url": "https://dev.1c-bitrix.ru/community/forums/forum23/topic164244/",
+      "cita": "Добрый день! Кто-нибудь в курсе, в этой форме вставки значения в поле активити в дизайнере БП Автор и Руководитель - это кто?Контекст - CRM, сделкаНапрашивается, что Автор - это либо создатель сделки, либо ответственный, либо тот, кто запустил БП, и это могут быть разные люди. Соответственно, и…",
+      "consultado": "2026-09-30",
+      "captura": "A-11-12-bitrix24-13.png"
+    },
+    {
+      "url": "https://dev.1c-bitrix.ru/community/forums/forum23/topic164218/",
+      "cita": "Всем привет! Подскажите, может кто сталкивался: нужно каким то образом сделать массовое редактирование задач в Битрикс24.Например я выделил в общем списке задач только 2 задачи, и хочу им проставить какой-либо тег.Сейчас я могу проставить теги только открывая каждую задачу, и отдельно внутри задачи…",
+      "consultado": "2026-09-30",
+      "captura": "A-11-12-bitrix24-14.png"
+    },
+    {
+      "url": "https://dev.1c-bitrix.ru/community/forums/forum23/topic164150/",
+      "cita": "Здравствуйте! Возникла следующая проблема:#11) Сделана резервная копия штатными средствами Битрикс24 из административной панели (на BitrixVM 7.5.5, Версия PHP 8.2.30, Версия MySQL 8.0.45, Версия Модуль \"Ядро\" (main) 26.150.0)2) Развернута ВМ BitrixVM 9.0.9, смена hostname и ip (отличное от BitrixVM…",
+      "consultado": "2026-09-30",
+      "captura": "A-11-12-bitrix24-15.png"
+    },
+    {
+      "url": "https://dev.1c-bitrix.ru/community/forums/forum23/topic164108/",
+      "cita": "Всем привет!Подскажите, как правильно восстанавливать битрикс-проекты из резервной копии, которая была сделана не штатными средствами битрикс, а вручную?Мне скинули 2 архива: в одном - файловая структура, а в другом - база данных.Я использую OpenServer 6.4.6 и MySQL-8.4Создал в нём новый проект,…",
+      "consultado": "2026-09-30",
+      "captura": "A-11-12-bitrix24-16.png"
+    },
+    {
+      "url": "https://dev.1c-bitrix.ru/community/forums/forum23/topic164098/",
+      "cita": "Добрый день. В коробочной версии Битрикс в какой-то момент задублировались поля (2 раза повторяется строчное поле \"Комментарий УГМ\"). Одно из них переименовали в \"Комментарий УГМ1\". Сейчас периодически возникает проблема с тем, что в карточке одно из этих полей (то одно, то другое) неактивно, то…",
+      "consultado": "2026-09-30",
+      "captura": "A-11-12-bitrix24-17.png"
+    },
+    {
+      "url": "https://dev.1c-bitrix.ru/community/forums/forum23/topic164090/",
+      "cita": "Может отдельно элементы и отдельно свойства типа такогоCIBlockElement::GetProperty( $id_block, $id, Array(), Array(\"PROPERTY_UL_FULL_NAME\") );",
+      "consultado": "2026-09-30",
+      "captura": "A-11-12-bitrix24-18.png"
+    },
+    {
+      "url": "https://dev.1c-bitrix.ru/community/forums/forum23/topic164070/",
+      "cita": "Столкнулись с проблемой синхронизации пользователей по фильтру. Нужно выгружать пользователей в б42 из конкретных контейнеров, а из других игнорировать. Со стандартным фильтром (&(objectClass=user)(objectCategory=person)) все отрабатывает, но он забирает всех пользователей из AD. Долго не могли…",
+      "consultado": "2026-09-30",
+      "captura": "A-11-12-bitrix24-19.png"
+    },
+    {
+      "url": "https://dev.1c-bitrix.ru/community/forums/forum23/topic164064/",
+      "cita": "Добрый день!Столкнулся с такой проблемой:Битрикс. Коробочная версия.Создаю бизнес-процесс, который создает смарт-процесс из сделки.при заполнении поля Сделка = {{ID}} (что должно связать сделку с СП) после нажатия сохранения происходит \"загрузка\". Так \"крутит\" очень очень долго и в итоге ничего не…",
+      "consultado": "2026-09-30",
+      "captura": "A-11-12-bitrix24-20.png"
+    },
+    {
+      "url": "https://dev.1c-bitrix.ru/community/forums/forum23/topic164062/",
+      "cita": "Всем привет. Есть метод, который ищет элементы инфоблока:Кодfunction getList($iblockId, $properties, $filter, $nav, $navParams, $sort) { unset($filter['PRESET_ID']); unset($filter['FILTER_ID']); unset($filter['FILTER_APPLIED']); unset($filter['FIND']); $filter['IBLOCK_ID'] = $iblockId;…",
+      "consultado": "2026-09-30",
+      "captura": "A-11-12-bitrix24-21.png"
+    }
+  ],
+  "medicion": "0 resueltas en la semana · 5 con respuesta tardía o sin confirmar · 16 sin respuesta · primera respuesta típica a las 44 horas",
+  "criterioNombre": "Comunidad activa de usuarios",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-30T23:05:51.311Z"
+}

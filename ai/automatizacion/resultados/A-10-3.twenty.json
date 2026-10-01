@@ -1,0 +1,17 @@
+{
+  "criterio": "A.10.3",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El informe de primas por productor quedó guardado en su tablero con el período como condición del filtro. Para otro período se abrió el mismo gráfico y se cambió solo la fecha del filtro: los totales se recalcularon sin rehacer el informe, que conserva su fuente, su agrupación y su medida. El período no se pide al abrirlo: cambiarlo modifica el informe guardado para todos los que lo miran, o hay que duplicarlo. Armarlo es configuración de una sola vez.",
+  "evidencia": [
+    "A-10-3-twenty-1-seis-meses.png",
+    "A-10-3-twenty-2-un-anio.png"
+  ],
+  "medicion": "Seis meses: Not Set Pablo Gómez TP TP 0 50k 100k 150k 200k 250k · un año: Not Set Pablo Gómez TP TP 0 200k 400k 600k 800k",
+  "criterioNombre": "Informe paramétrico reutilizable",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T04:03:08.698Z"
+}

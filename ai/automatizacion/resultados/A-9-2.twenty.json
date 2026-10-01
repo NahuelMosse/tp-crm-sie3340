@@ -1,0 +1,28 @@
+{
+  "criterio": "A.9.2",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "La seguridad del espacio de trabajo permite imponer el segundo factor a todos los usuarios en cada ingreso y apagar el ingreso con correo y contraseña, de modo que solo se entre con la cuenta de la compañía. La instalación propia admite el ingreso con cuentas de Google y de Microsoft registrando sus credenciales, que es como se unifica el acceso con el directorio de una compañía que usa esos servicios; la conexión por SAML u OIDC con cualquier otro directorio es del plan Organization. No hay una política de contraseñas que se configure —largo, vencimiento—, que deja de importar si el ingreso es con la cuenta de la compañía y segundo factor. Es configuración de una sola vez.",
+  "evidencia": [
+    "A-9-2-twenty-1-seguridad-del-espacio.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/developers/self-host/capabilities/setup",
+      "cita": "Authentication - Google/Microsoft OAuth, password settings",
+      "consultado": "2026-09-28",
+      "captura": "A-9-2-twenty-2-ingreso-con-google-y-microsoft.png"
+    },
+    {
+      "url": "https://docs.twenty.com/user-guide/permissions-access/capabilities/sso-configuration",
+      "cita": "Organization plan (cloud and self-hosted workspaces)",
+      "consultado": "2026-09-28",
+      "captura": "A-9-2-twenty-3-sso.png"
+    }
+  ],
+  "criterioNombre": "Autenticación de los usuarios bajo control de la compañía",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T00:29:42.373Z"
+}

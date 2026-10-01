@@ -1,0 +1,16 @@
+{
+  "criterio": "A.2.1",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "El producto trae una entidad para quien todavía no contrató —el posible cliente— con nombre, teléfono, correo y domicilio desglosado en calle, ciudad, provincia, código postal y país. Se registró un solicitante con todos esos datos, que se guardaron completos, y se lo recuperó buscando su apellido desde el listado. Viene listo con la instalación, sin configurar nada.",
+  "evidencia": [
+    "A-2-1-espocrm-1-alta.png",
+    "A-2-1-espocrm-2-busqueda.png"
+  ],
+  "criterioNombre": "Registro del solicitante con sus datos de contacto",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T18:46:46.647Z"
+}

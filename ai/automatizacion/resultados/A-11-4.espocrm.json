@@ -1,0 +1,15 @@
+{
+  "criterio": "A.11.4",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "justificacion": "Desde el ingreso, el menú lleva directo a asegurados, y de ahí al alta. Guardado el asegurado, la póliza se carga desde su propia ficha, en el panel de sus pólizas, sin salir de ella y ya ligada a él. El recorrido completo pasó por 4 pantallas sin volver sobre ninguna y llevó 21 segundos. La póliza, que es una entidad creada por la compañía, figura en el menú dentro del grupo desplegable; el orden del menú se ajusta desde la administración.",
+  "evidencia": [
+    "A-11-4-espocrm-1-asegurado-con-su-poliza.png"
+  ],
+  "medicion": "4 pantallas, ninguna revisitada, 21 s",
+  "criterioNombre": "Menú y navegabilidad para la operación diaria",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T20:48:44.206Z"
+}

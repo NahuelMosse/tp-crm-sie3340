@@ -1,0 +1,21 @@
+{
+  "criterio": "A.4.6",
+  "plataforma": "espocrm",
+  "cumple": 0,
+  "justificacion": "El producto no ofrece la publicación en redes sociales desde el propio sistema, en ninguna edición: la administración no tiene ninguna función de redes sociales y el catálogo oficial de extensiones —informes y automatización, ventas, proyectos, inteligencia artificial, telefonía, agenda de reuniones, integraciones con Outlook, Google, Zoom, Stripe y MailChimp— no incluye ninguna. La compañía tendría que resolverlo con otra herramienta.",
+  "evidencia": [
+    "A-4-6-espocrm-1-administracion.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.espocrm.com/extensions/",
+      "cita": "Real Estate",
+      "consultado": "2026-09-28",
+      "captura": "A-4-6-espocrm-2-catalogo.png"
+    }
+  ],
+  "criterioNombre": "Publicación en redes desde el sistema",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-28T19:26:57.000Z"
+}

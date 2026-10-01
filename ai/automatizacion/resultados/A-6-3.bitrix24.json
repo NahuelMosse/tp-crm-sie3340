@@ -1,0 +1,16 @@
+{
+  "criterio": "A.6.3",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Desde el mismo formulario del contacto, «Crear campo» agrega un campo de tipo lista —aquí, la valoración de la atención, con sus cuatro opciones— sin programar. El campo queda en el formulario de alta: se eligió el valor «Buena» al cargar un asegurado y quedó guardado. En el listado, el filtro de búsqueda ofrece el campo nuevo para agregarlo como condición. Definir el campo es una configuración de una sola vez.",
+  "evidencia": [
+    "A-6-3-bitrix24-1-campo-creado.png",
+    "A-6-3-bitrix24-2-filtro.png"
+  ],
+  "criterioNombre": "Campos propios del rubro en la ficha",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T12:48:33.405Z"
+}

@@ -1,0 +1,64 @@
+{
+  "criterio": "A.10.1",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "Los indicadores que trae la edición gratuita son los de ventas —oportunidades por etapa, por origen y por mes—. Para las pólizas y los reclamos el tablero ofrece listas, como los tickets pendientes de cada usuario, pero ninguna suma ni promedia. Para obtener el total de primas por estado de cobranza o el tiempo promedio de resolución hay que exportar el listado —XLSX · Spreadsheet o CSV— y calcularlo en una planilla, cada vez que se quiere ver el número. El módulo de informes que vende el fabricante agrupa y resume con sumas y promedios, y lo muestra en el tablero.",
+  "evidencia": [
+    "A-10-1-espocrm-1-cajas-del-tablero.png",
+    "A-10-1-espocrm-2-exportar-para-calcular-afuera.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.espocrm.com/user-guide/reports/",
+      "cita": "The Reports feature is available in Advanced Pack. It provides the analytic capabilities and two additional functionalities: report panels and custom list view filters.",
+      "consultado": "2026-09-28",
+      "captura": "A-10-1-espocrm-informes-1.png"
+    },
+    {
+      "url": "https://docs.espocrm.com/user-guide/reports/",
+      "cita": "Grid reports display summarized values, can be grouped by one or two fields, and support chart visualization.",
+      "consultado": "2026-09-28",
+      "captura": "A-10-1-espocrm-informes-2.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extensions/advanced-pack/",
+      "cita": "$395.00 1 Year License + Upgrades",
+      "consultado": "2026-09-28",
+      "captura": "A-10-1-espocrm-precio-1.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extension-license-agreement/",
+      "cita": "1.1 Subject to your continuous compliance with the Agreement and payment of the applicable license fees, EspoCRM grants you a non-exclusive, non-transferable, worldwide, limited right to use the Software on a single EspoCRM Application instance on a single server for the Licensed Period. After the license period expires, you must renew or purchase a new license to continue using the Software. You may use or modify the Software only for your own internal business purposes or for non-commercial or personal use.",
+      "consultado": "2026-09-28",
+      "captura": "A-10-1-espocrm-precio-2.png"
+    },
+    {
+      "url": "https://www.espocrm.com/cloud/",
+      "cita": "Basic $15.00 per user/month minimum 3 users 3GB file storage per user 100,000 records SSL Encryption (256 bit keys, TLS 1.3) Full feature set All extensions included External access API 2000+ integrations * 12x5 (hours/days) support Sign Up Free Trial Free Trial is provided for 30 days",
+      "consultado": "2026-09-28",
+      "captura": "A-10-1-espocrm-nube-precio-1.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "Advanced Pack",
+      "monto": "US$ 395 por año y por instalación",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "Un informe agrupado suma las primas por estado de cobranza y promedia la resolución de reclamos, y se lo lleva al tablero."
+    },
+    {
+      "plan": "EspoCRM Cloud Basic",
+      "monto": "US$ 15 por usuario por mes, mínimo 3 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "El servicio en la nube incluye el módulo de informes."
+    }
+  ],
+  "criterioNombre": "Indicadores sobre la operación",
+  "licencia": null,
+  "momento": "2026-09-28T20:36:32.798Z"
+}

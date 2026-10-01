@@ -1,7 +1,9 @@
 node_modules/
 test-results/
 auth-bitrix.json
+auth-bitrix-*.json
 auth-twenty.json
+ai/automatizacion/productores-bitrix24.json
 playwright-report/
 ai/automatizacion/informe/
 .env

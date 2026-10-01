@@ -1,8 +1,22 @@
 {
   "criterio": "A.1.1",
   "plataforma": "bitrix24",
-  "puntua": false,
-  "estado": "sin-verificar",
-  "motivo": "La sección Automatización Inteligente de Procesos ofrece la creación de entidades y su diálogo abre con tres opciones de tipo, pero no se logró completar la creación de forma automatizada. Pendiente de comprobación manual para determinar si el plan gratuito permite finalizarla.",
-  "momento": "2026-09-14T02:53:23.308Z"
+  "cumple": 0,
+  "justificacion": "Las entidades propias de Bitrix24 son los procesos inteligentes, que se crean desde la barra del CRM sin programar: nombre, etapas, embudos y reglas de automatización. En la edición gratuita el formulario se completa, pero al guardar el sistema no crea la entidad y avisa que los procesos inteligentes requieren el plan Professional o el Enterprise. Sin ellos la póliza no tiene identidad propia: habría que forzarla dentro de otra entidad del producto.",
+  "evidencia": [
+    "A-1-1-bitrix24-1-formulario.png",
+    "A-1-1-bitrix24-2-al-guardar.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.com/promo/professional/",
+      "cita": "SPA (smart process automation)",
+      "consultado": "2026-09-29",
+      "captura": "A-1-1-bitrix24-3-procesos-inteligentes.png"
+    }
+  ],
+  "criterioNombre": "Modelado de la póliza como objeto propio",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T13:14:25.465Z"
 }

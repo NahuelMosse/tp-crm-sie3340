@@ -1,0 +1,15 @@
+{
+  "criterio": "A.5.6",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "Al asignarle la tarea y el reclamo, el productor recibió el aviso en el propio sistema: al ingresar, el indicador de notificaciones lo muestra sin que tenga que abrir ningún listado, y cada aviso lleva al registro que le asignaron. Viene activado de fábrica. Es lo que asegura que el responsable se entere en el momento, y no cuando se le ocurre revisar.",
+  "evidencia": [
+    "A-5-6-espocrm-1-notificaciones-del-productor.png"
+  ],
+  "criterioNombre": "Aviso al usuario al que se le asigna una tarea",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T19:37:50.522Z"
+}

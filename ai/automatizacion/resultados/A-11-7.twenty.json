@@ -1,0 +1,27 @@
+{
+  "criterio": "A.11.7",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "justificacion": "La edición autoalojada es gratuita y se distribuye bajo una licencia libre que no limita la cantidad de usuarios, y la instalación no impone ningún tope: se invitan los que la compañía necesite, sea cual fuere su plantel de productores y de personal administrativo. El único límite es el del equipo donde corre. En la nube se paga por usuario, sin tope de cantidad.",
+  "evidencia": [
+    "A-11-7-twenty-3-usuarios.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://github.com/twentyhq/twenty",
+      "cita": "The #1 Open-Source CRM",
+      "consultado": "2026-09-28",
+      "captura": "A-11-7-twenty-1-codigo-abierto.png"
+    },
+    {
+      "url": "https://docs.twenty.com/user-guide/billing/capabilities/pricing-plans",
+      "cita": "Host Twenty on your own infrastructure at no cost:",
+      "consultado": "2026-09-28",
+      "captura": "A-11-7-twenty-2-sin-costo.png"
+    }
+  ],
+  "criterioNombre": "Cantidad de usuarios sin límite que condicione la operación",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T00:46:57.518Z"
+}

@@ -1,0 +1,26 @@
+{
+  "criterio": "B.1.5",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "justificacion": "En la instalación propia la actualización no llega sola: el administrador de la compañía cambia la versión de la imagen, hace antes la copia de la base que pide el fabricante y reinicia; recién al arrancar la versión nueva el servidor aplica sus cambios. La compañía elige el momento —fuera del horario de atención, después de probarla— y ningún cambio del sistema la sorprende durante la operación.",
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/developers/self-host/capabilities/upgrade-guide",
+      "cita": "Always back up your database before starting the upgrade process",
+      "consultado": "2026-09-29",
+      "captura": "B-1-5-twenty-1-la-dispara-el-administrador.png"
+    },
+    {
+      "url": "https://docs.twenty.com/developers/self-host/capabilities/upgrade-guide",
+      "cita": "The server runs all required upgrade migrations automatically on startup. No manual command is needed.",
+      "consultado": "2026-09-29",
+      "captura": "B-1-5-twenty-2-al-arrancar-la-version-nueva.png"
+    }
+  ],
+  "medicion": "Imagen en uso: twentycrm/twenty:latest",
+  "criterioNombre": "Previsibilidad de los cambios del sistema",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-29T03:06:45.226Z"
+}

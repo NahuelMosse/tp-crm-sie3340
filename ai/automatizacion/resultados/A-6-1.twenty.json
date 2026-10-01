@@ -1,0 +1,16 @@
+{
+  "criterio": "A.6.1",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "La póliza se liga con la persona que es su titular mediante un campo de relación, que se define una vez desde el modelo de datos, sin programar: cada póliza tiene un titular y una persona puede tener muchas pólizas. Al definirlo, la ficha de la persona suma sola el campo con sus pólizas. Se cargó una póliza, se eligió al titular buscándolo por nombre, y las dos puntas del vínculo quedaron a la vista: la póliza muestra al titular y la ficha del asegurado lista la póliza junto con las demás suyas.",
+  "evidencia": [
+    "A-6-1-twenty-1-poliza-con-titular.png",
+    "A-6-1-twenty-2-ficha-del-titular.png"
+  ],
+  "criterioNombre": "Vinculación de la póliza con su titular",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T23:55:50.528Z"
+}

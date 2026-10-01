@@ -1,0 +1,522 @@
+- generic [active] [ref=f99e1]:
+  - generic [ref=f99e4]:
+    - generic [ref=f99e7]:
+      - generic [ref=f99e8]:
+        - button "U Unimoron" [ref=f99e10]:
+          - generic [ref=f99e11] [cursor=pointer]:
+            - generic [ref=f99e12]: U
+            - generic [ref=f99e14]: Unimoron
+        - generic [ref=f99e21]:
+          - button "Buscar" [ref=f99e658] [cursor=pointer]
+          - button "Contraer panel de navegación" [ref=f99e659] [cursor=pointer]
+      - generic [ref=f99e35]:
+        - tablist "Pestañas de navegación" [ref=f99e660]:
+          - tab "Inicio" [selected] [ref=f99e661] [cursor=pointer]
+          - tab "Chat" [ref=f99e44] [cursor=pointer]
+        - button "Nuevo chat" [ref=f99e662] [cursor=pointer]
+      - generic [ref=f99e59]:
+        - generic [ref=f99e60]: Espacio de trabajo
+        - generic [ref=f99e70]:
+          - link "Companies" [ref=f99e72] [cursor=pointer]:
+            - /url: /objects/companies?viewId=085257b7-0ec9-4d7c-85bd-1ecb5000a0cd
+          - link "People" [ref=f99e82] [cursor=pointer]:
+            - /url: /objects/people?viewId=c6da8283-79b8-4080-9444-aceab55e5ce0
+          - link "Opportunities" [ref=f99e92] [cursor=pointer]:
+            - /url: /objects/opportunities?viewId=27ba9132-981c-428d-a7aa-1512117202eb
+          - link "Tasks" [ref=f99e105] [cursor=pointer]:
+            - /url: /objects/tasks?viewId=d6c73a4d-9b96-496f-921a-616a91b43b37
+          - link "Notes" [ref=f99e115] [cursor=pointer]:
+            - /url: /objects/notes?viewId=61367473-9545-40d6-85a2-744d771222e6
+          - link "Dashboards" [ref=f99e124] [cursor=pointer]:
+            - /url: /objects/dashboards?viewId=369176f3-8d66-4b18-93b3-a272c62f1567
+          - link "Reclamos" [ref=f99e136] [cursor=pointer]:
+            - /url: /objects/reclamos?viewId=9c369a94-00d7-4c59-ae70-0099b4f9556b
+          - link "Pólizas" [ref=f99e145] [cursor=pointer]:
+            - /url: /objects/polizas?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+          - link "Artículos" [ref=f99e155] [cursor=pointer]:
+            - /url: /objects/articulos?viewId=c567cb39-2423-436c-86ab-a893624af1cc
+          - link "Inspecciones" [ref=f99e165] [cursor=pointer]:
+            - /url: /objects/inspecciones?viewId=121d5d64-2541-438f-aef9-7307ec54eeb6
+    - generic [ref=f99e176]:
+      - generic [ref=f99e1247]:
+        - generic [ref=f99e1249]:
+          - generic [ref=f99e1250]: Tasks
+          - generic [ref=f99e1256]:
+            - button "Create new Task" [ref=f99e68014] [cursor=pointer]:
+              - generic [ref=f99e1264]:
+                - generic [ref=f99e1265]: New Task
+                - generic [ref=f99e1266]: ...
+            - button "Menú de Comandos" [ref=f99e1269] [cursor=pointer]
+        - generic [ref=f99e1276]:
+          - button "All Tasks · 18" [ref=f99e69298]:
+            - generic [ref=f99e1279] [cursor=pointer]:
+              - generic [ref=f99e1282]: All Tasks
+              - generic [ref=f99e1284]: · 18
+          - generic [ref=f99e1287]:
+            - button [ref=f99e1288]:
+              - button "Filtro" [ref=f99e1289] [cursor=pointer]
+            - button [ref=f99e1290]:
+              - button "Ordenar" [ref=f99e1291] [cursor=pointer]
+            - button [ref=f99e1292]:
+              - button "Opciones" [ref=f99e1293] [cursor=pointer]
+        - generic [ref=f99e68017]:
+          - generic [ref=f99e68018]:
+            - generic [ref=f99e68019] [cursor=pointer]
+            - generic [ref=f99e68021] [cursor=pointer]:
+              - checkbox "Seleccionar todas las filas" [ref=f99e68022]
+              - checkbox [aria-hidden] [ref=f99e68024]
+            - generic [ref=f99e68025] [cursor=pointer]:
+              - button "Title" [ref=f99e68026]
+              - separator [ref=f99e68032]
+            - generic [ref=f99e68036] [cursor=pointer]:
+              - separator [ref=f99e68037]
+              - button [ref=f99e68038]:
+                - button "Status" [ref=f99e68039]
+              - separator [ref=f99e68045]
+            - generic [ref=f99e68049] [cursor=pointer]:
+              - separator [ref=f99e68050]
+              - button [ref=f99e68051]:
+                - button "Relations" [ref=f99e68052]
+              - separator [ref=f99e68059]
+            - generic [ref=f99e68063] [cursor=pointer]:
+              - separator [ref=f99e68064]
+              - button [ref=f99e68065]:
+                - button "Created by" [ref=f99e68066]
+              - separator [ref=f99e68074]
+            - generic [ref=f99e68078] [cursor=pointer]:
+              - separator [ref=f99e68079]
+              - button [ref=f99e68080]:
+                - button "Due Date" [ref=f99e68081]
+              - separator [ref=f99e68088]
+            - generic [ref=f99e68092] [cursor=pointer]:
+              - separator [ref=f99e68093]
+              - button [ref=f99e68094]:
+                - button "Assignee" [ref=f99e68095]
+              - separator [ref=f99e68103]
+            - generic [ref=f99e68107] [cursor=pointer]:
+              - separator [ref=f99e68108]
+              - button [ref=f99e68109]:
+                - button "Body" [ref=f99e68110]
+              - separator [ref=f99e68118]
+            - generic [ref=f99e68122] [cursor=pointer]:
+              - separator [ref=f99e68123]
+              - button [ref=f99e68124]:
+                - button "Creation date" [ref=f99e68125]
+              - separator [ref=f99e68131]
+            - generic [ref=f99e68134] [cursor=pointer]:
+              - separator [ref=f99e68135]
+              - button [ref=f99e68137]
+          - generic [ref=f99e68141]:
+            - generic [ref=f99e68144]:
+              - button [ref=f99e68146]
+              - generic [ref=f99e68153] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e68154]
+                - checkbox [aria-hidden] [ref=f99e68156]
+              - link "L Llamar a Martín Acosta - seguimiento reclamo choque en estacionamiento" [ref=f99e70418] [cursor=pointer]:
+                - /url: /object/task/c06e5498-9be0-43ad-98f8-bd5556aa6631?viewId=d6c73a4d-9b96-496f-921a-616a91b43b37
+                - generic [ref=f99e69305]:
+                  - generic [ref=f99e69306]: L
+                  - generic [ref=f99e70419]: Llamar a Martín Acosta - seguimiento reclamo choque en estacionamiento
+              - generic [ref=f99e69309]: To do
+              - generic [ref=f99e69316] [cursor=pointer]
+              - generic [ref=f99e69323]:
+                - generic [ref=f99e69324]: B
+                - generic [ref=f99e69326]: Bruno Salas
+              - generic [ref=f99e69328] [cursor=pointer]
+              - generic [ref=f99e69333] [cursor=pointer]
+              - generic [ref=f99e69337] [cursor=pointer]
+              - generic [ref=f99e69340]: hace menos de un minuto
+            - generic [ref=f99e68214]:
+              - button [ref=f99e68216]
+              - generic [ref=f99e68223] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e68224]
+                - checkbox [aria-hidden] [ref=f99e68226]
+              - link "L Llamar a Lucía Fernández - seguimiento reclamo choque en estacionamiento" [ref=f99e69350] [cursor=pointer]:
+                - /url: /object/task/4b40a688-a884-4a23-8327-3c37a76499f6?viewId=d6c73a4d-9b96-496f-921a-616a91b43b37
+                - generic [ref=f99e69351]:
+                  - generic [ref=f99e69352]: L
+                  - generic [ref=f99e69354]: Llamar a Lucía Fernández - seguimiento reclamo choque en estacionamiento
+              - generic [ref=f99e69355]: To do
+              - link "L Lucía Fernández" [ref=f99e69369] [cursor=pointer]:
+                - /url: /object/person/4dff0954-e330-4eff-a58d-3056d8bbc3ec
+                - generic [ref=f99e69370]:
+                  - generic [ref=f99e69371]: L
+                  - generic [ref=f99e69373]: Lucía Fernández
+              - generic [ref=f99e69378]:
+                - generic [ref=f99e69379]: A
+                - generic [ref=f99e69381]: Andrea Ríos
+              - generic [ref=f99e69382]: sep 29, 2026 10:00 AM
+              - generic [ref=f99e69388] [cursor=pointer]
+              - generic [ref=f99e69392] [cursor=pointer]
+              - generic [ref=f99e69395]: hace 36 minutos
+            - generic [ref=f99e68281]:
+              - button [ref=f99e68283]
+              - generic [ref=f99e68290] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e68291]
+                - checkbox [aria-hidden] [ref=f99e68293]
+              - link "G Gestionar cobranza de POL-CART-01" [ref=f99e69405] [cursor=pointer]:
+                - /url: /object/task/e383d773-35c0-4e20-a19b-23b705b1a83c?viewId=d6c73a4d-9b96-496f-921a-616a91b43b37
+                - generic [ref=f99e69406]:
+                  - generic [ref=f99e69407]: G
+                  - generic [ref=f99e69409]: Gestionar cobranza de POL-CART-01
+              - generic [ref=f99e69410]: To do
+              - generic [ref=f99e69417] [cursor=pointer]
+              - generic [ref=f99e69420]: Workflow
+              - generic [ref=f99e69431] [cursor=pointer]
+              - generic [ref=f99e69439] [cursor=pointer]:
+                - generic [ref=f99e69440]: P
+                - generic [ref=f99e69442]: Pablo Gómez
+              - generic [ref=f99e69444] [cursor=pointer]
+              - generic [ref=f99e69447]: hace alrededor de 1 hora
+            - generic [ref=f99e68351]:
+              - button [ref=f99e68353]
+              - generic [ref=f99e68360] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e68361]
+                - checkbox [aria-hidden] [ref=f99e68363]
+              - link "L Llamada de bienvenida — Peña" [ref=f99e69457] [cursor=pointer]:
+                - /url: /object/task/e46083b1-e1b8-4fdf-b50d-842f7d84bcc3?viewId=d6c73a4d-9b96-496f-921a-616a91b43b37
+                - generic [ref=f99e69458]:
+                  - generic [ref=f99e69459]: L
+                  - generic [ref=f99e69461]: Llamada de bienvenida — Peña
+              - generic [ref=f99e69462]: Done
+              - link "J Joaquín Peña" [ref=f99e69476] [cursor=pointer]:
+                - /url: /object/person/6a07c36b-51aa-4d1e-b502-b4b4ab7d510c
+                - generic [ref=f99e69477]:
+                  - generic [ref=f99e69478]: J
+                  - generic [ref=f99e69480]: Joaquín Peña
+              - generic [ref=f99e69485]:
+                - generic [ref=f99e69486]: T
+                - generic [ref=f99e69488]: TP TP
+              - generic [ref=f99e69490] [cursor=pointer]
+              - generic [ref=f99e69495] [cursor=pointer]
+              - generic [ref=f99e69499] [cursor=pointer]
+              - generic [ref=f99e69502]: hace alrededor de 2 horas
+            - generic [ref=f99e68416]:
+              - button [ref=f99e68418]
+              - generic [ref=f99e68425] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e68426]
+                - checkbox [aria-hidden] [ref=f99e68428]
+              - link "L Llamar al perito por el siniestro" [ref=f99e69512] [cursor=pointer]:
+                - /url: /object/task/25cec785-23d7-4cd6-82b1-260303af79fe?viewId=d6c73a4d-9b96-496f-921a-616a91b43b37
+                - generic [ref=f99e69513]:
+                  - generic [ref=f99e69514]: L
+                  - generic [ref=f99e69516]: Llamar al perito por el siniestro
+              - generic [ref=f99e69517]: To do
+              - generic [ref=f99e69524] [cursor=pointer]
+              - generic [ref=f99e69531]:
+                - generic [ref=f99e69532]: T
+                - generic [ref=f99e69534]: TP TP
+              - generic [ref=f99e69536] [cursor=pointer]
+              - generic [ref=f99e69544] [cursor=pointer]:
+                - generic [ref=f99e69545]: P
+                - generic [ref=f99e69547]: Pablo Gómez
+              - generic [ref=f99e69549] [cursor=pointer]
+              - generic [ref=f99e69552]: hace alrededor de 2 horas
+            - generic [ref=f99e68481]:
+              - button [ref=f99e68483]
+              - generic [ref=f99e68490] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e68491]
+                - checkbox [aria-hidden] [ref=f99e68493]
+              - link "P Pedir las fotos del siniestro" [ref=f99e69562] [cursor=pointer]:
+                - /url: /object/task/1750dfeb-ab22-4577-a5af-20e56afb944c?viewId=d6c73a4d-9b96-496f-921a-616a91b43b37
+                - generic [ref=f99e69563]:
+                  - generic [ref=f99e69564]: P
+                  - generic [ref=f99e69566]: Pedir las fotos del siniestro
+              - generic [ref=f99e69567]: To do
+              - generic [ref=f99e69574] [cursor=pointer]
+              - generic [ref=f99e69581]:
+                - generic [ref=f99e69582]: T
+                - generic [ref=f99e69584]: TP TP
+              - generic [ref=f99e69585]: sep 30, 2026 10:00 AM
+              - generic [ref=f99e69594] [cursor=pointer]:
+                - generic [ref=f99e69595]: P
+                - generic [ref=f99e69597]: Pablo Gómez
+              - generic [ref=f99e69599] [cursor=pointer]
+              - generic [ref=f99e69602]: hace alrededor de 2 horas
+            - generic [ref=f99e68546]:
+              - button [ref=f99e68548]
+              - generic [ref=f99e68555] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e68556]
+                - checkbox [aria-hidden] [ref=f99e68558]
+              - link "E Enviar cotización de hogar" [ref=f99e69612] [cursor=pointer]:
+                - /url: /object/task/55728636-d42d-44a9-af51-5b42d0c5f7c7?viewId=d6c73a4d-9b96-496f-921a-616a91b43b37
+                - generic [ref=f99e69613]:
+                  - generic [ref=f99e69614]: E
+                  - generic [ref=f99e69616]: Enviar cotización de hogar
+              - generic [ref=f99e69617]: To do
+              - generic [ref=f99e69624] [cursor=pointer]
+              - generic [ref=f99e69631]:
+                - generic [ref=f99e69632]: T
+                - generic [ref=f99e69634]: TP TP
+              - generic [ref=f99e69635]: sep 30, 2026 10:40 PM
+              - generic [ref=f99e69644] [cursor=pointer]:
+                - generic [ref=f99e69645]: P
+                - generic [ref=f99e69647]: Pablo Gómez
+              - generic [ref=f99e69649] [cursor=pointer]
+              - generic [ref=f99e69652]: hace alrededor de 6 horas
+            - generic [ref=f99e68611]:
+              - button [ref=f99e68613]
+              - generic [ref=f99e68620] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e68621]
+                - checkbox [aria-hidden] [ref=f99e68623]
+              - link "V Visitar a la asegurada por la renovación" [ref=f99e69662] [cursor=pointer]:
+                - /url: /object/task/f10d5978-f0c5-45b5-98f0-62149843ddd1?viewId=d6c73a4d-9b96-496f-921a-616a91b43b37
+                - generic [ref=f99e69663]:
+                  - generic [ref=f99e69664]: V
+                  - generic [ref=f99e69666]: Visitar a la asegurada por la renovación
+              - generic [ref=f99e69667]: To do
+              - generic [ref=f99e69674] [cursor=pointer]
+              - generic [ref=f99e69681]:
+                - generic [ref=f99e69682]: T
+                - generic [ref=f99e69684]: TP TP
+              - generic [ref=f99e69685]: sep 29, 2026 10:00 AM
+              - generic [ref=f99e69694] [cursor=pointer]:
+                - generic [ref=f99e69695]: P
+                - generic [ref=f99e69697]: Pablo Gómez
+              - generic [ref=f99e69699] [cursor=pointer]
+              - generic [ref=f99e69702]: hace alrededor de 6 horas
+            - generic [ref=f99e68674]:
+              - button [ref=f99e68676]
+              - generic [ref=f99e68683] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e68684]
+                - checkbox [aria-hidden] [ref=f99e68686]
+              - link "R RCL-PLAZO-MANANA" [ref=f99e69712] [cursor=pointer]:
+                - /url: /object/task/eb7655cd-5a5e-4d2d-be9c-4e94a59a4eb1?viewId=d6c73a4d-9b96-496f-921a-616a91b43b37
+                - generic [ref=f99e69713]:
+                  - generic [ref=f99e69714]: R
+                  - generic [ref=f99e69716]: RCL-PLAZO-MANANA
+              - generic [ref=f99e69717]: To do
+              - generic [ref=f99e69724] [cursor=pointer]
+              - generic [ref=f99e69727]: Workflow
+              - generic [ref=f99e69738] [cursor=pointer]
+              - generic [ref=f99e69743] [cursor=pointer]
+              - generic [ref=f99e69747] [cursor=pointer]
+              - generic [ref=f99e69750]: hace alrededor de 8 horas
+            - generic [ref=f99e68737]:
+              - button [ref=f99e68739]
+              - generic [ref=f99e68746] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e68747]
+                - checkbox [aria-hidden] [ref=f99e68749]
+              - link "P POL-CART-15" [ref=f99e69760] [cursor=pointer]:
+                - /url: /object/task/563019bc-6378-4b72-8315-19612d94e2ec?viewId=d6c73a4d-9b96-496f-921a-616a91b43b37
+                - generic [ref=f99e69761]:
+                  - generic [ref=f99e69762]: P
+                  - generic [ref=f99e69764]: POL-CART-15
+              - generic [ref=f99e69765]: To do
+              - generic [ref=f99e69772] [cursor=pointer]
+              - generic [ref=f99e69775]: Workflow
+              - generic [ref=f99e69786] [cursor=pointer]
+              - generic [ref=f99e69791] [cursor=pointer]
+              - generic [ref=f99e69795] [cursor=pointer]
+              - generic [ref=f99e69798]: hace alrededor de 8 horas
+            - generic [ref=f99e68800]:
+              - button [ref=f99e68802]
+              - generic [ref=f99e68809] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e68810]
+                - checkbox [aria-hidden] [ref=f99e68812]
+              - link "P POL-VENCE-PRONTO" [ref=f99e69808] [cursor=pointer]:
+                - /url: /object/task/0515c94a-03b6-41c9-8837-497746bee2da?viewId=d6c73a4d-9b96-496f-921a-616a91b43b37
+                - generic [ref=f99e69809]:
+                  - generic [ref=f99e69810]: P
+                  - generic [ref=f99e69812]: POL-VENCE-PRONTO
+              - generic [ref=f99e69813]: To do
+              - generic [ref=f99e69820] [cursor=pointer]
+              - generic [ref=f99e69823]: Workflow
+              - generic [ref=f99e69834] [cursor=pointer]
+              - generic [ref=f99e69839] [cursor=pointer]
+              - generic [ref=f99e69843] [cursor=pointer]
+              - generic [ref=f99e69846]: hace alrededor de 8 horas
+            - generic [ref=f99e68863]:
+              - button [ref=f99e68865]
+              - generic [ref=f99e68872] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e68873]
+                - checkbox [aria-hidden] [ref=f99e68875]
+              - link "P POL-CART-04" [ref=f99e69856] [cursor=pointer]:
+                - /url: /object/task/6c6ec8f5-a738-4453-8e96-113890e78702?viewId=d6c73a4d-9b96-496f-921a-616a91b43b37
+                - generic [ref=f99e69857]:
+                  - generic [ref=f99e69858]: P
+                  - generic [ref=f99e69860]: POL-CART-04
+              - generic [ref=f99e69861]: To do
+              - generic [ref=f99e69868] [cursor=pointer]
+              - generic [ref=f99e69871]: Workflow
+              - generic [ref=f99e69882] [cursor=pointer]
+              - generic [ref=f99e69887] [cursor=pointer]
+              - generic [ref=f99e69891] [cursor=pointer]
+              - generic [ref=f99e69894]: hace alrededor de 8 horas
+            - generic [ref=f99e68926]:
+              - button [ref=f99e68928]
+              - generic [ref=f99e68935] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e68936]
+                - checkbox [aria-hidden] [ref=f99e68938]
+              - link "P POL-CART-14" [ref=f99e69904] [cursor=pointer]:
+                - /url: /object/task/ad698c95-8708-4dea-a2a7-d6fb6570e609?viewId=d6c73a4d-9b96-496f-921a-616a91b43b37
+                - generic [ref=f99e69905]:
+                  - generic [ref=f99e69906]: P
+                  - generic [ref=f99e69908]: POL-CART-14
+              - generic [ref=f99e69909]: To do
+              - generic [ref=f99e69916] [cursor=pointer]
+              - generic [ref=f99e69919]: Workflow
+              - generic [ref=f99e69930] [cursor=pointer]
+              - generic [ref=f99e69935] [cursor=pointer]
+              - generic [ref=f99e69939] [cursor=pointer]
+              - generic [ref=f99e69942]: hace alrededor de 8 horas
+            - generic [ref=f99e68989]:
+              - button [ref=f99e68991]
+              - generic [ref=f99e68998] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e68999]
+                - checkbox [aria-hidden] [ref=f99e69001]
+              - link "P POL-CART-16" [ref=f99e69952] [cursor=pointer]:
+                - /url: /object/task/7c11fa7f-b2bc-40ca-95a8-929d5aad6952?viewId=d6c73a4d-9b96-496f-921a-616a91b43b37
+                - generic [ref=f99e69953]:
+                  - generic [ref=f99e69954]: P
+                  - generic [ref=f99e69956]: POL-CART-16
+              - generic [ref=f99e69957]: To do
+              - generic [ref=f99e69964] [cursor=pointer]
+              - generic [ref=f99e69967]: Workflow
+              - generic [ref=f99e69978] [cursor=pointer]
+              - generic [ref=f99e69983] [cursor=pointer]
+              - generic [ref=f99e69987] [cursor=pointer]
+              - generic [ref=f99e69990]: hace alrededor de 8 horas
+            - generic [ref=f99e69052]:
+              - button [ref=f99e69054]
+              - generic [ref=f99e69061] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e69062]
+                - checkbox [aria-hidden] [ref=f99e69064]
+              - link "P POL-CART-24" [ref=f99e70000] [cursor=pointer]:
+                - /url: /object/task/e1cac1b0-4965-408d-a64a-5328555e5e6d?viewId=d6c73a4d-9b96-496f-921a-616a91b43b37
+                - generic [ref=f99e70001]:
+                  - generic [ref=f99e70002]: P
+                  - generic [ref=f99e70004]: POL-CART-24
+              - generic [ref=f99e70005]: To do
+              - generic [ref=f99e70012] [cursor=pointer]
+              - generic [ref=f99e70015]: Workflow
+              - generic [ref=f99e70026] [cursor=pointer]
+              - generic [ref=f99e70031] [cursor=pointer]
+              - generic [ref=f99e70035] [cursor=pointer]
+              - generic [ref=f99e70038]: hace alrededor de 8 horas
+            - generic [ref=f99e69115]:
+              - button [ref=f99e69117]
+              - generic [ref=f99e69124] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e69125]
+                - checkbox [aria-hidden] [ref=f99e69127]
+              - link "P POL-CART-02" [ref=f99e70048] [cursor=pointer]:
+                - /url: /object/task/368b7d8a-601c-4654-96ba-7e3999f6dfdd?viewId=d6c73a4d-9b96-496f-921a-616a91b43b37
+                - generic [ref=f99e70049]:
+                  - generic [ref=f99e70050]: P
+                  - generic [ref=f99e70052]: POL-CART-02
+              - generic [ref=f99e70053]: To do
+              - generic [ref=f99e70060] [cursor=pointer]
+              - generic [ref=f99e70063]: Workflow
+              - generic [ref=f99e70074] [cursor=pointer]
+              - generic [ref=f99e70079] [cursor=pointer]
+              - generic [ref=f99e70083] [cursor=pointer]
+              - generic [ref=f99e70086]: hace alrededor de 8 horas
+            - generic [ref=f99e69178]:
+              - button [ref=f99e69180]
+              - generic [ref=f99e69187] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e69188]
+                - checkbox [aria-hidden] [ref=f99e69190]
+              - link "P POL-CART-03" [ref=f99e70096] [cursor=pointer]:
+                - /url: /object/task/244a38b1-8a69-4b3f-9d0c-d837bfa8bbe6?viewId=d6c73a4d-9b96-496f-921a-616a91b43b37
+                - generic [ref=f99e70097]:
+                  - generic [ref=f99e70098]: P
+                  - generic [ref=f99e70100]: POL-CART-03
+              - generic [ref=f99e70101]: To do
+              - generic [ref=f99e70108] [cursor=pointer]
+              - generic [ref=f99e70111]: Workflow
+              - generic [ref=f99e70122] [cursor=pointer]
+              - generic [ref=f99e70127] [cursor=pointer]
+              - generic [ref=f99e70131] [cursor=pointer]
+              - generic [ref=f99e70134]: hace alrededor de 8 horas
+            - generic [ref=f99e70140]:
+              - button [ref=f99e70142]
+              - generic [ref=f99e70149] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e70150]
+                - checkbox [aria-hidden] [ref=f99e70152]
+              - link "P POL-CART-12" [ref=f99e70158] [cursor=pointer]:
+                - /url: /object/task/722526ca-315b-4473-923a-9722dadee599?viewId=d6c73a4d-9b96-496f-921a-616a91b43b37
+                - generic [ref=f99e70159]:
+                  - generic [ref=f99e70160]: P
+                  - generic [ref=f99e70162]: POL-CART-12
+              - generic [ref=f99e70163]: To do
+              - generic [ref=f99e70170] [cursor=pointer]
+              - generic [ref=f99e70173]: Workflow
+              - generic [ref=f99e70184] [cursor=pointer]
+              - generic [ref=f99e70189] [cursor=pointer]
+              - generic [ref=f99e70193] [cursor=pointer]
+              - generic [ref=f99e70196]: hace alrededor de 8 horas
+            - generic [ref=f99e69240]: Agregar nuevo
+          - generic [ref=f99e69249]:
+            - button "Calcular" [ref=f99e69253] [cursor=pointer]
+            - button [ref=f99e69262] [cursor=pointer]
+            - button [ref=f99e69267] [cursor=pointer]
+            - button [ref=f99e69272] [cursor=pointer]
+            - button [ref=f99e69277] [cursor=pointer]
+            - button [ref=f99e69282] [cursor=pointer]
+            - button [ref=f99e69287] [cursor=pointer]
+            - button [ref=f99e69292] [cursor=pointer]
+      - complementary [ref=f99e635]:
+        - generic [ref=f99e70202]:
+          - generic [ref=f99e70204]:
+            - generic [ref=f99e70206]:
+              - generic [ref=f99e70207]: L
+              - generic [ref=f99e70210]:
+                - generic [ref=f99e70211]: Llamar a Martín Acosta - seguimiento reclamo choque en estacionamiento
+                - generic [ref=f99e70219]: Created ahora
+            - generic [ref=f99e70220]:
+              - button "Expandir registro" [ref=f99e70222] [cursor=pointer]
+              - button "Cerrar panel lateral" [ref=f99e70229] [cursor=pointer]
+          - generic [ref=f99e70235]:
+            - generic [ref=f99e70238]:
+              - generic [ref=f99e70241]:
+                - button "Home" [ref=f99e70243] [cursor=pointer]
+                - button "Timeline" [ref=f99e70250] [cursor=pointer]
+                - button "Files" [ref=f99e70256] [cursor=pointer]
+              - generic [ref=f99e70262]:
+                - button "Fields General Due Date Due Date Status To do Assignee Assignee Body Body Relations Relations System Creation date hace menos de un minuto Created by B Bruno Salas" [disabled] [ref=f99e70264]:
+                  - generic [ref=f99e70265]:
+                    - generic [ref=f99e70266]: Fields
+                    - generic [ref=f99e70270]:
+                      - generic [ref=f99e70271]:
+                        - generic [ref=f99e70272] [cursor=pointer]: General
+                        - generic [ref=f99e70279]:
+                          - generic [ref=f99e70280] [cursor=pointer]:
+                            - generic [ref=f99e70281]: Due Date
+                            - generic [ref=f99e70288]: Due Date
+                          - generic [ref=f99e70293] [cursor=pointer]:
+                            - generic [ref=f99e70294]: Status
+                            - generic [ref=f99e70300]: To do
+                          - generic [ref=f99e70306] [cursor=pointer]:
+                            - generic [ref=f99e70307]: Assignee
+                            - generic [ref=f99e70315]: Assignee
+                          - generic [ref=f99e70320] [cursor=pointer]:
+                            - generic [ref=f99e70321]: Body
+                            - generic [ref=f99e70329]: Body
+                          - generic [ref=f99e70334] [cursor=pointer]:
+                            - generic [ref=f99e70335]: Relations
+                            - generic [ref=f99e70342]: Relations
+                      - generic [ref=f99e70347]:
+                        - generic [ref=f99e70348] [cursor=pointer]: System
+                        - generic [ref=f99e70355]:
+                          - generic [ref=f99e70356]:
+                            - generic [ref=f99e70357]: Creation date
+                            - generic [ref=f99e70363]: hace menos de un minuto
+                          - generic [ref=f99e70368]:
+                            - generic [ref=f99e70369]: Created by
+                            - generic [ref=f99e70381]:
+                              - generic [ref=f99e70382]: B
+                              - generic [ref=f99e70384]: Bruno Salas
+                - button "Task" [disabled] [ref=f99e70386]:
+                  - generic [ref=f99e70387]:
+                    - generic [ref=f99e70388]: Task
+                    - textbox [disabled] [ref=f99e70397]:
+                      - generic [ref=f99e70401]:
+                        - paragraph [ref=f99e70402]
+                        - text: Escribe "/" para comandos, "@" para menciones
+            - generic [ref=f99e70404]:
+              - button [ref=f99e70405]:
+                - button "Opciones" [ref=f99e70406] [cursor=pointer]
+              - button "Add to Favorites" [ref=f99e70414] [cursor=pointer]
+  - status [ref=f99e69296]
+  - status [ref=f99e69297]
+  - status [ref=f99e70417]

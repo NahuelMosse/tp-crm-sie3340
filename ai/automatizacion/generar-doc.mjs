@@ -2,182 +2,151 @@
 /**
  * Genera la documentación HTML de las pruebas.
  *
- *   node generar-doc.mjs
+ *   node generar-doc.mjs [raiz-del-repo]
  *
- * Lee la evidencia de ai/pruebas/ y arma humanos/documentacion/index.html
- * con todas las pruebas indexadas: video, capturas, qué se midió y resultado.
+ * Arma humanos/documentacion/index.html con cada criterio del catálogo de la
+ * sección 4 y, por plataforma, lo que registró su prueba: el valor, la
+ * justificación, la medición, el video de la ejecución, las capturas y las
+ * fuentes citadas con su texto textual.
+ *
+ * Como la matriz del informe, no se escribe a mano: sale de resultados/*.json,
+ * de evidencia/ y de evidencia/videos/, que conserva el video de la última
+ * ejecución de cada criterio.
  */
-import { readdirSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import catalogo from './catalogo.cjs';
 
 const AQUI = dirname(fileURLToPath(import.meta.url));
-const RAIZ = process.argv[2] ?? AQUI;
-const EVIDENCIA = join(RAIZ, 'ai', 'pruebas');
+const RAIZ = process.argv[2] ? join(process.cwd(), process.argv[2]) : catalogo.RAIZ;
+const RESULTADOS = join(AQUI, 'resultados');
+const EVIDENCIA = join(AQUI, 'evidencia');
 const SALIDA = join(RAIZ, 'humanos', 'documentacion');
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Catálogo: qué prueba cada caso. Se amplía a medida que se agregan tests.
-// ─────────────────────────────────────────────────────────────────────────────
-const HERRAMIENTAS = {
-  espocrm:  { nombre: 'EspoCRM',  version: '10.0.4',  color: '#2d7ff9', tipo: 'Self-hosted · AGPL v3' },
-  twenty:   { nombre: 'Twenty',   version: 'v2.37.4', color: '#7b5cff', tipo: 'Self-hosted · AGPL v3' },
-  bitrix24: { nombre: 'Bitrix24', version: 'Free',    color: '#00aeef', tipo: 'SaaS · plan gratuito' },
+/** Desde humanos/documentacion/, dónde está cada carpeta de constancias. */
+const RUTA_EVIDENCIA = '../../ai/automatizacion/evidencia';
+const RUTA_EXPLORACION = '../../ai/pruebas';
+
+const PLATAFORMAS = {
+  espocrm:  { nombre: 'EspoCRM',  version: '10.0.4 Community', color: '#2d7ff9' },
+  twenty:   { nombre: 'Twenty',   version: 'v2.37.4',          color: '#7b5cff' },
+  bitrix24: { nombre: 'Bitrix24', version: 'Free',             color: '#00aeef' },
 };
 
-const CASOS = {
-  'C03-01': {
-    criterio: 'Criterio 3 — Navegabilidad',
-    titulo: 'Clicks y tiempo hasta crear un contacto',
-    pregunta: '¿Cuántos clicks y cuántos segundos hace falta para cargar un contacto desde cero?',
-    resultados: {
-      espocrm: { ok: true, dato: '4 clicks · 10,0 s', nota: 'Login en 5,6 s. Formulario con nombre y apellido separados.' },
-    },
-  },
-  'C04-06': {
-    criterio: 'Criterio 4 — Idioma de la interfaz',
-    titulo: 'La interfaz está en español',
-    pregunta: '¿Traduce solo los botones o también los nombres del modelo de datos?',
-    resultados: {
-      espocrm:  { ok: true,  dato: 'Español completo', nota: 'Traduce el modelo: Cuentas, Contactos, Posibles clientes, Oportunidades. 36 idiomas de fábrica.' },
-      twenty:   { ok: false, dato: 'Parcial',          nota: 'Traduce los controles (Filtro, Ordenar, Opciones) pero deja el modelo en inglés: Companies, People, Opportunities, Name, Emails.' },
-      bitrix24: { ok: true,  dato: 'Español completo', nota: 'Negociaciones, Clientes, Ventas, Analítica. Cero palabras en inglés detectadas.' },
-    },
-  },
-  'limites': {
-    criterio: 'Criterio E5 — Rendimiento con volumen',
-    titulo: 'Límites reales del plan Free',
-    pregunta: '¿Qué topes tiene el plan gratuito y dónde aprieta?',
-    resultados: {
-      bitrix24: { ok: false, dato: 'Se borra a los 50 días', nota: 'El portal se ELIMINA si no se inicia sesión en 50 días. No lo suspende: lo borra con los datos adentro.' },
-    },
-  },
-  'premium': {
-    criterio: 'Funciones de pago',
-    titulo: 'Qué queda detrás del paywall',
-    pregunta: '¿Qué funciones no están disponibles en la versión gratuita?',
-    resultados: {
-      espocrm:  { ok: false, dato: 'Reportes: $395', nota: 'El módulo de reportes es del Advanced Pack, pago único por instancia.' },
-      twenty:   { ok: true,  dato: 'Sin paywall',    nota: '/settings/billing no existe. En self-hosted no hay funciones retenidas.' },
-      bitrix24: { ok: false, dato: 'Automatización', nota: 'Al abrir Reglas de automatización aparece "Suscripción / Mejore su plan".' },
-    },
-  },
-  'planes':   { criterio: 'Planes de pago', titulo: 'Precios del portal', pregunta: '¿Qué planes ofrece y a qué precio?', resultados: {} },
-  'sesion':   { criterio: 'Automatización', titulo: 'Sesión guardada', pregunta: '¿Se puede entrar sin login ni captcha?', resultados: { bitrix24: { ok: true, dato: '9,7 s sin login', nota: 'Con storageState entra directo. El login manual se hace una sola vez.' } } },
-  'usuarios': { criterio: 'Criterio 5 — Usuarios', titulo: 'Usuarios del portal', pregunta: '¿Cuántos usuarios permite el plan?', resultados: {} },
+const CUMPLE = { 2: 'Cumple', 1: 'Cumple con reparo', 0: 'No cumple' };
+const COSTO = { 0: 'viene listo', 1: 'configuración', 2: 'desarrollo o trabajo permanente' };
+
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const ancla = (id, p = '') => `c-${id.replace(/\./g, '-')}${p ? `-${p}` : ''}`;
+
+// ── Lo registrado ────────────────────────────────────────────────────────────
+const registros = {};
+for (const f of existsSync(RESULTADOS) ? readdirSync(RESULTADOS).filter(f => f.endsWith('.json')) : []) {
+  const r = JSON.parse(readFileSync(join(RESULTADOS, f), 'utf8'));
+  (registros[r.criterio] ??= {})[r.plataforma] = r;
+}
+const videos = new Set(existsSync(join(EVIDENCIA, 'videos')) ? readdirSync(join(EVIDENCIA, 'videos')) : []);
+const enEvidencia = new Set(existsSync(EVIDENCIA) ? readdirSync(EVIDENCIA) : []);
+
+/** Las capturas más viejas quedaron en la carpeta de la exploración. */
+const rutaCaptura = (archivo) => enEvidencia.has(archivo) ? `${RUTA_EVIDENCIA}/${archivo}` : `${RUTA_EXPLORACION}/${archivo}`;
+const videoDe = (id, p) => {
+  const archivo = `${id.replace(/\./g, '-')}.${p}.webm`;
+  return videos.has(archivo) ? `${RUTA_EVIDENCIA}/videos/${archivo}` : null;
 };
 
-// ─────────────────────────────────────────────────────────────────────────────
+const listaFuentes = (d) => Array.isArray(d) ? d : d ? [d] : [];
 
-const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-
-function clasificar(archivo) {
-  const herr = Object.keys(HERRAMIENTAS).find(h => archivo.toLowerCase().startsWith(h)) ?? 'otros';
-  const mCaso = archivo.match(/C\d{2}-\d{2}/);
-  let caso = mCaso ? mCaso[0] : Object.keys(CASOS).find(k => !k.startsWith('C') && archivo.includes(k)) ?? 'varios';
-  const narrado = /narrado/i.test(archivo);
-  const video = archivo.endsWith('.webm');
-  const paso = (archivo.match(/-([a-e])-/) ?? [])[1] ?? '';
-  return { herr, caso, narrado, video, paso };
-}
-
-const archivos = existsSync(EVIDENCIA)
-  ? readdirSync(EVIDENCIA).filter(f => /\.(png|webm)$/i.test(f))
-  : [];
-
-// agrupar: herramienta -> caso -> archivos
-const arbol = {};
-for (const f of archivos) {
-  const c = clasificar(f);
-  ((arbol[c.herr] ??= {})[c.caso] ??= []).push({ archivo: f, ...c });
-}
-for (const h of Object.values(arbol))
-  for (const lista of Object.values(h))
-    lista.sort((a, b) => (b.video - a.video) || a.paso.localeCompare(b.paso) || a.archivo.localeCompare(b.archivo));
-
-const totalPruebas = Object.values(arbol).reduce((n, h) => n + Object.keys(h).length, 0);
-const totalVideos = archivos.filter(f => f.endsWith('.webm')).length;
-const totalCapturas = archivos.length - totalVideos;
-
-// ── índice lateral ───────────────────────────────────────────────────────────
-let nav = '';
-for (const [hid, casos] of Object.entries(arbol)) {
-  const H = HERRAMIENTAS[hid] ?? { nombre: 'Otros', color: '#888', version: '', tipo: '' };
-  nav += `<div class="nav-grupo"><div class="nav-h" style="--c:${H.color}">${esc(H.nombre)}</div>`;
-  for (const caso of Object.keys(casos)) {
-    const C = CASOS[caso] ?? { titulo: 'Capturas sueltas', criterio: '' };
-    nav += `<a href="#${hid}-${caso}"><span class="cid">${esc(caso)}</span>${esc(C.titulo)}</a>`;
+// ── Cifras de cabecera ───────────────────────────────────────────────────────
+const evaluados = (p) => Object.values(registros).filter(r => r[p] && r[p].puntua !== false).length;
+let totalVideos = 0, totalCapturas = 0, totalFuentes = 0;
+for (const porPlataforma of Object.values(registros)) {
+  for (const [p, r] of Object.entries(porPlataforma)) {
+    if (videoDe(r.criterio, p)) totalVideos++;
+    totalCapturas += (r.evidencia ?? []).length;
+    totalFuentes += listaFuentes(r.documentacion).length;
   }
-  nav += `</div>`;
 }
 
-// ── cuerpo ───────────────────────────────────────────────────────────────────
-let cuerpo = '';
-for (const [hid, casos] of Object.entries(arbol)) {
-  const H = HERRAMIENTAS[hid] ?? { nombre: 'Otros', version: '', color: '#888', tipo: '' };
-  cuerpo += `<section class="herr" style="--c:${H.color}">
-    <h2><span class="punto"></span>${esc(H.nombre)} <small>${esc(H.version)}</small></h2>
-    <p class="tipo">${esc(H.tipo)}</p>`;
+// ── Una plataforma dentro de un criterio ─────────────────────────────────────
+function bloque(c, p, r) {
+  const P = PLATAFORMAS[p];
+  if (!r) return `<div class="plat vacia" style="--c:${P.color}"><h4>${esc(P.nombre)}</h4><p class="tenue">Sin verificar: la prueba todavía no se ejecutó sobre esta plataforma.</p></div>`;
+  if (r.puntua === false) return `<div class="plat vacia" style="--c:${P.color}" id="${ancla(c.id, p)}"><h4>${esc(P.nombre)}</h4><p class="tenue">Sin verificar. ${esc(r.motivo)}</p></div>`;
 
-  for (const [caso, lista] of Object.entries(casos)) {
-    const C = CASOS[caso] ?? { titulo: 'Capturas sueltas', criterio: 'Sin clasificar', pregunta: '', resultados: {} };
-    const R = C.resultados?.[hid];
-    cuerpo += `<article class="caso" id="${hid}-${caso}">
-      <header>
-        <div class="badge">${esc(caso)}</div>
-        <div><h3>${esc(C.titulo)}</h3><div class="crit">${esc(C.criterio)}</div></div>
-        ${R ? `<div class="veredicto ${R.ok ? 'ok' : 'no'}">${R.ok ? '✓' : '!'} ${esc(R.dato)}</div>` : ''}
-      </header>
-      ${C.pregunta ? `<p class="preg"><b>Qué se probó:</b> ${esc(C.pregunta)}</p>` : ''}
-      ${R?.nota ? `<p class="hallazgo">${esc(R.nota)}</p>` : ''}`;
+  const valor = `<span class="valor v${r.cumple}">${r.cumple} · ${esc(CUMPLE[r.cumple])}</span>` +
+    (r.costo !== undefined && r.costo !== null ? `<span class="costo">costo ${r.costo} · ${esc(COSTO[r.costo])}</span>` : '');
+  const planes = (r.conPlan ?? []).map(k =>
+    `<li><b>${esc(k.plan)}</b> (${esc(k.monto)}): ${k.cumple} · ${esc(CUMPLE[k.cumple])}${k.costo !== undefined ? `, costo ${k.costo}` : ''}. ${esc(k.justificacion)}</li>`).join('');
+  const video = videoDe(c.id, p);
+  const capturas = (r.evidencia ?? []).map(a =>
+    `<figure><a href="${encodeURI(rutaCaptura(a))}" target="_blank"><img loading="lazy" src="${encodeURI(rutaCaptura(a))}" alt="${esc(a)}"></a><figcaption>${esc(a.replace(/\.png$/, ''))}</figcaption></figure>`).join('');
+  const fuentes = listaFuentes(r.documentacion).map(f =>
+    `<li><blockquote>${esc(f.cita)}</blockquote><div class="fuente"><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.url)}</a> · consultado el ${esc(f.consultado)}` +
+    (f.captura ? ` · <a href="${encodeURI(`${RUTA_EVIDENCIA}/${f.captura}`)}" target="_blank">captura</a>` : '') + `</div></li>`).join('');
 
-    const videos = lista.filter(x => x.video);
-    const imgs = lista.filter(x => !x.video);
+  return `<div class="plat" style="--c:${P.color}" id="${ancla(c.id, p)}">
+    <h4>${esc(P.nombre)} ${valor}</h4>
+    <p>${esc(r.justificacion)}</p>
+    ${r.medicion ? `<p class="medicion"><b>Medición:</b> ${esc(r.medicion)}</p>` : ''}
+    ${r.licencia ? `<p class="medicion"><b>Licencia:</b> ${esc(r.licencia.plan)} — ${esc(r.licencia.monto)}</p>` : ''}
+    ${planes ? `<div class="sub">Con un plan pago</div><ul class="planes">${planes}</ul>` : ''}
+    ${video ? `<figure class="video"><video controls preload="metadata" src="${encodeURI(video)}"></video><figcaption>Ejecución de la prueba</figcaption></figure>` : ''}
+    ${capturas ? `<div class="sub">Capturas del sistema</div><div class="galeria">${capturas}</div>` : ''}
+    ${fuentes ? `<div class="sub">Fuentes del fabricante</div><ul class="fuentes">${fuentes}</ul>` : ''}
+    <p class="momento">Registrado el ${esc(new Date(r.momento).toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' }))}</p>
+  </div>`;
+}
 
-    if (videos.length) {
-      cuerpo += `<div class="videos">`;
-      for (const v of videos) {
-        cuerpo += `<figure class="video">
-          <video controls preload="metadata" src="../../ai/pruebas/${encodeURI(v.archivo)}"></video>
-          <figcaption>Video de la prueba${v.narrado ? ' · versión narrada' : ''}</figcaption>
-        </figure>`;
-      }
-      cuerpo += `</div>`;
+// ── Índice y cuerpo ──────────────────────────────────────────────────────────
+const punto = (r, p) => {
+  const clase = !r ? 'nada' : r.puntua === false ? 'nada' : `v${r.cumple}`;
+  return `<i class="dot ${clase}" title="${esc(PLATAFORMAS[p].nombre)}: ${!r || r.puntua === false ? 'sin verificar' : esc(CUMPLE[r.cumple])}"></i>`;
+};
+
+let nav = '', cuerpo = '';
+for (const parte of ['A', 'B']) {
+  const titulo = parte === 'A' ? 'Parte A — Criterios solicitados' : 'Parte B — Criterios no solicitados';
+  nav += `<div class="nav-parte">${esc(titulo)}</div>`;
+  cuerpo += `<h2 class="parte">${esc(titulo)}</h2>`;
+  for (const g of catalogo.GRUPOS.filter(g => g.parte === parte)) {
+    nav += `<div class="nav-grupo"><div class="nav-h">${esc(g.id)} ${esc(g.nombre)}</div>`;
+    cuerpo += `<section class="grupo"><h3 class="grupo-t"><span class="gid">${esc(g.id)}</span>${esc(g.nombre)}</h3>`;
+    for (const c of g.criterios) {
+      const r = registros[c.id] ?? {};
+      nav += `<a href="#${ancla(c.id)}"><span class="cid">${esc(c.id)}</span><span class="cn">${esc(c.nombre)}</span>` +
+        `<span class="dots">${Object.keys(PLATAFORMAS).map(p => punto(r[p], p)).join('')}</span></a>`;
+      cuerpo += `<article class="caso" id="${ancla(c.id)}">
+        <header><div class="badge">${esc(c.id)}</div><h3>${esc(c.nombre)}</h3></header>
+        <p class="preg"><b>Procedimiento:</b> ${esc(c.procedimiento)}</p>
+        ${Object.keys(PLATAFORMAS).map(p => bloque(c, p, r[p])).join('')}
+      </article>`;
     }
-
-    if (imgs.length) {
-      cuerpo += `<div class="galeria">`;
-      for (const i of imgs) {
-        const et = i.narrado ? 'con carteles' : (i.paso ? `paso ${i.paso.toUpperCase()}` : 'captura');
-        cuerpo += `<figure>
-          <a href="../../ai/pruebas/${encodeURI(i.archivo)}" target="_blank">
-            <img loading="lazy" src="../../ai/pruebas/${encodeURI(i.archivo)}" alt="${esc(i.archivo)}">
-          </a>
-          <figcaption>${esc(et)}</figcaption>
-        </figure>`;
-      }
-      cuerpo += `</div>`;
-    }
-    cuerpo += `</article>`;
+    nav += `</div>`;
+    cuerpo += `</section>`;
   }
-  cuerpo += `</section>`;
 }
+
+const cifrasPlataforma = Object.entries(PLATAFORMAS).map(([p, P]) =>
+  `<div class="cifra"><b style="color:${P.color}">${evaluados(p)}/${catalogo.CRITERIOS.length}</b><span>${esc(P.nombre)}</span></div>`).join('');
 
 const html = `<!doctype html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pruebas · TP SIE 3340 — Evaluación de CRM</title>
+<title>Pruebas de la evaluación de sistemas CRM</title>
 <style>
   :root {
     --bg: #0f1720; --panel: #16212e; --linea: #24344a;
-    --txt: #e8eef6; --tenue: #93a6bd; --ok: #3ecf8e; --no: #ff6b6b; --acc: #ffd166;
+    --txt: #e8eef6; --tenue: #93a6bd; --ok: #3ecf8e; --medio: #ffd166; --no: #ff6b6b; --acc: #ffd166;
   }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--bg); color: var(--txt);
          font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
   a { color: inherit; }
+  .tenue { color: var(--tenue); }
 
   .top { padding: 40px 32px 26px; border-bottom: 1px solid var(--linea);
          background: linear-gradient(180deg, #16212e, #0f1720); }
@@ -186,48 +155,67 @@ const html = `<!doctype html>
   .cifras { display: flex; gap: 28px; margin-top: 22px; flex-wrap: wrap; }
   .cifra b { display: block; font-size: 26px; color: var(--acc); }
   .cifra span { font-size: 13px; color: var(--tenue); text-transform: uppercase; letter-spacing: .6px; }
+  .leyenda { margin-top: 16px; font-size: 13px; color: var(--tenue); display: flex; gap: 18px; flex-wrap: wrap; }
 
-  .layout { display: grid; grid-template-columns: 290px 1fr; align-items: start; }
+  .layout { display: grid; grid-template-columns: 330px 1fr; align-items: start; }
   nav { position: sticky; top: 0; max-height: 100vh; overflow-y: auto;
-        padding: 26px 18px; border-right: 1px solid var(--linea); }
-  .nav-grupo { margin-bottom: 22px; }
-  .nav-h { font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: .8px;
-           color: var(--c); padding-bottom: 8px; border-bottom: 1px solid var(--linea); margin-bottom: 8px; }
-  nav a { display: flex; gap: 9px; padding: 7px 9px; border-radius: 7px; text-decoration: none;
-          font-size: 14px; color: var(--tenue); }
+        padding: 22px 16px; border-right: 1px solid var(--linea); }
+  .nav-parte { font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: .8px;
+               color: var(--acc); margin: 8px 0 12px; }
+  .nav-grupo { margin-bottom: 16px; }
+  .nav-h { font-weight: 700; font-size: 13px; color: var(--txt);
+           padding-bottom: 6px; border-bottom: 1px solid var(--linea); margin-bottom: 4px; }
+  nav a { display: flex; gap: 8px; align-items: baseline; padding: 5px 7px; border-radius: 7px;
+          text-decoration: none; font-size: 13px; color: var(--tenue); }
   nav a:hover { background: var(--panel); color: var(--txt); }
+  .cn { flex: 1; }
   .cid { font-family: ui-monospace, monospace; font-size: 11px; color: var(--acc);
-         background: rgba(255,209,102,.1); padding: 1px 6px; border-radius: 4px; height: fit-content; }
+         background: rgba(255,209,102,.1); padding: 1px 6px; border-radius: 4px; white-space: nowrap; }
+  .dots { display: flex; gap: 3px; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; border: 1px solid var(--linea); }
+  .dot.v2 { background: var(--ok); } .dot.v1 { background: var(--medio); } .dot.v0 { background: var(--no); }
+  .dot.nada { background: transparent; }
 
-  main { padding: 26px 32px 80px; max-width: 1100px; }
-  .herr { margin-bottom: 52px; }
-  .herr h2 { display: flex; align-items: center; gap: 11px; font-size: 24px; margin: 0 0 3px; }
-  .herr h2 small { color: var(--tenue); font-weight: 400; font-size: 15px; }
-  .punto { width: 12px; height: 12px; border-radius: 50%; background: var(--c); }
-  .tipo { margin: 0 0 20px 23px; color: var(--tenue); font-size: 14px; }
+  main { padding: 26px 32px 80px; max-width: 1150px; }
+  .parte { font-size: 24px; margin: 10px 0 18px; }
+  .grupo { margin-bottom: 40px; }
+  .grupo-t { display: flex; gap: 10px; align-items: center; font-size: 20px; margin: 0 0 14px; }
+  .gid { font-family: ui-monospace, monospace; font-size: 13px; background: var(--linea); padding: 3px 8px; border-radius: 6px; }
 
   .caso { background: var(--panel); border: 1px solid var(--linea); border-radius: 12px;
           padding: 22px; margin-bottom: 20px; scroll-margin-top: 16px; }
-  .caso header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+  .caso header { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
   .badge { font-family: ui-monospace, monospace; font-size: 12px; font-weight: 700;
-           background: var(--c); color: #08111b; padding: 5px 10px; border-radius: 6px; white-space: nowrap; }
+           background: var(--acc); color: #08111b; padding: 5px 10px; border-radius: 6px; white-space: nowrap; }
   .caso h3 { margin: 0; font-size: 18px; }
-  .crit { color: var(--tenue); font-size: 13px; margin-top: 2px; }
-  .veredicto { margin-left: auto; font-size: 13px; font-weight: 700; padding: 6px 12px;
-               border-radius: 20px; white-space: nowrap; }
-  .veredicto.ok { background: rgba(62,207,142,.14); color: var(--ok); }
-  .veredicto.no { background: rgba(255,107,107,.14); color: var(--no); }
-  .preg { color: var(--tenue); font-size: 14.5px; margin: 0 0 10px; }
-  .hallazgo { background: rgba(255,209,102,.08); border-left: 3px solid var(--acc);
-              padding: 11px 15px; border-radius: 0 7px 7px 0; font-size: 14.5px; margin: 0 0 16px; }
+  .preg { color: var(--tenue); font-size: 14.5px; margin: 0 0 14px; }
 
-  .videos { margin-bottom: 16px; }
+  .plat { border-left: 3px solid var(--c); padding: 4px 0 6px 16px; margin: 18px 0 0; }
+  .plat h4 { margin: 0 0 6px; font-size: 16px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .plat.vacia h4 { color: var(--tenue); }
+  .plat p { margin: 0 0 10px; font-size: 14.5px; }
+  .valor { font-size: 12.5px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .valor.v2 { background: rgba(62,207,142,.14); color: var(--ok); }
+  .valor.v1 { background: rgba(255,209,102,.14); color: var(--medio); }
+  .valor.v0 { background: rgba(255,107,107,.14); color: var(--no); }
+  .costo { font-size: 12.5px; color: var(--tenue); font-weight: 400; }
+  .medicion { color: var(--tenue); }
+  .momento { color: var(--tenue); font-size: 12px; }
+  .sub { font-size: 12px; text-transform: uppercase; letter-spacing: .6px; color: var(--tenue); margin: 14px 0 8px; }
+  .planes, .fuentes { margin: 0 0 10px; padding-left: 18px; font-size: 14px; }
+  .fuentes { list-style: none; padding: 0; }
+  .fuentes li { margin-bottom: 12px; }
+  blockquote { margin: 0; padding: 8px 14px; border-left: 3px solid var(--acc);
+               background: rgba(255,209,102,.06); font-size: 14px; border-radius: 0 7px 7px 0; }
+  .fuente { font-size: 12.5px; color: var(--tenue); margin-top: 4px; word-break: break-all; }
+
+  .video { margin: 10px 0 6px; }
   .video video { width: 100%; max-height: 460px; border-radius: 9px; background: #000; display: block; }
   figure { margin: 0; }
-  figcaption { color: var(--tenue); font-size: 12.5px; margin-top: 6px; text-align: center; }
-
-  .galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
-  .galeria img { width: 100%; border-radius: 7px; border: 1px solid var(--linea);
+  figcaption { color: var(--tenue); font-size: 12px; margin-top: 6px; text-align: center; word-break: break-all; }
+  .galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  .galeria img { width: 100%; height: 170px; object-fit: cover; object-position: top;
+                 border-radius: 7px; border: 1px solid var(--linea);
                  display: block; transition: transform .15s; background: #fff; }
   .galeria a:hover img { transform: scale(1.02); border-color: var(--c); }
 
@@ -239,25 +227,30 @@ const html = `<!doctype html>
 </head>
 <body>
   <div class="top">
-    <h1>Pruebas sobre los sistemas CRM</h1>
-    <p>TP SIE 3340 · Sistemas de Información de la Empresa · Universidad de Morón</p>
+    <h1>Pruebas de la evaluación de sistemas CRM</h1>
+    <p>Cada criterio del catálogo, con lo que su prueba registró en cada plataforma: valor, justificación, video, capturas y fuentes.</p>
     <div class="cifras">
-      <div class="cifra"><b>3</b><span>Herramientas</span></div>
-      <div class="cifra"><b>${totalPruebas}</b><span>Pruebas</span></div>
+      ${cifrasPlataforma}
       <div class="cifra"><b>${totalVideos}</b><span>Videos</span></div>
       <div class="cifra"><b>${totalCapturas}</b><span>Capturas</span></div>
+      <div class="cifra"><b>${totalFuentes}</b><span>Fuentes citadas</span></div>
       <div class="cifra"><b>${new Date().toLocaleDateString('es-AR')}</b><span>Actualizado</span></div>
+    </div>
+    <div class="leyenda">
+      <span><i class="dot v2"></i> cumple</span><span><i class="dot v1"></i> cumple con reparo</span>
+      <span><i class="dot v0"></i> no cumple</span><span><i class="dot nada"></i> sin verificar</span>
+      <span>Los tres puntos del índice son EspoCRM, Twenty y Bitrix24, en ese orden.</span>
     </div>
   </div>
 
   <div class="layout">
     <nav>${nav}</nav>
-    <main>${cuerpo || '<p>Todavía no hay evidencia generada.</p>'}</main>
+    <main>${cuerpo}</main>
   </div>
 </body>
 </html>`;
 
 mkdirSync(SALIDA, { recursive: true });
 writeFileSync(join(SALIDA, 'index.html'), html, 'utf8');
-console.log(`Documentación generada: ${join(SALIDA, 'index.html')}`);
-console.log(`  ${totalPruebas} pruebas · ${totalVideos} videos · ${totalCapturas} capturas`);
+console.log(`Documentación generada en ${join(SALIDA, 'index.html')}`);
+console.log(`  ${catalogo.CRITERIOS.length} criterios · ${totalVideos} videos · ${totalCapturas} capturas · ${totalFuentes} fuentes`);

@@ -1,0 +1,35 @@
+{
+  "criterio": "A.11.3",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "justificacion": "El fabricante ofrece una imagen oficial de contenedores que deja el sistema, el servidor web y la base de datos funcionando juntos, y un asistente que completa la configuración inicial. La instalación evaluada se llevó de cero a operativa por esa vía. Pero no la completa alguien sin perfil técnico: hay que instalar el motor de contenedores, escribir el archivo que los describe y resolver cómo se conservan los datos entre reinicios, y en esta instalación montar la carpeta equivocada dejó al sistema sin arrancar hasta corregirlo. Son conocimientos puntuales, guiados por la documentación, que la compañía necesita tener a mano cada vez que instala o reinstala.",
+  "evidencia": [
+    "A-11-3-espocrm-3-operativo.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.espocrm.com/download/",
+      "cita": "Get EspoCRM running in minutes. The official Docker image sets up EspoCRM, NGINX, and MySQL automatically. No manual server configuration required.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-3-espocrm-1-docker.png"
+    },
+    {
+      "url": "https://docs.espocrm.com/administration/installation/",
+      "cita": "4. Run EspoCRM installation wizard",
+      "consultado": "2026-09-28",
+      "captura": "A-11-3-espocrm-2-asistente.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "EspoCRM Cloud Basic",
+      "monto": "US$ 15 por usuario por mes, mínimo 3 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "justificacion": "En la nube el fabricante entrega el sistema funcionando: no hay nada que instalar."
+    }
+  ],
+  "criterioNombre": "Puesta en marcha sin perfil técnico especializado",
+  "licencia": null,
+  "momento": "2026-09-28T20:41:51.661Z"
+}

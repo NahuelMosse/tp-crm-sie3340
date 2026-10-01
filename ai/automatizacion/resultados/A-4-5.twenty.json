@@ -1,0 +1,21 @@
+{
+  "criterio": "A.4.5",
+  "plataforma": "twenty",
+  "cumple": 0,
+  "justificacion": "El producto no ofrece el seguimiento de lo que se dice de la compañía y de la competencia en redes y medios, en ninguna edición: la configuración no tiene ninguna función de redes sociales y el catálogo de aplicaciones del fabricante, dentro del propio producto, ofrece una sola —el seguimiento del último contacto con cada persona—. El fabricante presenta las aplicaciones como una vía para extender el producto con código propio: una escucha de redes habría que desarrollarla.",
+  "evidencia": [
+    "A-4-5-twenty-1-catalogo-de-aplicaciones.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/getting-started/core-concepts/apps",
+      "cita": "Extend Twenty with code — custom objects, server-side logic, UI components, and AI agents, all as TypeScript packages.",
+      "consultado": "2026-09-28",
+      "captura": "A-4-5-twenty-2-aplicaciones.png"
+    }
+  ],
+  "criterioNombre": "Escucha de menciones en canales públicos",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T02:22:29.726Z"
+}

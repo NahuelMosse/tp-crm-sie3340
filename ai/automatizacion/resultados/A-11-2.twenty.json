@@ -1,0 +1,39 @@
+{
+  "criterio": "A.11.2",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "justificacion": "La instalación propia corre sobre contenedores, que funcionan en Linux, en Windows y en macOS, pero con una sola combinación de componentes: PostgreSQL como base de datos —de la versión 15 en adelante— y Redis como memoria intermedia. No hay variante para otro motor de base de datos. Si la compañía ya administra contenedores y PostgreSQL, es su plataforma; si no, tiene que incorporar y sostener esas tecnologías para operar el sistema.",
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/developers/self-host/capabilities/docker-compose",
+      "cita": "Docker Compose",
+      "consultado": "2026-09-28",
+      "captura": "A-11-2-twenty-1-contenedores.png"
+    },
+    {
+      "url": "https://docs.twenty.com/developers/self-host/capabilities/upgrade-guide",
+      "cita": "Twenty v2.34 requires PostgreSQL 15 or newer. The official Docker Compose configuration uses PostgreSQL 16. If your instance connects to an externally managed database, upgrade it before starting the v2.34 server.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-2-twenty-2-postgresql.png"
+    },
+    {
+      "url": "https://twenty.com/pricing",
+      "cita": "Cloud Pro is $9/user/month (yearly). Organization is $19/user/month and unlocks SSO and row-level permissions for teams that need finer access control.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-2-twenty-nube-precio-1.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "Twenty Cloud Pro",
+      "monto": "US$ 9 por usuario por mes, con pago anual",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "justificacion": "En la nube no hay plataforma que administrar: se usa desde el navegador."
+    }
+  ],
+  "criterioNombre": "Compatibilidad con la plataforma que la compañía usa",
+  "licencia": null,
+  "evidencia": [],
+  "momento": "2026-09-29T00:40:19.335Z"
+}

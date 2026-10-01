@@ -1,0 +1,17 @@
+{
+  "criterio": "A.10.1",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "Los tableros vienen de fábrica: se armó un gráfico con el total de primas por estado de cobranza eligiendo el objeto, el campo del eje y la suma de la prima, sin programar, y quedó guardado para consultarlo cuando se quiera. El tiempo promedio de resolución de los reclamos, en cambio, no se puede mostrar: el gráfico promedia campos numéricos, y el producto no calcula la duración de cada reclamo ni tiene campos que la deriven de sus fechas. Hay que agregar esa duración con un flujo con código que la escriba al cerrarse cada reclamo, que es desarrollo.",
+  "evidencia": [
+    "A-10-1-twenty-1-primas-por-estado.png",
+    "A-10-1-twenty-2-medidas-sobre-reclamos.png"
+  ],
+  "medicion": "Primas por estado: Vencida 402000 · (sin estado) 45251 · Al día 354000 · Cancelada 201000 · En gestión 177000",
+  "criterioNombre": "Indicadores sobre la operación",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T03:58:34.275Z"
+}

@@ -1,0 +1,18 @@
+{
+  "criterio": "A.5.4",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Se creó el artículo desde «Empleados › Base de conocimientos»: una página en blanco con un bloque de texto, cuyo texto de ejemplo se reemplazó por la condición de cobertura de granizo, y se la buscó por «granizo» en la base publicada, que la devolvió. La base se arma una vez con una plantilla (la edición gratuita admite una sola).",
+  "evidencia": [
+    "A-5-4-bitrix24-1-articulo-en-el-editor.png",
+    "A-5-4-bitrix24-2-articulo-publicado.png",
+    "A-5-4-bitrix24-3-base-publicada.png",
+    "A-5-4-bitrix24-4-busqueda.png"
+  ],
+  "criterioNombre": "Base de conocimiento para la atención",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-10-01T02:18:47.224Z"
+}

@@ -1,0 +1,17 @@
+{
+  "criterio": "A.8.2",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "La administración de cada entidad trae una fórmula que, según la propia pantalla, \"se ejecuta cada vez que se guarda una entidad\" y \"se utiliza para configurar campos calculados\". Se definió la prima anual como doce veces la mensual con una sola expresión, del tipo de una fórmula de planilla, y al guardar una póliza con prima de 15.250,50 el sistema calculó 183006 sin intervención. El cálculo se escribe una vez desde la administración, sin instalar nada ni programar la aplicación: es configuración.",
+  "evidencia": [
+    "A-8-2-espocrm-1-formula.png",
+    "A-8-2-espocrm-2-calculado-al-guardar.png"
+  ],
+  "medicion": "Prima anual calculada al guardar: 183006",
+  "criterioNombre": "Campos calculados sobre datos propios",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T20:08:50.910Z"
+}

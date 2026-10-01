@@ -1,0 +1,58 @@
+{
+  "criterio": "A.1.5",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "justificacion": "La edición gratuita no incluye un motor de reglas: la administración ofrece tareas programadas del sistema, notificaciones y fórmulas, pero ninguna vía para que la compañía defina \"avisar de lo que vence en treinta días\" y el sistema lo emita solo. La necesidad se cubre con la consulta del listado —vence en los próximos 30 días, y su equivalente sobre el plazo de los reclamos—, que devuelve exactamente lo que hay que atender, pero que alguien tiene que abrir: el trabajo se repite cada día que la compañía quiere estar al tanto. Queda resuelta con un costo permanente. El fabricante vende el motor de flujos de trabajo como extensión, y con ella el aviso se define una vez y se emite solo.",
+  "evidencia": [
+    "A-1-5-espocrm-1-administracion.png",
+    "A-1-5-espocrm-2-consulta-de-vencimientos.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.espocrm.com/extensions/advanced-pack/",
+      "cita": "Workflows",
+      "consultado": "2026-09-28",
+      "captura": "A-1-5-espocrm-3-advanced-pack.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extensions/advanced-pack/",
+      "cita": "$395.00 1 Year License + Upgrades",
+      "consultado": "2026-09-28",
+      "captura": "A-1-5-espocrm-precio-1.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extension-license-agreement/",
+      "cita": "1.1 Subject to your continuous compliance with the Agreement and payment of the applicable license fees, EspoCRM grants you a non-exclusive, non-transferable, worldwide, limited right to use the Software on a single EspoCRM Application instance on a single server for the Licensed Period. After the license period expires, you must renew or purchase a new license to continue using the Software. You may use or modify the Software only for your own internal business purposes or for non-commercial or personal use.",
+      "consultado": "2026-09-28",
+      "captura": "A-1-5-espocrm-precio-2.png"
+    },
+    {
+      "url": "https://www.espocrm.com/cloud/",
+      "cita": "Basic $15.00 per user/month minimum 3 users 3GB file storage per user 100,000 records SSL Encryption (256 bit keys, TLS 1.3) Full feature set All extensions included External access API 2000+ integrations * 12x5 (hours/days) support Sign Up Free Trial Free Trial is provided for 30 days",
+      "consultado": "2026-09-28",
+      "captura": "A-1-5-espocrm-nube-precio-1.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "Advanced Pack",
+      "monto": "US$ 395 por año y por instalación",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "La extensión agrega los flujos de trabajo: la condición de vencimiento y la de plazo de reclamo se definen una vez desde la administración, y el sistema emite el aviso sin que nadie abra nada."
+    },
+    {
+      "plan": "EspoCRM Cloud Basic",
+      "monto": "US$ 15 por usuario por mes, mínimo 3 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "El servicio en la nube incluye todas las extensiones del fabricante, flujos de trabajo incluidos: el aviso se configura igual que con la extensión, sin comprarla aparte."
+    }
+  ],
+  "criterioNombre": "Aviso anticipado de vencimiento",
+  "costo": 2,
+  "licencia": null,
+  "momento": "2026-09-28T18:35:23.961Z"
+}

@@ -1,0 +1,17 @@
+{
+  "criterio": "A.4.3",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "La campaña se envió a su lista y llegaron los 4 mensajes, cada uno con el nombre de su destinatario en el asunto —\"Martina, su póliza de hogar vence pronto\"—. El registro de la campaña anotó cada envío y, cuando uno de los asegurados abrió el mensaje, anotó también la apertura, con la fecha y el destinatario. Lo mismo hace con los clics en enlaces seguidos y las bajas. La medición viene en el producto; lo que hay que configurar una vez es el servidor de correo saliente de la compañía y activar, en esa misma configuración, el seguimiento de aperturas, que viene apagado.",
+  "evidencia": [
+    "A-4-3-espocrm-0-envio-programado.png",
+    "A-4-3-espocrm-1-resultados-de-la-campana.png"
+  ],
+  "medicion": "4 envíos y 1 apertura registrados",
+  "criterioNombre": "Medición de los resultados de la campaña",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T19:24:05.541Z"
+}

@@ -1,0 +1,19 @@
+{
+  "criterio": "A.8.2",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 2,
+  "justificacion": "Twenty no tiene campos calculados: ningún tipo de campo deriva su valor de otro. El cálculo se armó con un flujo de trabajo que corre cada vez que se guarda la prima de una póliza, con un paso de código que multiplica la prima mensual por doce y un paso que escribe el resultado en el campo de la prima anual. Al cargar desde la ficha una póliza con prima de 15.250,50 el sistema completó 183006 sin intervención. La necesidad queda resuelta desde el sistema, pero exige escribir una función en TypeScript —con la prima guardada en millonésimas— y, en la instalación propia, habilitar la ejecución de funciones, que viene deshabilitada. Es desarrollo, breve, que alguien tiene que saber leer y mantener.",
+  "evidencia": [
+    "A-8-2-twenty-1-tipos-de-campo.png",
+    "A-8-2-twenty-2-codigo-del-calculo.png",
+    "A-8-2-twenty-3-flujo-del-calculo.png",
+    "A-8-2-twenty-4-calculado-al-guardar.png"
+  ],
+  "medicion": "Prima anual calculada al guardar: 183006, 11 segundos después",
+  "criterioNombre": "Campos calculados sobre datos propios",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T02:54:29.950Z"
+}

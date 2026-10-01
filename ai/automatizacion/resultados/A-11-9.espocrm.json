@@ -1,0 +1,27 @@
+{
+  "criterio": "A.11.9",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "justificacion": "El catálogo oficial es corto y concentrado en lo que una oficina usa: correo de Outlook y de Google, telefonía, videollamadas, cobros y campañas por correo, más una interfaz de programación y ganchos para conectar lo que falte. Casi todos los conectores se venden aparte, con licencia anual que hay que renovar para seguir usándolos. La condición se satisface: los conectores que la compañía necesita existen y se consiguen directo del fabricante. La limitación es que cada uno suma una licencia renovable, y que fuera del catálogo la integración pasa a ser trabajo propio sobre la interfaz de programación.",
+  "evidencia": [
+    "A-11-9-espocrm-3-integraciones-incluidas.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.espocrm.com/extensions/",
+      "cita": "Outlook Integration",
+      "consultado": "2026-09-28",
+      "captura": "A-11-9-espocrm-1-extensiones.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extension-license-agreement/",
+      "cita": "1.1 Subject to your continuous compliance with the Agreement and payment of the applicable license fees, EspoCRM grants you a non-exclusive, non-transferable, worldwide, limited right to use the Software on a single EspoCRM Application instance on a single server for the Licensed Period. After the license period expires, you must renew or purchase a new license to continue using the Software. You may use or modify the Software only for your own internal business purposes or for non-commercial or personal use.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-9-espocrm-2-licencia.png"
+    }
+  ],
+  "criterioNombre": "Ecosistema de integraciones disponible",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-28T20:43:59.101Z"
+}

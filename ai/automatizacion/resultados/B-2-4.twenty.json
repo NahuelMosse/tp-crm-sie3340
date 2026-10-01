@@ -1,0 +1,22 @@
+{
+  "criterio": "B.2.4",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "La videollamada está integrada a medias: desde la ficha de un asegurado se crea una reunión en el calendario conectado de Google o Microsoft, con el enlace de videollamada de ese servicio, y la reunión queda en la línea de tiempo del registro. La telefonía no está: el número de una ficha no se marca desde el sistema, las llamadas ocurren afuera y se registran a mano, o hay que desarrollar la conexión con la central telefónica sobre la interfaz de programación.",
+  "evidencia": [
+    "B-2-4-twenty-1-acciones-de-la-ficha.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/user-guide/calendar-emails/how-tos/can-i-book-meetings-from-twenty",
+      "cita": "Toggle Invitations to email guests, and Video call to add a meeting link",
+      "consultado": "2026-09-29",
+      "captura": "B-2-4-twenty-2-reunion-con-videollamada.png"
+    }
+  ],
+  "criterioNombre": "Telefonía y videollamada integradas",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T03:15:10.316Z"
+}

@@ -1,0 +1,21 @@
+{
+  "criterio": "A.11.1",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "justificacion": "La edición evaluada es un servicio en la nube: se opera entera desde el navegador, sin ningún componente que la compañía instale, actualice o respalde. El fabricante aloja los datos en su propia infraestructura —en Amazon Web Services— y sostiene los servidores, las copias y la disponibilidad. La compañía no dispone ningún equipo propio para el sistema: solo necesita una conexión a internet y un navegador, que ya tiene para cualquier otra tarea.",
+  "evidencia": [
+    "A-11-1-bitrix24-2-portal-en-el-navegador.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.com/security/",
+      "cita": "Bitrix24 uses Amazon Web Services to host your data in US (Virginia) or European Union (Frankfurt, Germany). You can purchase on premise editions of Bitrix24 to host it in your country or on your server. AWS also maintains the following certifications: HIPAA, GDPR, ISO 27001, SOC 1/2/3, Directive 95/46/EC and PCI DSS Level 1.",
+      "consultado": "2026-09-29",
+      "captura": "A-11-1-bitrix24-1-aws.png"
+    }
+  ],
+  "criterioNombre": "Recursos que la compañía debe disponer para sostenerlo",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T14:09:18.317Z"
+}

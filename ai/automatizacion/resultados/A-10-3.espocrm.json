@@ -1,0 +1,57 @@
+{
+  "criterio": "A.10.3",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "La edición gratuita guarda búsquedas con períodos relativos —mes actual, mes pasado, trimestre, próximos días, entre 21 opciones—, que se vuelven a abrir sin rearmarlas. Pero no es un informe con parámetro: para verlo sobre otro período hay que cambiar la condición, y el resultado sigue siendo un listado que hay que exportar y totalizar afuera. Los filtros al ejecutar del módulo de informes del fabricante piden el período cada vez que se corre el informe, sin editarlo.",
+  "evidencia": [
+    "A-10-3-espocrm-1-periodos-del-filtro.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.espocrm.com/user-guide/reports/",
+      "cita": "Runtime Filters lets you narrow down the results each time you run the report, without needing to edit the report itself. It's useful when the report structure stays the same, but you want to change the criteria dynamically – like choosing a specific date range, customer, or status before generating the results.",
+      "consultado": "2026-09-28",
+      "captura": "A-10-3-espocrm-informes-1.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extensions/advanced-pack/",
+      "cita": "$395.00 1 Year License + Upgrades",
+      "consultado": "2026-09-28",
+      "captura": "A-10-3-espocrm-precio-1.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extension-license-agreement/",
+      "cita": "1.1 Subject to your continuous compliance with the Agreement and payment of the applicable license fees, EspoCRM grants you a non-exclusive, non-transferable, worldwide, limited right to use the Software on a single EspoCRM Application instance on a single server for the Licensed Period. After the license period expires, you must renew or purchase a new license to continue using the Software. You may use or modify the Software only for your own internal business purposes or for non-commercial or personal use.",
+      "consultado": "2026-09-28",
+      "captura": "A-10-3-espocrm-precio-2.png"
+    },
+    {
+      "url": "https://www.espocrm.com/cloud/",
+      "cita": "Basic $15.00 per user/month minimum 3 users 3GB file storage per user 100,000 records SSL Encryption (256 bit keys, TLS 1.3) Full feature set All extensions included External access API 2000+ integrations * 12x5 (hours/days) support Sign Up Free Trial Free Trial is provided for 30 days",
+      "consultado": "2026-09-28",
+      "captura": "A-10-3-espocrm-nube-precio-1.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "Advanced Pack",
+      "monto": "US$ 395 por año y por instalación",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "El informe guardado pide el período al ejecutarse y se reutiliza sin editarlo."
+    },
+    {
+      "plan": "EspoCRM Cloud Basic",
+      "monto": "US$ 15 por usuario por mes, mínimo 3 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "El servicio en la nube incluye el módulo de informes."
+    }
+  ],
+  "criterioNombre": "Informe paramétrico reutilizable",
+  "licencia": null,
+  "momento": "2026-09-28T20:39:20.910Z"
+}

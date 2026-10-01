@@ -1,0 +1,18 @@
+{
+  "criterio": "A.2.6",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "justificacion": "El conjunto de los próximos a vencer sale directo: el filtro del listado de negociaciones sobre la fecha de fin de vigencia, «próximos 30 días», trajo la póliza que vence en doce días y dejó afuera las demás, con su cliente en el listado. El otro conjunto no: el filtro del listado de contactos solo ofrece campos del propio contacto, no las pólizas que tiene, así que «tiene automotor y no hogar» no se puede preguntar. Se obtiene filtrando las pólizas por cada ramo y comparando a mano las dos listas de clientes, cada vez que se quiere armar la oferta.",
+  "evidencia": [
+    "A-2-6-bitrix24-1-filtros-del-contacto.png",
+    "A-2-6-bitrix24-2-polizas-por-ramo.png",
+    "A-2-6-bitrix24-3-proximas-a-vencer.png"
+  ],
+  "medicion": "61 campos filtrables del contacto, ninguno sobre sus pólizas · 1 póliza próxima a vencer",
+  "criterioNombre": "Oportunidades de cambio y ampliación sobre la cartera",
+  "costo": 2,
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T02:49:10.689Z"
+}

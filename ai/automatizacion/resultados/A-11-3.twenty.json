@@ -1,0 +1,36 @@
+{
+  "criterio": "A.11.3",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "justificacion": "El fabricante ofrece un archivo de contenedores que deja la aplicación, las tareas en segundo plano, la base de datos y la memoria intermedia funcionando juntas, y el primer ingreso guía la creación del espacio de trabajo. La instalación evaluada se llevó de cero a operativa por esa vía. Pero no la completa alguien sin perfil técnico: hay que instalar el motor de contenedores, completar las variables del archivo —claves, dirección pública— y, para usar funciones del producto, cambiar variables de configuración que vienen apagadas: en esta instalación, 2, para conectar casillas de correo de la red propia y para ejecutar el código de los flujos. Son conocimientos puntuales, guiados por la documentación, que la compañía necesita tener a mano cada vez que instala o actualiza.",
+  "evidencia": [
+    "A-11-3-twenty-2-variables-de-configuracion.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/developers/self-host/capabilities/docker-compose",
+      "cita": "Set the Postgres Password Update the PG_DATABASE_PASSWORD value in the .env file with a strong password without special characters. PG_DATABASE_PASSWORD=my_strong_password",
+      "consultado": "2026-09-28",
+      "captura": "A-11-3-twenty-1-instalacion.png"
+    },
+    {
+      "url": "https://twenty.com/pricing",
+      "cita": "Cloud Pro is $9/user/month (yearly). Organization is $19/user/month and unlocks SSO and row-level permissions for teams that need finer access control.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-3-twenty-nube-precio-1.png"
+    }
+  ],
+  "medicion": "Variables de configuración cambiadas: LOGIC_FUNCTION_TYPE, OUTBOUND_HTTP_SAFE_MODE_ENABLED",
+  "conPlan": [
+    {
+      "plan": "Twenty Cloud Pro",
+      "monto": "US$ 9 por usuario por mes, con pago anual",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "justificacion": "En la nube el fabricante entrega el sistema funcionando: no hay nada que instalar ni configurar."
+    }
+  ],
+  "criterioNombre": "Puesta en marcha sin perfil técnico especializado",
+  "licencia": null,
+  "momento": "2026-09-29T00:41:13.643Z"
+}

@@ -1,0 +1,17 @@
+{
+  "criterio": "A.1.4",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Los campos de inicio y de fin de vigencia se agregan como campos de fecha desde la administración, y el sistema los trata como tales y no como texto. Se cargaron dos pólizas, una que vence en doce días y otra en trescientos: ordenado por vencimiento, el listado pone primero la que vence antes, y la condición \"vence en los próximos 30 días\" devuelve la primera y deja afuera la segunda. El filtro ofrece 21 comparaciones propias de una fecha —próximos o últimos X días, antes, después, entre, mes o trimestre en curso—. Para poder filtrar por un campo propio hay que habilitarlo antes entre los filtros de búsqueda del listado, en la misma administración: configuración inicial, no desarrollo.",
+  "evidencia": [
+    "A-1-4-espocrm-1-orden-por-vencimiento.png",
+    "A-1-4-espocrm-2-vencen-en-30-dias.png"
+  ],
+  "medicion": "21 comparaciones de fecha en el filtro",
+  "criterioNombre": "Vigencia con fecha de inicio y de fin",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T18:32:51.953Z"
+}

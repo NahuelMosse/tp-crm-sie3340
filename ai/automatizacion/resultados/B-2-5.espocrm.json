@@ -1,0 +1,20 @@
+{
+  "criterio": "B.2.5",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "Se recorrieron las pantallas de uso diario —inicio, asegurados, pólizas, reclamos, oportunidades y calendario— y ninguna muestra avisos de venta, invitaciones a mejorar el plan ni funciones bloqueadas a la vista. Lo que no está en la edición gratuita simplemente no aparece: el usuario trabaja sin interrupciones comerciales.",
+  "evidencia": [
+    "B-2-5-espocrm-inicio.png",
+    "B-2-5-espocrm-asegurados.png",
+    "B-2-5-espocrm-polizas.png",
+    "B-2-5-espocrm-reclamos.png",
+    "B-2-5-espocrm-oportunidades.png",
+    "B-2-5-espocrm-calendario.png"
+  ],
+  "criterioNombre": "Uso sin restricciones comerciales en la interfaz",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T21:49:02.330Z"
+}

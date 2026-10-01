@@ -1,0 +1,22 @@
+{
+  "criterio": "A.8.4",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "El procedimiento oficial de actualización distingue dos clases de personalización: la hecha desde la interfaz, que la actualización no debería romper, y la hecha con código, que sí puede romperse. Todo lo que este análisis parametrizó —la póliza, el endoso, sus campos, sus diseños y su fórmula— se hizo desde la administración, sin tocar código, de modo que queda del lado que el fabricante se compromete a conservar. No hay nada que preparar para que se conserve.",
+  "evidencia": [
+    "A-8-4-espocrm-2-parametrizacion-por-pantalla.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.espocrm.com/administration/upgrading/",
+      "cita": "Espo upgrades should not break customizations made via the UI. But customizations made via code may break. To review breaking changes before upgrading, check release notes or GitHub issues marked with the change tag.",
+      "consultado": "2026-09-28",
+      "captura": "A-8-4-espocrm-1-actualizacion.png"
+    }
+  ],
+  "criterioNombre": "Conservación de la parametrización al actualizar",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-28T20:13:25.426Z"
+}

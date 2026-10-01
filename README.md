@@ -28,11 +28,13 @@ ai/          ← acá trabaja Claude
 
 `humanos/documentacion/index.html` — se abre con doble click y muestra:
 
-- Índice lateral por herramienta y por caso
-- Cada prueba con su **video didáctico** embebido y sus capturas
-- Qué se probó, el hallazgo y el veredicto de cada una
+- Índice lateral con los 78 criterios del catálogo, agrupados como en la sección 4, con un punto por plataforma según su valor
+- Cada criterio con su procedimiento y, por plataforma, el valor, la justificación y la medición
+- El **video** de la última ejecución de la prueba, las capturas del sistema y las fuentes del fabricante con su texto textual
 
-> GitHub no muestra HTML renderizado. Para verla: cloná el repo y abrí el archivo, o descargalo desde la web (botón *Download raw file*).
+Se regenera con `node generar-doc.mjs ../..` desde `ai/automatizacion/`. Lee los mismos resultados que la matriz del informe, así que muestra exactamente lo mismo.
+
+> GitHub no muestra HTML renderizado. Para verla: cloná el repo y abrí el archivo. Los videos y las capturas se leen de `ai/automatizacion/evidencia/`, así que el archivo suelto, sin el repositorio, no los muestra.
 
 ### El informe
 
@@ -69,10 +71,20 @@ ai/          ← acá trabaja Claude
 Para regenerar todo, desde `ai/automatizacion/`:
 
 ```bash
-npx playwright test                    # medición limpia (tiempos válidos)
-$env:NARRAR="1"; npx playwright test   # video didáctico con carteles
-node generar-doc.mjs ../..             # rearma la documentación HTML
+docker compose up -d                          # EspoCRM y su base
+npx playwright test --project=espocrm         # evalúa los criterios sobre una plataforma
+$env:NARRAR="1"; npx playwright test          # video didáctico con carteles
+node verificar-resultados.mjs                 # controla los veredictos y muestra el avance
+node generar-matriz.mjs ../..                 # secciones 5 y 6 del informe
+node generar-trazabilidad.mjs ../..           # de dónde salió cada criterio
+node generar-doc.mjs ../..                    # rearma la documentación HTML
+node exportar-informe.mjs ../..               # arma el entregable en humanos/entregas/
 ```
+
+Un archivo de prueba por grupo de criterios, en `tests/criterios/`. Cada veredicto
+queda en `resultados/` con su justificación y su respaldo —captura del sistema o cita
+textual del fabricante—, y de ahí salen las secciones 5 y 6: ningún número del informe
+se escribe a mano.
 
 Lo consultable si les sirve:
 

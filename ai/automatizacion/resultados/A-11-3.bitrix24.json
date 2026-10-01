@@ -1,0 +1,21 @@
+{
+  "criterio": "A.11.3",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "justificacion": "El alta del portal se completa con un correo y una contraseña, sin instalar nada ni preparar un servidor: el fabricante entrega el sistema funcionando de inmediato, con datos de ejemplo y un asistente inicial. Lo que sigue —crear los campos propios, cargar la cartera— es configuración desde la pantalla, guiada por el propio producto, sin conocimientos de instalación ni de administración de servidores. Lo completa cualquiera que sepa operar un sistema de oficina.",
+  "evidencia": [
+    "A-11-3-bitrix24-2-portal-operativo.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "¡Sí, lo es! El plan Free es un estado de cuenta predeterminado, en el que se puede agregar un número ilimitado de usuarios y disfrutar de las herramientas disponibles de forma totalmente gratuita durante el tiempo ilimitado. Tenga en cuenta que algunas herramientas como Telefonía y aplicaciones de Bitrix24 Market están disponibles solo en los planes pagos.",
+      "consultado": "2026-09-29",
+      "captura": "A-11-3-bitrix24-1-alta-gratuita.png"
+    }
+  ],
+  "criterioNombre": "Puesta en marcha sin perfil técnico especializado",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T14:29:10.211Z"
+}

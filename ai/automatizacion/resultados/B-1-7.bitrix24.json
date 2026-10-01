@@ -1,0 +1,22 @@
+{
+  "criterio": "B.1.7",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "justificacion": "Con la conexión externa cortada, el portal abierto en el navegador dejó de responder: no hay ningún componente del sistema en la red de la compañía al que seguir alcanzando, porque la edición evaluada vive entera en la nube del fabricante, y consultar un asegurado o registrar un reclamo en el CRM no es posible mientras dura el corte. El fabricante documenta, en cambio, un modo sin conexión en su aplicación de escritorio para enviar mensajes y trabajar con documentos, que se sincronizan al volver el enlace: una parte de la operación diaria sigue siendo posible, pero no la que depende del CRM.",
+  "evidencia": [
+    "B-1-7-bitrix24-1-sin-enlace.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://helpdesk.bitrix24.com/open/23839416/",
+      "cita": "Offline mode. Send messages and work with documents without an internet connection. The data syncs later.",
+      "consultado": "2026-09-29",
+      "captura": "B-1-7-bitrix24-2-modo-sin-conexion-del-mensajero.png"
+    }
+  ],
+  "medicion": "Portal operable sin enlace externo: no",
+  "criterioNombre": "Continuidad de la atención ante una caída del enlace",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T23:59:04.233Z"
+}

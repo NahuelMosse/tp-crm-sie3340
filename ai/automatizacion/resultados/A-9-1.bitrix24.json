@@ -1,0 +1,48 @@
+{
+  "criterio": "A.9.1",
+  "plataforma": "bitrix24",
+  "cumple": 0,
+  "justificacion": "En la edición gratuita no se puede crear la restricción por productor: desde CRM › Más › Configuraciones › «Permisos de acceso al CRM» el editor deja armar el rol «Productor» con leer, agregar, editar y eliminar limitados a «Solo sus propios elementos» en contactos y negociaciones y asignárselo al productor, pero al guardar el sistema abre una pantalla de oferta —«En su plan actual, todos los empleados tienen los mismos permisos de acceso. Actualice a uno de los planes de nivel superior para asignar roles a los empleados»— y el rol no queda creado. Con la sesión del productor, sin rol propio, el asegurado ajeno figura en su listado y se abre al escribir la dirección de su ficha: todos los empleados comparten el mismo permiso, y no se puede distinguir a un productor de un supervisor ni ajustar el acceso de ninguno. El fabricante confirma que los permisos por rol del CRM no están en todos los planes, y su comparación de planes los publica desde el plan Basic.",
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Basic",
+      "monto": "US$ 69 por mes, hasta 5 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "Los permisos de acceso del CRM por rol se incluyen desde el plan Basic, y el editor de roles permite limitar a cada productor a sus propios elementos con una configuración de una sola vez. No se contrató el plan: el editor es el mismo que se recorrió en la edición gratuita, que solo frena al guardar."
+    }
+  ],
+  "evidencia": [
+    "A-9-1-bitrix24-1-rol-productor-contactos.png",
+    "A-9-1-bitrix24-2-rol-productor-negociaciones.png",
+    "A-9-1-bitrix24-3-rol-asignado.png",
+    "A-9-1-bitrix24-4-al-guardar.png",
+    "A-9-1-bitrix24-5-rol-tras-guardar.png",
+    "A-9-1-bitrix24-6-lista-del-productor.png",
+    "A-9-1-bitrix24-7-direccion-directa.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://helpdesk.bitrix24.com/open/25911175/",
+      "cita": "Role-based access permissions in CRM are not available on all plans. Bitrix24 plans and pricing",
+      "consultado": "2026-09-30",
+      "captura": "A-9-1-bitrix24-8-permisos-por-rol-segun-plan.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
+      "cita": "Permisos de acceso CRM Establezca y limite el acceso a los canales abiertos para cada usuario, de acuerdo con su función y los permisos asignados",
+      "consultado": "2026-09-30",
+      "captura": "A-9-1-bitrix24-9-comparacion-de-planes.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "Basic Ideal para emprendedores individuales y equipos pequeños que están empezando US$ 69 US$ 69 US$ 49 / compañía / mes / facturado mensualmente / compañía / mes / facturación anual Un pago de US$ 588 / año Ahorra US$ 240 al año incluye 5 usuarios Comprar Comprar Todo lo incluido en Free, más: Almacenamiento de 24 GB IA para el trabajo diario en Bitrix24 Embudos de ventas Negociaciones recurrentes Pagos en línea Integración de correo electrónico Integración de WhatsApp Integración de telefonía",
+      "consultado": "2026-09-30",
+      "captura": "A-9-1-bitrix24-basic-precio-1.png"
+    }
+  ],
+  "criterioNombre": "Restricción de la cartera por productor",
+  "licencia": null,
+  "momento": "2026-09-30T16:15:34.953Z"
+}

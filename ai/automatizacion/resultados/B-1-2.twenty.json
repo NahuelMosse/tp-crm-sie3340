@@ -1,0 +1,20 @@
+{
+  "criterio": "B.1.2",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "justificacion": "Se obtuvo una copia completa con el procedimiento que indica el fabricante: el volcado de la base de datos, y el archivo de la carpeta donde el servidor guarda los adjuntos. La copia se restituyó en una base de datos aparte y la cartera volvió entera: 31 personas, 32 pólizas y 8 reclamos, los mismos que en el sistema en uso. La compañía tiene en su poder toda la información, en el formato abierto de la base, y no depende de nadie para recuperarla.",
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/developers/self-host/capabilities/docker-compose",
+      "cita": "Regular backups protect your CRM data from loss.",
+      "consultado": "2026-09-29",
+      "captura": "B-1-2-twenty-1-procedimiento.png"
+    }
+  ],
+  "medicion": "Base de 1992 KB y 82 archivos adjuntos en 19945 KB; restituida sin diferencias",
+  "criterioNombre": "Copia propia y completa de la cartera",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-29T03:05:55.734Z"
+}

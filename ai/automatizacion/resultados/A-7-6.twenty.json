@@ -1,0 +1,16 @@
+{
+  "criterio": "A.7.6",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "Se exportó la vista del listado de personas y se comparó el archivo con la planilla original: salieron las 5 filas importadas, cada una con nombre, apellido, correo y ciudad, y con las tildes y eñes intactas. El archivo trae todas las columnas de la vista, con los campos compuestos separados en sus partes, y la marca de codificación que la planilla necesita para abrirlo sin alterar los acentos. La exportación viene de fábrica en todos los listados.",
+  "evidencia": [
+    "A-7-6-twenty-1-exportacion.png"
+  ],
+  "medicion": "5 de 5 filas idénticas al original",
+  "criterioNombre": "Exportación de la cartera sin pérdida de datos",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T02:44:59.111Z"
+}

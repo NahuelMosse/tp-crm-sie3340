@@ -1,0 +1,146 @@
+{
+  "criterio": "A.11.12",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "justificacion": "El canal de la comunidad que ofrece el fabricante es un servidor de chat que solo se lee con cuenta, así que la medición se hizo sobre lo que la comunidad publica abierto: las discusiones del repositorio oficial. Se tomaron las 21 consultas más recientes con más de una semana, que alcanzan hasta 2025-09-04. En 1 otro usuario respondió dentro de la semana y quien consultó confirmó después que la respuesta le había servido; en 16 hubo respuesta, pero llegó más tarde o sin que el autor confirmara que lo resolvía; 4 no recibieron respuesta. La primera respuesta llegó, en el caso típico, a las 30 horas. La consulta típica recibe respuesta, pero no queda constancia de que se resuelva dentro de la semana: la compañía puede contar con que alguien conteste, no con que la conteste a tiempo y a su medida.",
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/user-guide/billing/capabilities/pricing-plans",
+      "cita": "Community support via Discord",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-00-canal-de-la-comunidad.png"
+    },
+    {
+      "url": "https://github.com/twentyhq/twenty/discussions/25802",
+      "cita": "Thank you for such detailed report! CC: @prastoin",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-01.png"
+    },
+    {
+      "url": "https://github.com/twentyhq/twenty/discussions/25319",
+      "cita": "@neo773",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-02.png"
+    },
+    {
+      "url": "https://github.com/twentyhq/twenty/discussions/25185",
+      "cita": "Issue has been created based on this discussion #25193",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-03.png"
+    },
+    {
+      "url": "https://github.com/twentyhq/twenty/discussions/23388",
+      "cita": "@Weiko this is about override. Solutions: add a defineDefaultTabToFocusOnMobileAndSidePanelUniversalIdentifier boolean key in definePageLayoutTab definePageLayoutOverride that just update the defaultTabToFocusOnMobileAndSidePanelUniversalIdentifier of the existing standard tab What do you think?",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-04.png"
+    },
+    {
+      "url": "https://github.com/twentyhq/twenty/discussions/23368",
+      "cita": "Scope & Context Many organisations use separate email domains for different teams, subsidiaries, or departments. Twenty currently treats only the connected mailbox’s primary domain as internal. Current behavior Internal emails are excluded when all participants share the connected mailbox’s domain.…",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-05.png"
+    },
+    {
+      "url": "https://github.com/twentyhq/twenty/discussions/23345",
+      "cita": "The contents of this feature request applies to both select and multi select field types. Scope & Context Consider these two scenarios: I want to add a tags fields to Persons as multi select field. I want my users to freely create new options so that they can use them to filter views. However, I do…",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-06.png"
+    },
+    {
+      "url": "https://github.com/twentyhq/twenty/discussions/22954",
+      "cita": "@hubyhuby if this record is soft-deleted, it's still counted when checking for uniqueness as it can be restored",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-07.png"
+    },
+    {
+      "url": "https://github.com/twentyhq/twenty/discussions/22382",
+      "cita": "@martmull or @bosiraphael",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-08.png"
+    },
+    {
+      "url": "https://github.com/twentyhq/twenty/discussions/22298",
+      "cita": "@hubyhuby yes, you need to add a relation to Workspace members, however, limiting access to only notes you own (called row level security) is behind an Organization license",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-09.png"
+    },
+    {
+      "url": "https://github.com/twentyhq/twenty/discussions/20559",
+      "cita": "Hi @adamleigh87-gif, could you please reach out to us via Discord if you're self-hosted or via support chat if you're using cloud?",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-10.png"
+    },
+    {
+      "url": "https://github.com/twentyhq/twenty/discussions/20175",
+      "cita": "@chrcha26 what are exact steps to reproduce this issue? There is no IS operand on front that user can actually use with custom value, do you mean \"is empty\" filter?",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-11.png"
+    },
+    {
+      "url": "https://github.com/twentyhq/twenty/discussions/20002",
+      "cita": "Thanks for the idea! I agree this would add value",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-12.png"
+    },
+    {
+      "url": "https://github.com/twentyhq/twenty/discussions/18476",
+      "cita": "This is a known limitation with Cloudflare's free tier SSL. Free plans only cover *.example.com (one level of wildcard), so app.crm.company.com (fourth level) won't get a valid certificate. Here are a few solutions: Option 1: Disable multi-workspace mode If you only need a single workspace, set…",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-13.png"
+    },
+    {
+      "url": "https://github.com/twentyhq/twenty/discussions/17581",
+      "cita": "That's because Twenty treats the mail account as source of truth so if in mail account email is deleted, then upon synchronization it deletes too (messaging-message-list-fetch-service.ts for reference) so that's expected, when it comes to archived messages, it needs research how they're actually…",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-14.png"
+    },
+    {
+      "url": "https://github.com/twentyhq/twenty/discussions/17461",
+      "cita": "You either have to wait for twentyhq/core-team-issues#214 or create a workflow/app which connects task with company based on details of task-related opportunity",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-15.png"
+    },
+    {
+      "url": "https://github.com/twentyhq/twenty/discussions/17030",
+      "cita": "hey guys is this still active ? I want to ask why there is no gantt chart support ? I don't see it in roadmap/feature request (only this discussion), but every CRM or simple PM apps out there have gantt chart. Thank you so much for reading this because I love this app so much, but I still can't…",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-16.png"
+    },
+    {
+      "url": "https://github.com/twentyhq/twenty/discussions/15262",
+      "cita": "Got this after upgrade 1.7 -> latest, any one face same, any easy fix? Thanks a lot. [Nest] 34 - 10/22/2025, 1:36:00 PM LOG [BullMQDriver] Processing job repeat:CronTriggerCronJob:1761140160000 with name CronTriggerCronJob on queue cron-queue query failed: SELECT \"CronTrigger\".\"id\" AS…",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-17.png"
+    },
+    {
+      "url": "https://github.com/twentyhq/twenty/discussions/15018",
+      "cita": "@neo773 do you know if whitelist for email sync is planned by any chance?",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-18.png"
+    },
+    {
+      "url": "https://github.com/twentyhq/twenty/discussions/14687",
+      "cita": "It's planned for next quarter twentyhq/core-team-issues#213",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-19.png"
+    },
+    {
+      "url": "https://github.com/twentyhq/twenty/discussions/14682",
+      "cita": "Related to #16182",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-20.png"
+    },
+    {
+      "url": "https://github.com/twentyhq/twenty/discussions/14302",
+      "cita": "Hi there, I'm trying to update the people table based on the output of a script workflow. My script looks like that: export const main = async (params: { inscription: Array<string>; }): Promise<object> => { const { inscription } = params; const newInscription = [...new Set([...inscription,…",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-twenty-21.png"
+    }
+  ],
+  "medicion": "1 resueltas en la semana · 16 con respuesta tardía o sin confirmar · 4 sin respuesta · primera respuesta típica a las 30 horas",
+  "criterioNombre": "Comunidad activa de usuarios",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-29T00:51:34.527Z"
+}

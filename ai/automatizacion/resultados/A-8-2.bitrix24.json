@@ -1,0 +1,31 @@
+{
+  "criterio": "A.8.2",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "justificacion": "Bitrix24 no tiene campos calculados: entre los tipos de campo que ofrece el formulario —cadena, lista, fecha, dinero, número y los adicionales— ninguno deriva su valor de otro. El cálculo se arma con reglas de automatización de la negociación: «Ejecutar operaciones matemáticas» suma, resta, multiplica o divide campos numéricos y deja el resultado en una variable, y «Modificar elemento» lo escribe en el campo destino. Son dos reglas configuradas sin código, pero según el fabricante corren cuando la negociación llega a una etapa, no cada vez que se guarda un dato: el valor derivado no acompaña por sí solo a una prima corregida después. La necesidad se resuelve con esa salvedad permanente. La prueba recorrió los tipos de campo, el catálogo de reglas y la pantalla de la regla matemática; no llegó a ejecutar el cálculo, porque el portal gratuito ya trae más reglas de muestra que las cinco que admite (ver A.8.3).",
+  "evidencia": [
+    "A-8-2-bitrix24-1-tipos-de-campo.png",
+    "A-8-2-bitrix24-2-reglas-de-calculo.png",
+    "A-8-2-bitrix24-3-regla-matematica.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://helpdesk.bitrix24.com/open/14954920/",
+      "cita": "This automation rule updates a variable with the result of a math operation. Four operations are available: addition, subtraction, multiplication, and division.",
+      "consultado": "2026-09-29",
+      "captura": "A-8-2-bitrix24-4-operaciones-matematicas.png"
+    },
+    {
+      "url": "https://helpdesk.bitrix24.com/open/22396442/",
+      "cita": "When a CRM entity reaches a certain stage, the automation rule modifies the field values in that entity. For example, when a new deal appears in CRM, the rule changes its name and assigns another responsible user.",
+      "consultado": "2026-09-29",
+      "captura": "A-8-2-bitrix24-5-modificar-elemento.png"
+    }
+  ],
+  "medicion": "Sin campo calculado; cálculo por dos reglas de automatización",
+  "criterioNombre": "Campos calculados sobre datos propios",
+  "costo": 2,
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-30T00:41:58.417Z"
+}

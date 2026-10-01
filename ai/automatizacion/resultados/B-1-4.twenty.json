@@ -1,0 +1,16 @@
+{
+  "criterio": "B.1.4",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "justificacion": "Se cargó la cartera de referencia —cinco mil asegurados, doce mil quinientas pólizas y siete mil quinientos reclamos, veinticinco mil registros— y con ella se repitieron las operaciones de todos los días: buscar un asegurado por texto desde la búsqueda general y filtrar las pólizas por ramo, tres veces cada una. Buscar un asegurado entre cinco mil respondió en un cuarto de segundo o menos las tres veces, y filtrar las doce mil quinientas pólizas por ramo, en menos de dos décimas: no hay espera que el usuario perciba. Con la cartera de referencia cargada, el sistema responde como con una cartera chica.",
+  "evidencia": [
+    "B-1-4-twenty-1-busqueda-por-texto.png",
+    "B-1-4-twenty-2-filtrado-por-ramo.png"
+  ],
+  "medicion": "texto 0.17 / 0.17 / 0.18 s · filtro 0.05 / 0.09 / 0.07 s · carga 0 min",
+  "criterioNombre": "Búsqueda y operación con volumen productivo",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T04:09:32.744Z"
+}

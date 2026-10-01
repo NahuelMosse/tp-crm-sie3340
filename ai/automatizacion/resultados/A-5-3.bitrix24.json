@@ -1,0 +1,16 @@
+{
+  "criterio": "A.5.3",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El responsable de un reclamo —la negociación del asegurado— se cambia en el listado, marcando el registro y eligiendo «Cambiar a la persona responsable». Con la sesión del productor, el reclamo asignado aparece en su listado de negociaciones, sin buscarlo. Los reclamos comparten ese listado con las pólizas y las oportunidades, y el usuario los distingue por el nombre: es una convención que se fija una vez.",
+  "evidencia": [
+    "A-5-3-bitrix24-1-asignado.png",
+    "A-5-3-bitrix24-2-lista-del-productor.png"
+  ],
+  "criterioNombre": "Responsable asignado a cada reclamo",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T14:59:34.829Z"
+}

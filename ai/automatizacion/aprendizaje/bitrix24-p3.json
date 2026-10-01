@@ -1,0 +1,13 @@
+{
+  "persona": 3,
+  "plataforma": "bitrix24",
+  "fecha": "2026-09-30",
+  "respuestaTarea3": 3,
+  "tareas": [
+    { "tarea": 1, "termine": true, "falto": null, "captura": "A-11-5-bitrix24-p3-t1.png" },
+    { "tarea": 2, "termine": true, "falto": null, "captura": "A-11-5-bitrix24-p3-t2.png" },
+    { "tarea": 3, "termine": true, "falto": null, "captura": "A-11-5-bitrix24-p3-t3.png" },
+    { "tarea": 4, "termine": false, "falto": "No encontré dónde registrar un reclamo: no hay menú, pipeline ni tipo de actividad de reclamos en el CRM, ni en la ficha del contacto ni en la de la póliza.", "captura": "A-11-5-bitrix24-p3-t4.png" },
+    { "tarea": 5, "termine": true, "falto": null, "captura": "A-11-5-bitrix24-p3-t5.png" }
+  ]
+}

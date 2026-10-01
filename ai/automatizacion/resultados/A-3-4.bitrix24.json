@@ -1,0 +1,18 @@
+{
+  "criterio": "A.3.4",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "justificacion": "La negociación, que hace de oportunidad comercial, admite monto y probabilidad: el campo «Probabilidad» existe pero viene oculto, y se agrega al formulario una vez con «Seleccionar campo». Se cargaron dos oportunidades (10.000 con 50 % y 20.000 con 25 %) y quedaron guardadas. Lo que no hay en la edición gratuita es el total proyectado por período: el listado suma importes sin ponderarlos por la probabilidad, y el informe de tendencia de ventas, en Analítica, no se abre y ofrece en su lugar BI Builder, que exige actualizar el plan. La proyección se calcula fuera del sistema cada vez que se la necesita.",
+  "evidencia": [
+    "A-3-4-bitrix24-1-formulario.png",
+    "A-3-4-bitrix24-2-listado.png",
+    "A-3-4-bitrix24-3-tendencia-de-ventas.png"
+  ],
+  "medicion": "2 oportunidades con monto y probabilidad",
+  "criterioNombre": "Proyección de los movimientos comerciales",
+  "costo": 2,
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T01:16:12.700Z"
+}

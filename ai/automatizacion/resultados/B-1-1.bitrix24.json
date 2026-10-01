@@ -1,0 +1,19 @@
+{
+  "criterio": "B.1.1",
+  "plataforma": "bitrix24",
+  "cumple": 0,
+  "justificacion": "Las condiciones de servicio del fabricante habilitan la baja de la cuenta, con sus datos, después de cincuenta días corridos sin uso. Una póliza vigente puede pasar mucho más que cincuenta días sin que nadie la consulte —está vigente, pero no requiere actividad—, y ese silencio pone en riesgo toda la cartera, no solo el registro inactivo. La compañía tiene que sostener un ingreso periódico solo para conservar datos que de otro modo no necesitarían ninguna atención.",
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.com/terms/",
+      "cita": "21.3.1. Alaio reserves the right to suspend your Bitrix24 Customer Account (temporary limit access to User Accounts and Administrator Accounts) in the following instances: (1) if you fail to comply with terms of these Terms of Service or other requirements described herein; (2) non-use of the Bitrix24 Customer Account for fifty (50) consecutive calendar days, provided that upon expiration of said period the Bitrix24 Customer Account remains under the Free Plan. Upon \"non-use\" we consider the absence of data in the Bitrix24 archive system about any activity in the Services and the Products within your Bitrix24 Customer Account; (3) non-deletion of User Content incompatible with a Free or cheaper Service Plan in accordance with Section 7.7. of these Terms of Service.",
+      "consultado": "2026-09-29",
+      "captura": "B-1-1-bitrix24-1-cincuenta-dias.png"
+    }
+  ],
+  "criterioNombre": "Persistencia de los datos sin uso continuo",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-29T23:47:58.417Z"
+}

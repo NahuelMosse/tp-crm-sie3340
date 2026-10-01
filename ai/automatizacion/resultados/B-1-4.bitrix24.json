@@ -1,0 +1,22 @@
+{
+  "criterio": "B.1.4",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "justificacion": "No se cargó la cartera de referencia de veinticinco mil registros: el portal es compartido con otras pruebas en curso y una carga de ese tamaño las afectaría. Se midió la búsqueda por texto sobre la cartera real del portal —10 negociaciones y 6 contactos—, que respondió en 6.42 / 1.40 / 1.57 segundos. El fabricante no publica, para la edición gratuita, un tope numérico de registros de CRM que permita proyectar ese tiempo a una cartera de veinticinco mil: publica el límite de usuarios —sin tope— y el de almacenamiento de archivos —5 GB—, pero no uno sobre la cantidad de negociaciones o contactos que admite buscar. La compañía no tiene, de la propia documentación, una garantía de que la búsqueda siga respondiendo igual con su cartera productiva completa.",
+  "evidencia": [
+    "B-1-4-bitrix24-1-busqueda-por-texto.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "Funciones clave: Almacenamiento de 5 GB CRM básico (negociaciones, contactos) Tareas (Kanban, Gantt) Calendarios compartidos Chat y videollamadas",
+      "consultado": "2026-09-29",
+      "captura": "B-1-4-bitrix24-2-limite-publicado-es-de-almacenamiento.png"
+    }
+  ],
+  "medicion": "búsqueda por texto sobre 10 negociaciones y 6 contactos: 6.42 / 1.40 / 1.57 s",
+  "criterioNombre": "Búsqueda y operación con volumen productivo",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-30T00:14:17.941Z"
+}

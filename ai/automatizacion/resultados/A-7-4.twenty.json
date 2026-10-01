@@ -1,0 +1,15 @@
+{
+  "criterio": "A.7.4",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Con la casilla comercial de la compañía conectada, un asegurado escribió desde su propia dirección y el mensaje apareció en la pestaña de correos de su ficha sin que nadie lo moviera: el sistema reconoció la dirección del remitente y lo vinculó con la persona que la tiene cargada. Conectar la casilla es trabajo de una sola vez; la vinculación ocurre sola en cada mensaje.",
+  "evidencia": [
+    "A-7-4-twenty-1-correo-en-la-ficha.png"
+  ],
+  "criterioNombre": "Vinculación automática del correo a la ficha",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T02:42:43.735Z"
+}

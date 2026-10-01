@@ -1,0 +1,17 @@
+{
+  "criterio": "A.2.2",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El contacto no trae cobertura pedida ni urgencia: se agregaron como dos campos de lista desde su propio formulario. Se cargaron tres solicitantes en desorden y, con un clic en el encabezado de la columna «Urgencia», el listado quedó ordenado primero la alta, después la media y al final la baja —el orden de las opciones de la lista, no el alfabético—; otro clic lo invierte. Definir los dos campos es configuración de una sola vez.",
+  "evidencia": [
+    "A-2-2-bitrix24-1-calificacion.png",
+    "A-2-2-bitrix24-2-ordenados-por-urgencia.png"
+  ],
+  "medicion": "orden: Vera > Sosa > Ríos",
+  "criterioNombre": "Calificación y priorización del solicitante",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T02:47:29.022Z"
+}

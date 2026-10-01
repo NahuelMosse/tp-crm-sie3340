@@ -1,0 +1,18 @@
+{
+  "criterio": "A.8.3",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Los flujos de trabajo vienen en la edición evaluada y se arman desde un editor visual, sin escribir código. Se definió uno que escucha las actualizaciones de las pólizas, con la condición de que el estado de pago quede en vencida, y que crea una tarea de gestión a nombre del productor de la póliza. Se provocó el evento cambiando el estado desde la ficha y la tarea «Gestionar cobranza de POL-CART-01» apareció sola, asignada a Pablo Gómez. Definir el flujo es configuración de una sola vez.",
+  "evidencia": [
+    "A-8-3-twenty-1-evento-y-condicion.png",
+    "A-8-3-twenty-2-accion.png",
+    "A-8-3-twenty-3-tarea-creada-sola.png"
+  ],
+  "medicion": "Tarea creada automáticamente al cambiar el estado de pago",
+  "criterioNombre": "Automatización de procesos",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T03:54:02.223Z"
+}

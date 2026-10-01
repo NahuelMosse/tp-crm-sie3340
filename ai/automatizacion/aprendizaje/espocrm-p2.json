@@ -1,0 +1,13 @@
+{
+  "persona": 2,
+  "plataforma": "espocrm",
+  "fecha": "2026-09-27",
+  "respuestaTarea3": 3,
+  "tareas": [
+    { "tarea": 1, "termine": true, "falto": null, "captura": "A-11-5-espocrm-p2-t1.png" },
+    { "tarea": 2, "termine": true, "falto": null, "captura": "A-11-5-espocrm-p2-t2.png" },
+    { "tarea": 3, "termine": true, "falto": null, "captura": "A-11-5-espocrm-p2-t3.png" },
+    { "tarea": 4, "termine": true, "falto": null, "captura": "A-11-5-espocrm-p2-t4.png" },
+    { "tarea": 5, "termine": true, "falto": null, "captura": "A-11-5-espocrm-p2-t5.png" }
+  ]
+}

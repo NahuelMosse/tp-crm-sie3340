@@ -1,0 +1,19 @@
+{
+  "criterio": "B.1.5",
+  "plataforma": "bitrix24",
+  "cumple": 0,
+  "justificacion": "En un servicio en la nube de versión única, el fabricante decide cuándo cambia el sistema: actualiza el portal de todos sus clientes a la vez, y sus propias condiciones de servicio se reservan el derecho de modificarse sin aviso previo. La compañía no elige el momento del cambio, no lo prueba antes de que llegue a producción y puede encontrarse con una pantalla, un menú o un comportamiento distinto en medio de la atención, sin ninguna anticipación garantizada.",
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.com/terms/",
+      "cita": "1.4. The terms of this Agreement may be updated by Alaio from time to time without notice. In case of the major changes, you will be provided with advance notification of the changes through a prominent notice within the Service and/or by email communication as set forth in section 34. Contact information. Contracting Entity. The amended Terms of Service will take effect upon the date mentioned above on the top of this page, unless otherwise provided in a notification to you. Please check these Terms of Service periodically for changes. Failure to provide or maintain accurate or current contact information by you will not obviate your responsibility to comply with these Terms of Service, as amended from time to time. If you do not agree to any changes to these Terms of Service, you must discontinue using any our services and Products and no longer access the Website. Your continued use of the Website, the Services, and the Products indicates your agreement to the changes. The version of these Terms of Service currently published at https://www.bitrix24.com/terms/ constitutes the binding and governing agreement applicable to all users at any given time.",
+      "consultado": "2026-09-29",
+      "captura": "B-1-5-bitrix24-1-sin-aviso-previo.png"
+    }
+  ],
+  "criterioNombre": "Previsibilidad de los cambios del sistema",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-29T23:51:50.171Z"
+}

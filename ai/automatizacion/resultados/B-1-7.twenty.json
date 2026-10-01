@@ -1,0 +1,15 @@
+{
+  "criterio": "B.1.7",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "justificacion": "Con la salida a internet cortada —el navegador solo alcanzaba el servidor de la red propia— se ingresó al sistema, se buscó un asegurado y se registró un reclamo, que es la atención de todos los días. La instalación propia no necesita nada de afuera para operar: lo que se pierde durante el corte es lo que por naturaleza viaja por internet, como el correo y los logotipos de las empresas que la interfaz trae de un servicio externo. Con el sistema en la red de la compañía, una caída del enlace no detiene la atención.",
+  "evidencia": [
+    "B-1-7-twenty-1-operando-sin-enlace.png"
+  ],
+  "medicion": "10 pedidos a direcciones externas bloqueados durante la prueba (twenty-icons.com)",
+  "criterioNombre": "Continuidad de la atención ante una caída del enlace",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T03:07:36.772Z"
+}

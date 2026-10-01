@@ -1,0 +1,22 @@
+{
+  "criterio": "A.11.2",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "justificacion": "La edición evaluada no corre sobre un sistema operativo ni un motor de base de datos que la compañía administre: es un servicio en la nube que se abre con un navegador de uso común, en cualquier equipo con el que la compañía ya trabaje —Windows, macOS o Linux—. No hay versión que instalar ni versión que elegir según la plataforma propia, porque no hay plataforma propia de por medio.",
+  "evidencia": [
+    "A-11-2-bitrix24-2-portal-abierto.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://helpdesk.bitrix24.com/open/25860387/",
+      "cita": "To ensure Bitrix24 runs smoothly, always use the latest version of your browser—Chrome, Edge, Firefox, Safari, or any other browser that supports Green Baseline technologies.",
+      "consultado": "2026-09-29",
+      "captura": "A-11-2-bitrix24-1-navegador.png"
+    }
+  ],
+  "medicion": "Portal abierto con: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+  "criterioNombre": "Compatibilidad con la plataforma que la compañía usa",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T14:10:13.275Z"
+}

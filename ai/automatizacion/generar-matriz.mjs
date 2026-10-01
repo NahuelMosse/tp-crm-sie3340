@@ -10,6 +10,7 @@
 import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import catalogo from './catalogo.cjs';
 
 const AQUI = dirname(fileURLToPath(import.meta.url));
 const RAIZ = process.argv[2] ?? AQUI;
@@ -29,121 +30,18 @@ const PLATAFORMAS = [
   ['bitrix24', 'Bitrix24'],
 ];
 
-// Peso de cada grupo dentro de su parte, definido en la seccion 3.6.
-// La cantidad de criterios de un grupo no decide cuanto pesa: afinar el
-// catalogo no mueve ningun puntaje.
-const CRITERIOS = [
-  ['A.1', 'Cartera de pólizas', 1, [
-    ['A.1.1', 'Modelado de la póliza como objeto propio'],
-    ['A.1.2', 'Campos de lista para el ramo y el estado de cobranza'],
-    ['A.1.3', 'Prima con importe y moneda'],
-    ['A.1.4', 'Vigencia con fecha de inicio y de fin'],
-    ['A.1.5', 'Aviso anticipado de vencimiento'],
-    ['A.1.6', 'Consulta y filtrado de la cartera'],
-    ['A.1.7', 'Operación masiva sobre la cartera'],
-  ]],
-  ['A.2', 'Captación y proceso de venta', 1, [
-    ['A.2.1', 'Registro del solicitante con sus datos de contacto'],
-    ['A.2.2', 'Calificación y priorización del solicitante'],
-    ['A.2.3', 'Conversión del solicitante en oportunidad de venta'],
-    ['A.2.4', 'Embudo de oportunidades con etapas'],
-    ['A.2.5', 'Embudos diferenciados por ramo'],
-    ['A.2.6', 'Oportunidades de cambio y ampliación sobre la cartera'],
-  ]],
-  ['A.3', 'Productores y actividad comercial', 1, [
-    ['A.3.1', 'Registro de productores y asignación de cartera'],
-    ['A.3.2', 'Bitácora de la actividad con el cliente'],
-    ['A.3.3', 'Agenda y carga de trabajo del productor'],
-    ['A.3.4', 'Proyección de los movimientos comerciales'],
-  ]],
-  ['A.4', 'Marketing, segmentación y reputación', 1, [
-    ['A.4.1', 'Segmentación reutilizable de la cartera'],
-    ['A.4.2', 'Diseño de campañas sobre un segmento'],
-    ['A.4.3', 'Medición de los resultados de la campaña'],
-    ['A.4.4', 'Captación de interesados desde redes sociales'],
-    ['A.4.5', 'Escucha de menciones en canales públicos'],
-    ['A.4.6', 'Publicación en redes desde el sistema'],
-    ['A.4.7', 'Registro de la competencia y del motivo de pérdida'],
-  ]],
-  ['A.5', 'Atención al asegurado y reclamos', 1, [
-    ['A.5.1', 'Reclamo como caso con identidad propia'],
-    ['A.5.2', 'Estado y seguimiento del reclamo'],
-    ['A.5.3', 'Responsable asignado a cada reclamo'],
-    ['A.5.4', 'Base de conocimiento para la atención'],
-    ['A.5.5', 'Tareas asignables con responsable y vencimiento'],
-    ['A.5.6', 'Aviso al usuario al que se le asigna una tarea'],
-  ]],
-  ['A.6', 'Ficha única del asegurado', 1, [
-    ['A.6.1', 'Vinculación de la póliza con su titular'],
-    ['A.6.2', 'Vista única del asegurado'],
-    ['A.6.3', 'Campos propios del rubro en la ficha'],
-    ['A.6.4', 'Unicidad de la ficha del asegurado'],
-  ]],
-  ['A.7', 'Intercambio de datos y correo', 1, [
-    ['A.7.1', 'Importación de contactos desde planilla de cálculo'],
-    ['A.7.2', 'Importación de contactos desde las agendas de correo'],
-    ['A.7.3', 'Sincronización del correo de varios usuarios'],
-    ['A.7.4', 'Vinculación automática del correo a la ficha'],
-    ['A.7.5', 'Formatos de intercambio aceptados'],
-    ['A.7.6', 'Exportación de la cartera sin pérdida de datos'],
-  ]],
-  ['A.8', 'Parametrización del modelo de negocio', 1, [
-    ['A.8.1', 'Creación de entidades sin programar'],
-    ['A.8.2', 'Campos calculados sobre datos propios'],
-    ['A.8.3', 'Automatización de procesos'],
-    ['A.8.4', 'Conservación de la parametrización al actualizar'],
-  ]],
-  ['A.9', 'Control de acceso y trazabilidad', 1, [
-    ['A.9.1', 'Restricción de la cartera por productor'],
-    ['A.9.2', 'Autenticación de los usuarios bajo control de la compañía'],
-    ['A.9.3', 'Registro de quién modificó cada dato'],
-  ]],
-  ['A.10', 'Explotación de la información', 1, [
-    ['A.10.1', 'Indicadores sobre la operación'],
-    ['A.10.2', 'Generación de informes definidos por el usuario'],
-    ['A.10.3', 'Informe paramétrico reutilizable'],
-    ['A.10.4', 'Intercambio de datos con otros sistemas de la compañía'],
-    ['A.10.5', 'Intercambio sin límite de volumen que condicione la operación'],
-  ]],
-  ['A.11', 'Condiciones técnicas del producto', 1, [
-    ['A.11.1', 'Recursos que la compañía debe disponer para sostenerlo'],
-    ['A.11.2', 'Compatibilidad con la plataforma que la compañía usa'],
-    ['A.11.3', 'Puesta en marcha sin perfil técnico especializado'],
-    ['A.11.4', 'Menú y navegabilidad para la operación diaria'],
-    ['A.11.5', 'Aprendizaje sin capacitación previa'],
-    ['A.11.6', 'Localización completa al español, modelo incluido'],
-    ['A.11.7', 'Cantidad de usuarios sin límite que condicione la operación'],
-    ['A.11.8', 'Operación concurrente sobre la misma cartera'],
-    ['A.11.9', 'Ecosistema de integraciones disponible'],
-    ['A.11.10', 'Documentación en español'],
-    ['A.11.11', 'Material de capacitación para el usuario final'],
-    ['A.11.12', 'Comunidad activa de usuarios'],
-    ['A.11.13', 'Soporte técnico con compromiso de respuesta'],
-    ['A.11.14', 'Continuidad de las versiones en uso'],
-  ]],
-  ['B.1', 'Condiciones que impone el negocio asegurador', 1, [
-    ['B.1.1', 'Persistencia de los datos sin uso continuo'],
-    ['B.1.2', 'Copia propia y completa de la cartera'],
-    ['B.1.3', 'Copia periódica sin intervención manual'],
-    ['B.1.4', 'Búsqueda y operación con volumen productivo'],
-    ['B.1.5', 'Previsibilidad de los cambios del sistema'],
-    ['B.1.6', 'Conocimiento y decisión sobre dónde residen los datos'],
-    ['B.1.7', 'Continuidad de la atención ante una caída del enlace'],
-  ]],
-  ['B.2', 'Capacidades por encima de lo solicitado', 1, [
-    ['B.2.1', 'Asistente de inteligencia artificial'],
-    ['B.2.2', 'Aplicación móvil nativa'],
-    ['B.2.3', 'Suite de trabajo integrada'],
-    ['B.2.4', 'Telefonía y videollamada integradas'],
-    ['B.2.5', 'Uso sin restricciones comerciales en la interfaz'],
-  ]],
-];
+// Los grupos y sus criterios salen de la seccion 4 del informe, que es donde
+// estan definidos. Todos pesan igual dentro de su parte: el pedido del cliente
+// no jerarquiza sus necesidades, de modo que el analisis tampoco lo hace, y
+// afinar el catalogo no mueve ningun puntaje.
+const { GRUPOS } = catalogo;
+const PESO_GRUPO = 1;
 
 
 // Reparto ENTRE partes: lo que el cliente pidio pesa mas que lo que no pidio.
 const PARTE = { A: 0.85, B: 0.15 };
 
-const TOTAL_BASE = CRITERIOS.reduce((n, g) => n + g[3].length, 0) * PLATAFORMAS.length;
+const TOTAL_BASE = GRUPOS.reduce((n, g) => n + g.criterios.length, 0) * PLATAFORMAS.length;
 
 // ── cargar resultados ────────────────────────────────────────────────────────
 const res = {};
@@ -174,21 +72,25 @@ const conPlanPago = (d) => {
 
 const puntua = (d) => d && d.puntua !== false;
 
+/** Fecha en el formato del informe. Lo publicado cambia: la constancia lleva el dia. */
+// La fecha se guarda como día calendario: se lee en UTC para que el huso horario no la corra un día
+const fecha = (iso) => new Date(iso).toLocaleDateString('es-AR',
+  { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+
 // ── matriz ───────────────────────────────────────────────────────────────────
 let matriz = '';
 let analisis = '';
 const acum = { A: {}, B: {} };
 for (const [, nom] of PLATAFORMAS) { acum.A[nom] = []; acum.B[nom] = []; }
 
-for (const [gid, gnombre, pesoGrupo, items] of CRITERIOS) {
-  const parte = gid[0];
+for (const { id: gid, nombre: gnombre, parte, criterios: items } of GRUPOS) {
   matriz += `\n### ${gid} ${gnombre}\n\n`;
   matriz += `| Criterio | ${PLATAFORMAS.map(p => p[1]).join(' | ')} |\n`;
   matriz += `|---|${PLATAFORMAS.map(() => ':---:').join('|')}|\n`;
 
   analisis += `\n## ${gid} ${gnombre}\n`;
 
-  for (const [cid, cnombre] of items) {
+  for (const { id: cid, nombre: cnombre } of items) {
     matriz += `| ${cid} ${cnombre} | ${PLATAFORMAS.map(([k]) => simbolo(res[cid]?.[k])).join(' | ')} |\n`;
 
     analisis += `\n### ${cid} ${cnombre}\n`;
@@ -196,7 +98,7 @@ for (const [gid, gnombre, pesoGrupo, items] of CRITERIOS) {
     let algo = false;
     for (const [k, nom] of PLATAFORMAS) {
       const d = res[cid]?.[k];
-      acum[parte][nom].push({ d, gid, pesoGrupo });
+      acum[parte][nom].push({ d, gid });
       if (d?.conPlan?.length) acum[parte].mejoraConPlan = true;
       if (!d) continue;
       algo = true;
@@ -208,12 +110,16 @@ for (const [gid, gnombre, pesoGrupo, items] of CRITERIOS) {
         const lic = d.licencia
           ? ` Requiere ${d.licencia.plan}: ${d.licencia.monto} (${d.licencia.modalidad === 'unico' ? 'pago único' : 'abono recurrente'}).`
           : '';
-        const doc = d.documentacion ? ` Constancia del fabricante: ${d.documentacion}.` : '';
         const med = d.medicion ? ` *${d.medicion}.*` : '';
-        analisis += `**${nom}** · **${d.cumple}** (${ETIQUETA[d.cumple]})${costo} — ${d.justificacion}${lic}${doc}${med}\n\n`;
+        analisis += `**${nom}** · **${d.cumple}** (${ETIQUETA[d.cumple]})${costo} — ${d.justificacion}${lic}${med}\n\n`;
+        // La constancia va textual: una parafrasis no se puede contrastar
+        for (const f of d.documentacion ?? []) {
+          analisis += `> «${f.cita}»\n>\n> — ${f.url}, consultado el ${fecha(f.consultado)}\n\n`;
+        }
         for (const x of d.conPlan ?? []) {
           const c = x.costo ? ` · costo de implementación **${x.costo}**` : '';
-          const precio = `${x.monto}${x.modalidad === 'unico' ? ', pago único' : ' por mes'}`;
+          // El monto trae su propio periodo: no todos los abonos son mensuales
+          const precio = `${x.monto}, ${x.modalidad === 'unico' ? 'pago único' : 'abono recurrente'}`;
           analisis += `   ↳ **Con ${x.plan}** (${precio}) · **${x.cumple}** (${ETIQUETA[x.cumple]})${c} — ${x.justificacion}
 
 `;
@@ -230,13 +136,13 @@ for (const [gid, gnombre, pesoGrupo, items] of CRITERIOS) {
 function cumplimiento(parte, nom, soloGratuito = false) {
   const valor = (d) => (soloGratuito ? d : conPlanPago(d)).cumple;
   let suma = 0, pesos = 0;
-  for (const [gid, , pesoGrupo] of CRITERIOS) {
-    if (gid[0] !== parte) continue;
+  for (const { id: gid, parte: suParte } of GRUPOS) {
+    if (suParte !== parte) continue;
     const v = acum[parte][nom].filter(x => x.gid === gid && puntua(x.d));
     if (!v.length) continue;   // un grupo sin verificar no arrastra: su peso se reparte
     const pct = v.reduce((s, x) => s + valor(x.d), 0) / (MAXIMO * v.length) * 100;
-    suma += pct * pesoGrupo;
-    pesos += pesoGrupo;
+    suma += pct * PESO_GRUPO;
+    pesos += PESO_GRUPO;
   }
   return pesos ? suma / pesos : null;
 }
@@ -249,7 +155,8 @@ function resumen(parte) {
   t += fila('Cumple con reparo ◐', x => puntua(x.d) && x.d.cumple === 1);
   t += fila('No cumple ○', x => puntua(x.d) && x.d.cumple === 0);
   t += fila('Sin verificar ◍', x => !x.d || x.d.puntua === false);
-  t += fila('*— de los que cumplen, requieren licencia*', x => puntua(x.d) && x.d.cumple > 0 && x.d.licencia);
+  // Lo que un plan pago resuelve o mejora: se registra como licencia o como veredicto con plan
+  t += fila('*— mejoran contratando un plan*', x => puntua(x.d) && (x.d.licencia || x.d.conPlan?.length));
   t += `| **% de cumplimiento** | ${PLATAFORMAS.map(([, nom]) => {
     const c = cumplimiento(parte, nom);
     return c === null ? '—' : `**${c.toFixed(1)} %**`;
@@ -266,20 +173,21 @@ function resumen(parte) {
 
 /**
  * Extremos en que caeria el porcentaje de una parte si todo lo pendiente
- * resultara 3, o todo 1. Mide cuanto depende el resultado de lo que falta.
+ * cumpliera, o si nada cumpliera. Mide cuanto depende el resultado de lo que
+ * todavia no se midio.
  */
 function banda(parte, nom) {
   let lo = 0, hi = 0, pesos = 0;
-  for (const [gid, , pesoGrupo] of CRITERIOS) {
-    if (gid[0] !== parte) continue;
+  for (const { id: gid, parte: suParte } of GRUPOS) {
+    if (suParte !== parte) continue;
     const t = acum[parte][nom].filter(x => x.gid === gid);
     if (!t.length) continue;
     const obt = t.filter(x => puntua(x.d)).reduce((s, x) => s + conPlanPago(x.d).cumple, 0);
     const falta = t.filter(x => !puntua(x.d)).length;
     const max = MAXIMO * t.length;
-    lo += obt / max * 100 * pesoGrupo;
-    hi += (obt + falta * MAXIMO) / max * 100 * pesoGrupo;
-    pesos += pesoGrupo;
+    lo += obt / max * 100 * PESO_GRUPO;
+    hi += (obt + falta * MAXIMO) / max * 100 * PESO_GRUPO;
+    pesos += PESO_GRUPO;
   }
   return pesos ? { min: lo / pesos, max: hi / pesos } : null;
 }

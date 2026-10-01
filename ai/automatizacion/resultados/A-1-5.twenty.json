@@ -1,0 +1,17 @@
+{
+  "criterio": "A.1.5",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Los flujos de trabajo de la edición gratuita alcanzan para el aviso, armados desde el lienzo sin escribir código: un disparador programado busca las pólizas cuyo fin de vigencia cae en los próximos treinta días y los reclamos cuyo plazo de resolución vence en los próximos dos, y por cada uno deja una tarea con su nombre. Se activó el flujo y, sin que nadie interviniera, en la corrida siguiente del programador aparecieron los 9 avisos de pólizas por vencer y el del reclamo que alcanza su plazo; no avisó las pólizas que vencen más adelante ni el reclamo que tiene tres semanas. Armar el flujo es trabajo de una sola vez.",
+  "evidencia": [
+    "A-1-5-twenty-1-flujo-del-aviso.png",
+    "A-1-5-twenty-2-avisos-emitidos.png"
+  ],
+  "medicion": "10 avisos emitidos sin intervención",
+  "criterioNombre": "Aviso anticipado de vencimiento",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T04:24:29.015Z"
+}

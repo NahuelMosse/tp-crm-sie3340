@@ -12,7 +12,7 @@ Se relevaron doce sistemas del mercado y se aplicaron tres condiciones de admisi
 
 ## 2.2 EspoCRM 10.0.4 Community — instalación propia
 
-CRM de código abierto bajo licencia AGPL v3, desarrollado desde 2014. Se instala sobre una plataforma PHP con base de datos MySQL o MariaDB, sin límite de usuarios ni de registros impuesto por licencia.
+CRM de código abierto bajo licencia AGPL v3, desarrollado desde 2014. Se instala sobre una plataforma PHP con base de datos MySQL, MariaDB o PostgreSQL, sin límite de usuarios ni de registros impuesto por licencia.
 
 La versión Community incluye la funcionalidad completa de gestión comercial y de atención: cuentas, contactos, prospectos, oportunidades, campañas, listas de segmentación, tickets y base de conocimiento. Su herramienta de parametrización —el Administrador de Entidades— permite crear entidades nuevas y relacionarlas entre sí desde la interfaz de administración.
 
@@ -40,13 +40,13 @@ El análisis parte de la edición gratuita de cada producto, pero una capacidad 
 
 ### EspoCRM
 
-La instalación propia es gratuita y completa. Lo que se comercializa por separado son **extensiones**, de pago único, y un servicio de nube que las incluye.
+La instalación propia es gratuita y completa. Lo que se comercializa por separado son **extensiones**, con licencia anual por instalación que hay que renovar para seguir usándolas, y un servicio de nube que las incluye.
 
 | Plan | Precio | Qué agrega |
 |---|---|---|
 | **Community, instalación propia** | **Gratis** | Producto completo. Usuarios y registros sin límite |
-| Advanced Pack *(extensión)* | $395, pago único | Informes, flujos de trabajo automatizados y gestión de procesos |
-| Sales Pack, Project Management, VoIP, Google, Outlook, MailChimp, Zoom, Stripe *(extensiones)* | Pago único, por separado | Integraciones y módulos de rubro |
+| Advanced Pack *(extensión)* | $395 por año y por instalación | Informes, flujos de trabajo automatizados y gestión de procesos |
+| Sales Pack, Project Management, VoIP, Google, Outlook, MailChimp, Zoom, Stripe *(extensiones)* | Licencia anual cada una, por separado | Integraciones y módulos de rubro |
 | Cloud Basic | $15 por usuario y mes, mínimo 3 | Alojamiento gestionado, todas las extensiones incluidas, hasta 100.000 registros |
 | Cloud Enterprise | $25 por usuario y mes, mínimo 5 | Hasta 10.000.000 de registros |
 | Cloud Ultimate | $69 por usuario y mes, mínimo 10 | Registros sin límite, dirección de red dedicada y dominio propio |

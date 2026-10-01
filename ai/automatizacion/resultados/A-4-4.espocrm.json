@@ -1,0 +1,23 @@
+{
+  "criterio": "A.4.4",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "El producto no se conecta con ninguna red social: la administración de integraciones no ofrece ninguna y el catálogo del fabricante tampoco. Lo que sí trae es la captura de posibles clientes, un formulario web propio que carga solo a cada interesado que lo completa. Enlazado desde las publicaciones y los perfiles de la compañía, incorpora a la base a quien llega desde una red; pero cada campaña en la red tiene que llevar ese enlace, y los interesados que escriben por mensaje o comentan en la publicación se cargan a mano.",
+  "evidencia": [
+    "A-4-4-espocrm-1-integraciones.png",
+    "A-4-4-espocrm-2-captura-de-posibles-clientes.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.espocrm.com/features/web-to-lead/",
+      "cita": "The Web-to-Lead feature provides the ability to create web forms for capturing information about website visitors and then save this information as new leads to the CRM instance.",
+      "consultado": "2026-09-28",
+      "captura": "A-4-4-espocrm-3-formulario-web.png"
+    }
+  ],
+  "criterioNombre": "Captación de interesados desde redes sociales",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-28T19:25:29.753Z"
+}

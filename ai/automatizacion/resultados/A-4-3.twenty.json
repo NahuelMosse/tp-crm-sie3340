@@ -1,0 +1,17 @@
+{
+  "criterio": "A.4.3",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "De la campaña armada con un flujo de trabajo queda el registro del envío: cada lanzamiento es una corrida con el resultado de cada paso. Las respuestas llegan: el asegurado contestó y la casilla sincronizada trajo su respuesta a su ficha. Las aperturas no se registran, y nada reúne los resultados de la campaña: cuántos la recibieron, cuántos contestaron. Saberlo exige revisar las corridas y las fichas, una por una, después de cada envío.",
+  "evidencia": [
+    "A-4-3-twenty-1-envios.png",
+    "A-4-3-twenty-2-respuesta-en-la-ficha.png"
+  ],
+  "medicion": "1 corrida(s) registradas; respuesta en la ficha: sí",
+  "criterioNombre": "Medición de los resultados de la campaña",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T02:17:40.130Z"
+}

@@ -1,0 +1,18 @@
+{
+  "criterio": "A.10.3",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El informe de primas por productor se guardó una sola vez, sin período fijo, y la pantalla del informe trae el período como parámetro: se ejecutó del 1 al 20 de septiembre y, sin volver a armarlo, se lo volvió a ejecutar del 1 de enero al 31 de marzo. Cada ejecución recalculó los totales por productor —Gómez Productor 900 y Nahuel Mosse 300 en septiembre; Nahuel Mosse 900 en el primer trimestre—, iguales a los que suman las negociaciones. Armarlo es configuración de una vez; el período se pide cada vez que se abre.",
+  "evidencia": [
+    "A-10-3-bitrix24-1-septiembre.png",
+    "A-10-3-bitrix24-2-primer-trimestre.png",
+    "A-10-3-bitrix24-3-informe-guardado.png"
+  ],
+  "medicion": "Septiembre: {\"Gómez Productor\":900,\"Nahuel Mosse\":300} · Primer trimestre: {\"Nahuel Mosse\":900}",
+  "criterioNombre": "Informe paramétrico reutilizable",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T02:19:23.383Z"
+}

@@ -1,0 +1,15 @@
+{
+  "criterio": "A.11.8",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "justificacion": "Tres sesiones abrieron a la vez la misma póliza y cambiaron su ramo una detrás de otra, desde la ficha. Quedó el último cambio, Salud. Cada sesión vio aparecer el cambio de la anterior en su pantalla, sin recargar, antes de hacer el suyo: el sistema actualiza en vivo lo que otros modifican, así que nadie pisa el trabajo de otro sin verlo.",
+  "evidencia": [
+    "A-11-8-twenty-1-primera-sesion-despues.png"
+  ],
+  "medicion": "Final: Salud · actualización en vivo en las otras sesiones: sí",
+  "criterioNombre": "Operación concurrente sobre la misma cartera",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T00:48:33.410Z"
+}

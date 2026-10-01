@@ -1,0 +1,28 @@
+{
+  "criterio": "A.7.2",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "El sistema no se conecta con la agenda de ningún correo para traer contactos. Las extensiones del fabricante para Google y Outlook sincronizan calendario y correo, y para los contactos hacen el camino inverso: envían los del sistema a la agenda, no los incorporan. La vía que queda es exportar la agenda del correo web o del gestor de escritorio a un archivo y pasarlo por el asistente de importación, que es un procedimiento que se repite cada vez que la agenda cambia.",
+  "evidencia": [
+    "A-7-2-espocrm-1-integraciones.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.espocrm.com/extensions/google-integration/contacts/",
+      "cita": "The ability to push your EspoCRM contacts and leads to Google Contacts;",
+      "consultado": "2026-09-28",
+      "captura": "A-7-2-espocrm-2-google-solo-envia.png"
+    },
+    {
+      "url": "https://docs.espocrm.com/administration/import/",
+      "cita": "Provides the ability to import records from CSV files.",
+      "consultado": "2026-09-28",
+      "captura": "A-7-2-espocrm-3-importacion-csv.png"
+    }
+  ],
+  "criterioNombre": "Importación de contactos desde las agendas de correo",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-28T19:57:29.153Z"
+}

@@ -1,0 +1,16 @@
+{
+  "criterio": "A.7.6",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "Se exportaron desde el listado los asegurados importados y se comparó el archivo con la planilla original: salieron las 5 filas, cada una con nombre, apellido, correo y ciudad, y con las tildes y eñes intactas. La exportación viene de fábrica en todos los listados y toma los registros seleccionados o el resultado de un filtro.",
+  "evidencia": [
+    "A-7-6-espocrm-1-exportacion.png"
+  ],
+  "medicion": "5 de 5 filas idénticas al original",
+  "criterioNombre": "Exportación de la cartera sin pérdida de datos",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T20:02:56.545Z"
+}

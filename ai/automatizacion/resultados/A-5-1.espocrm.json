@@ -1,0 +1,18 @@
+{
+  "criterio": "A.5.1",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "El producto trae el caso de atención como entidad propia, con su entrada de menú, su listado y su ficha. Se registró un reclamo asociado a un asegurado y el sistema le asignó el número 93942 al guardarlo; la ficha muestra al asegurado y el reclamo figura en el listado de casos. No hubo que crear ni configurar nada: viene listo con la instalación. El número propio es lo que permite que la compañía y el asegurado hablen del mismo reclamo sin ambigüedad.",
+  "evidencia": [
+    "A-5-1-espocrm-1-alta.png",
+    "A-5-1-espocrm-2-ficha.png",
+    "A-5-1-espocrm-3-listado.png"
+  ],
+  "medicion": "Reclamo número 93942",
+  "criterioNombre": "Reclamo como caso con identidad propia",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T19:29:54.663Z"
+}

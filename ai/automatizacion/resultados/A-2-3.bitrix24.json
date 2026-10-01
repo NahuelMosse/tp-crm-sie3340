@@ -1,0 +1,39 @@
+{
+  "criterio": "A.2.3",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "justificacion": "La conversión de un interesado en oportunidad es una acción del módulo de prospectos, y ese módulo no está en la edición gratuita: al abrir «Prospectos» el sistema informa que no está incluido en el plan. Con el solicitante como contacto, lo más cercano es crear la negociación desde su ficha: queda ligada a él y su teléfono y correo se ven en la negociación sin volver a escribirlos, pero no hay una acción que la arme con lo que el solicitante pidió: la cobertura solicitada, un campo propio del contacto, se vuelve a cargar a mano en cada negociación.",
+  "evidencia": [
+    "A-2-3-bitrix24-1-prospectos-no-incluidos.png",
+    "A-2-3-bitrix24-2-negociacion-desde-el-contacto.png",
+    "A-2-3-bitrix24-3-negociacion-guardada.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "Todo lo incluido en Basic, más: Almacenamiento de 100 GB Prospectos ilimitados Facturas y cotizaciones Diseñador de formularios CRM Firma electrónica Marketing por WhatsApp Eficiencia de tareas (KPI) Proyectos ilimitados Tableros ilimitados",
+      "consultado": "2026-09-30",
+      "captura": "A-2-3-bitrix24-4-prospectos-en-standard.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "US$ 144",
+      "consultado": "2026-09-30",
+      "captura": "A-2-3-bitrix24-standard-precio-1.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Standard",
+      "monto": "US$ 144 por mes, hasta 50 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "El plan Standard incluye prospectos ilimitados, con su acción de convertir el prospecto en contacto, compañía y negociación llevando los datos cargados. Los campos propios pasan a la negociación si existen con el mismo nombre en las dos entidades: crearlos es configuración de una vez."
+    }
+  ],
+  "criterioNombre": "Conversión del solicitante en oportunidad de venta",
+  "costo": 2,
+  "licencia": null,
+  "momento": "2026-09-30T12:41:23.665Z"
+}

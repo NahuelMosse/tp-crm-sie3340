@@ -1,0 +1,16 @@
+{
+  "criterio": "A.5.2",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "justificacion": "Cada cambio de etapa de la negociación —que hace de reclamo— queda anotado en la línea de tiempo de su ficha como «Etapa cambiada», con la etapa anterior y la nueva, la hora y el usuario. Se pasó el reclamo por tres etapas y el sistema conservó las cuatro posiciones en orden, sin configurar nada. El reparo es que los estados no son propios del reclamo: son las etapas del embudo de ventas (En desarrollo, Crear documentos, Factura…), compartidas con las pólizas y las oportunidades, y la pestaña «Historial» de la ficha, que concentra el seguimiento, no se abre en la edición gratuita.",
+  "evidencia": [
+    "A-5-2-bitrix24-2-linea-de-tiempo.png"
+  ],
+  "medicion": "secuencia: NEW > PREPARATION > PREPAYMENT_INVOICE > EXECUTING",
+  "criterioNombre": "Estado y seguimiento del reclamo",
+  "costo": 2,
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T02:15:16.000Z"
+}

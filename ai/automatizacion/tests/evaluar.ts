@@ -1,5 +1,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { criterio as delCatalogo } from '../catalogo.cjs';
+import { reparos, fuentes } from '../reglas.cjs';
 
 /**
  * Registro del veredicto de cada criterio.
@@ -40,6 +42,25 @@ export type Costo = 2 | 1 | 0;
 
 export type Plataforma = 'espocrm' | 'twenty' | 'bitrix24';
 
+/**
+ * Constancia de una fuente del fabricante.
+ *
+ * Lo que no se puede comprobar ejercitando el sistema se resuelve consultando
+ * la fuente oficial, y entonces hace falta el texto **textual** que sostiene el
+ * veredicto: una paráfrasis no se puede contrastar, que es justamente para lo
+ * que sirve la constancia.
+ */
+export interface Fuente {
+  /** Dirección exacta consultada */
+  url: string;
+  /** Texto textual del fabricante que responde el criterio */
+  cita: string;
+  /** Fecha de la consulta, en formato ISO. Lo publicado cambia */
+  consultado: string;
+  /** Captura de la página, prueba de que ese texto estaba publicado ese día */
+  captura?: string;
+}
+
 /** La licencia no es trabajo sino dinero: va a la proyección de costo, no a las escalas. */
 export interface Licencia {
   /** Plan o módulo que habilita la capacidad */
@@ -70,7 +91,7 @@ export interface Evaluacion {
   plataforma: Plataforma;
   cumple: Cumplimiento;
   /**
-   * Costo de implementación. Se omite en los criterios no funcionales.
+   * Costo de implementación. No lo llevan los criterios no funcionales.
    * Con cumple 0 no corresponde; con cumple 1 es siempre 2.
    */
   costo?: Costo;
@@ -80,11 +101,11 @@ export interface Evaluacion {
   /** Por qué ese valor y no otro. Obligatoria: un registro sin esto no se acepta. */
   justificacion: string;
   /**
-   * Documentación oficial del fabricante. Obligatoria cuando cumple es 1:
+   * Fuentes oficiales con su texto textual. Obligatorias cuando cumple es 0:
    * que algo no aparezca en la instalación de prueba no prueba que no exista.
    */
-  documentacion?: string;
-  /** Capturas o videos que respaldan el veredicto */
+  documentacion?: Fuente | Fuente[];
+  /** Capturas o videos del sistema resolviéndolo */
   evidencia?: string[];
   /** Dato medido, cuando el criterio lo produce: cantidad de pasos, segundos, memoria */
   medicion?: string;
@@ -97,49 +118,32 @@ const DIR = 'resultados';
  * Un archivo por evaluación: dos tests en paralelo no se pisan.
  */
 export function registrar(e: Evaluacion) {
-  const donde = `[${e.criterio}/${e.plataforma}]`;
-
-  if (!e.justificacion?.trim()) {
-    throw new Error(`${donde} la justificación es obligatoria`);
-  }
-  if (![2, 1, 0].includes(e.cumple)) {
-    throw new Error(`${donde} cumple debe ser 2, 1 o 0 — llegó ${e.cumple}`);
+  const delCat = delCatalogo(e.criterio);
+  const mal = reparos(e);
+  if (mal.length) {
+    throw new Error(`[${e.criterio}/${e.plataforma}] no cumple la sección 3:\n  - ${mal.join('\n  - ')}`);
   }
 
-  // Sección 3.5: el valor 0 es el más exigente de demostrar.
-  if (e.cumple === 0 && !e.documentacion?.trim()) {
-    throw new Error(
-      `${donde} el valor 0 exige constancia en la documentación oficial del fabricante. ` +
-      `Que no aparezca en la instalación de prueba no prueba que el producto no lo tenga.`,
-    );
-  }
-
-  // Sección 3.3: cuando no lo resuelve, no hay implementación que costear.
-  if (e.cumple === 0 && e.costo !== undefined) {
-    throw new Error(`${donde} con cumple 0 el costo no se puntúa: no hay nada que implementar`);
-  }
-
-  // Sección 3.3: repetir un procedimiento en cada uso es la forma más cara.
-  if (e.cumple === 1 && e.costo !== undefined && e.costo !== 2) {
-    throw new Error(`${donde} con cumple 1 el costo es siempre 2 — llegó ${e.costo}`);
-  }
-  const costo = e.cumple === 1 ? 2 : e.costo;
+  // Sección 3.3: con cumple 1 el costo es siempre 2, pero solo donde hay costo
+  // que medir. Los criterios no funcionales no lo llevan nunca.
+  const costo = !delCat!.funcional ? undefined : e.cumple === 1 ? 2 : e.costo;
 
   const registro = {
     ...e,
+    criterioNombre: delCat!.nombre,
     costo,
     licencia: e.licencia ?? null,
     conPlan: e.conPlan ?? [],
+    documentacion: fuentes(e.documentacion),
     evidencia: e.evidencia ?? [],
     momento: new Date().toISOString(),
   };
 
   mkdirSync(DIR, { recursive: true });
-  const archivo = join(DIR, `${e.criterio.replace(/\./g, '-')}.${e.plataforma}.json`);
-  writeFileSync(archivo, JSON.stringify(registro, null, 2), 'utf8');
+  writeFileSync(join(DIR, archivoDe(e.criterio, e.plataforma)), JSON.stringify(registro, null, 2), 'utf8');
 
-  const partes = [`cumple ${e.cumple}`];
-  if (costo !== undefined) partes.push(`costo ${costo}`);
+  const partes = [`cumple ${registro.cumple}`];
+  if (registro.costo !== undefined) partes.push(`costo ${registro.costo}`);
   if (e.licencia) partes.push(`licencia: ${e.licencia.plan}`);
   console.log(`  → ${e.criterio} · ${e.plataforma}: ${partes.join(' · ')}`);
   console.log(`    ${e.justificacion}`);
@@ -155,13 +159,18 @@ export function registrar(e: Evaluacion) {
  * corresponde reescribirlo desde la necesidad del negocio, no declararlo aparte.
  */
 export function sinVerificar(criterio: string, plataforma: Plataforma, motivo: string) {
+  if (!delCatalogo(criterio)) {
+    throw new Error(`[${criterio}/${plataforma}] el criterio no figura en el catálogo de la sección 4`);
+  }
   if (!motivo?.trim()) {
     throw new Error(`[${criterio}/${plataforma}] el motivo es obligatorio`);
   }
   mkdirSync(DIR, { recursive: true });
-  const archivo = join(DIR, `${criterio.replace(/\./g, '-')}.${plataforma}.json`);
-  writeFileSync(archivo, JSON.stringify({
+  writeFileSync(join(DIR, archivoDe(criterio, plataforma)), JSON.stringify({
     criterio, plataforma, puntua: false, motivo, momento: new Date().toISOString(),
   }, null, 2), 'utf8');
   console.log(`  → ${criterio} · ${plataforma}: SIN VERIFICAR — ${motivo}`);
 }
+
+export const archivoDe = (criterio: string, plataforma: Plataforma | string) =>
+  `${criterio.replace(/\./g, '-')}.${plataforma}.json`;

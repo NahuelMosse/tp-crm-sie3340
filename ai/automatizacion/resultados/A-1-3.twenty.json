@@ -1,0 +1,24 @@
+{
+  "criterio": "A.1.3",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El modelo de datos tiene un tipo de campo de importe con moneda. Se agregó la prima en pesos argentinos y se cargó 45.250,75 desde la ficha: quedó guardada con los centavos y con su moneda. Para eso el campo se define una vez con formato completo y dos decimales. Con la definición de fábrica —formato corto, sin decimales— el editor descarta el separador decimal y guarda el importe multiplicado por cien sin avisar, un error que el fabricante tiene registrado; quien define el campo tiene que saberlo. Definirlo bien es trabajo de una sola vez.",
+  "evidencia": [
+    "A-1-3-twenty-1-campo-configurado.png",
+    "A-1-3-twenty-2-prima-cargada.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://github.com/twentyhq/twenty/issues/25870",
+      "cita": "In a currency field left at the default Number of decimals = 0, the editor rejects the typed decimal separator but keeps the digits after it. The amount is saved 10^n times too large, with no warning.",
+      "consultado": "2026-09-29",
+      "captura": "A-1-3-twenty-3-error-registrado.png"
+    }
+  ],
+  "medicion": "guardado 45250.75 ARS; en pantalla «45.250,75\n45.250,75»",
+  "criterioNombre": "Prima con importe y moneda",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T03:41:55.417Z"
+}

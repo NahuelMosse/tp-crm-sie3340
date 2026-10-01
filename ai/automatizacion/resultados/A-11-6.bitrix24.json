@@ -1,0 +1,16 @@
+{
+  "criterio": "A.11.6",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "justificacion": "El menú principal y la ficha del contacto están enteramente en español, incluidos los objetos que trae el producto de fábrica.",
+  "evidencia": [
+    "A-11-6-bitrix24-1-menu-principal.png",
+    "A-11-6-bitrix24-2-listado-de-negociaciones.png"
+  ],
+  "medicion": "Menú: Bitrix, Messenger, CoPilot, Feed, Calendario, Documentos, Tableros, Drive, Webmail, Proyectos, Tareas, CRM, Reserva, Gestión del inventario, Marketing, Sitios web y tiendas, Firma electrónica para RR.HH., Firma electrónica, BI Builder, Empleados, Automatización, Market, Recursos para desarrolladores, Base de conocimientos 2., Suscripción · en inglés: ninguno",
+  "criterioNombre": "Localización completa al español, modelo incluido",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T14:31:58.832Z"
+}

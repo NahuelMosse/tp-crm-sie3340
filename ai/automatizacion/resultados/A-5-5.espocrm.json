@@ -1,0 +1,16 @@
+{
+  "criterio": "A.5.5",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "Se creó una tarea con vencimiento en tres días y se la asignó a un productor. Al ingresar con la cuenta de ese productor, la tarea figura en su listado con su fecha. Responsable y vencimiento son campos que la tarea trae de fábrica, sin configurar nada, y es lo que permite repartir el trabajo y saber qué se atrasa.",
+  "evidencia": [
+    "A-5-5-espocrm-1-alta.png",
+    "A-5-5-espocrm-2-desde-la-cuenta-del-productor.png"
+  ],
+  "criterioNombre": "Tareas asignables con responsable y vencimiento",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T19:37:02.566Z"
+}

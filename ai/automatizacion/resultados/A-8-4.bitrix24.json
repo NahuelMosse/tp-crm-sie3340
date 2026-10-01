@@ -1,0 +1,29 @@
+{
+  "criterio": "A.8.4",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "El portal es un servicio en la nube que el fabricante actualiza por su cuenta: la compañía no aplica ningún procedimiento ni elige el momento, y el fabricante afirma que el servicio no se interrumpe durante las actualizaciones. Los campos, las listas y las monedas que este análisis creó desde la pantalla están guardados como datos del portal y siguen ahí, en el formulario, sin que nadie los rehaga. El fabricante no publica una frase que garantice expresamente que la parametrización se conserva al actualizar: la conclusión se apoya en que actualiza el servicio de todos sus clientes a la vez y en que lo parametrizado es información del portal y no código de la compañía.",
+  "evidencia": [
+    "A-8-4-bitrix24-3-parametrizacion-por-pantalla.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://helpdesk.bitrix24.com/open/23247978/",
+      "cita": "Automatic updates. There's no need to track or manage version updates. Bitrix24 accounts automatically receive updates and new tools.",
+      "consultado": "2026-09-29",
+      "captura": "A-8-4-bitrix24-1-actualizacion-automatica.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
+      "cita": "Servicio ininterrumpido durante las actualizaciones del sistema y de la infraestructura",
+      "consultado": "2026-09-29",
+      "captura": "A-8-4-bitrix24-2-servicio-ininterrumpido.png"
+    }
+  ],
+  "medicion": "Campos propios del portal: 5",
+  "criterioNombre": "Conservación de la parametrización al actualizar",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-30T00:49:29.322Z"
+}

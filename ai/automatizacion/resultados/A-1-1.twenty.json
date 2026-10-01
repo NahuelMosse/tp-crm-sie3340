@@ -3,12 +3,15 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "justificacion": "Configuración → Modelo de datos ofrece la acción \"Añadir objeto\", que crea la entidad desde la interfaz sin escribir código. El objeto Póliza se creó y figura en el listado de objetos del espacio de trabajo. Queda operativo para el usuario final sin trabajo adicional en cada uso; la configuración inicial se refleja en el costo de implementación.",
+  "justificacion": "Desde Configuración › Modelo de datos se crea el objeto Póliza con su nombre en singular y plural, sin escribir código ni tocar el servidor. Queda con identidad propia: figura entre los objetos del modelo, aparece en el menú de la izquierda junto a los que trae el producto, tiene su listado y admite registros, que se cargan desde el mismo listado. Definirlo es trabajo de una sola vez.",
   "evidencia": [
     "A-1-1-twenty-1-modelo.png",
-    "A-1-1-twenty-2-objetos.png"
+    "A-1-1-twenty-2-menu.png",
+    "A-1-1-twenty-3-listado.png"
   ],
-  "medicion": "Objeto creado en 29 segundos desde el ingreso",
+  "criterioNombre": "Modelado de la póliza como objeto propio",
   "licencia": null,
-  "momento": "2026-09-14T02:52:52.281Z"
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T03:32:46.969Z"
 }

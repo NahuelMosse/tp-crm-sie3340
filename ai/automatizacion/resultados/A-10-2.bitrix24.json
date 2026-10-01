@@ -1,0 +1,18 @@
+{
+  "criterio": "A.10.2",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El asistente de informes del CRM, incluido en la edición gratuita, armó sin programar el total de primas por productor en un período: se agrupó por la persona responsable, se sumó el importe de la negociación y se eligió el rango de fechas por la fecha de inicio de la póliza. Del 1 al 20 de septiembre el informe mostró Gómez Productor 900 y Nahuel Mosse 300, las mismas cifras que suman las negociaciones cargadas, y el menú del informe lo exportó a un archivo de Microsoft Excel con esos totales. Armar el informe es configuración: se elige una vez y se vuelve a abrir cuando se lo necesita. La suma se hace sobre el importe nativo de la negociación, no sobre un campo propio de tipo dinero.",
+  "evidencia": [
+    "A-10-2-bitrix24-1-armado-del-informe.png",
+    "A-10-2-bitrix24-2-primas-por-productor.png",
+    "A-10-2-bitrix24-3-archivo-listo.png"
+  ],
+  "medicion": "Totales por productor: Gómez Productor 900 · Nahuel Mosse 300 · exportado a report.xls",
+  "criterioNombre": "Generación de informes definidos por el usuario",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T02:34:21.990Z"
+}

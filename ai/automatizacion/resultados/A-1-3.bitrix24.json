@@ -1,0 +1,18 @@
+{
+  "criterio": "A.1.3",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El formulario de la negociación, que hace de póliza en la edición gratuita, admite campos de tipo dinero: importe y moneda en el mismo campo. El peso argentino no venía entre las monedas del portal: se agregó desde la configuración del CRM, eligiéndolo de la lista de monedas y cargando su cotización. Se cargó una prima de 15.250,50 pesos y quedó guardada con sus centavos y su moneda. Agregar la moneda y el campo es configuración de una vez.",
+  "evidencia": [
+    "A-1-3-bitrix24-1-moneda.png",
+    "A-1-3-bitrix24-2-prima.png",
+    "A-1-3-bitrix24-3-guardada.png"
+  ],
+  "medicion": "Guardado: 15250.5|ARS",
+  "criterioNombre": "Prima con importe y moneda",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T15:24:24.750Z"
+}

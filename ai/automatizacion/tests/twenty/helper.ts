@@ -20,11 +20,13 @@ export async function entrarATwenty(page: Page, log = true) {
     const btn = page.getByRole('button', { name: /Continuar con el correo|Continue with email/i });
     if (await btn.isVisible().catch(() => false)) { await btn.click(); await page.waitForTimeout(2000); }
 
-    const email = page.locator('input[type="email"], input[autocomplete="email"]').first();
+    const email = page.locator('input[type="email"], input[autocomplete="email"]')
+      .or(page.getByRole('textbox', { name: /^Email$|^Correo/i })).first();
     if (await email.isVisible().catch(() => false)) {
       await email.fill(EMAIL); await page.keyboard.press('Enter'); await page.waitForTimeout(3500);
     }
     const pass = page.locator('input[type="password"]').first();
+    await pass.waitFor({ state: 'visible', timeout: 15_000 }).catch(() => {});
     if (await pass.isVisible().catch(() => false)) {
       await pass.fill(PASS); await page.keyboard.press('Enter'); await page.waitForTimeout(6000);
     }

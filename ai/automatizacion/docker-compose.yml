@@ -1,3 +1,8 @@
+# El nombre fija el prefijo de los volumenes. Sin el, docker lo deriva del
+# directorio y `up` crea volumenes vacios en vez de adoptar la instalacion
+# existente, que es la que tiene la cartera cargada.
+name: tp-crm
+
 services:
   espocrm-db:
     image: mariadb:11

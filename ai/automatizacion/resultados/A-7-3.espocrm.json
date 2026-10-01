@@ -1,0 +1,16 @@
+{
+  "criterio": "A.7.3",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Cada usuario puede tener su propia casilla sincronizada: la administración tiene una sección de cuentas de correo personales, y también de cuentas grupales para casillas compartidas. Se configuraron dos casillas personales, de dos usuarios distintos, contra el mismo servidor de correo, y el sistema trajo el mensaje de cada una a la bandeja de su dueño y solo a la suya. Configurar cada casilla es trabajo de una sola vez.",
+  "evidencia": [
+    "A-7-3-espocrm-1-casillas-personales.png",
+    "A-7-3-espocrm-2-bandeja.png"
+  ],
+  "criterioNombre": "Sincronización del correo de varios usuarios",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T19:59:19.669Z"
+}

@@ -1,0 +1,16 @@
+{
+  "criterio": "A.1.6",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El listado de pólizas admite combinar condiciones: se pidieron a la vez el ramo Automotor, el estado de cobranza al día y un productor responsable, y de 20 pólizas el sistema devolvió 2, exactamente las que cumplen las tres al mismo tiempo. La consulta se arma desde el listado eligiendo campo, comparación y valor, sin escribir ninguna expresión. Los campos propios de la póliza no vienen habilitados como filtro: hay que agregarlos una vez a los filtros de búsqueda desde la administración, y ese paso es el costo de implementación. Es la consulta que el área comercial repite todos los días para saber a quién llamar.",
+  "evidencia": [
+    "A-1-6-espocrm-1-filtros-combinados.png"
+  ],
+  "medicion": "2 de 20 pólizas cumplen las tres condiciones",
+  "criterioNombre": "Consulta y filtrado de la cartera",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T18:37:24.665Z"
+}

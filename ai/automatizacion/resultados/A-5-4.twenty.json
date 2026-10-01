@@ -1,0 +1,16 @@
+{
+  "criterio": "A.5.4",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Twenty no trae una base de conocimiento: el artículo se definió como un objeto propio, con su título y la condición de cobertura. Se cargó uno sobre el granizo en automotor y la búsqueda general lo encontró por su título. También lo encontró por una palabra del texto de la condición. Definir el objeto es trabajo de una sola vez.",
+  "evidencia": [
+    "A-5-4-twenty-1-articulo.png",
+    "A-5-4-twenty-2-busqueda.png"
+  ],
+  "criterioNombre": "Base de conocimiento para la atención",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T23:47:20.972Z"
+}

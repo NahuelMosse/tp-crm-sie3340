@@ -1,0 +1,16 @@
+{
+  "criterio": "A.2.1",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "La edición gratuita no incluye el módulo de prospectos: el solicitante se registra como un contacto, igual que el asegurado. El formulario del contacto trae nombre y apellido, teléfono, correo y dirección desglosada en código postal, país, provincia, ciudad y calle. Se cargó una solicitante con todos esos datos desde el formulario y quedaron guardados; la búsqueda del listado la encontró por su nombre. Viene listo: no hay nada que configurar.",
+  "evidencia": [
+    "A-2-1-bitrix24-1-solicitante-cargado.png",
+    "A-2-1-bitrix24-2-busqueda.png"
+  ],
+  "criterioNombre": "Registro del solicitante con sus datos de contacto",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T02:25:08.598Z"
+}

@@ -1,0 +1,16 @@
+{
+  "criterio": "A.6.2",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "La ficha del contacto reúne en una sola pantalla lo del asegurado: la línea de tiempo con sus actividades registradas y, en la pestaña «Negociaciones», tanto la póliza como el reclamo, que en la edición gratuita son negociaciones con el contacto como cliente. No hace falta salir a otro menú ni buscarlo de nuevo. Como póliza y reclamo comparten esa pestaña, el usuario los distingue por el nombre que se les da al cargarlos: es una convención que hay que fijar una vez.",
+  "evidencia": [
+    "A-6-2-bitrix24-1-actividad.png",
+    "A-6-2-bitrix24-2-negociaciones.png"
+  ],
+  "criterioNombre": "Vista única del asegurado",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T03:17:25.474Z"
+}

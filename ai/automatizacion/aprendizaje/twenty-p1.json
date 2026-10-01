@@ -1,0 +1,13 @@
+{
+  "persona": 1,
+  "plataforma": "twenty",
+  "fecha": "2026-09-28",
+  "respuestaTarea3": 18,
+  "tareas": [
+    { "tarea": 1, "termine": true, "falto": null, "captura": "A-11-5-twenty-p1-t1.png" },
+    { "tarea": 2, "termine": true, "falto": null, "captura": "A-11-5-twenty-p1-t2.png" },
+    { "tarea": 3, "termine": true, "falto": null, "captura": "A-11-5-twenty-p1-t3.png" },
+    { "tarea": 4, "termine": true, "falto": null, "captura": "A-11-5-twenty-p1-t4.png" },
+    { "tarea": 5, "termine": true, "falto": null, "captura": "A-11-5-twenty-p1-t5.png" }
+  ]
+}

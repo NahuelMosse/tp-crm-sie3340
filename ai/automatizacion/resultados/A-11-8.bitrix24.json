@@ -1,0 +1,15 @@
+{
+  "criterio": "A.11.8",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "justificacion": "Tres sesiones con la misma cuenta abrieron, una detrás de otra, la misma negociación desde el listado del CRM y cada una cambió su título. Quedó el último cambio, «DOC-CONCURRENCIA-S3». Cada sesión, al abrir el formulario, ya veía el cambio que había dejado la anterior: el listado no guarda una versión vieja del registro entre una apertura y otra.",
+  "evidencia": [
+    "A-11-8-bitrix24-1-tercera-sesion-tras-los-tres-cambios.png"
+  ],
+  "medicion": "Título final: DOC-CONCURRENCIA-S3 · cada sesión vio el cambio anterior al abrir: sí",
+  "criterioNombre": "Operación concurrente sobre la misma cartera",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T23:36:57.348Z"
+}

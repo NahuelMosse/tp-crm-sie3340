@@ -1,0 +1,15 @@
+{
+  "criterio": "A.3.3",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "Al ingresar con la cuenta del productor, las tareas traen de fábrica una vista de las asignadas a él: ahí figuran sus pendientes con la fecha comprometida —la visita de mañana y la cotización de la semana—. Las tareas admiten además una vista de calendario por fecha de vencimiento. Las reuniones agendadas aparecen en la ficha solo si el productor conecta su calendario externo. Viene listo.",
+  "evidencia": [
+    "A-3-3-twenty-1-asignadas-a-mi.png"
+  ],
+  "criterioNombre": "Agenda y carga de trabajo del productor",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T23:02:16.635Z"
+}

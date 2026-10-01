@@ -1,0 +1,25 @@
+{
+  "criterio": "B.1.6",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "justificacion": "En la instalación propia la base de datos reside donde la compañía instala el sistema: en su propio servidor o en el proveedor que ella elija, en el país que ella elija. Sabe en todo momento dónde están los datos de sus asegurados y lo decide ella, que es lo que exige el tratamiento de datos sensibles de los seguros de personas. La contracara, que el fabricante declara, es que la seguridad de esos datos queda también a su cargo.",
+  "documentacion": [
+    {
+      "url": "https://www.espocrm.com/self-hosted-vs-cloud-crm/",
+      "cita": "CRM database is stored locally",
+      "consultado": "2026-09-28",
+      "captura": "B-1-6-espocrm-1-base-local.png"
+    },
+    {
+      "url": "https://www.espocrm.com/self-hosted-vs-cloud-crm/",
+      "cita": "Self-hosted (on-premise) — You install the software and have all the data stored on your own server. All the server maintenance, as well as data security, will be your responsibility.",
+      "consultado": "2026-09-28",
+      "captura": "B-1-6-espocrm-2-responsabilidad.png"
+    }
+  ],
+  "criterioNombre": "Conocimiento y decisión sobre dónde residen los datos",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-29T01:23:49.453Z"
+}

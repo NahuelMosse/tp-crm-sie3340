@@ -1,0 +1,16 @@
+{
+  "criterio": "A.5.5",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "Las tareas vienen de fábrica con responsable y vencimiento. Se creó una desde el listado, se la asignó al productor y se le puso fecha y hora de vencimiento desde su ficha. Al ingresar con la cuenta del productor, figura en la vista de las tareas asignadas a él, con su vencimiento. Viene listo.",
+  "evidencia": [
+    "A-5-5-twenty-1-tarea-asignada.png",
+    "A-5-5-twenty-2-desde-la-cuenta-del-productor.png"
+  ],
+  "criterioNombre": "Tareas asignables con responsable y vencimiento",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T23:50:19.100Z"
+}

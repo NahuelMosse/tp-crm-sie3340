@@ -1,0 +1,19 @@
+{
+  "criterio": "A.5.1",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "justificacion": "La edición gratuita no tiene procesos inteligentes para crear una entidad Reclamo, y la alternativa que sugiere el modelo —una tarea vinculada al contacto— no está disponible: al pulsar «Tarea» en la ficha del asegurado el sistema informa que «Tareas en CRM» requiere al menos el plan Basic. El reclamo se lleva entonces como una negociación con el asegurado como cliente: recibe un número propio, abre su propia ficha y queda asociada al contacto (reclamo n.º 226). No tiene listado propio: comparte el de las demás negociaciones —pólizas y oportunidades—, y hay que distinguirlo por el nombre o con un filtro en cada uso.",
+  "evidencia": [
+    "A-5-1-bitrix24-1-formulario.png",
+    "A-5-1-bitrix24-2-ficha.png",
+    "A-5-1-bitrix24-3-listado.png",
+    "A-5-1-bitrix24-4-tarea-en-crm.png"
+  ],
+  "medicion": "reclamo n.º 226",
+  "criterioNombre": "Reclamo como caso con identidad propia",
+  "costo": 2,
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T02:08:25.159Z"
+}

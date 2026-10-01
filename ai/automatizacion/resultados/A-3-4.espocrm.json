@@ -1,0 +1,58 @@
+{
+  "criterio": "A.3.4",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "Se cargaron tres oportunidades del mes con monto y etapa, y el sistema les asignó la probabilidad de cada etapa. El tablero de canalización de ventas suma los montos por etapa para el período elegido —mes, trimestre, año, año fiscal o un rango—, de modo que muestra cuánto hay en juego en cada instancia. Lo que no calcula es la proyección: cada oportunidad tiene su monto ponderado por la probabilidad, pero ningún tablero ni listado los totaliza, y el total esperado del período —286.000 en este caso— se obtiene exportando y sumando afuera cada vez. El módulo de informes del fabricante suma cualquier campo agrupado por período, el ponderado incluido.",
+  "evidencia": [
+    "A-3-4-espocrm-1-canalizacion-del-mes.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.espocrm.com/user-guide/reports/",
+      "cita": "Grid reports display summarized values, can be grouped by one or two fields, and support chart visualization.",
+      "consultado": "2026-09-28",
+      "captura": "A-3-4-espocrm-2-informes.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extensions/advanced-pack/",
+      "cita": "$395.00 1 Year License + Upgrades",
+      "consultado": "2026-09-28",
+      "captura": "A-3-4-espocrm-precio-1.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extension-license-agreement/",
+      "cita": "1.1 Subject to your continuous compliance with the Agreement and payment of the applicable license fees, EspoCRM grants you a non-exclusive, non-transferable, worldwide, limited right to use the Software on a single EspoCRM Application instance on a single server for the Licensed Period. After the license period expires, you must renew or purchase a new license to continue using the Software. You may use or modify the Software only for your own internal business purposes or for non-commercial or personal use.",
+      "consultado": "2026-09-28",
+      "captura": "A-3-4-espocrm-precio-2.png"
+    },
+    {
+      "url": "https://www.espocrm.com/cloud/",
+      "cita": "Basic $15.00 per user/month minimum 3 users 3GB file storage per user 100,000 records SSL Encryption (256 bit keys, TLS 1.3) Full feature set All extensions included External access API 2000+ integrations * 12x5 (hours/days) support Sign Up Free Trial Free Trial is provided for 30 days",
+      "consultado": "2026-09-28",
+      "captura": "A-3-4-espocrm-nube-precio-1.png"
+    }
+  ],
+  "medicion": "Por etapa: {\"Prospecting\":0,\"Qualification\":80000,\"Proposal\":300000,\"Negotiation\":150000,\"Closed Won\":0} · proyección ponderada no mostrada: 286000",
+  "conPlan": [
+    {
+      "plan": "Advanced Pack",
+      "monto": "US$ 395 por año y por instalación",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "Un informe agrupado por mes de cierre suma el monto ponderado y da la proyección del período."
+    },
+    {
+      "plan": "EspoCRM Cloud Basic",
+      "monto": "US$ 15 por usuario por mes, mínimo 3 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "El servicio en la nube incluye el módulo de informes."
+    }
+  ],
+  "criterioNombre": "Proyección de los movimientos comerciales",
+  "licencia": null,
+  "momento": "2026-09-28T19:13:49.537Z"
+}

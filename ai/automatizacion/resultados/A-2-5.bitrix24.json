@@ -1,0 +1,42 @@
+{
+  "criterio": "A.2.5",
+  "plataforma": "bitrix24",
+  "cumple": 0,
+  "justificacion": "La edición gratuita trae un solo embudo, el pipeline general. Desde «Pipelines y túneles de ventas», al pedir «Agregar pipeline» el sistema no abre el embudo nuevo: informa que la cantidad máxima de pipelines depende del plan y ofrece actualizar; la lista de embudos siguió con uno solo. El fabricante publica los embudos de ventas como función que se suma con el plan Basic.",
+  "evidencia": [
+    "A-2-5-bitrix24-1-al-agregar-el-embudo.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "Todo lo incluido en Free, más: Almacenamiento de 24 GB IA para el trabajo diario en Bitrix24 Embudos de ventas Negociaciones recurrentes Pagos en línea Integración de correo electrónico Integración de WhatsApp Integración de telefonía",
+      "consultado": "2026-09-30",
+      "captura": "A-2-5-bitrix24-3-embudos-en-basic.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "Funciones clave: Almacenamiento de 5 GB CRM básico (negociaciones, contactos) Tareas (Kanban, Gantt) Calendarios compartidos Chat y videollamadas",
+      "consultado": "2026-09-30",
+      "captura": "A-2-5-bitrix24-4-crm-basico-en-free.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "Basic Ideal para emprendedores individuales y equipos pequeños que están empezando US$ 69 US$ 69 US$ 49 / compañía / mes / facturado mensualmente / compañía / mes / facturación anual Un pago de US$ 588 / año Ahorra US$ 240 al año incluye 5 usuarios Comprar Comprar Todo lo incluido en Free, más: Almacenamiento de 24 GB IA para el trabajo diario en Bitrix24 Embudos de ventas Negociaciones recurrentes Pagos en línea Integración de correo electrónico Integración de WhatsApp Integración de telefonía",
+      "consultado": "2026-09-30",
+      "captura": "A-2-5-bitrix24-basic-precio-1.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Basic",
+      "monto": "US$ 69 por mes, hasta 5 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "Con el plan de entrada se pueden crear embudos adicionales, cada uno con sus propias etapas: uno por ramo y una negociación en el que corresponde. Definirlos es configuración de una vez. Los planes superiores suben la cantidad de embudos y no cambian lo que se resuelve."
+    }
+  ],
+  "criterioNombre": "Embudos diferenciados por ramo",
+  "licencia": null,
+  "momento": "2026-09-30T03:01:35.850Z"
+}

@@ -1,0 +1,43 @@
+{
+  "criterio": "A.8.1",
+  "plataforma": "bitrix24",
+  "cumple": 0,
+  "justificacion": "Las entidades nuevas de Bitrix24 son los procesos inteligentes: se crean desde la barra del CRM, con su nombre, sus etapas y sus campos, sin escribir código. En la edición gratuita el formulario se completa, pero al guardar el sistema no crea la entidad y avisa que los procesos inteligentes requieren el plan Professional o el Enterprise; la tabla comparativa del fabricante los lista entre las funciones que ese plan agrega. Con el plan Professional la entidad se crea igual que se hace con cualquier otra configuración del sistema, sin programar. Sin él, lo más cercano es forzar el concepto dentro de una negociación con campos propios, que no es una entidad nueva.",
+  "evidencia": [
+    "A-8-1-bitrix24-1-formulario.png",
+    "A-8-1-bitrix24-2-al-guardar.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
+      "cita": "Cree sus propios procesos inteligentes y personalícelos según las necesidades de su empresa.",
+      "consultado": "2026-09-29",
+      "captura": "A-8-1-bitrix24-3-procesos-personalizados.png"
+    },
+    {
+      "url": "https://www.bitrix24.com/promo/professional/",
+      "cita": "SPA (smart process automation)",
+      "consultado": "2026-09-29",
+      "captura": "A-8-1-bitrix24-4-procesos-inteligentes.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "Professional Ideal para empresas en crecimiento que utilizan automatización avanzada US$ 289 US$ 289US$ 199 / compañía / mes / facturado mensualmente / compañía / mes / facturación anualUn pago de US$ 2,388 / año Ahorra US$ 1,080 al año incluye 100 usuarios ≈ US$ 2.89 por usuario ≈ US$ 1.99 por usuario Comprar Comprar Todo lo incluido en Standard, más: Almacenamiento de 1 TB Automatización de ventas Seguimiento de llamadas Email Marketing Automatización de anuncios Reserva online Análisis e informes Control del tiempo en tareas Automatización de tareas Automatización Robótica (RPA) Herramientas de gestión de RR. HH. Control del tiempo de trabajo",
+      "consultado": "2026-09-29",
+      "captura": "A-8-1-bitrix24-professional-precio-1.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Professional",
+      "monto": "US$ 289 por mes, hasta 100 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "Con el plan Professional los procesos inteligentes vienen incluidos: se crea la entidad desde la barra del CRM con su nombre, sus etapas y sus campos propios, sin escribir código. Es configuración de una vez."
+    }
+  ],
+  "criterioNombre": "Creación de entidades sin programar",
+  "licencia": null,
+  "momento": "2026-09-30T00:09:35.046Z"
+}

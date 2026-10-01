@@ -1,0 +1,59 @@
+{
+  "criterio": "A.8.3",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 2,
+  "justificacion": "Se definió una acción automática sobre un evento: cuando la cobranza de una póliza pasa a vencida, el sistema le crea una tarea de gestión a su productor. Se provocó el evento cambiando el estado desde la ficha, y la tarea \"Gestionar cobranza de POL-VENCE-AUTOMATIZACION\" apareció sola, asignada al productor y vinculada a la póliza. La edición gratuita lo resuelve, pero con la fórmula de la entidad, que para esto exige escribir un script con condiciones y funciones del sistema: es desarrollo, aunque sea breve, y lo tiene que mantener alguien que sepa leerlo. El fabricante vende un motor de flujos de trabajo que define la misma regla desde pantallas, sin escribir código.",
+  "evidencia": [
+    "A-8-3-espocrm-1-regla.png",
+    "A-8-3-espocrm-2-tarea-creada-sola.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.espocrm.com/extensions/advanced-pack/",
+      "cita": "Workflows",
+      "consultado": "2026-09-28",
+      "captura": "A-8-3-espocrm-3-advanced-pack.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extensions/advanced-pack/",
+      "cita": "$395.00 1 Year License + Upgrades",
+      "consultado": "2026-09-28",
+      "captura": "A-8-3-espocrm-precio-1.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extension-license-agreement/",
+      "cita": "1.1 Subject to your continuous compliance with the Agreement and payment of the applicable license fees, EspoCRM grants you a non-exclusive, non-transferable, worldwide, limited right to use the Software on a single EspoCRM Application instance on a single server for the Licensed Period. After the license period expires, you must renew or purchase a new license to continue using the Software. You may use or modify the Software only for your own internal business purposes or for non-commercial or personal use.",
+      "consultado": "2026-09-28",
+      "captura": "A-8-3-espocrm-precio-2.png"
+    },
+    {
+      "url": "https://www.espocrm.com/cloud/",
+      "cita": "Basic $15.00 per user/month minimum 3 users 3GB file storage per user 100,000 records SSL Encryption (256 bit keys, TLS 1.3) Full feature set All extensions included External access API 2000+ integrations * 12x5 (hours/days) support Sign Up Free Trial Free Trial is provided for 30 days",
+      "consultado": "2026-09-28",
+      "captura": "A-8-3-espocrm-nube-precio-1.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "Advanced Pack",
+      "monto": "US$ 395 por año y por instalación",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "Con los flujos de trabajo de la extensión, la condición y la acción se eligen desde la administración sin escribir código: la misma regla pasa de desarrollo a configuración."
+    },
+    {
+      "plan": "EspoCRM Cloud Basic",
+      "monto": "US$ 15 por usuario por mes, mínimo 3 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "El servicio en la nube incluye los flujos de trabajo entre todas las extensiones del fabricante: la regla se define desde pantallas, igual que con la extensión comprada aparte."
+    }
+  ],
+  "medicion": "Tarea creada automáticamente al cambiar el estado de cobranza",
+  "criterioNombre": "Automatización de procesos",
+  "licencia": null,
+  "momento": "2026-09-28T20:12:04.674Z"
+}

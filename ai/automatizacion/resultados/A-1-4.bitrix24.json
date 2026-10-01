@@ -1,0 +1,19 @@
+{
+  "criterio": "A.1.4",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El formulario de la negociación, que en la edición gratuita hace de póliza, admite campos de tipo fecha. Se agregaron el inicio y el fin de la vigencia desde el mismo formulario y se cargaron tres pólizas con sus fechas. El sistema las trata como fechas: con un clic en el encabezado de la columna el listado se ordena por calendario —no alfabéticamente— y otro clic invierte el orden; y el filtro sobre ese campo ofrece comparaciones propias de una fecha —hoy, próximos N días, rango, mes, trimestre—: «vence en los próximos 30 días» trajo solo la póliza que vence en doce días y dejó afuera las de 150 y 300. Definir los campos y mostrarlos como columna y en el filtro es trabajo de una sola vez.",
+  "evidencia": [
+    "A-1-4-bitrix24-1-vigencia-en-la-poliza.png",
+    "A-1-4-bitrix24-2-orden-por-vencimiento.png",
+    "A-1-4-bitrix24-3-vencen-en-30-dias.png",
+    "A-1-4-bitrix24-4-listado-filtrado.png"
+  ],
+  "medicion": "orden POL-VENCE-PRONTO > POL-VENCE-MEDIO > POL-VENCE-TARDE · vencen en 30 días: POL-VENCE-PRONTO",
+  "criterioNombre": "Vigencia con fecha de inicio y de fin",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T12:50:47.649Z"
+}

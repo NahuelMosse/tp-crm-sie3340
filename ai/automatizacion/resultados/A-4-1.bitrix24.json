@@ -1,0 +1,17 @@
+{
+  "criterio": "A.4.1",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Desde el listado de contactos se definió un conjunto por un criterio —los asegurados que llegaron por recomendación— y se lo guardó con nombre desde el propio filtro, sin programar. Al salir del listado y volver, el segmento figura entre los filtros guardados; al abrirlo trajo de nuevo los mismos asegurados, y como se guarda el criterio y no la lista, uno que lo cumpla más adelante entra solo. El origen no viene entre los campos visibles del filtro: agregarlo es configuración de una vez.",
+  "evidencia": [
+    "A-4-1-bitrix24-1-segmento-guardado.png",
+    "A-4-1-bitrix24-2-segmento-reabierto.png"
+  ],
+  "medicion": "3 asegurados en el segmento",
+  "criterioNombre": "Segmentación reutilizable de la cartera",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T23:59:58.920Z"
+}

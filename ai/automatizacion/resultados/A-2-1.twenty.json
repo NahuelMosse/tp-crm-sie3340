@@ -1,0 +1,16 @@
+{
+  "criterio": "A.2.1",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Twenty no tiene una entidad para quien todavía no contrató: el solicitante se registra como una persona, igual que el asegurado. La persona trae nombre, correos y teléfonos con su código de país, pero no domicilio: se agregó un campo de dirección, desglosado en calle, ciudad, provincia, código postal y país. Se cargó una solicitante con todos esos datos desde su ficha y la búsqueda general la encontró por su nombre. Agregar el domicilio es trabajo de una sola vez.",
+  "evidencia": [
+    "A-2-1-twenty-1-solicitante-cargado.png",
+    "A-2-1-twenty-2-busqueda.png"
+  ],
+  "criterioNombre": "Registro del solicitante con sus datos de contacto",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T01:47:24.663Z"
+}

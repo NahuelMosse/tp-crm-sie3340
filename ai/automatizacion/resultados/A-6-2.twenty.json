@@ -1,0 +1,18 @@
+{
+  "criterio": "A.6.2",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "La ficha de la persona reúne lo suyo: a la izquierda, sus campos, entre ellos sus pólizas y sus reclamos, que se abren desde ahí; a la derecha, pestañas con la línea de tiempo de cambios, las tareas, las notas, los archivos, los correos y el calendario. Desde la ficha de un asegurado se llegó a su póliza, a su reclamo y a la tarea hecha con él sin pasar por otro menú. La actividad viene de fábrica; las pólizas y los reclamos aparecen al definir sus relaciones con la persona, que es configuración de una sola vez.",
+  "evidencia": [
+    "A-6-2-twenty-1-ficha-completa.png",
+    "A-6-2-twenty-2-reclamos-desde-la-ficha.png",
+    "A-6-2-twenty-3-actividad-desde-la-ficha.png"
+  ],
+  "medicion": "Pestañas de la ficha: ",
+  "criterioNombre": "Vista única del asegurado",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T23:57:37.811Z"
+}

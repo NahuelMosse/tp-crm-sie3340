@@ -1,0 +1,25 @@
+{
+  "criterio": "A.11.11",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "justificacion": "El fabricante publica una colección de videos de acceso libre que incluye material para quien opera el sistema y no solo para quien lo administra: cuentas, contactos, prospectos, seguimiento de oportunidades, calendario y actividades, importación y exportación de datos, impresión y reportes. Cubre las operaciones que un productor o un administrativo repiten a diario.",
+  "documentacion": [
+    {
+      "url": "https://www.espocrm.com/video/",
+      "cita": "Opportunity Tracking",
+      "consultado": "2026-09-28",
+      "captura": "A-11-11-espocrm-1-videos.png"
+    },
+    {
+      "url": "https://www.espocrm.com/video/",
+      "cita": "Calendar and Activities",
+      "consultado": "2026-09-28",
+      "captura": "A-11-11-espocrm-2-videos-actividades.png"
+    }
+  ],
+  "criterioNombre": "Material de capacitación para el usuario final",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-28T20:44:52.448Z"
+}

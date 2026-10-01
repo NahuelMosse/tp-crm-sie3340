@@ -1,0 +1,23 @@
+{
+  "criterio": "B.2.2",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "El fabricante publica una aplicación móvil oficial, para Android en Google Play y para iOS en el App Store, con el CRM, las tareas, el chat y las notificaciones de la cuenta. El productor puede registrar la operación durante la visita al asegurado, desde su teléfono, sin instalar ni configurar nada además de bajar la aplicación e iniciar sesión.",
+  "evidencia": [
+    "B-2-2-bitrix24-1-google-play.png",
+    "B-2-2-bitrix24-2-portal-en-el-navegador.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.es/features/mobile-app.php",
+      "cita": "El único software empresarial que necesitarás",
+      "consultado": "2026-09-29",
+      "captura": "B-2-2-bitrix24-3-app-movil-oficial.png"
+    }
+  ],
+  "criterioNombre": "Aplicación móvil nativa",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-30T00:18:38.270Z"
+}

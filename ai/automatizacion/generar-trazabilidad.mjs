@@ -11,10 +11,11 @@
  * una cita parafraseada volveria inutil la trazabilidad, que existe
  * justamente para poder contrastar contra la fuente.
  */
-import { readFileSync, writeFileSync } from 'node:fs';
+import { writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import catalogo from './catalogo.cjs';
 
 const AQUI = dirname(fileURLToPath(import.meta.url));
 const RAIZ = process.argv[2] ?? join(AQUI, '..', '..');
@@ -78,13 +79,7 @@ const ORIGEN = {
 };
 
 // ── Catalogo, leido de la seccion 4 ──────────────────────────────────────────
-const sec4 = readFileSync(join(RAIZ, 'humanos', 'informe', '04-criterios-de-analisis.md'), 'utf8');
-const criterios = [];
-for (const linea of sec4.split('\n')) {
-  const celdas = linea.trim().replace(/^\||\|$/g, '').split('|').map(c => c.trim());
-  if (!/^(A|B)\.\d+\.\d+$/.test(celdas[0])) continue;
-  criterios.push({ id: celdas[0], nombre: celdas[1], grupo: celdas[0].split('.').slice(0,2).join('.') });
-}
+const criterios = catalogo.CRITERIOS;
 
 const huerfanos = criterios.filter(c => !ORIGEN[c.id]).map(c => c.id);
 if (huerfanos.length) throw new Error(`Criterios sin origen declarado: ${huerfanos.join(', ')}`);

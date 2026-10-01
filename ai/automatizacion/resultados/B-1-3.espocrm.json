@@ -1,0 +1,21 @@
+{
+  "criterio": "B.1.3",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "justificacion": "El producto no trae una copia programada: sus tareas programadas son de mantenimiento propio y ninguna genera un respaldo. La documentación oficial resuelve la repetición afuera, con el programador de tareas del servidor, que ejecuta todas las noches el mismo procedimiento de copia. La condición se satisface con una limitación que la compañía asume: la copia se repite sola, pero la programa, la vigila y la guarda fuera del equipo alguien con acceso al servidor, porque el sistema no avisa si una noche falló.",
+  "evidencia": [
+    "B-1-3-espocrm-2-tareas-programadas.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.espocrm.com/administration/backup-and-restore/",
+      "cita": "Backups can be scheduled on the host by adding the following entry to the crontab:",
+      "consultado": "2026-09-28",
+      "captura": "B-1-3-espocrm-1-programar-en-el-servidor.png"
+    }
+  ],
+  "criterioNombre": "Copia periódica sin intervención manual",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T01:23:12.468Z"
+}

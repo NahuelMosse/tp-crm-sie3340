@@ -1,0 +1,15 @@
+{
+  "criterio": "A.5.6",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "Al asignarle una tarea, el productor la recibe como notificación en la campana de la barra superior del portal, con el título de la tarea y quién se la asignó, sin que tenga que abrir el listado de tareas. Viene activado de fábrica en la edición gratuita.",
+  "evidencia": [
+    "A-5-6-bitrix24-1-notificaciones.png"
+  ],
+  "criterioNombre": "Aviso al usuario al que se le asigna una tarea",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T15:13:08.934Z"
+}

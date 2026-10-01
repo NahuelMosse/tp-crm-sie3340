@@ -1,0 +1,16 @@
+{
+  "criterio": "A.9.3",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Un productor cambió el ramo de una póliza de automotor a hogar, y al abrirla con otro usuario la historia de la ficha muestra la constancia completa: el valor anterior, el nuevo, quién lo cambió y en qué momento. Para que un campo deje esa constancia se lo marca como auditado desde el Administrador de Campos, una sola vez y sin programar. Es lo que permite responder quién tocó un dato cuando un asegurado lo discute.",
+  "evidencia": [
+    "A-9-3-espocrm-1-constancia-en-la-ficha.png"
+  ],
+  "medicion": "Constancia: Automotor → Hogar, el 2026-09-28 20:17:47",
+  "criterioNombre": "Registro de quién modificó cada dato",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T20:18:31.946Z"
+}

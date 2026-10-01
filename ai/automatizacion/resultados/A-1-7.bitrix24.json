@@ -1,0 +1,18 @@
+{
+  "criterio": "A.1.7",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "Se filtró el listado por el ramo Hogar, se tildó la casilla del encabezado —que selecciona las 3 pólizas— y en el desplegable de acciones de la selección se eligió «Cambiar a la persona responsable»: con el productor Gómez Productor y un solo «Aplicar», todas quedaron a su cargo. Las acciones de la selección vienen con el producto y no hay nada que configurar; modificar en bloque otro campo propio, como el estado de cobranza, no figura entre ellas.",
+  "evidencia": [
+    "A-1-7-bitrix24-1-seleccion.png",
+    "A-1-7-bitrix24-2-accion.png",
+    "A-1-7-bitrix24-3-resultado.png"
+  ],
+  "medicion": "3 de 3 pólizas reasignadas con una sola acción",
+  "criterioNombre": "Operación masiva sobre la cartera",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T02:41:48.452Z"
+}

@@ -1,0 +1,16 @@
+{
+  "criterio": "A.3.4",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "Las oportunidades tienen monto y fecha de cierre, pero no probabilidad, y el modelo no admite campos calculados. Los tableros suman los montos por etapa y por fecha de cierre, de modo que muestran cuánto hay en juego en cada período, pero no el total ponderado por la probabilidad de cerrarlo. Una probabilidad se puede agregar como campo, pero el total proyectado hay que calcularlo fuera, cada vez que se lo quiere mirar.",
+  "evidencia": [
+    "A-3-4-twenty-1-tablero.png",
+    "A-3-4-twenty-2-tipos-de-campo.png"
+  ],
+  "criterioNombre": "Proyección de los movimientos comerciales",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T04:12:09.824Z"
+}

@@ -1,0 +1,37 @@
+{
+  "criterio": "A.9.3",
+  "plataforma": "bitrix24",
+  "cumple": 0,
+  "justificacion": "Se cambió el ramo de una póliza de Hogar a Vida desde su ficha y el cambio quedó guardado, pero no dejó ninguna constancia: la línea de tiempo de la edición gratuita solo muestra la creación de la negociación —y los cambios de etapa—, sin el valor anterior, el autor ni el momento del cambio de un campo. La pestaña «Historial», que sí registra quién hizo cada acción y cuándo, no se abre: el sistema informa que el historial en CRM está disponible solo en los planes Standard, Professional y Enterprise.",
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Standard",
+      "monto": "US$ 144 por mes, hasta 50 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 0,
+      "justificacion": "El historial en CRM, que el fabricante describe como un registro detallado de cada actividad de los usuarios con quién la realizó y en qué momento, se habilita desde el plan Standard. No se contrató el plan, así que no se comprobó que el cambio de ramo muestre el valor anterior."
+    }
+  ],
+  "evidencia": [
+    "A-9-3-bitrix24-1-linea-de-tiempo.png",
+    "A-9-3-bitrix24-2-historial.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://helpdesk.bitrix24.com/open/25803275/",
+      "cita": "The CRM history logs key changes to CRM items, such as exporting contacts or updating field values. Use it to track activity related to clients and deals.",
+      "consultado": "2026-09-30",
+      "captura": "A-9-3-bitrix24-3-historial-en-crm.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "US$ 144",
+      "consultado": "2026-09-30",
+      "captura": "A-9-3-bitrix24-standard-precio-1.png"
+    }
+  ],
+  "criterioNombre": "Registro de quién modificó cada dato",
+  "licencia": null,
+  "momento": "2026-09-30T13:46:14.075Z"
+}

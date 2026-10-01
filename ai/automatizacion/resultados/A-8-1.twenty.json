@@ -1,0 +1,17 @@
+{
+  "criterio": "A.8.1",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Desde Configuración › Modelo de datos se creó una entidad que el producto no trae —la inspección del riesgo antes de emitir— con su nombre en singular y plural y una descripción, y se le agregó un campo de fecha. Apareció en el menú con su listado y su ficha, y admitió registros enseguida. No hizo falta escribir código en ningún paso: es configuración.",
+  "evidencia": [
+    "A-8-1-twenty-1-entidad-y-campo.png",
+    "A-8-1-twenty-2-registro-cargado.png"
+  ],
+  "medicion": "Entidad creada, con un campo y un registro cargado, en 120 segundos",
+  "criterioNombre": "Creación de entidades sin programar",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T02:47:30.918Z"
+}

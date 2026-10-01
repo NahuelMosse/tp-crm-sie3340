@@ -1,0 +1,24 @@
+{
+  "criterio": "A.7.5",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "Los datos salen en XLSX · Spreadsheet y CSV —los formatos de planilla que la compañía usa— y por la interfaz de programación en JSON, que es el formato de intercambio entre sistemas. Pero solo entran por archivo de texto separado por comas: el asistente de importación no acepta planillas de cálculo ni agendas en su formato propio. Cada vez que la compañía quiera cargar una planilla, tiene que guardarla antes como archivo de texto, con la codificación correcta.",
+  "evidencia": [
+    "A-7-5-espocrm-1-formatos-de-entrada.png",
+    "A-7-5-espocrm-2-formatos-de-salida.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.espocrm.com/development/api/",
+      "cita": "Most of API functions return JSON. POST and PUT requests usually need some data passed in the payload in JSON format. Whenever you send a JSON payload, add the header: Content-Type: application/json.",
+      "consultado": "2026-09-28",
+      "captura": "A-7-5-espocrm-3-api-json.png"
+    }
+  ],
+  "medicion": "Entrada: .csv · salida: XLSX · Spreadsheet, CSV · interfaz de programación: JSON",
+  "criterioNombre": "Formatos de intercambio aceptados",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-28T20:01:44.835Z"
+}
