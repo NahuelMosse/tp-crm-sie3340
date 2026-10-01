@@ -1,0 +1,19 @@
+{
+  "criterio": "A.3.1",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Un usuario se da de alta como empleado desde «Empleados», con su propia cuenta y contraseña: es el productor. Sobre el listado de contactos —que en la edición gratuita hace de cartera de asegurados, a falta de una entidad propia— se seleccionan varios registros y se les cambia el responsable en bloque a ese productor, sin programar nada. El alta del usuario es un trámite de una vez por productor; asignar la cartera es una acción del listado que se repite cuando cambia la asignación.",
+  "evidencia": [
+    "A-3-1-bitrix24-1-productor-alta.png",
+    "A-3-1-bitrix24-2-asegurados.png",
+    "A-3-1-bitrix24-3-seleccion.png",
+    "A-3-1-bitrix24-4-asignados.png"
+  ],
+  "medicion": "3 asegurados asignados al productor gomez",
+  "criterioNombre": "Registro de productores y asignación de cartera",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T14:43:12.657Z"
+}

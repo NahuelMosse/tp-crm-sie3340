@@ -1,0 +1,23 @@
+{
+  "criterio": "B.2.2",
+  "plataforma": "twenty",
+  "cumple": 0,
+  "justificacion": "El fabricante no publica una aplicación móvil: en la tienda de aplicaciones, la búsqueda del producto devuelve 5 aplicaciones con su nombre y ninguna es del fabricante. Lo que ofrece es la misma interfaz en el navegador del teléfono, que se adapta a la pantalla: el productor puede consultar y cargar durante una visita, con conexión, pero no es una aplicación instalada.",
+  "evidencia": [
+    "B-2-2-twenty-1-tienda.png",
+    "B-2-2-twenty-2-en-el-navegador-del-telefono.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://play.google.com/store/search?q=twenty%20crm&c=apps",
+      "cita": "Acceder con Google",
+      "consultado": "2026-09-29",
+      "captura": "B-2-2-twenty-3-busqueda-en-la-tienda.png"
+    }
+  ],
+  "medicion": "5 aplicaciones con el nombre del producto en la tienda, 0 del fabricante",
+  "criterioNombre": "Aplicación móvil nativa",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T03:13:56.960Z"
+}

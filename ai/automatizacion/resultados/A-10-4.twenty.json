@@ -1,0 +1,22 @@
+{
+  "criterio": "A.10.4",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El producto trae interfaces de programación REST y GraphQL que se generan solas a partir del modelo de datos, incluidos los objetos propios como la póliza. Desde Configuración se creó una clave para el otro sistema, que lleva un rol que define lo que puede hacer, sin la contraseña de ninguna persona; con esa clave, desde fuera del sistema, se dio de alta un asegurado y se lo volvió a consultar. Crear la clave es configuración; lo que el otro sistema haga con la interfaz es trabajo de ese sistema, no de este.",
+  "evidencia": [
+    "A-10-4-twenty-1-clave-de-integracion.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/developers/extend/api",
+      "cita": "There is no static API reference for Twenty. Each workspace has its own schema — when you add a custom object (say Invoice), it immediately gets REST and GraphQL endpoints identical to built-in objects like Company or Person. The API is generated from the schema, so endpoints use your object and field names directly — no opaque IDs.",
+      "consultado": "2026-09-29",
+      "captura": "A-10-4-twenty-2-interfaz-de-programacion.png"
+    }
+  ],
+  "criterioNombre": "Intercambio de datos con otros sistemas de la compañía",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T04:04:29.906Z"
+}

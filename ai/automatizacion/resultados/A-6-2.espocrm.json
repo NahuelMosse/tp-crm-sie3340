@@ -1,0 +1,16 @@
+{
+  "criterio": "A.6.2",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "La ficha del asegurado reúne en paneles todo lo suyo: sus pólizas, sus reclamos, sus actividades pendientes y el historial de llamadas, reuniones y correos, además de la línea de tiempo de cambios. Desde ahí se llega a cada registro sin pasar por otro menú. Los reclamos y la actividad vienen de fábrica; el panel de pólizas aparece al definir la relación con el titular, que es configuración de una sola vez.",
+  "evidencia": [
+    "A-6-2-espocrm-1-ficha-completa.png"
+  ],
+  "medicion": "10 paneles en la ficha del asegurado",
+  "criterioNombre": "Vista única del asegurado",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T19:44:52.216Z"
+}

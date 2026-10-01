@@ -1,0 +1,18 @@
+{
+  "criterio": "A.9.1",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Los roles de la administración definen, entidad por entidad, si el usuario ve todo, lo de su equipo o solo lo suyo. Con un rol de productor restringido a lo propio, su listado de pólizas muestra solo la que tiene a cargo; al pegar en el navegador la dirección de una póliza ajena el sistema niega el acceso, y la interfaz de programación, consultada con sus credenciales, responde que no tiene permiso. La restricción se aplica en el servidor y no solo en la pantalla. Definir el rol es configuración de una vez.",
+  "evidencia": [
+    "A-9-1-espocrm-1-rol-del-productor.png",
+    "A-9-1-espocrm-2-solo-lo-suyo.png",
+    "A-9-1-espocrm-3-direccion-directa.png"
+  ],
+  "medicion": "Acceso a una póliza ajena por la interfaz de programación: respuesta 403",
+  "criterioNombre": "Restricción de la cartera por productor",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T20:15:38.363Z"
+}

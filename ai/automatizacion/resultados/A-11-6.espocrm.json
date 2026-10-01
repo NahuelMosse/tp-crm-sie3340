@@ -1,0 +1,16 @@
+{
+  "criterio": "A.11.6",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "justificacion": "El menú principal y la ficha del asegurado están en español, incluidos los campos del modelo y los que agregó la compañía. Queda en inglés la palabra \"Ticket\" para el caso de atención, que se entiende pero no es la que usa una aseguradora, y algunas traducciones son literales —\"Posibles clientes\", \"Historia\" para el registro de actividad—. Fuera del recorrido pedido, en los filtros de fecha la opción que significa \"con algún valor\" quedó traducida como \"Nunca\", que dice lo contrario. Se entiende en conjunto, con salvedades que la compañía puede corregir renombrando las etiquetas.",
+  "evidencia": [
+    "A-11-6-espocrm-1-menu.png",
+    "A-11-6-espocrm-2-ficha.png"
+  ],
+  "medicion": "Palabras en inglés en el recorrido: tickets, ticket",
+  "criterioNombre": "Localización completa al español, modelo incluido",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T20:49:30.192Z"
+}

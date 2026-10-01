@@ -1,0 +1,16 @@
+{
+  "criterio": "A.6.3",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Se agregó a la ficha del asegurado un campo que el producto no trae —la valoración que dejó sobre la atención recibida, con cuatro valores— desde el Administrador de Campos. Quedó en el formulario, se cargó en un asegurado y se lo pudo usar como condición de búsqueda para listar a los que valoraron la atención como muy buena. Es configuración de una sola vez: se define el campo y se lo ubica en el formulario y entre los filtros, sin programar.",
+  "evidencia": [
+    "A-6-3-espocrm-1-en-el-formulario.png",
+    "A-6-3-espocrm-2-en-la-busqueda.png"
+  ],
+  "criterioNombre": "Campos propios del rubro en la ficha",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T19:46:28.121Z"
+}

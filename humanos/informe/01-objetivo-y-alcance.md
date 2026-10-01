@@ -24,7 +24,7 @@ La integración de ambas se hace al final, mediante un polinomio de valor que as
 
 De esa separación se desprende la regla que gobierna toda la evaluación técnica: **una función que el producto puede realizar está cubierta, con independencia del plan que la habilite**. Si exige una licencia adicional, eso encarece la solución y se refleja en el costo proyectado, no en el puntaje funcional.
 
-La proyección a tres y cinco años es deliberada: las tres plataformas son gratuitas en su punto de partida, y es el paso del tiempo el que revela la diferencia entre un pago único de licencia, un abono por usuario y un abono por organización.
+La proyección a tres y cinco años es deliberada: las tres plataformas son gratuitas en su punto de partida, y es el paso del tiempo el que revela la diferencia entre una licencia anual por instalación, un abono por usuario y un abono por organización.
 
 ## 1.3 El negocio asegurador
 

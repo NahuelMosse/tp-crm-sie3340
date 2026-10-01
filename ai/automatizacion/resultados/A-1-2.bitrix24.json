@@ -1,0 +1,18 @@
+{
+  "criterio": "A.1.2",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Desde el formulario de la negociación —que en la edición gratuita hace de póliza, a falta de entidades propias— se agregan campos de tipo lista sin programar. Se definieron los ramos —Automotor, Hogar, Vida, Salud— y los estados de cobranza, se cargó una póliza de cada ramo y a la de salud se le cambió el estado desde su ficha: todo quedó guardado. El usuario elige de la lista y no puede escribir un valor imprevisto. Definir los campos es configuración de una vez, en el mismo formulario.",
+  "evidencia": [
+    "A-1-2-bitrix24-1-campos.png",
+    "A-1-2-bitrix24-2-cartera.png",
+    "A-1-2-bitrix24-3-estado.png"
+  ],
+  "medicion": "4 ramos cargados",
+  "criterioNombre": "Campos de lista para el ramo y el estado de cobranza",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T14:50:48.533Z"
+}

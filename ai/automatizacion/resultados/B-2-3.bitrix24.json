@@ -1,0 +1,17 @@
+{
+  "criterio": "B.2.3",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "Además del CRM, el producto incluye mensajería, tareas y proyectos, calendario, Drive (documentos), base de conocimientos, sitios web, todo en la misma cuenta y sobre los mismos contactos: desde la ficha de una negociación se abre un chat, una tarea, una reunión o un comentario (Tarea, Comentario) sin salir del registro. Falta la edición colaborativa de documentos de oficina y la firma electrónica en la edición gratuita —quedan en planes pagos o en aplicaciones del catálogo—, así que la compañía sigue necesitando otra herramienta para esa parte, con el trabajo de pasar la información de una a otra.",
+  "evidencia": [
+    "B-2-3-bitrix24-1-herramientas-en-la-negociacion.png",
+    "B-2-3-bitrix24-2-drive.png"
+  ],
+  "medicion": "Acciones disponibles desde la ficha: Tarea, Comentario",
+  "criterioNombre": "Suite de trabajo integrada",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T00:34:28.024Z"
+}

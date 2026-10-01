@@ -1,0 +1,15 @@
+{
+  "criterio": "A.2.5",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "Twenty tiene un solo embudo por objeto: las etapas de la oportunidad son un campo de lista, y el tablero agrupa por ese campo. Un segundo embudo se arma con un segundo campo de lista —para los seguros de personas: cotización, examen médico, emisión— y un tablero agrupado por él; se hizo así y la oportunidad quedó ubicada en el segundo embudo. Pero las dos listas conviven en todas las oportunidades: nada impide que una oportunidad de automotor tenga etapa de vida, ni separa qué embudo sigue cada una. Mantener esa separación queda a cargo de quien carga la oportunidad, en cada alta.",
+  "evidencia": [
+    "A-2-5-twenty-1-segundo-embudo.png"
+  ],
+  "criterioNombre": "Embudos diferenciados por ramo",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T04:35:41.869Z"
+}

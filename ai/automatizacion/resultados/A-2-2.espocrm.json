@@ -1,0 +1,16 @@
+{
+  "criterio": "A.2.2",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El posible cliente no trae cobertura pedida ni urgencia: se agregaron como dos campos de lista desde la administración y se los ubicó en el formulario y en el listado. Se cargaron tres solicitantes en desorden y, al ordenar el listado por urgencia, el sistema respetó el orden de la lista —alta, media, baja— y no el alfabético, de modo que los más cercanos a contratar quedan arriba. Configuración de una sola vez, sin programar.",
+  "evidencia": [
+    "A-2-2-espocrm-1-ordenado-por-urgencia.png"
+  ],
+  "medicion": "Orden obtenido: Prioridad Alta · Prioridad Media · Prioridad Baja",
+  "criterioNombre": "Calificación y priorización del solicitante",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T19:04:37.029Z"
+}

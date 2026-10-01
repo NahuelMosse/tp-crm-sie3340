@@ -1,0 +1,17 @@
+{
+  "criterio": "A.5.6",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Twenty no avisa por su cuenta: la interfaz no tiene un centro de notificaciones y asignar una tarea no le manda nada al responsable. El aviso se armó con un flujo de trabajo, sin escribir código: cuando a una tarea se le pone responsable, lo busca y le envía un correo desde la casilla de la compañía. Se creó una tarea desde el listado, se la asignó al productor en su ficha, y le llegó el correo «Tarea nueva: Llamar al perito por el siniestro» sin que tuviera que abrir el listado. Armar el flujo es trabajo de una sola vez.",
+  "evidencia": [
+    "A-5-6-twenty-1-sin-centro-de-avisos.png",
+    "A-5-6-twenty-2-flujo-del-aviso.png",
+    "A-5-6-twenty-3-tarea-asignada.png"
+  ],
+  "criterioNombre": "Aviso al usuario al que se le asigna una tarea",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T03:25:41.260Z"
+}

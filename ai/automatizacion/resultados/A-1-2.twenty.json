@@ -1,0 +1,17 @@
+{
+  "criterio": "A.1.2",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El modelo de datos admite campos de lista con las opciones que define la compañía. Se agregaron el ramo, con los cuatro que comercializa, y el estado de pago, con los cuatro estados de cobranza; se cargó por pantalla una póliza de cada ramo y a cada una se le cambió el estado desde su ficha, eligiendo la opción en un desplegable con buscador. Los valores quedan guardados como opciones de la lista, no como texto libre. Definir los campos es trabajo de una sola vez.",
+  "evidencia": [
+    "A-1-2-twenty-1-campos.png",
+    "A-1-2-twenty-2-ficha-con-estado-cambiado.png",
+    "A-1-2-twenty-3-una-por-ramo.png"
+  ],
+  "criterioNombre": "Campos de lista para el ramo y el estado de cobranza",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T03:38:55.814Z"
+}

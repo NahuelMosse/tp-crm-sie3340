@@ -1,0 +1,15 @@
+{
+  "criterio": "A.7.4",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Con la casilla de atención de la compañía sincronizada, un asegurado escribió desde su propia dirección y el mensaje apareció en el historial de su ficha sin que nadie lo moviera: el sistema reconoció la dirección del remitente y lo vinculó con el asegurado que la tiene cargada. Configurar la casilla compartida es trabajo de una sola vez; la vinculación ocurre sola en cada mensaje.",
+  "evidencia": [
+    "A-7-4-espocrm-1-correo-en-la-ficha.png"
+  ],
+  "criterioNombre": "Vinculación automática del correo a la ficha",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T20:00:50.916Z"
+}

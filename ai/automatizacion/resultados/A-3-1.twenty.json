@@ -1,0 +1,17 @@
+{
+  "criterio": "A.3.1",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El productor se suma como usuario del espacio de trabajo con el enlace de invitación, desde la pantalla de miembros: se registra con su correo y su clave, y queda con su propia cuenta. La persona no trae un responsable: se le agregó al modelo una relación con los usuarios. Se marcaron tres asegurados en el listado y, con la actualización masiva, se los dejó a cargo del productor de una sola vez. Agregar el responsable es trabajo de una sola vez.",
+  "evidencia": [
+    "A-3-1-twenty-1-miembros.png",
+    "A-3-1-twenty-2-seleccion.png",
+    "A-3-1-twenty-3-asignados.png"
+  ],
+  "criterioNombre": "Registro de productores y asignación de cartera",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T22:56:16.157Z"
+}

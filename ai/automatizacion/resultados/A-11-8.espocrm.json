@@ -1,0 +1,16 @@
+{
+  "criterio": "A.11.8",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "justificacion": "Tres usuarios abrieron a la vez la misma póliza y guardaron un cambio cada uno. Tal como viene la entidad creada por la compañía, el sistema aceptó los tres guardados sin advertir el conflicto: quedó \"cambio de la sesión 3\" y los cambios anteriores se perdieron sin aviso. El producto trae un control de concurrencia que las entidades de atención, ventas y cuentas tienen activado de fábrica, y que en las entidades propias se activa con una casilla de su configuración. Activado, los guardados posteriores recibieron el aviso de que otro usuario había modificado el registro (2 avisos) y nadie pisó el trabajo de otro sin saberlo. La condición se satisface, con la precaución de activar el control en cada entidad propia.",
+  "evidencia": [
+    "A-11-8-espocrm-pol-concurrencia-sin-control.png",
+    "A-11-8-espocrm-pol-concurrencia-con-control.png"
+  ],
+  "medicion": "Sin control: quedó «cambio de la sesión 3» sin aviso · con control: 2 avisos",
+  "criterioNombre": "Operación concurrente sobre la misma cartera",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T20:54:07.921Z"
+}

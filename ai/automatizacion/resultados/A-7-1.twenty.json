@@ -1,0 +1,17 @@
+{
+  "criterio": "A.7.1",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "El listado de personas tiene un asistente de importación que acepta planillas de cálculo y archivos de texto separados por comas. Guardada en UTF-8, la planilla ingresó completa: los cinco asegurados, cada columna en su campo, con tildes y eñes intactas. Guardada con la codificación predeterminada de las planillas en Windows, el asistente leyó mal el archivo: las letras acentuadas llegaron corrompidas y en varias filas las columnas quedaron corridas o con la fila entera en el nombre; marcó algunas como erróneas y, al confirmar, las descartó. De las 5 filas ingresaron 4, 0 con nombres y domicilios intactos, y el sistema no advirtió la corrupción de las que aceptó. El asistente no reconoció los encabezados en español: dejó las 5 columnas sin asignar y hubo que indicar a mano a qué campo va cada una, abriendo las partes del nombre, del correo, del teléfono y del domicilio. La necesidad queda resuelta con un procedimiento que se repite en cada importación: guardar la planilla con la codificación correcta y asignar sus columnas.",
+  "evidencia": [
+    "A-7-1-twenty-1-planilla-de-windows.png",
+    "A-7-1-twenty-2-planilla-utf8.png"
+  ],
+  "medicion": "UTF-8: 5/5 intactos · codificación de Windows: 4/5 ingresadas, 0/5 intactas, 3 con la fila entera en el nombre · 5 columnas sin reconocer",
+  "criterioNombre": "Importación de contactos desde planilla de cálculo",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T02:31:23.232Z"
+}

@@ -1,0 +1,17 @@
+{
+  "criterio": "A.9.2",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "La pantalla de autenticación de la administración reúne las tres cosas: la política de contraseñas —longitud mínima y exigencia de letras, números y caracteres especiales—, el segundo factor para los usuarios, y el ingreso contra el directorio de la compañía entre 3 métodos (Espo, LDAP, OIDC). La compañía decide cómo se valida la identidad de cada usuario sin depender del fabricante. Viene en el producto y se activa desde esa pantalla: es configuración.",
+  "evidencia": [
+    "A-9-2-espocrm-1-autenticacion.png",
+    "A-9-2-espocrm-2-metodos.png",
+    "A-9-2-espocrm-3-politica-de-contrasenas.png"
+  ],
+  "criterioNombre": "Autenticación de los usuarios bajo control de la compañía",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T20:16:35.313Z"
+}

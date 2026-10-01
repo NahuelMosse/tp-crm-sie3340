@@ -1,0 +1,15 @@
+{
+  "criterio": "B.2.3",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "Además del CRM, el producto incluye correo, calendario, documentos, plantillas PDF y una línea de publicaciones internas en cada registro, y todas operan sobre los mismos datos: un correo queda en la ficha del asegurado, una reunión en su historial, un documento vinculado a su póliza. Faltan la mensajería instantánea entre usuarios, la edición colaborativa de documentos y la firma electrónica: para eso la compañía sigue necesitando otras herramientas, y pasar la información de una a otra es trabajo en cada uso.",
+  "evidencia": [
+    "B-2-3-espocrm-1-herramientas.png"
+  ],
+  "criterioNombre": "Suite de trabajo integrada",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T21:45:52.773Z"
+}

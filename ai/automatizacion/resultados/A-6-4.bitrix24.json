@@ -1,0 +1,23 @@
+{
+  "criterio": "A.6.4",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "justificacion": "En la edición gratuita, cargar dos veces al mismo asegurado con el mismo correo no dispara ninguna advertencia: el segundo contacto se guarda igual y quedan dos fichas. La herramienta «Buscar y fusionar duplicados» del listado de contactos no se abre y responde que está disponible en los planes de nivel superior. El fabricante documenta que el producto cuenta con ese control de duplicados para prospectos, contactos y compañías, que detecta las fichas repetidas y las fusiona, pero no publica en qué plan se incluye. El asistente de importación de planillas tiene un paso «Control de duplicados» —por nombre, correo o teléfono—, pero su acción ante un duplicado parte de «Allow» (importar todo sin revisar) y viene marcada con un candado; no se logró cambiarla en la edición gratuita. Detecta la duplicación después de cargada, no la advierte al cargar, y hay que ejecutar el escaneo cada vez.",
+  "evidencia": [
+    "A-6-4-bitrix24-1-segunda-alta.png",
+    "A-6-4-bitrix24-2-buscar-duplicados.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://helpdesk.bitrix24.com/open/18346126/",
+      "cita": "Automatic duplicate merging is available for leads, contacts, and companies. Check if this option is available on your Bitrix24 plan.",
+      "consultado": "2026-09-30",
+      "captura": "A-6-4-bitrix24-3-control-de-duplicados.png"
+    }
+  ],
+  "criterioNombre": "Unicidad de la ficha del asegurado",
+  "costo": 2,
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-30T15:22:22.680Z"
+}

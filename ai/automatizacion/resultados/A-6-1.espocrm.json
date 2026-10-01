@@ -1,0 +1,16 @@
+{
+  "criterio": "A.6.1",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El Administrador de Relaciones liga la póliza con el contacto que es su titular, sin programar: se define una vez que cada póliza tiene un titular y que un asegurado puede tener muchas pólizas. Para que la ficha del asegurado muestre sus pólizas hay que agregar ese panel entre los inferiores, en el Gestor de Diseños. A partir de ahí, al cargar una póliza se elige el titular buscándolo por nombre; la póliza lo muestra en su ficha, y la del asegurado lista todas sus pólizas. Las dos puntas del vínculo quedan a la vista sin buscar en otro menú.",
+  "evidencia": [
+    "A-6-1-espocrm-1-poliza-con-titular.png",
+    "A-6-1-espocrm-2-ficha-del-titular.png"
+  ],
+  "criterioNombre": "Vinculación de la póliza con su titular",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T19:43:53.965Z"
+}

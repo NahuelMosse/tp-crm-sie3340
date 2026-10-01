@@ -1,0 +1,16 @@
+{
+  "criterio": "A.11.6",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "justificacion": "Con el idioma de la interfaz en español, los menús de configuración, los botones y los mensajes están traducidos, pero los objetos y campos que trae el producto quedan con su nombre en inglés: en el menú y en la ficha del asegurado se leen Fields, General, Emails, Phones, Work, Company, Job Title, Social, entre otros. Son nombres que igual se entienden —personas, correos, teléfonos, empresa, cargo— y cada uno se puede renombrar desde el modelo de datos, que admite cambiar el nombre en singular y en plural. Lo que agregó la compañía, como la póliza y sus campos, queda con el nombre que ella le puso.",
+  "evidencia": [
+    "A-11-6-twenty-1-idioma-elegido.png",
+    "A-11-6-twenty-2-ficha.png"
+  ],
+  "medicion": "Nombres en inglés en el recorrido: Fields, General, Emails, Phones, Work, Company, Job Title, Social, Linkedin, System, Creation date, Created by",
+  "criterioNombre": "Localización completa al español, modelo incluido",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T00:45:44.724Z"
+}

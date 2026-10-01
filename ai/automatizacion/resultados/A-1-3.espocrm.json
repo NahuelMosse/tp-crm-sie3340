@@ -1,0 +1,16 @@
+{
+  "criterio": "A.1.3",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El producto ofrece un tipo de campo de importe con moneda, que se agrega desde la administración. Cargada una prima de 184.532,75, la ficha la devuelve con sus centavos y con la denominación, y el sistema la trata como importe y no como texto: guarda la moneda junto al valor y mantiene una lista de monedas habilitadas. Es lo que necesita una compañía que cobra primas en pesos y emite pólizas en dólares sin que los importes se mezclen al sumarlos.",
+  "evidencia": [
+    "A-1-3-espocrm-1-prima.png"
+  ],
+  "medicion": "Prima de 184.532,75 registrada y devuelta con centavos y denominación",
+  "criterioNombre": "Prima con importe y moneda",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T18:29:47.412Z"
+}

@@ -1,0 +1,43 @@
+{
+  "criterio": "A.9.1",
+  "plataforma": "twenty",
+  "cumple": 0,
+  "justificacion": "En la edición evaluada los roles restringen por objeto —ver, editar, borrar— y por campo, pero no por registro: el productor, con el rol de miembro, abrió por dirección directa una póliza de otro productor y la vio completa. La pantalla del rol muestra el nivel de registro como función del plan Organization, y el fabricante lo confirma: los permisos por registro, que limitan a cada vendedor a lo suyo, son una función premium de ese plan. Sin él, la cartera de un productor queda a la vista de todos.",
+  "evidencia": [
+    "A-9-1-twenty-1-permisos-del-rol.png",
+    "A-9-1-twenty-2-poliza-ajena-abierta.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/user-guide/permissions-access/capabilities/permissions",
+      "cita": "Row-level permissions are a Premium feature available on the Organization plan (Cloud and Self-Hosted).",
+      "consultado": "2026-09-28",
+      "captura": "A-9-1-twenty-3-permisos-por-registro.png"
+    },
+    {
+      "url": "https://twenty.com/pricing",
+      "cita": "Cloud Pro is $9/user/month (yearly). Organization is $19/user/month and unlocks SSO and row-level permissions for teams that need finer access control.",
+      "consultado": "2026-09-28",
+      "captura": "A-9-1-twenty-precio-1.png"
+    },
+    {
+      "url": "https://docs.twenty.com/user-guide/billing/capabilities/pricing-plans",
+      "cita": "Premium features are only available on the Organization plans (Cloud or Self-Hosted):",
+      "consultado": "2026-09-28",
+      "captura": "A-9-1-twenty-precio-2.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "Twenty Organization",
+      "monto": "US$ 19 por usuario por mes",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "Con el plan Organization, en la nube o en la instalación propia, el rol filtra los registros con una condición —el productor de la póliza es el usuario que entra—, que se define una vez desde la pantalla del rol."
+    }
+  ],
+  "criterioNombre": "Restricción de la cartera por productor",
+  "licencia": null,
+  "momento": "2026-09-29T00:28:19.389Z"
+}

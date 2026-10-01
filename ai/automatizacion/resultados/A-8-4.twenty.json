@@ -1,0 +1,28 @@
+{
+  "criterio": "A.8.4",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "Lo que la compañía parametriza —objetos, campos, relaciones, vistas y flujos— es parte del modelo de datos del espacio de trabajo, no del código del producto. El procedimiento oficial de actualización no pide nada sobre eso: al arrancar la versión nueva, el servidor corre solo las migraciones de cada espacio de trabajo, incluidos los registros ya cargados, y el fabricante indica respaldar la base antes, como en cualquier actualización. Todo lo que este análisis parametrizó se hizo por pantalla. No hay nada que preparar para que se conserve.",
+  "evidencia": [
+    "A-8-4-twenty-3-parametrizacion-por-pantalla.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/developers/self-host/capabilities/upgrade-guide",
+      "cita": "The server runs all required upgrade migrations automatically on startup. No manual command is needed.",
+      "consultado": "2026-09-29",
+      "captura": "A-8-4-twenty-1-actualizacion.png"
+    },
+    {
+      "url": "https://docs.twenty.com/developers/self-host/capabilities/upgrade-guide",
+      "cita": "Always back up your database before starting the upgrade process",
+      "consultado": "2026-09-29",
+      "captura": "A-8-4-twenty-2-copia-previa.png"
+    }
+  ],
+  "criterioNombre": "Conservación de la parametrización al actualizar",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T03:55:10.815Z"
+}

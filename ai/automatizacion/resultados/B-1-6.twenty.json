@@ -1,0 +1,25 @@
+{
+  "criterio": "B.1.6",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "justificacion": "En la instalación propia la base de datos reside donde la compañía instala el sistema: en su propio servidor o en el proveedor que ella elija, en el país que ella elija, y los adjuntos van al disco del servidor o al almacenamiento que ella configure. Sabe en todo momento dónde están los datos de sus asegurados y lo decide ella, que es lo que exige el tratamiento de datos sensibles de los seguros de personas. La contracara es que la seguridad de esos datos queda también a su cargo.",
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/user-guide/billing/capabilities/pricing-plans",
+      "cita": "Host Twenty on your own infrastructure at no cost:",
+      "consultado": "2026-09-29",
+      "captura": "B-1-6-twenty-1-infraestructura-propia.png"
+    },
+    {
+      "url": "https://docs.twenty.com/developers/self-host/capabilities/setup",
+      "cita": "By default, Twenty stores uploaded files on the local filesystem. For production deployments, use S3 or an S3-compatible service (MinIO, DigitalOcean Spaces, etc.) to ensure files persist across container restarts and scale across multiple server instances.",
+      "consultado": "2026-09-29",
+      "captura": "B-1-6-twenty-2-archivos-donde-se-elija.png"
+    }
+  ],
+  "criterioNombre": "Conocimiento y decisión sobre dónde residen los datos",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-29T03:06:57.282Z"
+}

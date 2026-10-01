@@ -1,0 +1,21 @@
+{
+  "criterio": "A.4.6",
+  "plataforma": "twenty",
+  "cumple": 0,
+  "justificacion": "El producto no permite publicar en redes sociales desde el propio sistema, en ninguna edición: las cuentas que se pueden conectar son de correo y de calendario —IMAP, SMTP, CalDAV—, ninguna red social, y el catálogo de aplicaciones del fabricante no ofrece ninguna para eso. Publicar exigiría desarrollar una aplicación propia.",
+  "evidencia": [
+    "A-4-6-twenty-1-cuentas-conectables.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/getting-started/core-concepts/apps",
+      "cita": "Extend Twenty with code — custom objects, server-side logic, UI components, and AI agents, all as TypeScript packages.",
+      "consultado": "2026-09-28",
+      "captura": "A-4-6-twenty-2-aplicaciones.png"
+    }
+  ],
+  "criterioNombre": "Publicación en redes desde el sistema",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T02:23:09.757Z"
+}

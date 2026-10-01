@@ -1,0 +1,16 @@
+{
+  "criterio": "A.4.7",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Al cerrar una negociación como perdida el sistema pregunta solo el resultado —«Cerrado Perdido» o «Analizar la falla», las dos etapas de fábrica—: no trae dónde anotar por qué se perdió ni quién la ganó. Se agregaron dos campos propios a la negociación, el motivo, como lista, y el competidor, como texto; se marcó una oportunidad como perdida y se le registraron el motivo y el competidor desde su ficha, y quedaron guardados. Agregar los campos es configuración de una sola vez.",
+  "evidencia": [
+    "A-4-7-bitrix24-1-cierre-de-la-negociacion.png",
+    "A-4-7-bitrix24-2-motivo-y-competidor.png"
+  ],
+  "criterioNombre": "Registro de la competencia y del motivo de pérdida",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T02:02:07.369Z"
+}

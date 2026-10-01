@@ -1,0 +1,22 @@
+{
+  "criterio": "A.10.4",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El producto trae una interfaz de programación completa y un tipo de usuario pensado para otros sistemas: se dio de alta un usuario de integración con su propia clave y los permisos de un rol, sin contraseña de ninguna persona. Con esa clave, desde fuera del sistema, se creó un asegurado y se lo volvió a consultar. El sistema de emisión o el de cobranza de la compañía pueden cargar y leer datos por esa vía. Crear el usuario es configuración; lo que el otro sistema haga con la interfaz es trabajo de ese sistema, no de este.",
+  "evidencia": [
+    "A-10-4-espocrm-1-usuario-de-integracion.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.espocrm.com/development/api/",
+      "cita": "Authentication by API Key",
+      "consultado": "2026-09-28",
+      "captura": "A-10-4-espocrm-2-interfaz-de-programacion.png"
+    }
+  ],
+  "criterioNombre": "Intercambio de datos con otros sistemas de la compañía",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-28T20:20:09.450Z"
+}

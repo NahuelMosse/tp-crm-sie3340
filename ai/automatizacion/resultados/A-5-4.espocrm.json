@@ -1,0 +1,15 @@
+{
+  "criterio": "A.5.4",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "El producto trae una base de conocimiento propia. Se escribió un artículo con una condición de cobertura —qué cubre la póliza de automotor ante granizo y qué excluye—, se lo publicó y se lo recuperó buscando \"granizo\" desde su listado. Viene lista: no hubo que crear ni configurar nada. Es lo que permite que quien atiende responda igual que su compañero de al lado, sin depender de la memoria.",
+  "evidencia": [
+    "A-5-4-espocrm-1-busqueda.png"
+  ],
+  "criterioNombre": "Base de conocimiento para la atención",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T19:35:34.107Z"
+}

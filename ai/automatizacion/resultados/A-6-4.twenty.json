@@ -1,0 +1,17 @@
+{
+  "criterio": "A.6.4",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "De fábrica la persona se compara por nombre, correo y perfil de LinkedIn para sugerir duplicados, pero no trae documento. Se agregó el documento como campo de texto y, al crearlo, se lo marcó como único con un interruptor de la misma pantalla. Se cargó un asegurado con su documento y, al cargar otro con el mismo documento y el apellido escrito distinto, el sistema rechazó el valor y avisó: «This record already exists. Please check your data and try again.». La necesidad queda resuelta con configuración de una sola vez, sin programar.",
+  "evidencia": [
+    "A-6-4-twenty-1-campo-unico.png",
+    "A-6-4-twenty-2-duplicado-advertido.png"
+  ],
+  "medicion": "1 ficha con el documento repetido",
+  "criterioNombre": "Unicidad de la ficha del asegurado",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T00:05:38.344Z"
+}

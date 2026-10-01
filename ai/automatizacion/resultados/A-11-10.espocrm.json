@@ -1,0 +1,21 @@
+{
+  "criterio": "A.11.10",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "justificacion": "La interfaz del sistema está en español, pero la documentación oficial está publicada solo en inglés: el sitio de documentación no ofrece selector de idioma ni versión en español. La necesidad se cubre con reparo: quien la consulte lo hace en inglés o con traducción automática del navegador, que es un procedimiento que se repite en cada consulta y que en la terminología técnica puede inducir a error.",
+  "evidencia": [
+    "A-11-10-espocrm-2-portada-de-la-documentacion.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.espocrm.com/administration/upgrading/",
+      "cita": "It's recommended to upgrade whenever the new version is out. If you skip a few minor or major versions before deciding to upgrade, it's more likely that the upgrade will run unsmoothly. For minor or major releases it may be reasonable to wait for a few days before upgrading, as a very fresh release is likely to have yet undiscovered bugs.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-10-espocrm-1-documentacion-en-ingles.png"
+    }
+  ],
+  "criterioNombre": "Documentación en español",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-28T20:44:32.145Z"
+}

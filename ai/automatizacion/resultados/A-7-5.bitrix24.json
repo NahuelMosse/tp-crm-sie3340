@@ -1,0 +1,38 @@
+{
+  "criterio": "A.7.5",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "justificacion": "En la edición gratuita los datos entran por vCard y por CSV —con asistentes para las agendas de Gmail, Outlook y Yahoo! y una migración desde otro CRM— pero no salen: «Exportar a CSV» no se abre y el sistema responde que hay que actualizar a un plan superior. La comparación de planes del fabricante publica la opción de exportar contactos a CSV, Excel y Outlook en los planes de pago, desde el Basic. Sin ella la compañía solo puede compartir datos con sus otros sistemas en un sentido.",
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Basic",
+      "monto": "US$ 69 por mes, hasta 5 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 0,
+      "justificacion": "Con el plan Basic se habilita la exportación de contactos a CSV, Excel y Outlook, que sumada a la importación por vCard y CSV cubre la entrada y la salida en los formatos que usan los demás sistemas."
+    }
+  ],
+  "evidencia": [
+    "A-7-5-bitrix24-1-menu-de-formatos.png",
+    "A-7-5-bitrix24-2-exportacion.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
+      "cita": "Opción para exportar contactos a CSV, Excel y Outlook",
+      "consultado": "2026-09-30",
+      "captura": "A-7-5-bitrix24-3-comparacion-de-planes.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "Basic Ideal para emprendedores individuales y equipos pequeños que están empezando US$ 69 US$ 69 US$ 49 / compañía / mes / facturado mensualmente / compañía / mes / facturación anual Un pago de US$ 588 / año Ahorra US$ 240 al año incluye 5 usuarios Comprar Comprar Todo lo incluido en Free, más: Almacenamiento de 24 GB IA para el trabajo diario en Bitrix24 Embudos de ventas Negociaciones recurrentes Pagos en línea Integración de correo electrónico Integración de WhatsApp Integración de telefonía",
+      "consultado": "2026-09-30",
+      "captura": "A-7-5-bitrix24-basic-precio-1.png"
+    }
+  ],
+  "criterioNombre": "Formatos de intercambio aceptados",
+  "costo": 2,
+  "licencia": null,
+  "momento": "2026-09-30T13:40:30.039Z"
+}

@@ -1,0 +1,16 @@
+{
+  "criterio": "A.1.6",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El listado de pólizas combina filtros sobre cualquier campo: se filtró por ramo, por estado de pago y por productor responsable, y el resultado trajo exactamente las 2 pólizas de la cartera que cumplen las tres condiciones. La combinación se puede guardar como una vista con nombre. El productor responsable es un campo de relación con los usuarios que se agrega al modelo una vez: la póliza, como objeto propio, no lo trae.",
+  "evidencia": [
+    "A-1-6-twenty-1-filtros-combinados.png"
+  ],
+  "medicion": "2 pólizas con ramo Automotor, estado Al día y productor Pablo Gómez",
+  "criterioNombre": "Consulta y filtrado de la cartera",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T04:26:04.354Z"
+}

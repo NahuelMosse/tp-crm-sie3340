@@ -1,0 +1,16 @@
+{
+  "criterio": "A.2.4",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "Desde la ficha del asegurado, su sección de oportunidades crea una nueva ya ligada a él como contacto. El embudo viene definido de fábrica con 6 etapas —New, Screening, Meeting, Proposal, Customer, Perdida— y una vista de tablero por etapa. La oportunidad se hizo avanzar etapa por etapa desde su ficha hasta la última, y el historial registró el avance —los cambios hechos seguidos por la misma persona se agrupan en una sola entrada—. Viene listo, aunque las etapas vienen con nombres en inglés y de una venta genérica: adaptarlas al seguro es configuración.",
+  "evidencia": [
+    "A-2-4-twenty-1-oportunidad-cerrada.png"
+  ],
+  "medicion": "6 etapas recorridas; 1 entrada(s) de cambio de etapa en el historial",
+  "criterioNombre": "Embudo de oportunidades con etapas",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T02:00:06.269Z"
+}

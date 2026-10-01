@@ -1,0 +1,31 @@
+{
+  "criterio": "A.11.13",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "justificacion": "El fabricante publica un acuerdo de nivel de servicio con plazos de respuesta por severidad del incidente —una hora, veinticuatro horas o setenta y dos horas—, pero ese compromiso cubre las caídas de la plataforma, no una consulta puntual de una compañía sobre su cuenta: el soporte personalizado, por chat o por ticket, queda reservado a los planes pagos, y la edición gratuita se apoya en la documentación y en la comunidad. La condición se satisface parcialmente: existe un compromiso público de plazo, pero no alcanza el tipo de consulta que un productor o un administrador hace en el día a día.",
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.com/privacy/sla.php",
+      "cita": "1 hour",
+      "consultado": "2026-09-29",
+      "captura": "A-11-13-bitrix24-1-sla-severidad-alta.png"
+    },
+    {
+      "url": "https://www.bitrix24.com/privacy/sla.php",
+      "cita": "2.1. Bitrix24 Helpdesk provides 99.5% uptime commitment for support services. Bitrix24 support channels are available 24 hours per day, 7 days a week, 365 days a year. Tier 2 specialists are available between 6 a.m and 4 p.m UTC on business days. Issues should be reported to Bitrix24 through any of the support channels. Support team will respond according to the response time set forth in the table below:",
+      "consultado": "2026-09-29",
+      "captura": "A-11-13-bitrix24-2-sla-severidad-media.png"
+    },
+    {
+      "url": "https://www.bitrix24.com/privacy/sla.php",
+      "cita": "72 hours",
+      "consultado": "2026-09-29",
+      "captura": "A-11-13-bitrix24-3-sla-severidad-baja.png"
+    }
+  ],
+  "criterioNombre": "Soporte técnico con compromiso de respuesta",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-29T14:31:11.773Z"
+}

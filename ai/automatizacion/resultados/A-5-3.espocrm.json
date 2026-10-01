@@ -1,0 +1,16 @@
+{
+  "criterio": "A.5.3",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "El caso trae un responsable asignado de fábrica. Se asignó el reclamo a un productor desde la ficha y, al ingresar con la cuenta de ese productor, el reclamo figura en su listado de casos. Cada reclamo tiene un dueño visible, que es lo que evita que un caso quede sin atender porque nadie sabía que era suyo.",
+  "evidencia": [
+    "A-5-3-espocrm-1-asignacion.png",
+    "A-5-3-espocrm-2-pendientes-del-productor.png"
+  ],
+  "criterioNombre": "Responsable asignado a cada reclamo",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T19:33:50.656Z"
+}

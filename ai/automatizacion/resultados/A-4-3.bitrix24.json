@@ -1,0 +1,49 @@
+{
+  "criterio": "A.4.3",
+  "plataforma": "bitrix24",
+  "cumple": 0,
+  "justificacion": "En la edición gratuita no hay campañas que medir: el listado de Marketing › Campañas trae las columnas Estado, Estadística y Consentimiento pero está vacío, y crear una campaña de correo pide el plan Standard o el Professional. El fabricante documenta lo que el producto mide cuando la campaña sale: envíos, y con el seguimiento del correo activado, aperturas y clics.",
+  "evidencia": [
+    "A-4-3-bitrix24-1-listado-de-campanas.png",
+    "A-4-3-bitrix24-2-crear-campana.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://helpdesk.bitrix24.com/open/25753267/",
+      "cita": "Email tracking. Enable this option to track opens and clicks.",
+      "consultado": "2026-09-29",
+      "captura": "A-4-3-bitrix24-3-seguimiento-de-aperturas.png"
+    },
+    {
+      "url": "https://helpdesk.bitrix24.com/open/24955986/",
+      "cita": "Campaign parameters. Set a sending time limit, enable email read tracking, and configure consent to receive campaigns.",
+      "consultado": "2026-09-29",
+      "captura": "A-4-3-bitrix24-4-lectura-de-correos.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
+      "cita": "Correos electrónicos masivos Número máximo de direcciones de e-mails que se pueden usar para marketing por correo electrónico para cada plan",
+      "consultado": "2026-09-29",
+      "captura": "A-4-3-bitrix24-5-correos-masivos-por-plan.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "US$ 144",
+      "consultado": "2026-09-29",
+      "captura": "A-4-3-bitrix24-standard-precio-1.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Standard",
+      "monto": "US$ 144 por mes, hasta 50 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "Con el plan Standard cada campaña registra su estadística en el listado de campañas; las aperturas y los clics se miden si se activa el seguimiento del correo y de los enlaces, una opción de configuración que se deja prendida una vez."
+    }
+  ],
+  "criterioNombre": "Medición de los resultados de la campaña",
+  "licencia": null,
+  "momento": "2026-09-30T00:51:19.441Z"
+}

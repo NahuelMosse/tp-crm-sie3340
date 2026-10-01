@@ -1,0 +1,44 @@
+{
+  "criterio": "A.7.4",
+  "plataforma": "bitrix24",
+  "cumple": 0,
+  "justificacion": "En la edición gratuita el correo de un asegurado no llega a su ficha porque no se puede conectar la casilla de la compañía: «Buzón personalizado» responde «No disponible en su plan» y no abre el formulario. Con el asegurado cargado —ACT-Lucia Correo, lucia.correo@example.com— se mandó un mensaje desde esa dirección a la casilla de atención, que lo recibió, y después de esperar dos minutos la ficha no registra ninguna actividad de correo. La ayuda del fabricante describe que, con la opción «Integración de CRM» activada en el buzón, los correos entrantes aparecen en la ficha correspondiente; esa opción forma parte de la conexión del buzón, que la edición gratuita no permite.",
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Basic",
+      "monto": "US$ 69 por mes, hasta 5 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "Con una casilla conectada desde el plan Basic, el fabricante documenta que activar «Integración de CRM» en la configuración del buzón hace que cada correo entrante quede como actividad en la ficha del CRM correspondiente, sin intervención. Activar la opción es configuración de una sola vez por casilla. No se contrató el plan, así que la vinculación no se ejercitó."
+    }
+  ],
+  "evidencia": [
+    "A-7-4-bitrix24-1-conexion-de-la-casilla.png",
+    "A-7-4-bitrix24-2-ficha-del-asegurado.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://helpdesk.bitrix24.es/open/18295168/",
+      "cita": "Si habilitas la opción Integración de CRM en la configuración de tu buzón, los correos electrónicos entrantes aparecerán en la ficha del elemento de CRM correspondiente.",
+      "consultado": "2026-09-30",
+      "captura": "A-7-4-bitrix24-3-ayuda-correo-en-crm.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
+      "cita": "Integración con servicios de correo electrónico de terceros",
+      "consultado": "2026-09-30",
+      "captura": "A-7-4-bitrix24-4-comparacion-terceros.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "Basic Ideal para emprendedores individuales y equipos pequeños que están empezando US$ 69 US$ 69 US$ 49 / compañía / mes / facturado mensualmente / compañía / mes / facturación anual Un pago de US$ 588 / año Ahorra US$ 240 al año incluye 5 usuarios Comprar Comprar Todo lo incluido en Free, más: Almacenamiento de 24 GB IA para el trabajo diario en Bitrix24 Embudos de ventas Negociaciones recurrentes Pagos en línea Integración de correo electrónico Integración de WhatsApp Integración de telefonía",
+      "consultado": "2026-09-30",
+      "captura": "A-7-4-bitrix24-basic-precio-1.png"
+    }
+  ],
+  "medicion": "correo recibido en la casilla de atención: sí · en la ficha tras 2 min: no",
+  "criterioNombre": "Vinculación automática del correo a la ficha",
+  "licencia": null,
+  "momento": "2026-09-30T23:35:24.551Z"
+}

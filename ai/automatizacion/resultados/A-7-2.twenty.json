@@ -1,0 +1,34 @@
+{
+  "criterio": "A.7.2",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "El sistema se conecta con las cuentas de Google y de Microsoft —en la instalación propia, después de registrar sus credenciales; la evaluada ofrece solo IMAP— y con cualquier casilla por IMAP, pero para sincronizar correo y calendario: no trae la agenda de contactos de ninguna. Lo que ofrece es crear personas a partir del correo sincronizado —cada dirección externa con la que se intercambian mensajes o reuniones pasa a ser un contacto—, que alcanza a quien ya escribió, no a la agenda entera. Para incorporar la agenda del correo web o del gestor de escritorio hay que exportarla a un archivo y pasarlo por el asistente de importación, un procedimiento que se repite cada vez que la agenda cambia.",
+  "evidencia": [
+    "A-7-2-twenty-1-cuentas-que-se-conectan.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/user-guide/calendar-emails/how-tos/connect-several-mailboxes-per-user",
+      "cita": "Connect an additional Google or Microsoft account, or any other mail provider supporting IMAP/SMTP protocols",
+      "consultado": "2026-09-28",
+      "captura": "A-7-2-twenty-4-google-y-microsoft.png"
+    },
+    {
+      "url": "https://docs.twenty.com/user-guide/calendar-emails/overview",
+      "cita": "For messages sent and received: Create contacts for all external email interactions",
+      "consultado": "2026-09-28",
+      "captura": "A-7-2-twenty-2-contactos-desde-el-correo.png"
+    },
+    {
+      "url": "https://docs.twenty.com/user-guide/data-migration/capabilities/file-formats",
+      "cita": "Twenty supports three file formats for import:",
+      "consultado": "2026-09-28",
+      "captura": "A-7-2-twenty-3-importacion.png"
+    }
+  ],
+  "criterioNombre": "Importación de contactos desde las agendas de correo",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T02:32:54.135Z"
+}

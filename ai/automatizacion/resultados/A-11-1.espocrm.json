@@ -1,0 +1,42 @@
+{
+  "criterio": "A.11.1",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "justificacion": "La edición gratuita se instala en infraestructura de la compañía: pide un servidor web, PHP y una base de datos. No exige un servidor dedicado: la instalación evaluada corre en un equipo de escritorio común, con la imagen oficial de contenedores, y ocupa 841 MB de memoria con la cartera de prueba cargada. La condición se satisface con una limitación que la compañía asume de forma permanente: alguien tiene que mantener ese equipo encendido, respaldado y actualizado. El servicio en la nube del fabricante elimina esa carga.",
+  "evidencia": [
+    "A-11-1-espocrm-3-requisitos-del-sistema.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.espocrm.com/download/",
+      "cita": "Web server: NGINX, Apache, or IIS;",
+      "consultado": "2026-09-28",
+      "captura": "A-11-1-espocrm-1-requisitos.png"
+    },
+    {
+      "url": "https://www.espocrm.com/download/",
+      "cita": "Get EspoCRM running in minutes. The official Docker image sets up EspoCRM, NGINX, and MySQL automatically. No manual server configuration required.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-1-espocrm-2-docker.png"
+    },
+    {
+      "url": "https://www.espocrm.com/cloud/",
+      "cita": "Basic $15.00 per user/month minimum 3 users 3GB file storage per user 100,000 records SSL Encryption (256 bit keys, TLS 1.3) Full feature set All extensions included External access API 2000+ integrations * 12x5 (hours/days) support Sign Up Free Trial Free Trial is provided for 30 days",
+      "consultado": "2026-09-28",
+      "captura": "A-11-1-espocrm-nube-precio-1.png"
+    }
+  ],
+  "medicion": "841 MB de memoria entre la aplicación y su base de datos",
+  "conPlan": [
+    {
+      "plan": "EspoCRM Cloud Basic",
+      "monto": "US$ 15 por usuario por mes, mínimo 3 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "justificacion": "En la nube del fabricante la compañía no dispone ninguna infraestructura propia."
+    }
+  ],
+  "criterioNombre": "Recursos que la compañía debe disponer para sostenerlo",
+  "licencia": null,
+  "momento": "2026-09-28T20:40:40.467Z"
+}

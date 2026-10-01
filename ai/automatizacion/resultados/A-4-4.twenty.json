@@ -1,0 +1,16 @@
+{
+  "criterio": "A.4.4",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "El producto no se conecta con ninguna red social: las cuentas que se pueden conectar son de correo y calendario, y el catálogo de aplicaciones no ofrece ninguna. Lo que sí trae es un disparador de flujos por webhook: se armó un flujo que recibe nombre, apellido y correo y da de alta a la persona, y un pedido con esos datos —lo que enviaría un intermediario al llegar un interesado desde un formulario de anuncios— la incorporó a la base. La conexión con cada red queda a cargo de ese intermediario, que hay que contratar y mantener aparte.",
+  "evidencia": [
+    "A-4-4-twenty-1-entrada-por-webhook.png",
+    "A-4-4-twenty-2-interesado-incorporado.png"
+  ],
+  "criterioNombre": "Captación de interesados desde redes sociales",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T02:21:36.719Z"
+}

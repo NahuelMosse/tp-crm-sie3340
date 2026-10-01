@@ -1,0 +1,17 @@
+{
+  "criterio": "A.2.4",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "Desde la ficha del asegurado, su panel de oportunidades crea una nueva ya ligada a él. El embudo viene definido de fábrica con 6 etapas y una probabilidad de cierre asociada a cada una. La oportunidad se hizo avanzar de calificación a propuesta, a negociación y a cerrada ganada: el sistema ajustó la probabilidad en cada paso, terminó en el cien por ciento, y la historia de la ficha conserva el recorrido completo. Las etapas se pueden renombrar para que sigan el proceso comercial de la compañía, pero tal como vienen ya lo resuelven.",
+  "evidencia": [
+    "A-2-4-espocrm-1-desde-la-ficha.png",
+    "A-2-4-espocrm-2-cerrada-ganada.png"
+  ],
+  "medicion": "Recorrido conservado: Qualification → Proposal → Negotiation → Closed Won",
+  "criterioNombre": "Embudo de oportunidades con etapas",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T18:52:26.486Z"
+}

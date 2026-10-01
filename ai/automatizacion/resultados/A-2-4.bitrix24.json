@@ -1,0 +1,17 @@
+{
+  "criterio": "A.2.4",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "Desde la ficha del contacto, la solapa de negociaciones crea una nueva ya ligada a él. El embudo viene definido de fábrica —en desarrollo, crear documentos, factura, en progreso, factura final y el cierre, ganado o perdido— y la negociación se hizo avanzar con un clic en cada etapa de la barra de su ficha hasta cerrarla como ganada. Viene listo, aunque las etapas son las de una venta genérica: adaptarlas al seguro es configuración.",
+  "evidencia": [
+    "A-2-4-bitrix24-1-etapas-recorridas.png",
+    "A-2-4-bitrix24-2-negociacion-cerrada.png"
+  ],
+  "medicion": "etapa final: WON",
+  "criterioNombre": "Embudo de oportunidades con etapas",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T12:41:25.310Z"
+}

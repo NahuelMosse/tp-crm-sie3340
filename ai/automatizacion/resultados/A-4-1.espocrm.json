@@ -1,0 +1,17 @@
+{
+  "criterio": "A.4.1",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Desde el listado de asegurados se definió un conjunto por un criterio —los que viven en Buenos Aires— y se lo guardó con nombre desde el menú de filtros. Al volver al listado, el segmento figura entre los filtros guardados y devuelve el mismo conjunto sin rearmarlo. Guardar segmentos viene de fábrica; que la ciudad esté disponible como condición exigió habilitarla una vez entre los filtros de búsqueda.",
+  "evidencia": [
+    "A-4-1-espocrm-1-segmento-guardado.png",
+    "A-4-1-espocrm-2-segmento-reabierto.png"
+  ],
+  "medicion": "4 asegurados en el segmento",
+  "criterioNombre": "Segmentación reutilizable de la cartera",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T19:16:39.946Z"
+}

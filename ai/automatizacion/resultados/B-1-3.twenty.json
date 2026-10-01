@@ -1,0 +1,21 @@
+{
+  "criterio": "B.1.3",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "justificacion": "El producto no trae una copia programada: su panel de administración muestra el estado del servidor y sus variables, y ninguna opción genera un respaldo. La documentación del fabricante resuelve la repetición afuera, con el programador de tareas del servidor, que ejecuta todas las noches el volcado de la base. La condición se satisface con una limitación que la compañía asume: la copia se repite sola, pero la programa, la vigila y la guarda fuera del equipo alguien con acceso al servidor, porque el sistema no avisa si una noche falló.",
+  "evidencia": [
+    "B-1-3-twenty-2-panel-de-administracion.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/developers/self-host/capabilities/docker-compose",
+      "cita": "Automate Daily Backups",
+      "consultado": "2026-09-29",
+      "captura": "B-1-3-twenty-1-programar-en-el-servidor.png"
+    }
+  ],
+  "criterioNombre": "Copia periódica sin intervención manual",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T03:06:28.652Z"
+}

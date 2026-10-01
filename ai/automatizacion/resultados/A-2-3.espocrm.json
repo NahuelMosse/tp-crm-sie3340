@@ -1,0 +1,16 @@
+{
+  "criterio": "A.2.3",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "La ficha del solicitante trae la acción de convertir, que crea en un solo paso el asegurado y la oportunidad de venta. Los datos ya cargados pasaron solos: el formulario de conversión trajo el nombre escrito, y el asegurado quedó con el mismo correo, teléfono y domicilio del solicitante, sin volver a tipearlos. Solo se completó lo que el solicitante no tenía —monto y fecha de cierre de la venta—. El solicitante quedó marcado como convertido y la oportunidad, ligada al asegurado. Viene listo de fábrica.",
+  "evidencia": [
+    "A-2-3-espocrm-1-conversion.png",
+    "A-2-3-espocrm-2-asegurado-creado.png"
+  ],
+  "criterioNombre": "Conversión del solicitante en oportunidad de venta",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T18:48:54.342Z"
+}

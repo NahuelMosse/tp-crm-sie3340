@@ -25,23 +25,34 @@ export async function entrar(page: Page, plataforma: Plataforma) {
   return entrarABitrix(page);
 }
 
-async function entrarAEspo(page: Page) {
+/**
+ * Ingresa a EspoCRM con otra cuenta, para comprobar lo que ve ese usuario.
+ * Hay que salir antes: el sistema conserva la sesión del administrador.
+ */
+export async function entrarComo(page: Page, usuario: string, clave: string) {
+  await page.context().clearCookies();
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await page.evaluate(() => { localStorage.clear(); sessionStorage.clear(); });
+  await entrarAEspo(page, usuario, clave);
+}
+
+async function entrarAEspo(page: Page, usuario = ESPOCRM.usuario, clave = ESPOCRM.clave) {
   await page.goto('/', { waitUntil: 'domcontentloaded' });
 
   // Es una aplicación de página única: el formulario tarda en renderizarse.
   // Hay que esperarlo de verdad, no consultarlo con un plazo corto, o se saltea
   // el ingreso y después se espera un menú que nunca va a aparecer.
-  const usuario = page.locator('#field-userName');
+  const campo = page.locator('#field-userName');
   const menu = page.locator('#menu, .navbar, nav').first();
 
   await Promise.race([
-    usuario.waitFor({ state: 'visible', timeout: 30_000 }).catch(() => {}),
+    campo.waitFor({ state: 'visible', timeout: 30_000 }).catch(() => {}),
     menu.waitFor({ state: 'visible', timeout: 30_000 }).catch(() => {}),
   ]);
 
-  if (await usuario.isVisible().catch(() => false)) {
-    await usuario.fill(ESPOCRM.usuario);
-    await page.locator('#field-password').fill(ESPOCRM.clave);
+  if (await campo.isVisible().catch(() => false)) {
+    await campo.fill(usuario);
+    await page.locator('#field-password').fill(clave);
     await page.getByRole('button', { name: 'Iniciar sesión' }).click();
   }
   await menu.waitFor({ state: 'visible', timeout: 30_000 });
@@ -60,26 +71,4 @@ async function entrarABitrix(page: Page) {
       '  npx playwright test --project=bitrix24-login --headed',
     );
   }
-}
-
-/**
- * Navega a una ruta equivalente en cada plataforma.
- * Los tests de criterios describen la intención; el mapa resuelve la ruta.
- */
-const RUTAS: Record<string, Record<Plataforma, string>> = {
-  contactos:      { espocrm: '/#Contact',                twenty: '/objects/people',        bitrix24: '/crm/contact/list/' },
-  oportunidades:  { espocrm: '/#Opportunity',            twenty: '/objects/opportunities', bitrix24: '/crm/deal/' },
-  tareas:         { espocrm: '/#Task',                   twenty: '/objects/tasks',         bitrix24: '/company/personal/user/1/tasks/' },
-  modeloDeDatos:  { espocrm: '/#Admin/entityManager',    twenty: '/settings/objects',      bitrix24: '/crm/type/' },
-  usuarios:       { espocrm: '/#Admin/users',            twenty: '/settings/members',      bitrix24: '/company/' },
-  correo:         { espocrm: '/#Admin/inboundEmails',    twenty: '/settings/accounts',     bitrix24: '/mail/' },
-  importar:       { espocrm: '/#Import',                 twenty: '/settings/objects',      bitrix24: '/crm/contact/list/' },
-  administracion: { espocrm: '/#Admin',                  twenty: '/settings/general',      bitrix24: '/configs/' },
-};
-
-export async function irA(page: Page, destino: keyof typeof RUTAS, plataforma: Plataforma) {
-  const ruta = RUTAS[destino][plataforma];
-  await page.goto(ruta, { waitUntil: 'domcontentloaded' });
-  await page.waitForTimeout(plataforma === 'bitrix24' ? 7000 : 3500);
-  return ruta;
 }

@@ -1,0 +1,21 @@
+{
+  "criterio": "A.10.5",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "El fabricante publica el límite de la interfaz de programación: cien pedidos por minuto, y hasta sesenta registros por pedido en las operaciones por lotes. Se mandó el movimiento de un día entero —500 altas— en ráfagas de diez simultáneas, de a un registro por pedido: entraron las 500 en 1.1 minutos, sin rechazos. El límite deja holgura sobre el movimiento de un día: lo que exige es que el otro sistema espacie sus pedidos o los agrupe, como hace cualquier sincronización.",
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/developers/extend/api",
+      "cita": "100 per minute",
+      "consultado": "2026-09-29",
+      "captura": "A-10-5-twenty-1-limite-publicado.png"
+    }
+  ],
+  "medicion": "500 de 500 aceptadas en 1.1 min y 1 ronda(s); 0 rechazos por límite · {\"201\":500}",
+  "criterioNombre": "Intercambio sin límite de volumen que condicione la operación",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-29T04:06:13.545Z"
+}

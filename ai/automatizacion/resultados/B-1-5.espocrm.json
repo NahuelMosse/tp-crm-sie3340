@@ -1,0 +1,25 @@
+{
+  "criterio": "B.1.5",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "justificacion": "En la instalación propia la actualización no llega sola: la ejecuta el administrador de la compañía con un comando, cuando decide hacerlo. El propio fabricante recomienda esperar unos días después de cada versión nueva antes de aplicarla. La compañía elige el momento —fuera del horario de atención, después de probarla— y ningún cambio del sistema la sorprende durante la operación.",
+  "documentacion": [
+    {
+      "url": "https://docs.espocrm.com/administration/upgrading/",
+      "cita": "Command to run:",
+      "consultado": "2026-09-28",
+      "captura": "B-1-5-espocrm-1-la-dispara-el-administrador.png"
+    },
+    {
+      "url": "https://docs.espocrm.com/administration/upgrading/",
+      "cita": "It's recommended to upgrade whenever the new version is out. If you skip a few minor or major versions before deciding to upgrade, it's more likely that the upgrade will run unsmoothly. For minor or major releases it may be reasonable to wait for a few days before upgrading, as a very fresh release is likely to have yet undiscovered bugs.",
+      "consultado": "2026-09-28",
+      "captura": "B-1-5-espocrm-2-esperar-antes-de-actualizar.png"
+    }
+  ],
+  "criterioNombre": "Previsibilidad de los cambios del sistema",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-29T01:23:36.839Z"
+}

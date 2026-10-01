@@ -1,0 +1,15 @@
+{
+  "criterio": "A.4.7",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El embudo de fábrica termina en la etapa de cliente ganado: no trae una etapa de oportunidad perdida ni dónde anotar por qué se perdió. Se agregó la etapa «Perdida» a la lista de etapas y dos campos: el motivo, como lista, y el competidor que se quedó con la venta. Se marcó una oportunidad como perdida y se le registraron el motivo y el competidor desde su ficha. Agregarlos es trabajo de una sola vez.",
+  "evidencia": [
+    "A-4-7-twenty-1-oportunidad-perdida.png"
+  ],
+  "criterioNombre": "Registro de la competencia y del motivo de pérdida",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T02:25:56.473Z"
+}

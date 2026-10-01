@@ -1,0 +1,17 @@
+{
+  "criterio": "A.1.6",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El filtro del listado de negociaciones combina condiciones sobre cualquier campo. De una cartera de seis pólizas se filtró por ramo Automotor, estado de cobranza Al día y productor responsable, y el listado trajo exactamente las dos que cumplen las tres. El filtro se puede guardar con nombre. El productor responsable viene en toda negociación como «Persona responsable»; el ramo y el estado son campos propios que hay que mostrar en el filtro una vez, con «Agregar campo».",
+  "evidencia": [
+    "A-1-6-bitrix24-1-filtros-combinados.png",
+    "A-1-6-bitrix24-2-listado-resultante.png"
+  ],
+  "medicion": "2 pólizas: ramo Automotor, estado Al día, productor Gómez Productor",
+  "criterioNombre": "Consulta y filtrado de la cartera",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T02:17:31.772Z"
+}

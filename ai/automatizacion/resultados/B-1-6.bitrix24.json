@@ -1,0 +1,19 @@
+{
+  "criterio": "B.1.6",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "justificacion": "El fabricante declara dónde aloja los datos —en la infraestructura de Amazon Web Services, en Virginia o en Fráncfort— y la compañía elige entre esas dos regiones al dar de alta el portal, según el dominio con el que se registra. La condición se satisface con una limitación: la elección es binaria, se fija una sola vez al crear la cuenta y no se puede cambiar después sin migrar a un portal nuevo, así que la compañía conoce dónde están sus datos sensibles pero no controla ese destino en el tiempo, como exige el tratamiento de datos de los seguros de personas.",
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.com/security/",
+      "cita": "Bitrix24 uses Amazon Web Services to host your data in US (Virginia) or European Union (Frankfurt, Germany). You can purchase on premise editions of Bitrix24 to host it in your country or on your server. AWS also maintains the following certifications: HIPAA, GDPR, ISO 27001, SOC 1/2/3, Directive 95/46/EC and PCI DSS Level 1.",
+      "consultado": "2026-09-29",
+      "captura": "B-1-6-bitrix24-1-dos-regiones.png"
+    }
+  ],
+  "criterioNombre": "Conocimiento y decisión sobre dónde residen los datos",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-29T23:52:05.691Z"
+}

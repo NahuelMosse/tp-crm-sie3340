@@ -1,0 +1,66 @@
+{
+  "criterio": "A.2.6",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "El conjunto de los próximos a vencer sale directo: el listado de pólizas filtrado por vencimiento en treinta días muestra cada póliza con su titular. El otro conjunto no: el listado de asegurados no admite condiciones sobre el ramo de sus pólizas, y el de pólizas filtra una por una. Para obtener a los que tienen automotor y no hogar hay que sacar los dos listados y cruzarlos por fuera del sistema, trabajo que se repite cada vez que el área comercial arma una campaña de ampliación. El módulo de informes que vende el fabricante resuelve ese cruce con condiciones de pertenencia y de exclusión sobre los registros relacionados.",
+  "evidencia": [
+    "A-2-6-espocrm-1-polizas-de-automotor.png",
+    "A-2-6-espocrm-2-polizas-de-hogar.png",
+    "A-2-6-espocrm-3-proximas-a-vencer.png",
+    "A-2-6-espocrm-4-condiciones-sobre-asegurados.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.espocrm.com/user-guide/reports/",
+      "cita": "NOT IN provides the ability to filter records that don't meet specified criteria. E.g. listing accounts that don't have any opportunity with 'Closed Won' or 'Closed Lost' status.",
+      "consultado": "2026-09-28",
+      "captura": "A-2-6-espocrm-5-informes-not-in.png"
+    },
+    {
+      "url": "https://docs.espocrm.com/user-guide/reports/",
+      "cita": "IN is similar to AND group but utilizes a sub-query.",
+      "consultado": "2026-09-28",
+      "captura": "A-2-6-espocrm-6-informes-in.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extensions/advanced-pack/",
+      "cita": "$395.00 1 Year License + Upgrades",
+      "consultado": "2026-09-28",
+      "captura": "A-2-6-espocrm-precio-1.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extension-license-agreement/",
+      "cita": "1.1 Subject to your continuous compliance with the Agreement and payment of the applicable license fees, EspoCRM grants you a non-exclusive, non-transferable, worldwide, limited right to use the Software on a single EspoCRM Application instance on a single server for the Licensed Period. After the license period expires, you must renew or purchase a new license to continue using the Software. You may use or modify the Software only for your own internal business purposes or for non-commercial or personal use.",
+      "consultado": "2026-09-28",
+      "captura": "A-2-6-espocrm-precio-2.png"
+    },
+    {
+      "url": "https://www.espocrm.com/cloud/",
+      "cita": "Basic $15.00 per user/month minimum 3 users 3GB file storage per user 100,000 records SSL Encryption (256 bit keys, TLS 1.3) Full feature set All extensions included External access API 2000+ integrations * 12x5 (hours/days) support Sign Up Free Trial Free Trial is provided for 30 days",
+      "consultado": "2026-09-28",
+      "captura": "A-2-6-espocrm-nube-precio-1.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "Advanced Pack",
+      "monto": "US$ 395 por año y por instalación",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "Un informe de asegurados con un grupo de pertenencia —tienen pólizas de automotor— y uno de exclusión —no tienen de hogar— devuelve el conjunto directo, y se guarda para repetirlo."
+    },
+    {
+      "plan": "EspoCRM Cloud Basic",
+      "monto": "US$ 15 por usuario por mes, mínimo 3 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "El servicio en la nube incluye el módulo de informes, con las mismas condiciones."
+    }
+  ],
+  "criterioNombre": "Oportunidades de cambio y ampliación sobre la cartera",
+  "licencia": null,
+  "momento": "2026-09-28T18:55:58.438Z"
+}

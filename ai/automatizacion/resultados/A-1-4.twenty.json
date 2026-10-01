@@ -1,0 +1,18 @@
+{
+  "criterio": "A.1.4",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El modelo de datos tiene un tipo de campo de fecha. Se agregaron el inicio y el fin de la vigencia y se cargaron dos pólizas desde su ficha. El sistema los trata como fechas: el listado ordenado por fin de vigencia pone primero la que vence antes, y el filtro sobre ese campo ofrece comparaciones propias de una fecha —antes, después, en el pasado, en el futuro, relativa—: «vence en los próximos 30 días» trae la póliza que vence en doce días y deja afuera la que vence en trescientos. Definir los campos es trabajo de una sola vez.",
+  "evidencia": [
+    "A-1-4-twenty-1-orden-por-vencimiento.png",
+    "A-1-4-twenty-2-comparaciones-de-fecha.png",
+    "A-1-4-twenty-3-vencen-en-30-dias.png"
+  ],
+  "medicion": "comparaciones del filtro de fecha: ",
+  "criterioNombre": "Vigencia con fecha de inicio y de fin",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T04:16:59.652Z"
+}

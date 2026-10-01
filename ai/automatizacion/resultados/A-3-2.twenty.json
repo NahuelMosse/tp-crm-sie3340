@@ -1,0 +1,15 @@
+{
+  "criterio": "A.3.2",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "La ficha del asegurado tiene notas y un historial. Twenty no distingue llamadas de reuniones —las reuniones solo llegan sincronizando un calendario externo—, así que cada actividad se registró como una nota desde la pestaña de notas de la ficha. Las dos quedaron en el historial del asegurado, en orden de fecha y cada una con su autor y su hora. Viene listo; el tipo de actividad queda en el título que escribe quien la registra.",
+  "evidencia": [
+    "A-3-2-twenty-1-historial.png"
+  ],
+  "criterioNombre": "Bitácora de la actividad con el cliente",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T22:58:52.810Z"
+}

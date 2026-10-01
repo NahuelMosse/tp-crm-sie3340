@@ -1,0 +1,19 @@
+{
+  "criterio": "B.2.5",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "Se recorrieron las pantallas de uso diario —CRM, tareas, mensajería y calendario— y en todas hay avisos de venta permanentes en la propia interfaz (crm: Mejore su plan, Comprar ahora; tareas: Mejore su plan, Comprar ahora; mensajes: Mejore su plan, Comprar ahora; calendario: Mejore su plan, Comprar ahora), sin importar la tarea en curso. No impiden operar, pero el usuario trabaja con la oferta comercial siempre a la vista y la edición gratuita no ofrece ocultarla.",
+  "evidencia": [
+    "B-2-5-bitrix24-crm.png",
+    "B-2-5-bitrix24-tareas.png",
+    "B-2-5-bitrix24-mensajes.png",
+    "B-2-5-bitrix24-calendario.png"
+  ],
+  "medicion": "Avisos de venta en el contenido: 4",
+  "criterioNombre": "Uso sin restricciones comerciales en la interfaz",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T00:35:44.093Z"
+}

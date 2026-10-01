@@ -1,0 +1,31 @@
+{
+  "criterio": "A.11.13",
+  "plataforma": "espocrm",
+  "cumple": 0,
+  "justificacion": "La oferta de soporte del fabricante tiene tres canales y ninguno compromete un plazo: la asistencia paga se cobra por hora y se presta por correo, web y teléfono sin tiempo de respuesta garantizado; el servicio en la nube declara una cobertura de doce horas cinco días a la semana, que es un horario de atención y no un plazo; y el soporte gratuito es el foro de la comunidad. La condición que la compañía necesita —saber en cuánto tiempo le van a responder cuando el sistema falle— no la ofrece ninguna modalidad.",
+  "documentacion": [
+    {
+      "url": "https://www.espocrm.com/support/",
+      "cita": "Our hourly support rate is in range of $50 – $100. We primarily assist via email, web and voice call. We help to resolve problems, assist with maintenance and guide with implementing business processes.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-13-espocrm-1-soporte-pago.png"
+    },
+    {
+      "url": "https://www.espocrm.com/support/",
+      "cita": "We provide 12×5 (hours/days) support via emails and Customer Portal. The scope of support covers functionalities that can be achieved through the user interface of EspoCRM. Designing business processes lies outside of the scope of support. We only advice about ways to implement them.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-13-espocrm-2-soporte-nube.png"
+    },
+    {
+      "url": "https://www.espocrm.com/support/",
+      "cita": "Get free technical support from EspoCRM users and our developers. Post your questions on our Community Forum.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-13-espocrm-3-soporte-comunidad.png"
+    }
+  ],
+  "criterioNombre": "Soporte técnico con compromiso de respuesta",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-28T20:47:54.534Z"
+}

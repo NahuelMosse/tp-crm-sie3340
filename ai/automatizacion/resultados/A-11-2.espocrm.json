@@ -1,0 +1,25 @@
+{
+  "criterio": "A.11.2",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "justificacion": "Corre sobre los tres servidores web más difundidos —NGINX, Apache e IIS— y sobre los tres motores de base de datos libres más usados —MySQL, MariaDB y PostgreSQL—, y el fabricante publica guías de instalación para Windows, macOS y Linux. Cualquiera sea la plataforma que la compañía ya administra, alguna de esas combinaciones es la suya: no la obliga a incorporar una tecnología nueva para sostenerlo.",
+  "documentacion": [
+    {
+      "url": "https://www.espocrm.com/download/",
+      "cita": "Database: MySQL 8.0+, MariaDB 10.3+, or PostgreSQL 15.0+.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-2-espocrm-1-bases.png"
+    },
+    {
+      "url": "https://www.espocrm.com/download/",
+      "cita": "Install on Windows",
+      "consultado": "2026-09-28",
+      "captura": "A-11-2-espocrm-2-sistemas.png"
+    }
+  ],
+  "criterioNombre": "Compatibilidad con la plataforma que la compañía usa",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-28T20:41:05.911Z"
+}

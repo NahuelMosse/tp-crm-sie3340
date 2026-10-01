@@ -1,0 +1,17 @@
+{
+  "criterio": "A.5.1",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "Twenty no trae un objeto de reclamos o casos: se definió como objeto propio, con estado, plazo de resolución, asegurado y responsable. Así tiene listado y ficha propios, y se crea desde el campo de reclamos de la ficha del asegurado, ya ligado a él. Pero no tiene número: ningún tipo de campo se numera solo, y el identificador interno no sirve para dictárselo a un asegurado. El número hay que asignarlo a mano en cada alta, o desarrollarlo.",
+  "evidencia": [
+    "A-5-1-twenty-1-ficha-del-reclamo.png",
+    "A-5-1-twenty-2-listado.png",
+    "A-5-1-twenty-3-tipos-de-campo.png"
+  ],
+  "criterioNombre": "Reclamo como caso con identidad propia",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T23:16:19.907Z"
+}

@@ -1,0 +1,21 @@
+{
+  "criterio": "A.11.10",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "justificacion": "La documentación oficial se publica también en español: la guía de usuario y las páginas de configuración tienen su versión traducida, con el mismo contenido y la misma estructura que la original en inglés. Quien consulte cómo se usa o se configura el sistema lo hace en su idioma.",
+  "evidencia": [
+    "A-11-10-twenty-2-guia-de-usuario-en-espanol.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/es/user-guide/permissions-access/capabilities/permissions",
+      "cita": "Controla el acceso a objetos, campos y ajustes con permisos basados en roles.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-10-twenty-1-documentacion-en-espanol.png"
+    }
+  ],
+  "criterioNombre": "Documentación en español",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T00:50:04.655Z"
+}

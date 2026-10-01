@@ -1,0 +1,48 @@
+{
+  "criterio": "A.10.4",
+  "plataforma": "bitrix24",
+  "cumple": 0,
+  "justificacion": "En la edición gratuita no hay forma de crear ni consultar registros desde fuera: Recursos para desarrolladores ofrece «Webhook entrante», y al abrirlo el sistema responde «No disponible en tu plan actual» y remite a los planes Vibe+. El comparativo del fabricante lo confirma: la API REST no figura en la edición gratuita ni en las ediciones Essential, y en los planes Vibe+ viene sin tope. El webhook entrante es una dirección secreta que el otro sistema llama para ejecutar métodos de la API, con los permisos del usuario que lo crea.",
+  "evidencia": [
+    "A-10-4-bitrix24-1-webhook-entrante.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
+      "cita": "REST API Available on Vibe+ plans.",
+      "consultado": "2026-09-30",
+      "captura": "A-10-4-bitrix24-2-api-por-plan.png"
+    },
+    {
+      "url": "https://apidocs.bitrix24.com/local-integrations/local-webhooks.html",
+      "cita": "Quick integrations, tests, scripts, and data exchange with an external system",
+      "consultado": "2026-09-30",
+      "captura": "A-10-4-bitrix24-3-webhook-entrante.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "Basic Vibe+ Ideal para emprendedores individuales y equipos pequeños que crean aplicaciones sin código US$ 89 US$ 89US$ 59-34% / compañía / mes / facturado mensualmente / compañía / mes / facturación anualUn pago de US$ 705 / año Ahorra US$ 363 al año incluye 5 usuarios Comprar Comprar Vibe+ Creador de aplicaciones Vibecode La creación de aplicaciones está incluida. Para ejecutarlas se utilizan Vibe Credits (solo costos de infraestructura) Aplicaciones de Market y REST API ilimitadas IA para el trabajo diario en Bitrix24 Funciones clave: Almacenamiento de 24 GB Embudos de ventas Negociaciones recurrentes Pagos en línea Integración de correo electrónico Integración de WhatsApp Integración de telefonía",
+      "consultado": "2026-09-30",
+      "captura": "A-10-4-bitrix24-basic-vibe-precio-1.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "Aplicaciones de Market y REST API ilimitadas",
+      "consultado": "2026-09-30",
+      "captura": "A-10-4-bitrix24-basic-vibe-precio-2.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Basic Vibe+",
+      "monto": "US$ 89 por mes, hasta 5 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "Con el plan Basic en su edición Vibe+ la API REST no tiene tope y el webhook entrante se crea desde Recursos para desarrolladores, sin programar: el otro sistema llama a su dirección para crear y consultar negociaciones y contactos. Crear el webhook y elegir sus permisos es configuración de una vez; lo que el otro sistema haga con él es trabajo de ese sistema."
+    }
+  ],
+  "criterioNombre": "Intercambio de datos con otros sistemas de la compañía",
+  "licencia": null,
+  "momento": "2026-09-30T12:39:45.763Z"
+}

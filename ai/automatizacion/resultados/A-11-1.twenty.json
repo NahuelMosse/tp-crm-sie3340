@@ -1,0 +1,36 @@
+{
+  "criterio": "A.11.1",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "justificacion": "La edición gratuita se instala en infraestructura de la compañía, con cuatro contenedores: la aplicación, un proceso que ejecuta las tareas en segundo plano, la base de datos y una memoria intermedia. No exige un servidor dedicado: el fabricante pide al menos 2 GB de memoria, y la instalación evaluada corre en un equipo de escritorio común, donde ocupa 2322 MB con la cartera de prueba cargada. La condición se satisface con una limitación que la compañía asume de forma permanente: alguien tiene que mantener ese equipo encendido, respaldado y actualizado. El servicio en la nube del fabricante elimina esa carga.",
+  "evidencia": [
+    "A-11-1-twenty-2-estado-del-servidor.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/developers/self-host/capabilities/docker-compose",
+      "cita": "RAM: Ensure your environment has at least 2GB of RAM. Insufficient memory can cause processes to crash.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-1-twenty-1-requisitos.png"
+    },
+    {
+      "url": "https://twenty.com/pricing",
+      "cita": "Cloud Pro is $9/user/month (yearly). Organization is $19/user/month and unlocks SSO and row-level permissions for teams that need finer access control.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-1-twenty-nube-precio-1.png"
+    }
+  ],
+  "medicion": "2322 MB de memoria entre los cuatro contenedores",
+  "conPlan": [
+    {
+      "plan": "Twenty Cloud Pro",
+      "monto": "US$ 9 por usuario por mes, con pago anual",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "justificacion": "En la nube del fabricante la compañía no dispone ninguna infraestructura propia."
+    }
+  ],
+  "criterioNombre": "Recursos que la compañía debe disponer para sostenerlo",
+  "licencia": null,
+  "momento": "2026-09-29T00:39:41.284Z"
+}

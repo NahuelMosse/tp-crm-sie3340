@@ -1,0 +1,22 @@
+{
+  "criterio": "A.9.2",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "justificacion": "Los ajustes de seguridad del portal ofrecen la autenticación de dos factores, que el administrador puede volver obligatoria para todos los empleados con un plazo para habilitarla, y una confirmación adicional del inicio de sesión en el dispositivo de confianza. La pantalla no ofrece ninguna política de contraseñas configurable —longitud, complejidad, vencimiento—. El acceso unificado con el directorio de la compañía existe como inicio de sesión único (SSO) con Microsoft Azure Active Directory, pero el fabricante lo limita a los planes Enterprise: en la edición gratuita no está.",
+  "evidencia": [
+    "A-9-2-bitrix24-1-seguridad.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://helpdesk.bitrix24.com/open/24571280/",
+      "cita": "Single Sign-On (SSO) is available on Bitrix24 Enterprise plans. It lets employees sign in with their Microsoft Azure Active Directory account without entering a password.",
+      "consultado": "2026-09-30",
+      "captura": "A-9-2-bitrix24-2-sso.png"
+    }
+  ],
+  "criterioNombre": "Autenticación de los usuarios bajo control de la compañía",
+  "costo": 2,
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-30T13:26:30.497Z"
+}

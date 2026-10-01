@@ -1,0 +1,3210 @@
+- generic [active] [ref=f99e1]:
+  - generic [ref=f99e4]:
+    - generic [ref=f99e7]:
+      - generic [ref=f99e8]:
+        - button "U Unimoron" [ref=f99e10]:
+          - generic [ref=f99e11] [cursor=pointer]:
+            - generic [ref=f99e12]: U
+            - generic [ref=f99e14]: Unimoron
+        - generic [ref=f99e21]:
+          - button "Buscar" [ref=f99e658] [cursor=pointer]
+          - button "Contraer panel de navegación" [ref=f99e659] [cursor=pointer]
+      - generic [ref=f99e35]:
+        - tablist "Pestañas de navegación" [ref=f99e660]:
+          - tab "Inicio" [selected] [ref=f99e661] [cursor=pointer]
+          - tab "Chat" [ref=f99e44] [cursor=pointer]
+        - button "Nuevo chat" [ref=f99e662] [cursor=pointer]
+      - generic [ref=f99e59]:
+        - generic [ref=f99e60]: Espacio de trabajo
+        - generic [ref=f99e70]:
+          - link "Companies" [ref=f99e72] [cursor=pointer]:
+            - /url: /objects/companies?viewId=085257b7-0ec9-4d7c-85bd-1ecb5000a0cd
+          - link "People" [ref=f99e82] [cursor=pointer]:
+            - /url: /objects/people?viewId=c6da8283-79b8-4080-9444-aceab55e5ce0
+          - link "Opportunities" [ref=f99e92] [cursor=pointer]:
+            - /url: /objects/opportunities?viewId=27ba9132-981c-428d-a7aa-1512117202eb
+          - link "Tasks" [ref=f99e105] [cursor=pointer]:
+            - /url: /objects/tasks?viewId=d6c73a4d-9b96-496f-921a-616a91b43b37
+          - link "Notes" [ref=f99e115] [cursor=pointer]:
+            - /url: /objects/notes?viewId=61367473-9545-40d6-85a2-744d771222e6
+          - link "Dashboards" [ref=f99e124] [cursor=pointer]:
+            - /url: /objects/dashboards?viewId=369176f3-8d66-4b18-93b3-a272c62f1567
+          - link "Reclamos" [ref=f99e136] [cursor=pointer]:
+            - /url: /objects/reclamos?viewId=9c369a94-00d7-4c59-ae70-0099b4f9556b
+          - link "Pólizas" [ref=f99e145] [cursor=pointer]:
+            - /url: /objects/polizas?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+          - link "Artículos" [ref=f99e155] [cursor=pointer]:
+            - /url: /objects/articulos?viewId=c567cb39-2423-436c-86ab-a893624af1cc
+          - link "Inspecciones" [ref=f99e165] [cursor=pointer]:
+            - /url: /objects/inspecciones?viewId=121d5d64-2541-438f-aef9-7307ec54eeb6
+    - generic [ref=f99e176]:
+      - generic [ref=f99e1247]:
+        - generic [ref=f99e1249]:
+          - generic [ref=f99e1250]: Pólizas
+          - generic [ref=f99e1256]:
+            - button "Create new Póliza" [ref=f99e15652] [cursor=pointer]:
+              - generic [ref=f99e1264]:
+                - generic [ref=f99e1265]: New Póliza
+                - generic [ref=f99e1266]: ...
+            - button "Menú de Comandos" [ref=f99e1269] [cursor=pointer]
+        - generic [ref=f99e1276]:
+          - button "All Pólizas · 12,563" [ref=f99e28332]:
+            - generic [ref=f99e1279] [cursor=pointer]:
+              - generic [ref=f99e1282]: All Pólizas
+              - generic [ref=f99e1284]: · 12,563
+          - generic [ref=f99e1287]:
+            - button [ref=f99e1288]:
+              - button "Filtro" [ref=f99e1289] [cursor=pointer]
+            - button [ref=f99e1290]:
+              - button "Ordenar" [ref=f99e1291] [cursor=pointer]
+            - button [ref=f99e1292]:
+              - button "Opciones" [ref=f99e1293] [cursor=pointer]
+        - generic [ref=f99e15655]:
+          - generic [ref=f99e15656]:
+            - generic [ref=f99e15657] [cursor=pointer]
+            - generic [ref=f99e15659] [cursor=pointer]:
+              - checkbox "Seleccionar todas las filas" [ref=f99e15660]
+              - checkbox [aria-hidden] [ref=f99e15662]
+            - generic [ref=f99e15663] [cursor=pointer]:
+              - button "Name" [ref=f99e15664]
+              - separator [ref=f99e15672]
+            - generic [ref=f99e15676] [cursor=pointer]:
+              - separator [ref=f99e15677]
+              - button [ref=f99e15678]:
+                - button "Creation date" [ref=f99e15679]
+              - separator [ref=f99e15685]
+            - generic [ref=f99e15689] [cursor=pointer]:
+              - separator [ref=f99e15690]
+              - button [ref=f99e15691]:
+                - button "Created by" [ref=f99e15692]
+              - separator [ref=f99e15700]
+            - generic [ref=f99e15704] [cursor=pointer]:
+              - separator [ref=f99e15705]
+              - button [ref=f99e15706]:
+                - button "Last update" [ref=f99e15707]
+              - separator [ref=f99e15715]
+            - generic [ref=f99e15719] [cursor=pointer]:
+              - separator [ref=f99e15720]
+              - button [ref=f99e15721]:
+                - button "Updated by" [ref=f99e15722]
+              - separator [ref=f99e15730]
+            - generic [ref=f99e15734] [cursor=pointer]:
+              - separator [ref=f99e15735]
+              - button [ref=f99e15736]:
+                - button "Ramo" [ref=f99e15737]
+              - separator [ref=f99e15744]
+            - generic [ref=f99e15748] [cursor=pointer]:
+              - separator [ref=f99e15749]
+              - button [ref=f99e15750]:
+                - button "Estado de pago" [ref=f99e15751]
+              - separator [ref=f99e15758]
+            - generic [ref=f99e15762] [cursor=pointer]:
+              - separator [ref=f99e15763]
+              - button [ref=f99e15764]:
+                - button "Prima" [ref=f99e15765]
+              - separator [ref=f99e15772]
+            - generic [ref=f99e15776] [cursor=pointer]:
+              - separator [ref=f99e15777]
+              - button [ref=f99e15778]:
+                - button "Titular" [ref=f99e15779]
+              - separator [ref=f99e15787]
+            - generic [ref=f99e15791] [cursor=pointer]:
+              - separator [ref=f99e15792]
+              - button [ref=f99e15793]:
+                - button "Productor" [ref=f99e15794]
+              - separator [ref=f99e15802]
+            - generic [ref=f99e15806] [cursor=pointer]:
+              - separator [ref=f99e15807]
+              - button [ref=f99e15808]:
+                - button "Vigencia desde" [ref=f99e15809]
+              - separator [ref=f99e15816]
+            - generic [ref=f99e15820] [cursor=pointer]:
+              - separator [ref=f99e15821]
+              - button [ref=f99e15822]:
+                - button "Vigencia hasta" [ref=f99e15823]
+              - separator [ref=f99e15830]
+            - generic [ref=f99e15834] [cursor=pointer]:
+              - separator [ref=f99e15835]
+              - button [ref=f99e15836]:
+                - button "Prima anual" [ref=f99e15837]
+              - separator [ref=f99e15844]
+            - generic [ref=f99e15847] [cursor=pointer]:
+              - separator [ref=f99e15848]
+              - button [ref=f99e15850]
+          - generic [ref=f99e15854]:
+            - generic [ref=f99e15857]:
+              - button [ref=f99e15859]
+              - generic [ref=f99e15866] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e15867]
+                - checkbox [aria-hidden] [ref=f99e15869]
+              - link "P POL-APR-2" [ref=f99e36423] [cursor=pointer]:
+                - /url: /object/poliza/346ca898-511a-4ff0-9eb1-23bf3be4bdcb?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e28596]:
+                  - generic [ref=f99e28597]: P
+                  - generic [ref=f99e36424]: POL-APR-2
+              - generic [ref=f99e28600]: sep 28, 2026 4:43 AM
+              - generic [ref=f99e28609]:
+                - generic [ref=f99e28610]: B
+                - generic [ref=f99e28612]: Bruno Salas
+              - generic [ref=f99e28613]: sep 28, 2026 4:44 AM
+              - generic [ref=f99e28622]:
+                - generic [ref=f99e28623]: B
+                - generic [ref=f99e28625]: Bruno Salas
+              - generic [ref=f99e28627] [cursor=pointer]
+              - generic [ref=f99e28631] [cursor=pointer]
+              - generic [ref=f99e28635] [cursor=pointer]
+              - generic [ref=f99e28640] [cursor=pointer]
+              - generic [ref=f99e28644] [cursor=pointer]
+              - generic [ref=f99e28648] [cursor=pointer]
+              - generic [ref=f99e28653] [cursor=pointer]
+              - generic [ref=f99e28658] [cursor=pointer]
+            - generic [ref=f99e15965]:
+              - button [ref=f99e15967]
+              - generic [ref=f99e15974] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e15975]
+                - checkbox [aria-hidden] [ref=f99e15977]
+              - link "P POL-CART-24" [ref=f99e28667] [cursor=pointer]:
+                - /url: /object/poliza/9ec91a84-b1bd-4045-8114-3f4ede1424d5?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e28668]:
+                  - generic [ref=f99e28669]: P
+                  - generic [ref=f99e28671]: POL-CART-24
+              - generic [ref=f99e28672]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e28681]:
+                - generic [ref=f99e28682]: T
+                - generic [ref=f99e28684]: TP TP
+              - generic [ref=f99e28685]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e28694]:
+                - generic [ref=f99e28695]: T
+                - generic [ref=f99e28697]: TP TP
+              - generic [ref=f99e28698]: Salud
+              - generic [ref=f99e28704]: Vencida
+              - generic [ref=f99e28710]: 64,500
+              - link "V Verónica Sarmiento" [ref=f99e28727] [cursor=pointer]:
+                - /url: /object/person/1bfe3c39-43c3-4a55-9867-e0d3d2e9c31c
+                - generic [ref=f99e28728]:
+                  - generic [ref=f99e28729]: V
+                  - generic [ref=f99e28731]: Verónica Sarmiento
+              - generic [ref=f99e28736] [cursor=pointer]:
+                - generic [ref=f99e28737]: T
+                - generic [ref=f99e28739]: TP TP
+              - generic [ref=f99e28740]: oct 16, 2025
+              - generic [ref=f99e28745]: oct 16, 2026
+              - generic [ref=f99e28751] [cursor=pointer]
+            - generic [ref=f99e16073]:
+              - button [ref=f99e16075]
+              - generic [ref=f99e16082] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e16083]
+                - checkbox [aria-hidden] [ref=f99e16085]
+              - link "P POL-CART-23" [ref=f99e28760] [cursor=pointer]:
+                - /url: /object/poliza/20af904d-5ef4-4f41-9911-c4093a80cbdd?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e28761]:
+                  - generic [ref=f99e28762]: P
+                  - generic [ref=f99e28764]: POL-CART-23
+              - generic [ref=f99e28765]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e28774]:
+                - generic [ref=f99e28775]: T
+                - generic [ref=f99e28777]: TP TP
+              - generic [ref=f99e28778]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e28787]:
+                - generic [ref=f99e28788]: T
+                - generic [ref=f99e28790]: TP TP
+              - generic [ref=f99e28791]: Vida
+              - generic [ref=f99e28797]: Vencida
+              - generic [ref=f99e28803]: 63,000
+              - link "L Lucía Ñandú" [ref=f99e28820] [cursor=pointer]:
+                - /url: /object/person/75e5be36-7c6d-42b0-ae69-b557d200f7dd
+                - generic [ref=f99e28821]:
+                  - generic [ref=f99e28822]: L
+                  - generic [ref=f99e28824]: Lucía Ñandú
+              - generic [ref=f99e28829] [cursor=pointer]:
+                - generic [ref=f99e28830]: T
+                - generic [ref=f99e28832]: TP TP
+              - generic [ref=f99e28833]: sep 3, 2026
+              - generic [ref=f99e28838]: sep 3, 2027
+              - generic [ref=f99e28844] [cursor=pointer]
+            - generic [ref=f99e16181]:
+              - button [ref=f99e16183]
+              - generic [ref=f99e16190] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e16191]
+                - checkbox [aria-hidden] [ref=f99e16193]
+              - link "P POL-CART-22" [ref=f99e28853] [cursor=pointer]:
+                - /url: /object/poliza/f165b042-98e6-44a7-8b10-a16f0ddebc9b?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e28854]:
+                  - generic [ref=f99e28855]: P
+                  - generic [ref=f99e28857]: POL-CART-22
+              - generic [ref=f99e28858]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e28867]:
+                - generic [ref=f99e28868]: T
+                - generic [ref=f99e28870]: TP TP
+              - generic [ref=f99e28871]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e28880]:
+                - generic [ref=f99e28881]: T
+                - generic [ref=f99e28883]: TP TP
+              - generic [ref=f99e28884]: Hogar
+              - generic [ref=f99e28890]: Vencida
+              - generic [ref=f99e28896]: 61,500
+              - link "R Ramiro Domínguez" [ref=f99e28913] [cursor=pointer]:
+                - /url: /object/person/9ab4a7e5-1d31-4f9b-be09-5373932d51e2
+                - generic [ref=f99e28914]:
+                  - generic [ref=f99e28915]: R
+                  - generic [ref=f99e28917]: Ramiro Domínguez
+              - generic [ref=f99e28922] [cursor=pointer]:
+                - generic [ref=f99e28923]: P
+                - generic [ref=f99e28925]: Pablo Gómez
+              - generic [ref=f99e28926]: jul 25, 2026
+              - generic [ref=f99e28931]: jul 25, 2027
+              - generic [ref=f99e28937] [cursor=pointer]
+            - generic [ref=f99e16289]:
+              - button [ref=f99e16291]
+              - generic [ref=f99e16298] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e16299]
+                - checkbox [aria-hidden] [ref=f99e16301]
+              - link "P POL-CART-21" [ref=f99e28946] [cursor=pointer]:
+                - /url: /object/poliza/99b62210-b0a8-4f89-a8b0-2009ce1df248?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e28947]:
+                  - generic [ref=f99e28948]: P
+                  - generic [ref=f99e28950]: POL-CART-21
+              - generic [ref=f99e28951]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e28960]:
+                - generic [ref=f99e28961]: T
+                - generic [ref=f99e28963]: TP TP
+              - generic [ref=f99e28964]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e28973]:
+                - generic [ref=f99e28974]: T
+                - generic [ref=f99e28976]: TP TP
+              - generic [ref=f99e28977]: Automotor
+              - generic [ref=f99e28983]: Vencida
+              - generic [ref=f99e28989]: 60,000
+              - link "S Sofía Ibáñez" [ref=f99e29006] [cursor=pointer]:
+                - /url: /object/person/33872d4e-e7f1-49c3-9b7e-e81288afd307
+                - generic [ref=f99e29007]:
+                  - generic [ref=f99e29008]: S
+                  - generic [ref=f99e29010]: Sofía Ibáñez
+              - generic [ref=f99e29015] [cursor=pointer]:
+                - generic [ref=f99e29016]: P
+                - generic [ref=f99e29018]: Pablo Gómez
+              - generic [ref=f99e29019]: jun 15, 2026
+              - generic [ref=f99e29024]: jun 15, 2027
+              - generic [ref=f99e29030] [cursor=pointer]
+            - generic [ref=f99e16397]:
+              - button [ref=f99e16399]
+              - generic [ref=f99e16406] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e16407]
+                - checkbox [aria-hidden] [ref=f99e16409]
+              - link "P POL-CART-20" [ref=f99e29039] [cursor=pointer]:
+                - /url: /object/poliza/a8cd42db-34fb-4494-85c4-cc2baf579077?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e29040]:
+                  - generic [ref=f99e29041]: P
+                  - generic [ref=f99e29043]: POL-CART-20
+              - generic [ref=f99e29044]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29053]:
+                - generic [ref=f99e29054]: T
+                - generic [ref=f99e29056]: TP TP
+              - generic [ref=f99e29057]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29066]:
+                - generic [ref=f99e29067]: T
+                - generic [ref=f99e29069]: TP TP
+              - generic [ref=f99e29070]: Salud
+              - generic [ref=f99e29076]: Al día
+              - generic [ref=f99e29082]: 58,500
+              - link "J Joaquín Peña" [ref=f99e29099] [cursor=pointer]:
+                - /url: /object/person/6a07c36b-51aa-4d1e-b502-b4b4ab7d510c
+                - generic [ref=f99e29100]:
+                  - generic [ref=f99e29101]: J
+                  - generic [ref=f99e29103]: Joaquín Peña
+              - generic [ref=f99e29108] [cursor=pointer]:
+                - generic [ref=f99e29109]: T
+                - generic [ref=f99e29111]: TP TP
+              - generic [ref=f99e29112]: abr 16, 2026
+              - generic [ref=f99e29117]: abr 16, 2027
+              - generic [ref=f99e29123] [cursor=pointer]
+            - generic [ref=f99e16505]:
+              - button [ref=f99e16507]
+              - generic [ref=f99e16514] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e16515]
+                - checkbox [aria-hidden] [ref=f99e16517]
+              - link "P POL-CART-19" [ref=f99e29132] [cursor=pointer]:
+                - /url: /object/poliza/af595321-6af7-4512-bbfa-bc8aeb7e262b?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e29133]:
+                  - generic [ref=f99e29134]: P
+                  - generic [ref=f99e29136]: POL-CART-19
+              - generic [ref=f99e29137]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29146]:
+                - generic [ref=f99e29147]: T
+                - generic [ref=f99e29149]: TP TP
+              - generic [ref=f99e29150]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29159]:
+                - generic [ref=f99e29160]: T
+                - generic [ref=f99e29162]: TP TP
+              - generic [ref=f99e29163]: Vida
+              - generic [ref=f99e29169]: Al día
+              - generic [ref=f99e29175]: 57,000
+              - link "M María Belén Gutiérrez" [ref=f99e29192] [cursor=pointer]:
+                - /url: /object/person/395a562e-0ff1-488a-9abc-80d77d3b2ff3
+                - generic [ref=f99e29193]:
+                  - generic [ref=f99e29194]: M
+                  - generic [ref=f99e29196]: María Belén Gutiérrez
+              - generic [ref=f99e29201] [cursor=pointer]:
+                - generic [ref=f99e29202]: P
+                - generic [ref=f99e29204]: Pablo Gómez
+              - generic [ref=f99e29205]: ene 26, 2026
+              - generic [ref=f99e29210]: ene 26, 2027
+              - generic [ref=f99e29216] [cursor=pointer]
+            - generic [ref=f99e16613]:
+              - button [ref=f99e16615]
+              - generic [ref=f99e16622] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e16623]
+                - checkbox [aria-hidden] [ref=f99e16625]
+              - link "P POL-CART-18" [ref=f99e29225] [cursor=pointer]:
+                - /url: /object/poliza/5392a51a-695e-4744-aca6-e413d8935419?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e29226]:
+                  - generic [ref=f99e29227]: P
+                  - generic [ref=f99e29229]: POL-CART-18
+              - generic [ref=f99e29230]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29239]:
+                - generic [ref=f99e29240]: T
+                - generic [ref=f99e29242]: TP TP
+              - generic [ref=f99e29243]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29252]:
+                - generic [ref=f99e29253]: T
+                - generic [ref=f99e29255]: TP TP
+              - generic [ref=f99e29256]: Hogar
+              - generic [ref=f99e29262]: Al día
+              - generic [ref=f99e29268]: 55,500
+              - link "V Verónica Sarmiento" [ref=f99e29285] [cursor=pointer]:
+                - /url: /object/person/1bfe3c39-43c3-4a55-9867-e0d3d2e9c31c
+                - generic [ref=f99e29286]:
+                  - generic [ref=f99e29287]: V
+                  - generic [ref=f99e29289]: Verónica Sarmiento
+              - generic [ref=f99e29294] [cursor=pointer]:
+                - generic [ref=f99e29295]: T
+                - generic [ref=f99e29297]: TP TP
+              - generic [ref=f99e29298]: dic 12, 2025
+              - generic [ref=f99e29303]: dic 12, 2026
+              - generic [ref=f99e29309] [cursor=pointer]
+            - generic [ref=f99e16721]:
+              - button [ref=f99e16723]
+              - generic [ref=f99e16730] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e16731]
+                - checkbox [aria-hidden] [ref=f99e16733]
+              - link "P POL-CART-17" [ref=f99e29318] [cursor=pointer]:
+                - /url: /object/poliza/a31a7a98-aa5f-4c39-9f4b-aee08d9f41d9?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e29319]:
+                  - generic [ref=f99e29320]: P
+                  - generic [ref=f99e29322]: POL-CART-17
+              - generic [ref=f99e29323]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29332]:
+                - generic [ref=f99e29333]: T
+                - generic [ref=f99e29335]: TP TP
+              - generic [ref=f99e29336]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29345]:
+                - generic [ref=f99e29346]: T
+                - generic [ref=f99e29348]: TP TP
+              - generic [ref=f99e29349]: Automotor
+              - generic [ref=f99e29355]: Al día
+              - generic [ref=f99e29361]: 54,000
+              - link "L Lucía Ñandú" [ref=f99e29378] [cursor=pointer]:
+                - /url: /object/person/75e5be36-7c6d-42b0-ae69-b557d200f7dd
+                - generic [ref=f99e29379]:
+                  - generic [ref=f99e29380]: L
+                  - generic [ref=f99e29382]: Lucía Ñandú
+              - generic [ref=f99e29387] [cursor=pointer]:
+                - generic [ref=f99e29388]: P
+                - generic [ref=f99e29390]: Pablo Gómez
+              - generic [ref=f99e29391]: nov 7, 2025
+              - generic [ref=f99e29396]: nov 7, 2026
+              - generic [ref=f99e29402] [cursor=pointer]
+            - generic [ref=f99e16829]:
+              - button [ref=f99e16831]
+              - generic [ref=f99e16838] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e16839]
+                - checkbox [aria-hidden] [ref=f99e16841]
+              - link "P POL-CART-16" [ref=f99e29411] [cursor=pointer]:
+                - /url: /object/poliza/2d526dd8-5982-46b2-a2c2-344947b632dd?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e29412]:
+                  - generic [ref=f99e29413]: P
+                  - generic [ref=f99e29415]: POL-CART-16
+              - generic [ref=f99e29416]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29425]:
+                - generic [ref=f99e29426]: T
+                - generic [ref=f99e29428]: TP TP
+              - generic [ref=f99e29429]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29438]:
+                - generic [ref=f99e29439]: T
+                - generic [ref=f99e29441]: TP TP
+              - generic [ref=f99e29442]: Salud
+              - generic [ref=f99e29448]: Cancelada
+              - generic [ref=f99e29454]: 52,500
+              - link "R Ramiro Domínguez" [ref=f99e29471] [cursor=pointer]:
+                - /url: /object/person/9ab4a7e5-1d31-4f9b-be09-5373932d51e2
+                - generic [ref=f99e29472]:
+                  - generic [ref=f99e29473]: R
+                  - generic [ref=f99e29475]: Ramiro Domínguez
+              - generic [ref=f99e29480] [cursor=pointer]:
+                - generic [ref=f99e29481]: P
+                - generic [ref=f99e29483]: Pablo Gómez
+              - generic [ref=f99e29484]: oct 23, 2025
+              - generic [ref=f99e29489]: oct 23, 2026
+              - generic [ref=f99e29495] [cursor=pointer]
+            - generic [ref=f99e16937]:
+              - button [ref=f99e16939]
+              - generic [ref=f99e16946] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e16947]
+                - checkbox [aria-hidden] [ref=f99e16949]
+              - link "P POL-CART-15" [ref=f99e29504] [cursor=pointer]:
+                - /url: /object/poliza/e6ec0efa-640e-431a-ab22-923a1319c6c2?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e29505]:
+                  - generic [ref=f99e29506]: P
+                  - generic [ref=f99e29508]: POL-CART-15
+              - generic [ref=f99e29509]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29518]:
+                - generic [ref=f99e29519]: T
+                - generic [ref=f99e29521]: TP TP
+              - generic [ref=f99e29522]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29531]:
+                - generic [ref=f99e29532]: T
+                - generic [ref=f99e29534]: TP TP
+              - generic [ref=f99e29535]: Vida
+              - generic [ref=f99e29541]: Cancelada
+              - generic [ref=f99e29547]: 51,000
+              - link "S Sofía Ibáñez" [ref=f99e29564] [cursor=pointer]:
+                - /url: /object/person/33872d4e-e7f1-49c3-9b7e-e81288afd307
+                - generic [ref=f99e29565]:
+                  - generic [ref=f99e29566]: S
+                  - generic [ref=f99e29568]: Sofía Ibáñez
+              - generic [ref=f99e29573] [cursor=pointer]:
+                - generic [ref=f99e29574]: T
+                - generic [ref=f99e29576]: TP TP
+              - generic [ref=f99e29577]: oct 10, 2025
+              - generic [ref=f99e29582]: oct 10, 2026
+              - generic [ref=f99e29588] [cursor=pointer]
+            - generic [ref=f99e17045]:
+              - button [ref=f99e17047]
+              - generic [ref=f99e17054] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e17055]
+                - checkbox [aria-hidden] [ref=f99e17057]
+              - link "P POL-CART-14" [ref=f99e29597] [cursor=pointer]:
+                - /url: /object/poliza/5f82c0b0-728d-4be4-a488-e7042f7dc8e8?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e29598]:
+                  - generic [ref=f99e29599]: P
+                  - generic [ref=f99e29601]: POL-CART-14
+              - generic [ref=f99e29602]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29611]:
+                - generic [ref=f99e29612]: T
+                - generic [ref=f99e29614]: TP TP
+              - generic [ref=f99e29615]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29624]:
+                - generic [ref=f99e29625]: T
+                - generic [ref=f99e29627]: TP TP
+              - generic [ref=f99e29628]: Hogar
+              - generic [ref=f99e29634]: Cancelada
+              - generic [ref=f99e29640]: 49,500
+              - link "J Joaquín Peña" [ref=f99e29657] [cursor=pointer]:
+                - /url: /object/person/6a07c36b-51aa-4d1e-b502-b4b4ab7d510c
+                - generic [ref=f99e29658]:
+                  - generic [ref=f99e29659]: J
+                  - generic [ref=f99e29661]: Joaquín Peña
+              - generic [ref=f99e29666] [cursor=pointer]:
+                - generic [ref=f99e29667]: T
+                - generic [ref=f99e29669]: TP TP
+              - generic [ref=f99e29670]: oct 3, 2025
+              - generic [ref=f99e29675]: oct 3, 2026
+              - generic [ref=f99e29681] [cursor=pointer]
+            - generic [ref=f99e17153]:
+              - button [ref=f99e17155]
+              - generic [ref=f99e17162] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e17163]
+                - checkbox [aria-hidden] [ref=f99e17165]
+              - link "P POL-CART-13" [ref=f99e29690] [cursor=pointer]:
+                - /url: /object/poliza/fe5f25f5-3db6-4f2b-ba1a-bcbf1ba0767a?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e29691]:
+                  - generic [ref=f99e29692]: P
+                  - generic [ref=f99e29694]: POL-CART-13
+              - generic [ref=f99e29695]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29704]:
+                - generic [ref=f99e29705]: T
+                - generic [ref=f99e29707]: TP TP
+              - generic [ref=f99e29708]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29717]:
+                - generic [ref=f99e29718]: T
+                - generic [ref=f99e29720]: TP TP
+              - generic [ref=f99e29721]: Automotor
+              - generic [ref=f99e29727]: Cancelada
+              - generic [ref=f99e29733]: 48,000
+              - link "M María Belén Gutiérrez" [ref=f99e29750] [cursor=pointer]:
+                - /url: /object/person/395a562e-0ff1-488a-9abc-80d77d3b2ff3
+                - generic [ref=f99e29751]:
+                  - generic [ref=f99e29752]: M
+                  - generic [ref=f99e29754]: María Belén Gutiérrez
+              - generic [ref=f99e29759] [cursor=pointer]:
+                - generic [ref=f99e29760]: P
+                - generic [ref=f99e29762]: Pablo Gómez
+              - generic [ref=f99e29763]: sep 8, 2025
+              - generic [ref=f99e29768]: sep 8, 2026
+              - generic [ref=f99e29774] [cursor=pointer]
+            - generic [ref=f99e17261]:
+              - button [ref=f99e17263]
+              - generic [ref=f99e17270] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e17271]
+                - checkbox [aria-hidden] [ref=f99e17273]
+              - link "P POL-CART-12" [ref=f99e29783] [cursor=pointer]:
+                - /url: /object/poliza/e80d5e18-0d98-4bb7-ae15-31e7c073418f?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e29784]:
+                  - generic [ref=f99e29785]: P
+                  - generic [ref=f99e29787]: POL-CART-12
+              - generic [ref=f99e29788]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29797]:
+                - generic [ref=f99e29798]: T
+                - generic [ref=f99e29800]: TP TP
+              - generic [ref=f99e29801]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29810]:
+                - generic [ref=f99e29811]: T
+                - generic [ref=f99e29813]: TP TP
+              - generic [ref=f99e29814]: Salud
+              - generic [ref=f99e29820]: En gestión
+              - generic [ref=f99e29826]: 46,500
+              - link "V Verónica Sarmiento" [ref=f99e29843] [cursor=pointer]:
+                - /url: /object/person/1bfe3c39-43c3-4a55-9867-e0d3d2e9c31c
+                - generic [ref=f99e29844]:
+                  - generic [ref=f99e29845]: V
+                  - generic [ref=f99e29847]: Verónica Sarmiento
+              - generic [ref=f99e29852] [cursor=pointer]:
+                - generic [ref=f99e29853]: T
+                - generic [ref=f99e29855]: TP TP
+              - generic [ref=f99e29856]: oct 16, 2025
+              - generic [ref=f99e29861]: oct 16, 2026
+              - generic [ref=f99e29867] [cursor=pointer]
+            - generic [ref=f99e17369]:
+              - button [ref=f99e17371]
+              - generic [ref=f99e17378] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e17379]
+                - checkbox [aria-hidden] [ref=f99e17381]
+              - link "P POL-CART-11" [ref=f99e29876] [cursor=pointer]:
+                - /url: /object/poliza/08f4af3f-2973-4431-bd3f-4d70f7bec516?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e29877]:
+                  - generic [ref=f99e29878]: P
+                  - generic [ref=f99e29880]: POL-CART-11
+              - generic [ref=f99e29881]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29890]:
+                - generic [ref=f99e29891]: T
+                - generic [ref=f99e29893]: TP TP
+              - generic [ref=f99e29894]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29903]:
+                - generic [ref=f99e29904]: T
+                - generic [ref=f99e29906]: TP TP
+              - generic [ref=f99e29907]: Vida
+              - generic [ref=f99e29913]: En gestión
+              - generic [ref=f99e29919]: 45,000
+              - link "L Lucía Ñandú" [ref=f99e29936] [cursor=pointer]:
+                - /url: /object/person/75e5be36-7c6d-42b0-ae69-b557d200f7dd
+                - generic [ref=f99e29937]:
+                  - generic [ref=f99e29938]: L
+                  - generic [ref=f99e29940]: Lucía Ñandú
+              - generic [ref=f99e29945] [cursor=pointer]:
+                - generic [ref=f99e29946]: T
+                - generic [ref=f99e29948]: TP TP
+              - generic [ref=f99e29949]: sep 3, 2026
+              - generic [ref=f99e29954]: sep 3, 2027
+              - generic [ref=f99e29960] [cursor=pointer]
+            - generic [ref=f99e17477]:
+              - button [ref=f99e17479]
+              - generic [ref=f99e17486] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e17487]
+                - checkbox [aria-hidden] [ref=f99e17489]
+              - link "P POL-CART-10" [ref=f99e29969] [cursor=pointer]:
+                - /url: /object/poliza/6ec2183d-8270-4faf-992f-6093142a21a2?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e29970]:
+                  - generic [ref=f99e29971]: P
+                  - generic [ref=f99e29973]: POL-CART-10
+              - generic [ref=f99e29974]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29983]:
+                - generic [ref=f99e29984]: T
+                - generic [ref=f99e29986]: TP TP
+              - generic [ref=f99e29987]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e29996]:
+                - generic [ref=f99e29997]: T
+                - generic [ref=f99e29999]: TP TP
+              - generic [ref=f99e30000]: Hogar
+              - generic [ref=f99e30006]: En gestión
+              - generic [ref=f99e30012]: 43,500
+              - link "R Ramiro Domínguez" [ref=f99e30029] [cursor=pointer]:
+                - /url: /object/person/9ab4a7e5-1d31-4f9b-be09-5373932d51e2
+                - generic [ref=f99e30030]:
+                  - generic [ref=f99e30031]: R
+                  - generic [ref=f99e30033]: Ramiro Domínguez
+              - generic [ref=f99e30038] [cursor=pointer]:
+                - generic [ref=f99e30039]: P
+                - generic [ref=f99e30041]: Pablo Gómez
+              - generic [ref=f99e30042]: jul 25, 2026
+              - generic [ref=f99e30047]: jul 25, 2027
+              - generic [ref=f99e30053] [cursor=pointer]
+            - generic [ref=f99e17585]:
+              - button [ref=f99e17587]
+              - generic [ref=f99e17594] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e17595]
+                - checkbox [aria-hidden] [ref=f99e17597]
+              - link "P POL-CART-09" [ref=f99e30062] [cursor=pointer]:
+                - /url: /object/poliza/96e4985e-6e44-4e08-a76d-9be5be633782?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e30063]:
+                  - generic [ref=f99e30064]: P
+                  - generic [ref=f99e30066]: POL-CART-09
+              - generic [ref=f99e30067]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e30076]:
+                - generic [ref=f99e30077]: T
+                - generic [ref=f99e30079]: TP TP
+              - generic [ref=f99e30080]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e30089]:
+                - generic [ref=f99e30090]: T
+                - generic [ref=f99e30092]: TP TP
+              - generic [ref=f99e30093]: Automotor
+              - generic [ref=f99e30099]: En gestión
+              - generic [ref=f99e30105]: 42,000
+              - link "S Sofía Ibáñez" [ref=f99e30122] [cursor=pointer]:
+                - /url: /object/person/33872d4e-e7f1-49c3-9b7e-e81288afd307
+                - generic [ref=f99e30123]:
+                  - generic [ref=f99e30124]: S
+                  - generic [ref=f99e30126]: Sofía Ibáñez
+              - generic [ref=f99e30131] [cursor=pointer]:
+                - generic [ref=f99e30132]: P
+                - generic [ref=f99e30134]: Pablo Gómez
+              - generic [ref=f99e30135]: jun 15, 2026
+              - generic [ref=f99e30140]: jun 15, 2027
+              - generic [ref=f99e30146] [cursor=pointer]
+            - generic [ref=f99e17693]:
+              - button [ref=f99e17695]
+              - generic [ref=f99e17702] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e17703]
+                - checkbox [aria-hidden] [ref=f99e17705]
+              - link "P POL-CART-08" [ref=f99e30155] [cursor=pointer]:
+                - /url: /object/poliza/041b1e97-831d-4613-a568-bd5712fb530b?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e30156]:
+                  - generic [ref=f99e30157]: P
+                  - generic [ref=f99e30159]: POL-CART-08
+              - generic [ref=f99e30160]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e30169]:
+                - generic [ref=f99e30170]: T
+                - generic [ref=f99e30172]: TP TP
+              - generic [ref=f99e30173]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e30182]:
+                - generic [ref=f99e30183]: T
+                - generic [ref=f99e30185]: TP TP
+              - generic [ref=f99e30186]: Salud
+              - generic [ref=f99e30192]: Vencida
+              - generic [ref=f99e30198]: 40,500
+              - link "J Joaquín Peña" [ref=f99e30215] [cursor=pointer]:
+                - /url: /object/person/6a07c36b-51aa-4d1e-b502-b4b4ab7d510c
+                - generic [ref=f99e30216]:
+                  - generic [ref=f99e30217]: J
+                  - generic [ref=f99e30219]: Joaquín Peña
+              - generic [ref=f99e30224] [cursor=pointer]:
+                - generic [ref=f99e30225]: T
+                - generic [ref=f99e30227]: TP TP
+              - generic [ref=f99e30228]: abr 16, 2026
+              - generic [ref=f99e30233]: abr 16, 2027
+              - generic [ref=f99e30239] [cursor=pointer]
+            - generic [ref=f99e17801]:
+              - button [ref=f99e17803]
+              - generic [ref=f99e17810] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e17811]
+                - checkbox [aria-hidden] [ref=f99e17813]
+              - link "P POL-CART-07" [ref=f99e30248] [cursor=pointer]:
+                - /url: /object/poliza/c56a0382-5b08-4d69-892d-92449c4b8db0?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e30249]:
+                  - generic [ref=f99e30250]: P
+                  - generic [ref=f99e30252]: POL-CART-07
+              - generic [ref=f99e30253]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e30262]:
+                - generic [ref=f99e30263]: T
+                - generic [ref=f99e30265]: TP TP
+              - generic [ref=f99e30266]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e30275]:
+                - generic [ref=f99e30276]: T
+                - generic [ref=f99e30278]: TP TP
+              - generic [ref=f99e30279]: Vida
+              - generic [ref=f99e30285]: Vencida
+              - generic [ref=f99e30291]: 39,000
+              - link "M María Belén Gutiérrez" [ref=f99e30308] [cursor=pointer]:
+                - /url: /object/person/395a562e-0ff1-488a-9abc-80d77d3b2ff3
+                - generic [ref=f99e30309]:
+                  - generic [ref=f99e30310]: M
+                  - generic [ref=f99e30312]: María Belén Gutiérrez
+              - generic [ref=f99e30317] [cursor=pointer]:
+                - generic [ref=f99e30318]: P
+                - generic [ref=f99e30320]: Pablo Gómez
+              - generic [ref=f99e30321]: ene 26, 2026
+              - generic [ref=f99e30326]: ene 26, 2027
+              - generic [ref=f99e30332] [cursor=pointer]
+            - generic [ref=f99e17909]:
+              - button [ref=f99e17911]
+              - generic [ref=f99e17918] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e17919]
+                - checkbox [aria-hidden] [ref=f99e17921]
+              - link "P POL-CART-06" [ref=f99e30341] [cursor=pointer]:
+                - /url: /object/poliza/45eca242-31ef-4b5a-a99d-4bc703e54884?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e30342]:
+                  - generic [ref=f99e30343]: P
+                  - generic [ref=f99e30345]: POL-CART-06
+              - generic [ref=f99e30346]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e30355]:
+                - generic [ref=f99e30356]: T
+                - generic [ref=f99e30358]: TP TP
+              - generic [ref=f99e30359]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e30368]:
+                - generic [ref=f99e30369]: T
+                - generic [ref=f99e30371]: TP TP
+              - generic [ref=f99e30372]: Hogar
+              - generic [ref=f99e30378]: Vencida
+              - generic [ref=f99e30384]: 37,500
+              - link "V Verónica Sarmiento" [ref=f99e30401] [cursor=pointer]:
+                - /url: /object/person/1bfe3c39-43c3-4a55-9867-e0d3d2e9c31c
+                - generic [ref=f99e30402]:
+                  - generic [ref=f99e30403]: V
+                  - generic [ref=f99e30405]: Verónica Sarmiento
+              - generic [ref=f99e30410] [cursor=pointer]:
+                - generic [ref=f99e30411]: T
+                - generic [ref=f99e30413]: TP TP
+              - generic [ref=f99e30414]: dic 12, 2025
+              - generic [ref=f99e30419]: dic 12, 2026
+              - generic [ref=f99e30425] [cursor=pointer]
+            - generic [ref=f99e18017]:
+              - button [ref=f99e18019]
+              - generic [ref=f99e18026] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e18027]
+                - checkbox [aria-hidden] [ref=f99e18029]
+              - link "P POL-CART-05" [ref=f99e30434] [cursor=pointer]:
+                - /url: /object/poliza/fecd1f04-ea98-44fc-9ba4-a309bcc5f592?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e30435]:
+                  - generic [ref=f99e30436]: P
+                  - generic [ref=f99e30438]: POL-CART-05
+              - generic [ref=f99e30439]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e30448]:
+                - generic [ref=f99e30449]: T
+                - generic [ref=f99e30451]: TP TP
+              - generic [ref=f99e30452]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e30461]:
+                - generic [ref=f99e30462]: T
+                - generic [ref=f99e30464]: TP TP
+              - generic [ref=f99e30465]: Automotor
+              - generic [ref=f99e30471]: Vencida
+              - generic [ref=f99e30477]: 36,000
+              - link "L Lucía Ñandú" [ref=f99e30494] [cursor=pointer]:
+                - /url: /object/person/75e5be36-7c6d-42b0-ae69-b557d200f7dd
+                - generic [ref=f99e30495]:
+                  - generic [ref=f99e30496]: L
+                  - generic [ref=f99e30498]: Lucía Ñandú
+              - generic [ref=f99e30503] [cursor=pointer]:
+                - generic [ref=f99e30504]: P
+                - generic [ref=f99e30506]: Pablo Gómez
+              - generic [ref=f99e30507]: nov 7, 2025
+              - generic [ref=f99e30512]: nov 7, 2026
+              - generic [ref=f99e30518] [cursor=pointer]
+            - generic [ref=f99e18125]:
+              - button [ref=f99e18127]
+              - generic [ref=f99e18134] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e18135]
+                - checkbox [aria-hidden] [ref=f99e18137]
+              - link "P POL-CART-04" [ref=f99e30527] [cursor=pointer]:
+                - /url: /object/poliza/637f4d6c-612e-438c-9a62-9bc691ebf29f?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e30528]:
+                  - generic [ref=f99e30529]: P
+                  - generic [ref=f99e30531]: POL-CART-04
+              - generic [ref=f99e30532]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e30541]:
+                - generic [ref=f99e30542]: T
+                - generic [ref=f99e30544]: TP TP
+              - generic [ref=f99e30545]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e30554]:
+                - generic [ref=f99e30555]: T
+                - generic [ref=f99e30557]: TP TP
+              - generic [ref=f99e30558]: Salud
+              - generic [ref=f99e30564]: Al día
+              - generic [ref=f99e30570]: 34,500
+              - link "R Ramiro Domínguez" [ref=f99e30587] [cursor=pointer]:
+                - /url: /object/person/9ab4a7e5-1d31-4f9b-be09-5373932d51e2
+                - generic [ref=f99e30588]:
+                  - generic [ref=f99e30589]: R
+                  - generic [ref=f99e30591]: Ramiro Domínguez
+              - generic [ref=f99e30596] [cursor=pointer]:
+                - generic [ref=f99e30597]: P
+                - generic [ref=f99e30599]: Pablo Gómez
+              - generic [ref=f99e30600]: oct 23, 2025
+              - generic [ref=f99e30605]: oct 23, 2026
+              - generic [ref=f99e30611] [cursor=pointer]
+            - generic [ref=f99e18233]:
+              - button [ref=f99e18235]
+              - generic [ref=f99e18242] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e18243]
+                - checkbox [aria-hidden] [ref=f99e18245]
+              - link "P POL-CART-03" [ref=f99e30620] [cursor=pointer]:
+                - /url: /object/poliza/bfe00710-fce8-4fe6-a6ab-4b779e50dbf7?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e30621]:
+                  - generic [ref=f99e30622]: P
+                  - generic [ref=f99e30624]: POL-CART-03
+              - generic [ref=f99e30625]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e30634]:
+                - generic [ref=f99e30635]: T
+                - generic [ref=f99e30637]: TP TP
+              - generic [ref=f99e30638]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e30647]:
+                - generic [ref=f99e30648]: T
+                - generic [ref=f99e30650]: TP TP
+              - generic [ref=f99e30651]: Vida
+              - generic [ref=f99e30657]: Al día
+              - generic [ref=f99e30663]: 33,000
+              - link "S Sofía Ibáñez" [ref=f99e30680] [cursor=pointer]:
+                - /url: /object/person/33872d4e-e7f1-49c3-9b7e-e81288afd307
+                - generic [ref=f99e30681]:
+                  - generic [ref=f99e30682]: S
+                  - generic [ref=f99e30684]: Sofía Ibáñez
+              - generic [ref=f99e30689] [cursor=pointer]:
+                - generic [ref=f99e30690]: T
+                - generic [ref=f99e30692]: TP TP
+              - generic [ref=f99e30693]: oct 10, 2025
+              - generic [ref=f99e30698]: oct 10, 2026
+              - generic [ref=f99e30704] [cursor=pointer]
+            - generic [ref=f99e18341]:
+              - button [ref=f99e18343]
+              - generic [ref=f99e18350] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e18351]
+                - checkbox [aria-hidden] [ref=f99e18353]
+              - link "P POL-CART-02" [ref=f99e30713] [cursor=pointer]:
+                - /url: /object/poliza/62ef7756-bf7f-43ef-817e-662d0a781c52?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e30714]:
+                  - generic [ref=f99e30715]: P
+                  - generic [ref=f99e30717]: POL-CART-02
+              - generic [ref=f99e30718]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e30727]:
+                - generic [ref=f99e30728]: T
+                - generic [ref=f99e30730]: TP TP
+              - generic [ref=f99e30731]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e30740]:
+                - generic [ref=f99e30741]: T
+                - generic [ref=f99e30743]: TP TP
+              - generic [ref=f99e30744]: Hogar
+              - generic [ref=f99e30750]: Al día
+              - generic [ref=f99e30756]: 31,500
+              - link "J Joaquín Peña" [ref=f99e30773] [cursor=pointer]:
+                - /url: /object/person/6a07c36b-51aa-4d1e-b502-b4b4ab7d510c
+                - generic [ref=f99e30774]:
+                  - generic [ref=f99e30775]: J
+                  - generic [ref=f99e30777]: Joaquín Peña
+              - generic [ref=f99e30782] [cursor=pointer]:
+                - generic [ref=f99e30783]: T
+                - generic [ref=f99e30785]: TP TP
+              - generic [ref=f99e30786]: oct 3, 2025
+              - generic [ref=f99e30791]: oct 3, 2026
+              - generic [ref=f99e30797] [cursor=pointer]
+            - generic [ref=f99e18449]:
+              - button [ref=f99e18451]
+              - generic [ref=f99e18458] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e18459]
+                - checkbox [aria-hidden] [ref=f99e18461]
+              - link "P POL-CART-01" [ref=f99e30806] [cursor=pointer]:
+                - /url: /object/poliza/f470e238-7a28-415f-bd3c-2b8812850bd3?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e30807]:
+                  - generic [ref=f99e30808]: P
+                  - generic [ref=f99e30810]: POL-CART-01
+              - generic [ref=f99e30811]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e30820]:
+                - generic [ref=f99e30821]: T
+                - generic [ref=f99e30823]: TP TP
+              - generic [ref=f99e30824]: sep 28, 2026 4:40 AM
+              - generic [ref=f99e30833]:
+                - generic [ref=f99e30834]: T
+                - generic [ref=f99e30836]: TP TP
+              - generic [ref=f99e30837]: Automotor
+              - generic [ref=f99e30843]: Al día
+              - generic [ref=f99e30849]: 30,000
+              - link "M María Belén Gutiérrez" [ref=f99e30866] [cursor=pointer]:
+                - /url: /object/person/395a562e-0ff1-488a-9abc-80d77d3b2ff3
+                - generic [ref=f99e30867]:
+                  - generic [ref=f99e30868]: M
+                  - generic [ref=f99e30870]: María Belén Gutiérrez
+              - generic [ref=f99e30875] [cursor=pointer]:
+                - generic [ref=f99e30876]: P
+                - generic [ref=f99e30878]: Pablo Gómez
+              - generic [ref=f99e30879]: sep 8, 2025
+              - generic [ref=f99e30884]: sep 8, 2026
+              - generic [ref=f99e30890] [cursor=pointer]
+            - generic [ref=f99e18551]:
+              - button [ref=f99e18553]
+              - generic [ref=f99e18560] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e18561]
+                - checkbox [aria-hidden] [ref=f99e18563]
+              - link "P POL-APR-1" [ref=f99e30899] [cursor=pointer]:
+                - /url: /object/poliza/f45189b1-c421-44b7-9088-620e9c15e69f?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e30900]:
+                  - generic [ref=f99e30901]: P
+                  - generic [ref=f99e30903]: POL-APR-1
+              - generic [ref=f99e30904]: sep 28, 2026 4:04 AM
+              - generic [ref=f99e30913]:
+                - generic [ref=f99e30914]: A
+                - generic [ref=f99e30916]: Andrea Ríos
+              - generic [ref=f99e30917]: sep 28, 2026 4:10 AM
+              - generic [ref=f99e30926]:
+                - generic [ref=f99e30927]: A
+                - generic [ref=f99e30929]: Andrea Ríos
+              - generic [ref=f99e30930]: Automotor
+              - generic [ref=f99e30937] [cursor=pointer]
+              - generic [ref=f99e30940]: 45,000
+              - link "L Lucía Fernández" [ref=f99e30957] [cursor=pointer]:
+                - /url: /object/person/4dff0954-e330-4eff-a58d-3056d8bbc3ec
+                - generic [ref=f99e30958]:
+                  - generic [ref=f99e30959]: L
+                  - generic [ref=f99e30961]: Lucía Fernández
+              - generic [ref=f99e30963] [cursor=pointer]
+              - generic [ref=f99e30966]: sep 28, 2026
+              - generic [ref=f99e30971]: sep 28, 2027
+              - generic [ref=f99e30977] [cursor=pointer]
+            - generic [ref=f99e18644]:
+              - button [ref=f99e18646]
+              - generic [ref=f99e18653] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e18654]
+                - checkbox [aria-hidden] [ref=f99e18656]
+              - link "P POL-RECORRIDO-1" [ref=f99e30986] [cursor=pointer]:
+                - /url: /object/poliza/c713d00e-b677-4808-ad2f-76f6d040e9dc?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e30987]:
+                  - generic [ref=f99e30988]: P
+                  - generic [ref=f99e30990]: POL-RECORRIDO-1
+              - generic [ref=f99e30991]: sep 28, 2026 4:03 AM
+              - generic [ref=f99e31000]:
+                - generic [ref=f99e31001]: T
+                - generic [ref=f99e31003]: TP TP
+              - generic [ref=f99e31004]: sep 28, 2026 4:03 AM
+              - generic [ref=f99e31013]:
+                - generic [ref=f99e31014]: T
+                - generic [ref=f99e31016]: TP TP
+              - generic [ref=f99e31018] [cursor=pointer]
+              - generic [ref=f99e31022] [cursor=pointer]
+              - generic [ref=f99e31026] [cursor=pointer]
+              - link "A Aurelio Recorrido" [ref=f99e31035] [cursor=pointer]:
+                - /url: /object/person/5035e716-ab43-4182-8e7b-b613b76ce6d1
+                - generic [ref=f99e31036]:
+                  - generic [ref=f99e31037]: A
+                  - generic [ref=f99e31039]: Aurelio Recorrido
+              - generic [ref=f99e31041] [cursor=pointer]
+              - generic [ref=f99e31045] [cursor=pointer]
+              - generic [ref=f99e31050] [cursor=pointer]
+              - generic [ref=f99e31055] [cursor=pointer]
+            - generic [ref=f99e18744]:
+              - button [ref=f99e18746]
+              - generic [ref=f99e18753] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e18754]
+                - checkbox [aria-hidden] [ref=f99e18756]
+              - link "P POL-CARTERA-3-8" [ref=f99e31064] [cursor=pointer]:
+                - /url: /object/poliza/07b31967-f98d-4961-85af-3dd959b01bb9?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e31065]:
+                  - generic [ref=f99e31066]: P
+                  - generic [ref=f99e31068]: POL-CARTERA-3-8
+              - generic [ref=f99e31069]: sep 28, 2026 3:53 AM
+              - generic [ref=f99e31078]:
+                - generic [ref=f99e31079]: T
+                - generic [ref=f99e31081]: TP TP
+              - generic [ref=f99e31082]: sep 28, 2026 3:53 AM
+              - generic [ref=f99e31091]:
+                - generic [ref=f99e31092]: T
+                - generic [ref=f99e31094]: TP TP
+              - generic [ref=f99e31095]: Salud
+              - generic [ref=f99e31102] [cursor=pointer]
+              - generic [ref=f99e31105]: 47,500
+              - generic [ref=f99e31118] [cursor=pointer]
+              - generic [ref=f99e31125] [cursor=pointer]:
+                - generic [ref=f99e31126]: C
+                - generic [ref=f99e31128]: Camila Toledo
+              - generic [ref=f99e31129]: sep 3, 2026
+              - generic [ref=f99e31134]: sep 3, 2027
+              - generic [ref=f99e31140] [cursor=pointer]
+            - generic [ref=f99e18844]:
+              - button [ref=f99e18846]
+              - generic [ref=f99e18853] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e18854]
+                - checkbox [aria-hidden] [ref=f99e18856]
+              - link "P POL-CARTERA-3-7" [ref=f99e31149] [cursor=pointer]:
+                - /url: /object/poliza/9deafde2-f7fd-4cb0-9941-8fd89f4af1ac?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e31150]:
+                  - generic [ref=f99e31151]: P
+                  - generic [ref=f99e31153]: POL-CARTERA-3-7
+              - generic [ref=f99e31154]: sep 28, 2026 3:53 AM
+              - generic [ref=f99e31163]:
+                - generic [ref=f99e31164]: T
+                - generic [ref=f99e31166]: TP TP
+              - generic [ref=f99e31167]: sep 28, 2026 3:53 AM
+              - generic [ref=f99e31176]:
+                - generic [ref=f99e31177]: T
+                - generic [ref=f99e31179]: TP TP
+              - generic [ref=f99e31180]: Vida
+              - generic [ref=f99e31187] [cursor=pointer]
+              - generic [ref=f99e31190]: 45,000
+              - generic [ref=f99e31203] [cursor=pointer]
+              - generic [ref=f99e31210] [cursor=pointer]:
+                - generic [ref=f99e31211]: C
+                - generic [ref=f99e31213]: Camila Toledo
+              - generic [ref=f99e31214]: mar 27, 2026
+              - generic [ref=f99e31219]: mar 27, 2027
+              - generic [ref=f99e31225] [cursor=pointer]
+            - generic [ref=f99e18944]:
+              - button [ref=f99e18946]
+              - generic [ref=f99e18953] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e18954]
+                - checkbox [aria-hidden] [ref=f99e18956]
+              - link "P POL-CARTERA-3-6" [ref=f99e31234] [cursor=pointer]:
+                - /url: /object/poliza/7219013e-f2a1-4f91-8f35-efe7fa5c294a?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e31235]:
+                  - generic [ref=f99e31236]: P
+                  - generic [ref=f99e31238]: POL-CARTERA-3-6
+              - generic [ref=f99e31239]: sep 28, 2026 3:53 AM
+              - generic [ref=f99e31248]:
+                - generic [ref=f99e31249]: T
+                - generic [ref=f99e31251]: TP TP
+              - generic [ref=f99e31252]: sep 28, 2026 3:53 AM
+              - generic [ref=f99e31261]:
+                - generic [ref=f99e31262]: T
+                - generic [ref=f99e31264]: TP TP
+              - generic [ref=f99e31265]: Hogar
+              - generic [ref=f99e31272] [cursor=pointer]
+              - generic [ref=f99e31275]: 42,500
+              - generic [ref=f99e31288] [cursor=pointer]
+              - generic [ref=f99e31295] [cursor=pointer]:
+                - generic [ref=f99e31296]: C
+                - generic [ref=f99e31298]: Camila Toledo
+              - generic [ref=f99e31299]: dic 27, 2025
+              - generic [ref=f99e31304]: dic 27, 2026
+              - generic [ref=f99e31310] [cursor=pointer]
+            - generic [ref=f99e19044]:
+              - button [ref=f99e19046]
+              - generic [ref=f99e19053] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e19054]
+                - checkbox [aria-hidden] [ref=f99e19056]
+              - link "P POL-CARTERA-3-5" [ref=f99e31319] [cursor=pointer]:
+                - /url: /object/poliza/22ef034e-89a4-4764-bcc2-e0c5c64cadc5?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e31320]:
+                  - generic [ref=f99e31321]: P
+                  - generic [ref=f99e31323]: POL-CARTERA-3-5
+              - generic [ref=f99e31324]: sep 28, 2026 3:53 AM
+              - generic [ref=f99e31333]:
+                - generic [ref=f99e31334]: T
+                - generic [ref=f99e31336]: TP TP
+              - generic [ref=f99e31337]: sep 28, 2026 3:53 AM
+              - generic [ref=f99e31346]:
+                - generic [ref=f99e31347]: T
+                - generic [ref=f99e31349]: TP TP
+              - generic [ref=f99e31350]: Automotor
+              - generic [ref=f99e31357] [cursor=pointer]
+              - generic [ref=f99e31360]: 40,000
+              - generic [ref=f99e31373] [cursor=pointer]
+              - generic [ref=f99e31380] [cursor=pointer]:
+                - generic [ref=f99e31381]: C
+                - generic [ref=f99e31383]: Camila Toledo
+              - generic [ref=f99e31384]: nov 12, 2025
+              - generic [ref=f99e31389]: nov 12, 2026
+              - generic [ref=f99e31395] [cursor=pointer]
+            - generic [ref=f99e19144]:
+              - button [ref=f99e19146]
+              - generic [ref=f99e19153] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e19154]
+                - checkbox [aria-hidden] [ref=f99e19156]
+              - link "P POL-CARTERA-3-4" [ref=f99e31404] [cursor=pointer]:
+                - /url: /object/poliza/b9375c92-d585-49a8-b7ff-fb51c7ee65eb?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e31405]:
+                  - generic [ref=f99e31406]: P
+                  - generic [ref=f99e31408]: POL-CARTERA-3-4
+              - generic [ref=f99e31409]: sep 28, 2026 3:53 AM
+              - generic [ref=f99e31418]:
+                - generic [ref=f99e31419]: T
+                - generic [ref=f99e31421]: TP TP
+              - generic [ref=f99e31422]: sep 28, 2026 3:53 AM
+              - generic [ref=f99e31431]:
+                - generic [ref=f99e31432]: T
+                - generic [ref=f99e31434]: TP TP
+              - generic [ref=f99e31435]: Salud
+              - generic [ref=f99e31442] [cursor=pointer]
+              - generic [ref=f99e31445]: 37,500
+              - generic [ref=f99e31458] [cursor=pointer]
+              - generic [ref=f99e31465] [cursor=pointer]:
+                - generic [ref=f99e31466]: C
+                - generic [ref=f99e31468]: Camila Toledo
+              - generic [ref=f99e31469]: oct 25, 2025
+              - generic [ref=f99e31474]: oct 25, 2026
+              - generic [ref=f99e31480] [cursor=pointer]
+            - generic [ref=f99e19244]:
+              - button [ref=f99e19246]
+              - generic [ref=f99e19253] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e19254]
+                - checkbox [aria-hidden] [ref=f99e19256]
+              - link "P POL-CARTERA-3-3" [ref=f99e31489] [cursor=pointer]:
+                - /url: /object/poliza/4f4241d3-21c2-4eb3-91d7-e2649df89e69?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e31490]:
+                  - generic [ref=f99e31491]: P
+                  - generic [ref=f99e31493]: POL-CARTERA-3-3
+              - generic [ref=f99e31494]: sep 28, 2026 3:53 AM
+              - generic [ref=f99e31503]:
+                - generic [ref=f99e31504]: T
+                - generic [ref=f99e31506]: TP TP
+              - generic [ref=f99e31507]: sep 28, 2026 3:53 AM
+              - generic [ref=f99e31516]:
+                - generic [ref=f99e31517]: T
+                - generic [ref=f99e31519]: TP TP
+              - generic [ref=f99e31520]: Vida
+              - generic [ref=f99e31527] [cursor=pointer]
+              - generic [ref=f99e31530]: 35,000
+              - generic [ref=f99e31543] [cursor=pointer]
+              - generic [ref=f99e31550] [cursor=pointer]:
+                - generic [ref=f99e31551]: C
+                - generic [ref=f99e31553]: Camila Toledo
+              - generic [ref=f99e31554]: oct 12, 2025
+              - generic [ref=f99e31559]: oct 12, 2026
+              - generic [ref=f99e31565] [cursor=pointer]
+            - generic [ref=f99e19344]:
+              - button [ref=f99e19346]
+              - generic [ref=f99e19353] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e19354]
+                - checkbox [aria-hidden] [ref=f99e19356]
+              - link "P POL-CARTERA-3-2" [ref=f99e31574] [cursor=pointer]:
+                - /url: /object/poliza/fad06853-7e9e-469b-8329-e301f1a62f70?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e31575]:
+                  - generic [ref=f99e31576]: P
+                  - generic [ref=f99e31578]: POL-CARTERA-3-2
+              - generic [ref=f99e31579]: sep 28, 2026 3:53 AM
+              - generic [ref=f99e31588]:
+                - generic [ref=f99e31589]: T
+                - generic [ref=f99e31591]: TP TP
+              - generic [ref=f99e31592]: sep 28, 2026 3:53 AM
+              - generic [ref=f99e31601]:
+                - generic [ref=f99e31602]: T
+                - generic [ref=f99e31604]: TP TP
+              - generic [ref=f99e31605]: Hogar
+              - generic [ref=f99e31612] [cursor=pointer]
+              - generic [ref=f99e31615]: 32,500
+              - generic [ref=f99e31628] [cursor=pointer]
+              - generic [ref=f99e31635] [cursor=pointer]:
+                - generic [ref=f99e31636]: C
+                - generic [ref=f99e31638]: Camila Toledo
+              - generic [ref=f99e31639]: oct 3, 2025
+              - generic [ref=f99e31644]: oct 3, 2026
+              - generic [ref=f99e31650] [cursor=pointer]
+            - generic [ref=f99e19444]:
+              - button [ref=f99e19446]
+              - generic [ref=f99e19453] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e19454]
+                - checkbox [aria-hidden] [ref=f99e19456]
+              - link "P POL-CARTERA-3-1" [ref=f99e31659] [cursor=pointer]:
+                - /url: /object/poliza/476720f8-a6e8-4e95-afc1-bb166b6210b4?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e31660]:
+                  - generic [ref=f99e31661]: P
+                  - generic [ref=f99e31663]: POL-CARTERA-3-1
+              - generic [ref=f99e31664]: sep 28, 2026 3:53 AM
+              - generic [ref=f99e31673]:
+                - generic [ref=f99e31674]: T
+                - generic [ref=f99e31676]: TP TP
+              - generic [ref=f99e31677]: sep 28, 2026 3:53 AM
+              - generic [ref=f99e31686]:
+                - generic [ref=f99e31687]: T
+                - generic [ref=f99e31689]: TP TP
+              - generic [ref=f99e31690]: Automotor
+              - generic [ref=f99e31697] [cursor=pointer]
+              - generic [ref=f99e31700]: 30,000
+              - generic [ref=f99e31713] [cursor=pointer]
+              - generic [ref=f99e31720] [cursor=pointer]:
+                - generic [ref=f99e31721]: C
+                - generic [ref=f99e31723]: Camila Toledo
+              - generic [ref=f99e31724]: sep 18, 2025
+              - generic [ref=f99e31729]: sep 18, 2026
+              - generic [ref=f99e31735] [cursor=pointer]
+            - generic [ref=f99e19544]:
+              - button [ref=f99e19546]
+              - generic [ref=f99e19553] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e19554]
+                - checkbox [aria-hidden] [ref=f99e19556]
+              - link "P POL-CARTERA-2-8" [ref=f99e31744] [cursor=pointer]:
+                - /url: /object/poliza/f344254a-c828-4b56-b68a-f25f5c5cf54e?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e31745]:
+                  - generic [ref=f99e31746]: P
+                  - generic [ref=f99e31748]: POL-CARTERA-2-8
+              - generic [ref=f99e31749]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e31758]:
+                - generic [ref=f99e31759]: T
+                - generic [ref=f99e31761]: TP TP
+              - generic [ref=f99e31762]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e31771]:
+                - generic [ref=f99e31772]: T
+                - generic [ref=f99e31774]: TP TP
+              - generic [ref=f99e31775]: Salud
+              - generic [ref=f99e31782] [cursor=pointer]
+              - generic [ref=f99e31785]: 47,500
+              - generic [ref=f99e31798] [cursor=pointer]
+              - generic [ref=f99e31805] [cursor=pointer]:
+                - generic [ref=f99e31806]: B
+                - generic [ref=f99e31808]: Bruno Salas
+              - generic [ref=f99e31809]: sep 3, 2026
+              - generic [ref=f99e31814]: sep 3, 2027
+              - generic [ref=f99e31820] [cursor=pointer]
+            - generic [ref=f99e19644]:
+              - button [ref=f99e19646]
+              - generic [ref=f99e19653] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e19654]
+                - checkbox [aria-hidden] [ref=f99e19656]
+              - link "P POL-CARTERA-2-7" [ref=f99e31829] [cursor=pointer]:
+                - /url: /object/poliza/fa7eddf9-c442-4eaf-8efb-91dd970c9d38?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e31830]:
+                  - generic [ref=f99e31831]: P
+                  - generic [ref=f99e31833]: POL-CARTERA-2-7
+              - generic [ref=f99e31834]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e31843]:
+                - generic [ref=f99e31844]: T
+                - generic [ref=f99e31846]: TP TP
+              - generic [ref=f99e31847]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e31856]:
+                - generic [ref=f99e31857]: T
+                - generic [ref=f99e31859]: TP TP
+              - generic [ref=f99e31860]: Vida
+              - generic [ref=f99e31867] [cursor=pointer]
+              - generic [ref=f99e31870]: 45,000
+              - generic [ref=f99e31883] [cursor=pointer]
+              - generic [ref=f99e31890] [cursor=pointer]:
+                - generic [ref=f99e31891]: B
+                - generic [ref=f99e31893]: Bruno Salas
+              - generic [ref=f99e31894]: mar 27, 2026
+              - generic [ref=f99e31899]: mar 27, 2027
+              - generic [ref=f99e31905] [cursor=pointer]
+            - generic [ref=f99e19744]:
+              - button [ref=f99e19746]
+              - generic [ref=f99e19753] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e19754]
+                - checkbox [aria-hidden] [ref=f99e19756]
+              - link "P POL-CARTERA-2-6" [ref=f99e31914] [cursor=pointer]:
+                - /url: /object/poliza/dba8763e-7276-437c-b0ab-a249433be90f?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e31915]:
+                  - generic [ref=f99e31916]: P
+                  - generic [ref=f99e31918]: POL-CARTERA-2-6
+              - generic [ref=f99e31919]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e31928]:
+                - generic [ref=f99e31929]: T
+                - generic [ref=f99e31931]: TP TP
+              - generic [ref=f99e31932]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e31941]:
+                - generic [ref=f99e31942]: T
+                - generic [ref=f99e31944]: TP TP
+              - generic [ref=f99e31945]: Hogar
+              - generic [ref=f99e31952] [cursor=pointer]
+              - generic [ref=f99e31955]: 42,500
+              - generic [ref=f99e31968] [cursor=pointer]
+              - generic [ref=f99e31975] [cursor=pointer]:
+                - generic [ref=f99e31976]: B
+                - generic [ref=f99e31978]: Bruno Salas
+              - generic [ref=f99e31979]: dic 27, 2025
+              - generic [ref=f99e31984]: dic 27, 2026
+              - generic [ref=f99e31990] [cursor=pointer]
+            - generic [ref=f99e19844]:
+              - button [ref=f99e19846]
+              - generic [ref=f99e19853] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e19854]
+                - checkbox [aria-hidden] [ref=f99e19856]
+              - link "P POL-CARTERA-2-5" [ref=f99e31999] [cursor=pointer]:
+                - /url: /object/poliza/0037c95b-1e83-49e7-a8b6-98b0570708fa?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e32000]:
+                  - generic [ref=f99e32001]: P
+                  - generic [ref=f99e32003]: POL-CARTERA-2-5
+              - generic [ref=f99e32004]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32013]:
+                - generic [ref=f99e32014]: T
+                - generic [ref=f99e32016]: TP TP
+              - generic [ref=f99e32017]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32026]:
+                - generic [ref=f99e32027]: T
+                - generic [ref=f99e32029]: TP TP
+              - generic [ref=f99e32030]: Automotor
+              - generic [ref=f99e32037] [cursor=pointer]
+              - generic [ref=f99e32040]: 40,000
+              - generic [ref=f99e32053] [cursor=pointer]
+              - generic [ref=f99e32060] [cursor=pointer]:
+                - generic [ref=f99e32061]: B
+                - generic [ref=f99e32063]: Bruno Salas
+              - generic [ref=f99e32064]: nov 12, 2025
+              - generic [ref=f99e32069]: nov 12, 2026
+              - generic [ref=f99e32075] [cursor=pointer]
+            - generic [ref=f99e19944]:
+              - button [ref=f99e19946]
+              - generic [ref=f99e19953] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e19954]
+                - checkbox [aria-hidden] [ref=f99e19956]
+              - link "P POL-CARTERA-2-4" [ref=f99e32084] [cursor=pointer]:
+                - /url: /object/poliza/21357c72-7407-49e0-92b8-fca694df07e2?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e32085]:
+                  - generic [ref=f99e32086]: P
+                  - generic [ref=f99e32088]: POL-CARTERA-2-4
+              - generic [ref=f99e32089]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32098]:
+                - generic [ref=f99e32099]: T
+                - generic [ref=f99e32101]: TP TP
+              - generic [ref=f99e32102]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32111]:
+                - generic [ref=f99e32112]: T
+                - generic [ref=f99e32114]: TP TP
+              - generic [ref=f99e32115]: Salud
+              - generic [ref=f99e32122] [cursor=pointer]
+              - generic [ref=f99e32125]: 37,500
+              - generic [ref=f99e32138] [cursor=pointer]
+              - generic [ref=f99e32145] [cursor=pointer]:
+                - generic [ref=f99e32146]: B
+                - generic [ref=f99e32148]: Bruno Salas
+              - generic [ref=f99e32149]: oct 25, 2025
+              - generic [ref=f99e32154]: oct 25, 2026
+              - generic [ref=f99e32160] [cursor=pointer]
+            - generic [ref=f99e20044]:
+              - button [ref=f99e20046]
+              - generic [ref=f99e20053] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e20054]
+                - checkbox [aria-hidden] [ref=f99e20056]
+              - link "P POL-CARTERA-2-3" [ref=f99e32169] [cursor=pointer]:
+                - /url: /object/poliza/08a88d50-b8f6-46b9-9c56-9dace68a79a4?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e32170]:
+                  - generic [ref=f99e32171]: P
+                  - generic [ref=f99e32173]: POL-CARTERA-2-3
+              - generic [ref=f99e32174]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32183]:
+                - generic [ref=f99e32184]: T
+                - generic [ref=f99e32186]: TP TP
+              - generic [ref=f99e32187]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32196]:
+                - generic [ref=f99e32197]: T
+                - generic [ref=f99e32199]: TP TP
+              - generic [ref=f99e32200]: Vida
+              - generic [ref=f99e32207] [cursor=pointer]
+              - generic [ref=f99e32210]: 35,000
+              - generic [ref=f99e32223] [cursor=pointer]
+              - generic [ref=f99e32230] [cursor=pointer]:
+                - generic [ref=f99e32231]: B
+                - generic [ref=f99e32233]: Bruno Salas
+              - generic [ref=f99e32234]: oct 12, 2025
+              - generic [ref=f99e32239]: oct 12, 2026
+              - generic [ref=f99e32245] [cursor=pointer]
+            - generic [ref=f99e20144]:
+              - button [ref=f99e20146]
+              - generic [ref=f99e20153] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e20154]
+                - checkbox [aria-hidden] [ref=f99e20156]
+              - link "P POL-CARTERA-2-2" [ref=f99e32254] [cursor=pointer]:
+                - /url: /object/poliza/d562b6d4-6bb3-42ec-a3e2-204b7780b9ae?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e32255]:
+                  - generic [ref=f99e32256]: P
+                  - generic [ref=f99e32258]: POL-CARTERA-2-2
+              - generic [ref=f99e32259]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32268]:
+                - generic [ref=f99e32269]: T
+                - generic [ref=f99e32271]: TP TP
+              - generic [ref=f99e32272]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32281]:
+                - generic [ref=f99e32282]: T
+                - generic [ref=f99e32284]: TP TP
+              - generic [ref=f99e32285]: Hogar
+              - generic [ref=f99e32292] [cursor=pointer]
+              - generic [ref=f99e32295]: 32,500
+              - generic [ref=f99e32308] [cursor=pointer]
+              - generic [ref=f99e32315] [cursor=pointer]:
+                - generic [ref=f99e32316]: B
+                - generic [ref=f99e32318]: Bruno Salas
+              - generic [ref=f99e32319]: oct 3, 2025
+              - generic [ref=f99e32324]: oct 3, 2026
+              - generic [ref=f99e32330] [cursor=pointer]
+            - generic [ref=f99e20244]:
+              - button [ref=f99e20246]
+              - generic [ref=f99e20253] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e20254]
+                - checkbox [aria-hidden] [ref=f99e20256]
+              - link "P POL-CARTERA-2-1" [ref=f99e32339] [cursor=pointer]:
+                - /url: /object/poliza/187a161e-cd95-40fa-94a5-fb712fd38c65?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e32340]:
+                  - generic [ref=f99e32341]: P
+                  - generic [ref=f99e32343]: POL-CARTERA-2-1
+              - generic [ref=f99e32344]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32353]:
+                - generic [ref=f99e32354]: T
+                - generic [ref=f99e32356]: TP TP
+              - generic [ref=f99e32357]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32366]:
+                - generic [ref=f99e32367]: T
+                - generic [ref=f99e32369]: TP TP
+              - generic [ref=f99e32370]: Automotor
+              - generic [ref=f99e32377] [cursor=pointer]
+              - generic [ref=f99e32380]: 30,000
+              - generic [ref=f99e32393] [cursor=pointer]
+              - generic [ref=f99e32400] [cursor=pointer]:
+                - generic [ref=f99e32401]: B
+                - generic [ref=f99e32403]: Bruno Salas
+              - generic [ref=f99e32404]: sep 18, 2025
+              - generic [ref=f99e32409]: sep 18, 2026
+              - generic [ref=f99e32415] [cursor=pointer]
+            - generic [ref=f99e20344]:
+              - button [ref=f99e20346]
+              - generic [ref=f99e20353] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e20354]
+                - checkbox [aria-hidden] [ref=f99e20356]
+              - link "P POL-CARTERA-1-8" [ref=f99e32424] [cursor=pointer]:
+                - /url: /object/poliza/67345c58-03e5-4755-bef4-d06ccaa976e1?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e32425]:
+                  - generic [ref=f99e32426]: P
+                  - generic [ref=f99e32428]: POL-CARTERA-1-8
+              - generic [ref=f99e32429]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32438]:
+                - generic [ref=f99e32439]: T
+                - generic [ref=f99e32441]: TP TP
+              - generic [ref=f99e32442]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32451]:
+                - generic [ref=f99e32452]: T
+                - generic [ref=f99e32454]: TP TP
+              - generic [ref=f99e32455]: Salud
+              - generic [ref=f99e32462] [cursor=pointer]
+              - generic [ref=f99e32465]: 47,500
+              - generic [ref=f99e32478] [cursor=pointer]
+              - generic [ref=f99e32485] [cursor=pointer]:
+                - generic [ref=f99e32486]: A
+                - generic [ref=f99e32488]: Andrea Ríos
+              - generic [ref=f99e32489]: sep 3, 2026
+              - generic [ref=f99e32494]: sep 3, 2027
+              - generic [ref=f99e32500] [cursor=pointer]
+            - generic [ref=f99e20444]:
+              - button [ref=f99e20446]
+              - generic [ref=f99e20453] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e20454]
+                - checkbox [aria-hidden] [ref=f99e20456]
+              - link "P POL-CARTERA-1-7" [ref=f99e32509] [cursor=pointer]:
+                - /url: /object/poliza/e9771841-43d8-4aba-a8d1-8c2a956f9537?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e32510]:
+                  - generic [ref=f99e32511]: P
+                  - generic [ref=f99e32513]: POL-CARTERA-1-7
+              - generic [ref=f99e32514]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32523]:
+                - generic [ref=f99e32524]: T
+                - generic [ref=f99e32526]: TP TP
+              - generic [ref=f99e32527]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32536]:
+                - generic [ref=f99e32537]: T
+                - generic [ref=f99e32539]: TP TP
+              - generic [ref=f99e32540]: Vida
+              - generic [ref=f99e32547] [cursor=pointer]
+              - generic [ref=f99e32550]: 45,000
+              - generic [ref=f99e32563] [cursor=pointer]
+              - generic [ref=f99e32570] [cursor=pointer]:
+                - generic [ref=f99e32571]: A
+                - generic [ref=f99e32573]: Andrea Ríos
+              - generic [ref=f99e32574]: mar 27, 2026
+              - generic [ref=f99e32579]: mar 27, 2027
+              - generic [ref=f99e32585] [cursor=pointer]
+            - generic [ref=f99e20544]:
+              - button [ref=f99e20546]
+              - generic [ref=f99e20553] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e20554]
+                - checkbox [aria-hidden] [ref=f99e20556]
+              - link "P POL-CARTERA-1-6" [ref=f99e32594] [cursor=pointer]:
+                - /url: /object/poliza/ab725ffe-9ee0-46e9-a79c-0988d9483959?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e32595]:
+                  - generic [ref=f99e32596]: P
+                  - generic [ref=f99e32598]: POL-CARTERA-1-6
+              - generic [ref=f99e32599]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32608]:
+                - generic [ref=f99e32609]: T
+                - generic [ref=f99e32611]: TP TP
+              - generic [ref=f99e32612]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32621]:
+                - generic [ref=f99e32622]: T
+                - generic [ref=f99e32624]: TP TP
+              - generic [ref=f99e32625]: Hogar
+              - generic [ref=f99e32632] [cursor=pointer]
+              - generic [ref=f99e32635]: 42,500
+              - generic [ref=f99e32648] [cursor=pointer]
+              - generic [ref=f99e32655] [cursor=pointer]:
+                - generic [ref=f99e32656]: A
+                - generic [ref=f99e32658]: Andrea Ríos
+              - generic [ref=f99e32659]: dic 27, 2025
+              - generic [ref=f99e32664]: dic 27, 2026
+              - generic [ref=f99e32670] [cursor=pointer]
+            - generic [ref=f99e20644]:
+              - button [ref=f99e20646]
+              - generic [ref=f99e20653] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e20654]
+                - checkbox [aria-hidden] [ref=f99e20656]
+              - link "P POL-CARTERA-1-5" [ref=f99e32679] [cursor=pointer]:
+                - /url: /object/poliza/92ab9ba8-b8e0-474b-9b34-d0815b0b4819?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e32680]:
+                  - generic [ref=f99e32681]: P
+                  - generic [ref=f99e32683]: POL-CARTERA-1-5
+              - generic [ref=f99e32684]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32693]:
+                - generic [ref=f99e32694]: T
+                - generic [ref=f99e32696]: TP TP
+              - generic [ref=f99e32697]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32706]:
+                - generic [ref=f99e32707]: T
+                - generic [ref=f99e32709]: TP TP
+              - generic [ref=f99e32710]: Automotor
+              - generic [ref=f99e32717] [cursor=pointer]
+              - generic [ref=f99e32720]: 40,000
+              - generic [ref=f99e32733] [cursor=pointer]
+              - generic [ref=f99e32740] [cursor=pointer]:
+                - generic [ref=f99e32741]: A
+                - generic [ref=f99e32743]: Andrea Ríos
+              - generic [ref=f99e32744]: nov 12, 2025
+              - generic [ref=f99e32749]: nov 12, 2026
+              - generic [ref=f99e32755] [cursor=pointer]
+            - generic [ref=f99e20744]:
+              - button [ref=f99e20746]
+              - generic [ref=f99e20753] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e20754]
+                - checkbox [aria-hidden] [ref=f99e20756]
+              - link "P POL-CARTERA-1-4" [ref=f99e32764] [cursor=pointer]:
+                - /url: /object/poliza/4be62679-b544-4f88-8c40-2927ae5a1849?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e32765]:
+                  - generic [ref=f99e32766]: P
+                  - generic [ref=f99e32768]: POL-CARTERA-1-4
+              - generic [ref=f99e32769]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32778]:
+                - generic [ref=f99e32779]: T
+                - generic [ref=f99e32781]: TP TP
+              - generic [ref=f99e32782]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32791]:
+                - generic [ref=f99e32792]: T
+                - generic [ref=f99e32794]: TP TP
+              - generic [ref=f99e32795]: Salud
+              - generic [ref=f99e32802] [cursor=pointer]
+              - generic [ref=f99e32805]: 37,500
+              - generic [ref=f99e32818] [cursor=pointer]
+              - generic [ref=f99e32825] [cursor=pointer]:
+                - generic [ref=f99e32826]: A
+                - generic [ref=f99e32828]: Andrea Ríos
+              - generic [ref=f99e32829]: oct 25, 2025
+              - generic [ref=f99e32834]: oct 25, 2026
+              - generic [ref=f99e32840] [cursor=pointer]
+            - generic [ref=f99e20844]:
+              - button [ref=f99e20846]
+              - generic [ref=f99e20853] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e20854]
+                - checkbox [aria-hidden] [ref=f99e20856]
+              - link "P POL-CARTERA-1-3" [ref=f99e32849] [cursor=pointer]:
+                - /url: /object/poliza/7361fe22-e45e-42ce-b49e-59c37aaf5bcf?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e32850]:
+                  - generic [ref=f99e32851]: P
+                  - generic [ref=f99e32853]: POL-CARTERA-1-3
+              - generic [ref=f99e32854]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32863]:
+                - generic [ref=f99e32864]: T
+                - generic [ref=f99e32866]: TP TP
+              - generic [ref=f99e32867]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32876]:
+                - generic [ref=f99e32877]: T
+                - generic [ref=f99e32879]: TP TP
+              - generic [ref=f99e32880]: Vida
+              - generic [ref=f99e32887] [cursor=pointer]
+              - generic [ref=f99e32890]: 35,000
+              - generic [ref=f99e32903] [cursor=pointer]
+              - generic [ref=f99e32910] [cursor=pointer]:
+                - generic [ref=f99e32911]: A
+                - generic [ref=f99e32913]: Andrea Ríos
+              - generic [ref=f99e32914]: oct 12, 2025
+              - generic [ref=f99e32919]: oct 12, 2026
+              - generic [ref=f99e32925] [cursor=pointer]
+            - generic [ref=f99e20944]:
+              - button [ref=f99e20946]
+              - generic [ref=f99e20953] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e20954]
+                - checkbox [aria-hidden] [ref=f99e20956]
+              - link "P POL-CARTERA-1-2" [ref=f99e32934] [cursor=pointer]:
+                - /url: /object/poliza/29547d3d-6035-4773-91cc-709cb5e56e17?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e32935]:
+                  - generic [ref=f99e32936]: P
+                  - generic [ref=f99e32938]: POL-CARTERA-1-2
+              - generic [ref=f99e32939]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32948]:
+                - generic [ref=f99e32949]: T
+                - generic [ref=f99e32951]: TP TP
+              - generic [ref=f99e32952]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e32961]:
+                - generic [ref=f99e32962]: T
+                - generic [ref=f99e32964]: TP TP
+              - generic [ref=f99e32965]: Hogar
+              - generic [ref=f99e32972] [cursor=pointer]
+              - generic [ref=f99e32975]: 32,500
+              - generic [ref=f99e32988] [cursor=pointer]
+              - generic [ref=f99e32995] [cursor=pointer]:
+                - generic [ref=f99e32996]: A
+                - generic [ref=f99e32998]: Andrea Ríos
+              - generic [ref=f99e32999]: oct 3, 2025
+              - generic [ref=f99e33004]: oct 3, 2026
+              - generic [ref=f99e33010] [cursor=pointer]
+            - generic [ref=f99e21044]:
+              - button [ref=f99e21046]
+              - generic [ref=f99e21053] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e21054]
+                - checkbox [aria-hidden] [ref=f99e21056]
+              - link "P POL-CARTERA-1-1" [ref=f99e33019] [cursor=pointer]:
+                - /url: /object/poliza/bd6046bb-2518-4bc6-aad4-8d24e57e05f1?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e33020]:
+                  - generic [ref=f99e33021]: P
+                  - generic [ref=f99e33023]: POL-CARTERA-1-1
+              - generic [ref=f99e33024]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e33033]:
+                - generic [ref=f99e33034]: T
+                - generic [ref=f99e33036]: TP TP
+              - generic [ref=f99e33037]: sep 28, 2026 3:52 AM
+              - generic [ref=f99e33046]:
+                - generic [ref=f99e33047]: T
+                - generic [ref=f99e33049]: TP TP
+              - generic [ref=f99e33050]: Automotor
+              - generic [ref=f99e33057] [cursor=pointer]
+              - generic [ref=f99e33060]: 30,000
+              - generic [ref=f99e33073] [cursor=pointer]
+              - generic [ref=f99e33080] [cursor=pointer]:
+                - generic [ref=f99e33081]: A
+                - generic [ref=f99e33083]: Andrea Ríos
+              - generic [ref=f99e33084]: sep 18, 2025
+              - generic [ref=f99e33089]: sep 18, 2026
+              - generic [ref=f99e33095] [cursor=pointer]
+            - generic [ref=f99e21142]:
+              - button [ref=f99e21144]
+              - generic [ref=f99e21151] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e21152]
+                - checkbox [aria-hidden] [ref=f99e21154]
+              - link "P POL-VENCE-CALCULO" [ref=f99e33104] [cursor=pointer]:
+                - /url: /object/poliza/93c6bac5-e563-4052-ae5c-8a9e1509c822?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e33105]:
+                  - generic [ref=f99e33106]: P
+                  - generic [ref=f99e33108]: POL-VENCE-CALCULO
+              - generic [ref=f99e33109]: sep 28, 2026 3:42 AM
+              - generic [ref=f99e33118]:
+                - generic [ref=f99e33119]: T
+                - generic [ref=f99e33121]: TP TP
+              - generic [ref=f99e33122]: sep 28, 2026 3:42 AM
+              - generic [ref=f99e33127]: Standard
+              - generic [ref=f99e33140] [cursor=pointer]
+              - generic [ref=f99e33144] [cursor=pointer]
+              - generic [ref=f99e33147]: 15,250.5
+              - generic [ref=f99e33160] [cursor=pointer]
+              - generic [ref=f99e33164] [cursor=pointer]
+              - generic [ref=f99e33168] [cursor=pointer]
+              - generic [ref=f99e33173] [cursor=pointer]
+              - generic [ref=f99e33177]: 183,006
+            - generic [ref=f99e21235]:
+              - button [ref=f99e21237]
+              - generic [ref=f99e21244] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e21245]
+                - checkbox [aria-hidden] [ref=f99e21247]
+              - link "P POL-TITULAR-PENA" [ref=f99e33187] [cursor=pointer]:
+                - /url: /object/poliza/968b722f-fc49-4302-adbf-c00d53b2881f?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e33188]:
+                  - generic [ref=f99e33189]: P
+                  - generic [ref=f99e33191]: POL-TITULAR-PENA
+              - generic [ref=f99e33192]: sep 28, 2026 3:02 AM
+              - generic [ref=f99e33201]:
+                - generic [ref=f99e33202]: T
+                - generic [ref=f99e33204]: TP TP
+              - generic [ref=f99e33205]: sep 28, 2026 3:02 AM
+              - generic [ref=f99e33214]:
+                - generic [ref=f99e33215]: T
+                - generic [ref=f99e33217]: TP TP
+              - generic [ref=f99e33219] [cursor=pointer]
+              - generic [ref=f99e33223] [cursor=pointer]
+              - generic [ref=f99e33227] [cursor=pointer]
+              - link "J Joaquín Peña" [ref=f99e33236] [cursor=pointer]:
+                - /url: /object/person/6a07c36b-51aa-4d1e-b502-b4b4ab7d510c
+                - generic [ref=f99e33237]:
+                  - generic [ref=f99e33238]: J
+                  - generic [ref=f99e33240]: Joaquín Peña
+              - generic [ref=f99e33242] [cursor=pointer]
+              - generic [ref=f99e33246] [cursor=pointer]
+              - generic [ref=f99e33251] [cursor=pointer]
+              - generic [ref=f99e33256] [cursor=pointer]
+            - generic [ref=f99e21322]:
+              - button [ref=f99e21324]
+              - generic [ref=f99e21331] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e21332]
+                - checkbox [aria-hidden] [ref=f99e21334]
+              - link "P POL-VENCE-TARDE" [ref=f99e33265] [cursor=pointer]:
+                - /url: /object/poliza/0bbba566-c912-4362-be48-f2fb5f7011a9?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e33266]:
+                  - generic [ref=f99e33267]: P
+                  - generic [ref=f99e33269]: POL-VENCE-TARDE
+              - generic [ref=f99e33270]: sep 27, 2026 10:23 PM
+              - generic [ref=f99e33279]:
+                - generic [ref=f99e33280]: T
+                - generic [ref=f99e33282]: TP TP
+              - generic [ref=f99e33283]: sep 27, 2026 10:23 PM
+              - generic [ref=f99e33292]:
+                - generic [ref=f99e33293]: T
+                - generic [ref=f99e33295]: TP TP
+              - generic [ref=f99e33297] [cursor=pointer]
+              - generic [ref=f99e33301] [cursor=pointer]
+              - generic [ref=f99e33305] [cursor=pointer]
+              - generic [ref=f99e33310] [cursor=pointer]
+              - generic [ref=f99e33314] [cursor=pointer]
+              - generic [ref=f99e33317]: sep 17, 2026
+              - generic [ref=f99e33322]: jul 24, 2027
+              - generic [ref=f99e33328] [cursor=pointer]
+            - generic [ref=f99e21409]:
+              - button [ref=f99e21411]
+              - generic [ref=f99e21418] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e21419]
+                - checkbox [aria-hidden] [ref=f99e21421]
+              - link "P POL-VENCE-PRONTO" [ref=f99e33337] [cursor=pointer]:
+                - /url: /object/poliza/66099872-0294-4162-89e7-652cd5ad142d?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e33338]:
+                  - generic [ref=f99e33339]: P
+                  - generic [ref=f99e33341]: POL-VENCE-PRONTO
+              - generic [ref=f99e33342]: sep 27, 2026 10:22 PM
+              - generic [ref=f99e33351]:
+                - generic [ref=f99e33352]: T
+                - generic [ref=f99e33354]: TP TP
+              - generic [ref=f99e33355]: sep 27, 2026 10:22 PM
+              - generic [ref=f99e33364]:
+                - generic [ref=f99e33365]: T
+                - generic [ref=f99e33367]: TP TP
+              - generic [ref=f99e33369] [cursor=pointer]
+              - generic [ref=f99e33373] [cursor=pointer]
+              - generic [ref=f99e33377] [cursor=pointer]
+              - generic [ref=f99e33382] [cursor=pointer]
+              - generic [ref=f99e33386] [cursor=pointer]
+              - generic [ref=f99e33389]: nov 1, 2025
+              - generic [ref=f99e33394]: oct 9, 2026
+              - generic [ref=f99e33400] [cursor=pointer]
+            - generic [ref=f99e21496]:
+              - button [ref=f99e21498]
+              - generic [ref=f99e21505] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e21506]
+                - checkbox [aria-hidden] [ref=f99e21508]
+              - link "P POL-VENCE-TARDE" [ref=f99e33409] [cursor=pointer]:
+                - /url: /object/poliza/7c74e3dd-2741-4cf4-86c1-395d8989f2aa?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e33410]:
+                  - generic [ref=f99e33411]: P
+                  - generic [ref=f99e33413]: POL-VENCE-TARDE
+              - generic [ref=f99e33414]: sep 27, 2026 9:20 PM
+              - generic [ref=f99e33423]:
+                - generic [ref=f99e33424]: T
+                - generic [ref=f99e33426]: TP TP
+              - generic [ref=f99e33427]: sep 27, 2026 9:20 PM
+              - generic [ref=f99e33436]:
+                - generic [ref=f99e33437]: T
+                - generic [ref=f99e33439]: TP TP
+              - generic [ref=f99e33441] [cursor=pointer]
+              - generic [ref=f99e33445] [cursor=pointer]
+              - generic [ref=f99e33449] [cursor=pointer]
+              - generic [ref=f99e33454] [cursor=pointer]
+              - generic [ref=f99e33458] [cursor=pointer]
+              - generic [ref=f99e33462] [cursor=pointer]
+              - generic [ref=f99e33467] [cursor=pointer]
+              - generic [ref=f99e33472] [cursor=pointer]
+            - generic [ref=f99e21583]:
+              - button [ref=f99e21585]
+              - generic [ref=f99e21592] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e21593]
+                - checkbox [aria-hidden] [ref=f99e21595]
+              - link "P POL-VENCE-PRONTO" [ref=f99e33481] [cursor=pointer]:
+                - /url: /object/poliza/ce9a624d-7e0a-4184-afa3-2373bf532108?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e33482]:
+                  - generic [ref=f99e33483]: P
+                  - generic [ref=f99e33485]: POL-VENCE-PRONTO
+              - generic [ref=f99e33486]: sep 27, 2026 9:19 PM
+              - generic [ref=f99e33495]:
+                - generic [ref=f99e33496]: T
+                - generic [ref=f99e33498]: TP TP
+              - generic [ref=f99e33499]: sep 27, 2026 9:19 PM
+              - generic [ref=f99e33508]:
+                - generic [ref=f99e33509]: T
+                - generic [ref=f99e33511]: TP TP
+              - generic [ref=f99e33513] [cursor=pointer]
+              - generic [ref=f99e33517] [cursor=pointer]
+              - generic [ref=f99e33521] [cursor=pointer]
+              - generic [ref=f99e33526] [cursor=pointer]
+              - generic [ref=f99e33530] [cursor=pointer]
+              - generic [ref=f99e33534] [cursor=pointer]
+              - generic [ref=f99e33539] [cursor=pointer]
+              - generic [ref=f99e33544] [cursor=pointer]
+            - generic [ref=f99e21677]:
+              - button [ref=f99e21679]
+              - generic [ref=f99e21686] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e21687]
+                - checkbox [aria-hidden] [ref=f99e21689]
+              - link "P POL-PRIMA-1" [ref=f99e33553] [cursor=pointer]:
+                - /url: /object/poliza/fdadfc83-c517-443b-9306-0e405b70c7aa?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e33554]:
+                  - generic [ref=f99e33555]: P
+                  - generic [ref=f99e33557]: POL-PRIMA-1
+              - generic [ref=f99e33558]: sep 27, 2026 9:17 PM
+              - generic [ref=f99e33567]:
+                - generic [ref=f99e33568]: T
+                - generic [ref=f99e33570]: TP TP
+              - generic [ref=f99e33571]: sep 27, 2026 9:18 PM
+              - generic [ref=f99e33580]:
+                - generic [ref=f99e33581]: T
+                - generic [ref=f99e33583]: TP TP
+              - generic [ref=f99e33585] [cursor=pointer]
+              - generic [ref=f99e33589] [cursor=pointer]
+              - generic [ref=f99e33592]: 45,250.75
+              - generic [ref=f99e33605] [cursor=pointer]
+              - generic [ref=f99e33609] [cursor=pointer]
+              - generic [ref=f99e33613] [cursor=pointer]
+              - generic [ref=f99e33618] [cursor=pointer]
+              - generic [ref=f99e33623] [cursor=pointer]
+            - generic [ref=f99e21768]:
+              - button [ref=f99e21770]
+              - generic [ref=f99e21777] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e21778]
+                - checkbox [aria-hidden] [ref=f99e21780]
+              - link "P POL-RAMO-SALUD" [ref=f99e33632] [cursor=pointer]:
+                - /url: /object/poliza/61590d36-3b80-4764-aa91-f3c6b5193bac?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e33633]:
+                  - generic [ref=f99e33634]: P
+                  - generic [ref=f99e33636]: POL-RAMO-SALUD
+              - generic [ref=f99e33637]: sep 27, 2026 9:16 PM
+              - generic [ref=f99e33646]:
+                - generic [ref=f99e33647]: T
+                - generic [ref=f99e33649]: TP TP
+              - generic [ref=f99e33650]: sep 27, 2026 9:16 PM
+              - generic [ref=f99e33659]:
+                - generic [ref=f99e33660]: T
+                - generic [ref=f99e33662]: TP TP
+              - generic [ref=f99e33663]: Salud
+              - generic [ref=f99e33669]: Vencida
+              - generic [ref=f99e33676] [cursor=pointer]
+              - generic [ref=f99e33681] [cursor=pointer]
+              - generic [ref=f99e33685] [cursor=pointer]
+              - generic [ref=f99e33689] [cursor=pointer]
+              - generic [ref=f99e33694] [cursor=pointer]
+              - generic [ref=f99e33699] [cursor=pointer]
+            - generic [ref=f99e21859]:
+              - button [ref=f99e21861]
+              - generic [ref=f99e21868] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e21869]
+                - checkbox [aria-hidden] [ref=f99e21871]
+              - link "P POL-RAMO-VIDA" [ref=f99e33708] [cursor=pointer]:
+                - /url: /object/poliza/d2945909-7267-41bc-aa88-ecf1f135484c?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e33709]:
+                  - generic [ref=f99e33710]: P
+                  - generic [ref=f99e33712]: POL-RAMO-VIDA
+              - generic [ref=f99e33713]: sep 27, 2026 9:15 PM
+              - generic [ref=f99e33722]:
+                - generic [ref=f99e33723]: T
+                - generic [ref=f99e33725]: TP TP
+              - generic [ref=f99e33726]: sep 27, 2026 9:15 PM
+              - generic [ref=f99e33735]:
+                - generic [ref=f99e33736]: T
+                - generic [ref=f99e33738]: TP TP
+              - generic [ref=f99e33739]: Vida
+              - generic [ref=f99e33745]: Cancelada
+              - generic [ref=f99e33752] [cursor=pointer]
+              - generic [ref=f99e33757] [cursor=pointer]
+              - generic [ref=f99e33761] [cursor=pointer]
+              - generic [ref=f99e33765] [cursor=pointer]
+              - generic [ref=f99e33770] [cursor=pointer]
+              - generic [ref=f99e33775] [cursor=pointer]
+            - generic [ref=f99e33779]:
+              - button [ref=f99e33781]
+              - generic [ref=f99e33788] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e33789]
+                - checkbox [aria-hidden] [ref=f99e33791]
+              - link "P POL-RAMO-HOGAR" [ref=f99e33797] [cursor=pointer]:
+                - /url: /object/poliza/9c82f2ad-23e3-4957-b045-235d78c8a4c2?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e33798]:
+                  - generic [ref=f99e33799]: P
+                  - generic [ref=f99e33801]: POL-RAMO-HOGAR
+              - generic [ref=f99e33802]: sep 27, 2026 9:14 PM
+              - generic [ref=f99e33811]:
+                - generic [ref=f99e33812]: T
+                - generic [ref=f99e33814]: TP TP
+              - generic [ref=f99e33815]: sep 27, 2026 9:30 PM
+              - generic [ref=f99e33824]:
+                - generic [ref=f99e33825]: T
+                - generic [ref=f99e33827]: TP TP
+              - generic [ref=f99e33828]: Hogar
+              - generic [ref=f99e33834]: En gestión
+              - generic [ref=f99e33841] [cursor=pointer]
+              - generic [ref=f99e33846] [cursor=pointer]
+              - generic [ref=f99e33850] [cursor=pointer]
+              - generic [ref=f99e33854] [cursor=pointer]
+              - generic [ref=f99e33859] [cursor=pointer]
+              - generic [ref=f99e33864] [cursor=pointer]
+            - generic [ref=f99e33869]:
+              - button [ref=f99e33871]
+              - generic [ref=f99e33878] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e33879]
+                - checkbox [aria-hidden] [ref=f99e33881]
+              - link "P POL-RAMO-AUTOMOTOR" [ref=f99e33887] [cursor=pointer]:
+                - /url: /object/poliza/3a495994-eaf2-42ab-b3a8-331302060e50?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e33888]:
+                  - generic [ref=f99e33889]: P
+                  - generic [ref=f99e33891]: POL-RAMO-AUTOMOTOR
+              - generic [ref=f99e33892]: sep 27, 2026 9:14 PM
+              - generic [ref=f99e33901]:
+                - generic [ref=f99e33902]: T
+                - generic [ref=f99e33904]: TP TP
+              - generic [ref=f99e33905]: sep 27, 2026 9:14 PM
+              - generic [ref=f99e33914]:
+                - generic [ref=f99e33915]: T
+                - generic [ref=f99e33917]: TP TP
+              - generic [ref=f99e33918]: Automotor
+              - generic [ref=f99e33924]: Vencida
+              - generic [ref=f99e33931] [cursor=pointer]
+              - generic [ref=f99e33936] [cursor=pointer]
+              - generic [ref=f99e33940] [cursor=pointer]
+              - generic [ref=f99e33944] [cursor=pointer]
+              - generic [ref=f99e33949] [cursor=pointer]
+              - generic [ref=f99e33954] [cursor=pointer]
+            - generic [ref=f99e33959]:
+              - button [ref=f99e33961]
+              - generic [ref=f99e33968] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e33969]
+                - checkbox [aria-hidden] [ref=f99e33971]
+              - link "V VOL-POL-8570" [ref=f99e33977] [cursor=pointer]:
+                - /url: /object/poliza/00026559-a516-4f0a-8821-e57acb183884?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e33978]:
+                  - generic [ref=f99e33979]: V
+                  - generic [ref=f99e33981]: VOL-POL-8570
+              - generic [ref=f99e33982]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e33991]:
+                - generic [ref=f99e33992]: C
+                - generic [ref=f99e33994]: Carga de volumen
+              - generic [ref=f99e33995]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34004]:
+                - generic [ref=f99e34005]: C
+                - generic [ref=f99e34007]: Carga de volumen
+              - generic [ref=f99e34008]: Vida
+              - generic [ref=f99e34015] [cursor=pointer]
+              - generic [ref=f99e34019] [cursor=pointer]
+              - generic [ref=f99e34024] [cursor=pointer]
+              - generic [ref=f99e34028] [cursor=pointer]
+              - generic [ref=f99e34032] [cursor=pointer]
+              - generic [ref=f99e34037] [cursor=pointer]
+              - generic [ref=f99e34042] [cursor=pointer]
+            - generic [ref=f99e34047]:
+              - button [ref=f99e34049]
+              - generic [ref=f99e34056] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e34057]
+                - checkbox [aria-hidden] [ref=f99e34059]
+              - link "V VOL-POL-2145" [ref=f99e34065] [cursor=pointer]:
+                - /url: /object/poliza/0007fe70-ef72-4b59-866b-a7735ec0c2b6?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e34066]:
+                  - generic [ref=f99e34067]: V
+                  - generic [ref=f99e34069]: VOL-POL-2145
+              - generic [ref=f99e34070]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34079]:
+                - generic [ref=f99e34080]: C
+                - generic [ref=f99e34082]: Carga de volumen
+              - generic [ref=f99e34083]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34092]:
+                - generic [ref=f99e34093]: C
+                - generic [ref=f99e34095]: Carga de volumen
+              - generic [ref=f99e34096]: Hogar
+              - generic [ref=f99e34103] [cursor=pointer]
+              - generic [ref=f99e34107] [cursor=pointer]
+              - generic [ref=f99e34112] [cursor=pointer]
+              - generic [ref=f99e34116] [cursor=pointer]
+              - generic [ref=f99e34120] [cursor=pointer]
+              - generic [ref=f99e34125] [cursor=pointer]
+              - generic [ref=f99e34130] [cursor=pointer]
+            - generic [ref=f99e34135]:
+              - button [ref=f99e34137]
+              - generic [ref=f99e34144] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e34145]
+                - checkbox [aria-hidden] [ref=f99e34147]
+              - link "V VOL-POL-5865" [ref=f99e34153] [cursor=pointer]:
+                - /url: /object/poliza/000aeabf-f19b-4fee-bb8d-17eff94b033e?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e34154]:
+                  - generic [ref=f99e34155]: V
+                  - generic [ref=f99e34157]: VOL-POL-5865
+              - generic [ref=f99e34158]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34167]:
+                - generic [ref=f99e34168]: C
+                - generic [ref=f99e34170]: Carga de volumen
+              - generic [ref=f99e34171]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34180]:
+                - generic [ref=f99e34181]: C
+                - generic [ref=f99e34183]: Carga de volumen
+              - generic [ref=f99e34184]: Hogar
+              - generic [ref=f99e34191] [cursor=pointer]
+              - generic [ref=f99e34195] [cursor=pointer]
+              - generic [ref=f99e34200] [cursor=pointer]
+              - generic [ref=f99e34204] [cursor=pointer]
+              - generic [ref=f99e34208] [cursor=pointer]
+              - generic [ref=f99e34213] [cursor=pointer]
+              - generic [ref=f99e34218] [cursor=pointer]
+            - generic [ref=f99e34223]:
+              - button [ref=f99e34225]
+              - generic [ref=f99e34232] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e34233]
+                - checkbox [aria-hidden] [ref=f99e34235]
+              - link "V VOL-POL-11444" [ref=f99e34241] [cursor=pointer]:
+                - /url: /object/poliza/000e53cf-dc75-4bc6-b3ae-f1072374cf46?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e34242]:
+                  - generic [ref=f99e34243]: V
+                  - generic [ref=f99e34245]: VOL-POL-11444
+              - generic [ref=f99e34246]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34255]:
+                - generic [ref=f99e34256]: C
+                - generic [ref=f99e34258]: Carga de volumen
+              - generic [ref=f99e34259]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34268]:
+                - generic [ref=f99e34269]: C
+                - generic [ref=f99e34271]: Carga de volumen
+              - generic [ref=f99e34272]: Automotor
+              - generic [ref=f99e34279] [cursor=pointer]
+              - generic [ref=f99e34283] [cursor=pointer]
+              - generic [ref=f99e34288] [cursor=pointer]
+              - generic [ref=f99e34292] [cursor=pointer]
+              - generic [ref=f99e34296] [cursor=pointer]
+              - generic [ref=f99e34301] [cursor=pointer]
+              - generic [ref=f99e34306] [cursor=pointer]
+            - generic [ref=f99e34311]:
+              - button [ref=f99e34313]
+              - generic [ref=f99e34320] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e34321]
+                - checkbox [aria-hidden] [ref=f99e34323]
+              - link "V VOL-POL-1224" [ref=f99e34329] [cursor=pointer]:
+                - /url: /object/poliza/00116ff4-9a94-447c-b9aa-734c7a53d9b5?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e34330]:
+                  - generic [ref=f99e34331]: V
+                  - generic [ref=f99e34333]: VOL-POL-1224
+              - generic [ref=f99e34334]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34343]:
+                - generic [ref=f99e34344]: C
+                - generic [ref=f99e34346]: Carga de volumen
+              - generic [ref=f99e34347]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34356]:
+                - generic [ref=f99e34357]: C
+                - generic [ref=f99e34359]: Carga de volumen
+              - generic [ref=f99e34360]: Automotor
+              - generic [ref=f99e34367] [cursor=pointer]
+              - generic [ref=f99e34371] [cursor=pointer]
+              - generic [ref=f99e34376] [cursor=pointer]
+              - generic [ref=f99e34380] [cursor=pointer]
+              - generic [ref=f99e34384] [cursor=pointer]
+              - generic [ref=f99e34389] [cursor=pointer]
+              - generic [ref=f99e34394] [cursor=pointer]
+            - generic [ref=f99e34399]:
+              - button [ref=f99e34401]
+              - generic [ref=f99e34408] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e34409]
+                - checkbox [aria-hidden] [ref=f99e34411]
+              - link "V VOL-POL-4408" [ref=f99e34417] [cursor=pointer]:
+                - /url: /object/poliza/00186306-a1c0-4d48-8935-e5ef503fcf0c?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e34418]:
+                  - generic [ref=f99e34419]: V
+                  - generic [ref=f99e34421]: VOL-POL-4408
+              - generic [ref=f99e34422]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34431]:
+                - generic [ref=f99e34432]: C
+                - generic [ref=f99e34434]: Carga de volumen
+              - generic [ref=f99e34435]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34444]:
+                - generic [ref=f99e34445]: C
+                - generic [ref=f99e34447]: Carga de volumen
+              - generic [ref=f99e34448]: Automotor
+              - generic [ref=f99e34455] [cursor=pointer]
+              - generic [ref=f99e34459] [cursor=pointer]
+              - generic [ref=f99e34464] [cursor=pointer]
+              - generic [ref=f99e34468] [cursor=pointer]
+              - generic [ref=f99e34472] [cursor=pointer]
+              - generic [ref=f99e34477] [cursor=pointer]
+              - generic [ref=f99e34482] [cursor=pointer]
+            - generic [ref=f99e34487]:
+              - button [ref=f99e34489]
+              - generic [ref=f99e34496] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e34497]
+                - checkbox [aria-hidden] [ref=f99e34499]
+              - link "V VOL-POL-4289" [ref=f99e34505] [cursor=pointer]:
+                - /url: /object/poliza/0035efab-485b-4bbf-a9a1-5d586d5b180d?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e34506]:
+                  - generic [ref=f99e34507]: V
+                  - generic [ref=f99e34509]: VOL-POL-4289
+              - generic [ref=f99e34510]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34519]:
+                - generic [ref=f99e34520]: C
+                - generic [ref=f99e34522]: Carga de volumen
+              - generic [ref=f99e34523]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34532]:
+                - generic [ref=f99e34533]: C
+                - generic [ref=f99e34535]: Carga de volumen
+              - generic [ref=f99e34536]: Hogar
+              - generic [ref=f99e34543] [cursor=pointer]
+              - generic [ref=f99e34547] [cursor=pointer]
+              - generic [ref=f99e34552] [cursor=pointer]
+              - generic [ref=f99e34556] [cursor=pointer]
+              - generic [ref=f99e34560] [cursor=pointer]
+              - generic [ref=f99e34565] [cursor=pointer]
+              - generic [ref=f99e34570] [cursor=pointer]
+            - generic [ref=f99e34575]:
+              - button [ref=f99e34577]
+              - generic [ref=f99e34584] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e34585]
+                - checkbox [aria-hidden] [ref=f99e34587]
+              - link "V VOL-POL-4278" [ref=f99e34593] [cursor=pointer]:
+                - /url: /object/poliza/0036d404-c702-464d-9c4a-cf75da7278a8?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e34594]:
+                  - generic [ref=f99e34595]: V
+                  - generic [ref=f99e34597]: VOL-POL-4278
+              - generic [ref=f99e34598]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34607]:
+                - generic [ref=f99e34608]: C
+                - generic [ref=f99e34610]: Carga de volumen
+              - generic [ref=f99e34611]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34620]:
+                - generic [ref=f99e34621]: C
+                - generic [ref=f99e34623]: Carga de volumen
+              - generic [ref=f99e34624]: Vida
+              - generic [ref=f99e34631] [cursor=pointer]
+              - generic [ref=f99e34635] [cursor=pointer]
+              - generic [ref=f99e34640] [cursor=pointer]
+              - generic [ref=f99e34644] [cursor=pointer]
+              - generic [ref=f99e34648] [cursor=pointer]
+              - generic [ref=f99e34653] [cursor=pointer]
+              - generic [ref=f99e34658] [cursor=pointer]
+            - generic [ref=f99e34663]:
+              - button [ref=f99e34665]
+              - generic [ref=f99e34672] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e34673]
+                - checkbox [aria-hidden] [ref=f99e34675]
+              - link "V VOL-POL-3634" [ref=f99e34681] [cursor=pointer]:
+                - /url: /object/poliza/00411cc6-156e-4901-8e2f-762e3adbd4f4?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e34682]:
+                  - generic [ref=f99e34683]: V
+                  - generic [ref=f99e34685]: VOL-POL-3634
+              - generic [ref=f99e34686]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34695]:
+                - generic [ref=f99e34696]: C
+                - generic [ref=f99e34698]: Carga de volumen
+              - generic [ref=f99e34699]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34708]:
+                - generic [ref=f99e34709]: C
+                - generic [ref=f99e34711]: Carga de volumen
+              - generic [ref=f99e34712]: Vida
+              - generic [ref=f99e34719] [cursor=pointer]
+              - generic [ref=f99e34723] [cursor=pointer]
+              - generic [ref=f99e34728] [cursor=pointer]
+              - generic [ref=f99e34732] [cursor=pointer]
+              - generic [ref=f99e34736] [cursor=pointer]
+              - generic [ref=f99e34741] [cursor=pointer]
+              - generic [ref=f99e34746] [cursor=pointer]
+            - generic [ref=f99e34751]:
+              - button [ref=f99e34753]
+              - generic [ref=f99e34760] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e34761]
+                - checkbox [aria-hidden] [ref=f99e34763]
+              - link "V VOL-POL-3293" [ref=f99e34769] [cursor=pointer]:
+                - /url: /object/poliza/004855ed-475a-4855-9dda-aae5ac3c3b8c?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e34770]:
+                  - generic [ref=f99e34771]: V
+                  - generic [ref=f99e34773]: VOL-POL-3293
+              - generic [ref=f99e34774]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34783]:
+                - generic [ref=f99e34784]: C
+                - generic [ref=f99e34786]: Carga de volumen
+              - generic [ref=f99e34787]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34796]:
+                - generic [ref=f99e34797]: C
+                - generic [ref=f99e34799]: Carga de volumen
+              - generic [ref=f99e34800]: Hogar
+              - generic [ref=f99e34807] [cursor=pointer]
+              - generic [ref=f99e34811] [cursor=pointer]
+              - generic [ref=f99e34816] [cursor=pointer]
+              - generic [ref=f99e34820] [cursor=pointer]
+              - generic [ref=f99e34824] [cursor=pointer]
+              - generic [ref=f99e34829] [cursor=pointer]
+              - generic [ref=f99e34834] [cursor=pointer]
+            - generic [ref=f99e34839]:
+              - button [ref=f99e34841]
+              - generic [ref=f99e34848] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e34849]
+                - checkbox [aria-hidden] [ref=f99e34851]
+              - link "V VOL-POL-3136" [ref=f99e34857] [cursor=pointer]:
+                - /url: /object/poliza/004d7672-49f5-4e6d-b0e5-ac9244a886d7?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e34858]:
+                  - generic [ref=f99e34859]: V
+                  - generic [ref=f99e34861]: VOL-POL-3136
+              - generic [ref=f99e34862]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34871]:
+                - generic [ref=f99e34872]: C
+                - generic [ref=f99e34874]: Carga de volumen
+              - generic [ref=f99e34875]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34884]:
+                - generic [ref=f99e34885]: C
+                - generic [ref=f99e34887]: Carga de volumen
+              - generic [ref=f99e34888]: Automotor
+              - generic [ref=f99e34895] [cursor=pointer]
+              - generic [ref=f99e34899] [cursor=pointer]
+              - generic [ref=f99e34904] [cursor=pointer]
+              - generic [ref=f99e34908] [cursor=pointer]
+              - generic [ref=f99e34912] [cursor=pointer]
+              - generic [ref=f99e34917] [cursor=pointer]
+              - generic [ref=f99e34922] [cursor=pointer]
+            - generic [ref=f99e34927]:
+              - button [ref=f99e34929]
+              - generic [ref=f99e34936] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e34937]
+                - checkbox [aria-hidden] [ref=f99e34939]
+              - link "V VOL-POL-10174" [ref=f99e34945] [cursor=pointer]:
+                - /url: /object/poliza/005efd3e-f6f6-460d-8dcb-0608587b9fb4?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e34946]:
+                  - generic [ref=f99e34947]: V
+                  - generic [ref=f99e34949]: VOL-POL-10174
+              - generic [ref=f99e34950]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34959]:
+                - generic [ref=f99e34960]: C
+                - generic [ref=f99e34962]: Carga de volumen
+              - generic [ref=f99e34963]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e34972]:
+                - generic [ref=f99e34973]: C
+                - generic [ref=f99e34975]: Carga de volumen
+              - generic [ref=f99e34976]: Vida
+              - generic [ref=f99e34983] [cursor=pointer]
+              - generic [ref=f99e34987] [cursor=pointer]
+              - generic [ref=f99e34992] [cursor=pointer]
+              - generic [ref=f99e34996] [cursor=pointer]
+              - generic [ref=f99e35000] [cursor=pointer]
+              - generic [ref=f99e35005] [cursor=pointer]
+              - generic [ref=f99e35010] [cursor=pointer]
+            - generic [ref=f99e35015]:
+              - button [ref=f99e35017]
+              - generic [ref=f99e35024] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e35025]
+                - checkbox [aria-hidden] [ref=f99e35027]
+              - link "V VOL-POL-4620" [ref=f99e35033] [cursor=pointer]:
+                - /url: /object/poliza/00631304-64a5-484d-b32b-39ca656c67a1?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e35034]:
+                  - generic [ref=f99e35035]: V
+                  - generic [ref=f99e35037]: VOL-POL-4620
+              - generic [ref=f99e35038]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35047]:
+                - generic [ref=f99e35048]: C
+                - generic [ref=f99e35050]: Carga de volumen
+              - generic [ref=f99e35051]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35060]:
+                - generic [ref=f99e35061]: C
+                - generic [ref=f99e35063]: Carga de volumen
+              - generic [ref=f99e35064]: Automotor
+              - generic [ref=f99e35071] [cursor=pointer]
+              - generic [ref=f99e35075] [cursor=pointer]
+              - generic [ref=f99e35080] [cursor=pointer]
+              - generic [ref=f99e35084] [cursor=pointer]
+              - generic [ref=f99e35088] [cursor=pointer]
+              - generic [ref=f99e35093] [cursor=pointer]
+              - generic [ref=f99e35098] [cursor=pointer]
+            - generic [ref=f99e35103]:
+              - button [ref=f99e35105]
+              - generic [ref=f99e35112] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e35113]
+                - checkbox [aria-hidden] [ref=f99e35115]
+              - link "V VOL-POL-7167" [ref=f99e35121] [cursor=pointer]:
+                - /url: /object/poliza/006af0fc-0e13-445d-aba4-bae2d106e84e?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e35122]:
+                  - generic [ref=f99e35123]: V
+                  - generic [ref=f99e35125]: VOL-POL-7167
+              - generic [ref=f99e35126]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35135]:
+                - generic [ref=f99e35136]: C
+                - generic [ref=f99e35138]: Carga de volumen
+              - generic [ref=f99e35139]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35148]:
+                - generic [ref=f99e35149]: C
+                - generic [ref=f99e35151]: Carga de volumen
+              - generic [ref=f99e35152]: Salud
+              - generic [ref=f99e35159] [cursor=pointer]
+              - generic [ref=f99e35163] [cursor=pointer]
+              - generic [ref=f99e35168] [cursor=pointer]
+              - generic [ref=f99e35172] [cursor=pointer]
+              - generic [ref=f99e35176] [cursor=pointer]
+              - generic [ref=f99e35181] [cursor=pointer]
+              - generic [ref=f99e35186] [cursor=pointer]
+            - generic [ref=f99e35191]:
+              - button [ref=f99e35193]
+              - generic [ref=f99e35200] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e35201]
+                - checkbox [aria-hidden] [ref=f99e35203]
+              - link "V VOL-POL-2546" [ref=f99e35209] [cursor=pointer]:
+                - /url: /object/poliza/0072fbfd-70d5-41e4-a44f-aed2089458f1?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e35210]:
+                  - generic [ref=f99e35211]: V
+                  - generic [ref=f99e35213]: VOL-POL-2546
+              - generic [ref=f99e35214]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35223]:
+                - generic [ref=f99e35224]: C
+                - generic [ref=f99e35226]: Carga de volumen
+              - generic [ref=f99e35227]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35236]:
+                - generic [ref=f99e35237]: C
+                - generic [ref=f99e35239]: Carga de volumen
+              - generic [ref=f99e35240]: Vida
+              - generic [ref=f99e35247] [cursor=pointer]
+              - generic [ref=f99e35251] [cursor=pointer]
+              - generic [ref=f99e35256] [cursor=pointer]
+              - generic [ref=f99e35260] [cursor=pointer]
+              - generic [ref=f99e35264] [cursor=pointer]
+              - generic [ref=f99e35269] [cursor=pointer]
+              - generic [ref=f99e35274] [cursor=pointer]
+            - generic [ref=f99e35279]:
+              - button [ref=f99e35281]
+              - generic [ref=f99e35288] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e35289]
+                - checkbox [aria-hidden] [ref=f99e35291]
+              - link "V VOL-POL-7022" [ref=f99e35297] [cursor=pointer]:
+                - /url: /object/poliza/00820909-7534-4aa4-a0b7-052fd2336a50?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e35298]:
+                  - generic [ref=f99e35299]: V
+                  - generic [ref=f99e35301]: VOL-POL-7022
+              - generic [ref=f99e35302]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35311]:
+                - generic [ref=f99e35312]: C
+                - generic [ref=f99e35314]: Carga de volumen
+              - generic [ref=f99e35315]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35324]:
+                - generic [ref=f99e35325]: C
+                - generic [ref=f99e35327]: Carga de volumen
+              - generic [ref=f99e35328]: Vida
+              - generic [ref=f99e35335] [cursor=pointer]
+              - generic [ref=f99e35339] [cursor=pointer]
+              - generic [ref=f99e35344] [cursor=pointer]
+              - generic [ref=f99e35348] [cursor=pointer]
+              - generic [ref=f99e35352] [cursor=pointer]
+              - generic [ref=f99e35357] [cursor=pointer]
+              - generic [ref=f99e35362] [cursor=pointer]
+            - generic [ref=f99e35367]:
+              - button [ref=f99e35369]
+              - generic [ref=f99e35376] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e35377]
+                - checkbox [aria-hidden] [ref=f99e35379]
+              - link "V VOL-POL-935" [ref=f99e35385] [cursor=pointer]:
+                - /url: /object/poliza/00844d31-1b31-4a5a-89e3-5d18942d2f22?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e35386]:
+                  - generic [ref=f99e35387]: V
+                  - generic [ref=f99e35389]: VOL-POL-935
+              - generic [ref=f99e35390]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35399]:
+                - generic [ref=f99e35400]: C
+                - generic [ref=f99e35402]: Carga de volumen
+              - generic [ref=f99e35403]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35412]:
+                - generic [ref=f99e35413]: C
+                - generic [ref=f99e35415]: Carga de volumen
+              - generic [ref=f99e35416]: Salud
+              - generic [ref=f99e35423] [cursor=pointer]
+              - generic [ref=f99e35427] [cursor=pointer]
+              - generic [ref=f99e35432] [cursor=pointer]
+              - generic [ref=f99e35436] [cursor=pointer]
+              - generic [ref=f99e35440] [cursor=pointer]
+              - generic [ref=f99e35445] [cursor=pointer]
+              - generic [ref=f99e35450] [cursor=pointer]
+            - generic [ref=f99e35455]:
+              - button [ref=f99e35457]
+              - generic [ref=f99e35464] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e35465]
+                - checkbox [aria-hidden] [ref=f99e35467]
+              - link "V VOL-POL-12240" [ref=f99e35473] [cursor=pointer]:
+                - /url: /object/poliza/00865830-5cfc-4a1a-ab89-79497273c4b3?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e35474]:
+                  - generic [ref=f99e35475]: V
+                  - generic [ref=f99e35477]: VOL-POL-12240
+              - generic [ref=f99e35478]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35487]:
+                - generic [ref=f99e35488]: C
+                - generic [ref=f99e35490]: Carga de volumen
+              - generic [ref=f99e35491]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35500]:
+                - generic [ref=f99e35501]: C
+                - generic [ref=f99e35503]: Carga de volumen
+              - generic [ref=f99e35504]: Automotor
+              - generic [ref=f99e35511] [cursor=pointer]
+              - generic [ref=f99e35515] [cursor=pointer]
+              - generic [ref=f99e35520] [cursor=pointer]
+              - generic [ref=f99e35524] [cursor=pointer]
+              - generic [ref=f99e35528] [cursor=pointer]
+              - generic [ref=f99e35533] [cursor=pointer]
+              - generic [ref=f99e35538] [cursor=pointer]
+            - generic [ref=f99e35543]:
+              - button [ref=f99e35545]
+              - generic [ref=f99e35552] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e35553]
+                - checkbox [aria-hidden] [ref=f99e35555]
+              - link "V VOL-POL-10191" [ref=f99e35561] [cursor=pointer]:
+                - /url: /object/poliza/0093a826-f5d2-44e0-83ed-0ce8400bba78?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e35562]:
+                  - generic [ref=f99e35563]: V
+                  - generic [ref=f99e35565]: VOL-POL-10191
+              - generic [ref=f99e35566]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35575]:
+                - generic [ref=f99e35576]: C
+                - generic [ref=f99e35578]: Carga de volumen
+              - generic [ref=f99e35579]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35588]:
+                - generic [ref=f99e35589]: C
+                - generic [ref=f99e35591]: Carga de volumen
+              - generic [ref=f99e35592]: Salud
+              - generic [ref=f99e35599] [cursor=pointer]
+              - generic [ref=f99e35603] [cursor=pointer]
+              - generic [ref=f99e35608] [cursor=pointer]
+              - generic [ref=f99e35612] [cursor=pointer]
+              - generic [ref=f99e35616] [cursor=pointer]
+              - generic [ref=f99e35621] [cursor=pointer]
+              - generic [ref=f99e35626] [cursor=pointer]
+            - generic [ref=f99e35631]:
+              - button [ref=f99e35633]
+              - generic [ref=f99e35640] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e35641]
+                - checkbox [aria-hidden] [ref=f99e35643]
+              - link "V VOL-POL-4480" [ref=f99e35649] [cursor=pointer]:
+                - /url: /object/poliza/00a3420f-d3cd-4b70-931b-ba274493af56?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e35650]:
+                  - generic [ref=f99e35651]: V
+                  - generic [ref=f99e35653]: VOL-POL-4480
+              - generic [ref=f99e35654]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35663]:
+                - generic [ref=f99e35664]: C
+                - generic [ref=f99e35666]: Carga de volumen
+              - generic [ref=f99e35667]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35676]:
+                - generic [ref=f99e35677]: C
+                - generic [ref=f99e35679]: Carga de volumen
+              - generic [ref=f99e35680]: Automotor
+              - generic [ref=f99e35687] [cursor=pointer]
+              - generic [ref=f99e35691] [cursor=pointer]
+              - generic [ref=f99e35696] [cursor=pointer]
+              - generic [ref=f99e35700] [cursor=pointer]
+              - generic [ref=f99e35704] [cursor=pointer]
+              - generic [ref=f99e35709] [cursor=pointer]
+              - generic [ref=f99e35714] [cursor=pointer]
+            - generic [ref=f99e35719]:
+              - button [ref=f99e35721]
+              - generic [ref=f99e35728] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e35729]
+                - checkbox [aria-hidden] [ref=f99e35731]
+              - link "V VOL-POL-8004" [ref=f99e35737] [cursor=pointer]:
+                - /url: /object/poliza/00a7d204-c77d-479e-beb7-0c0bbfb1fa26?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e35738]:
+                  - generic [ref=f99e35739]: V
+                  - generic [ref=f99e35741]: VOL-POL-8004
+              - generic [ref=f99e35742]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35751]:
+                - generic [ref=f99e35752]: C
+                - generic [ref=f99e35754]: Carga de volumen
+              - generic [ref=f99e35755]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35764]:
+                - generic [ref=f99e35765]: C
+                - generic [ref=f99e35767]: Carga de volumen
+              - generic [ref=f99e35768]: Automotor
+              - generic [ref=f99e35775] [cursor=pointer]
+              - generic [ref=f99e35779] [cursor=pointer]
+              - generic [ref=f99e35784] [cursor=pointer]
+              - generic [ref=f99e35788] [cursor=pointer]
+              - generic [ref=f99e35792] [cursor=pointer]
+              - generic [ref=f99e35797] [cursor=pointer]
+              - generic [ref=f99e35802] [cursor=pointer]
+            - generic [ref=f99e35807]:
+              - button [ref=f99e35809]
+              - generic [ref=f99e35816] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e35817]
+                - checkbox [aria-hidden] [ref=f99e35819]
+              - link "V VOL-POL-10959" [ref=f99e35825] [cursor=pointer]:
+                - /url: /object/poliza/00b1932a-0642-41d9-9401-c717803afd42?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e35826]:
+                  - generic [ref=f99e35827]: V
+                  - generic [ref=f99e35829]: VOL-POL-10959
+              - generic [ref=f99e35830]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35839]:
+                - generic [ref=f99e35840]: C
+                - generic [ref=f99e35842]: Carga de volumen
+              - generic [ref=f99e35843]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35852]:
+                - generic [ref=f99e35853]: C
+                - generic [ref=f99e35855]: Carga de volumen
+              - generic [ref=f99e35856]: Salud
+              - generic [ref=f99e35863] [cursor=pointer]
+              - generic [ref=f99e35867] [cursor=pointer]
+              - generic [ref=f99e35872] [cursor=pointer]
+              - generic [ref=f99e35876] [cursor=pointer]
+              - generic [ref=f99e35880] [cursor=pointer]
+              - generic [ref=f99e35885] [cursor=pointer]
+              - generic [ref=f99e35890] [cursor=pointer]
+            - generic [ref=f99e35895]:
+              - button [ref=f99e35897]
+              - generic [ref=f99e35904] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e35905]
+                - checkbox [aria-hidden] [ref=f99e35907]
+              - link "V VOL-POL-9750" [ref=f99e35913] [cursor=pointer]:
+                - /url: /object/poliza/00b30f66-93c3-4f21-bee3-fb32fa5d7756?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e35914]:
+                  - generic [ref=f99e35915]: V
+                  - generic [ref=f99e35917]: VOL-POL-9750
+              - generic [ref=f99e35918]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35927]:
+                - generic [ref=f99e35928]: C
+                - generic [ref=f99e35930]: Carga de volumen
+              - generic [ref=f99e35931]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e35940]:
+                - generic [ref=f99e35941]: C
+                - generic [ref=f99e35943]: Carga de volumen
+              - generic [ref=f99e35944]: Vida
+              - generic [ref=f99e35951] [cursor=pointer]
+              - generic [ref=f99e35955] [cursor=pointer]
+              - generic [ref=f99e35960] [cursor=pointer]
+              - generic [ref=f99e35964] [cursor=pointer]
+              - generic [ref=f99e35968] [cursor=pointer]
+              - generic [ref=f99e35973] [cursor=pointer]
+              - generic [ref=f99e35978] [cursor=pointer]
+            - generic [ref=f99e35983]:
+              - button [ref=f99e35985]
+              - generic [ref=f99e35992] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e35993]
+                - checkbox [aria-hidden] [ref=f99e35995]
+              - link "V VOL-POL-7927" [ref=f99e36001] [cursor=pointer]:
+                - /url: /object/poliza/00b55327-85ee-4f31-bca7-2d73bf645808?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e36002]:
+                  - generic [ref=f99e36003]: V
+                  - generic [ref=f99e36005]: VOL-POL-7927
+              - generic [ref=f99e36006]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e36015]:
+                - generic [ref=f99e36016]: C
+                - generic [ref=f99e36018]: Carga de volumen
+              - generic [ref=f99e36019]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e36028]:
+                - generic [ref=f99e36029]: C
+                - generic [ref=f99e36031]: Carga de volumen
+              - generic [ref=f99e36032]: Salud
+              - generic [ref=f99e36039] [cursor=pointer]
+              - generic [ref=f99e36043] [cursor=pointer]
+              - generic [ref=f99e36048] [cursor=pointer]
+              - generic [ref=f99e36052] [cursor=pointer]
+              - generic [ref=f99e36056] [cursor=pointer]
+              - generic [ref=f99e36061] [cursor=pointer]
+              - generic [ref=f99e36066] [cursor=pointer]
+            - generic [ref=f99e36071]:
+              - button [ref=f99e36073]
+              - generic [ref=f99e36080] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e36081]
+                - checkbox [aria-hidden] [ref=f99e36083]
+              - link "V VOL-POL-57" [ref=f99e36089] [cursor=pointer]:
+                - /url: /object/poliza/00b7fb24-b287-4e3a-ad7d-416d194bdfd6?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e36090]:
+                  - generic [ref=f99e36091]: V
+                  - generic [ref=f99e36093]: VOL-POL-57
+              - generic [ref=f99e36094]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e36103]:
+                - generic [ref=f99e36104]: C
+                - generic [ref=f99e36106]: Carga de volumen
+              - generic [ref=f99e36107]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e36116]:
+                - generic [ref=f99e36117]: C
+                - generic [ref=f99e36119]: Carga de volumen
+              - generic [ref=f99e36120]: Hogar
+              - generic [ref=f99e36127] [cursor=pointer]
+              - generic [ref=f99e36131] [cursor=pointer]
+              - generic [ref=f99e36136] [cursor=pointer]
+              - generic [ref=f99e36140] [cursor=pointer]
+              - generic [ref=f99e36144] [cursor=pointer]
+              - generic [ref=f99e36149] [cursor=pointer]
+              - generic [ref=f99e36154] [cursor=pointer]
+            - generic [ref=f99e36159]:
+              - button [ref=f99e36161]
+              - generic [ref=f99e36168] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e36169]
+                - checkbox [aria-hidden] [ref=f99e36171]
+              - link "V VOL-POL-7816" [ref=f99e36177] [cursor=pointer]:
+                - /url: /object/poliza/00bb1902-838c-4880-aa1a-902de4a345ca?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e36178]:
+                  - generic [ref=f99e36179]: V
+                  - generic [ref=f99e36181]: VOL-POL-7816
+              - generic [ref=f99e36182]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e36191]:
+                - generic [ref=f99e36192]: C
+                - generic [ref=f99e36194]: Carga de volumen
+              - generic [ref=f99e36195]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e36204]:
+                - generic [ref=f99e36205]: C
+                - generic [ref=f99e36207]: Carga de volumen
+              - generic [ref=f99e36208]: Automotor
+              - generic [ref=f99e36215] [cursor=pointer]
+              - generic [ref=f99e36219] [cursor=pointer]
+              - generic [ref=f99e36224] [cursor=pointer]
+              - generic [ref=f99e36228] [cursor=pointer]
+              - generic [ref=f99e36232] [cursor=pointer]
+              - generic [ref=f99e36237] [cursor=pointer]
+              - generic [ref=f99e36242] [cursor=pointer]
+            - generic [ref=f99e36247]:
+              - button [ref=f99e36249]
+              - generic [ref=f99e36256] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e36257]
+                - checkbox [aria-hidden] [ref=f99e36259]
+              - link "V VOL-POL-2016" [ref=f99e36265] [cursor=pointer]:
+                - /url: /object/poliza/00c6a5f5-d83e-48b9-b6e4-3ac053ff78d3?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e36266]:
+                  - generic [ref=f99e36267]: V
+                  - generic [ref=f99e36269]: VOL-POL-2016
+              - generic [ref=f99e36270]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e36279]:
+                - generic [ref=f99e36280]: C
+                - generic [ref=f99e36282]: Carga de volumen
+              - generic [ref=f99e36283]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e36292]:
+                - generic [ref=f99e36293]: C
+                - generic [ref=f99e36295]: Carga de volumen
+              - generic [ref=f99e36296]: Automotor
+              - generic [ref=f99e36303] [cursor=pointer]
+              - generic [ref=f99e36307] [cursor=pointer]
+              - generic [ref=f99e36312] [cursor=pointer]
+              - generic [ref=f99e36316] [cursor=pointer]
+              - generic [ref=f99e36320] [cursor=pointer]
+              - generic [ref=f99e36325] [cursor=pointer]
+              - generic [ref=f99e36330] [cursor=pointer]
+            - generic [ref=f99e36335]:
+              - button [ref=f99e36337]
+              - generic [ref=f99e36344] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e36345]
+                - checkbox [aria-hidden] [ref=f99e36347]
+              - link "V VOL-POL-1736" [ref=f99e36353] [cursor=pointer]:
+                - /url: /object/poliza/00cb4fec-9733-4726-ab37-ee8145b7d19c?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+                - generic [ref=f99e36354]:
+                  - generic [ref=f99e36355]: V
+                  - generic [ref=f99e36357]: VOL-POL-1736
+              - generic [ref=f99e36358]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e36367]:
+                - generic [ref=f99e36368]: C
+                - generic [ref=f99e36370]: Carga de volumen
+              - generic [ref=f99e36371]: sep 28, 2026 4:42 AM
+              - generic [ref=f99e36380]:
+                - generic [ref=f99e36381]: C
+                - generic [ref=f99e36383]: Carga de volumen
+              - generic [ref=f99e36384]: Automotor
+              - generic [ref=f99e36391] [cursor=pointer]
+              - generic [ref=f99e36395] [cursor=pointer]
+              - generic [ref=f99e36400] [cursor=pointer]
+              - generic [ref=f99e36404] [cursor=pointer]
+              - generic [ref=f99e36408] [cursor=pointer]
+              - generic [ref=f99e36413] [cursor=pointer]
+              - generic [ref=f99e36418] [cursor=pointer]
+            - generic [ref=f99e23003] [cursor=pointer]:
+              - checkbox [ref=f99e23004]
+              - checkbox [aria-hidden] [ref=f99e23006]
+            - generic [ref=f99e23038] [cursor=pointer]:
+              - checkbox [ref=f99e23039]
+              - checkbox [aria-hidden] [ref=f99e23041]
+            - generic [ref=f99e23073] [cursor=pointer]:
+              - checkbox [ref=f99e23074]
+              - checkbox [aria-hidden] [ref=f99e23076]
+            - generic [ref=f99e23108] [cursor=pointer]:
+              - checkbox [ref=f99e23109]
+              - checkbox [aria-hidden] [ref=f99e23111]
+            - generic [ref=f99e23143] [cursor=pointer]:
+              - checkbox [ref=f99e23144]
+              - checkbox [aria-hidden] [ref=f99e23146]
+            - generic [ref=f99e23178] [cursor=pointer]:
+              - checkbox [ref=f99e23179]
+              - checkbox [aria-hidden] [ref=f99e23181]
+            - generic [ref=f99e23213] [cursor=pointer]:
+              - checkbox [ref=f99e23214]
+              - checkbox [aria-hidden] [ref=f99e23216]
+            - generic [ref=f99e23248] [cursor=pointer]:
+              - checkbox [ref=f99e23249]
+              - checkbox [aria-hidden] [ref=f99e23251]
+            - generic [ref=f99e23283] [cursor=pointer]:
+              - checkbox [ref=f99e23284]
+              - checkbox [aria-hidden] [ref=f99e23286]
+            - generic [ref=f99e23318] [cursor=pointer]:
+              - checkbox [ref=f99e23319]
+              - checkbox [aria-hidden] [ref=f99e23321]
+            - generic [ref=f99e23353] [cursor=pointer]:
+              - checkbox [ref=f99e23354]
+              - checkbox [aria-hidden] [ref=f99e23356]
+            - generic [ref=f99e23388] [cursor=pointer]:
+              - checkbox [ref=f99e23389]
+              - checkbox [aria-hidden] [ref=f99e23391]
+            - generic [ref=f99e23423] [cursor=pointer]:
+              - checkbox [ref=f99e23424]
+              - checkbox [aria-hidden] [ref=f99e23426]
+            - generic [ref=f99e23458] [cursor=pointer]:
+              - checkbox [ref=f99e23459]
+              - checkbox [aria-hidden] [ref=f99e23461]
+            - generic [ref=f99e23493] [cursor=pointer]:
+              - checkbox [ref=f99e23494]
+              - checkbox [aria-hidden] [ref=f99e23496]
+            - generic [ref=f99e23528] [cursor=pointer]:
+              - checkbox [ref=f99e23529]
+              - checkbox [aria-hidden] [ref=f99e23531]
+            - generic [ref=f99e23563] [cursor=pointer]:
+              - checkbox [ref=f99e23564]
+              - checkbox [aria-hidden] [ref=f99e23566]
+            - generic [ref=f99e23598] [cursor=pointer]:
+              - checkbox [ref=f99e23599]
+              - checkbox [aria-hidden] [ref=f99e23601]
+            - generic [ref=f99e23633] [cursor=pointer]:
+              - checkbox [ref=f99e23634]
+              - checkbox [aria-hidden] [ref=f99e23636]
+            - generic [ref=f99e23668] [cursor=pointer]:
+              - checkbox [ref=f99e23669]
+              - checkbox [aria-hidden] [ref=f99e23671]
+            - generic [ref=f99e23703] [cursor=pointer]:
+              - checkbox [ref=f99e23704]
+              - checkbox [aria-hidden] [ref=f99e23706]
+            - generic [ref=f99e23738] [cursor=pointer]:
+              - checkbox [ref=f99e23739]
+              - checkbox [aria-hidden] [ref=f99e23741]
+            - generic [ref=f99e23773] [cursor=pointer]:
+              - checkbox [ref=f99e23774]
+              - checkbox [aria-hidden] [ref=f99e23776]
+            - generic [ref=f99e23808] [cursor=pointer]:
+              - checkbox [ref=f99e23809]
+              - checkbox [aria-hidden] [ref=f99e23811]
+            - generic [ref=f99e23843] [cursor=pointer]:
+              - checkbox [ref=f99e23844]
+              - checkbox [aria-hidden] [ref=f99e23846]
+            - generic [ref=f99e23878] [cursor=pointer]:
+              - checkbox [ref=f99e23879]
+              - checkbox [aria-hidden] [ref=f99e23881]
+            - generic [ref=f99e23913] [cursor=pointer]:
+              - checkbox [ref=f99e23914]
+              - checkbox [aria-hidden] [ref=f99e23916]
+            - generic [ref=f99e23948] [cursor=pointer]:
+              - checkbox [ref=f99e23949]
+              - checkbox [aria-hidden] [ref=f99e23951]
+            - generic [ref=f99e23983] [cursor=pointer]:
+              - checkbox [ref=f99e23984]
+              - checkbox [aria-hidden] [ref=f99e23986]
+            - generic [ref=f99e24018] [cursor=pointer]:
+              - checkbox [ref=f99e24019]
+              - checkbox [aria-hidden] [ref=f99e24021]
+            - generic [ref=f99e24053] [cursor=pointer]:
+              - checkbox [ref=f99e24054]
+              - checkbox [aria-hidden] [ref=f99e24056]
+            - generic [ref=f99e24088] [cursor=pointer]:
+              - checkbox [ref=f99e24089]
+              - checkbox [aria-hidden] [ref=f99e24091]
+            - generic [ref=f99e24123] [cursor=pointer]:
+              - checkbox [ref=f99e24124]
+              - checkbox [aria-hidden] [ref=f99e24126]
+            - generic [ref=f99e24158] [cursor=pointer]:
+              - checkbox [ref=f99e24159]
+              - checkbox [aria-hidden] [ref=f99e24161]
+            - generic [ref=f99e24193] [cursor=pointer]:
+              - checkbox [ref=f99e24194]
+              - checkbox [aria-hidden] [ref=f99e24196]
+            - generic [ref=f99e24228] [cursor=pointer]:
+              - checkbox [ref=f99e24229]
+              - checkbox [aria-hidden] [ref=f99e24231]
+            - generic [ref=f99e24263] [cursor=pointer]:
+              - checkbox [ref=f99e24264]
+              - checkbox [aria-hidden] [ref=f99e24266]
+            - generic [ref=f99e24298] [cursor=pointer]:
+              - checkbox [ref=f99e24299]
+              - checkbox [aria-hidden] [ref=f99e24301]
+            - generic [ref=f99e24333] [cursor=pointer]:
+              - checkbox [ref=f99e24334]
+              - checkbox [aria-hidden] [ref=f99e24336]
+            - generic [ref=f99e24368] [cursor=pointer]:
+              - checkbox [ref=f99e24369]
+              - checkbox [aria-hidden] [ref=f99e24371]
+            - generic [ref=f99e24403] [cursor=pointer]:
+              - checkbox [ref=f99e24404]
+              - checkbox [aria-hidden] [ref=f99e24406]
+            - generic [ref=f99e24438] [cursor=pointer]:
+              - checkbox [ref=f99e24439]
+              - checkbox [aria-hidden] [ref=f99e24441]
+            - generic [ref=f99e24473] [cursor=pointer]:
+              - checkbox [ref=f99e24474]
+              - checkbox [aria-hidden] [ref=f99e24476]
+            - generic [ref=f99e24508] [cursor=pointer]:
+              - checkbox [ref=f99e24509]
+              - checkbox [aria-hidden] [ref=f99e24511]
+            - generic [ref=f99e24543] [cursor=pointer]:
+              - checkbox [ref=f99e24544]
+              - checkbox [aria-hidden] [ref=f99e24546]
+            - generic [ref=f99e24578] [cursor=pointer]:
+              - checkbox [ref=f99e24579]
+              - checkbox [aria-hidden] [ref=f99e24581]
+            - generic [ref=f99e24613] [cursor=pointer]:
+              - checkbox [ref=f99e24614]
+              - checkbox [aria-hidden] [ref=f99e24616]
+            - generic [ref=f99e24648] [cursor=pointer]:
+              - checkbox [ref=f99e24649]
+              - checkbox [aria-hidden] [ref=f99e24651]
+            - generic [ref=f99e24683] [cursor=pointer]:
+              - checkbox [ref=f99e24684]
+              - checkbox [aria-hidden] [ref=f99e24686]
+            - generic [ref=f99e24718] [cursor=pointer]:
+              - checkbox [ref=f99e24719]
+              - checkbox [aria-hidden] [ref=f99e24721]
+            - generic [ref=f99e24753] [cursor=pointer]:
+              - checkbox [ref=f99e24754]
+              - checkbox [aria-hidden] [ref=f99e24756]
+            - generic [ref=f99e24788] [cursor=pointer]:
+              - checkbox [ref=f99e24789]
+              - checkbox [aria-hidden] [ref=f99e24791]
+            - generic [ref=f99e24823] [cursor=pointer]:
+              - checkbox [ref=f99e24824]
+              - checkbox [aria-hidden] [ref=f99e24826]
+            - generic [ref=f99e24858] [cursor=pointer]:
+              - checkbox [ref=f99e24859]
+              - checkbox [aria-hidden] [ref=f99e24861]
+            - generic [ref=f99e24893] [cursor=pointer]:
+              - checkbox [ref=f99e24894]
+              - checkbox [aria-hidden] [ref=f99e24896]
+            - generic [ref=f99e24928] [cursor=pointer]:
+              - checkbox [ref=f99e24929]
+              - checkbox [aria-hidden] [ref=f99e24931]
+            - generic [ref=f99e24963] [cursor=pointer]:
+              - checkbox [ref=f99e24964]
+              - checkbox [aria-hidden] [ref=f99e24966]
+            - generic [ref=f99e24998] [cursor=pointer]:
+              - checkbox [ref=f99e24999]
+              - checkbox [aria-hidden] [ref=f99e25001]
+            - generic [ref=f99e25033] [cursor=pointer]:
+              - checkbox [ref=f99e25034]
+              - checkbox [aria-hidden] [ref=f99e25036]
+            - generic [ref=f99e25068] [cursor=pointer]:
+              - checkbox [ref=f99e25069]
+              - checkbox [aria-hidden] [ref=f99e25071]
+            - generic [ref=f99e25103] [cursor=pointer]:
+              - checkbox [ref=f99e25104]
+              - checkbox [aria-hidden] [ref=f99e25106]
+            - generic [ref=f99e25138] [cursor=pointer]:
+              - checkbox [ref=f99e25139]
+              - checkbox [aria-hidden] [ref=f99e25141]
+            - generic [ref=f99e25173] [cursor=pointer]:
+              - checkbox [ref=f99e25174]
+              - checkbox [aria-hidden] [ref=f99e25176]
+            - generic [ref=f99e25208] [cursor=pointer]:
+              - checkbox [ref=f99e25209]
+              - checkbox [aria-hidden] [ref=f99e25211]
+            - generic [ref=f99e25243] [cursor=pointer]:
+              - checkbox [ref=f99e25244]
+              - checkbox [aria-hidden] [ref=f99e25246]
+            - generic [ref=f99e25278] [cursor=pointer]:
+              - checkbox [ref=f99e25279]
+              - checkbox [aria-hidden] [ref=f99e25281]
+            - generic [ref=f99e25313] [cursor=pointer]:
+              - checkbox [ref=f99e25314]
+              - checkbox [aria-hidden] [ref=f99e25316]
+            - generic [ref=f99e25348] [cursor=pointer]:
+              - checkbox [ref=f99e25349]
+              - checkbox [aria-hidden] [ref=f99e25351]
+            - generic [ref=f99e25383] [cursor=pointer]:
+              - checkbox [ref=f99e25384]
+              - checkbox [aria-hidden] [ref=f99e25386]
+            - generic [ref=f99e25418] [cursor=pointer]:
+              - checkbox [ref=f99e25419]
+              - checkbox [aria-hidden] [ref=f99e25421]
+            - generic [ref=f99e25453] [cursor=pointer]:
+              - checkbox [ref=f99e25454]
+              - checkbox [aria-hidden] [ref=f99e25456]
+            - generic [ref=f99e25488] [cursor=pointer]:
+              - checkbox [ref=f99e25489]
+              - checkbox [aria-hidden] [ref=f99e25491]
+            - generic [ref=f99e25523] [cursor=pointer]:
+              - checkbox [ref=f99e25524]
+              - checkbox [aria-hidden] [ref=f99e25526]
+            - generic [ref=f99e25558] [cursor=pointer]:
+              - checkbox [ref=f99e25559]
+              - checkbox [aria-hidden] [ref=f99e25561]
+            - generic [ref=f99e25593] [cursor=pointer]:
+              - checkbox [ref=f99e25594]
+              - checkbox [aria-hidden] [ref=f99e25596]
+            - generic [ref=f99e25628] [cursor=pointer]:
+              - checkbox [ref=f99e25629]
+              - checkbox [aria-hidden] [ref=f99e25631]
+            - generic [ref=f99e25663] [cursor=pointer]:
+              - checkbox [ref=f99e25664]
+              - checkbox [aria-hidden] [ref=f99e25666]
+            - generic [ref=f99e25698] [cursor=pointer]:
+              - checkbox [ref=f99e25699]
+              - checkbox [aria-hidden] [ref=f99e25701]
+            - generic [ref=f99e25733] [cursor=pointer]:
+              - checkbox [ref=f99e25734]
+              - checkbox [aria-hidden] [ref=f99e25736]
+            - generic [ref=f99e25768] [cursor=pointer]:
+              - checkbox [ref=f99e25769]
+              - checkbox [aria-hidden] [ref=f99e25771]
+            - generic [ref=f99e25803] [cursor=pointer]:
+              - checkbox [ref=f99e25804]
+              - checkbox [aria-hidden] [ref=f99e25806]
+            - generic [ref=f99e25838] [cursor=pointer]:
+              - checkbox [ref=f99e25839]
+              - checkbox [aria-hidden] [ref=f99e25841]
+            - generic [ref=f99e25873] [cursor=pointer]:
+              - checkbox [ref=f99e25874]
+              - checkbox [aria-hidden] [ref=f99e25876]
+            - generic [ref=f99e25908] [cursor=pointer]:
+              - checkbox [ref=f99e25909]
+              - checkbox [aria-hidden] [ref=f99e25911]
+            - generic [ref=f99e25943] [cursor=pointer]:
+              - checkbox [ref=f99e25944]
+              - checkbox [aria-hidden] [ref=f99e25946]
+            - generic [ref=f99e25978] [cursor=pointer]:
+              - checkbox [ref=f99e25979]
+              - checkbox [aria-hidden] [ref=f99e25981]
+            - generic [ref=f99e26013] [cursor=pointer]:
+              - checkbox [ref=f99e26014]
+              - checkbox [aria-hidden] [ref=f99e26016]
+            - generic [ref=f99e26048] [cursor=pointer]:
+              - checkbox [ref=f99e26049]
+              - checkbox [aria-hidden] [ref=f99e26051]
+            - generic [ref=f99e26083] [cursor=pointer]:
+              - checkbox [ref=f99e26084]
+              - checkbox [aria-hidden] [ref=f99e26086]
+            - generic [ref=f99e26118] [cursor=pointer]:
+              - checkbox [ref=f99e26119]
+              - checkbox [aria-hidden] [ref=f99e26121]
+            - generic [ref=f99e26153] [cursor=pointer]:
+              - checkbox [ref=f99e26154]
+              - checkbox [aria-hidden] [ref=f99e26156]
+            - generic [ref=f99e26188] [cursor=pointer]:
+              - checkbox [ref=f99e26189]
+              - checkbox [aria-hidden] [ref=f99e26191]
+            - generic [ref=f99e26223] [cursor=pointer]:
+              - checkbox [ref=f99e26224]
+              - checkbox [aria-hidden] [ref=f99e26226]
+            - generic [ref=f99e26258] [cursor=pointer]:
+              - checkbox [ref=f99e26259]
+              - checkbox [aria-hidden] [ref=f99e26261]
+            - generic [ref=f99e26293] [cursor=pointer]:
+              - checkbox [ref=f99e26294]
+              - checkbox [aria-hidden] [ref=f99e26296]
+            - generic [ref=f99e26328] [cursor=pointer]:
+              - checkbox [ref=f99e26329]
+              - checkbox [aria-hidden] [ref=f99e26331]
+            - generic [ref=f99e26363] [cursor=pointer]:
+              - checkbox [ref=f99e26364]
+              - checkbox [aria-hidden] [ref=f99e26366]
+            - generic [ref=f99e26398] [cursor=pointer]:
+              - checkbox [ref=f99e26399]
+              - checkbox [aria-hidden] [ref=f99e26401]
+            - generic [ref=f99e26433] [cursor=pointer]:
+              - checkbox [ref=f99e26434]
+              - checkbox [aria-hidden] [ref=f99e26436]
+            - generic [ref=f99e26468] [cursor=pointer]:
+              - checkbox [ref=f99e26469]
+              - checkbox [aria-hidden] [ref=f99e26471]
+            - generic [ref=f99e26503] [cursor=pointer]:
+              - checkbox [ref=f99e26504]
+              - checkbox [aria-hidden] [ref=f99e26506]
+            - generic [ref=f99e26538] [cursor=pointer]:
+              - checkbox [ref=f99e26539]
+              - checkbox [aria-hidden] [ref=f99e26541]
+            - generic [ref=f99e26573] [cursor=pointer]:
+              - checkbox [ref=f99e26574]
+              - checkbox [aria-hidden] [ref=f99e26576]
+            - generic [ref=f99e26608] [cursor=pointer]:
+              - checkbox [ref=f99e26609]
+              - checkbox [aria-hidden] [ref=f99e26611]
+            - generic [ref=f99e26643] [cursor=pointer]:
+              - checkbox [ref=f99e26644]
+              - checkbox [aria-hidden] [ref=f99e26646]
+            - generic [ref=f99e26678] [cursor=pointer]:
+              - checkbox [ref=f99e26679]
+              - checkbox [aria-hidden] [ref=f99e26681]
+            - generic [ref=f99e26713] [cursor=pointer]:
+              - checkbox [ref=f99e26714]
+              - checkbox [aria-hidden] [ref=f99e26716]
+            - generic [ref=f99e26748] [cursor=pointer]:
+              - checkbox [ref=f99e26749]
+              - checkbox [aria-hidden] [ref=f99e26751]
+            - generic [ref=f99e26783] [cursor=pointer]:
+              - checkbox [ref=f99e26784]
+              - checkbox [aria-hidden] [ref=f99e26786]
+            - generic [ref=f99e26818] [cursor=pointer]:
+              - checkbox [ref=f99e26819]
+              - checkbox [aria-hidden] [ref=f99e26821]
+            - generic [ref=f99e26853] [cursor=pointer]:
+              - checkbox [ref=f99e26854]
+              - checkbox [aria-hidden] [ref=f99e26856]
+            - generic [ref=f99e26888] [cursor=pointer]:
+              - checkbox [ref=f99e26889]
+              - checkbox [aria-hidden] [ref=f99e26891]
+            - generic [ref=f99e26923] [cursor=pointer]:
+              - checkbox [ref=f99e26924]
+              - checkbox [aria-hidden] [ref=f99e26926]
+            - generic [ref=f99e26958] [cursor=pointer]:
+              - checkbox [ref=f99e26959]
+              - checkbox [aria-hidden] [ref=f99e26961]
+            - generic [ref=f99e26993] [cursor=pointer]:
+              - checkbox [ref=f99e26994]
+              - checkbox [aria-hidden] [ref=f99e26996]
+            - generic [ref=f99e27028] [cursor=pointer]:
+              - checkbox [ref=f99e27029]
+              - checkbox [aria-hidden] [ref=f99e27031]
+            - generic [ref=f99e27063] [cursor=pointer]:
+              - checkbox [ref=f99e27064]
+              - checkbox [aria-hidden] [ref=f99e27066]
+            - generic [ref=f99e27098] [cursor=pointer]:
+              - checkbox [ref=f99e27099]
+              - checkbox [aria-hidden] [ref=f99e27101]
+            - generic [ref=f99e27133] [cursor=pointer]:
+              - checkbox [ref=f99e27134]
+              - checkbox [aria-hidden] [ref=f99e27136]
+            - generic [ref=f99e27168] [cursor=pointer]:
+              - checkbox [ref=f99e27169]
+              - checkbox [aria-hidden] [ref=f99e27171]
+            - generic [ref=f99e27203] [cursor=pointer]:
+              - checkbox [ref=f99e27204]
+              - checkbox [aria-hidden] [ref=f99e27206]
+            - generic [ref=f99e27238] [cursor=pointer]:
+              - checkbox [ref=f99e27239]
+              - checkbox [aria-hidden] [ref=f99e27241]
+            - generic [ref=f99e27273] [cursor=pointer]:
+              - checkbox [ref=f99e27274]
+              - checkbox [aria-hidden] [ref=f99e27276]
+            - generic [ref=f99e27308] [cursor=pointer]:
+              - checkbox [ref=f99e27309]
+              - checkbox [aria-hidden] [ref=f99e27311]
+            - generic [ref=f99e27343] [cursor=pointer]:
+              - checkbox [ref=f99e27344]
+              - checkbox [aria-hidden] [ref=f99e27346]
+            - generic [ref=f99e27378] [cursor=pointer]:
+              - checkbox [ref=f99e27379]
+              - checkbox [aria-hidden] [ref=f99e27381]
+            - generic [ref=f99e27413] [cursor=pointer]:
+              - checkbox [ref=f99e27414]
+              - checkbox [aria-hidden] [ref=f99e27416]
+            - generic [ref=f99e27448] [cursor=pointer]:
+              - checkbox [ref=f99e27449]
+              - checkbox [aria-hidden] [ref=f99e27451]
+            - generic [ref=f99e27483] [cursor=pointer]:
+              - checkbox [ref=f99e27484]
+              - checkbox [aria-hidden] [ref=f99e27486]
+            - generic [ref=f99e27518] [cursor=pointer]:
+              - checkbox [ref=f99e27519]
+              - checkbox [aria-hidden] [ref=f99e27521]
+            - generic [ref=f99e27553] [cursor=pointer]:
+              - checkbox [ref=f99e27554]
+              - checkbox [aria-hidden] [ref=f99e27556]
+            - generic [ref=f99e27588] [cursor=pointer]:
+              - checkbox [ref=f99e27589]
+              - checkbox [aria-hidden] [ref=f99e27591]
+            - generic [ref=f99e27623] [cursor=pointer]:
+              - checkbox [ref=f99e27624]
+              - checkbox [aria-hidden] [ref=f99e27626]
+            - generic [ref=f99e27658] [cursor=pointer]:
+              - checkbox [ref=f99e27659]
+              - checkbox [aria-hidden] [ref=f99e27661]
+            - generic [ref=f99e27693] [cursor=pointer]:
+              - checkbox [ref=f99e27694]
+              - checkbox [aria-hidden] [ref=f99e27696]
+            - generic [ref=f99e27728] [cursor=pointer]:
+              - checkbox [ref=f99e27729]
+              - checkbox [aria-hidden] [ref=f99e27731]
+            - generic [ref=f99e27763] [cursor=pointer]:
+              - checkbox [ref=f99e27764]
+              - checkbox [aria-hidden] [ref=f99e27766]
+            - generic [ref=f99e27798] [cursor=pointer]:
+              - checkbox [ref=f99e27799]
+              - checkbox [aria-hidden] [ref=f99e27801]
+            - generic [ref=f99e27833] [cursor=pointer]:
+              - checkbox [ref=f99e27834]
+              - checkbox [aria-hidden] [ref=f99e27836]
+            - generic [ref=f99e27868] [cursor=pointer]:
+              - checkbox [ref=f99e27869]
+              - checkbox [aria-hidden] [ref=f99e27871]
+            - generic [ref=f99e27903] [cursor=pointer]:
+              - checkbox [ref=f99e27904]
+              - checkbox [aria-hidden] [ref=f99e27906]
+            - generic [ref=f99e27938] [cursor=pointer]:
+              - checkbox [ref=f99e27939]
+              - checkbox [aria-hidden] [ref=f99e27941]
+            - generic [ref=f99e27973] [cursor=pointer]:
+              - checkbox [ref=f99e27974]
+              - checkbox [aria-hidden] [ref=f99e27976]
+            - generic [ref=f99e28008] [cursor=pointer]:
+              - checkbox [ref=f99e28009]
+              - checkbox [aria-hidden] [ref=f99e28011]
+            - generic [ref=f99e28043] [cursor=pointer]:
+              - checkbox [ref=f99e28044]
+              - checkbox [aria-hidden] [ref=f99e28046]
+            - generic [ref=f99e28078] [cursor=pointer]:
+              - checkbox [ref=f99e28079]
+              - checkbox [aria-hidden] [ref=f99e28081]
+            - generic [ref=f99e28113] [cursor=pointer]:
+              - checkbox [ref=f99e28114]
+              - checkbox [aria-hidden] [ref=f99e28116]
+            - generic [ref=f99e28148] [cursor=pointer]:
+              - checkbox [ref=f99e28149]
+              - checkbox [aria-hidden] [ref=f99e28151]
+            - generic [ref=f99e28183] [cursor=pointer]:
+              - checkbox [ref=f99e28184]
+              - checkbox [aria-hidden] [ref=f99e28186]
+            - generic [ref=f99e28218] [cursor=pointer]:
+              - checkbox [ref=f99e28219]
+              - checkbox [aria-hidden] [ref=f99e28221]
+            - generic [ref=f99e28249]: Agregar nuevo
+          - generic [ref=f99e28258]:
+            - button "Calcular" [ref=f99e28262] [cursor=pointer]
+            - button [ref=f99e28271] [cursor=pointer]
+            - button [ref=f99e28276] [cursor=pointer]
+            - button [ref=f99e28281] [cursor=pointer]
+            - button [ref=f99e28286] [cursor=pointer]
+            - button [ref=f99e28291] [cursor=pointer]
+            - button [ref=f99e28296] [cursor=pointer]
+            - button [ref=f99e28301] [cursor=pointer]
+            - button [ref=f99e28306] [cursor=pointer]
+            - button [ref=f99e28311] [cursor=pointer]
+            - button [ref=f99e28316] [cursor=pointer]
+            - button [ref=f99e28321] [cursor=pointer]
+            - button [ref=f99e28326] [cursor=pointer]
+      - complementary [ref=f99e635]:
+        - generic [ref=f99e28333]:
+          - generic [ref=f99e28335]:
+            - generic [ref=f99e28337]:
+              - generic [ref=f99e28338]: P
+              - generic [ref=f99e28341]:
+                - generic [ref=f99e28342]: POL-APR-2
+                - generic [ref=f99e28350]: Created hace medio minuto
+            - generic [ref=f99e28351]:
+              - button "Expandir registro" [ref=f99e28353] [cursor=pointer]
+              - button "Cerrar panel lateral" [ref=f99e28360] [cursor=pointer]
+          - generic [ref=f99e28366]:
+            - generic [ref=f99e28369]:
+              - generic [ref=f99e28371]:
+                - generic [ref=f99e28372]:
+                  - button "Home" [ref=f99e28374] [cursor=pointer]
+                  - button "Timeline" [ref=f99e28381] [cursor=pointer]
+                  - button "Tasks" [ref=f99e28387] [cursor=pointer]
+                - button [ref=f99e28393]:
+                  - button "+2 Más" [ref=f99e28396] [cursor=pointer]
+              - button "Creation date sep 28, 2026 4:43 AM Created by B Bruno Salas Last update sep 28, 2026 4:44 AM Updated by B Bruno Salas Ramo Ramo Estado de pago Estado de pago Prima Prima Titular Titular Productor Productor Vigencia desde Vigencia desde Vigencia hasta Vigencia hasta Prima anual Prima anual" [disabled] [ref=f99e36427]:
+                - generic [ref=f99e28408]:
+                  - generic [ref=f99e28409]:
+                    - generic [ref=f99e28410]: Creation date
+                    - generic [ref=f99e28416]: sep 28, 2026 4:43 AM
+                  - generic [ref=f99e28421]:
+                    - generic [ref=f99e28422]: Created by
+                    - generic [ref=f99e28434]:
+                      - generic [ref=f99e28435]: B
+                      - generic [ref=f99e28437]: Bruno Salas
+                  - generic [ref=f99e28438]:
+                    - generic [ref=f99e28439]: Last update
+                    - generic [ref=f99e28447]: sep 28, 2026 4:44 AM
+                  - generic [ref=f99e28452]:
+                    - generic [ref=f99e28453]: Updated by
+                    - generic [ref=f99e28465]:
+                      - generic [ref=f99e28466]: B
+                      - generic [ref=f99e28468]: Bruno Salas
+                  - generic [ref=f99e28469] [cursor=pointer]:
+                    - generic [ref=f99e28470]: Ramo
+                    - generic [ref=f99e28477]: Ramo
+                  - generic [ref=f99e28482] [cursor=pointer]:
+                    - generic [ref=f99e28483]: Estado de pago
+                    - generic [ref=f99e28490]: Estado de pago
+                  - generic [ref=f99e28495] [cursor=pointer]:
+                    - generic [ref=f99e28496]: Prima
+                    - generic [ref=f99e28503]: Prima
+                  - generic [ref=f99e28508] [cursor=pointer]:
+                    - generic [ref=f99e28509]: Titular
+                    - generic [ref=f99e28517]: Titular
+                  - generic [ref=f99e28522] [cursor=pointer]:
+                    - generic [ref=f99e28523]: Productor
+                    - generic [ref=f99e28531]: Productor
+                  - generic [ref=f99e28536] [cursor=pointer]:
+                    - generic [ref=f99e28537]: Vigencia desde
+                    - generic [ref=f99e28544]: Vigencia desde
+                  - generic [ref=f99e28549] [cursor=pointer]:
+                    - generic [ref=f99e28550]: Vigencia hasta
+                    - generic [ref=f99e28557]: Vigencia hasta
+                  - generic [ref=f99e28562] [cursor=pointer]:
+                    - generic [ref=f99e28563]: Prima anual
+                    - generic [ref=f99e28570]: Prima anual
+            - generic [ref=f99e28576]:
+              - button [ref=f99e28577]:
+                - button "Opciones" [ref=f99e28578] [cursor=pointer]
+              - button "Add to Favorites" [ref=f99e28586] [cursor=pointer]
+  - status [ref=f99e28330]
+  - status [ref=f99e28331]
+  - status [ref=f99e28589]

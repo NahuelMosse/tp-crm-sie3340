@@ -1,0 +1,17 @@
+{
+  "criterio": "A.7.3",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Cada usuario conecta su propia casilla desde su configuración personal, por IMAP y SMTP o con una cuenta de Google o Microsoft. El administrador tiene conectada la casilla comercial y el productor, desde su cuenta, conectó la suya contra el mismo servidor de correo: cada uno ve solo la propia en su lista de cuentas, y el mensaje que un asegurado le mandó al productor apareció en la ficha del asegurado. Configurar cada casilla es trabajo de una sola vez, y lo hace cada usuario.",
+  "evidencia": [
+    "A-7-3-twenty-1-casilla-del-productor.png",
+    "A-7-3-twenty-2-correo-sincronizado.png",
+    "A-7-3-twenty-3-casilla-del-administrador.png"
+  ],
+  "criterioNombre": "Sincronización del correo de varios usuarios",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T02:37:16.897Z"
+}

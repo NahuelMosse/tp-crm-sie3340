@@ -1,0 +1,16 @@
+{
+  "criterio": "A.2.3",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Twenty no trae una acción de convertir al solicitante: la persona y la oportunidad son registros separados. Con un flujo de trabajo que se lanza a mano sobre la persona se armó esa acción, sin escribir código: crea la oportunidad con la cobertura que pidió el solicitante y lo deja como su contacto. Desde la ficha de la solicitante, la acción aparece en el menú de comandos; al lanzarla se creó la oportunidad con la cobertura cargada —«AUTOMOTOR»: el flujo toma el valor interno de la lista, no su etiqueta— y vinculada a ella, sin volver a escribir nada. Armar la acción es trabajo de una sola vez.",
+  "evidencia": [
+    "A-2-3-twenty-1-accion-de-convertir.png",
+    "A-2-3-twenty-2-oportunidad-creada.png"
+  ],
+  "criterioNombre": "Conversión del solicitante en oportunidad de venta",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T01:57:16.206Z"
+}

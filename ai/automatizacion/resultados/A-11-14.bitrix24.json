@@ -1,0 +1,19 @@
+{
+  "criterio": "A.11.14",
+  "plataforma": "bitrix24",
+  "cumple": 0,
+  "justificacion": "La edición evaluada es un servicio en la nube de versión única: no hay \"versiones\" que la compañía elija sostener, porque el fabricante actualiza el portal de todos sus clientes a la vez y sin aviso previo, según sus propias condiciones de servicio. El fabricante no publica ningún compromiso de por cuánto tiempo una función o un comportamiento se mantienen estables: la compañía no puede planificar su propia actualización porque no la controla, y un cambio de comportamiento puede llegar en cualquier momento del ejercicio.",
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.com/terms/",
+      "cita": "1.4. The terms of this Agreement may be updated by Alaio from time to time without notice. In case of the major changes, you will be provided with advance notification of the changes through a prominent notice within the Service and/or by email communication as set forth in section 34. Contact information. Contracting Entity. The amended Terms of Service will take effect upon the date mentioned above on the top of this page, unless otherwise provided in a notification to you. Please check these Terms of Service periodically for changes. Failure to provide or maintain accurate or current contact information by you will not obviate your responsibility to comply with these Terms of Service, as amended from time to time. If you do not agree to any changes to these Terms of Service, you must discontinue using any our services and Products and no longer access the Website. Your continued use of the Website, the Services, and the Products indicates your agreement to the changes. The version of these Terms of Service currently published at https://www.bitrix24.com/terms/ constitutes the binding and governing agreement applicable to all users at any given time.",
+      "consultado": "2026-09-29",
+      "captura": "A-11-14-bitrix24-1-actualiza-sin-aviso.png"
+    }
+  ],
+  "criterioNombre": "Continuidad de las versiones en uso",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-29T14:31:28.890Z"
+}

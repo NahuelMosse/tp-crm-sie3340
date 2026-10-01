@@ -1,0 +1,140 @@
+{
+  "criterio": "A.11.12",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "justificacion": "Se tomaron las 21 consultas más recientes de la sección de uso general del foro oficial que ya tenían más de una semana de publicadas. En 9 otro usuario respondió dentro de la semana y quien consultó confirmó después que la respuesta le había servido; en 12 hubo respuesta, pero llegó más tarde o sin que el autor confirmara que lo resolvía; ninguna quedó sin respuesta. La primera respuesta llegó, en el caso típico, a la hora. La consulta típica recibe respuesta, pero no queda constancia de que se resuelva dentro de la semana: la compañía puede contar con que alguien conteste, no con que la conteste a tiempo y a su medida.",
+  "documentacion": [
+    {
+      "url": "https://forum.espocrm.com/forum/general/128009-change-billing-address-field",
+      "cita": "Without modifying the code, you can: - completely remove the Billing Address from the layout; - change the display order of the country, street, etc., under Administration > Settings > Address Format; - if you need to \"remove\" the State from the address field, simply leave it blank.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-espocrm-01.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/128002-activities-history-tasks-disappeared-from-lead-side-panel",
+      "cita": "This topic has been discussed at least twice on this forum. You can find the solution to the current problem at this link: https://forum.espocrm.com/forum/gene...152#post117152. Although it refers to the Opportunity entity, the process is exactly the same for the Lead entity.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-espocrm-02.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127998-create-a-field-like-person-name",
+      "cita": "Create an entity with Person type, and those fields will be there by default.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-espocrm-03.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127989-name-of-documents-not-shown-in-accounts-and-opportunities",
+      "cita": "Have you tried the layout for the entity documents? Look for Liste and Liste (klein)",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-espocrm-04.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127958-why-no-inline-edit-to-change-the-pipeline",
+      "cita": "For a reason. Because the inline edit will break field dependency logic.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-espocrm-05.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127951-entity-manager-relationships-create-link-panel-form-fields-mixed-up",
+      "cita": "Hi, I'm not sure if I understood correctly. If it's about the columns should be swapped, then it's an intended order. It matches the link type, e.g, one-to-many, the one is at the left, the many at the right. IIRC, it used to be flipped and users tended to confuse, after we changed to the current…",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-espocrm-06.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127945-long-term-projects-billable-hours-and-invoicing",
+      "cita": "We've done some implementations of EspoCRM for our clients. On of them was working in project base mode, so we've recommended to purchase a Project Management pack from EspoCRM & we've created separate entity for calculating the costs of the project. Additionally we've installed him our Time…",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-espocrm-07.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127914-syntax-error-with-while",
+      "cita": "ciryaj, Please describe in more detail what you are trying to do. At first glance there are two problems: 1. There is a difference between cellphoneIds and cellphonIds -- the letter \"e\" is missing. 2. \"$i = $i + 1\" should be inside a while.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-espocrm-08.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127902-collaborators-option-missing-in-meetings",
+      "cita": "Greetings Daniel, The collaborator feature is not available for the Meetings entity since a similar User Attendees feature is already present there. In any other cases, collaborators' functionality would lead to unexpected behavior in the Meeting entity.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-espocrm-09.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127897-login-problems",
+      "cita": "I had that issue before, but now it's fine. I'm working now on edge.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-espocrm-10.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127875-search-by-contact-name",
+      "cita": "Text search - EspoCRM Documentation https://docs.espocrm.com/user-guide/text-search/#full-text-search",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-espocrm-11.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127872-extending-permission-schema-for-portal-roles",
+      "cita": "Hi Michael, Having a custom role level (on top of the existing all, account, contact, own, no) is not trivial. I think there's no future-proof way to extend it. It's worth to consider re-purposning the 'account' level while a custom access control logic will take into account the account type (of…",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-espocrm-12.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127821-error-in-activity-email-call-meeting-displayed-titles",
+      "cita": "Greetings, This functionality is intended, and you can change the general Label view for entire instance in Administration > Label Manager > Global. ​​",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-espocrm-13.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127818-does-not-import-all-fields",
+      "cita": "As Contact Name, Phone and Email are not direct Opportunity fields and belong to the linked Contact record. The safest approach is normally a two-step import: 1. Import the Contacts first, using a unique value such as the email address or an external ID. 2. Import the Opportunities afterward and…",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-espocrm-14.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127791-percentage-report",
+      "cita": "In this case I would recommend considering the Join Grid Reports functionality. However, the main issue that I see here is where to properly store aggregate values so they can be calculated further (or calculated values already so they can be used in the target Report). The easiest but definitely…",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-espocrm-15.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127760-content-of-group-inbox-not-visible-for-team-members",
+      "cita": "Hi, Currently, when an email falls to a group folder it receives only the group folder team(s) but it's not associated with all team members. It was planned to change it so that it is also associated with team members, and also unassociated when the email is moved out from the group folder. As a…",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-espocrm-16.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127721-how-to-configure-email-access-for-different-users",
+      "cita": "Please describe in more detail what result you are trying to achieve.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-espocrm-17.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127705-api-ability-to-send-pfd-invoices-via-email",
+      "cita": "Hi Terry, Technically, everything a user can do via the UI can be done via the API. While there might be no single endpoint for a particular task, one can combine a few requests to achieve what is needed. For invoice email sending, it's two requests: - Prepare attributes for an email, with a POST…",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-espocrm-18.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127704-upload-file-attachments-to-aws-s3-storage",
+      "cita": "This documentation article describes AWS as an alternative to storing ALL attachments instead of the data/upload directory.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-espocrm-19.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127688-taxcode-by-default",
+      "cita": "You can create your tax profiles and in the Entity Manager>Quote>Tax Profile - Select the Created Tax Profile as the Default one. Repeat the same in the Entity Manager for Sales Order, Invoice, and other Purchase Entities",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-espocrm-20.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127670-account-field-displays-id-instead-of-account-name-when-creating-a-case-from-portal",
+      "cita": "It's an expected behavior. Default value for link field shows ID · Issue #3302 · espocrm/espocrm https://github.com/espocrm/espocrm/issues/3302 Describe the bug I created a custom entity called CTimeOff. One of the fields is a Many-to-One relationship with Accounts. When creating a new CTimeOff…",
+      "consultado": "2026-09-28",
+      "captura": "A-11-12-espocrm-21.png"
+    }
+  ],
+  "medicion": "9 resueltas en la semana · 12 con respuesta tardía o sin confirmar · 0 sin respuesta · primera respuesta típica a la hora",
+  "criterioNombre": "Comunidad activa de usuarios",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-28T20:47:29.045Z"
+}

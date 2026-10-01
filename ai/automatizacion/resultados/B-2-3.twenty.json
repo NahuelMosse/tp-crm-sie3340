@@ -1,0 +1,17 @@
+{
+  "criterio": "B.2.3",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "Además del CRM, el producto incluye correo, calendario, notas, tareas, archivos, tableros, flujos de trabajo, asistente de IA, y todas operan sobre los mismos datos: la ficha del asegurado reúne en pestañas su línea de tiempo, sus tareas, sus notas, sus archivos, sus correos y sus reuniones, y los tableros y los flujos leen y escriben los mismos registros. Faltan la mensajería instantánea entre usuarios, la edición colaborativa de documentos y la firma electrónica: para eso la compañía sigue necesitando otras herramientas, y pasar la información de una a otra es trabajo en cada uso.",
+  "evidencia": [
+    "B-2-3-twenty-1-herramientas-en-la-ficha.png",
+    "B-2-3-twenty-2-tableros.png"
+  ],
+  "medicion": "Pestañas de la ficha: Timeline, Tasks, Notes, Files, Emails, Calendar",
+  "criterioNombre": "Suite de trabajo integrada",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T03:14:31.978Z"
+}

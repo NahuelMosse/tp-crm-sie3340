@@ -1,0 +1,16 @@
+{
+  "criterio": "A.5.2",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El estado del reclamo es un campo de lista del objeto propio, con los estados que define la compañía. Se lo cambió tres veces desde la ficha y el historial del reclamo conserva la secuencia, con quién hizo cada cambio y cuándo: En curso → Resuelto → Cerrado. Los cambios que la misma persona hace sobre el mismo reclamo dentro de los diez minutos se funden en una sola entrada, que muestra el estado de partida y el último: un estado intermedio que dura menos que eso no queda registrado. Con el ritmo de un reclamo, que cambia de estado en días, cada paso queda por separado. Definir el estado es trabajo de una sola vez.",
+  "evidencia": [
+    "A-5-2-twenty-1-historial-de-estados.png"
+  ],
+  "medicion": "3 cambios de estado en el historial",
+  "criterioNombre": "Estado y seguimiento del reclamo",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T23:40:07.399Z"
+}

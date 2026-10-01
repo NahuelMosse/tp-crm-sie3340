@@ -1,0 +1,16 @@
+{
+  "criterio": "A.5.5",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "«Tareas › Crear» abre un formulario con título, responsable y fecha límite: se eligió al productor en el selector de responsable y el formulario ya propone un vencimiento. Con la sesión del productor, la tarea figura en «Mis tareas» con su fecha límite. Viene de fábrica en la edición gratuita, sin configurar nada.",
+  "evidencia": [
+    "A-5-5-bitrix24-1-tarea-creada.png",
+    "A-5-5-bitrix24-2-tareas-del-productor.png"
+  ],
+  "criterioNombre": "Tareas asignables con responsable y vencimiento",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T14:52:48.918Z"
+}

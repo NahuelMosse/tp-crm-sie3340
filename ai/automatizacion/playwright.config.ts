@@ -8,7 +8,8 @@ export default defineConfig({
   expect: { timeout: 20_000 },
   fullyParallel: false,
   workers: 1,
-  reporter: [['list'], ['html', { outputFolder: 'informe', open: 'never' }]],
+  // Con --reporter en la línea de comandos estos se reemplazan, y los videos no se conservan
+  reporter: [['list'], ['html', { outputFolder: 'informe', open: 'never' }], ['./videos.reporter.ts']],
   use: {
     // Video didáctico: resolución del viewport y ritmo humano
     video: { mode: 'on', size: { width: 1440, height: 900 } },
@@ -18,14 +19,32 @@ export default defineConfig({
     viewport: { width: 1440, height: 900 },
     actionTimeout: 25_000,
     ignoreHTTPSErrors: true,
-    // slowMo solo en modo narrado: si no, contamina los tiempos medidos
-    launchOptions: { slowMo: process.env.NARRAR === '1' ? 450 : 0 },
+    // Ritmo de una persona entre acción y acción, para que el video se pueda seguir.
+    // Los tiempos que decide un criterio se toman del pedido al servidor, no del reloj
+    // de la prueba, así que esta pausa no los toca
+    launchOptions: { slowMo: process.env.NARRAR === '1' ? 700 : 350 },
   },
   projects: [
     {
       name: 'espocrm',
       testMatch: [/espocrm[\\/].*\.spec\.ts/, /criterios[\\/].*\.spec\.ts/, /descubrir\.spec\.ts/],
       use: { baseURL: 'http://localhost:8705' },
+    },
+    // Deja listos los productores de la prueba de aprendizaje (A.11.5), antes de darles la consigna
+    {
+      name: 'aprendizaje-preparar',
+      testMatch: /aprendizaje[\\/]preparar\.spec\.ts/,
+      use: { baseURL: 'http://localhost:8705' },
+    },
+    {
+      name: 'aprendizaje-preparar-twenty',
+      testMatch: /aprendizaje[\\/]preparar-twenty\.spec\.ts/,
+      use: { baseURL: 'http://localhost:8704' },
+    },
+    {
+      name: 'aprendizaje-preparar-bitrix24',
+      testMatch: /aprendizaje[\\/]preparar-bitrix24\.spec\.ts/,
+      use: { baseURL: 'https://b24-orshha.bitrix24.es', storageState: 'auth-bitrix.json' },
     },
     // Genera auth-twenty.json una vez: Twenty encadena pantallas de onboarding
     {
@@ -50,7 +69,7 @@ export default defineConfig({
     // Tests normales: reusan la sesión guardada, nunca ven el captcha
     {
       name: 'bitrix24',
-      testMatch: [/bitrix24[\\/](?!login-manual).*\.spec\.ts/, /criterios[\\/].*\.spec\.ts/],
+      testMatch: /criterios[\\/].*\.spec\.ts/,
       use: {
         baseURL: 'https://b24-orshha.bitrix24.es',
         storageState: 'auth-bitrix.json',

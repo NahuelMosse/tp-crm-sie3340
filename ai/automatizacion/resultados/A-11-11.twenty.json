@@ -1,0 +1,25 @@
+{
+  "criterio": "A.11.11",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "justificacion": "El fabricante publica una guía de usuario de acceso libre, separada de la documentación para desarrolladores, con más de cien páginas: qué hace cada función y guías paso a paso para las tareas de todos los días —importar contactos, trabajar el correo y el calendario, armar vistas, tableros y flujos—. Está dirigida a quien opera el sistema, y está también en español.",
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/user-guide/data-migration/how-tos/import-contacts-via-csv",
+      "cita": "Complete step-by-step guide to importing people/contacts into Twenty.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-11-twenty-1-guias-paso-a-paso.png"
+    },
+    {
+      "url": "https://docs.twenty.com/user-guide/calendar-emails/overview",
+      "cita": "Contact Auto-Creation",
+      "consultado": "2026-09-28",
+      "captura": "A-11-11-twenty-2-guia-de-uso.png"
+    }
+  ],
+  "criterioNombre": "Material de capacitación para el usuario final",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-29T00:50:19.899Z"
+}

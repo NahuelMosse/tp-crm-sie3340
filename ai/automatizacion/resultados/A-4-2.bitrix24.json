@@ -1,0 +1,49 @@
+{
+  "criterio": "A.4.2",
+  "plataforma": "bitrix24",
+  "cumple": 0,
+  "justificacion": "En la edición gratuita no se puede crear una campaña: se abrió el segmento guardado, se marcaron sus 3 asegurados y se pidió «Crear boletín», y el sistema respondió que la herramienta «estará disponible una vez que actualice su plan»; desde Marketing, «Campaña de correo electrónico» dice que se desbloquea con el plan Standard o el Professional. El comparativo del fabricante lo confirma: el correo masivo no figura en la edición gratuita ni en el plan Basic. El producto sí la tiene: la campaña se dirige a un segmento existente y su contenido se personaliza con datos del CRM, como el nombre.",
+  "evidencia": [
+    "A-4-2-bitrix24-1-boletin-sobre-el-segmento.png",
+    "A-4-2-bitrix24-2-campana-de-correo.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
+      "cita": "Correos electrónicos masivos Número máximo de direcciones de e-mails que se pueden usar para marketing por correo electrónico para cada plan",
+      "consultado": "2026-09-29",
+      "captura": "A-4-2-bitrix24-3-correos-masivos-por-plan.png"
+    },
+    {
+      "url": "https://helpdesk.bitrix24.com/open/25753267/",
+      "cita": "Add personalization. Insert CRM data like name or birthdate.",
+      "consultado": "2026-09-29",
+      "captura": "A-4-2-bitrix24-4-personalizacion.png"
+    },
+    {
+      "url": "https://helpdesk.bitrix24.com/open/25753267/",
+      "cita": "Select a segment. Click Select segment and choose an existing one.",
+      "consultado": "2026-09-29",
+      "captura": "A-4-2-bitrix24-5-segmento-existente.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "US$ 144",
+      "consultado": "2026-09-29",
+      "captura": "A-4-2-bitrix24-standard-precio-1.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Standard",
+      "monto": "US$ 144 por mes, hasta 50 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "Con el plan Standard —el de entrada para el correo masivo, hasta 50.000 correos por mes— la campaña se arma sobre un segmento del CRM y se personaliza con variables como el nombre o la fecha de nacimiento, sin programar. Hay que dejar configurada una vez la casilla desde la que sale y el límite mensual."
+    }
+  ],
+  "criterioNombre": "Diseño de campañas sobre un segmento",
+  "licencia": null,
+  "momento": "2026-09-30T00:48:09.079Z"
+}

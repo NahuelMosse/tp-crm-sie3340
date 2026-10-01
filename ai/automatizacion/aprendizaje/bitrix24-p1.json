@@ -1,0 +1,13 @@
+{
+  "persona": 1,
+  "plataforma": "bitrix24",
+  "fecha": "2026-09-30",
+  "respuestaTarea3": 10,
+  "tareas": [
+    { "tarea": 1, "termine": true, "falto": null, "captura": "A-11-5-bitrix24-p1-t1.png" },
+    { "tarea": 2, "termine": true, "falto": null, "captura": "A-11-5-bitrix24-p1-t2.png" },
+    { "tarea": 3, "termine": true, "falto": null, "captura": "A-11-5-bitrix24-p1-t3.png" },
+    { "tarea": 4, "termine": false, "falto": "No encontré un lugar para registrar reclamos; dejé un comentario en la negociación de la póliza con lo que pasó, pero no es un reclamo propiamente dicho.", "captura": "A-11-5-bitrix24-p1-t4.png" },
+    { "tarea": 5, "termine": true, "falto": null, "captura": "A-11-5-bitrix24-p1-t5.png" }
+  ]
+}

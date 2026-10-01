@@ -181,14 +181,14 @@ Los procedimientos se ejecutaron de forma automatizada siempre que fue posible, 
 | A.11.2 | Compatibilidad con la plataforma que la compañía usa | Determinar sobre qué sistemas operativos y motores de base de datos corre, y si alguno de ellos es de los que la compañía ya administra |
 | A.11.3 | Puesta en marcha sin perfil técnico especializado | Llevar el sistema de cero a operativo y determinar si lo completa alguien sin perfil técnico, si exige conocimientos puntuales guiados por la documentación, o si requiere un perfil que la compañía no tiene |
 | A.11.4 | Menú y navegabilidad para la operación diaria | Registrar un asegurado con su póliza desde el ingreso, y determinar si el menú lleva a cada función donde se la espera y si el alta se completa en un solo recorrido, o si obliga a volver sobre pantallas ya visitadas |
-| A.11.5 | Aprendizaje sin capacitación previa | Pedir a tres personas ajenas al proyecto que completen las mismas cinco tareas sin instrucción, y registrar si las tres las completan, si alguna queda pendiente aunque quien la intentó sepa decir qué le faltó, o si hay tareas que ninguna logra |
+| A.11.5 | Aprendizaje sin capacitación previa | Dar a tres agentes independientes, sin conocimiento previo de la plataforma, las mismas cinco tareas sin instrucción, y registrar si los tres las completan, si alguna queda pendiente aunque quien la intentó sepa decir qué le faltó, o si hay tareas que ninguno logra |
 | A.11.6 | Localización completa al español, modelo incluido | Recorrer el menú principal y una ficha, y determinar si todo está en español, si queda algún nombre en otro idioma que igual se entiende, o si hay nombres que impiden saber qué guarda el campo |
 | A.11.7 | Cantidad de usuarios sin límite que condicione la operación | Determinar cuántos usuarios admite la edición evaluada y contrastarlo con el plantel de productores y personal administrativo de la compañía |
 | A.11.8 | Operación concurrente sobre la misma cartera | Abrir el mismo registro con tres usuarios simultáneos, modificarlo en los tres y observar el comportamiento del sistema |
 | A.11.9 | Ecosistema de integraciones disponible | Revisar el catálogo de conectores disponibles y su accesibilidad |
 | A.11.10 | Documentación en español | Consultar la documentación oficial y verificar la disponibilidad del idioma |
 | A.11.11 | Material de capacitación para el usuario final | Buscar en la oferta del fabricante material de formación —cursos, videos o guías de uso— dirigido a quien opera el sistema y no a quien lo administra |
-| A.11.12 | Comunidad activa de usuarios | Publicar una consulta real en el foro oficial y registrar si recibe una respuesta que la resuelve dentro de la espera aceptable, si llega más tarde o sin resolver, o si no llega |
+| A.11.12 | Comunidad activa de usuarios | Tomar las 21 consultas más recientes del foro oficial que ya cumplieron la espera aceptable, y registrar para la consulta típica si recibió una respuesta que la resolvió dentro de esa espera, si llegó más tarde o sin resolver, o si no llegó |
 | A.11.13 | Soporte técnico con compromiso de respuesta | Verificar en la documentación comercial la existencia de un canal con plazo comprometido |
 | A.11.14 | Continuidad de las versiones en uso | Determinar si el fabricante publica por cuánto tiempo sostiene con correcciones una versión, y si ese plazo cubre el horizonte de planificación o fuerza a adelantar la actualización |
 
@@ -244,21 +244,23 @@ Altas, cambios de estado y cierres de reclamo de una jornada sobre esa cartera.
 |---|---|---|---|
 | **A.10.5** Intercambio sin límite de volumen | El límite publicado deja holgura sobre las 500 operaciones diarias | Las admite, pero se agota en una jornada intensa y obliga a espaciar los envíos | Queda por debajo de 500, o no está publicado |
 
-### Prueba de aprendizaje — **5 tareas, 3 personas**
+### Prueba de aprendizaje — **5 tareas, 3 agentes**
 
-Las cinco operaciones que un productor repite a diario. Tres personas, para que una dificultad individual no defina el resultado.
+Las cinco operaciones que un productor repite a diario. Tres agentes independientes, para que un recorrido individual no defina el resultado.
 
 | Criterio | 2 | 1 | 0 |
 |---|---|---|---|
-| **A.11.4** Aprendizaje sin capacitación previa | Las tres personas completan las cinco tareas | Alguna queda sin completar, y quien la intentó sabe decir qué le faltó | Hay tareas que ninguna de las tres logra completar |
+| **A.11.5** Aprendizaje sin capacitación previa | Los tres completan las cinco tareas | Alguna queda sin completar, y quien la intentó sabe decir qué le faltó | Hay tareas que ninguno de los tres logra completar |
 
 ### Espera aceptable en el foro — **1 semana**
 
 Una consulta de configuración no puede detener la operación más de un ciclo semanal de trabajo.
 
+Cada una de las 21 consultas se clasifica con la tabla, y el criterio toma el valor de la consulta típica: la del medio, con las 21 ordenadas. Que sean impares hace que la del medio sea siempre una consulta real, sin promedios.
+
 | Criterio | 2 | 1 | 0 |
 |---|---|---|---|
-| **A.11.9** Comunidad activa de usuarios | Llega una respuesta que resuelve la consulta dentro de la semana | Llega después de la semana, o antes pero sin resolver | No llega respuesta |
+| **A.11.12** Comunidad activa de usuarios | Llega una respuesta que resuelve la consulta dentro de la semana | Llega después de la semana, o antes pero sin resolver | No llega respuesta |
 
 ### Horizonte de planificación — **12 meses**
 
@@ -266,7 +268,7 @@ La compañía planifica sus cambios de sistema por ejercicio anual.
 
 | Criterio | 2 | 1 | 0 |
 |---|---|---|---|
-| **A.11.11** Continuidad de las versiones | El fabricante sostiene cada versión doce meses o más, de modo que la actualización entra en el plan del ejercicio | Publica un plazo menor, que obliga a adelantar la actualización | No publica ningún compromiso |
+| **A.11.14** Continuidad de las versiones | El fabricante sostiene cada versión doce meses o más, de modo que la actualización entra en el plan del ejercicio | Publica un plazo menor, que obliga a adelantar la actualización | No publica ningún compromiso |
 
 **Estas cinco son las únicas cifras del análisis.** Los demás criterios se responden con la escala de la sección 3, y su propio procedimiento dice qué distingue una respuesta de otra: no hay ningún otro número que decida un valor.
 
@@ -278,7 +280,7 @@ Se evaluó su incorporación y se resolvió excluirlos, por tres motivos distint
 
 | Criterio considerado | Por qué no discrimina |
 |---|---|
-| Cantidad de idiomas disponibles | Las tres superan holgadamente lo necesario; solo importa la calidad del español, evaluada en A.11.5 |
+| Cantidad de idiomas disponibles | Las tres superan holgadamente lo necesario; solo importa la calidad del español, evaluada en A.11.6 |
 | Estilo de la interfaz de programación | Las tres ofrecen una; el estilo es una preferencia técnica sin consecuencia para el negocio |
 
 **Ya están cubiertos por otro criterio.**

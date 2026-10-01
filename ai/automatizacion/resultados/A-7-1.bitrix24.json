@@ -1,0 +1,16 @@
+{
+  "criterio": "A.7.1",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "El listado de contactos trae un asistente de importación de planillas CSV, sin configurar nada: se sube el archivo con el botón «Subir archivo», se elige la codificación y el delimitador, se relacionan las columnas con los campos y se importa. El asistente reconoció solo nombre y apellido; la columna del correo, con otro rótulo, se relacionó a mano con «E-mail del trabajo» en el paso de mapeo. Se cargó una planilla de diez asegurados con tildes y eñes en los apellidos y ingresaron los diez con sus correos y la acentuación intacta.",
+  "evidencia": [
+    "A-7-1-bitrix24-1-resultado.png"
+  ],
+  "medicion": "10 de 10 contactos importados",
+  "criterioNombre": "Importación de contactos desde planilla de cálculo",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T13:13:15.726Z"
+}

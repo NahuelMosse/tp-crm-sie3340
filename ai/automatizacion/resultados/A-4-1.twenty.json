@@ -1,0 +1,17 @@
+{
+  "criterio": "A.4.1",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "Desde el listado de asegurados se definió un conjunto por un criterio —los que están a cargo de un productor— y se lo guardó con nombre como una vista, desde el propio filtro. Al volver al listado, el segmento figura en el selector de vistas; al abrirlo trajo de nuevo los mismos asegurados, y como el filtro se guarda y no la lista, un asegurado que cumpla el criterio más adelante entra solo. Viene listo.",
+  "evidencia": [
+    "A-4-1-twenty-1-segmento-guardado.png",
+    "A-4-1-twenty-2-segmento-reabierto.png"
+  ],
+  "medicion": "3 asegurados en el segmento",
+  "criterioNombre": "Segmentación reutilizable de la cartera",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T02:05:47.574Z"
+}

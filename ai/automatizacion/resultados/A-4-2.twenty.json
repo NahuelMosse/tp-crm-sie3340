@@ -1,0 +1,24 @@
+{
+  "criterio": "A.4.2",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "La edición evaluada no trae campañas: el fabricante las tiene en beta y las habilita a pedido. Se armó una con un flujo de trabajo que se lanza sobre los registros marcados y le envía a cada uno un correo desde la casilla comercial, con su nombre en el asunto. Se abrió el segmento guardado, se marcaron sus 3 asegurados, se lanzó la campaña y cada uno recibió su mensaje, personalizado —«Su póliza vence pronto, Sofía»—. Funciona, pero cada campaña nueva es un flujo nuevo que alguien tiene que armar, y no hay dónde programarla, darle de baja a un destinatario ni ver sus resultados.",
+  "evidencia": [
+    "A-4-2-twenty-1-campana.png",
+    "A-4-2-twenty-2-campana-lanzada.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/user-guide/email-campaigns/overview",
+      "cita": "Beta Feature: Email campaigns are in beta. Contact us via chat to enable them for your workspace.",
+      "consultado": "2026-09-28",
+      "captura": "A-4-2-twenty-3-campanas-en-beta.png"
+    }
+  ],
+  "medicion": "3 de 3 mensajes recibidos",
+  "criterioNombre": "Diseño de campañas sobre un segmento",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T02:12:51.517Z"
+}

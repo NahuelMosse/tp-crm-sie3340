@@ -1,0 +1,21 @@
+{
+  "criterio": "A.10.5",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "En la instalación propia la interfaz de programación no tiene un tope publicado: no lo impone el fabricante sino el equipo donde corre. Se mandó el movimiento de un día entero —500 altas— dos veces: en ráfaga, de a diez simultáneas, y de a una. Las dos veces el sistema aceptó las quinientas: en ráfaga llevó alrededor de un minuto, y de a una unos cinco. En una corrida anterior, con el equipo ocupado por otros procesos, tres de quinientas altas en ráfaga fueron rechazadas y pasaron al repetirlas: el límite es el del equipo, no una cuota del producto. El movimiento de un día entra con holgura en minutos, y la sincronización con otros sistemas no tiene que espaciarse más allá de reintentar lo que falle.",
+  "documentacion": [
+    {
+      "url": "https://docs.espocrm.com/development/api/",
+      "cita": "Authentication by API Key",
+      "consultado": "2026-09-28",
+      "captura": "A-10-5-espocrm-1-sin-limite-publicado.png"
+    }
+  ],
+  "medicion": "ráfaga de 10 simultáneas: {\"200\":500} en 157 s · de a una: {\"200\":500} en 629 s",
+  "criterioNombre": "Intercambio sin límite de volumen que condicione la operación",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-28T20:35:05.487Z"
+}

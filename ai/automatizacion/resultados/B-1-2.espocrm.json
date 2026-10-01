@@ -1,0 +1,20 @@
+{
+  "criterio": "B.1.2",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "justificacion": "Se obtuvo una copia completa con el procedimiento oficial: el volcado de la base de datos y el archivo de la carpeta de datos, que es donde el sistema guarda los adjuntos. La copia se restituyó en una base de datos aparte y la cartera volvió entera: 22 asegurados y 44 pólizas, los mismos que en el sistema en uso. La compañía tiene en su poder toda la información en formatos abiertos y no depende de nadie para recuperarla.",
+  "documentacion": [
+    {
+      "url": "https://docs.espocrm.com/administration/backup-and-restore/",
+      "cita": "Create an archive of the entire directory contents of the EspoCRM instance. You can use the following command:",
+      "consultado": "2026-09-28",
+      "captura": "B-1-2-espocrm-1-procedimiento.png"
+    }
+  ],
+  "medicion": "Base de 26255 KB y 73 archivos de datos en 392 KB; restituida sin diferencias",
+  "criterioNombre": "Copia propia y completa de la cartera",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-29T01:22:00.447Z"
+}

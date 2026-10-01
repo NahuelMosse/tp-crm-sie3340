@@ -1,0 +1,21 @@
+{
+  "criterio": "A.11.7",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "justificacion": "La edición evaluada se distribuye bajo una licencia libre que no limita la cantidad de usuarios, y la instalación no impone ningún tope: se dan de alta los que la compañía necesite, sea cual fuere su plantel de productores y de personal administrativo. El único límite es el del equipo donde corre. Los topes que publica el fabricante corresponden a los planes de la nube, que se cobran por usuario.",
+  "evidencia": [
+    "A-11-7-espocrm-2-usuarios.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://github.com/espocrm/espocrm",
+      "cita": "EspoCRM is an open-source project licensed under GNU AGPLv3.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-7-espocrm-1-licencia.png"
+    }
+  ],
+  "criterioNombre": "Cantidad de usuarios sin límite que condicione la operación",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-28T20:42:50.989Z"
+}

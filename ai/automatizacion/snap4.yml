@@ -1,0 +1,362 @@
+- generic [active] [ref=f99e1]:
+  - generic [ref=f99e4]:
+    - generic [ref=f99e7]:
+      - generic [ref=f99e8]:
+        - button "U Unimoron" [ref=f99e10]:
+          - generic [ref=f99e11] [cursor=pointer]:
+            - generic [ref=f99e12]: U
+            - generic [ref=f99e14]: Unimoron
+        - generic [ref=f99e21]:
+          - button "Buscar" [ref=f99e658] [cursor=pointer]
+          - button "Contraer panel de navegación" [ref=f99e659] [cursor=pointer]
+      - generic [ref=f99e35]:
+        - tablist "Pestañas de navegación" [ref=f99e660]:
+          - tab "Inicio" [selected] [ref=f99e661] [cursor=pointer]
+          - tab "Chat" [ref=f99e44] [cursor=pointer]
+        - button "Nuevo chat" [ref=f99e662] [cursor=pointer]
+      - generic [ref=f99e59]:
+        - generic [ref=f99e60]: Espacio de trabajo
+        - generic [ref=f99e70]:
+          - link "Companies" [ref=f99e72] [cursor=pointer]:
+            - /url: /objects/companies?viewId=085257b7-0ec9-4d7c-85bd-1ecb5000a0cd
+          - link "People" [ref=f99e82] [cursor=pointer]:
+            - /url: /objects/people?viewId=c6da8283-79b8-4080-9444-aceab55e5ce0
+          - link "Opportunities" [ref=f99e92] [cursor=pointer]:
+            - /url: /objects/opportunities?viewId=27ba9132-981c-428d-a7aa-1512117202eb
+          - link "Tasks" [ref=f99e105] [cursor=pointer]:
+            - /url: /objects/tasks?viewId=d6c73a4d-9b96-496f-921a-616a91b43b37
+          - link "Notes" [ref=f99e115] [cursor=pointer]:
+            - /url: /objects/notes?viewId=61367473-9545-40d6-85a2-744d771222e6
+          - link "Dashboards" [ref=f99e124] [cursor=pointer]:
+            - /url: /objects/dashboards?viewId=369176f3-8d66-4b18-93b3-a272c62f1567
+          - link "Reclamos" [ref=f99e136] [cursor=pointer]:
+            - /url: /objects/reclamos?viewId=9c369a94-00d7-4c59-ae70-0099b4f9556b
+          - link "Pólizas" [ref=f99e145] [cursor=pointer]:
+            - /url: /objects/polizas?viewId=0d8d76d5-137e-49d2-8be4-202fc39ebc3f
+          - link "Artículos" [ref=f99e155] [cursor=pointer]:
+            - /url: /objects/articulos?viewId=c567cb39-2423-436c-86ab-a893624af1cc
+          - link "Inspecciones" [ref=f99e165] [cursor=pointer]:
+            - /url: /objects/inspecciones?viewId=121d5d64-2541-438f-aef9-7307ec54eeb6
+    - generic [ref=f99e176]:
+      - generic [ref=f99e1247]:
+        - generic [ref=f99e1249]:
+          - generic [ref=f99e1250]: Reclamos
+          - generic [ref=f99e1256]:
+            - button "Create new Reclamo" [ref=f99e66267] [cursor=pointer]:
+              - generic [ref=f99e1264]:
+                - generic [ref=f99e1265]: New Reclamo
+                - generic [ref=f99e1266]: ...
+            - button "Menú de Comandos" [ref=f99e1269] [cursor=pointer]
+        - generic [ref=f99e1276]:
+          - button "All Reclamos · 7" [ref=f99e66936]:
+            - generic [ref=f99e1279] [cursor=pointer]:
+              - generic [ref=f99e1282]: All Reclamos
+              - generic [ref=f99e1284]: · 7
+          - generic [ref=f99e1287]:
+            - button [ref=f99e1288]:
+              - button "Filtro" [ref=f99e1289] [cursor=pointer]
+            - button [ref=f99e1290]:
+              - button "Ordenar" [ref=f99e1291] [cursor=pointer]
+            - button [ref=f99e1292]:
+              - button "Opciones" [ref=f99e1293] [cursor=pointer]
+        - generic [ref=f99e66270]:
+          - generic [ref=f99e66271]:
+            - generic [ref=f99e66272] [cursor=pointer]
+            - generic [ref=f99e66274] [cursor=pointer]:
+              - checkbox "Seleccionar todas las filas" [ref=f99e66275]
+              - checkbox [aria-hidden] [ref=f99e66277]
+            - generic [ref=f99e66278] [cursor=pointer]:
+              - button "Name" [ref=f99e66279]
+              - separator [ref=f99e66287]
+            - generic [ref=f99e66291] [cursor=pointer]:
+              - separator [ref=f99e66292]
+              - button [ref=f99e66293]:
+                - button "Creation date" [ref=f99e66294]
+              - separator [ref=f99e66300]
+            - generic [ref=f99e66304] [cursor=pointer]:
+              - separator [ref=f99e66305]
+              - button [ref=f99e66306]:
+                - button "Created by" [ref=f99e66307]
+              - separator [ref=f99e66315]
+            - generic [ref=f99e66319] [cursor=pointer]:
+              - separator [ref=f99e66320]
+              - button [ref=f99e66321]:
+                - button "Last update" [ref=f99e66322]
+              - separator [ref=f99e66330]
+            - generic [ref=f99e66334] [cursor=pointer]:
+              - separator [ref=f99e66335]
+              - button [ref=f99e66336]:
+                - button "Updated by" [ref=f99e66337]
+              - separator [ref=f99e66345]
+            - generic [ref=f99e66349] [cursor=pointer]:
+              - separator [ref=f99e66350]
+              - button [ref=f99e66351]:
+                - button "Estado" [ref=f99e66352]
+              - separator [ref=f99e66359]
+            - generic [ref=f99e66363] [cursor=pointer]:
+              - separator [ref=f99e66364]
+              - button [ref=f99e66365]:
+                - button "Plazo de resolución" [ref=f99e66366]
+              - separator [ref=f99e66373]
+            - generic [ref=f99e66377] [cursor=pointer]:
+              - separator [ref=f99e66378]
+              - button [ref=f99e66379]:
+                - button "Asegurado" [ref=f99e66380]
+              - separator [ref=f99e66388]
+            - generic [ref=f99e66392] [cursor=pointer]:
+              - separator [ref=f99e66393]
+              - button [ref=f99e66394]:
+                - button "Responsable" [ref=f99e66395]
+              - separator [ref=f99e66403]
+            - generic [ref=f99e66406] [cursor=pointer]:
+              - separator [ref=f99e66407]
+              - button [ref=f99e66409]
+          - generic [ref=f99e66413]:
+            - generic [ref=f99e66416]:
+              - button [ref=f99e66418]
+              - generic [ref=f99e66425] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e66426]
+                - checkbox [aria-hidden] [ref=f99e66428]
+              - link "C Choque en estacionamiento - Martín Acosta" [ref=f99e67174] [cursor=pointer]:
+                - /url: /object/reclamo/d77a5619-9604-49bc-8404-5eed63d3831d?viewId=9c369a94-00d7-4c59-ae70-0099b4f9556b
+                - generic [ref=f99e67175]:
+                  - generic [ref=f99e67176]: C
+                  - generic [ref=f99e67178]: Choque en estacionamiento - Martín Acosta
+              - generic [ref=f99e67179]: sep 28, 2026 4:54 AM
+              - generic [ref=f99e67188]:
+                - generic [ref=f99e67189]: B
+                - generic [ref=f99e67191]: Bruno Salas
+              - generic [ref=f99e67192]: sep 28, 2026 4:54 AM
+              - generic [ref=f99e67201]:
+                - generic [ref=f99e67202]: B
+                - generic [ref=f99e67204]: Bruno Salas
+              - generic [ref=f99e67206] [cursor=pointer]
+              - generic [ref=f99e67210] [cursor=pointer]
+              - generic [ref=f99e67215] [cursor=pointer]
+              - generic [ref=f99e67219] [cursor=pointer]
+            - generic [ref=f99e66496]:
+              - button [ref=f99e66498]
+              - generic [ref=f99e66505] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e66506]
+                - checkbox [aria-hidden] [ref=f99e66508]
+              - link "R RCL-PLAZO-TRES-SEMANAS" [ref=f99e67227] [cursor=pointer]:
+                - /url: /object/reclamo/35c74891-ae1d-4253-92a5-1d1c74f2af56?viewId=9c369a94-00d7-4c59-ae70-0099b4f9556b
+                - generic [ref=f99e67228]:
+                  - generic [ref=f99e67229]: R
+                  - generic [ref=f99e67231]: RCL-PLAZO-TRES-SEMANAS
+              - generic [ref=f99e67232]: sep 28, 2026 4:50 AM
+              - generic [ref=f99e67241]:
+                - generic [ref=f99e67242]: T
+                - generic [ref=f99e67244]: TP TP
+              - generic [ref=f99e67245]: sep 28, 2026 4:50 AM
+              - generic [ref=f99e67254]:
+                - generic [ref=f99e67255]: T
+                - generic [ref=f99e67257]: TP TP
+              - generic [ref=f99e67258]: Nuevo
+              - generic [ref=f99e67264]: oct 19, 2026
+              - link "J Joaquín Peña" [ref=f99e67274] [cursor=pointer]:
+                - /url: /object/person/6a07c36b-51aa-4d1e-b502-b4b4ab7d510c
+                - generic [ref=f99e67275]:
+                  - generic [ref=f99e67276]: J
+                  - generic [ref=f99e67278]: Joaquín Peña
+              - generic [ref=f99e67283] [cursor=pointer]:
+                - generic [ref=f99e67284]: P
+                - generic [ref=f99e67286]: Pablo Gómez
+            - generic [ref=f99e66576]:
+              - button [ref=f99e66578]
+              - generic [ref=f99e66585] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e66586]
+                - checkbox [aria-hidden] [ref=f99e66588]
+              - link "R RCL-PLAZO-MANANA" [ref=f99e67292] [cursor=pointer]:
+                - /url: /object/reclamo/9c4c13fb-dd81-4e6d-923e-3c3aa7f29a73?viewId=9c369a94-00d7-4c59-ae70-0099b4f9556b
+                - generic [ref=f99e67293]:
+                  - generic [ref=f99e67294]: R
+                  - generic [ref=f99e67296]: RCL-PLAZO-MANANA
+              - generic [ref=f99e67297]: sep 28, 2026 4:50 AM
+              - generic [ref=f99e67306]:
+                - generic [ref=f99e67307]: T
+                - generic [ref=f99e67309]: TP TP
+              - generic [ref=f99e67310]: sep 28, 2026 4:50 AM
+              - generic [ref=f99e67319]:
+                - generic [ref=f99e67320]: T
+                - generic [ref=f99e67322]: TP TP
+              - generic [ref=f99e67323]: Nuevo
+              - generic [ref=f99e67329]: sep 29, 2026
+              - link "M María Belén Gutiérrez" [ref=f99e67339] [cursor=pointer]:
+                - /url: /object/person/395a562e-0ff1-488a-9abc-80d77d3b2ff3
+                - generic [ref=f99e67340]:
+                  - generic [ref=f99e67341]: M
+                  - generic [ref=f99e67343]: María Belén Gutiérrez
+              - generic [ref=f99e67348] [cursor=pointer]:
+                - generic [ref=f99e67349]: P
+                - generic [ref=f99e67351]: Pablo Gómez
+            - generic [ref=f99e66644]:
+              - button [ref=f99e66646]
+              - generic [ref=f99e66653] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e66654]
+                - checkbox [aria-hidden] [ref=f99e66656]
+              - link "R Reclamo tomado sin conexión externa" [ref=f99e67357] [cursor=pointer]:
+                - /url: /object/reclamo/15627fbe-9121-433f-8131-95debcc8c4b0?viewId=9c369a94-00d7-4c59-ae70-0099b4f9556b
+                - generic [ref=f99e67358]:
+                  - generic [ref=f99e67359]: R
+                  - generic [ref=f99e67361]: Reclamo tomado sin conexión externa
+              - generic [ref=f99e67362]: sep 28, 2026 4:33 AM
+              - generic [ref=f99e67371]:
+                - generic [ref=f99e67372]: T
+                - generic [ref=f99e67374]: TP TP
+              - generic [ref=f99e67375]: sep 28, 2026 4:33 AM
+              - generic [ref=f99e67384]:
+                - generic [ref=f99e67385]: T
+                - generic [ref=f99e67387]: TP TP
+              - generic [ref=f99e67389] [cursor=pointer]
+              - generic [ref=f99e67393] [cursor=pointer]
+              - generic [ref=f99e67398] [cursor=pointer]
+              - generic [ref=f99e67402] [cursor=pointer]
+            - generic [ref=f99e66720]:
+              - button [ref=f99e66722]
+              - generic [ref=f99e66729] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e66730]
+                - checkbox [aria-hidden] [ref=f99e66732]
+              - link "C Choque de Lucía Fernández en estacionamiento" [ref=f99e67410] [cursor=pointer]:
+                - /url: /object/reclamo/6d0763d5-9ece-46dc-86ca-f5533ee875df?viewId=9c369a94-00d7-4c59-ae70-0099b4f9556b
+                - generic [ref=f99e67411]:
+                  - generic [ref=f99e67412]: C
+                  - generic [ref=f99e67414]: Choque de Lucía Fernández en estacionamiento
+              - generic [ref=f99e67415]: sep 28, 2026 4:16 AM
+              - generic [ref=f99e67424]:
+                - generic [ref=f99e67425]: A
+                - generic [ref=f99e67427]: Andrea Ríos
+              - generic [ref=f99e67428]: sep 28, 2026 4:18 AM
+              - generic [ref=f99e67437]:
+                - generic [ref=f99e67438]: A
+                - generic [ref=f99e67440]: Andrea Ríos
+              - generic [ref=f99e67441]: Nuevo
+              - generic [ref=f99e67448] [cursor=pointer]
+              - link "L Lucía Fernández" [ref=f99e67457] [cursor=pointer]:
+                - /url: /object/person/4dff0954-e330-4eff-a58d-3056d8bbc3ec
+                - generic [ref=f99e67458]:
+                  - generic [ref=f99e67459]: L
+                  - generic [ref=f99e67461]: Lucía Fernández
+              - generic [ref=f99e67463] [cursor=pointer]
+            - generic [ref=f99e66794]:
+              - button [ref=f99e66796]
+              - generic [ref=f99e66803] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e66804]
+                - checkbox [aria-hidden] [ref=f99e66806]
+              - link "C Consulta por cobertura de hogar — Peña" [ref=f99e67471] [cursor=pointer]:
+                - /url: /object/reclamo/3f614a21-e88f-47fd-a733-612ec67a85a8?viewId=9c369a94-00d7-4c59-ae70-0099b4f9556b
+                - generic [ref=f99e67472]:
+                  - generic [ref=f99e67473]: C
+                  - generic [ref=f99e67475]: Consulta por cobertura de hogar — Peña
+              - generic [ref=f99e67476]: sep 28, 2026 3:03 AM
+              - generic [ref=f99e67485]:
+                - generic [ref=f99e67486]: T
+                - generic [ref=f99e67488]: TP TP
+              - generic [ref=f99e67489]: sep 28, 2026 3:03 AM
+              - generic [ref=f99e67498]:
+                - generic [ref=f99e67499]: T
+                - generic [ref=f99e67501]: TP TP
+              - generic [ref=f99e67503] [cursor=pointer]
+              - generic [ref=f99e67507] [cursor=pointer]
+              - link "J Joaquín Peña" [ref=f99e67516] [cursor=pointer]:
+                - /url: /object/person/6a07c36b-51aa-4d1e-b502-b4b4ab7d510c
+                - generic [ref=f99e67517]:
+                  - generic [ref=f99e67518]: J
+                  - generic [ref=f99e67520]: Joaquín Peña
+              - generic [ref=f99e67522] [cursor=pointer]
+            - generic [ref=f99e67525]:
+              - button [ref=f99e67527]
+              - generic [ref=f99e67534] [cursor=pointer]:
+                - checkbox "Seleccionar fila" [ref=f99e67535]
+                - checkbox [aria-hidden] [ref=f99e67537]
+              - link "C Choque en estacionamiento" [ref=f99e67543] [cursor=pointer]:
+                - /url: /object/reclamo/d346f8cb-9f43-4020-a0bf-06bef5199067?viewId=9c369a94-00d7-4c59-ae70-0099b4f9556b
+                - generic [ref=f99e67544]:
+                  - generic [ref=f99e67545]: C
+                  - generic [ref=f99e67547]: Choque en estacionamiento
+              - generic [ref=f99e67548]: sep 28, 2026 2:05 AM
+              - generic [ref=f99e67557]:
+                - generic [ref=f99e67558]: T
+                - generic [ref=f99e67560]: TP TP
+              - generic [ref=f99e67561]: sep 28, 2026 2:33 AM
+              - generic [ref=f99e67570]:
+                - generic [ref=f99e67571]: T
+                - generic [ref=f99e67573]: TP TP
+              - generic [ref=f99e67574]: Cerrado
+              - generic [ref=f99e67581] [cursor=pointer]
+              - link "S Sofía Ibáñez" [ref=f99e67590] [cursor=pointer]:
+                - /url: /object/person/33872d4e-e7f1-49c3-9b7e-e81288afd307
+                - generic [ref=f99e67591]:
+                  - generic [ref=f99e67592]: S
+                  - generic [ref=f99e67594]: Sofía Ibáñez
+              - generic [ref=f99e67599] [cursor=pointer]:
+                - generic [ref=f99e67600]: P
+                - generic [ref=f99e67602]: Pablo Gómez
+            - generic [ref=f99e66873]: Agregar nuevo
+          - generic [ref=f99e66882]:
+            - button "Calcular" [ref=f99e66886] [cursor=pointer]
+            - button [ref=f99e66895] [cursor=pointer]
+            - button [ref=f99e66900] [cursor=pointer]
+            - button [ref=f99e66905] [cursor=pointer]
+            - button [ref=f99e66910] [cursor=pointer]
+            - button [ref=f99e66915] [cursor=pointer]
+            - button [ref=f99e66920] [cursor=pointer]
+            - button [ref=f99e66925] [cursor=pointer]
+            - button [ref=f99e66930] [cursor=pointer]
+      - complementary [ref=f99e635]:
+        - generic [ref=f99e66964]:
+          - generic [ref=f99e66966]:
+            - generic [ref=f99e66968]:
+              - generic [ref=f99e66969]: C
+              - generic [ref=f99e66972]:
+                - generic [ref=f99e66973]: Choque en estacionamiento - Martín Acosta
+                - generic [ref=f99e66981]: Created ahora
+            - generic [ref=f99e66982]:
+              - button "Expandir registro" [ref=f99e66984] [cursor=pointer]
+              - button "Cerrar panel lateral" [ref=f99e66991] [cursor=pointer]
+          - generic [ref=f99e66997]:
+            - generic [ref=f99e67000]:
+              - generic [ref=f99e67002]:
+                - generic [ref=f99e67003]:
+                  - button "Home" [ref=f99e67005] [cursor=pointer]
+                  - button "Timeline" [ref=f99e67012] [cursor=pointer]
+                  - button "Tasks" [ref=f99e67018] [cursor=pointer]
+                - button [ref=f99e67024]:
+                  - button "+2 Más" [ref=f99e67027] [cursor=pointer]
+              - button "Creation date sep 28, 2026 4:54 AM Created by B Bruno Salas Last update sep 28, 2026 4:54 AM Updated by B Bruno Salas Estado Estado Plazo de resolución Plazo de resolución Asegurado Asegurado Responsable Responsable" [disabled] [ref=f99e67035]:
+                - generic [ref=f99e67039]:
+                  - generic [ref=f99e67040]:
+                    - generic [ref=f99e67041]: Creation date
+                    - generic [ref=f99e67047]: sep 28, 2026 4:54 AM
+                  - generic [ref=f99e67052]:
+                    - generic [ref=f99e67053]: Created by
+                    - generic [ref=f99e67065]:
+                      - generic [ref=f99e67066]: B
+                      - generic [ref=f99e67068]: Bruno Salas
+                  - generic [ref=f99e67069]:
+                    - generic [ref=f99e67070]: Last update
+                    - generic [ref=f99e67078]: sep 28, 2026 4:54 AM
+                  - generic [ref=f99e67083]:
+                    - generic [ref=f99e67084]: Updated by
+                    - generic [ref=f99e67096]:
+                      - generic [ref=f99e67097]: B
+                      - generic [ref=f99e67099]: Bruno Salas
+                  - generic [ref=f99e67100] [cursor=pointer]:
+                    - generic [ref=f99e67101]: Estado
+                    - generic [ref=f99e67108]: Estado
+                  - generic [ref=f99e67113] [cursor=pointer]:
+                    - generic [ref=f99e67114]: Plazo de resolución
+                    - generic [ref=f99e67121]: Plazo de resolución
+                  - generic [ref=f99e67126] [cursor=pointer]:
+                    - generic [ref=f99e67127]: Asegurado
+                    - generic [ref=f99e67135]: Asegurado
+                  - generic [ref=f99e67140] [cursor=pointer]:
+                    - generic [ref=f99e67141]: Responsable
+                    - generic [ref=f99e67149]: Responsable
+            - generic [ref=f99e67155]:
+              - button [ref=f99e67156]:
+                - button "Opciones" [ref=f99e67157] [cursor=pointer]
+              - button "Add to Favorites" [ref=f99e67165] [cursor=pointer]
+  - status [ref=f99e66934]
+  - status [ref=f99e66935]
+  - status [ref=f99e67168]

@@ -1,0 +1,42 @@
+{
+  "criterio": "B.2.1",
+  "plataforma": "espocrm",
+  "cumple": 0,
+  "justificacion": "La edición gratuita no incluye un asistente de inteligencia artificial: la administración no ofrece ninguna función de ese tipo y el fabricante la vende como extensión aparte. Con ella el sistema resume registros, redacta correos y clasifica o extrae datos con fórmulas, usando el proveedor de inteligencia artificial que la compañía elija y contrate.",
+  "evidencia": [
+    "B-2-1-espocrm-1-administracion.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.espocrm.com/extensions/intelligence/",
+      "cita": "Summary",
+      "consultado": "2026-09-28",
+      "captura": "B-2-1-espocrm-2-intelligence.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extensions/intelligence/",
+      "cita": "$129.00 1 Year License + Upgrades",
+      "consultado": "2026-09-28",
+      "captura": "B-2-1-espocrm-precio-1.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extension-license-agreement/",
+      "cita": "1.1 Subject to your continuous compliance with the Agreement and payment of the applicable license fees, EspoCRM grants you a non-exclusive, non-transferable, worldwide, limited right to use the Software on a single EspoCRM Application instance on a single server for the Licensed Period. After the license period expires, you must renew or purchase a new license to continue using the Software. You may use or modify the Software only for your own internal business purposes or for non-commercial or personal use.",
+      "consultado": "2026-09-28",
+      "captura": "B-2-1-espocrm-precio-2.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "Intelligence",
+      "monto": "US$ 129 por año y por instalación",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "La extensión agrega el resumen de registros y la redacción asistida. Requiere configurar la cuenta de un proveedor de inteligencia artificial, que se contrata y se paga aparte."
+    }
+  ],
+  "criterioNombre": "Asistente de inteligencia artificial",
+  "licencia": null,
+  "momento": "2026-09-28T21:43:34.145Z"
+}

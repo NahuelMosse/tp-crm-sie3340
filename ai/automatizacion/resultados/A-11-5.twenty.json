@@ -1,0 +1,29 @@
+{
+  "criterio": "A.11.5",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "justificacion": "Tres agentes independientes, sin conocimiento previo de la plataforma, intentaron sin instrucción las cinco operaciones que un productor repite a diario —dar de alta un asegurado, cargarle una póliza, averiguar qué pólizas de su cartera vencen en los próximos 30 días, registrar un reclamo y agendar un llamado—, operando la pantalla como lo haría una persona. Completaron 14 de las quince, según lo que quedó guardado en el sistema. Cada tarea la completó al menos uno, pero la tarea 3 quedó sin completar para el agente 1 (respondió 18; la respuesta correcta es 3), que no supo decir qué le faltó. Que quien no la terminó no sepa decir qué le faltó no impide que otro la complete: el sistema se deja aprender, con un tropiezo que la compañía asume en cada incorporación.",
+  "evidencia": [
+    "A-11-5-twenty-p1-t1.png",
+    "A-11-5-twenty-p1-t2.png",
+    "A-11-5-twenty-p1-t3.png",
+    "A-11-5-twenty-p1-t4.png",
+    "A-11-5-twenty-p1-t5.png",
+    "A-11-5-twenty-p2-t1.png",
+    "A-11-5-twenty-p2-t2.png",
+    "A-11-5-twenty-p2-t3.png",
+    "A-11-5-twenty-p2-t4.png",
+    "A-11-5-twenty-p2-t5.png",
+    "A-11-5-twenty-p3-t1.png",
+    "A-11-5-twenty-p3-t2.png",
+    "A-11-5-twenty-p3-t3.png",
+    "A-11-5-twenty-p3-t4.png",
+    "A-11-5-twenty-p3-t5.png"
+  ],
+  "medicion": "14 de 15 tareas completadas",
+  "criterioNombre": "Aprendizaje sin capacitación previa",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T08:21:04.210Z"
+}

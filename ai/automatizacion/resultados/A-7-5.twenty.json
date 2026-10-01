@@ -1,0 +1,24 @@
+{
+  "criterio": "A.7.5",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "Los datos entran por el asistente de importación de cada listado, que acepta .xls, .xlsx, .csv: la planilla de cálculo se sube tal cual, sin pasarla antes a texto. Salen exportando la vista del listado a un archivo CSV, que la planilla abre directamente, y por las interfaces de programación REST y GraphQL en JSON, que es el formato de intercambio entre sistemas. Los formatos que la compañía usa están cubiertos de fábrica.",
+  "evidencia": [
+    "A-7-5-twenty-1-importar-y-exportar.png",
+    "A-7-5-twenty-2-formatos-de-entrada.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/developers/extend/api",
+      "cita": "REST and GraphQL APIs generated from your workspace schema.",
+      "consultado": "2026-09-28",
+      "captura": "A-7-5-twenty-3-api.png"
+    }
+  ],
+  "medicion": "Entrada: .xls, .xlsx, .csv · salida: .csv · interfaz de programación: JSON",
+  "criterioNombre": "Formatos de intercambio aceptados",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T02:44:09.577Z"
+}

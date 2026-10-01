@@ -1,0 +1,21 @@
+{
+  "criterio": "A.11.7",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "justificacion": "El fabricante publica que la edición gratuita admite un número ilimitado de usuarios, sin costo. La compañía puede dar de alta a todo su plantel de productores y personal administrativo sin que la cantidad de usuarios sea una condición que limite la operación.",
+  "evidencia": [
+    "A-11-7-bitrix24-2-portal.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "¡Sí, lo es! El plan Free es un estado de cuenta predeterminado, en el que se puede agregar un número ilimitado de usuarios y disfrutar de las herramientas disponibles de forma totalmente gratuita durante el tiempo ilimitado. Tenga en cuenta que algunas herramientas como Telefonía y aplicaciones de Bitrix24 Market están disponibles solo en los planes pagos.",
+      "consultado": "2026-09-29",
+      "captura": "A-11-7-bitrix24-1-usuarios-ilimitados.png"
+    }
+  ],
+  "criterioNombre": "Cantidad de usuarios sin límite que condicione la operación",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T14:19:36.817Z"
+}

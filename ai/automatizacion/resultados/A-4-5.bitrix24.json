@@ -1,0 +1,29 @@
+{
+  "criterio": "A.4.5",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "El producto no trae un seguimiento de menciones en canales públicos ni de la competencia. Lo más cercano es el conector «Facebook: Comentarios» del centro de contacto, disponible en la edición gratuita, que trae los comentarios de la página propia de la compañía al CRM: cubre lo que se dice en sus propios canales, y solo ahí. El catálogo de aplicaciones tampoco ofrece una de escucha: se buscó «menciones», «social listening» y «brand monitoring» y no aparece ninguna. El fabricante promociona «monitoreo de redes desde el CRM», que en el producto es ese mismo intercambio de mensajes y comentarios propios. Para la competencia habría que resolverlo con una herramienta externa.",
+  "evidencia": [
+    "A-4-5-bitrix24-1-comentarios-de-la-pagina.png",
+    "A-4-5-bitrix24-2-market-sin-escucha.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
+      "cita": "Redes sociales y messengers Vincule diferentes redes sociales y messengers, y permita que sus clientes se comuniquen mediante el canal de comunicación que más les convenga.",
+      "consultado": "2026-09-29",
+      "captura": "A-4-5-bitrix24-3-redes-sociales.png"
+    },
+    {
+      "url": "https://www.bitrix24.com/articles/don-t-let-one-tweet-ruin-everything-10-social-media-crisis-hacks-you-need-to-know.php",
+      "cita": "Social media monitoring and engagement from your CRM",
+      "consultado": "2026-09-29",
+      "captura": "A-4-5-bitrix24-4-monitoreo-desde-el-crm.png"
+    }
+  ],
+  "criterioNombre": "Escucha de menciones en canales públicos",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-30T01:30:16.063Z"
+}

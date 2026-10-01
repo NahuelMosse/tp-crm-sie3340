@@ -1,0 +1,25 @@
+{
+  "criterio": "A.7.1",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "costo": 2,
+  "justificacion": "El asistente de importación admite archivos de texto separados por comas y la propia pantalla advierte que \"debe ser codificado en UTF-8\". Guardada así, la planilla ingresó completa: los cinco asegurados, cada columna en su campo, con tildes y eñes intactas. Guardada con la codificación predeterminada de las planillas en Windows, ingresaron todas las filas pero solo 0 de 5 conservaron nombres y domicilios sin alterar: las letras acentuadas llegaron corrompidas, sin que el sistema lo advirtiera. En los dos casos el asistente no reconoció los encabezados en español: dejó las 5 columnas sin asignar y hubo que indicar a mano a qué campo va cada una. La necesidad queda resuelta con un procedimiento que se repite en cada importación: guardar la planilla en el formato que pide el sistema y asignar sus columnas.",
+  "evidencia": [
+    "A-7-1-espocrm-1-pide-utf8.png",
+    "A-7-1-espocrm-2-planilla-de-windows.png",
+    "A-7-1-espocrm-3-planilla-utf8.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.espocrm.com/administration/import/",
+      "cita": "Select what type of records you need to import (Entity Type field). Select a CSV file. A file should be formatted in UTF-8. Select What to do?. Available options: Create Only, Create & Update, Update Only.",
+      "consultado": "2026-09-28",
+      "captura": "A-7-1-espocrm-4-documentacion.png"
+    }
+  ],
+  "medicion": "UTF-8: 5/5 intactos · codificación de Windows: 0/5 intactos",
+  "criterioNombre": "Importación de contactos desde planilla de cálculo",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-28T19:55:48.941Z"
+}

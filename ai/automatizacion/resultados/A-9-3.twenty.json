@@ -1,0 +1,16 @@
+{
+  "criterio": "A.9.3",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 0,
+  "justificacion": "Cada registro trae de fábrica una línea de tiempo con sus cambios. El productor cambió el ramo de una póliza de Automotor a Hogar desde la ficha, y el administrador, con su cuenta, encontró la constancia en la línea de tiempo de la póliza: quién lo cambió, cuándo, y el valor anterior junto al nuevo. Viene listo, sin configurar nada. Los cambios seguidos de la misma persona sobre un registro, dentro de los diez minutos, se funden en una entrada con el primer valor y el último. El registro de auditoría de todo el espacio de trabajo es aparte, y es del plan Organization.",
+  "evidencia": [
+    "A-9-3-twenty-1-constancia-del-cambio.png"
+  ],
+  "medicion": "Automotor → Hogar, por Pablo Gómez, 2026-09-29T03:29:17.691Z",
+  "criterioNombre": "Registro de quién modificó cada dato",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T03:29:59.639Z"
+}

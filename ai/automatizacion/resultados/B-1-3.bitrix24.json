@@ -1,0 +1,19 @@
+{
+  "criterio": "B.1.3",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "justificacion": "El propio fabricante genera una copia diaria de toda la cuenta, sin que nadie la programe ni la ejecute: no es una tarea que la compañía tenga que sostener. La condición se satisface con una limitación: esa copia la administra el fabricante y no la compañía, se conserva solo siete días, y restituir una fecha concreta depende de pedirlo a soporte y de que el plan contratado lo permita, así que la compañía no controla ni la retención ni la restitución de su propio resguardo.",
+  "documentacion": [
+    {
+      "url": "https://helpdesk.bitrix24.com/open/25110238/",
+      "cita": "If you accidentally delete important data like SPAs, deals, or tasks, don't worry. Bitrix24 automatically creates daily backups of all your data and keeps them safe for seven days, allowing you to restore your information with ease.",
+      "consultado": "2026-09-29",
+      "captura": "B-1-3-bitrix24-1-copias-diarias-automaticas.png"
+    }
+  ],
+  "criterioNombre": "Copia periódica sin intervención manual",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-29T23:49:06.104Z"
+}

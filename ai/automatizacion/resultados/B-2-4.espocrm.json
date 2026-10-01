@@ -1,0 +1,68 @@
+{
+  "criterio": "B.2.4",
+  "plataforma": "espocrm",
+  "cumple": 0,
+  "justificacion": "La edición gratuita no integra telefonía ni videollamada: el número de teléfono de una ficha abre el marcador del equipo, pero la llamada ocurre afuera y se registra a mano. El fabricante vende las dos funciones como extensiones separadas: una conecta la central telefónica —3CX, Asterisk, Twilio, entre otras— y la otra agrega las videollamadas.",
+  "evidencia": [
+    "B-2-4-espocrm-1-integraciones.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.espocrm.com/extensions/voip-integration/",
+      "cita": "VoIP Integration extension is an official add-on for EspoCRM. It allows EspoCRM to integrate with the following IP telephony servers and services:",
+      "consultado": "2026-09-28",
+      "captura": "B-2-4-espocrm-2-voip.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extensions/voip-integration/",
+      "cita": "$388.00 1 Year License + Upgrades",
+      "consultado": "2026-09-28",
+      "captura": "B-2-4-espocrm-voip-precio-1.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extension-license-agreement/",
+      "cita": "1.1 Subject to your continuous compliance with the Agreement and payment of the applicable license fees, EspoCRM grants you a non-exclusive, non-transferable, worldwide, limited right to use the Software on a single EspoCRM Application instance on a single server for the Licensed Period. After the license period expires, you must renew or purchase a new license to continue using the Software. You may use or modify the Software only for your own internal business purposes or for non-commercial or personal use.",
+      "consultado": "2026-09-28",
+      "captura": "B-2-4-espocrm-voip-precio-2.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extensions/zoom-integration/",
+      "cita": "$110.00 1 Year License + Upgrades",
+      "consultado": "2026-09-28",
+      "captura": "B-2-4-espocrm-zoom-precio-1.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extension-license-agreement/",
+      "cita": "1.1 Subject to your continuous compliance with the Agreement and payment of the applicable license fees, EspoCRM grants you a non-exclusive, non-transferable, worldwide, limited right to use the Software on a single EspoCRM Application instance on a single server for the Licensed Period. After the license period expires, you must renew or purchase a new license to continue using the Software. You may use or modify the Software only for your own internal business purposes or for non-commercial or personal use.",
+      "consultado": "2026-09-28",
+      "captura": "B-2-4-espocrm-zoom-precio-2.png"
+    },
+    {
+      "url": "https://www.espocrm.com/cloud/",
+      "cita": "Basic $15.00 per user/month minimum 3 users 3GB file storage per user 100,000 records SSL Encryption (256 bit keys, TLS 1.3) Full feature set All extensions included External access API 2000+ integrations * 12x5 (hours/days) support Sign Up Free Trial Free Trial is provided for 30 days",
+      "consultado": "2026-09-28",
+      "captura": "B-2-4-espocrm-nube-precio-1.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "VoIP Integration + Zoom Integration",
+      "monto": "US$ 498 por año y por instalación (US$ 388 + US$ 110)",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "Con las dos extensiones, las llamadas se atienden y se registran desde la ficha y las reuniones generan su enlace de videollamada. Requiere la central telefónica y la cuenta de videollamadas de la compañía."
+    },
+    {
+      "plan": "EspoCRM Cloud Basic",
+      "monto": "US$ 15 por usuario por mes, mínimo 3 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "El servicio en la nube incluye las dos extensiones entre todas las del fabricante."
+    }
+  ],
+  "criterioNombre": "Telefonía y videollamada integradas",
+  "licencia": null,
+  "momento": "2026-09-28T21:47:22.875Z"
+}

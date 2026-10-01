@@ -1,0 +1,23 @@
+{
+  "criterio": "A.4.4",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El centro de contacto del CRM ofrece conectar Facebook, Instagram, WhatsApp, Telegram y otros canales, y en la edición gratuita la conexión no encuentra ningún muro de pago: se abrió la de Facebook y el sistema llegó al paso de autorizar con la cuenta que administra la página de la compañía —esta evaluación no tiene una—, donde se detuvo la prueba. Según el fabricante, lo que llega por ahí queda en el CRM con su historial y cualquier chat puede convertirse en una negociación, es decir, en un interesado en la base. Conectar cada canal es configuración de una vez, a cargo de quien administra la página.",
+  "evidencia": [
+    "A-4-4-bitrix24-1-canales.png",
+    "A-4-4-bitrix24-2-conexion-con-facebook.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
+      "cita": "Facebook, Instagram, etc. Conecte sus cuentas en las redes sociales y mensajeros para recibir mensajes entrantes de sus clientes directamente en Bitrix24. Cualquier chat puede convertirse automáticamente en una negociación y el historial de mensajes se guardará en el CRM.",
+      "consultado": "2026-09-29",
+      "captura": "A-4-4-bitrix24-3-redes-por-plan.png"
+    }
+  ],
+  "criterioNombre": "Captación de interesados desde redes sociales",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-30T01:02:17.929Z"
+}

@@ -1,0 +1,18 @@
+{
+  "criterio": "A.3.2",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "justificacion": "La línea de tiempo del contacto registra actividades con su autor y su momento, en orden cronológico, sin configurar nada. En la edición gratuita, sin embargo, la ficha no ofrece la llamada ni la reunión como tipos de actividad propios: la pestaña «Actividad» carga un pendiente de texto libre, y la llamada nativa exige telefonía y la reunión, una integración de videoconferencia. La llamada y la reunión se registran como pendientes que indican el tipo en el texto, de modo que el usuario debe escribirlo cada vez y no se puede filtrar el historial por tipo.",
+  "evidencia": [
+    "A-3-2-bitrix24-1-ficha.png",
+    "A-3-2-bitrix24-2-llamada.png",
+    "A-3-2-bitrix24-3-reunion.png"
+  ],
+  "medicion": "2 actividades registradas",
+  "criterioNombre": "Bitácora de la actividad con el cliente",
+  "costo": 2,
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-30T00:21:03.802Z"
+}

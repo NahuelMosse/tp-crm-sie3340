@@ -1,0 +1,19 @@
+{
+  "criterio": "A.11.14",
+  "plataforma": "espocrm",
+  "cumple": 0,
+  "justificacion": "El fabricante no publica por cuánto tiempo corrige una versión: no hay política de soporte por versión ni versiones de soporte extendido. Lo que la documentación oficial indica es actualizar apenas sale una versión nueva, lo que equivale a sostener solo la última. La compañía no puede fijar la actualización en su plan anual: tiene que seguir el ritmo del fabricante para seguir recibiendo correcciones.",
+  "documentacion": [
+    {
+      "url": "https://docs.espocrm.com/administration/upgrading/",
+      "cita": "It's recommended to upgrade whenever the new version is out. If you skip a few minor or major versions before deciding to upgrade, it's more likely that the upgrade will run unsmoothly. For minor or major releases it may be reasonable to wait for a few days before upgrading, as a very fresh release is likely to have yet undiscovered bugs.",
+      "consultado": "2026-09-28",
+      "captura": "A-11-14-espocrm-1-actualizar-siempre.png"
+    }
+  ],
+  "criterioNombre": "Continuidad de las versiones en uso",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-09-28T20:48:06.287Z"
+}

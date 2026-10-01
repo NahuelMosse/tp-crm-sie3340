@@ -294,7 +294,7 @@ La proporción 70/30 refleja que la decisión es primero funcional: un sistema b
 
 ## 3.8 Cómo se produjo la evidencia
 
-Las pruebas se automatizaron con una herramienta de automatización de navegador, con tres consecuencias sobre la calidad del análisis.
+Todos los criterios se resolvieron con un procedimiento automatizado, ejecutado con una herramienta de automatización de navegador. Eso tiene tres consecuencias sobre la calidad del análisis.
 
 **El mismo procedimiento se ejecuta sobre las tres plataformas.** Cargar un asegurado en una y en otra no es una comparación entre dos personas operando a distinta velocidad, sino el mismo recorrido evaluado con la misma pregunta.
 
@@ -302,17 +302,22 @@ Las pruebas se automatizaron con una herramienta de automatización de navegador
 
 **La evidencia queda registrada.** Cada ejecución produce video y capturas que respaldan el valor asignado y permiten reconstruir cómo se llegó a él.
 
-### Lo que no se puede automatizar
+### Los cuatro instrumentos
 
-No todos los criterios se responden operando el sistema. Tres clases quedan fuera de la automatización, y cada una tiene su propia forma de registro:
+No todos los criterios se responden operando el sistema, pero todos se responden con un procedimiento que se ejecuta solo y deja su constancia:
 
-| Clase | Ejemplos | Cómo se resuelve |
+| Instrumento | Ejemplos | Cómo se resuelve |
 |---|---|---|
-| **Observación con personas** | Aprendizaje sin capacitación previa | Tres personas ajenas ejecutan la misma consigna; se registra el resultado de cada una |
-| **Medición con espera** | Tiempo hasta la primera respuesta del foro | Se publica una consulta real y se mide el tiempo transcurrido |
-| **Verificación documental** | Continuidad de las versiones, plazo de respuesta comprometido | Se consulta la documentación del fabricante y se cita la fuente |
+| **Operación del sistema** | Alta de pólizas, filtros, importación, permisos | La prueba recorre la pantalla como un usuario y comprueba el resultado sobre los datos guardados |
+| **Verificación documental** | Continuidad de las versiones, plazo de respuesta comprometido, precios | La prueba abre la página oficial, comprueba que el texto esté publicado y lo registra textual, con su captura y la fecha de consulta |
+| **Agentes sin conocimiento previo** | Aprendizaje sin capacitación previa | Tres agentes de software independientes reciben solo la consigna escrita y operan el sistema mirando la pantalla; la prueba comprueba sobre los datos guardados qué tareas quedaron completas |
+| **Medición sobre lo publicado** | Comunidad activa de usuarios | La prueba lee las consultas del foro oficial que ya cumplieron la espera aceptable y clasifica cada una según la respuesta que recibió |
 
-En los tres casos el valor **se registra con el mismo procedimiento y entra en la misma matriz**: lo que cambia es el instrumento, no la escala ni la exigencia de justificación.
+En todos los casos el valor **se registra con el mismo procedimiento y entra en la misma matriz**: lo que cambia es el instrumento, no la escala ni la exigencia de justificación.
+
+Los agentes de la prueba de aprendizaje no conocen la plataforma ni el resto del análisis, y cada uno trabaja con su propio usuario. Solo pueden usar lo que la pantalla ofrece: ni direcciones internas, ni la interfaz de programación, ni documentación. Si una tarea quedó completa no lo declara el agente: lo comprueba la prueba.
+
+En el foro, una consulta cuenta como **resuelta** cuando otro usuario la respondió y quien la hizo confirmó después, en el mismo hilo, que la respuesta le sirvió. Lo que no se confirma no se da por resuelto.
 
 ### Cuándo vale la documentación del fabricante como prueba
 
@@ -323,6 +328,10 @@ Fuera de esa clase, la documentación **no sustituye a la comprobación**. Que u
 ## 3.9 Limitaciones de la evidencia
 
 **El escenario es una instalación de prueba, no una compañía en operación.** Los volúmenes cargados son de decenas de miles de registros; las conclusiones sobre rendimiento valen para una compañía pequeña o mediana.
+
+**La prueba de aprendizaje no la hicieron personas.** Un agente de software conoce de antemano cómo suelen organizarse los sistemas de gestión, igual que un usuario habituado a la computadora, pero no reproduce las dudas de alguien que nunca usó uno. Antes de la puesta en marcha conviene repetirla con los usuarios de la compañía.
+
+**La comunidad se mide por lo que queda escrito.** Una consulta resuelta por mensaje privado, o cuyo autor no volvió a agradecer, figura como no confirmada: la medición puede quedar por debajo de la ayuda que la comunidad presta de verdad, nunca por encima.
 
 **Las instalaciones corrieron en una máquina compartida.** Los tiempos absolutos están afectados por su carga y deben leerse como comparación relativa entre las tres.
 

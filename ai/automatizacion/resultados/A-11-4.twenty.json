@@ -1,0 +1,15 @@
+{
+  "criterio": "A.11.4",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "justificacion": "Desde el ingreso, el menú lateral lleva directo a las personas, y el alta se hace en el mismo listado, escribiendo nombre y apellido en una fila nueva. Guardado el asegurado, la póliza se carga desde su propia ficha, en el campo de sus pólizas, escribiendo su número y agregándola: queda creada y ligada a él sin salir de la ficha. El recorrido completo pasó por 2 pantallas sin volver sobre ninguna y llevó 62 segundos. Los objetos propios, como la póliza, aparecen en el mismo menú lateral que los de fábrica.",
+  "evidencia": [
+    "A-11-4-twenty-1-asegurado-con-su-poliza.png"
+  ],
+  "medicion": "2 pantallas, ninguna revisitada, 62 s",
+  "criterioNombre": "Menú y navegabilidad para la operación diaria",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T00:42:56.049Z"
+}

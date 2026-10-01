@@ -1,0 +1,18 @@
+{
+  "criterio": "A.2.5",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "Los embudos múltiples vienen en el producto y se habilitan por entidad, con una casilla de su configuración. Se creó un segundo embudo para los seguros de personas desde su propia pantalla, y su panel de etapas permitió adaptarlas al ramo: la calificación pasó a ser la declaración de salud, la propuesta la evaluación médica, y se quitó la negociación, que en ese ramo no existe. Quedaron 5 etapas contra las 6 del embudo general. Se cargó una oportunidad eligiendo ese embudo desde el formulario, y avanza por sus etapas y no por las del otro. Es configuración de una sola vez, sin programar.",
+  "evidencia": [
+    "A-2-5-espocrm-1-embudos-habilitados.png",
+    "A-2-5-espocrm-2-etapas-del-segundo-embudo.png",
+    "A-2-5-espocrm-3-oportunidad-en-el-embudo.png"
+  ],
+  "medicion": "Embudo nuevo: Prospección → Declaración de salud → Evaluación médica → Cerrado ganado → Cerrado perdido",
+  "criterioNombre": "Embudos diferenciados por ramo",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-28T18:59:42.824Z"
+}

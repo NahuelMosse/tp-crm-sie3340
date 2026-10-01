@@ -1,0 +1,24 @@
+{
+  "criterio": "B.2.1",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "justificacion": "El producto trae un asistente de inteligencia artificial que se abre desde el menú, con un chat que consulta los registros con los permisos del usuario; el fabricante declara que resume la información del sistema en lenguaje natural. En la instalación propia hay que cargarle las credenciales de un proveedor de modelos —Anthropic, Google, Mistral, OpenAI o xAI—, que la compañía elige y contrata: se le pidió el resumen de la ficha de un asegurado y respondió que no hay modelos habilitados, porque esta evaluación no contrató ningún proveedor. Conectar un proveedor propio, como un modelo instalado en la red de la compañía, es del plan Organization. Habilitarlo es configuración de una sola vez, más el costo del proveedor.",
+  "evidencia": [
+    "B-2-1-twenty-1-pedido-de-resumen.png",
+    "B-2-1-twenty-2-proveedores-de-modelos.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/getting-started/core-concepts/ai",
+      "cita": "Ask questions about your data in natural language. The AI chatbot can query your CRM records, summarize information, and help you find what you’re looking for without building complex filters.",
+      "consultado": "2026-09-29",
+      "captura": "B-2-1-twenty-3-asistente.png"
+    }
+  ],
+  "medicion": "Sin proveedor de modelos habilitado en la instalación evaluada",
+  "criterioNombre": "Asistente de inteligencia artificial",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-09-29T03:13:02.418Z"
+}

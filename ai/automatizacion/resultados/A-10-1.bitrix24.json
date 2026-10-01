@@ -1,0 +1,47 @@
+{
+  "criterio": "A.10.1",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "justificacion": "El asistente de informes del CRM, que viene en la edición gratuita, arma sin programar el total de primas por estado de cobranza: agrupando por el campo de lista y sumando el importe de la negociación mostró Al día 900, Vencida 600, En gestión 900, las mismas cifras que suman las negociaciones cargadas. La suma va sobre el importe nativo: el campo propio de tipo dinero solo admite contarse. El tiempo promedio de resolución, en cambio, no se puede mostrar: sobre las fechas de la negociación el asistente ofrece solo Mínimo, Máximo, Único, sin promedio ni diferencia entre dos fechas. Los paneles de analítica que sí podrían medirlo piden un plan: el sistema informa que BI Builder se desbloquea a partir del Standard.",
+  "evidencia": [
+    "A-10-1-bitrix24-1-armado-del-informe.png",
+    "A-10-1-bitrix24-2-primas-por-estado.png",
+    "A-10-1-bitrix24-3-calculos-sobre-fechas.png",
+    "A-10-1-bitrix24-4-paneles-de-analitica.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
+      "cita": "BI Builder Crea informes de analíticas a partir de la información del CRM.",
+      "consultado": "2026-09-29",
+      "captura": "A-10-1-bitrix24-5-bi-builder-por-plan.png"
+    },
+    {
+      "url": "https://helpdesk.bitrix24.com/open/19542946/",
+      "cita": "Calculated columns: Add new fields using formulas. For example, create a column that adds 1 to the company_id value.",
+      "consultado": "2026-09-29",
+      "captura": "A-10-1-bitrix24-6-columnas-calculadas.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "US$ 144",
+      "consultado": "2026-09-29",
+      "captura": "A-10-1-bitrix24-standard-precio-1.png"
+    }
+  ],
+  "medicion": "Primas por estado: Vencida 600 · Al día 900 · En gestión 900",
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Standard",
+      "monto": "US$ 144 por mes, hasta 50 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 2,
+      "justificacion": "Con el plan Standard se habilita BI Builder, donde cada conjunto de datos de negociaciones trae las fechas de creación y de cierre y admite columnas calculadas con fórmulas, según el fabricante: el tiempo de resolución se obtiene definiendo esa columna y promediándola. Hay que escribir la fórmula, y por eso el costo es el de desarrollo."
+    }
+  ],
+  "criterioNombre": "Indicadores sobre la operación",
+  "costo": 2,
+  "licencia": null,
+  "momento": "2026-09-30T01:47:55.035Z"
+}
