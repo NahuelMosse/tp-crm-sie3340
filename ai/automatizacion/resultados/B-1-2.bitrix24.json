@@ -2,7 +2,9 @@
   "criterio": "B.1.2",
   "plataforma": "bitrix24",
   "cumple": 1,
-  "justificacion": "El listado de negociaciones —que en la edición gratuita hace de cartera de pólizas— ofrece la acción «Exportar», pero no aparece habilitada en el listado de la edición gratuita. La compañía igual obtiene una copia completa de sus datos, registro por registro, con la interfaz de programación de la misma cuenta: se leyeron 9 negociaciones y 10 contactos con todos sus campos, incluidos los propios. Lo que no se resuelve por pantalla en un solo paso es la copia de los archivos adjuntos de Drive, que el fabricante no ofrece como descarga masiva en la edición gratuita: hay que bajarlos uno por uno o contratar una aplicación de respaldo del catálogo. La compañía tiene en su poder los datos, con un procedimiento que se repite en cada copia.",
+  "comoLoHace": "El listado de negociaciones —que en la edición gratuita hace de cartera de pólizas— ofrece la acción «Exportar», pero no aparece habilitada en el listado de la edición gratuita. La compañía igual obtiene una copia completa de sus datos, registro por registro, con la interfaz de programación de la misma cuenta: se leyeron 9 negociaciones y 10 contactos con todos sus campos, incluidos los propios.",
+  "caracteristicas": "Lo que no se resuelve por pantalla en un solo paso es la copia de los archivos adjuntos de Drive, que el fabricante no ofrece como descarga masiva en la edición gratuita: hay que bajarlos uno por uno o contratar una aplicación de respaldo del catálogo.",
+  "justificacion": "La compañía obtiene una copia completa de sus datos, pero no con la acción «Exportar», que no está habilitada en la edición gratuita: la copia se arma registro por registro con la interfaz de programación y los adjuntos se bajan uno por uno. El reparo es que no se resuelve en un solo paso, aunque el procedimiento se repite igual en cada copia.",
   "evidencia": [
     "B-1-2-bitrix24-1-listado.png",
     "B-1-2-bitrix24-2-opcion-de-exportar.png"

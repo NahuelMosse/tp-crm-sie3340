@@ -64,13 +64,17 @@ test('A.7.1 — Importación de contactos desde planilla de cálculo', async ({ 
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      'Se sube el archivo con el botón «Subir archivo», se elige la codificación y el delimitador, se ' +
+      'relacionan las columnas con los campos y se importa. La columna del correo, con otro rótulo, se ' +
+      'relacionó a mano con «E-mail del trabajo» en el paso de mapeo.',
+    caracteristicas:
+      'El listado de contactos trae un asistente de importación de planillas CSV, sin configurar nada. Se ' +
+      'cargó una planilla de diez asegurados con tildes y eñes en los apellidos y ingresaron los diez con ' +
+      'sus correos y la acentuación intacta.',
     justificacion:
-      'El listado de contactos trae un asistente de importación de planillas CSV, sin configurar nada: se sube el ' +
-      'archivo con el botón «Subir archivo», se elige la codificación y el delimitador, se relacionan las columnas ' +
-      'con los campos y se importa. El asistente reconoció solo nombre y apellido; la columna del correo, con otro ' +
-      'rótulo, se relacionó a mano con «E-mail del trabajo» en el paso de mapeo. Se cargó una planilla de diez ' +
-      'asegurados con tildes y eñes en los apellidos y ' +
-      'ingresaron los diez con sus correos y la acentuación intacta.',
+      'La cartera entró completa con el asistente que trae el producto. Reconoció solo nombre y apellido, y ' +
+      'la columna del correo se relacionó a mano en el mismo paso.',
     evidencia: [capResultado],
     medicion: `${importados.length} de 10 contactos importados`,
   });
@@ -100,11 +104,14 @@ test('A.7.2 — Importación de contactos desde las agendas de correo', async ({
     criterio: 'A.7.2',
     plataforma,
     cumple: 1,
+    comoLoHace:
+      'Incorporar los contactos de la compañía exige, en cada carga, exportar el archivo desde el correo web ' +
+      'o el gestor de escritorio e importarlo después con el asistente.',
+    caracteristicas:
+      'El listado de contactos ofrece una importación para cada agenda de correo —Gmail, Outlook y Yahoo!—, ' +
+      'pero todas parten de un archivo CSV que el usuario exporta antes desde su correo.',
     justificacion:
-      'El listado de contactos ofrece una importación para cada agenda de correo —Gmail, Outlook y Yahoo!—, pero ' +
-      'todas parten de un archivo CSV que el usuario exporta antes desde su correo: no hay una conexión que lea la ' +
-      'agenda directamente. Incorporar los contactos de la compañía exige, en cada carga, exportar el archivo desde ' +
-      'el correo web o el gestor de escritorio e importarlo después con el asistente.',
+      'No hay una conexión que lea la agenda directamente.',
     evidencia: [capMenu],
   });
 });
@@ -191,14 +198,16 @@ test('A.7.3 — Sincronización del correo de varios usuarios', async ({ page, b
     criterio: 'A.7.3',
     plataforma,
     cumple: 0,
+    comoLoHace:
+      'En la edición gratuita no se puede conectar ninguna casilla, ni la del administrador ni la de un ' +
+      'productor. Webmail ofrece Gmail, Outlook, iCloud, Office365, Exchange, Yahoo!, Aol y «Buzón ' +
+      'personalizado» (IMAP+SMTP), pero al elegir cualquiera de ellos, con el administrador y con la ' +
+      'sesión del productor, el sistema no abre el formulario de conexión y responde «No disponible en su ' +
+      'plan». «Conectar varios buzones» también pide otro plan: «para conectar y gestionar múltiples ' +
+      'buzones de correo corporativos, actualiza a cualquier plan a partir del Professional».',
     justificacion:
-      'En la edición gratuita no se puede conectar ninguna casilla, ni la del administrador ni la de un productor. ' +
-      'Webmail ofrece Gmail, Outlook, iCloud, Office365, Exchange, Yahoo!, Aol y «Buzón personalizado» (IMAP+SMTP), ' +
-      'pero al elegir cualquiera de ellos, con el administrador y con la sesión del productor, el sistema no abre el ' +
-      'formulario de conexión y responde «No disponible en su plan». «Conectar varios buzones» también pide otro ' +
-      'plan: «para conectar y gestionar múltiples buzones de correo corporativos, actualiza a cualquier plan a partir ' +
-      'del Professional». La comparación de planes del fabricante marca Webmail y la integración con servicios de ' +
-      'correo de terceros como no incluidos en la edición gratuita, y la ayuda confirma que Webmail solo está en ' +
+      'La comparación de planes del fabricante marca Webmail y la integración con servicios de correo de ' +
+      'terceros como no incluidos en la edición gratuita, y la ayuda confirma que Webmail solo está en ' +
       'planes comerciales. Sin una casilla conectada no hay sincronización de ningún usuario.',
     conPlan: [conPlanDe(BITRIX24_BASIC, {
       cumple: 2,
@@ -273,14 +282,18 @@ test('A.7.4 — Vinculación automática del correo a la ficha', async ({ page, 
       criterio: 'A.7.4',
       plataforma,
       cumple: 0,
+      comoLoHace:
+        'Con el asegurado cargado —ACT-Lucia Correo, lucia.correo@example.com— se mandó un mensaje desde ' +
+        'esa dirección a la casilla de atención, que lo recibió, y después de esperar dos minutos la ficha ' +
+        'no registra ninguna actividad de correo.',
+      caracteristicas:
+        'La ayuda del fabricante describe que, con la opción «Integración de CRM» activada en el buzón, ' +
+        'los correos entrantes aparecen en la ficha correspondiente; esa opción forma parte de la conexión ' +
+        'del buzón, que la edición gratuita no permite.',
       justificacion:
-        'En la edición gratuita el correo de un asegurado no llega a su ficha porque no se puede conectar la casilla ' +
-        'de la compañía: «Buzón personalizado» responde «No disponible en su plan» y no abre el formulario. Con el ' +
-        'asegurado cargado —ACT-Lucia Correo, lucia.correo@example.com— se mandó un mensaje desde esa dirección a la ' +
-        'casilla de atención, que lo recibió, y después de esperar dos minutos la ficha no registra ninguna actividad ' +
-        'de correo. La ayuda del fabricante describe que, con la opción «Integración de CRM» activada en el buzón, los ' +
-        'correos entrantes aparecen en la ficha correspondiente; esa opción forma parte de la conexión del buzón, que ' +
-        'la edición gratuita no permite.',
+        'En la edición gratuita el correo de un asegurado no llega a su ficha porque no se puede conectar ' +
+        'la casilla de la compañía: «Buzón personalizado» responde «No disponible en su plan» y no abre el ' +
+        'formulario.',
       conPlan: [conPlanDe(BITRIX24_BASIC, {
         cumple: 2,
         costo: 1,
@@ -340,12 +353,15 @@ test('A.7.5 — Formatos de intercambio aceptados', async ({ page, browser }, in
     criterio: 'A.7.5',
     plataforma,
     cumple: 1,
+    comoLoHace:
+      '«Exportar a CSV» no se abre y el sistema responde que hay que actualizar a un plan superior.',
+    caracteristicas:
+      'En la edición gratuita los datos entran por vCard y por CSV —con asistentes para las agendas de ' +
+      'Gmail, Outlook y Yahoo! y una migración desde otro CRM— pero no salen.',
     justificacion:
-      'En la edición gratuita los datos entran por vCard y por CSV —con asistentes para las agendas de Gmail, ' +
-      'Outlook y Yahoo! y una migración desde otro CRM— pero no salen: «Exportar a CSV» no se abre y el sistema ' +
-      'responde que hay que actualizar a un plan superior. La comparación de planes del fabricante publica la ' +
-      'opción de exportar contactos a CSV, Excel y Outlook en los planes de pago, desde el Basic. Sin ella la ' +
-      'compañía solo puede compartir datos con sus otros sistemas en un sentido.',
+      'Los datos entran por planilla y por vCard, pero no salen: la exportación a CSV, Excel y Outlook está ' +
+      'en los planes pagos, desde el Basic. La compañía solo puede compartir datos con sus otros sistemas ' +
+      'en un sentido.',
     conPlan: [conPlanDe(BITRIX24_BASIC, {
       cumple: 2,
       costo: 0,
@@ -379,11 +395,13 @@ test('A.7.6 — Exportación de la cartera sin pérdida de datos', async ({ page
     criterio: 'A.7.6',
     plataforma,
     cumple: 0,
+    comoLoHace:
+      'En la edición gratuita no se puede exportar la cartera: «Exportar a CSV» no genera ningún archivo y ' +
+      'el sistema responde que la función requiere actualizar a un plan superior.',
     justificacion:
-      'En la edición gratuita no se puede exportar la cartera: «Exportar a CSV» no genera ningún archivo y el ' +
-      'sistema responde que la función requiere actualizar a un plan superior. La comparación de planes del ' +
-      'fabricante confirma que la opción de exportar contactos a CSV, Excel y Outlook no forma parte de la ' +
-      'edición gratuita. Sin archivo no hay nada que comparar con la planilla original.',
+      'La comparación de planes del fabricante confirma que la opción de exportar contactos a CSV, Excel y ' +
+      'Outlook no forma parte de la edición gratuita. Sin archivo no hay nada que comparar con la planilla ' +
+      'original.',
     conPlan: [conPlanDe(BITRIX24_BASIC, {
       cumple: 2,
       costo: 0,

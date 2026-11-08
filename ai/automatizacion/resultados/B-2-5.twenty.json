@@ -3,7 +3,9 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 0,
-  "justificacion": "Se recorrieron las pantallas de uso diario —asegurados, pólizas, reclamos, oportunidades, tareas y tableros— y ninguna muestra avisos de venta ni invitaciones a mejorar el plan. Las funciones del plan pago aparecen marcadas solo dentro de la configuración, donde las ve quien administra: el usuario trabaja sin interrupciones comerciales.",
+  "comoLoHace": "Se recorrieron las pantallas de uso diario —asegurados, pólizas, reclamos, oportunidades, tareas y tableros— y ninguna muestra avisos de venta ni invitaciones a mejorar el plan.",
+  "caracteristicas": "Las funciones del plan pago aparecen marcadas solo dentro de la configuración, donde las ve quien administra.",
+  "justificacion": "El usuario trabaja sin interrupciones comerciales.",
   "evidencia": [
     "B-2-5-twenty-asegurados.png",
     "B-2-5-twenty-polizas.png",
@@ -16,5 +18,5 @@
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-09-29T03:16:13.471Z"
+  "momento": "2026-10-30T08:27:47.498Z"
 }

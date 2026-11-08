@@ -3,20 +3,33 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 0,
-  "justificacion": "El procedimiento oficial de actualización distingue dos clases de personalización: la hecha desde la interfaz, que la actualización no debería romper, y la hecha con código, que sí puede romperse. Todo lo que este análisis parametrizó —la póliza, el endoso, sus campos, sus diseños y su fórmula— se hizo desde la administración, sin tocar código, de modo que queda del lado que el fabricante se compromete a conservar. No hay nada que preparar para que se conserve.",
+  "comoLoHace": "Se aplicó el procedimiento oficial para Docker sobre una copia de la instalación: la versión 10.0.4 se actualizó a la 10.0.11 cambiando la imagen y volviendo a crear el contenedor con la misma configuración y las mismas carpetas de datos. Después se ingresó con el administrador: las entidades Póliza, Endoso y Cuota seguían en el administrador de entidades, la fórmula de la póliza estaba guardada, la póliza POL-CART-1-1 cargada antes mostraba sus campos propios con sus valores (tipo, estado de pago y prima mensual de 30000), las 42 pólizas y los 10 endosos seguían en su lugar, y una póliza dada de alta de nuevo calculó su prima anual (12000 sobre una prima mensual de 1000) y generó la tarea de cobranza al pasar a vencida.",
+  "caracteristicas": "El procedimiento no pide exportar ni volver a cargar la parametrización: entidades, campos, diseños y fórmula viven en las carpetas de datos y en la base, que la actualización conserva. El fabricante declara que las personalizaciones hechas desde la interfaz no deberían romperse con una actualización.",
+  "justificacion": "Tras pasar de la versión 10.0.4 a la 10.0.11 no hubo que rehacer ni reconfigurar nada de lo parametrizado, de modo que la conservación no suma trabajo.",
   "evidencia": [
-    "A-8-4-espocrm-2-parametrizacion-por-pantalla.png"
+    "A-8-4-espocrm-3-entidades-propias.png",
+    "A-8-4-espocrm-4-formula-conservada.png",
+    "A-8-4-espocrm-5-poliza-anterior.png",
+    "A-8-4-espocrm-6-alta-nueva.png",
+    "A-8-4-espocrm-7-calculo-al-guardar.png",
+    "A-8-4-espocrm-8-tarea-creada-sola.png"
   ],
   "documentacion": [
     {
+      "url": "https://docs.espocrm.com/administration/docker/installation/",
+      "cita": "Within a few minutes the container will be upgraded to the latest version.",
+      "consultado": "2026-11-08",
+      "captura": "A-8-4-espocrm-1-actualizacion-con-docker.png"
+    },
+    {
       "url": "https://docs.espocrm.com/administration/upgrading/",
       "cita": "Espo upgrades should not break customizations made via the UI. But customizations made via code may break. To review breaking changes before upgrading, check release notes or GitHub issues marked with the change tag.",
-      "consultado": "2026-09-28",
-      "captura": "A-8-4-espocrm-1-actualizacion.png"
+      "consultado": "2026-11-08",
+      "captura": "A-8-4-espocrm-2-personalizacion-por-interfaz.png"
     }
   ],
   "criterioNombre": "Conservación de la parametrización al actualizar",
   "licencia": null,
   "conPlan": [],
-  "momento": "2026-09-28T20:13:25.426Z"
+  "momento": "2026-11-08T04:31:39.098Z"
 }

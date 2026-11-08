@@ -2,7 +2,9 @@
   "criterio": "A.11.9",
   "plataforma": "bitrix24",
   "cumple": 1,
-  "justificacion": "El fabricante publica un catálogo de más de 810 aplicaciones e integraciones —telefonía, firma electrónica, mensajería, conectores con otros sistemas—, accesible desde Market en el propio portal. Pero instalar aplicaciones del catálogo es una función de los planes pagos, según la misma página que anuncia la edición gratuita: el catálogo se puede evaluar sin costo, pero usarlo exige pagar, incluso para un conector puntual.",
+  "comoLoHace": "El catálogo se puede evaluar sin costo, pero usarlo exige pagar, incluso para un conector puntual.",
+  "caracteristicas": "El fabricante publica un catálogo de más de 810 aplicaciones e integraciones —telefonía, firma electrónica, mensajería, conectores con otros sistemas—, accesible desde Market en el propio portal.",
+  "justificacion": "La instalación de aplicaciones del catálogo es una función de los planes pagos, según la misma página que anuncia la edición gratuita; por eso el catálogo se puede evaluar sin costo, pero usarlo exige pagar.",
   "evidencia": [
     "A-11-9-bitrix24-3-portal.png"
   ],

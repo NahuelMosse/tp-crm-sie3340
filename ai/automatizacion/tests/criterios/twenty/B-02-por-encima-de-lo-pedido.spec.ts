@@ -1,5 +1,5 @@
 import { test, expect } from '../../humano';
-import { registrar } from '../../evaluar';
+import { registrar, sinVerificar } from '../../evaluar';
 import { entrar, plataformaDe } from '../../sesion';
 import { citar } from '../../fuentes';
 import { soloEn, capturar } from '../comun';
@@ -35,7 +35,7 @@ test('B.2.1 — Asistente de inteligencia artificial', async ({ page, browser },
   for (let espera = 0; espera < 60; espera++) {
     await page.waitForTimeout(5000);
     respuesta = await textoDe(page);
-    if (/POL-|póliza|reclamo/i.test(respuesta.slice(respuesta.lastIndexOf('Resumime')))) break;
+    if (/POL-\d/.test(respuesta)) break;
     if (/No hay modelos de IA habilitados|No AI models/i.test(respuesta)) break;
   }
   const capChat = await capturar(page, 'B.2.1', plataforma, '1-pedido-de-resumen');
@@ -56,25 +56,34 @@ test('B.2.1 — Asistente de inteligencia artificial', async ({ page, browser },
   expect(proveedores, 'los proveedores se habilitan con sus credenciales').toMatch(/OpenAI/);
   expect(proveedores).toMatch(/Anthropic/);
 
+  // Sin un proveedor habilitado el asistente no responde: la capacidad no se observó
+  if (sinModelo || !/POL-\d/.test(respuesta)) {
+    sinVerificar('B.2.1', plataforma,
+      'El asistente se abre desde el menú, pero solo responde con un proveedor de modelos habilitado ' +
+      '(Anthropic, Google, Mistral, OpenAI o xAI), con credenciales que contrata la compañía. Sin un ' +
+      'proveedor habilitado no produjo el resumen pedido y la capacidad no se pudo observar.');
+    return;
+  }
+
   registrar({
     criterio: 'B.2.1',
     plataforma,
     cumple: 2,
     costo: 1,
-    justificacion:
-      'El producto trae un asistente de inteligencia artificial que se abre desde el menú, con un chat que ' +
-      'consulta los registros con los permisos del usuario; el fabricante declara que resume la información ' +
-      'del sistema en lenguaje natural. En la instalación propia hay que cargarle las credenciales de un ' +
+    comoLoHace:
+      'En la instalación propia hay que cargarle las credenciales de un ' +
       'proveedor de modelos —Anthropic, Google, Mistral, OpenAI o xAI—, que la compañía elige y contrata: ' +
-      (sinModelo
-        ? 'se le pidió el resumen de la ficha de un asegurado y respondió que no hay modelos habilitados, porque ' +
-          'esta evaluación no contrató ningún proveedor. '
-        : 'con un proveedor habilitado, se le pidió el resumen de la ficha de un asegurado y lo produjo. ') +
+      'con un proveedor habilitado, se le pidió el resumen de la ficha de un asegurado y lo produjo con sus pólizas.',
+    caracteristicas:
+      'El producto trae un asistente de inteligencia artificial que se abre desde el menú, con un chat que ' +
+      'consulta los registros con los permisos del usuario y resume la información del sistema en lenguaje natural. ' +
       'Conectar un proveedor propio, como un modelo instalado en la red de la compañía, es del plan ' +
-      'Organization. Habilitarlo es configuración de una sola vez, más el costo del proveedor.',
+      'Organization.',
+    justificacion:
+      'Habilitarlo es configuración de una sola vez, más el costo del proveedor.',
     evidencia: [capChat, capProveedores],
     documentacion: fuente,
-    medicion: sinModelo ? 'Sin proveedor de modelos habilitado en la instalación evaluada' : 'Resumen producido',
+    medicion: 'Resumen producido',
   });
 });
 
@@ -115,11 +124,14 @@ test('B.2.2 — Aplicación móvil nativa', async ({ page, browser }, info) => {
     criterio: 'B.2.2',
     plataforma,
     cumple: 0,
+    comoLoHace:
+      'Lo que ofrece es la misma interfaz en el navegador del teléfono, que se adapta a la pantalla: ' +
+      'el productor puede consultar y cargar durante una visita, con conexión, pero no es una ' +
+      'aplicación instalada.',
     justificacion:
-      'El fabricante no publica una aplicación móvil: en la tienda de aplicaciones, la búsqueda del producto ' +
-      `devuelve ${delProducto.length} aplicaciones con su nombre y ninguna es del fabricante. Lo que ofrece es la ` +
-      'misma interfaz en el navegador del teléfono, que se adapta a la pantalla: el productor puede consultar ' +
-      'y cargar durante una visita, con conexión, pero no es una aplicación instalada.',
+      'El fabricante no publica una aplicación móvil: en la tienda de aplicaciones, la búsqueda del ' +
+      'producto ' +
+      `devuelve ${delProducto.length} aplicaciones con su nombre y ninguna es del fabricante.`,
     evidencia: ['B-2-2-twenty-1-tienda.png', capMovil],
     documentacion: fuente,
     medicion: `${delProducto.length} aplicaciones con el nombre del producto en la tienda, ${delFabricante.length} del fabricante`,
@@ -153,13 +165,17 @@ test('B.2.3 — Suite de trabajo integrada', async ({ page }, info) => {
     plataforma,
     cumple: 1,
     costo: 2,
+    comoLoHace:
+      `Además del CRM, el producto incluye ${herramientas.join(', ')}, y todas operan sobre los mismos ` +
+      'datos.',
+    caracteristicas:
+      'La ficha del asegurado reúne en pestañas su línea de tiempo, sus tareas, sus notas, sus ' +
+      'archivos, sus correos y sus reuniones, y los tableros y los flujos leen y escriben los mismos ' +
+      'registros.',
     justificacion:
-      `Además del CRM, el producto incluye ${herramientas.join(', ')}, y todas operan sobre los mismos datos: la ` +
-      'ficha del asegurado reúne en pestañas su línea de tiempo, sus tareas, sus notas, sus archivos, sus ' +
-      'correos y sus reuniones, y los tableros y los flujos leen y escriben los mismos registros. Faltan la ' +
-      'mensajería instantánea entre usuarios, la edición colaborativa de documentos y la firma electrónica: ' +
-      'para eso la compañía sigue necesitando otras herramientas, y pasar la información de una a otra es ' +
-      'trabajo en cada uso.',
+      'Faltan la mensajería instantánea entre usuarios, la edición colaborativa de documentos y la ' +
+      'firma electrónica: para eso la compañía sigue necesitando otras herramientas, y pasar la ' +
+      'información de una a otra es trabajo en cada uso.',
     evidencia: [capFicha, capTableros],
     medicion: `Pestañas de la ficha: ${pestanas.join(', ')}`,
   });
@@ -196,12 +212,16 @@ test('B.2.4 — Telefonía y videollamada integradas', async ({ page, browser },
     plataforma,
     cumple: 1,
     costo: 2,
+    comoLoHace:
+      'La videollamada está integrada a medias: desde la ficha de un asegurado se crea una reunión en ' +
+      'el calendario conectado de Google o Microsoft, con el enlace de videollamada de ese servicio, y ' +
+      'la reunión queda en la línea de tiempo del registro.',
+    caracteristicas:
+      'La telefonía no está.',
     justificacion:
-      'La videollamada está integrada a medias: desde la ficha de un asegurado se crea una reunión en el ' +
-      'calendario conectado de Google o Microsoft, con el enlace de videollamada de ese servicio, y la reunión ' +
-      'queda en la línea de tiempo del registro. La telefonía no está: el número de una ficha no se marca desde ' +
-      'el sistema, las llamadas ocurren afuera y se registran a mano, o hay que desarrollar la conexión con la ' +
-      'central telefónica sobre la interfaz de programación.',
+      'El número de una ficha no se marca desde el sistema, las llamadas ocurren ' +
+      'afuera y se registran a mano, o hay que desarrollar la conexión con la central telefónica sobre ' +
+      'la interfaz de programación.',
     evidencia: [capAcciones],
     documentacion: fuente,
   });
@@ -239,11 +259,14 @@ test('B.2.5 — Uso sin restricciones comerciales en la interfaz', async ({ page
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      'Se recorrieron las pantallas de uso diario —asegurados, pólizas, reclamos, oportunidades, ' +
+      'tareas y tableros— y ninguna muestra avisos de venta ni invitaciones a mejorar el plan.',
+    caracteristicas:
+      'Las funciones del plan pago aparecen marcadas solo dentro de la configuración, donde las ve ' +
+      'quien administra.',
     justificacion:
-      'Se recorrieron las pantallas de uso diario —asegurados, pólizas, reclamos, oportunidades, tareas y ' +
-      'tableros— y ninguna muestra avisos de venta ni invitaciones a mejorar el plan. Las funciones del plan ' +
-      'pago aparecen marcadas solo dentro de la configuración, donde las ve quien administra: el usuario ' +
-      'trabaja sin interrupciones comerciales.',
+      'El usuario trabaja sin interrupciones comerciales.',
     evidencia: capturas,
   });
 });

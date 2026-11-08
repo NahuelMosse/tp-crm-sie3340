@@ -16,11 +16,11 @@ import { reparos, fuentes } from '../reglas.cjs';
  */
 
 /**
- * Primera escala — ¿queda resuelta la necesidad?
+ * Primera escala — ¿queda resuelta la necesidad con la versión evaluada?
  *
- *   2  La necesidad queda resuelta (de fábrica, configurando una vez, o con plan pago)
+ *   2  La necesidad queda resuelta (de fábrica o configurando una vez)
  *   1  Queda resuelta con un costo o salvedad permanente (procedimiento en cada uso)
- *   0  No queda resuelta: no existe en ninguna edición del producto
+ *   0  La versión evaluada no la resuelve, aunque un plan pago o una extensión lo hiciera
  *
  * No cumplir vale cero para que el resultado recorra el rango completo: si el
  * valor mas bajo sumara, ninguna plataforma podria quedar en cero.
@@ -71,9 +71,9 @@ export interface Licencia {
 }
 
 /**
- * Veredicto de un criterio contratando un plan que lo cambia. Solo se registra
- * donde el plan modifica la respuesta: lo que es igual en todos los planes se
- * evalua una sola vez, sobre la edicion gratuita.
+ * Lo que cambiaría contratando un plan o una extensión. Es un comentario: no
+ * puntúa, porque se evalúa solo la versión elegida. Solo se registra donde el
+ * plan modifica la respuesta.
  */
 export interface ConPlan {
   /** Nombre comercial del plan */
@@ -96,14 +96,15 @@ export interface Evaluacion {
    */
   costo?: Costo;
   licencia?: Licencia;
-  /** Valores alcanzables contratando un plan, cuando el plan cambia la respuesta */
+  /** Lo que cambiaría contratando un plan; comentario, no puntúa */
   conPlan?: ConPlan[];
+  /** Cómo lo resuelve la plataforma: el camino concreto en el sistema, o qué ofrece en su lugar */
+  comoLoHace: string;
+  /** Lo que trae la solución: tipos de dato, límites, alcance. Obligatorias si cumple */
+  caracteristicas?: string;
   /** Por qué ese valor y no otro. Obligatoria: un registro sin esto no se acepta. */
   justificacion: string;
-  /**
-   * Fuentes oficiales con su texto textual. Obligatorias cuando cumple es 0:
-   * que algo no aparezca en la instalación de prueba no prueba que no exista.
-   */
+  /** Fuentes oficiales con su texto textual */
   documentacion?: Fuente | Fuente[];
   /** Capturas o videos del sistema resolviéndolo */
   evidencia?: string[];

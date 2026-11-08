@@ -89,12 +89,15 @@ test('A.5.1 — Reclamo como caso con identidad propia', async ({ page }, info) 
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      `Se registró un reclamo asociado a un asegurado y el sistema le asignó el número ${guardado.number} ` +
+      'al guardarlo; la ficha muestra al asegurado y el reclamo figura en el listado de casos.',
+    caracteristicas:
+      'El producto trae el caso de atención como entidad propia, con su entrada de menú, su listado y su ' +
+      'ficha.',
     justificacion:
-      'El producto trae el caso de atención como entidad propia, con su entrada de menú, su listado y su ficha. ' +
-      `Se registró un reclamo asociado a un asegurado y el sistema le asignó el número ${guardado.number} al ` +
-      'guardarlo; la ficha muestra al asegurado y el reclamo figura en el listado de casos. No hubo que crear ' +
-      'ni configurar nada: viene listo con la instalación. El número propio es lo que permite que la compañía ' +
-      'y el asegurado hablen del mismo reclamo sin ambigüedad.',
+      'No hubo que crear ni configurar nada: viene listo con la instalación. El número propio es lo que ' +
+      'permite que la compañía y el asegurado hablen del mismo reclamo sin ambigüedad.',
     evidencia: [capAlta, capFicha, capListado],
     medicion: `Reclamo número ${guardado.number}`,
   });
@@ -137,12 +140,15 @@ test('A.5.2 — Estado y seguimiento del reclamo', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 0,
-    justificacion:
+    comoLoHace:
       'El reclamo se pasó de nuevo a asignado, a pendiente y a cerrado, y la ficha conserva la secuencia ' +
-      'completa en su historia: cada cambio de estado queda registrado con el valor anterior, el nuevo, quién ' +
-      'lo hizo y cuándo. El estado del caso viene auditado de fábrica, sin configurar nada. Es lo que permite ' +
-      'reconstruir cuánto estuvo un reclamo en cada instancia cuando el asegurado pregunta o cuando hay que ' +
-      'responder ante un organismo de control.',
+      'completa en su historia: cada cambio de estado queda registrado con el valor anterior, el nuevo, ' +
+      'quién lo hizo y cuándo.',
+    caracteristicas:
+      'El estado del caso viene auditado de fábrica, sin configurar nada.',
+    justificacion:
+      'Es lo que permite reconstruir cuánto estuvo un reclamo en cada instancia cuando el asegurado ' +
+      'pregunta o cuando hay que responder ante un organismo de control.',
     evidencia: [capHistoria],
     medicion: `Secuencia conservada: ${cambios.join(' → ')}`,
   });
@@ -178,10 +184,14 @@ test('A.5.3 — Responsable asignado a cada reclamo', async ({ page }, info) => 
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      'Se asignó el reclamo a un productor desde la ficha y, al ingresar con la cuenta de ese productor, el ' +
+      'reclamo figura en su listado de casos.',
+    caracteristicas:
+      'El caso trae un responsable asignado de fábrica.',
     justificacion:
-      'El caso trae un responsable asignado de fábrica. Se asignó el reclamo a un productor desde la ficha y, ' +
-      'al ingresar con la cuenta de ese productor, el reclamo figura en su listado de casos. Cada reclamo tiene ' +
-      'un dueño visible, que es lo que evita que un caso quede sin atender porque nadie sabía que era suyo.',
+      'Cada reclamo tiene un dueño visible, que es lo que evita que un caso quede sin atender porque nadie ' +
+      'sabía que era suyo.',
     evidencia: [capAsignacion, capPendientes],
   });
 });
@@ -228,11 +238,14 @@ test('A.5.4 — Base de conocimiento para la atención', async ({ page }, info) 
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      'Se escribió un artículo con una condición de cobertura —qué cubre la póliza de automotor ante ' +
+      'granizo y qué excluye—, se lo publicó y se lo recuperó buscando "granizo" desde su listado.',
+    caracteristicas:
+      'El producto trae una base de conocimiento propia.',
     justificacion:
-      'El producto trae una base de conocimiento propia. Se escribió un artículo con una condición de ' +
-      'cobertura —qué cubre la póliza de automotor ante granizo y qué excluye—, se lo publicó y se lo recuperó ' +
-      'buscando "granizo" desde su listado. Viene lista: no hubo que crear ni configurar nada. Es lo que ' +
-      'permite que quien atiende responda igual que su compañero de al lado, sin depender de la memoria.',
+      'Viene lista: no hubo que crear ni configurar nada. Es lo que permite que quien atiende responda ' +
+      'igual que su compañero de al lado, sin depender de la memoria.',
     evidencia: [capBusqueda],
   });
 });
@@ -281,11 +294,13 @@ test('A.5.5 — Tareas asignables con responsable y vencimiento', async ({ page 
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      'Se creó una tarea con vencimiento en tres días y se la asignó a un productor.',
+    caracteristicas:
+      'Al ingresar con la cuenta de ese productor, la tarea figura en su listado con su fecha.',
     justificacion:
-      'Se creó una tarea con vencimiento en tres días y se la asignó a un productor. Al ingresar con la cuenta ' +
-      'de ese productor, la tarea figura en su listado con su fecha. Responsable y vencimiento son campos que ' +
-      'la tarea trae de fábrica, sin configurar nada, y es lo que permite repartir el trabajo y saber qué se ' +
-      'atrasa.',
+      'Responsable y vencimiento son campos que la tarea trae de fábrica, sin configurar nada, y es lo que ' +
+      'permite repartir el trabajo y saber qué se atrasa.',
     evidencia: [capAlta, capDelProductor],
   });
 });
@@ -315,11 +330,14 @@ test('A.5.6 — Aviso al usuario al que se le asigna una tarea', async ({ page }
     plataforma,
     cumple: 2,
     costo: 0,
-    justificacion:
+    comoLoHace:
       'Al asignarle la tarea y el reclamo, el productor recibió el aviso en el propio sistema: al ingresar, ' +
-      'el indicador de notificaciones lo muestra sin que tenga que abrir ningún listado, y cada aviso lleva al ' +
-      'registro que le asignaron. Viene activado de fábrica. Es lo que asegura que el responsable se entere en ' +
-      'el momento, y no cuando se le ocurre revisar.',
+      'el indicador de notificaciones lo muestra sin que tenga que abrir ningún listado, y cada aviso lleva ' +
+      'al registro que le asignaron.',
+    caracteristicas:
+      'Viene activado de fábrica.',
+    justificacion:
+      'Es lo que asegura que el responsable se entere en el momento, y no cuando se le ocurre revisar.',
     evidencia: [capAvisos],
   });
 });

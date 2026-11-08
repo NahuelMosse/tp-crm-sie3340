@@ -114,13 +114,16 @@ test('A.6.1 — Vinculación de la póliza con su titular', async ({ page }, inf
     plataforma,
     cumple: 2,
     costo: 1,
-    justificacion:
+    comoLoHace:
       'El Administrador de Relaciones liga la póliza con el contacto que es su titular, sin programar: se ' +
-      'define una vez que cada póliza tiene un titular y que un asegurado puede tener muchas pólizas. Para que ' +
-      'la ficha del asegurado muestre sus pólizas hay que agregar ese panel entre los inferiores, en el Gestor ' +
-      'de Diseños. A partir de ahí, al cargar una póliza se elige el titular buscándolo por nombre; la póliza ' +
-      'lo muestra en su ficha, y la del asegurado lista todas sus pólizas. Las dos puntas del vínculo quedan a ' +
-      'la vista sin buscar en otro menú.',
+      'define una vez que cada póliza tiene un titular y que un asegurado puede tener muchas pólizas. A ' +
+      'partir de ahí, al cargar una póliza se elige el titular buscándolo por nombre; la póliza lo muestra ' +
+      'en su ficha, y la del asegurado lista todas sus pólizas.',
+    caracteristicas:
+      'Las dos puntas del vínculo quedan a la vista sin buscar en otro menú.',
+    justificacion:
+      'Para que la ficha del asegurado muestre sus pólizas hay que agregar ese panel entre los inferiores, ' +
+      'en el Gestor de Diseños.',
     evidencia: [capPoliza, capFicha],
   });
 });
@@ -165,12 +168,14 @@ test('A.6.2 — Vista única del asegurado', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 1,
-    justificacion:
+    comoLoHace:
+      'Desde ahí se llega a cada registro sin pasar por otro menú.',
+    caracteristicas:
       'La ficha del asegurado reúne en paneles todo lo suyo: sus pólizas, sus reclamos, sus actividades ' +
-      'pendientes y el historial de llamadas, reuniones y correos, además de la línea de tiempo de cambios. ' +
-      'Desde ahí se llega a cada registro sin pasar por otro menú. Los reclamos y la actividad vienen de ' +
-      'fábrica; el panel de pólizas aparece al definir la relación con el titular, que es configuración de una ' +
-      'sola vez.',
+      'pendientes y el historial de llamadas, reuniones y correos, además de la línea de tiempo de cambios.',
+    justificacion:
+      'Los reclamos y la actividad vienen de fábrica; el panel de pólizas aparece al definir la relación ' +
+      'con el titular, que es configuración de una sola vez.',
     evidencia: [capFicha],
     medicion: `${paneles.length} paneles en la ficha del asegurado`,
   });
@@ -207,12 +212,15 @@ test('A.6.3 — Campos propios del rubro en la ficha', async ({ page }, info) =>
     plataforma,
     cumple: 2,
     costo: 1,
-    justificacion:
+    comoLoHace:
       'Se agregó a la ficha del asegurado un campo que el producto no trae —la valoración que dejó sobre la ' +
-      'atención recibida, con cuatro valores— desde el Administrador de Campos. Quedó en el formulario, se ' +
-      'cargó en un asegurado y se lo pudo usar como condición de búsqueda para listar a los que valoraron la ' +
-      'atención como muy buena. Es configuración de una sola vez: se define el campo y se lo ubica en el ' +
-      'formulario y entre los filtros, sin programar.',
+      'atención recibida, con cuatro valores— desde el Administrador de Campos.',
+    caracteristicas:
+      'Quedó en el formulario, se cargó en un asegurado y se lo pudo usar como condición de búsqueda para ' +
+      'listar a los que valoraron la atención como muy buena.',
+    justificacion:
+      'Es configuración de una sola vez: se define el campo y se lo ubica en el formulario y entre los ' +
+      'filtros, sin programar.',
     evidencia: [capAlta, capBusqueda],
   });
 });
@@ -287,14 +295,17 @@ test('A.6.4 — Unicidad de la ficha del asegurado', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 2,
-    justificacion:
-      'De fábrica el producto busca duplicados por nombre y correo, pero no por documento: se cargó dos veces ' +
-      'el mismo documento con el apellido escrito distinto y el sistema aceptó las dos fichas sin advertir ' +
-      'nada. La pantalla de fórmula de cada entidad trae un guion que se ejecuta antes de guardar, pensado para ' +
+    comoLoHace:
+      'De fábrica el producto busca duplicados por nombre y correo, pero no por documento: se cargó dos ' +
+      'veces el mismo documento con el apellido escrito distinto y el sistema aceptó las dos fichas sin ' +
+      'advertir nada.',
+    caracteristicas:
+      'La pantalla de fórmula de cada entidad trae un guion que se ejecuta antes de guardar, pensado para ' +
       'validaciones y comprobación de duplicados; con tres líneas que buscan el documento, la segunda carga ' +
-      'mostró el aviso de posible duplicado y remitió a la ficha existente. La necesidad queda resuelta desde ' +
-      'el sistema, pero exige escribir ese guion: es desarrollo, breve, que alguien tiene que saber leer y ' +
-      'mantener.',
+      'mostró el aviso de posible duplicado y remitió a la ficha existente.',
+    justificacion:
+      'La necesidad queda resuelta desde el sistema, pero exige escribir el guion de la fórmula de la entidad: es desarrollo, breve, ' +
+      'que alguien tiene que saber leer y mantener.',
     evidencia: [capSinRegla, capRegla, capConRegla],
     medicion: `Sin la comprobación: ${duplicadosSinRegla} fichas con el mismo documento; con ella: ${duplicadosConRegla}`,
   });

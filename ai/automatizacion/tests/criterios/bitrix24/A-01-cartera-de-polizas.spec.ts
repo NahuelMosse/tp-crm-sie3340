@@ -70,12 +70,15 @@ test('A.1.1 — Modelado de la póliza como objeto propio', async ({ page, brows
     criterio: 'A.1.1',
     plataforma,
     cumple: 0,
+    comoLoHace:
+      'En la edición gratuita el formulario se completa, pero al guardar el sistema no crea la entidad y ' +
+      'avisa que los procesos inteligentes requieren el plan Professional o el Enterprise.',
+    caracteristicas:
+      'Las entidades propias de Bitrix24 son los procesos inteligentes, que se crean desde la barra del ' +
+      'CRM sin programar: nombre, etapas, embudos y reglas de automatización.',
     justificacion:
-      'Las entidades propias de Bitrix24 son los procesos inteligentes, que se crean desde la barra del CRM sin ' +
-      'programar: nombre, etapas, embudos y reglas de automatización. En la edición gratuita el formulario se ' +
-      'completa, pero al guardar el sistema no crea la entidad y avisa que los procesos inteligentes requieren ' +
-      'el plan Professional o el Enterprise. Sin ellos la póliza no tiene identidad propia: habría que forzarla ' +
-      'dentro de otra entidad del producto.',
+      'Sin ellos la póliza no tiene identidad propia: habría que forzarla dentro de otra entidad del ' +
+      'producto.',
     evidencia: [capFormulario, capAviso],
     documentacion: fuente,
   });
@@ -140,12 +143,15 @@ test('A.1.2 — Campos de lista para el ramo y el estado de cobranza', async ({ 
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Desde el formulario de la negociación —que en la edición gratuita hace de póliza, a falta de ' +
+      'entidades propias— se agregan campos de tipo lista sin programar. Se definieron los ramos ' +
+      `—${RAMOS.join(', ')}— y los estados de cobranza, se cargó una póliza de cada ramo y a la de salud ` +
+      'se le cambió el estado desde su ficha: todo quedó guardado.',
+    caracteristicas:
+      'El usuario elige de la lista y no puede escribir un valor imprevisto.',
     justificacion:
-      'Desde el formulario de la negociación —que en la edición gratuita hace de póliza, a falta de entidades ' +
-      `propias— se agregan campos de tipo lista sin programar. Se definieron los ramos —${RAMOS.join(', ')}— y ` +
-      'los estados de cobranza, se cargó una póliza de cada ramo y a la de salud se le cambió el estado desde su ' +
-      'ficha: todo quedó guardado. El usuario elige de la lista y no puede escribir un valor imprevisto. Definir ' +
-      'los campos es configuración de una vez, en el mismo formulario.',
+      'Definir los campos es configuración de una vez, en el mismo formulario.',
     evidencia: [capCampos, capCartera, capEstado],
     medicion: `${cargados.length} ramos cargados`,
   });
@@ -211,12 +217,15 @@ test('A.1.3 — Prima con importe y moneda', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'El peso argentino no venía entre las monedas del portal: se agregó desde la configuración del CRM, ' +
+      'eligiéndolo de la lista de monedas y cargando su cotización. Se cargó una prima de 15.250,50 pesos ' +
+      'y quedó guardada con sus centavos y su moneda.',
+    caracteristicas:
+      'El formulario de la negociación, que hace de póliza en la edición gratuita, admite campos de tipo ' +
+      'dinero: importe y moneda en el mismo campo.',
     justificacion:
-      'El formulario de la negociación, que hace de póliza en la edición gratuita, admite campos de tipo dinero: ' +
-      'importe y moneda en el mismo campo. El peso argentino no venía entre las monedas del portal: se agregó ' +
-      'desde la configuración del CRM, eligiéndolo de la lista de monedas y cargando su cotización. Se cargó una ' +
-      'prima de 15.250,50 pesos y quedó guardada con sus centavos y su moneda. Agregar la moneda y el campo es ' +
-      'configuración de una vez.',
+      'Agregar la moneda y el campo es configuración de una vez.',
     evidencia: [capMoneda, capPrima, capFicha],
     medicion: `Guardado: ${guardado}`,
   });
@@ -294,14 +303,18 @@ test('A.1.4 — Vigencia con fecha de inicio y de fin', async ({ page }, info) =
       plataforma,
       cumple: 2,
       costo: 1,
+      comoLoHace:
+        'Se agregaron el inicio y el fin de la vigencia desde el mismo formulario y se cargaron tres ' +
+        'pólizas con sus fechas.',
+      caracteristicas:
+        'El formulario de la negociación, que en la edición gratuita hace de póliza, admite campos de tipo ' +
+        'fecha. El sistema las trata como fechas: con un clic en el encabezado de la columna el listado se ' +
+        'ordena por calendario —no alfabéticamente— y otro clic invierte el orden; y el filtro sobre ese ' +
+        'campo ofrece comparaciones propias de una fecha —hoy, próximos N días, rango, mes, trimestre—: ' +
+        '«vence en los próximos 30 días» trajo solo la póliza que vence en doce días y dejó afuera las de ' +
+        '150 y 300.',
       justificacion:
-        'El formulario de la negociación, que en la edición gratuita hace de póliza, admite campos de tipo fecha. Se ' +
-        'agregaron el inicio y el fin de la vigencia desde el mismo formulario y se cargaron tres pólizas con sus ' +
-        'fechas. El sistema las trata como fechas: con un clic en el encabezado de la columna el listado se ordena ' +
-        'por calendario —no alfabéticamente— y otro clic invierte el orden; y el filtro sobre ese campo ofrece ' +
-        'comparaciones propias de una fecha —hoy, próximos N días, rango, mes, trimestre—: «vence en los próximos ' +
-        '30 días» trajo solo la póliza que vence en doce días y dejó afuera las de 150 y 300. Definir los campos y ' +
-        'mostrarlos como columna y en el filtro es trabajo de una sola vez.',
+        'Definir los campos y mostrarlos como columna y en el filtro es trabajo de una sola vez.',
       evidencia: [capFormulario, capOrden, capFiltro, capResultado],
       medicion: `orden ${primero.join(' > ')} · vencen en 30 días: ${proximas.join(', ')}`,
     });
@@ -443,22 +456,26 @@ test('A.1.5 — Aviso anticipado de vencimiento', async ({ page, browser }, info
       plataforma,
       cumple: 2,
       costo: 1,
+      comoLoHace:
+        'Se definieron desde la pantalla, sin código, dos avisos por notificación al responsable: treinta ' +
+        'días antes del fin de vigencia de la póliza y dos días antes del plazo de resolución del reclamo ' +
+        '—que en la edición gratuita, sin entidad propia, es un campo de fecha de la negociación—, con ' +
+        'fecha y hora. Se cargaron una póliza que vence dentro de treinta días y unos minutos, otra en ' +
+        '200, un reclamo que agota su plazo dentro de dos días y unos minutos y otro en 25 días, y nadie ' +
+        `tocó nada más: a los ${minutosHasta} minutos llegaron las notificaciones de la póliza y del ` +
+        'reclamo cuyo momento de aviso había llegado, y no las de los que todavía están lejos.',
+      caracteristicas:
+        'Las reglas de automatización de la negociación aceptan un momento de ejecución relativo a una ' +
+        'fecha: «N días antes» del valor de un campo de tipo fecha. El aviso se calcula sobre el valor del ' +
+        'campo —la fecha y hora menos treinta días—, y un campo de solo fecha lo calcularía a la ' +
+        'medianoche; el sistema lo ejecuta con su programador, con una demora de unos minutos sobre el ' +
+        'instante calculado, sin consecuencia para avisos de días de anticipación. Cada aviso se marca «En ' +
+        'paralelo»: por omisión una regla espera a que termine la anterior de su etapa, y con una regla ' +
+        'previa de un día de retraso el aviso saldría un día tarde. La edición gratuita admite hasta ' +
+        `${limite} reglas y disparadores en total: el portal trae ${previas} reglas de muestra en la etapa ` +
+        'inicial y, con ellas, los dos avisos entran sin pedir otro plan.',
       justificacion:
-        'Las reglas de automatización de la negociación aceptan un momento de ejecución relativo a una fecha: «N días ' +
-        'antes» del valor de un campo de tipo fecha. Se definieron desde la pantalla, sin código, dos avisos por ' +
-        'notificación al responsable: treinta días antes del fin de vigencia de la póliza y dos días antes del plazo ' +
-        'de resolución del reclamo —que en la edición gratuita, sin entidad propia, es un campo de fecha de la ' +
-        'negociación—, con fecha y hora. Se cargaron una póliza que vence dentro de treinta días y unos minutos, otra ' +
-        'en 200, un reclamo que agota su plazo dentro de dos días y unos minutos y otro en 25 días, y nadie tocó nada ' +
-        `más: a los ${minutosHasta} minutos llegaron las notificaciones de la póliza y del reclamo cuyo momento de ` +
-        'aviso había llegado, y no las de los que todavía están lejos. El aviso se calcula sobre el valor del campo ' +
-        '—la fecha y hora menos treinta días—, y un campo de solo fecha lo calcularía a la medianoche; el sistema ' +
-        'lo ejecuta con su programador, con una demora de unos minutos sobre el instante calculado, sin consecuencia ' +
-        'para avisos de días de anticipación. Cada aviso se marca «En paralelo»: por omisión una regla espera a que ' +
-        'termine la anterior de su etapa, y con una regla previa de un día de retraso el aviso saldría un día tarde. ' +
-        `La edición gratuita admite hasta ${limite} reglas y disparadores en total: el portal trae ${previas} reglas ` +
-        'de muestra en la etapa inicial y, con ellas, los dos avisos entran sin pedir otro plan. Armar cada aviso es ' +
-        'configuración de una vez.',
+        'Armar cada aviso es configuración de una vez.',
       evidencia: [capReglas, capGuardadas, capAvisos],
       documentacion: fuentes,
       medicion: `Avisos emitidos sin intervención: ${propios.length}, a los ${minutosHasta} minutos`,
@@ -534,12 +551,15 @@ test('A.1.6 — Consulta y filtrado de la cartera', async ({ page }, info) => {
       plataforma,
       cumple: 2,
       costo: 1,
+      comoLoHace:
+        'De una cartera de seis pólizas se filtró por ramo Automotor, estado de cobranza Al día y ' +
+        'productor responsable, y el listado trajo exactamente las dos que cumplen las tres.',
+      caracteristicas:
+        'El filtro del listado de negociaciones combina condiciones sobre cualquier campo. El filtro se ' +
+        'puede guardar con nombre.',
       justificacion:
-        'El filtro del listado de negociaciones combina condiciones sobre cualquier campo. De una cartera de seis ' +
-        'pólizas se filtró por ramo Automotor, estado de cobranza Al día y productor responsable, y el listado ' +
-        'trajo exactamente las dos que cumplen las tres. El filtro se puede guardar con nombre. El productor ' +
-        'responsable viene en toda negociación como «Persona responsable»; el ramo y el estado son campos propios ' +
-        'que hay que mostrar en el filtro una vez, con «Agregar campo».',
+        'El productor responsable viene en toda negociación como «Persona responsable»; el ramo y el ' +
+        'estado son campos propios que hay que mostrar en el filtro una vez, con «Agregar campo».',
       evidencia: [capFiltro, capListado],
       medicion: `${obtenidas.length} pólizas: ramo Automotor, estado Al día, productor ${productor.nombre}`,
     });
@@ -595,12 +615,15 @@ test('A.1.7 — Operación masiva sobre la cartera', async ({ page }, info) => {
       plataforma,
       cumple: 2,
       costo: 0,
+      comoLoHace:
+        'Se filtró el listado por el ramo Hogar, se tildó la casilla del encabezado —que selecciona las ' +
+        `${elegidas.length} pólizas— y en el desplegable de acciones de la selección se eligió «Cambiar a la ` +
+        `persona responsable»: con el productor ${productor.nombre} y un solo «Aplicar», todas quedaron a su ` +
+        'cargo.',
+      caracteristicas:
+        'Las acciones de la selección vienen con el producto y no hay nada que configurar.',
       justificacion:
-        `Se filtró el listado por el ramo Hogar, se tildó la casilla del encabezado —que selecciona las ${elegidas.length} ` +
-        'pólizas— y en el desplegable de acciones de la selección se eligió «Cambiar a la persona responsable»: ' +
-        `con el productor ${productor.nombre} y un solo «Aplicar», todas quedaron a su cargo. Las acciones de la ` +
-        'selección vienen con el producto y no hay nada que configurar; modificar en bloque otro campo propio, ' +
-        'como el estado de cobranza, no figura entre ellas.',
+        'Modificar en bloque otro campo propio, como el estado de cobranza, no figura entre ellas.',
       evidencia: [capSeleccion, capAccion, capResultado],
       medicion: `${cambiadas} de ${elegidas.length} pólizas reasignadas con una sola acción`,
     });

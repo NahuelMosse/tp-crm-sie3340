@@ -3,7 +3,9 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 0,
-  "justificacion": "Se seleccionaron las 7 pólizas del ramo Hogar desde el listado y, con la selección hecha, la acción de actualizar abre un panel con los campos de la póliza: se eligió el estado de pago nuevo y se aplicó a todas de una vez, tras una confirmación que advierte que el cambio no se puede deshacer. Las seleccionadas quedaron con el estado nuevo. Viene listo: no hay nada que configurar.",
+  "comoLoHace": "Se seleccionaron las 7 pólizas del ramo Hogar desde el listado y, con la selección hecha, la acción de actualizar abre un panel con los campos de la póliza: se eligió el estado de pago nuevo y se aplicó a todas de una vez, tras una confirmación que advierte que el cambio no se puede deshacer.",
+  "caracteristicas": "Las seleccionadas quedaron con el estado nuevo.",
+  "justificacion": "Viene listo: no hay nada que configurar.",
   "evidencia": [
     "A-1-7-twenty-1-seleccion.png",
     "A-1-7-twenty-2-actualizar-registros.png",
@@ -15,5 +17,5 @@
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-09-29T04:27:12.173Z"
+  "momento": "2026-10-30T06:58:32.217Z"
 }

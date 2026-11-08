@@ -21,6 +21,8 @@ const SECCION4 = join(RAIZ, 'humanos', 'informe', '04-criterios-de-analisis.md')
  * @property {string} id             'A.1.1'
  * @property {string} nombre
  * @property {string} procedimiento  La acción que se ejecuta sobre cada plataforma
+ * @property {string} necesidad      Qué resuelve para la compañía
+ * @property {'funcional'|'tecnica'|'operativa'} tipo
  *
  * @typedef  {object} Grupo
  * @property {string}     id         'A.1'
@@ -33,6 +35,7 @@ function leer() {
   const texto = readFileSync(SECCION4, 'utf8').replace(/\r\n/g, '\n');
   const grupos = [];
   let actual = null;
+  let columnas = [];
 
   for (const linea of texto.split('\n')) {
     const encabezado = linea.match(/^### ([AB])\.(\d+) (.+)$/);
@@ -40,6 +43,7 @@ function leer() {
       const [, parte, numero, nombre] = encabezado;
       actual = { id: `${parte}.${numero}`, nombre: nombre.trim(), parte, funcional: true, criterios: [] };
       grupos.push(actual);
+      columnas = [];
       continue;
     }
     if (!actual) continue;
@@ -48,8 +52,15 @@ function leer() {
     if (/^\*Criterios no funcionales\./.test(linea)) { actual.funcional = false; continue; }
 
     const celdas = linea.trim().replace(/^\||\|$/g, '').split('|').map(c => c.trim());
+    // Las columnas se leen por su título: no todas las tablas traen las mismas
+    if (celdas[0] === 'ID') { columnas = celdas; continue; }
     if (!/^[AB]\.\d+\.\d+$/.test(celdas[0])) continue;
-    actual.criterios.push({ id: celdas[0], nombre: celdas[1], procedimiento: celdas[2] });
+    const de = (titulo) => celdas[columnas.indexOf(titulo)];
+    const tipo = actual.funcional ? 'funcional' : { 'Técnica': 'tecnica', 'Operativa': 'operativa' }[de('Tipo')];
+    if (!tipo) throw new Error(`${celdas[0]}: un criterio no funcional declara su tipo, Técnica u Operativa`);
+    const necesidad = de('Qué resuelve') ?? de('Fundamento') ?? de('Aplicación en el rubro');
+    if (!necesidad) throw new Error(`${celdas[0]}: falta qué resuelve para la compañía`);
+    actual.criterios.push({ id: celdas[0], nombre: de('Criterio'), procedimiento: de('Procedimiento de verificación'), necesidad, tipo });
   }
 
   if (!grupos.length) throw new Error(`No se leyó ningún grupo de ${SECCION4}`);

@@ -25,7 +25,7 @@ export async function abrirReglas(page: Page) {
 /** Agrega una regla a una etapa: el «+» de la etapa, el grupo y «Agregar» en la regla. */
 export async function agregarRegla(page: Page, etapa: string, grupo: string, regla: string) {
   const f = panel(page);
-  await f.locator('span.bizproc-automation-robot-btn-add').nth(ETAPAS.indexOf(etapa)).click();
+  await f.locator('button.bizproc-automation-robot-btn-add').filter({ hasText: /agregar/i }).nth(ETAPAS.indexOf(etapa)).click();
   await page.waitForTimeout(3000);
   const g = f.getByText(grupo, { exact: true }).first();
   await g.scrollIntoViewIfNeeded();

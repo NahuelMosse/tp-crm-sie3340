@@ -181,12 +181,15 @@ test('A.9.1 — Restricción de la cartera por productor', async ({ page, browse
         plataforma,
         cumple: 2,
         costo: 1,
-        justificacion:
+        comoLoHace:
           'En la edición gratuita, desde CRM › Más › Configuraciones › «Permisos de acceso al CRM», se creó el rol ' +
           '«Productor» con leer, agregar, editar y eliminar limitados a «Solo sus propios elementos» en contactos y ' +
-          'negociaciones, y se lo asignó al productor: el sistema lo guardó sin pedir ningún plan. Con la sesión del ' +
+          'negociaciones, y se lo asignó al productor: el sistema lo guardó sin pedir ningún plan.',
+        caracteristicas:
+          'Con la sesión del ' +
           'productor, el listado de contactos muestra el asegurado que tiene asignado y no el de otro responsable, y al escribir ' +
-          `en el navegador la dirección de la ficha ajena el sistema no la muestra${respuesta ? ` («${respuesta}»)` : ''}. ` +
+          `en el navegador la dirección de la ficha ajena el sistema no la muestra${respuesta ? ` («${respuesta}»)` : ''}.`,
+        justificacion:
           'Es configuración de una sola vez.',
         evidencia,
       });
@@ -208,7 +211,7 @@ test('A.9.1 — Restricción de la cartera por productor', async ({ page, browse
         criterio: 'A.9.1',
         plataforma,
         cumple: 0,
-        justificacion:
+        comoLoHace:
           'En la edición gratuita no se puede crear la restricción por productor: desde CRM › Más › Configuraciones › ' +
           '«Permisos de acceso al CRM» el editor deja armar el rol «Productor» con leer, agregar, editar y eliminar ' +
           'limitados a «Solo sus propios elementos» en contactos y negociaciones y asignárselo al productor, pero al ' +
@@ -217,7 +220,9 @@ test('A.9.1 — Restricción de la cartera por productor', async ({ page, browse
           `el rol no queda creado. Con la sesión del productor, sin rol propio, ${veElAjeno ? 'el asegurado ajeno figura en su listado' : 'el asegurado ajeno no figura en su listado'} ` +
           `y ${abreElAjeno ? 'se abre' : 'no se abre'} al escribir la dirección de su ficha${respuesta ? ` («${respuesta}»)` : ''}: ` +
           'todos los empleados comparten el mismo permiso, y no se puede distinguir a un productor de un supervisor ni ' +
-          'ajustar el acceso de ninguno. El fabricante confirma que los permisos por rol del CRM no están en todos los ' +
+          'ajustar el acceso de ninguno.',
+        justificacion:
+          'El fabricante confirma que los permisos por rol del CRM no están en todos los ' +
           'planes, y su comparación de planes los publica desde el plan Basic.',
         conPlan: [conPlanDe(BITRIX24_BASIC, {
           cumple: 2,
@@ -237,9 +242,11 @@ test('A.9.1 — Restricción de la cartera por productor', async ({ page, browse
         criterio: 'A.9.1',
         plataforma,
         cumple: 0,
-        justificacion:
+        comoLoHace:
           'El rol «Productor», limitado a «Solo sus propios elementos» en contactos y negociaciones, se guardó en la edición ' +
-          'gratuita, pero la restricción no se aplica: con la sesión del productor el asegurado ajeno ' +
+          'gratuita, pero la restricción no se aplica.',
+        justificacion:
+          'Con la sesión del productor el asegurado ajeno ' +
           `${veElAjeno ? 'figura en su listado' : 'no figura en su listado'} y ` +
           `${abreElAjeno ? 'se abre al escribir la dirección de su ficha' : 'no se abre por dirección directa'}` +
           `${veElPropio ? '' : '; tampoco ve el suyo'}.`,
@@ -289,13 +296,17 @@ test('A.9.2 — Autenticación de los usuarios bajo control de la compañía', a
     criterio: 'A.9.2',
     plataforma,
     cumple: 1,
+    comoLoHace:
+      'La pantalla no ofrece ninguna política de contraseñas configurable —longitud, complejidad, ' +
+      'vencimiento—.',
+    caracteristicas:
+      'Los ajustes de seguridad del portal ofrecen la autenticación de dos factores, que el administrador ' +
+      'puede volver obligatoria para todos los empleados con un plazo para habilitarla, y una confirmación ' +
+      'adicional del inicio de sesión en el dispositivo de confianza.',
     justificacion:
-      'Los ajustes de seguridad del portal ofrecen la autenticación de dos factores, que el administrador puede ' +
-      'volver obligatoria para todos los empleados con un plazo para habilitarla, y una confirmación adicional ' +
-      'del inicio de sesión en el dispositivo de confianza. La pantalla no ofrece ninguna política de contraseñas ' +
-      'configurable —longitud, complejidad, vencimiento—. El acceso unificado con el directorio de la compañía ' +
-      'existe como inicio de sesión único (SSO) con Microsoft Azure Active Directory, pero el fabricante lo limita ' +
-      'a los planes Enterprise: en la edición gratuita no está.',
+      'El acceso unificado con el directorio de la compañía existe como inicio de sesión único (SSO) con ' +
+      'Microsoft Azure Active Directory, pero el fabricante lo limita a los planes Enterprise: en la ' +
+      'edición gratuita no está.',
     evidencia: [capSeguridad],
     documentacion: fuente,
   });
@@ -360,12 +371,15 @@ test('A.9.3 — Registro de quién modificó cada dato', async ({ page, browser 
     criterio: 'A.9.3',
     plataforma,
     cumple: 0,
+    comoLoHace:
+      'Se cambió el ramo de una póliza de Hogar a Vida desde su ficha y el cambio quedó guardado, pero no ' +
+      'dejó ninguna constancia: la línea de tiempo de la edición gratuita solo muestra la creación de la ' +
+      'negociación —y los cambios de etapa—, sin el valor anterior, el autor ni el momento del cambio de ' +
+      'un campo.',
     justificacion:
-      'Se cambió el ramo de una póliza de Hogar a Vida desde su ficha y el cambio quedó guardado, pero no dejó ' +
-      'ninguna constancia: la línea de tiempo de la edición gratuita solo muestra la creación de la negociación ' +
-      '—y los cambios de etapa—, sin el valor anterior, el autor ni el momento del cambio de un campo. La pestaña ' +
-      '«Historial», que sí registra quién hizo cada acción y cuándo, no se abre: el sistema informa que el ' +
-      'historial en CRM está disponible solo en los planes Standard, Professional y Enterprise.',
+      'La pestaña «Historial», que sí registra quién hizo cada acción y cuándo, no se abre: el sistema ' +
+      'informa que el historial en CRM está disponible solo en los planes Standard, Professional y ' +
+      'Enterprise.',
     conPlan: [conPlanDe(BITRIX24_STANDARD, {
       cumple: 2,
       costo: 0,

@@ -79,12 +79,16 @@ test('A.6.1 — Vinculación de la póliza con su titular', async ({ page, brows
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Se cargó una póliza, se eligió al titular buscándolo por nombre, y las dos puntas del vínculo ' +
+      'quedaron a la vista: la póliza muestra al titular y la ficha del asegurado lista la póliza ' +
+      'junto con las demás suyas.',
+    caracteristicas:
+      'La póliza se liga con la persona que es su titular mediante un campo de relación, que se define ' +
+      'una vez desde el modelo de datos, sin programar: cada póliza tiene un titular y una persona ' +
+      'puede tener muchas pólizas.',
     justificacion:
-      'La póliza se liga con la persona que es su titular mediante un campo de relación, que se define una vez ' +
-      'desde el modelo de datos, sin programar: cada póliza tiene un titular y una persona puede tener muchas ' +
-      'pólizas. Al definirlo, la ficha de la persona suma sola el campo con sus pólizas. Se cargó una póliza, ' +
-      'se eligió al titular buscándolo por nombre, y las dos puntas del vínculo quedaron a la vista: la póliza ' +
-      'muestra al titular y la ficha del asegurado lista la póliza junto con las demás suyas.',
+      'Al definirlo, la ficha de la persona suma sola el campo con sus pólizas.',
     evidencia: [capPoliza, capFicha],
   });
 });
@@ -136,13 +140,16 @@ test('A.6.2 — Vista única del asegurado', async ({ page, browser }, info) => 
     plataforma,
     cumple: 2,
     costo: 1,
-    justificacion:
+    comoLoHace:
+      'Desde la ficha de un asegurado se llegó a su póliza, a su reclamo y a la tarea hecha con él sin ' +
+      'pasar por otro menú.',
+    caracteristicas:
       'La ficha de la persona reúne lo suyo: a la izquierda, sus campos, entre ellos sus pólizas y sus ' +
-      'reclamos, que se abren desde ahí; a la derecha, pestañas con la línea de tiempo de cambios, las tareas, ' +
-      'las notas, los archivos, los correos y el calendario. Desde la ficha de un asegurado se llegó a su ' +
-      'póliza, a su reclamo y a la tarea hecha con él sin pasar por otro menú. La actividad viene de fábrica; ' +
-      'las pólizas y los reclamos aparecen al definir sus relaciones con la persona, que es configuración de ' +
-      'una sola vez.',
+      'reclamos, que se abren desde ahí; a la derecha, pestañas con la línea de tiempo de cambios, las ' +
+      'tareas, las notas, los archivos, los correos y el calendario.',
+    justificacion:
+      'La actividad viene de fábrica; las pólizas y los reclamos aparecen al definir sus relaciones ' +
+      'con la persona, que es configuración de una sola vez.',
     evidencia: [capFicha, capReclamos, capActividad],
     medicion: pestanas.length ? `Pestañas de la ficha: ${pestanas.map(p => p.trim()).filter(Boolean).join(', ')}` : undefined,
   });
@@ -187,12 +194,15 @@ test('A.6.3 — Campos propios del rubro en la ficha', async ({ page, browser },
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Se agregó a la persona un campo que el producto no trae —la valoración que dejó sobre la ' +
+      'atención recibida, con cuatro valores— desde el modelo de datos.',
+    caracteristicas:
+      'Apareció solo en la ficha, sin ubicarlo en ningún diseño; se cargó en un asegurado y se lo pudo ' +
+      'usar enseguida como condición de filtro del listado para ver a los que valoraron la atención ' +
+      'como muy buena.',
     justificacion:
-      'Se agregó a la persona un campo que el producto no trae —la valoración que dejó sobre la atención ' +
-      'recibida, con cuatro valores— desde el modelo de datos. Apareció solo en la ficha, sin ubicarlo en ' +
-      'ningún diseño; se cargó en un asegurado y se lo pudo usar enseguida como condición de filtro del ' +
-      'listado para ver a los que valoraron la atención como muy buena. Es configuración de una sola vez, sin ' +
-      'programar.',
+      'Es configuración de una sola vez, sin programar.',
     evidencia: [capAlta, capBusqueda],
   });
 });
@@ -256,12 +266,16 @@ test('A.6.4 — Unicidad de la ficha del asegurado', async ({ page, browser }, i
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Se agregó el documento como campo de texto y, al crearlo, se lo marcó como único con un ' +
+      'interruptor de la misma pantalla. Se cargó un asegurado con su documento y, al cargar otro con ' +
+      'el mismo documento y el apellido escrito distinto, el sistema rechazó el valor y avisó: ' +
+      `«${mensaje}».`,
+    caracteristicas:
+      'De fábrica la persona se compara por nombre, correo y perfil de LinkedIn para sugerir ' +
+      'duplicados, pero no trae documento.',
     justificacion:
-      'De fábrica la persona se compara por nombre, correo y perfil de LinkedIn para sugerir duplicados, pero ' +
-      'no trae documento. Se agregó el documento como campo de texto y, al crearlo, se lo marcó como único con ' +
-      'un interruptor de la misma pantalla. Se cargó un asegurado con su documento y, al cargar otro con el ' +
-      `mismo documento y el apellido escrito distinto, el sistema rechazó el valor y avisó: «${mensaje}». La ` +
-      'necesidad queda resuelta con configuración de una sola vez, sin programar.',
+      'La necesidad queda resuelta con configuración de una sola vez, sin programar.',
     evidencia: [capCampo, capDuplicado],
     medicion: `${guardados} ficha con el documento repetido`,
   });

@@ -3,27 +3,29 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 0,
-  "justificacion": "El portal es un servicio en la nube que el fabricante actualiza por su cuenta: la compañía no aplica ningún procedimiento ni elige el momento, y el fabricante afirma que el servicio no se interrumpe durante las actualizaciones. Los campos, las listas y las monedas que este análisis creó desde la pantalla están guardados como datos del portal y siguen ahí, en el formulario, sin que nadie los rehaga. El fabricante no publica una frase que garantice expresamente que la parametrización se conserva al actualizar: la conclusión se apoya en que actualiza el servicio de todos sus clientes a la vez y en que lo parametrizado es información del portal y no código de la compañía.",
+  "comoLoHace": "El fabricante actualiza el servicio por su cuenta, sin que la compañía aplique ningún procedimiento ni elija el momento. El registro de cambios oficial fecha el 22 de octubre de 2026 una versión nueva del módulo CRM, con métodos para trabajar con sus formularios, que llega a todas las cuentas en la nube.",
+  "caracteristicas": "Los campos propios creados por pantalla (Ramo, Estado de cobranza, Prima, Motivo de pérdida, Competidor, Plazo de resolución, Vigencia desde, Vigencia hasta, Forma de pago, Vencimiento de la cuota, Estado de la cuota, Plazo de resolución del reclamo, Vencimiento de la póliza) siguen en el formulario después de esa versión, y las 41 pólizas cargadas antes con esos campos conservan sus valores: la más antigua, del 29/09/2026, se abrió y muestra su ramo.",
+  "justificacion": "Lo que la compañía parametrizó atravesó una versión nueva del CRM sin perderse ni tener que rehacerse, y no exige ningún trabajo de su parte.",
   "evidencia": [
-    "A-8-4-bitrix24-3-parametrizacion-por-pantalla.png"
+    "A-8-4-bitrix24-3-poliza-anterior-a-la-actualizacion.png"
   ],
   "documentacion": [
     {
       "url": "https://helpdesk.bitrix24.com/open/23247978/",
       "cita": "Automatic updates. There's no need to track or manage version updates. Bitrix24 accounts automatically receive updates and new tools.",
-      "consultado": "2026-09-29",
+      "consultado": "2026-11-08",
       "captura": "A-8-4-bitrix24-1-actualizacion-automatica.png"
     },
     {
-      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
-      "cita": "Servicio ininterrumpido durante las actualizaciones del sistema y de la infraestructura",
-      "consultado": "2026-09-29",
-      "captura": "A-8-4-bitrix24-2-servicio-ininterrumpido.png"
+      "url": "https://apidocs.bitrix24.com/whats-new.html",
+      "cita": "Added the crm.form.* methods in REST 3.0 for working with CRM forms: searching for forms and retrieving their configuration, creating forms with configuration validation before saving, partial updates, activating and deactivating with the active forms limit taken into account, deleting, CRM form builder and CRM object field directories, the website embed code and button and auto-display settings, and viewing the website widgets and Open Channels of a form",
+      "consultado": "2026-11-08",
+      "captura": "A-8-4-bitrix24-2-novedades-del-crm-de-octubre.png"
     }
   ],
-  "medicion": "Campos propios del portal: 5",
+  "medicion": "Pólizas con campos propios anteriores a la actualización: 41",
   "criterioNombre": "Conservación de la parametrización al actualizar",
   "licencia": null,
   "conPlan": [],
-  "momento": "2026-09-30T00:49:29.322Z"
+  "momento": "2026-11-08T03:54:04.696Z"
 }

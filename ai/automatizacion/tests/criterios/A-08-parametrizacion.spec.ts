@@ -8,7 +8,8 @@ import { apiEspo, crear, listar } from '../api';
 import { ESPOCRM_ADVANCED_PACK, ESPOCRM_CLOUD_BASIC, constanciaDe, conPlanDe } from '../precios';
 import { soloEn, capturar, textoDe, elegirLista } from './comun';
 import { escribirGuion, guardarGuion } from '../formula';
-import { administracion, alta, ficha, edicion, pestana } from '../espocrm/navegar';
+import { administracion, alta, ficha, edicion, pestana, listado } from '../espocrm/navegar';
+import { copiarEspoCrm, actualizarEspoCrm, versionEspo, sqlEspo, retirarCopia } from '../actualizacion';
 
 /**
  * A.8 — Parametrización del modelo de negocio
@@ -91,13 +92,16 @@ test('A.8.1 — Creación de entidades sin programar', async ({ page }, info) =>
     plataforma,
     cumple: 2,
     costo: 1,
-    justificacion:
+    comoLoHace:
       'El Administrador de Entidades crea una entidad desde un formulario de la administración: se creó el ' +
-      'Endoso —la modificación de una póliza vigente— indicando el nombre, las etiquetas en singular y plural ' +
-      `y el tipo, entre ${tipos.length} que ofrece (${tipos.join(', ')}). No hizo falta escribir código, tocar ` +
-      'archivos del servidor ni reiniciar nada: la entidad quedó disponible en el acto y admitió su primer ' +
-      'registro. Es trabajo de configuración que se hace una vez, y es lo que permite que el modelo de datos ' +
-      'siga al negocio asegurador en lugar de obligar al negocio a acomodarse a un modelo genérico.',
+      'Endoso —la modificación de una póliza vigente— indicando el nombre, las etiquetas en singular y ' +
+      `plural y el tipo, entre ${tipos.length} que ofrece (${tipos.join(', ')}).`,
+    caracteristicas:
+      'No hizo falta escribir código, tocar archivos del servidor ni reiniciar nada: la entidad quedó ' +
+      'disponible en el acto y admitió su primer registro.',
+    justificacion:
+      'Es trabajo de configuración que se hace una vez, y es lo que permite que el modelo de datos siga al ' +
+      'negocio asegurador en lugar de obligar al negocio a acomodarse a un modelo genérico.',
     evidencia: [capFormulario, capRegistro],
     medicion: `Entidad creada y operativa en ${segundos} segundos`,
   });
@@ -147,12 +151,16 @@ test('A.8.2 — Campos calculados sobre datos propios', async ({ page }, info) =
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Se definió la prima anual como doce veces la mensual con una sola expresión, del tipo de una fórmula ' +
+      'de planilla, y al guardar una póliza con prima de 15.250,50 el sistema calculó ' +
+      `${guardada.primaAnual} sin intervención.`,
+    caracteristicas:
+      'La administración de cada entidad trae una fórmula que, según la propia pantalla, "se ejecuta cada ' +
+      'vez que se guarda una entidad" y "se utiliza para configurar campos calculados".',
     justificacion:
-      'La administración de cada entidad trae una fórmula que, según la propia pantalla, "se ejecuta cada vez ' +
-      'que se guarda una entidad" y "se utiliza para configurar campos calculados". Se definió la prima anual ' +
-      'como doce veces la mensual con una sola expresión, del tipo de una fórmula de planilla, y al guardar una ' +
-      `póliza con prima de 15.250,50 el sistema calculó ${guardada.primaAnual} sin intervención. El cálculo se ` +
-      'escribe una vez desde la administración, sin instalar nada ni programar la aplicación: es configuración.',
+      'El cálculo se escribe una vez desde la administración, sin instalar nada ni programar la aplicación: ' +
+      'es configuración.',
     evidencia: [capFormula, capFicha],
     medicion: `Prima anual calculada al guardar: ${guardada.primaAnual}`,
   });
@@ -219,14 +227,18 @@ test('A.8.3 — Automatización de procesos', async ({ page, browser }, info) =>
     plataforma,
     cumple: 2,
     costo: 2,
+    comoLoHace:
+      'Se definió una acción automática sobre un evento: cuando la cobranza de una póliza pasa a vencida, ' +
+      'el sistema le crea una tarea de gestión a su productor. Se provocó el evento cambiando el estado ' +
+      `desde la ficha, y la tarea "${tareas[0].name}" apareció sola, asignada al productor y vinculada a la ` +
+      'póliza.',
+    caracteristicas:
+      'La edición gratuita lo resuelve, pero con la fórmula de la entidad, que para esto exige escribir un ' +
+      'script con condiciones y funciones del sistema: es desarrollo, aunque sea breve, y lo tiene que ' +
+      'mantener alguien que sepa leerlo.',
     justificacion:
-      'Se definió una acción automática sobre un evento: cuando la cobranza de una póliza pasa a vencida, el ' +
-      'sistema le crea una tarea de gestión a su productor. Se provocó el evento cambiando el estado desde la ' +
-      `ficha, y la tarea "${tareas[0].name}" apareció sola, asignada al productor y vinculada a la póliza. La ` +
-      'edición gratuita lo resuelve, pero con la fórmula de la entidad, que para esto exige escribir un script ' +
-      'con condiciones y funciones del sistema: es desarrollo, aunque sea breve, y lo tiene que mantener ' +
-      'alguien que sepa leerlo. El fabricante vende un motor de flujos de trabajo que define la misma regla ' +
-      'desde pantallas, sin escribir código.',
+      'El fabricante vende un motor de flujos de trabajo que define la misma regla desde pantallas, sin ' +
+      'escribir código.',
     evidencia: [capRegla, capTarea],
     documentacion: fuentes,
     conPlan: [conPlanDe(ESPOCRM_ADVANCED_PACK, {
@@ -252,35 +264,155 @@ test('A.8.4 — Conservación de la parametrización al actualizar', async ({ pa
   //  ocurre con las entidades y campos creados por la compañía»
   const plataforma = plataformaDe(info.project.name);
   soloEn(plataforma, 'espocrm');
-  test.setTimeout(300_000);
+  test.setTimeout(3_600_000);
 
-  const fuente = await citar(browser, {
-    url: 'https://docs.espocrm.com/administration/upgrading/',
-    buscar: 'should not break customizations made via the UI',
-    captura: 'A-8-4-espocrm-1-actualizacion',
-  });
+  // La actualización se aplica sobre una copia de la instalación, en un puerto pedido al gobernador
+  const puerto = Number(process.env.A84_ESPOCRM_PUERTO);
+  if (!puerto) throw new Error('Falta A84_ESPOCRM_PUERTO: el puerto de la copia que se actualiza');
+  const URL_COPIA = `http://localhost:${puerto}/`;
+  const DE = '10.0.4';
+  const A = '10.0.11';
+  const NUEVA = 'POL-ACTUALIZADA-001';
 
-  // Lo que la compañía parametrizó está hecho por pantalla, y así se comprueba
-  await entrar(page, plataforma);
-  await administracion(page, '#Admin/entityManager');
-  await page.waitForTimeout(5000);
-  const propias = /Póliza/.test(await textoDe(page)) && /Endoso/.test(await textoDe(page));
-  const capModelo = await capturar(page, 'A.8.4', plataforma, '2-parametrizacion-por-pantalla');
+  const fuentes = [
+    await citar(browser, {
+      url: 'https://docs.espocrm.com/administration/docker/installation/',
+      buscar: 'Within a few minutes the container will be upgraded to the latest version',
+      captura: 'A-8-4-espocrm-1-actualizacion-con-docker',
+    }),
+    await citar(browser, {
+      url: 'https://docs.espocrm.com/administration/upgrading/',
+      buscar: 'should not break customizations made via the UI',
+      captura: 'A-8-4-espocrm-2-personalizacion-por-interfaz',
+    }),
+  ];
 
-  expect(propias, 'la parametrización evaluada debe ser la hecha por pantalla').toBeTruthy();
+  const copia = await copiarEspoCrm(puerto, DE);
+  try {
+    const origen = versionEspo();
+    const antes = {
+      polizas: Number(sqlEspo('SELECT COUNT(*) FROM c_poliza WHERE deleted = 0')),
+      endosos: Number(sqlEspo('SELECT COUNT(*) FROM c_endoso WHERE deleted = 0')),
+    };
+    const [previaId, previaNombre, previaPrima] = sqlEspo(
+      "SELECT id, name, prima, prima_anual FROM c_poliza WHERE deleted = 0 AND prima IS NOT NULL AND name LIKE 'POL-CART-%' ORDER BY created_at LIMIT 1").split('\t');
+    expect(origen, 'la copia debe partir de la versión de origen').toContain(DE);
 
-  registrar({
-    criterio: 'A.8.4',
-    plataforma,
-    cumple: 2,
-    costo: 0,
-    justificacion:
-      'El procedimiento oficial de actualización distingue dos clases de personalización: la hecha desde la ' +
-      'interfaz, que la actualización no debería romper, y la hecha con código, que sí puede romperse. Todo lo ' +
-      'que este análisis parametrizó —la póliza, el endoso, sus campos, sus diseños y su fórmula— se hizo desde ' +
-      'la administración, sin tocar código, de modo que queda del lado que el fabricante se compromete a ' +
-      'conservar. No hay nada que preparar para que se conserve.',
-    evidencia: [capModelo],
-    documentacion: fuente,
-  });
+    // La actualización, con el procedimiento oficial para Docker
+    await actualizarEspoCrm(copia, A);
+    const destino = versionEspo();
+    expect(destino, 'la copia debe quedar en la versión nueva').toContain(A);
+
+    // Lo que ocurrió con lo parametrizado se comprueba por pantalla, en la copia actualizada
+    await page.goto(URL_COPIA, { waitUntil: 'domcontentloaded' });
+    const usuario = page.locator('#field-userName');
+    await usuario.waitFor({ state: 'visible', timeout: 60_000 });
+    await usuario.fill('admin');
+    await page.locator('#field-password').fill('Admin1234!');
+    await page.getByRole('button', { name: 'Iniciar sesión' }).click();
+    await page.locator('#menu, .navbar, nav').first().waitFor({ state: 'visible', timeout: 60_000 });
+    await page.waitForTimeout(3000);
+
+    // 1. Las entidades propias siguen en el administrador de entidades
+    await administracion(page, '#Admin/entityManager');
+    await page.waitForTimeout(3000);
+    const entidades = await textoDe(page);
+    const capEntidades = await capturar(page, 'A.8.4', plataforma, '3-entidades-propias');
+    expect(entidades).toMatch(/Póliza/);
+    expect(entidades).toMatch(/Endoso/);
+    expect(entidades).toMatch(/Cuota/);
+
+    // 2. La fórmula de la póliza sigue guardada
+    await administracion(page, '#Admin/entityManager', '#Admin/entityManager/scope=CPoliza',
+      page.locator('#main [data-action="editFormula"]').first());
+    await page.locator('.modal-dialog:visible a[href*="type=beforeSaveCustomScript"]').first().click();
+    const editor = page.locator('#main .ace_editor').first();
+    await editor.waitFor({ state: 'visible', timeout: 40_000 });
+    await page.waitForTimeout(2000);
+    const guion: string = await editor.evaluate(el => (window as any).ace.edit(el).getValue());
+    const capFormula = await capturar(page, 'A.8.4', plataforma, '4-formula-conservada');
+    expect(guion).toContain('primaAnual = prima * 12');
+
+    // 3. La póliza cargada antes de actualizar, con sus campos propios y sus valores
+    await listado(page, 'CPoliza');
+    await page.locator('.search-container input.text-filter').first().fill(previaNombre);
+    const busqueda = page.waitForResponse(r => r.url().includes('/api/v1/CPoliza?') && r.url().includes('where'), { timeout: 30_000 }).catch(() => null);
+    await page.locator('.search-container [data-action="search"]').first().click();
+    await busqueda;
+    await page.waitForTimeout(2000);
+    await page.locator(`#main a[href="#CPoliza/view/${previaId}"]`).filter({ visible: true }).first().click();
+    await page.waitForFunction(id => location.hash === `#CPoliza/view/${id}`, previaId, { timeout: 30_000 });
+    await page.locator('#main .detail-button-container').first().waitFor({ state: 'visible', timeout: 40_000 });
+    await page.waitForTimeout(3500);
+    const fichaPrevia = await textoDe(page);
+    const capPrevia = await capturar(page, 'A.8.4', plataforma, '5-poliza-anterior');
+    expect(fichaPrevia).toMatch(/Tipo de p[óo]liza/i);
+    expect(fichaPrevia).toMatch(/Prima mensual/i);
+    expect(fichaPrevia).toContain(previaNombre);
+    expect(fichaPrevia.replace(/[.,\s]/g, '')).toContain(`${Math.round(Number(previaPrima))}00`);
+
+    // 4. Un alta nueva: el formulario con sus campos y la fórmula siguen funcionando
+    await alta(page, 'CPoliza');
+    const campo = (nombre: string) => page.locator(`.field[data-name="${nombre}"] input[data-name="${nombre}"]`).first();
+    await campo('name').waitFor({ state: 'visible', timeout: 40_000 });
+    await campo('name').pressSequentially(NUEVA);
+    await elegirLista(page, 'tipoPoliza', 'Hogar');
+    await elegirLista(page, 'estadoPago', 'Al dia');
+    await campo('prima').click();
+    await campo('prima').pressSequentially('1000');
+    const capAlta = await capturar(page, 'A.8.4', plataforma, '6-alta-nueva');
+    await page.getByRole('button', { name: /^Guardar$|^Save$/i }).first().click();
+    await page.waitForURL(/#CPoliza\/view\//, { timeout: 30_000 });
+    await page.waitForTimeout(4000);
+    const fichaNueva = await textoDe(page);
+    const capNueva = await capturar(page, 'A.8.4', plataforma, '7-calculo-al-guardar');
+    expect(fichaNueva).toContain(NUEVA);
+    // La prima anual no está en el formulario: lo guardado se lee de la base de la copia
+    const anualNueva = Number(sqlEspo(`SELECT prima_anual FROM c_poliza WHERE name = '${NUEVA}' AND deleted = 0`));
+    expect(anualNueva, 'la fórmula debe calcular la prima anual de la póliza nueva').toBe(12000);
+
+    // 5. La regla del cambio de estado también sigue operando
+    await page.locator('#main [data-action="edit"]').filter({ visible: true }).first().click();
+    await page.locator('#main [data-action="save"]').filter({ visible: true }).first().waitFor({ timeout: 30_000 });
+    await elegirLista(page, 'estadoPago', 'Vencida');
+    await page.getByRole('button', { name: /^Guardar$|^Save$/i }).first().click();
+    await page.waitForTimeout(5000);
+    await pestana(page, 'Task');
+    await page.waitForTimeout(4000);
+    const tareas = await textoDe(page);
+    const capTarea = await capturar(page, 'A.8.4', plataforma, '8-tarea-creada-sola');
+    expect(tareas).toContain(`Gestionar cobranza de ${NUEVA}`);
+
+    const despues = {
+      polizas: Number(sqlEspo(`SELECT COUNT(*) FROM c_poliza WHERE deleted = 0 AND name <> '${NUEVA}'`)),
+      endosos: Number(sqlEspo('SELECT COUNT(*) FROM c_endoso WHERE deleted = 0')),
+    };
+    expect(despues, 'los registros cargados antes deben seguir todos').toEqual(antes);
+
+    registrar({
+      criterio: 'A.8.4',
+      plataforma,
+      cumple: 2,
+      costo: 0,
+      comoLoHace:
+        `Se aplicó el procedimiento oficial para Docker sobre una copia de la instalación: la versión ${origen} ` +
+        `se actualizó a la ${destino} cambiando la imagen y volviendo a crear el contenedor con la misma ` +
+        'configuración y las mismas carpetas de datos. Después se ingresó con el administrador: las entidades ' +
+        'Póliza, Endoso y Cuota seguían en el administrador de entidades, la fórmula de la póliza estaba guardada, ' +
+        `la póliza ${previaNombre} cargada antes mostraba sus campos propios con sus valores (tipo, estado de pago y prima mensual de ` +
+        `${previaPrima}), las ${antes.polizas} pólizas y los ${antes.endosos} endosos seguían en su lugar, y una ` +
+        'póliza dada de alta de nuevo calculó su prima anual (12000 sobre una prima mensual de 1000) y generó la tarea de cobranza al pasar a vencida.',
+      caracteristicas:
+        'El procedimiento no pide exportar ni volver a cargar la parametrización: entidades, campos, diseños y ' +
+        'fórmula viven en las carpetas de datos y en la base, que la actualización conserva. El fabricante ' +
+        'declara que las personalizaciones hechas desde la interfaz no deberían romperse con una actualización.',
+      justificacion:
+        `Tras pasar de la versión ${origen} a la ${destino} no hubo que rehacer ni reconfigurar nada de lo ` +
+        'parametrizado, de modo que la conservación no suma trabajo.',
+      evidencia: [capEntidades, capFormula, capPrevia, capAlta, capNueva, capTarea],
+      documentacion: fuentes,
+    });
+  } finally {
+    retirarCopia('espocrm', copia.dir);
+  }
 });

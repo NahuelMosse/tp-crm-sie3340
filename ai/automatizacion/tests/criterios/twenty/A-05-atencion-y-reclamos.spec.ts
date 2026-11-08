@@ -79,12 +79,15 @@ test('A.5.1 — Reclamo como caso con identidad propia', async ({ page, browser 
     plataforma,
     cumple: 1,
     costo: 2,
+    comoLoHace:
+      'Twenty no trae un objeto de reclamos o casos: se definió como objeto propio, con estado, plazo ' +
+      'de resolución, asegurado y responsable.',
+    caracteristicas:
+      'Así tiene listado y ficha propios, y se crea desde el campo de reclamos de la ficha del ' +
+      'asegurado, ya ligado a él. Pero no tiene número: ningún tipo de campo se numera solo, y el ' +
+      'identificador interno no sirve para dictárselo a un asegurado.',
     justificacion:
-      'Twenty no trae un objeto de reclamos o casos: se definió como objeto propio, con estado, plazo de ' +
-      'resolución, asegurado y responsable. Así tiene listado y ficha propios, y se crea desde el campo de ' +
-      'reclamos de la ficha del asegurado, ya ligado a él. Pero no tiene número: ningún tipo de campo se ' +
-      'numera solo, y el identificador interno no sirve para dictárselo a un asegurado. El número hay que ' +
-      'asignarlo a mano en cada alta, o desarrollarlo.',
+      'El número hay que asignarlo a mano en cada alta, o desarrollarlo.',
     evidencia: [capFicha, capListado, capTipos],
   });
 });
@@ -134,14 +137,17 @@ test('A.5.2 — Estado y seguimiento del reclamo', async ({ page, browser }, inf
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Se lo cambió tres veces desde la ficha y el historial del reclamo conserva la secuencia ' +
+      `${secuencia.map(etiqueta).join(' → ')}, con quién hizo cada cambio y cuándo.`,
+    caracteristicas:
+      'El estado del reclamo es un campo de lista del objeto propio, con los estados que define la ' +
+      'compañía. Los cambios que la misma persona hace sobre el mismo reclamo dentro de los diez ' +
+      'minutos se funden en una sola entrada, que muestra el estado de partida y el último: un estado ' +
+      'intermedio que dura menos que eso no queda registrado.',
     justificacion:
-      'El estado del reclamo es un campo de lista del objeto propio, con los estados que define la compañía. ' +
-      'Se lo cambió tres veces desde la ficha y el historial del reclamo conserva la secuencia, con quién hizo ' +
-      `cada cambio y cuándo: ${secuencia.map(etiqueta).join(' → ')}. Los cambios que la misma persona hace ` +
-      'sobre el mismo reclamo dentro de los diez minutos se funden en una sola entrada, que muestra el estado ' +
-      'de partida y el último: un estado intermedio que dura menos que eso no queda registrado. Con el ritmo ' +
-      'de un reclamo, que cambia de estado en días, cada paso queda por separado. Definir el estado es trabajo ' +
-      'de una sola vez.',
+      'Con el ritmo de un reclamo, que cambia de estado en días, cada paso queda por separado. Definir ' +
+      'el estado es trabajo de una sola vez.',
     evidencia: [capHistorial],
     medicion: `${secuencia.length} cambios de estado en el historial`,
   });
@@ -185,11 +191,14 @@ test('A.5.3 — Responsable asignado a cada reclamo', async ({ page, browser }, 
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Se lo asignó al productor desde la ficha; al ingresar con su cuenta y filtrar los reclamos por ' +
+      'los que tiene a su cargo, figura entre sus pendientes.',
+    caracteristicas:
+      'El reclamo tiene un responsable, que es una relación con los usuarios del objeto propio. Ese ' +
+      'filtro se guarda como una vista para no rehacerlo.',
     justificacion:
-      'El reclamo tiene un responsable, que es una relación con los usuarios del objeto propio. Se lo asignó ' +
-      'al productor desde la ficha; al ingresar con su cuenta y filtrar los reclamos por los que tiene a su ' +
-      'cargo, figura entre sus pendientes. Ese filtro se guarda como una vista para no rehacerlo. Definir el ' +
-      'responsable es trabajo de una sola vez.',
+      'Definir el responsable es trabajo de una sola vez.',
     evidencia: [capAsignado, capPendientes],
   });
 });
@@ -235,13 +244,17 @@ test('A.5.4 — Base de conocimiento para la atención', async ({ page, browser 
     plataforma,
     cumple: encuentraContenido ? 2 : 1,
     costo: encuentraContenido ? 1 : 2,
-    justificacion:
+    comoLoHace:
       'Twenty no trae una base de conocimiento: el artículo se definió como un objeto propio, con su título y ' +
       'la condición de cobertura. Se cargó uno sobre el granizo en automotor y la búsqueda general lo encontró ' +
-      'por su título. ' + (encuentraContenido
-        ? 'También lo encontró por una palabra del texto de la condición. Definir el objeto es trabajo de una sola vez.'
-        : 'No lo encontró por una palabra del texto de la condición: la búsqueda solo mira el título, así que ' +
-          'quien atiende tiene que adivinar cómo se tituló cada artículo.'),
+      'por su título.',
+    caracteristicas: encuentraContenido
+      ? 'También lo encontró por una palabra del texto de la condición.'
+      : 'No lo encontró por una palabra del texto de la condición.',
+    justificacion: encuentraContenido
+      ? 'Definir el objeto es trabajo de una sola vez.'
+      : 'La búsqueda solo mira el título, así que ' +
+        'quien atiende tiene que adivinar cómo se tituló cada artículo.',
     evidencia: [capArticulo, capBusqueda],
   });
 });
@@ -285,10 +298,14 @@ test('A.5.5 — Tareas asignables con responsable y vencimiento', async ({ page,
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      'Se creó una desde el listado, se la asignó al productor y se le puso fecha y hora de ' +
+      'vencimiento desde su ficha. Al ingresar con la cuenta del productor, figura en la vista de las ' +
+      'tareas asignadas a él, con su vencimiento.',
+    caracteristicas:
+      'Las tareas vienen de fábrica con responsable y vencimiento.',
     justificacion:
-      'Las tareas vienen de fábrica con responsable y vencimiento. Se creó una desde el listado, se la asignó ' +
-      'al productor y se le puso fecha y hora de vencimiento desde su ficha. Al ingresar con la cuenta del ' +
-      'productor, figura en la vista de las tareas asignadas a él, con su vencimiento. Viene listo.',
+      'Viene listo.',
     evidencia: [capTarea, capPropia],
   });
 });
@@ -360,12 +377,17 @@ test('A.5.6 — Aviso al usuario al que se le asigna una tarea', async ({ page, 
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'El aviso se armó con un flujo de trabajo, sin escribir código: cuando a una tarea se le pone ' +
+      'responsable, lo busca y le envía un correo desde la casilla de la compañía. Se creó una tarea ' +
+      'desde el listado, se la asignó al productor en su ficha, y le llegó el correo ' +
+      `«${aviso?.subject}» sin ` +
+      'que tuviera que abrir el listado.',
+    caracteristicas:
+      'Twenty no avisa por su cuenta: la interfaz no tiene un centro de notificaciones y asignar una ' +
+      'tarea no le manda nada al responsable.',
     justificacion:
-      'Twenty no avisa por su cuenta: la interfaz no tiene un centro de notificaciones y asignar una tarea no ' +
-      'le manda nada al responsable. El aviso se armó con un flujo de trabajo, sin escribir código: cuando a una ' +
-      'tarea se le pone responsable, lo busca y le envía un correo desde la casilla de la compañía. Se creó una ' +
-      `tarea desde el listado, se la asignó al productor en su ficha, y le llegó el correo «${aviso?.subject}» sin ` +
-      'que tuviera que abrir el listado. Armar el flujo es trabajo de una sola vez.',
+      'Armar el flujo es trabajo de una sola vez.',
     evidencia: [capSinAviso, capFlujo, capAsignada],
   });
 });

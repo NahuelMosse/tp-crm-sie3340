@@ -2,12 +2,14 @@
   "criterio": "B.1.1",
   "plataforma": "twenty",
   "cumple": 2,
-  "justificacion": "En la instalación propia los datos quedan en el servidor de la compañía y no dependen de ninguna cuenta del fabricante: no hay condición de servicio que los afecte por falta de uso, porque no hay servicio de por medio, y el fabricante la ofrece con el control total de los datos. Una póliza puede quedar años sin que nadie la abra y sigue ahí mientras el equipo donde corre el sistema se mantenga.",
+  "comoLoHace": "En la instalación propia los datos quedan en el servidor de la compañía y no dependen de ninguna cuenta del fabricante.",
+  "caracteristicas": "No hay condición de servicio que los afecte por falta de uso, porque no hay servicio de por medio, y el fabricante la ofrece con el control total de los datos.",
+  "justificacion": "Una póliza puede quedar años sin que nadie la abra y sigue ahí mientras el equipo donde corre el sistema se mantenga.",
   "documentacion": [
     {
       "url": "https://docs.twenty.com/user-guide/billing/capabilities/pricing-plans",
       "cita": "Full control over your data",
-      "consultado": "2026-09-29",
+      "consultado": "2026-10-30",
       "captura": "B-1-1-twenty-1-datos-propios.png"
     }
   ],
@@ -15,5 +17,5 @@
   "licencia": null,
   "conPlan": [],
   "evidencia": [],
-  "momento": "2026-09-29T03:02:17.924Z"
+  "momento": "2026-10-30T08:13:34.656Z"
 }

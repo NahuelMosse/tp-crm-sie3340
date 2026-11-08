@@ -2,7 +2,8 @@
   "criterio": "A.7.3",
   "plataforma": "bitrix24",
   "cumple": 0,
-  "justificacion": "En la edición gratuita no se puede conectar ninguna casilla, ni la del administrador ni la de un productor. Webmail ofrece Gmail, Outlook, iCloud, Office365, Exchange, Yahoo!, Aol y «Buzón personalizado» (IMAP+SMTP), pero al elegir cualquiera de ellos, con el administrador y con la sesión del productor, el sistema no abre el formulario de conexión y responde «No disponible en su plan». «Conectar varios buzones» también pide otro plan: «para conectar y gestionar múltiples buzones de correo corporativos, actualiza a cualquier plan a partir del Professional». La comparación de planes del fabricante marca Webmail y la integración con servicios de correo de terceros como no incluidos en la edición gratuita, y la ayuda confirma que Webmail solo está en planes comerciales. Sin una casilla conectada no hay sincronización de ningún usuario.",
+  "comoLoHace": "En la edición gratuita no se puede conectar ninguna casilla, ni la del administrador ni la de un productor. Webmail ofrece Gmail, Outlook, iCloud, Office365, Exchange, Yahoo!, Aol y «Buzón personalizado» (IMAP+SMTP), pero al elegir cualquiera de ellos, con el administrador y con la sesión del productor, el sistema no abre el formulario de conexión y responde «No disponible en su plan». «Conectar varios buzones» también pide otro plan: «para conectar y gestionar múltiples buzones de correo corporativos, actualiza a cualquier plan a partir del Professional».",
+  "justificacion": "La comparación de planes del fabricante marca Webmail y la integración con servicios de correo de terceros como no incluidos en la edición gratuita, y la ayuda confirma que Webmail solo está en planes comerciales. Sin una casilla conectada no hay sincronización de ningún usuario.",
   "conPlan": [
     {
       "plan": "Bitrix24 Basic",

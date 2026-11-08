@@ -45,12 +45,15 @@ test('A.11.1 — Recursos que la compañía debe disponer para sostenerlo', asyn
     criterio: 'A.11.1',
     plataforma,
     cumple: 2,
+    comoLoHace:
+      'La edición evaluada es un servicio en la nube: se opera entera desde el navegador, sin ningún ' +
+      'componente que la compañía instale, actualice o respalde.',
+    caracteristicas:
+      'El fabricante aloja los datos en su propia infraestructura —en Amazon Web Services— y sostiene los ' +
+      'servidores, las copias y la disponibilidad.',
     justificacion:
-      'La edición evaluada es un servicio en la nube: se opera entera desde el navegador, sin ningún componente ' +
-      'que la compañía instale, actualice o respalde. El fabricante aloja los datos en su propia infraestructura ' +
-      '—en Amazon Web Services— y sostiene los servidores, las copias y la disponibilidad. La compañía no dispone ' +
-      'ningún equipo propio para el sistema: solo necesita una conexión a internet y un navegador, que ya tiene ' +
-      'para cualquier otra tarea.',
+      'La compañía no dispone ningún equipo propio para el sistema: solo necesita una conexión a internet ' +
+      'y un navegador, que ya tiene para cualquier otra tarea.',
     evidencia: [capPortal],
     documentacion: fuentes,
   });
@@ -78,11 +81,15 @@ test('A.11.2 — Compatibilidad con la plataforma que la compañía usa', async 
     criterio: 'A.11.2',
     plataforma,
     cumple: 2,
-    justificacion:
+    comoLoHace:
+      'Es un servicio en la nube que se abre con un navegador de uso común, en cualquier equipo con el que ' +
+      'la compañía ya trabaje —Windows, macOS o Linux—.',
+    caracteristicas:
       'La edición evaluada no corre sobre un sistema operativo ni un motor de base de datos que la compañía ' +
-      'administre: es un servicio en la nube que se abre con un navegador de uso común, en cualquier equipo con ' +
-      'el que la compañía ya trabaje —Windows, macOS o Linux—. No hay versión que instalar ni versión que elegir ' +
-      'según la plataforma propia, porque no hay plataforma propia de por medio.',
+      'administre.',
+    justificacion:
+      'No hay versión que instalar ni versión que elegir según la plataforma propia, porque no hay ' +
+      'plataforma propia de por medio.',
     evidencia: [capPortal],
     documentacion: fuente,
     medicion: `Portal abierto con: ${agente}`,
@@ -112,12 +119,15 @@ test('A.11.3 — Puesta en marcha sin perfil técnico especializado', async ({ p
     criterio: 'A.11.3',
     plataforma,
     cumple: 2,
+    comoLoHace:
+      'El alta del portal se completa con un correo y una contraseña, sin instalar nada ni preparar un ' +
+      'servidor: el fabricante entrega el sistema funcionando de inmediato, con datos de ejemplo y un ' +
+      'asistente inicial.',
+    caracteristicas:
+      'Lo que sigue —crear los campos propios, cargar la cartera— es configuración desde la pantalla, ' +
+      'guiada por el propio producto, sin conocimientos de instalación ni de administración de servidores.',
     justificacion:
-      'El alta del portal se completa con un correo y una contraseña, sin instalar nada ni preparar un servidor: ' +
-      'el fabricante entrega el sistema funcionando de inmediato, con datos de ejemplo y un asistente inicial. Lo ' +
-      'que sigue —crear los campos propios, cargar la cartera— es configuración desde la pantalla, guiada por el ' +
-      'propio producto, sin conocimientos de instalación ni de administración de servidores. Lo completa ' +
-      'cualquiera que sepa operar un sistema de oficina.',
+      'Lo completa cualquiera que sepa operar un sistema de oficina.',
     evidencia: [capPortal],
     documentacion: fuente,
   });
@@ -161,10 +171,14 @@ test('A.11.4 — Menú y navegabilidad para la operación diaria', async ({ page
     criterio: 'A.11.4',
     plataforma,
     cumple: revisitadas.length ? 1 : 2,
-    justificacion:
-      'Desde el ingreso, el menú lateral lleva directo al CRM, sobre el listado de negociaciones —que en la ' +
+    comoLoHace:
+      'Desde el ingreso, el menú lateral lleva directo al CRM, sobre el listado de negociaciones.',
+    caracteristicas:
+      '—que en la ' +
       'edición gratuita, sin entidades propias, hace de cartera de pólizas—, y el botón «Crear» del propio ' +
-      `listado abre el formulario de alta en el mismo lugar, sin cambiar de pantalla. El alta se completó en ` +
+      'listado abre el formulario de alta en el mismo lugar, sin cambiar de pantalla.',
+    justificacion:
+      `El alta se completó en ` +
       `${segundos} segundos, a través de ${pantallas.length} pantallas` +
       (revisitadas.length ? `, volviendo sobre ${revisitadas.length} de ellas.` : ', sin volver sobre ninguna.'),
     evidencia: [capFormulario, capFinal],
@@ -217,17 +231,21 @@ test('A.11.5 — Aprendizaje sin capacitación previa', async ({ page }, info) =
     criterio: 'A.11.5',
     plataforma,
     cumple,
-    justificacion:
+    comoLoHace:
       'Tres agentes independientes, sin conocimiento previo de la plataforma, intentaron sin instrucción las ' +
       'cinco operaciones que un productor repite a diario —dar de alta un asegurado, cargarle una póliza, ' +
       'averiguar qué pólizas de su cartera vencen en los próximos 30 días, registrar un reclamo y agendar un ' +
-      `llamado—, operando la pantalla como lo haría una persona. Completaron ${15 - pendientes.length} de las ` +
-      'quince, según lo que quedó guardado en el sistema. ' +
-      (cumple === 2 ? 'Los tres completaron las cinco tareas.'
+      `llamado—, operando la pantalla como lo haría una persona.`,
+    // El detalle de cada tarea incompleta va en las características; la justificación dice por qué vale 1
+    caracteristicas:
+      `Completaron ${15 - pendientes.length} de las ` +
+      'quince, según lo que quedó guardado en el sistema.' +
+      (cumple === 1 ? ` ${detalle.join('; ').replace(/^la/, 'La')}.` : ''),
+    justificacion:
+      cumple === 2 ? 'Los tres completaron las cinco tareas.'
         : cumple === 0 ? `Ninguno logró completar la tarea ${ningunoLogra.join(' ni la ')}: ${detalle.join('; ')}.`
-        : `Cada tarea la completó al menos uno, pero ${detalle.join('; ')}.` +
-          (sinSaber.length ? ' Que quien no la terminó no sepa decir qué le faltó no impide que otro la complete: ' +
-            'el sistema se deja aprender, con un tropiezo que la compañía asume en cada incorporación.' : '')),
+        : 'Cada tarea la completó al menos uno de los tres, aunque no todos completaron todas: ' +
+          'el sistema se deja aprender, con un tropiezo que la compañía asume en cada incorporación.',
     evidencia,
     medicion: `${15 - pendientes.length} de 15 tareas completadas`,
   });
@@ -263,12 +281,15 @@ test('A.11.6 — Localización completa al español, modelo incluido', async ({ 
     criterio: 'A.11.6',
     plataforma,
     cumple: enIngles.length ? 1 : 2,
-    justificacion: enIngles.length
-      ? 'El portal está configurado en español y la mayor parte del menú y de las pantallas lo están, pero ' +
-        `quedan nombres de fábrica sin traducir: ${enIngles.join(', ')}. Se entienden por quien maneja el rubro, ` +
-        'pero no están en el idioma de trabajo de la compañía.'
+    comoLoHace: 'Se recorrieron el menú principal y la ficha del contacto con el portal configurado en español.',
+    caracteristicas: enIngles.length
+      ? 'La mayor parte del menú y de las pantallas están en español, pero quedan nombres de fábrica sin ' +
+        `traducir: ${enIngles.join(', ')}.`
       : 'El menú principal y la ficha del contacto están enteramente en español, incluidos los objetos que trae ' +
         'el producto de fábrica.',
+    justificacion: enIngles.length
+      ? 'Se entienden por quien maneja el rubro, pero no están en el idioma de trabajo de la compañía.'
+      : 'Todo lo que el personal ve en la operación diaria está en su idioma, sin nada que corregir.',
     evidencia: [capMenu, capFicha],
     medicion: `Menú: ${menu.join(', ')} · en inglés: ${enIngles.join(', ') || 'ninguno'}`,
   });
@@ -296,10 +317,12 @@ test('A.11.7 — Cantidad de usuarios sin límite que condicione la operación',
     criterio: 'A.11.7',
     plataforma,
     cumple: 2,
+    comoLoHace: 'Se consultó en la oferta del fabricante cuántos usuarios admite la edición gratuita.',
+    caracteristicas:
+      'El fabricante publica que la edición gratuita admite un número ilimitado de usuarios, sin costo.',
     justificacion:
-      'El fabricante publica que la edición gratuita admite un número ilimitado de usuarios, sin costo. La ' +
-      'compañía puede dar de alta a todo su plantel de productores y personal administrativo sin que la cantidad ' +
-      'de usuarios sea una condición que limite la operación.',
+      'La compañía puede dar de alta a todo su plantel de productores y personal administrativo sin que la ' +
+      'cantidad de usuarios sea una condición que limite la operación.',
     evidencia: [capPortal],
     documentacion: fuente,
   });
@@ -404,9 +427,12 @@ test('A.11.8 — Operación concurrente sobre la misma cartera', async ({ page, 
     criterio: 'A.11.8',
     plataforma,
     cumple: envivo ? 2 : 1,
-    justificacion:
+    comoLoHace:
       'Tres sesiones con la misma cuenta abrieron, una detrás de otra, la misma negociación desde el listado del ' +
-      `CRM y cada una cambió su título. Quedó el último cambio, «${TITULOS[2]}». ` +
+      'CRM y cada una cambió su título.',
+    caracteristicas:
+      `Quedó el último cambio, «${TITULOS[2]}».`,
+    justificacion:
       (envivo
         ? 'Cada sesión, al abrir el formulario, ya veía el cambio que había dejado la anterior: el listado no ' +
           'guarda una versión vieja del registro entre una apertura y otra.'
@@ -446,12 +472,14 @@ test('A.11.9 — Ecosistema de integraciones disponible', async ({ page, browser
     criterio: 'A.11.9',
     plataforma,
     cumple: 1,
-    justificacion:
+    comoLoHace:
+      'El catálogo se puede evaluar sin costo, pero usarlo exige pagar, incluso para un conector puntual.',
+    caracteristicas:
       'El fabricante publica un catálogo de más de 810 aplicaciones e integraciones —telefonía, firma ' +
-      'electrónica, mensajería, conectores con otros sistemas—, accesible desde Market en el propio portal. Pero ' +
-      'instalar aplicaciones del catálogo es una función de los planes pagos, según la misma página que anuncia ' +
-      'la edición gratuita: el catálogo se puede evaluar sin costo, pero usarlo exige pagar, incluso para un ' +
-      'conector puntual.',
+      'electrónica, mensajería, conectores con otros sistemas—, accesible desde Market en el propio portal.',
+    justificacion:
+      'La instalación de aplicaciones del catálogo es una función de los planes pagos, según la misma página ' +
+      'que anuncia la edición gratuita; por eso el catálogo se puede evaluar sin costo, pero usarlo exige pagar.',
     evidencia: [capPortal],
     documentacion: fuentes,
     conPlan: [conPlanDe(BITRIX24_BASIC, {
@@ -478,11 +506,14 @@ test('A.11.10 — Documentación en español', async ({ page, browser }, info) =
     criterio: 'A.11.10',
     plataforma,
     cumple: 2,
+    comoLoHace:
+      'El fabricante publica su centro de documentación completo en español, en un dominio propio.',
+    caracteristicas:
+      '—helpdesk.bitrix24.es—, con el mismo contenido y la misma organización por tema que la versión en ' +
+      'inglés.',
     justificacion:
-      'El fabricante publica su centro de documentación completo en español, en un dominio propio —' +
-      'helpdesk.bitrix24.es—, con el mismo contenido y la misma organización por tema que la versión en inglés. ' +
-      'Quien consulta cómo se usa o se configura el sistema lo hace en su idioma, sin depender de una traducción ' +
-      'de terceros.',
+      'Quien consulta cómo se usa o se configura el sistema lo hace en su idioma, sin depender de una ' +
+      'traducción de terceros.',
     documentacion: fuente,
   });
 });
@@ -512,11 +543,14 @@ test('A.11.11 — Material de capacitación para el usuario final', async ({ bro
     criterio: 'A.11.11',
     plataforma,
     cumple: 2,
+    comoLoHace:
+      'El fabricante reúne en un mismo centro los cursos y la documentación de uso diario.',
+    caracteristicas:
+      '—CRM, tareas, mensajería, calendario—, con artículos paso a paso y videos, separados de la ' +
+      'documentación de la interfaz de programación.',
     justificacion:
-      'El fabricante reúne en un mismo centro los cursos y la documentación de uso diario —CRM, tareas, ' +
-      'mensajería, calendario—, con artículos paso a paso y videos, separados de la documentación de la interfaz ' +
-      'de programación. Está dirigido a quien opera el sistema todos los días, no solo a quien lo administra, y ' +
-      'está publicado en español.',
+      'El centro de cursos y documentación de uso diario está dirigido a quien opera el sistema todos los ' +
+      'días, no solo a quien lo administra, y está publicado en español.',
     documentacion: fuentes,
   });
 });
@@ -553,15 +587,17 @@ test('A.11.12 — Comunidad activa de usuarios', async ({ browser }, info) => {
     criterio: 'A.11.12',
     plataforma,
     cumple: tipica.valor,
-    justificacion:
+    comoLoHace:
       'El foro oficial público del fabricante está en ruso (dev.1c-bitrix.ru, subforo de Bitrix24), y la comunidad ' +
       'de la nube conversa en un espacio que exige cuenta para leer, así que la medición se hizo sobre el foro ruso; ' +
       'su muestra mezcla consultas de la instalación propia con las de la nube. Se tomaron las ' +
-      `${CONSULTAS} consultas más recientes, sin los temas fijados, con más de una semana, que alcanzan hasta ${desde}. ` +
+      `${CONSULTAS} consultas más recientes, sin los temas fijados, con más de una semana, que alcanzan hasta ${desde}.`,
+    caracteristicas:
       `En ${cuantas(2)} otro usuario respondió dentro de la semana y quien consultó confirmó después que la respuesta ` +
       `le había servido; en ${cuantas(1)} hubo respuesta, pero llegó más tarde o sin que el autor confirmara que lo ` +
-      'resolvía; ' + (cuantas(0) ? `${cuantas(0)} no recibieron respuesta. ` : 'ninguna quedó sin respuesta. ') +
-      (medianaHoras !== undefined ? `La primera respuesta llegó, en el caso típico, a ${tiempo(medianaHoras)}. ` : '') +
+      'resolvía; ' + (cuantas(0) ? `${cuantas(0)} no recibieron respuesta.` : 'ninguna quedó sin respuesta.') +
+      (medianaHoras !== undefined ? ` La primera respuesta llegó, en el caso típico, a ${tiempo(medianaHoras)}.` : ''),
+    justificacion:
       (tipica.valor === 2 ? 'La consulta típica se resuelve dentro de la semana.'
         : tipica.valor === 1 ? 'La consulta típica recibe respuesta, pero no queda constancia de que se resuelva dentro de la semana: ' +
           'la compañía puede contar con que alguien conteste, no con que la conteste a tiempo y a su medida.'
@@ -590,13 +626,16 @@ test('A.11.13 — Soporte técnico con compromiso de respuesta', async ({ browse
     criterio: 'A.11.13',
     plataforma,
     cumple: 1,
-    justificacion:
+    comoLoHace:
       'El fabricante publica un acuerdo de nivel de servicio con plazos de respuesta por severidad del ' +
-      'incidente —una hora, veinticuatro horas o setenta y dos horas—, pero ese compromiso cubre las caídas de la ' +
-      'plataforma, no una consulta puntual de una compañía sobre su cuenta: el soporte personalizado, por chat o ' +
-      'por ticket, queda reservado a los planes pagos, y la edición gratuita se apoya en la documentación y en la ' +
-      'comunidad. La condición se satisface parcialmente: existe un compromiso público de plazo, pero no alcanza ' +
-      'el tipo de consulta que un productor o un administrador hace en el día a día.',
+      'incidente —una hora, veinticuatro horas o setenta y dos horas—, pero ese compromiso cubre las caídas ' +
+      'de la plataforma, no una consulta puntual de una compañía sobre su cuenta.',
+    caracteristicas:
+      'El soporte personalizado, por chat o por ticket, queda reservado a los planes pagos, y la edición ' +
+      'gratuita se apoya en la documentación y en la comunidad.',
+    justificacion:
+      'La condición se satisface parcialmente: existe un compromiso público de plazo, pero no alcanza el ' +
+      'tipo de consulta que un productor o un administrador hace en el día a día.',
     documentacion: fuentes,
   });
 });
@@ -620,13 +659,14 @@ test('A.11.14 — Continuidad de las versiones en uso', async ({ browser }, info
     criterio: 'A.11.14',
     plataforma,
     cumple: 0,
+    comoLoHace:
+      'La edición evaluada es un servicio en la nube de versión única: no hay "versiones" que la compañía ' +
+      'elija sostener, porque el fabricante actualiza el portal de todos sus clientes a la vez y sin aviso ' +
+      'previo, según sus propias condiciones de servicio.',
     justificacion:
-      'La edición evaluada es un servicio en la nube de versión única: no hay "versiones" que la compañía elija ' +
-      'sostener, porque el fabricante actualiza el portal de todos sus clientes a la vez y sin aviso previo, ' +
-      'según sus propias condiciones de servicio. El fabricante no publica ningún compromiso de por cuánto ' +
-      'tiempo una función o un comportamiento se mantienen estables: la compañía no puede planificar su propia ' +
-      'actualización porque no la controla, y un cambio de comportamiento puede llegar en cualquier momento del ' +
-      'ejercicio.',
+      'El fabricante no publica ningún compromiso de por cuánto tiempo una función o un comportamiento se ' +
+      'mantienen estables: la compañía no puede planificar su propia actualización porque no la controla, ' +
+      'y un cambio de comportamiento puede llegar en cualquier momento del ejercicio.',
     documentacion: fuente,
   });
 });

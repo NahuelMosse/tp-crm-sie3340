@@ -79,12 +79,16 @@ test('A.3.1 — Registro de productores y asignación de cartera', async ({ page
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Un usuario se da de alta como empleado desde «Empleados», con su propia cuenta y contraseña: es el ' +
+      'productor.',
+    caracteristicas:
+      'Sobre el listado de contactos —que en la edición gratuita hace de cartera de asegurados, a falta de ' +
+      'una entidad propia— se seleccionan varios registros y se les cambia el responsable en bloque a ese ' +
+      'productor, sin programar nada.',
     justificacion:
-      'Un usuario se da de alta como empleado desde «Empleados», con su propia cuenta y contraseña: es el productor. ' +
-      'Sobre el listado de contactos —que en la edición gratuita hace de cartera de asegurados, a falta de una ' +
-      'entidad propia— se seleccionan varios registros y se les cambia el responsable en bloque a ese productor, ' +
-      'sin programar nada. El alta del usuario es un trámite de una vez por productor; asignar la cartera es una ' +
-      'acción del listado que se repite cuando cambia la asignación.',
+      'El alta del usuario es un trámite de una vez por productor; asignar la cartera es una acción del ' +
+      'listado que se repite cuando cambia la asignación.',
     evidencia: [capInvitacion, capCargados, capSeleccion, capAsignados],
     medicion: `${cartera.length} asegurados asignados al productor ${gomez.usuario}`,
   });
@@ -125,13 +129,16 @@ test('A.3.2 — Bitácora de la actividad con el cliente', async ({ page }, info
     criterio: 'A.3.2',
     plataforma,
     cumple: 1,
+    comoLoHace:
+      'En la edición gratuita, sin embargo, la ficha no ofrece la llamada ni la reunión como tipos de ' +
+      'actividad propios: la pestaña «Actividad» carga un pendiente de texto libre, y la llamada nativa ' +
+      'exige telefonía y la reunión, una integración de videoconferencia.',
+    caracteristicas:
+      'La línea de tiempo del contacto registra actividades con su autor y su momento, en orden ' +
+      'cronológico, sin configurar nada.',
     justificacion:
-      'La línea de tiempo del contacto registra actividades con su autor y su momento, en orden cronológico, sin ' +
-      'configurar nada. En la edición gratuita, sin embargo, la ficha no ofrece la llamada ni la reunión como tipos ' +
-      'de actividad propios: la pestaña «Actividad» carga un pendiente de texto libre, y la llamada nativa exige ' +
-      'telefonía y la reunión, una integración de videoconferencia. La llamada y la reunión se registran como ' +
-      'pendientes que indican el tipo en el texto, de modo que el usuario debe escribirlo cada vez y no se puede ' +
-      'filtrar el historial por tipo.',
+      'La llamada y la reunión se registran como pendientes que indican el tipo en el texto, de modo que ' +
+      'el usuario debe escribirlo cada vez y no se puede filtrar el historial por tipo.',
     evidencia: [capFicha, capLlamada, capReunion],
     medicion: `${historial.length} actividades registradas`,
   });
@@ -180,11 +187,14 @@ test('A.3.3 — Agenda y carga de trabajo del productor', async ({ page, browser
       plataforma,
       cumple: 2,
       costo: 0,
+      comoLoHace:
+        'Con la sesión propia del productor, «Tareas» abre «Mis tareas» con lo que tiene asignado, con su ' +
+        `fecha límite${enCalendario ? ', y el Calendario del portal trae ese mismo compromiso' : ''}; el CRM ` +
+        'suma «Mis actividades» para las llamadas y reuniones de sus asegurados.',
+      caracteristicas:
+        'Son vistas que vienen de fábrica en la edición gratuita, ya filtradas a su cuenta.',
       justificacion:
-        'Con la sesión propia del productor, «Tareas» abre «Mis tareas» con lo que tiene asignado, con su fecha ' +
-        `límite${enCalendario ? ', y el Calendario del portal trae ese mismo compromiso' : ''}; el CRM suma «Mis ` +
-        'actividades» para las llamadas y reuniones de sus asegurados. Son vistas que vienen de fábrica en la ' +
-        'edición gratuita, ya filtradas a su cuenta: no hay nada que configurar.',
+        'No hay nada que configurar.',
       evidencia: [capTareas, capCalendario, capActividades],
     });
   } finally {
@@ -258,13 +268,16 @@ test('A.3.4 — Proyección de los movimientos comerciales', async ({ page }, in
     criterio: 'A.3.4',
     plataforma,
     cumple: 1,
+    comoLoHace:
+      'Se cargaron dos oportunidades (10.000 con 50 % y 20.000 con 25 %) y quedaron guardadas.',
+    caracteristicas:
+      'La negociación, que hace de oportunidad comercial, admite monto y probabilidad: el campo ' +
+      '«Probabilidad» existe pero viene oculto, y se agrega al formulario una vez con «Seleccionar campo». ' +
+      'Lo que no hay en la edición gratuita es el total proyectado por período: el listado suma importes ' +
+      'sin ponderarlos por la probabilidad, y el informe de tendencia de ventas, en Analítica, no se abre ' +
+      'y ofrece en su lugar BI Builder, que exige actualizar el plan.',
     justificacion:
-      'La negociación, que hace de oportunidad comercial, admite monto y probabilidad: el campo «Probabilidad» ' +
-      'existe pero viene oculto, y se agrega al formulario una vez con «Seleccionar campo». Se cargaron dos ' +
-      'oportunidades (10.000 con 50 % y 20.000 con 25 %) y quedaron guardadas. Lo que no hay en la edición ' +
-      'gratuita es el total proyectado por período: el listado suma importes sin ponderarlos por la probabilidad, ' +
-      'y el informe de tendencia de ventas, en Analítica, no se abre y ofrece en su lugar BI Builder, que exige ' +
-      'actualizar el plan. La proyección se calcula fuera del sistema cada vez que se la necesita.',
+      'La proyección se calcula fuera del sistema cada vez que se la necesita.',
     evidencia: [capFormulario, capListado, capInforme],
     medicion: `${cargadas.length} oportunidades con monto y probabilidad`,
   });

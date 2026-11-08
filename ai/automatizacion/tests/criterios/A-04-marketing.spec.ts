@@ -101,11 +101,15 @@ test('A.4.1 — Segmentación reutilizable de la cartera', async ({ page }, info
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Desde el listado de asegurados se definió un conjunto por un criterio —los que viven en Buenos ' +
+      'Aires— y se lo guardó con nombre desde el menú de filtros.',
+    caracteristicas:
+      'Al volver al listado, el segmento figura entre los filtros guardados y devuelve el mismo conjunto ' +
+      'sin rearmarlo.',
     justificacion:
-      'Desde el listado de asegurados se definió un conjunto por un criterio —los que viven en Buenos Aires— ' +
-      'y se lo guardó con nombre desde el menú de filtros. Al volver al listado, el segmento figura entre los ' +
-      'filtros guardados y devuelve el mismo conjunto sin rearmarlo. Guardar segmentos viene de fábrica; que ' +
-      'la ciudad esté disponible como condición exigió habilitarla una vez entre los filtros de búsqueda.',
+      'Guardar segmentos viene de fábrica; que la ciudad esté disponible como condición exigió habilitarla ' +
+      'una vez entre los filtros de búsqueda.',
     evidencia: [capGuardado, capReabierto],
     medicion: `${definido.length} asegurados en el segmento`,
   });
@@ -184,12 +188,15 @@ test('A.4.2 — Diseño de campañas sobre un segmento', async ({ page }, info) 
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      'El segmento guardado se volcó entero a una lista de destinatarios, seleccionando desde la lista con ' +
+      'el mismo filtro guardado, y se creó una campaña de correo dirigida a esa lista.',
+    caracteristicas:
+      'El contenido se escribió en una plantilla con marcadores que el sistema reemplaza por los datos de ' +
+      'cada destinatario —el nombre en el asunto y en el saludo—, de modo que cada asegurado recibe un ' +
+      'mensaje dirigido a él.',
     justificacion:
-      'El segmento guardado se volcó entero a una lista de destinatarios, seleccionando desde la lista con el ' +
-      'mismo filtro guardado, y se creó ' +
-      'una campaña de correo dirigida a esa lista. El contenido se escribió en una plantilla con marcadores que ' +
-      'el sistema reemplaza por los datos de cada destinatario —el nombre en el asunto y en el saludo—, de modo ' +
-      'que cada asegurado recibe un mensaje dirigido a él. Campañas, listas y plantillas vienen de fábrica.',
+      'Campañas, listas y plantillas vienen de fábrica.',
     evidencia: [capLista, capPlantilla, capCampana],
     medicion: `${enLista} destinatarios en la lista de la campaña`,
   });
@@ -319,13 +326,17 @@ test('A.4.3 — Medición de los resultados de la campaña', async ({ page, requ
     plataforma,
     cumple: 2,
     costo: 1,
-    justificacion:
+    comoLoHace:
       `La campaña se envió a su lista y llegaron los ${llegados.length} mensajes, cada uno con el nombre de ` +
-      `su destinatario en el asunto —"${abierto.mensaje.subject}"—. El registro de la campaña anotó cada ` +
-      'envío y, cuando uno de los asegurados abrió el mensaje, anotó también la apertura, con la fecha y el ' +
-      'destinatario. Lo mismo hace con los clics en enlaces seguidos y las bajas. La medición viene en el ' +
-      'producto; lo que hay que configurar una vez es el servidor de correo saliente de la compañía y activar, ' +
-      'en esa misma configuración, el seguimiento de aperturas, que viene apagado.',
+      `su destinatario en el asunto —"${abierto.mensaje.subject}"—.`,
+    caracteristicas:
+      'El registro de la campaña anotó cada envío y, cuando uno de los asegurados abrió el mensaje, anotó ' +
+      'también la apertura, con la fecha y el destinatario. Lo mismo hace con los clics en enlaces seguidos ' +
+      'y las bajas.',
+    justificacion:
+      'La medición viene en el producto; lo que hay que configurar una vez es el servidor de correo ' +
+      'saliente de la compañía y activar, en esa misma configuración, el seguimiento de aperturas, que ' +
+      'viene apagado.',
     evidencia: [capEnvio, capCampana],
     medicion: `${enviados} envíos y ${aperturas} apertura registrados`,
   });
@@ -361,13 +372,16 @@ test('A.4.4 — Captación de interesados desde redes sociales', async ({ page, 
     plataforma,
     cumple: 1,
     costo: 2,
-    justificacion:
+    comoLoHace:
+      'Lo que sí trae es la captura de posibles clientes, un formulario web propio que carga solo a cada ' +
+      'interesado que lo completa.',
+    caracteristicas:
       'El producto no se conecta con ninguna red social: la administración de integraciones no ofrece ' +
-      'ninguna y el catálogo del fabricante tampoco. Lo que sí trae es la captura de posibles clientes, un ' +
-      'formulario web propio que carga solo a cada interesado que lo completa. Enlazado desde las ' +
-      'publicaciones y los perfiles de la compañía, incorpora a la base a quien llega desde una red; pero cada ' +
-      'campaña en la red tiene que llevar ese enlace, y los interesados que escriben por mensaje o comentan en ' +
-      'la publicación se cargan a mano.',
+      'ninguna y el catálogo del fabricante tampoco.',
+    justificacion:
+      'Enlazado desde las publicaciones y los perfiles de la compañía, incorpora a la base a quien llega ' +
+      'desde una red; pero cada campaña en la red tiene que llevar ese enlace, y los interesados que ' +
+      'escriben por mensaje o comentan en la publicación se cargan a mano.',
     evidencia: [capIntegraciones, capCaptura],
     documentacion: fuente,
   });
@@ -409,11 +423,13 @@ for (const [id, nombre, procedimiento, buscado] of [
       criterio: id,
       plataforma,
       cumple: 0,
+      comoLoHace:
+        `El producto no ofrece ${buscado}, en ninguna edición: la administración no tiene ninguna función ` +
+        'de redes sociales y el catálogo oficial de extensiones —informes y automatización, ventas, ' +
+        'proyectos, inteligencia artificial, telefonía, agenda de reuniones, integraciones con Outlook, ' +
+        'Google, Zoom, Stripe y MailChimp— no incluye ninguna.',
       justificacion:
-        `El producto no ofrece ${buscado}, en ninguna edición: la administración no tiene ninguna función de ` +
-        'redes sociales y el catálogo oficial de extensiones —informes y automatización, ventas, proyectos, ' +
-        'inteligencia artificial, telefonía, agenda de reuniones, integraciones con Outlook, Google, Zoom, ' +
-        'Stripe y MailChimp— no incluye ninguna. La compañía tendría que resolverlo con otra herramienta.',
+        'La compañía tendría que resolverlo con otra herramienta.',
       evidencia: [capAdmin],
       documentacion: catalogo,
     });
@@ -456,12 +472,15 @@ test('A.4.7 — Registro de la competencia y del motivo de pérdida', async ({ p
     plataforma,
     cumple: 2,
     costo: 1,
-    justificacion:
+    comoLoHace:
+      'El motivo y el competidor que la ganó no vienen de fábrica: se agregaron como dos campos de la ' +
+      'oportunidad desde la administración, una lista de motivos y el nombre del competidor, y quedaron ' +
+      'registrados junto con la pérdida.',
+    caracteristicas:
       'Al marcar una oportunidad como perdida, el sistema conserva por su cuenta la etapa en la que se ' +
-      'perdió —negociación, en este caso—. El motivo y el competidor que la ganó no vienen de fábrica: se ' +
-      'agregaron como dos campos de la oportunidad desde la administración, una lista de motivos y el nombre ' +
-      'del competidor, y quedaron registrados junto con la pérdida. Con eso la compañía puede saber por qué ' +
-      'pierde ventas y contra quién.',
+      'perdió —negociación, en este caso—.',
+    justificacion:
+      'Con eso la compañía puede saber por qué pierde ventas y contra quién.',
     evidencia: [capPerdida],
   });
 });

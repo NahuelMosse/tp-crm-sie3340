@@ -3,7 +3,9 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 0,
-  "justificacion": "Se dio de alta una productora desde la administración de usuarios —con su rol, que la limita a lo propio— y se le asignaron tres asegurados de una sola vez, marcándolos en el listado y cambiando el responsable con la actualización masiva. Al ingresar con su cuenta, su listado de asegurados muestra exactamente esos tres. El responsable asignado viene de fábrica en todas las entidades, y la actualización masiva lo admite sin configurar nada.",
+  "comoLoHace": "Se dio de alta una productora desde la administración de usuarios —con su rol, que la limita a lo propio— y se le asignaron tres asegurados de una sola vez, marcándolos en el listado y cambiando el responsable con la actualización masiva.",
+  "caracteristicas": "Al ingresar con su cuenta, su listado de asegurados muestra exactamente esos tres.",
+  "justificacion": "El responsable asignado viene de fábrica en todas las entidades, y la actualización masiva lo admite sin configurar nada.",
   "evidencia": [
     "A-3-1-espocrm-1-alta-del-productor.png",
     "A-3-1-espocrm-2-cartera-de-la-productora.png"
@@ -12,5 +14,5 @@
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-09-28T19:08:22.800Z"
+  "momento": "2026-10-30T04:22:39.801Z"
 }

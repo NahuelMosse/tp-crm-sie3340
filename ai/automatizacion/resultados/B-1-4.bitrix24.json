@@ -1,22 +1,19 @@
 {
   "criterio": "B.1.4",
   "plataforma": "bitrix24",
-  "cumple": 1,
-  "justificacion": "No se cargó la cartera de referencia de veinticinco mil registros: el portal es compartido con otras pruebas en curso y una carga de ese tamaño las afectaría. Se midió la búsqueda por texto sobre la cartera real del portal —10 negociaciones y 6 contactos—, que respondió en 6.42 / 1.40 / 1.57 segundos. El fabricante no publica, para la edición gratuita, un tope numérico de registros de CRM que permita proyectar ese tiempo a una cartera de veinticinco mil: publica el límite de usuarios —sin tope— y el de almacenamiento de archivos —5 GB—, pero no uno sobre la cantidad de negociaciones o contactos que admite buscar. La compañía no tiene, de la propia documentación, una garantía de que la búsqueda siga respondiendo igual con su cartera productiva completa.",
+  "cumple": 0,
+  "comoLoHace": "Se cargó la cartera de referencia —cinco mil asegurados, doce mil quinientas pólizas y siete mil quinientos reclamos, veinticinco mil registros— y con ella se repitieron las operaciones de todos los días: buscar un asegurado por texto y filtrar las pólizas por ramo.",
+  "caracteristicas": "Con la cartera cargada, buscar un asegurado por texto respondió en 0,56, 0,67 y 0,49 segundos. El listado de negociaciones, donde la edición gratuita lleva las pólizas y los reclamos, bloqueó la búsqueda y el filtro con el aviso «Alcanzó el límite de búsqueda de negociaciones (1000)», y en una corrida posterior el listado de contactos mostró el mismo bloqueo: «Alcanzó el límite de búsqueda de contactos (1000)».",
+  "justificacion": "Con más de mil registros, la edición gratuita deja de buscar y filtrar en el listado. La compañía, con unas setecientas cincuenta pólizas por año y los reclamos de cinco años, supera ese número en las negociaciones, y lo superaría en los asegurados al crecer: la operación diaria sobre la cartera se vuelve impracticable.",
   "evidencia": [
-    "B-1-4-bitrix24-1-busqueda-por-texto.png"
+    "B-1-4-bitrix24-limite-negociaciones.png",
+    "B-1-4-bitrix24-1-busqueda-por-texto.png",
+    "B-1-4-bitrix24-limite-contactos.png"
   ],
-  "documentacion": [
-    {
-      "url": "https://www.bitrix24.es/prices/",
-      "cita": "Funciones clave: Almacenamiento de 5 GB CRM básico (negociaciones, contactos) Tareas (Kanban, Gantt) Calendarios compartidos Chat y videollamadas",
-      "consultado": "2026-09-29",
-      "captura": "B-1-4-bitrix24-2-limite-publicado-es-de-almacenamiento.png"
-    }
-  ],
-  "medicion": "búsqueda por texto sobre 10 negociaciones y 6 contactos: 6.42 / 1.40 / 1.57 s",
+  "medicion": "texto 0.56 / 0.67 / 0.49 s (VOL-00777 sí, VOL-04321 sí, VOL-02468 sí) · filtro sin medir · carga {\"contactos\":5000,\"polizas\":12500,\"reclamos\":7500} en 40 min · aviso del sistema (negociaciones, antes de filtrar por ramo): Alcanzó el límite de búsqueda de negociaciones (1000). Nos esforzamos por mejorar la calidad y el rendimiento del servicio para adaptarnos a la escala de su empresa. La cantidad de datos aumenta a medida que su empresa crece: cada día se crean nuevas tareas, negociaciones y otras entidades.",
   "criterioNombre": "Búsqueda y operación con volumen productivo",
   "licencia": null,
   "conPlan": [],
-  "momento": "2026-09-30T00:14:17.941Z"
+  "documentacion": [],
+  "momento": "2026-11-08T01:29:02.358Z"
 }

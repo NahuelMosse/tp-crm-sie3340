@@ -22,14 +22,16 @@ Todo vive acá: informe, automatización, resultados y evidencia. Remoto: `githu
 | Archivo | Sección |
 |---|---|
 | `00-portada.md` | Portada |
+| `00-resumen-ejecutivo.md` | Una carilla para quien no lee el resto; va después del índice |
 | `01-objetivo-y-alcance.md` | Objetivo y alcance |
 | `02-plataformas.md` | Las tres plataformas evaluadas |
 | `03-metodologia-y-trazabilidad.md` | Escalas, ponderación y trazabilidad |
-| `04-criterios-de-analisis.md` | El catálogo de criterios con su procedimiento |
-| `05-matriz-de-veredictos.md` | **Generado** |
-| `06-analisis-por-categoria.md` | **Generado** |
-
-Faltan las secciones de análisis por plataforma, conclusiones y fuentes.
+| `04-criterios-de-analisis.md` | El catálogo: cada criterio con qué resuelve y su procedimiento |
+| `05-matriz-de-veredictos.md` | **Generado.** Por tipo, origen y grupo, con subtotales |
+| `06-detalle-por-requerimiento.md` | **Generado.** Qué resuelve, cómo lo hace, características y justificación |
+| `07-analisis.md` | Lectura de la tabla para un lector no técnico, por plataforma |
+| `08-conclusiones.md` | Una carilla como máximo; se corrige empezando por acá |
+| `09-fuentes.md` | **Generado** desde las constancias de los resultados |
 
 ### Cómo se escribe
 
@@ -50,9 +52,9 @@ Configurar una vez es **2**: lo que distingue al 2 del 1 es si el trabajo extra 
 **Costo de implementación** — ¿cuánto trabajo cuesta dejarlo funcionando? `0` viene listo · `1` configuración · `2` desarrollo o trabajo permanente. **Corre al reves que el cumplimiento**: mide costo, no merito, asi que acá el cero es lo bueno.
 No lo llevan los criterios no funcionales ni los que no cumplen.
 
-**El cumplimiento mide la capacidad del producto, no la del plan contratado.** Si una función existe en un plan pago, cumple: lo que cuesta habilitarla va a la oferta económica. Penalizarla en la escala la cobraría dos veces. Son tres herramientas y tres columnas.
+**Se evalúa la versión elegida, y solo lo que esa versión trae**: EspoCRM Community sin extensiones, Twenty autoalojado y Bitrix24 Free. Si una función existe solo en un plan pago o en una extensión, para la versión evaluada no está. Es una auditoría: lo que se afirma se demuestra con lo observado al operarla. Son tres herramientas y tres columnas.
 
-**Un criterio que un plan pago cambia lleva un valor adicional por cada nivel que lo cambia**, en `conPlan`, con el precio de ese plan. Cuando algo no está en la edición gratuita se recorren **todos** los planes: no es lo mismo resolverlo con el de entrada que necesitar el más caro. Solo se evalúa dos veces lo que de verdad cambia al pagar; la documentación, la infraestructura y la navegabilidad son iguales en todos los planes. Un plan que solo agrega volumen no genera valor nuevo.
+**Lo que un plan pago cambiaría se registra en `conPlan` como comentario, y no puntúa.** Lleva el precio del plan y cómo quedaría el valor. Cuando algo no está en la versión evaluada se recorren **todos** los planes hasta el primero que lo resuelve: no es lo mismo resolverlo con el de entrada que necesitar el más caro. Un plan que solo agrega volumen no genera comentario.
 
 **Cuando un procedimiento devuelve un número, el número es evidencia y no el veredicto.** El valor sale de la misma pregunta de la sección 3, anclada en lo que la compañía puede sostener; la sección 4.7 declara qué significa cada valor en esos criterios. **No inventes cortes numéricos** —"hasta ocho pasos vale 3"—: parecen objetivos, pero alguien eligió el ocho y esa elección decide el resultado sin que nadie pueda discutirla. Es justo lo que la escala de tres valores evita.
 
@@ -68,17 +70,18 @@ Desde `ai/automatizacion/`:
 npx playwright test --project=espocrm  # evalúa los criterios sobre una plataforma
 NARRAR=1 npx playwright test           # video didáctico con carteles
 node verificar-resultados.mjs          # control de los veredictos y avance por plataforma
-node generar-matriz.mjs ../..          # secciones 5 y 6 del informe
+node generar-matriz.mjs ../..          # secciones 5, 6 y 9 del informe
 node generar-doc.mjs ../..             # documentación HTML de las pruebas
+python exportar-informe.py ../..       # entregable: .docx con el formato del equipo y PDF por Word
 ```
 
 El video de cada criterio lo conserva `videos.reporter.ts` en `evidencia/videos/`, porque Playwright vacía `test-results/` en cada corrida. **No pases `--reporter` por línea de comandos**: reemplaza los de la configuración y el video no se guarda.
 
-`generar-matriz.mjs` lee `resultados/*.json` —uno por evaluación, escrito por los tests— y produce las secciones 5 y 6. **Sin el argumento `../..` escribe fuera del repositorio.**
+`generar-matriz.mjs` lee `resultados/*.json` —uno por evaluación, escrito por los tests— y produce las secciones 5, 6 y 9. **Sin el argumento `../..` escribe fuera del repositorio.**
 
 Ningún número del informe se escribe a mano. Transcribir la matriz ya produjo cuatro errores de recuento, uno de los cuales sostenía una afirmación falsa sobre qué plataforma cubría menos.
 
-La justificación se escribe **en el test**, junto al código que comprueba el hecho: la redacta quien vio el resultado.
+El texto de cada veredicto se escribe **en el test**, junto al código que comprueba el hecho: lo redacta quien vio el resultado. Son tres campos de `registrar()`: `comoLoHace` (el camino concreto en el sistema, o qué ofrece en su lugar), `caracteristicas` (lo que trae la solución; obligatorio si cumple) y `justificacion` (por qué ese valor y ese costo). El «qué resuelve» de cada criterio vive en la columna homónima de la sección 4.
 
 **El catálogo vive en la sección 4 y en ningún otro lado.** `catalogo.cjs` lo lee de `04-criterios-de-analisis.md` en cada corrida, y de ahí lo toman la matriz, la trazabilidad y el verificador. Agregar o renombrar un criterio se hace en el informe; la automatización lo sigue sola.
 
@@ -115,7 +118,7 @@ Los tramos en que la prueba no hace nada —la preparación, las esperas al sist
 ## Al evaluar una plataforma
 
 - **Una prueba que falla no prueba que la plataforma falle.** Descartá primero el procedimiento, el instrumento y la configuración propia.
-- **El valor 0 exige constancia en la documentación oficial del fabricante.** Que algo no aparezca en la instalación de prueba no prueba que el producto no lo tenga.
+- **El 0 se respalda igual que el 2**: con la captura de lo que ocurre al intentarlo en la versión evaluada —la función ausente, el aviso de que exige otro plan— o con la constancia del fabricante de que esa versión no la incluye. Lo que no se pudo comprobar queda como no verificado, nunca como 0 ni como 2.
 - **El muro de pago se determina completando la operación**, no buscando texto en la página: Bitrix24 tiene un botón fijo "Mejore su plan" en la barra lateral que da falso positivo siempre.
 - La evidencia de las tres plataformas no es simétrica. Las instalables se inspeccionan por dentro; el servicio en la nube se evalúa por su comportamiento. La sección 3 lo reconoce explícitamente.
 

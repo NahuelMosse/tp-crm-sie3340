@@ -66,11 +66,15 @@ test('A.1.1 — Modelado de la póliza como objeto propio', async ({ page }, inf
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Desde Configuración › Modelo de datos se crea el objeto Póliza con su nombre en singular y ' +
+      'plural, sin escribir código ni tocar el servidor.',
+    caracteristicas:
+      'Queda con identidad propia: figura entre los objetos del modelo, aparece en el menú de la ' +
+      'izquierda junto a los que trae el producto, tiene su listado y admite registros, que se cargan ' +
+      'desde el mismo listado.',
     justificacion:
-      'Desde Configuración › Modelo de datos se crea el objeto Póliza con su nombre en singular y plural, sin ' +
-      'escribir código ni tocar el servidor. Queda con identidad propia: figura entre los objetos del modelo, ' +
-      'aparece en el menú de la izquierda junto a los que trae el producto, tiene su listado y admite registros, ' +
-      'que se cargan desde el mismo listado. Definirlo es trabajo de una sola vez.',
+      'Definirlo es trabajo de una sola vez.',
     evidencia: [capModelo, capMenu, capListado],
   });
 });
@@ -123,12 +127,15 @@ test('A.1.2 — Campos de lista para el ramo y el estado de cobranza', async ({ 
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Se agregaron el ramo, con los cuatro que comercializa, y el estado de pago, con los cuatro ' +
+      'estados de cobranza; se cargó por pantalla una póliza de cada ramo y a cada una se le cambió el ' +
+      'estado desde su ficha, eligiendo la opción en un desplegable con buscador.',
+    caracteristicas:
+      'El modelo de datos admite campos de lista con las opciones que define la compañía. Los valores ' +
+      'quedan guardados como opciones de la lista, no como texto libre.',
     justificacion:
-      'El modelo de datos admite campos de lista con las opciones que define la compañía. Se agregaron el ramo, ' +
-      'con los cuatro que comercializa, y el estado de pago, con los cuatro estados de cobranza; se cargó por ' +
-      'pantalla una póliza de cada ramo y a cada una se le cambió el estado desde su ficha, eligiendo la opción ' +
-      'en un desplegable con buscador. Los valores quedan guardados como opciones de la lista, no como texto ' +
-      'libre. Definir los campos es trabajo de una sola vez.',
+      'Definir los campos es trabajo de una sola vez.',
     evidencia: [capCampos, capFicha, capListado],
   });
 });
@@ -169,13 +176,17 @@ test('A.1.3 — Prima con importe y moneda', async ({ page, browser }, info) => 
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Se agregó la prima en pesos argentinos y se cargó 45.250,75 desde la ficha: quedó guardada con ' +
+      'los centavos y con su moneda. Para eso el campo se define una vez con formato completo y dos ' +
+      'decimales.',
+    caracteristicas:
+      'El modelo de datos tiene un tipo de campo de importe con moneda. Con la definición de fábrica ' +
+      '—formato corto, sin decimales— el editor descarta el separador decimal y guarda el importe ' +
+      'multiplicado por cien sin avisar, un error que el fabricante tiene registrado; quien define el ' +
+      'campo tiene que saberlo.',
     justificacion:
-      'El modelo de datos tiene un tipo de campo de importe con moneda. Se agregó la prima en pesos argentinos ' +
-      'y se cargó 45.250,75 desde la ficha: quedó guardada con los centavos y con su moneda. Para eso el campo ' +
-      'se define una vez con formato completo y dos decimales. Con la definición de fábrica —formato corto, sin ' +
-      'decimales— el editor descarta el separador decimal y guarda el importe multiplicado por cien sin avisar, ' +
-      'un error que el fabricante tiene registrado; quien define el campo tiene que saberlo. Definirlo bien es ' +
-      'trabajo de una sola vez.',
+      'Definirlo bien es trabajo de una sola vez.',
     evidencia: [capConfiguracion, capFicha],
     documentacion: await citar(browser, {
       url: 'https://github.com/twentyhq/twenty/issues/25870',
@@ -272,13 +283,16 @@ test('A.1.4 — Vigencia con fecha de inicio y de fin', async ({ page }, info) =
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Se agregaron el inicio y el fin de la vigencia y se cargaron dos pólizas desde su ficha. El ' +
+      'sistema los trata como fechas: el listado ordenado por fin de vigencia pone primero la que ' +
+      'vence antes, y el filtro sobre ese campo ofrece comparaciones propias de una fecha —antes, ' +
+      'después, en el pasado, en el futuro, relativa—: «vence en los próximos 30 días» trae la póliza ' +
+      'que vence en doce días y deja afuera la que vence en trescientos.',
+    caracteristicas:
+      'El modelo de datos tiene un tipo de campo de fecha.',
     justificacion:
-      'El modelo de datos tiene un tipo de campo de fecha. Se agregaron el inicio y el fin de la vigencia y se ' +
-      'cargaron dos pólizas desde su ficha. El sistema los trata como fechas: el listado ordenado por fin de ' +
-      'vigencia pone primero la que vence antes, y el filtro sobre ese campo ofrece comparaciones propias de ' +
-      'una fecha —antes, después, en el pasado, en el futuro, relativa—: «vence en los próximos 30 días» trae ' +
-      'la póliza que vence en doce días y deja afuera la que vence en trescientos. Definir los campos es ' +
-      'trabajo de una sola vez.',
+      'Definir los campos es trabajo de una sola vez.',
     evidencia: [capOrden, capComparaciones, capFiltro],
     medicion: `comparaciones del filtro de fecha: ${comparaciones.join(', ')}`,
   });
@@ -392,14 +406,17 @@ test('A.1.5 — Aviso anticipado de vencimiento', async ({ page, browser }, info
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Se activó el flujo y, sin que nadie interviniera, en la corrida siguiente del programador ' +
+      `aparecieron los ${esperadas.length} avisos de pólizas por vencer y el del reclamo que alcanza ` +
+      'su plazo; no avisó las pólizas que vencen más adelante ni el reclamo que tiene tres semanas.',
+    caracteristicas:
+      'Los flujos de trabajo de la edición gratuita alcanzan para el aviso, armados desde el lienzo ' +
+      'sin escribir código: un disparador programado busca las pólizas cuyo fin de vigencia cae en los ' +
+      'próximos treinta días y los reclamos cuyo plazo de resolución vence en los próximos dos, y por ' +
+      'cada uno deja una tarea con su nombre.',
     justificacion:
-      'Los flujos de trabajo de la edición gratuita alcanzan para el aviso, armados desde el lienzo sin escribir ' +
-      'código: un disparador programado busca las pólizas cuyo fin de vigencia cae en los próximos treinta días ' +
-      'y los reclamos cuyo plazo de resolución vence en los próximos dos, y por cada uno deja una tarea con su ' +
-      'nombre. Se activó el flujo y, sin que nadie interviniera, en la corrida siguiente del programador ' +
-      `aparecieron los ${esperadas.length} avisos de pólizas por vencer y el del reclamo que alcanza su plazo; ` +
-      'no avisó las pólizas que vencen más adelante ni el reclamo que tiene tres semanas. Armar el flujo es ' +
-      'trabajo de una sola vez.',
+      'Armar el flujo es trabajo de una sola vez.',
     evidencia: [capFlujo, capAvisos],
     medicion: `${avisos.length} avisos emitidos sin intervención`,
   });
@@ -436,12 +453,16 @@ test('A.1.6 — Consulta y filtrado de la cartera', async ({ page, browser }, in
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'El listado de pólizas combina filtros sobre cualquier campo: se filtró por ramo, por estado de ' +
+      'pago y ' +
+      `por productor responsable, y el resultado trajo exactamente las ${esperadas.length} pólizas de ` +
+      'la cartera que cumplen las tres condiciones.',
+    caracteristicas:
+      'La combinación se puede guardar como una vista con nombre.',
     justificacion:
-      'El listado de pólizas combina filtros sobre cualquier campo: se filtró por ramo, por estado de pago y ' +
-      `por productor responsable, y el resultado trajo exactamente las ${esperadas.length} pólizas de la cartera ` +
-      'que cumplen las tres condiciones. La combinación se puede guardar como una vista con nombre. El ' +
-      'productor responsable es un campo de relación con los usuarios que se agrega al modelo una vez: la ' +
-      'póliza, como objeto propio, no lo trae.',
+      'El productor responsable es un campo de relación con los usuarios que se agrega al modelo una ' +
+      'vez: la póliza, como objeto propio, no lo trae.',
     evidencia: [capFiltro],
     medicion: `${esperadas.length} pólizas con ramo Automotor, estado Al día y productor ${PRODUCTOR.nombre} ${PRODUCTOR.apellido}`,
   });
@@ -493,11 +514,15 @@ test('A.1.7 — Operación masiva sobre la cartera', async ({ page, browser }, i
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      `Se seleccionaron las ${elegidas.length} pólizas del ramo Hogar desde el listado y, con la ` +
+      'selección hecha, la acción de actualizar abre un panel con los campos de la póliza: se eligió ' +
+      'el estado de pago nuevo y se aplicó a todas de una vez, tras una confirmación que advierte que ' +
+      'el cambio no se puede deshacer.',
+    caracteristicas:
+      'Las seleccionadas quedaron con el estado nuevo.',
     justificacion:
-      `Se seleccionaron las ${elegidas.length} pólizas del ramo Hogar desde el listado y, con la selección hecha, ` +
-      'la acción de actualizar abre un panel con los campos de la póliza: se eligió el estado de pago nuevo y se ' +
-      'aplicó a todas de una vez, tras una confirmación que advierte que el cambio no se puede deshacer. Las ' +
-      'seleccionadas quedaron con el estado nuevo. Viene listo: no hay nada que configurar.',
+      'Viene listo: no hay nada que configurar.',
     evidencia: [capSeleccion, capAccion, capConfirmacion, capResultado],
     medicion: `${cambiadas} de ${elegidas.length} pólizas actualizadas con una sola acción`,
   });

@@ -87,13 +87,17 @@ test('A.10.1 — Indicadores sobre la operación', async ({ page, browser }, inf
     plataforma,
     cumple: 1,
     costo: 2,
+    comoLoHace:
+      'Los tableros vienen de fábrica: se armó un gráfico con el total de primas por estado de ' +
+      'cobranza eligiendo el objeto, el campo del eje y la suma de la prima, sin programar, y quedó ' +
+      'guardado para consultarlo cuando se quiera.',
+    caracteristicas:
+      'El tiempo promedio de resolución de los reclamos, en cambio, no se puede mostrar: el gráfico ' +
+      'promedia campos numéricos, y el producto no calcula la duración de cada reclamo ni tiene campos ' +
+      'que la deriven de sus fechas.',
     justificacion:
-      'Los tableros vienen de fábrica: se armó un gráfico con el total de primas por estado de cobranza ' +
-      'eligiendo el objeto, el campo del eje y la suma de la prima, sin programar, y quedó guardado para ' +
-      'consultarlo cuando se quiera. El tiempo promedio de resolución de los reclamos, en cambio, no se puede ' +
-      'mostrar: el gráfico promedia campos numéricos, y el producto no calcula la duración de cada reclamo ni ' +
-      'tiene campos que la deriven de sus fechas. Hay que agregar esa duración con un flujo con código que la ' +
-      'escriba al cerrarse cada reclamo, que es desarrollo.',
+      'Para mostrar el tiempo promedio de resolución hay que agregar la duración de cada reclamo con un flujo con código que la escriba al cerrarse cada reclamo, ' +
+      'que es desarrollo.',
     evidencia: [capPrimas, capReclamos],
     medicion: `Primas por estado: ${[...porEstado].map(([k, v]) => `${k} ${Math.round(v)}`).join(' · ')}`,
   });
@@ -159,13 +163,17 @@ test('A.10.2 — Generación de informes definidos por el usuario', async ({ pag
     plataforma,
     cumple: 1,
     costo: 2,
+    comoLoHace:
+      'El informe se armó desde un tablero, eligiendo los criterios sin programar: un gráfico con la ' +
+      'suma de la prima de las pólizas agrupada por productor, filtrado por las que empezaron su ' +
+      'vigencia en los últimos seis meses.',
+    caracteristicas:
+      'Muestra el total de cada productor y queda guardado. Pero el gráfico no se exporta: el widget ' +
+      'no ofrece descargarlo.',
     justificacion:
-      'El informe se armó desde un tablero, eligiendo los criterios sin programar: un gráfico con la suma de ' +
-      'la prima de las pólizas agrupada por productor, filtrado por las que empezaron su vigencia en los ' +
-      'últimos seis meses. Muestra el total de cada productor y queda guardado. Pero el gráfico no se exporta: ' +
-      'el widget no ofrece descargarlo. Lo que se puede sacar es el listado de pólizas, a un archivo que la ' +
-      'planilla abre, y los totales por productor hay que rehacerlos ahí cada vez que se necesita el informe ' +
-      'fuera del sistema.',
+      'Lo que se puede sacar es el listado de pólizas, a un archivo que la planilla abre, y los ' +
+      'totales por productor hay que rehacerlos ahí cada vez que se necesita el informe fuera del ' +
+      'sistema.',
     evidencia: [capInforme, capAcciones],
     medicion: `Totales esperados: ${[...esperado].map(([k, v]) => `${k} ${Math.round(v)}`).join(' · ')} · ${filas} pólizas exportadas`,
   });
@@ -214,12 +222,16 @@ test('A.10.3 — Informe paramétrico reutilizable', async ({ page, browser }, i
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'El informe de primas por productor quedó guardado en su tablero con el período como condición ' +
+      'del filtro. Para otro período se abrió el mismo gráfico y se cambió solo la fecha del filtro: ' +
+      'los totales se recalcularon sin rehacer el informe, que conserva su fuente, su agrupación y su ' +
+      'medida.',
+    caracteristicas:
+      'El período no se pide al abrirlo: cambiarlo modifica el informe guardado para todos los que lo ' +
+      'miran, o hay que duplicarlo.',
     justificacion:
-      'El informe de primas por productor quedó guardado en su tablero con el período como condición del ' +
-      'filtro. Para otro período se abrió el mismo gráfico y se cambió solo la fecha del filtro: los totales ' +
-      'se recalcularon sin rehacer el informe, que conserva su fuente, su agrupación y su medida. El período no ' +
-      'se pide al abrirlo: cambiarlo modifica el informe guardado para todos los que lo miran, o hay que ' +
-      'duplicarlo. Armarlo es configuración de una sola vez.',
+      'Armarlo es configuración de una sola vez.',
     evidencia: [capAntes, capDespues],
     medicion: `Seis meses: ${antes.join(' ')} · un año: ${despues.join(' ')}`,
   });
@@ -300,12 +312,16 @@ test('A.10.4 — Intercambio de datos con otros sistemas de la compañía', asyn
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Desde Configuración se creó una clave para el otro sistema, que lleva un rol que define lo que ' +
+      'puede hacer, sin la contraseña de ninguna persona; con esa clave, desde fuera del sistema, se ' +
+      'dio de alta un asegurado y se lo volvió a consultar.',
+    caracteristicas:
+      'El producto trae interfaces de programación REST y GraphQL que se generan solas a partir del ' +
+      'modelo de datos, incluidos los objetos propios como la póliza.',
     justificacion:
-      'El producto trae interfaces de programación REST y GraphQL que se generan solas a partir del modelo ' +
-      'de datos, incluidos los objetos propios como la póliza. Desde Configuración se creó una clave para el ' +
-      'otro sistema, que lleva un rol que define lo que puede hacer, sin la contraseña de ninguna persona; con ' +
-      'esa clave, desde fuera del sistema, se dio de alta un asegurado y se lo volvió a consultar. Crear la clave ' +
-      'es configuración; lo que el otro sistema haga con la interfaz es trabajo de ese sistema, no de este.',
+      'Crear la clave del otro sistema es configuración; lo que el otro sistema haga con la interfaz es trabajo de ese ' +
+      'sistema, no de este.',
     evidencia: [capClave],
     documentacion: fuente,
   });
@@ -381,14 +397,17 @@ test('A.10.5 — Intercambio sin límite de volumen que condicione la operación
     plataforma,
     cumple: 2,
     costo: 0,
-    justificacion:
-      'El fabricante publica el límite de la interfaz de programación: cien pedidos por minuto, y hasta sesenta ' +
-      'registros por pedido en las operaciones por lotes. Se mandó el movimiento de un día entero —' +
+    comoLoHace:
+      'Se mandó el movimiento de un día entero —' +
       `${MOVIMIENTO_DIARIO} altas— en ráfagas de diez simultáneas, de a un registro por pedido: ` +
       (limitadas
         ? `${limitadas} fueron rechazadas por el límite y pasaron al reintentarlas un minuto después; las ${MOVIMIENTO_DIARIO} ` +
-          `entraron en ${minutos} minutos. `
-        : `entraron las ${MOVIMIENTO_DIARIO} en ${minutos} minutos, sin rechazos. `) +
+          `entraron en ${minutos} minutos.`
+        : `entraron las ${MOVIMIENTO_DIARIO} en ${minutos} minutos, sin rechazos.`),
+    caracteristicas:
+      'El fabricante publica el límite de la interfaz de programación: cien pedidos por minuto, y hasta sesenta ' +
+      'registros por pedido en las operaciones por lotes.',
+    justificacion:
       'El límite deja holgura sobre el movimiento de un día: lo que exige es que el otro sistema espacie sus ' +
       'pedidos o los agrupe, como hace cualquier sincronización.',
     documentacion: fuente,

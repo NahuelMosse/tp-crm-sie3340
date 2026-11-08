@@ -3,7 +3,9 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 2,
-  "justificacion": "De fábrica el producto busca duplicados por nombre y correo, pero no por documento: se cargó dos veces el mismo documento con el apellido escrito distinto y el sistema aceptó las dos fichas sin advertir nada. La pantalla de fórmula de cada entidad trae un guion que se ejecuta antes de guardar, pensado para validaciones y comprobación de duplicados; con tres líneas que buscan el documento, la segunda carga mostró el aviso de posible duplicado y remitió a la ficha existente. La necesidad queda resuelta desde el sistema, pero exige escribir ese guion: es desarrollo, breve, que alguien tiene que saber leer y mantener.",
+  "comoLoHace": "De fábrica el producto busca duplicados por nombre y correo, pero no por documento: se cargó dos veces el mismo documento con el apellido escrito distinto y el sistema aceptó las dos fichas sin advertir nada.",
+  "caracteristicas": "La pantalla de fórmula de cada entidad trae un guion que se ejecuta antes de guardar, pensado para validaciones y comprobación de duplicados; con tres líneas que buscan el documento, la segunda carga mostró el aviso de posible duplicado y remitió a la ficha existente.",
+  "justificacion": "La necesidad queda resuelta desde el sistema, pero exige escribir el guion de la fórmula de la entidad: es desarrollo, breve, que alguien tiene que saber leer y mantener.",
   "evidencia": [
     "A-6-4-espocrm-1-sin-configurar.png",
     "A-6-4-espocrm-2-comprobacion-por-documento.png",
@@ -14,5 +16,5 @@
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-09-28T19:51:32.543Z"
+  "momento": "2026-10-30T04:53:54.829Z"
 }

@@ -2,7 +2,9 @@
   "criterio": "A.11.6",
   "plataforma": "bitrix24",
   "cumple": 2,
-  "justificacion": "El menú principal y la ficha del contacto están enteramente en español, incluidos los objetos que trae el producto de fábrica.",
+  "comoLoHace": "Se recorrieron el menú principal y la ficha del contacto con el portal configurado en español.",
+  "caracteristicas": "El menú principal y la ficha del contacto están enteramente en español, incluidos los objetos que trae el producto de fábrica.",
+  "justificacion": "Todo lo que el personal ve en la operación diaria está en su idioma, sin nada que corregir.",
   "evidencia": [
     "A-11-6-bitrix24-1-menu-principal.png",
     "A-11-6-bitrix24-2-listado-de-negociaciones.png"

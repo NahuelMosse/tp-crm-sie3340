@@ -69,14 +69,16 @@ test('B.2.1 — Asistente de inteligencia artificial', async ({ page, browser },
     plataforma,
     cumple: 2,
     costo: 1,
-    justificacion:
-      'El producto trae CoPilot, un asistente de inteligencia artificial disponible desde el propio registro, en ' +
-      'la edición gratuita, con una cuota de usos gratuitos por mes. ' +
+    comoLoHace:
       (sePidioResumen
         ? 'Se le pidió el resumen de una negociación desde su chat; ' +
           (respondio ? 'respondió con un texto propio en la misma pantalla.' : 'el asistente recibió la consulta pero no devolvió respuesta en el minuto y medio de espera de la instalación evaluada, posiblemente por la cuota gratuita del portal.')
-        : 'El menú lateral ofrece CoPilot, pero en esta corrida no se llegó a escribirle una consulta desde su pantalla.') +
-      ' Queda disponible de fábrica, sin instalar nada: lo único que puede requerir una configuración de una vez ' +
+        : 'El menú lateral ofrece CoPilot, pero en esta corrida no se llegó a escribirle una consulta desde su pantalla.'),
+    caracteristicas:
+      'El producto trae CoPilot, un asistente de inteligencia artificial disponible desde el propio registro, en ' +
+      'la edición gratuita, con una cuota de usos gratuitos por mes.',
+    justificacion:
+      'Queda disponible de fábrica, sin instalar nada: lo único que puede requerir una configuración de una vez ' +
       'es elegir o ampliar la cuota de uso cuando la gratuita se agota.',
     evidencia: [capNegociacion, capChat],
     documentacion: fuente,
@@ -116,11 +118,13 @@ test('B.2.2 — Aplicación móvil nativa', async ({ page, browser }, info) => {
     plataforma,
     cumple: 2,
     costo: 0,
-    justificacion:
+    comoLoHace: 'Se buscó la aplicación oficial del fabricante en las tiendas de aplicaciones.',
+    caracteristicas:
       'El fabricante publica una aplicación móvil oficial, para Android en Google Play y para iOS en el App ' +
-      'Store, con el CRM, las tareas, el chat y las notificaciones de la cuenta. El productor puede registrar la ' +
-      'operación durante la visita al asegurado, desde su teléfono, sin instalar ni configurar nada además de ' +
-      'bajar la aplicación e iniciar sesión.',
+      'Store, con el CRM, las tareas, el chat y las notificaciones de la cuenta.',
+    justificacion:
+      'El productor puede registrar la operación durante la visita al asegurado, desde su teléfono, sin ' +
+      'instalar ni configurar nada además de bajar la aplicación e iniciar sesión.',
     evidencia: ['B-2-2-bitrix24-1-google-play.png', capPortal],
     documentacion: fuente,
   });
@@ -155,13 +159,16 @@ test('B.2.3 — Suite de trabajo integrada', async ({ page }, info) => {
     plataforma,
     cumple: 1,
     costo: 2,
+    comoLoHace:
+      'Desde la ficha de una negociación se abre un chat, una tarea, una reunión o un comentario ' +
+      `(${pestanas.join(', ') || 'según lo que la pantalla ofrezca en cada ficha'}) sin salir del registro.`,
+    caracteristicas:
+      `Además del CRM, el producto incluye ${herramientas.join(', ')}, todo en la misma cuenta y sobre los ` +
+      'mismos contactos.',
     justificacion:
-      `Además del CRM, el producto incluye ${herramientas.join(', ')}, todo en la misma cuenta y sobre los mismos ` +
-      `contactos: desde la ficha de una negociación se abre un chat, una tarea, una reunión o un comentario ` +
-      `(${pestanas.join(', ') || 'según lo que la pantalla ofrezca en cada ficha'}) sin salir del registro. Falta ` +
-      'la edición colaborativa de documentos de oficina y la firma electrónica en la edición gratuita —quedan en ' +
-      'planes pagos o en aplicaciones del catálogo—, así que la compañía sigue necesitando otra herramienta para ' +
-      'esa parte, con el trabajo de pasar la información de una a otra.',
+      'Falta la edición colaborativa de documentos de oficina y la firma electrónica en la edición gratuita ' +
+      '—quedan en planes pagos o en aplicaciones del catálogo—, así que la compañía sigue necesitando otra ' +
+      'herramienta para esa parte, con el trabajo de pasar la información de una a otra.',
     evidencia: [capFicha, capDrive],
     medicion: `Acciones disponibles desde la ficha: ${pestanas.join(', ') || 'ninguna detectada'}`,
   });
@@ -199,12 +206,15 @@ test('B.2.4 — Telefonía y videollamada integradas', async ({ page, browser },
     plataforma,
     cumple: 1,
     costo: 2,
+    comoLoHace:
+      'Desde la ficha de una negociación se inicia una reunión con video, sin salir del ' +
+      `sistema${tieneVideollamada ? ' (acción presente en la ficha evaluada)' : ''}.`,
+    caracteristicas:
+      'La videollamada está integrada de fábrica.',
     justificacion:
-      'La videollamada está integrada de fábrica: desde la ficha de una negociación se inicia una reunión con ' +
-      `video, sin salir del sistema${tieneVideollamada ? ' (acción presente en la ficha evaluada)' : ''}. La ` +
-      'telefonía no: el fabricante reserva la línea propia y la numeración de Bitrix24 Telephony a los planes ' +
-      'pagos, así que en la edición gratuita llamar desde el sistema requiere contratar ese módulo o desarrollar ' +
-      'la conexión con una central externa por la interfaz de programación.',
+      'La telefonía no: el fabricante reserva la línea propia y la numeración de Bitrix24 Telephony a los ' +
+      'planes pagos, así que en la edición gratuita llamar desde el sistema requiere contratar ese módulo o ' +
+      'desarrollar la conexión con una central externa por la interfaz de programación.',
     evidencia: [capFicha],
     documentacion: fuentes,
     medicion: `Videollamada en la ficha: ${tieneVideollamada ? 'sí' : 'no detectada'} · acción de llamar: ${tieneLlamar ? 'sí' : 'no'}`,
@@ -235,13 +245,16 @@ test('B.2.5 — Uso sin restricciones comerciales en la interfaz', async ({ page
     plataforma,
     cumple: avisos.length ? 1 : 2,
     costo: avisos.length ? 2 : 0,
+    comoLoHace: 'Se recorrieron las pantallas de uso diario.',
+    caracteristicas: avisos.length
+      ? '—CRM, tareas, mensajería y calendario— y en todas hay avisos ' +
+        `de venta permanentes en la propia interfaz (${avisos.join('; ')}), sin importar la tarea en curso.`
+      : '—CRM, tareas, mensajería y calendario— y ninguna muestra avisos de venta.',
     justificacion: avisos.length
-      ? 'Se recorrieron las pantallas de uso diario —CRM, tareas, mensajería y calendario— y en todas hay avisos ' +
-        `de venta permanentes en la propia interfaz (${avisos.join('; ')}), sin importar la tarea en curso. No ` +
+      ? 'No ' +
         'impiden operar, pero el usuario trabaja con la oferta comercial siempre a la vista y la edición gratuita ' +
         'no ofrece ocultarla.'
-      : 'Se recorrieron las pantallas de uso diario —CRM, tareas, mensajería y calendario— y ninguna muestra ' +
-        'avisos de venta: las funciones de los planes pagos quedan marcadas donde se las usa, no interrumpiendo ' +
+      : 'Las funciones de los planes pagos quedan marcadas donde se las usa, no interrumpiendo ' +
         'la pantalla de trabajo diaria.',
     evidencia: capturas,
     medicion: `Avisos de venta en el contenido: ${avisos.length}`,

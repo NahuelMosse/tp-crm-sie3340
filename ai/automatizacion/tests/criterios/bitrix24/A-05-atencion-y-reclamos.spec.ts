@@ -79,13 +79,16 @@ test('A.5.1 — Reclamo como caso con identidad propia', async ({ page }, info) 
     criterio: 'A.5.1',
     plataforma,
     cumple: 1,
+    comoLoHace:
+      'El reclamo se lleva entonces como una negociación con el asegurado como cliente: recibe un número ' +
+      `propio, abre su propia ficha y queda asociada al contacto (reclamo n.º ${reclamo?.ID}).`,
+    caracteristicas:
+      'No tiene listado propio: comparte el de las demás negociaciones —pólizas y oportunidades—, y hay ' +
+      'que distinguirlo por el nombre o con un filtro en cada uso.',
     justificacion:
-      'La edición gratuita no tiene procesos inteligentes para crear una entidad Reclamo, y la alternativa que ' +
-      'sugiere el modelo —una tarea vinculada al contacto— no está disponible: al pulsar «Tarea» en la ficha ' +
-      'del asegurado el sistema informa que «Tareas en CRM» requiere al menos el plan Basic. El reclamo se lleva ' +
-      'entonces como una negociación con el asegurado como cliente: recibe un número propio, abre su propia ficha ' +
-      `y queda asociada al contacto (reclamo n.º ${reclamo?.ID}). No tiene listado propio: comparte el de las demás ` +
-      'negociaciones —pólizas y oportunidades—, y hay que distinguirlo por el nombre o con un filtro en cada uso.',
+      'La edición gratuita no permite crear una entidad Reclamo ni vincular tareas al asegurado: «Tareas en ' +
+      'CRM» requiere al menos el plan Basic. El reclamo se lleva igual como una negociación con número y ' +
+      'ficha propios, pero mezclado con pólizas y oportunidades, y hay que separarlo en cada consulta.',
     evidencia: [capFormulario, capFicha, capListado, capTarea],
     medicion: `reclamo n.º ${reclamo?.ID}`,
   });
@@ -137,13 +140,16 @@ const cambiosEnLinea = await panel(page).getByText('Etapa cambiada').count();
     criterio: 'A.5.2',
     plataforma,
     cumple: 1,
+    comoLoHace:
+      'Se pasó el reclamo por tres etapas y el sistema conservó las cuatro posiciones en orden, sin ' +
+      'configurar nada.',
+    caracteristicas:
+      'Cada cambio de etapa de la negociación —que hace de reclamo— queda anotado en la línea de tiempo de ' +
+      'su ficha como «Etapa cambiada», con la etapa anterior y la nueva, la hora y el usuario.',
     justificacion:
-      'Cada cambio de etapa de la negociación —que hace de reclamo— queda anotado en la línea de tiempo de su ficha ' +
-      'como «Etapa cambiada», con la etapa anterior y la nueva, la hora y el usuario. Se pasó el reclamo por tres ' +
-      'etapas y el sistema conservó las cuatro posiciones en orden, sin configurar nada. El reparo es que los ' +
-      'estados no son propios del reclamo: son las etapas del embudo de ventas (En desarrollo, Crear documentos, ' +
-      'Factura…), compartidas con las pólizas y las oportunidades, y la pestaña «Historial» de la ficha, que ' +
-      'concentra el seguimiento, no se abre en la edición gratuita.',
+      'El reparo es que los estados no son propios del reclamo: son las etapas del embudo de ventas (En ' +
+      'desarrollo, Crear documentos, Factura…), compartidas con las pólizas y las oportunidades, y la ' +
+      'pestaña «Historial» de la ficha, que concentra el seguimiento, no se abre en la edición gratuita.',
     evidencia: [capLinea],
     medicion: `secuencia: ${transiciones.join(' > ')}`,
   });
@@ -198,11 +204,15 @@ test('A.5.3 — Responsable asignado a cada reclamo', async ({ page, browser }, 
       plataforma,
       cumple: 2,
       costo: 1,
+      comoLoHace:
+        'El responsable de un reclamo —la negociación del asegurado— se cambia en el listado, marcando el ' +
+        'registro y eligiendo «Cambiar a la persona responsable».',
+      caracteristicas:
+        'Con la sesión del productor, el reclamo asignado aparece en su listado de negociaciones, sin ' +
+        'buscarlo.',
       justificacion:
-        'El responsable de un reclamo —la negociación del asegurado— se cambia en el listado, marcando el registro ' +
-        'y eligiendo «Cambiar a la persona responsable». Con la sesión del productor, el reclamo asignado aparece ' +
-        'en su listado de negociaciones, sin buscarlo. Los reclamos comparten ese listado con las pólizas y las ' +
-        'oportunidades, y el usuario los distingue por el nombre: es una convención que se fija una vez.',
+        'Los reclamos comparten ese listado con las pólizas y las oportunidades, y el usuario los ' +
+        'distingue por el nombre: es una convención que se fija una vez.',
       evidencia: [capAsignado, capLista],
     });
   } finally {
@@ -380,10 +390,13 @@ test('A.5.4 — Base de conocimiento para la atención', async ({ page }, info) 
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Se creó el artículo desde «Empleados › Base de conocimientos».',
+    caracteristicas:
+      'Una página en blanco con un bloque de texto, cuyo texto de ejemplo se reemplazó por la condición de ' +
+      'cobertura de granizo, y se la buscó por «granizo» en la base publicada, que la devolvió.',
     justificacion:
-      'Se creó el artículo desde «Empleados › Base de conocimientos»: una página en blanco con un bloque de texto, ' +
-      'cuyo texto de ejemplo se reemplazó por la condición de cobertura de granizo, y se la buscó por «granizo» ' +
-      'en la base publicada, que la devolvió. La base se arma una vez con una plantilla (la edición gratuita admite una sola).',
+      'La base se arma una vez con una plantilla (la edición gratuita admite una sola).',
     evidencia: [capEditor, capArticulo, capBase, capBusqueda],
   });
 });
@@ -420,10 +433,13 @@ test('A.5.5 — Tareas asignables con responsable y vencimiento', async ({ page,
       plataforma,
       cumple: 2,
       costo: 0,
+      comoLoHace:
+        '«Tareas › Crear» abre un formulario con título, responsable y fecha límite: se eligió al ' +
+        'productor en el selector de responsable y el formulario ya propone un vencimiento.',
+      caracteristicas:
+        'Con la sesión del productor, la tarea figura en «Mis tareas» con su fecha límite.',
       justificacion:
-        '«Tareas › Crear» abre un formulario con título, responsable y fecha límite: se eligió al productor en el ' +
-        'selector de responsable y el formulario ya propone un vencimiento. Con la sesión del productor, la tarea ' +
-        'figura en «Mis tareas» con su fecha límite. Viene de fábrica en la edición gratuita, sin configurar nada.',
+        'Viene de fábrica en la edición gratuita, sin configurar nada.',
       evidencia: [capCreada, capDelProductor],
     });
   } finally {
@@ -460,9 +476,13 @@ test('A.5.6 — Aviso al usuario al que se le asigna una tarea', async ({ page, 
       plataforma,
       cumple: 2,
       costo: 0,
+      comoLoHace:
+        'Al asignarle una tarea, el productor la recibe como notificación en la campana de la barra superior ' +
+        'del portal.',
+      caracteristicas:
+        'La notificación lleva el título de la tarea y quién se la asignó, sin que tenga que abrir el listado ' +
+        'de tareas.',
       justificacion:
-        'Al asignarle una tarea, el productor la recibe como notificación en la campana de la barra superior del ' +
-        'portal, con el título de la tarea y quién se la asignó, sin que tenga que abrir el listado de tareas. ' +
         'Viene activado de fábrica en la edición gratuita.',
       evidencia: [capCampana],
     });

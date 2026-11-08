@@ -73,6 +73,8 @@ const ORIGEN = {
   'A.11.5': 'CRIT 4', 'A.11.6': 'CRIT 4, RUBRO', 'A.11.7': 'CRIT 5', 'A.11.8': 'CRIT 5',
   'A.11.9': 'CRIT 12', 'A.11.10': 'CRIT 13', 'A.11.11': 'CRIT 13', 'A.11.12': 'CRIT 13',
   'A.11.13': 'CRIT 13', 'A.11.14': 'RUBRO',
+  'A.12.1': 'REQ 1, REQ 17', 'A.12.2': 'REQ 2', 'A.12.3': 'CRIT 11, CRIT 12, RUBRO',
+  'A.12.4': 'REQ 7, REQ 4', 'A.12.5': 'REQ 15, REQ 12, REQ 5',
   'B.1.1': 'RUBRO', 'B.1.2': 'RUBRO', 'B.1.3': 'RUBRO', 'B.1.4': 'RUBRO',
   'B.1.5': 'RUBRO', 'B.1.6': 'RUBRO', 'B.1.7': 'RUBRO',
   'B.2.1': 'OBS', 'B.2.2': 'OBS', 'B.2.3': 'OBS', 'B.2.4': 'OBS', 'B.2.5': 'OBS',

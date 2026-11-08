@@ -3,7 +3,9 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "justificacion": "La ficha de la persona reúne lo suyo: a la izquierda, sus campos, entre ellos sus pólizas y sus reclamos, que se abren desde ahí; a la derecha, pestañas con la línea de tiempo de cambios, las tareas, las notas, los archivos, los correos y el calendario. Desde la ficha de un asegurado se llegó a su póliza, a su reclamo y a la tarea hecha con él sin pasar por otro menú. La actividad viene de fábrica; las pólizas y los reclamos aparecen al definir sus relaciones con la persona, que es configuración de una sola vez.",
+  "comoLoHace": "Desde la ficha de un asegurado se llegó a su póliza, a su reclamo y a la tarea hecha con él sin pasar por otro menú.",
+  "caracteristicas": "La ficha de la persona reúne lo suyo: a la izquierda, sus campos, entre ellos sus pólizas y sus reclamos, que se abren desde ahí; a la derecha, pestañas con la línea de tiempo de cambios, las tareas, las notas, los archivos, los correos y el calendario.",
+  "justificacion": "La actividad viene de fábrica; las pólizas y los reclamos aparecen al definir sus relaciones con la persona, que es configuración de una sola vez.",
   "evidencia": [
     "A-6-2-twenty-1-ficha-completa.png",
     "A-6-2-twenty-2-reclamos-desde-la-ficha.png",
@@ -14,5 +16,5 @@
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-09-28T23:57:37.811Z"
+  "momento": "2026-10-30T07:22:58.785Z"
 }

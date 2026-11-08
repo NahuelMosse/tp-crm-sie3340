@@ -26,16 +26,14 @@ function reparos(e) {
     return mal;
   }
 
+  // Sección 6: cada requerimiento dice cómo lo hace la plataforma, qué trae y por qué ese valor.
+  if (!e.comoLoHace?.trim()) mal.push('falta cómo lo hace la plataforma, o qué ofrece en su lugar');
+  if (e.cumple > 0 && !e.caracteristicas?.trim()) mal.push('falta qué características trae la solución');
   if (!e.justificacion?.trim()) mal.push('la justificación es obligatoria');
   if (![2, 1, 0].includes(e.cumple)) mal.push(`cumple debe ser 2, 1 o 0 — llegó ${e.cumple}`);
 
-  // Sección 3.5: el valor 0 es el más exigente de demostrar.
-  if (e.cumple === 0 && !fuentes(e.documentacion).length) {
-    mal.push('el valor 0 exige constancia en la documentación oficial del fabricante: ' +
-             'que no aparezca en la instalación de prueba no prueba que el producto no lo tenga');
-  }
-
-  // Todo veredicto se respalda: o se vio al sistema resolverlo, o lo dice el fabricante.
+  // Sección 3.5: se evalúa como una auditoría sobre la versión elegida. Lo que se afirma
+  // —que lo resuelve o que no— se respalda con lo observado en ella o con la fuente oficial.
   if (!e.evidencia?.length && !fuentes(e.documentacion).length) {
     mal.push('sin respaldo: hace falta una captura del sistema o una fuente oficial con su cita textual');
   }
@@ -63,7 +61,8 @@ function reparos(e) {
     mal.push(`${cat.grupo} son criterios no funcionales: no llevan costo de implementación`);
   }
 
-  // Un plan que no cambia la respuesta no genera valor nuevo y no se registra.
+  // Lo que agrega un plan pago es un comentario: no puntúa. Un plan que no cambia la
+  // respuesta no aporta nada al comentario y no se registra.
   // La cambia si resuelve más, o si resuelve lo mismo con menos trabajo.
   const costoBase = e.cumple === 1 ? 2 : e.costo;
   (e.conPlan ?? []).forEach((x, i) => {
@@ -75,7 +74,7 @@ function reparos(e) {
     const resuelveMas = x?.cumple > e.cumple;
     const cuestaMenos = x?.cumple === e.cumple && x?.costo !== undefined && costoBase !== undefined && x.costo < costoBase;
     if (!resuelveMas && !cuestaMenos) {
-      mal.push(`el plan ${nombre} no cambia la respuesta de la edición gratuita: no se registra`);
+      mal.push(`el plan ${nombre} no cambia la respuesta de la versión evaluada: no se registra`);
     }
   });
 

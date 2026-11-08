@@ -2,7 +2,9 @@
   "criterio": "A.11.5",
   "plataforma": "twenty",
   "cumple": 1,
-  "justificacion": "Tres agentes independientes, sin conocimiento previo de la plataforma, intentaron sin instrucción las cinco operaciones que un productor repite a diario —dar de alta un asegurado, cargarle una póliza, averiguar qué pólizas de su cartera vencen en los próximos 30 días, registrar un reclamo y agendar un llamado—, operando la pantalla como lo haría una persona. Completaron 14 de las quince, según lo que quedó guardado en el sistema. Cada tarea la completó al menos uno, pero la tarea 3 quedó sin completar para el agente 1 (respondió 18; la respuesta correcta es 3), que no supo decir qué le faltó. Que quien no la terminó no sepa decir qué le faltó no impide que otro la complete: el sistema se deja aprender, con un tropiezo que la compañía asume en cada incorporación.",
+  "comoLoHace": "Tres agentes independientes, sin conocimiento previo de la plataforma, intentaron sin instrucción las cinco operaciones que un productor repite a diario —dar de alta un asegurado, cargarle una póliza, averiguar qué pólizas de su cartera vencen en los próximos 30 días, registrar un reclamo y agendar un llamado—, operando la pantalla como lo haría una persona.",
+  "caracteristicas": "Completaron 14 de las quince, según lo que quedó guardado en el sistema. La tarea 3 quedó sin completar para el agente 1 (respondió 18; la respuesta correcta es 3), que no supo decir qué le faltó.",
+  "justificacion": "Cada tarea la completó al menos uno de los tres, aunque no todos completaron todas: el sistema se deja aprender, con un tropiezo que la compañía asume en cada incorporación.",
   "evidencia": [
     "A-11-5-twenty-p1-t1.png",
     "A-11-5-twenty-p1-t2.png",

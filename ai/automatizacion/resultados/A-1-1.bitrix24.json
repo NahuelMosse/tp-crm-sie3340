@@ -2,7 +2,9 @@
   "criterio": "A.1.1",
   "plataforma": "bitrix24",
   "cumple": 0,
-  "justificacion": "Las entidades propias de Bitrix24 son los procesos inteligentes, que se crean desde la barra del CRM sin programar: nombre, etapas, embudos y reglas de automatización. En la edición gratuita el formulario se completa, pero al guardar el sistema no crea la entidad y avisa que los procesos inteligentes requieren el plan Professional o el Enterprise. Sin ellos la póliza no tiene identidad propia: habría que forzarla dentro de otra entidad del producto.",
+  "comoLoHace": "En la edición gratuita el formulario se completa, pero al guardar el sistema no crea la entidad y avisa que los procesos inteligentes requieren el plan Professional o el Enterprise.",
+  "caracteristicas": "Las entidades propias de Bitrix24 son los procesos inteligentes, que se crean desde la barra del CRM sin programar: nombre, etapas, embudos y reglas de automatización.",
+  "justificacion": "Sin ellos la póliza no tiene identidad propia: habría que forzarla dentro de otra entidad del producto.",
   "evidencia": [
     "A-1-1-bitrix24-1-formulario.png",
     "A-1-1-bitrix24-2-al-guardar.png"

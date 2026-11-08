@@ -3,7 +3,9 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 1,
-  "justificacion": "El Administrador de Campos agrega campos de tipo lista y admite escribir sus valores, sin programar. Se definieron los ramos que comercializa la compañía —Automotor, Hogar, Vida, Salud— y los estados de cobranza, y se cargó una póliza de cada ramo desde el formulario: las cuatro quedaron con su ramo visible en el listado. El estado de cobranza se cambia desde la ficha y el cambio queda guardado. El usuario elige de la lista y no puede escribir un valor imprevisto, que es lo que vuelve confiable la clasificación de la cartera. El campo se define en una pantalla y se ubica en el formulario en otra, ambas de administración: es configuración inicial, no desarrollo.",
+  "comoLoHace": "El Administrador de Campos agrega campos de tipo lista y admite escribir sus valores, sin programar. Se definieron los ramos que comercializa la compañía —Automotor, Hogar, Vida, Salud— y los estados de cobranza, y se cargó una póliza de cada ramo desde el formulario: las cuatro quedaron con su ramo visible en el listado. El estado de cobranza se cambia desde la ficha y el cambio queda guardado.",
+  "caracteristicas": "El usuario elige de la lista y no puede escribir un valor imprevisto, que es lo que vuelve confiable la clasificación de la cartera.",
+  "justificacion": "El campo se define en una pantalla y se ubica en el formulario en otra, ambas de administración: es configuración inicial, no desarrollo.",
   "evidencia": [
     "A-1-2-espocrm-1-campos.png",
     "A-1-2-espocrm-2-cartera.png",
@@ -14,5 +16,5 @@
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-09-28T18:27:42.950Z"
+  "momento": "2026-10-30T03:52:09.559Z"
 }

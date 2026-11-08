@@ -3,7 +3,9 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 0,
-  "justificacion": "El reclamo se pasó de nuevo a asignado, a pendiente y a cerrado, y la ficha conserva la secuencia completa en su historia: cada cambio de estado queda registrado con el valor anterior, el nuevo, quién lo hizo y cuándo. El estado del caso viene auditado de fábrica, sin configurar nada. Es lo que permite reconstruir cuánto estuvo un reclamo en cada instancia cuando el asegurado pregunta o cuando hay que responder ante un organismo de control.",
+  "comoLoHace": "El reclamo se pasó de nuevo a asignado, a pendiente y a cerrado, y la ficha conserva la secuencia completa en su historia: cada cambio de estado queda registrado con el valor anterior, el nuevo, quién lo hizo y cuándo.",
+  "caracteristicas": "El estado del caso viene auditado de fábrica, sin configurar nada.",
+  "justificacion": "Es lo que permite reconstruir cuánto estuvo un reclamo en cada instancia cuando el asegurado pregunta o cuando hay que responder ante un organismo de control.",
   "evidencia": [
     "A-5-2-espocrm-1-secuencia-de-estados.png"
   ],
@@ -12,5 +14,5 @@
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-09-28T19:31:58.402Z"
+  "momento": "2026-10-30T04:36:15.752Z"
 }

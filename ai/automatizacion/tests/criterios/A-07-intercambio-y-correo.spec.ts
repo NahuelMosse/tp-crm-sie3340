@@ -148,9 +148,8 @@ test('A.7.1 — Importación de contactos desde planilla de cálculo', async ({ 
     plataforma,
     cumple: 1,
     costo: 2,
-    justificacion:
-      'El asistente de importación admite archivos de texto separados por comas y la propia pantalla advierte ' +
-      'que "debe ser codificado en UTF-8". Guardada así, la planilla ingresó completa: los cinco asegurados, ' +
+    comoLoHace:
+      'Guardada así, la planilla ingresó completa: los cinco asegurados, ' +
       'cada columna en su campo, con tildes y eñes intactas. ' +
       (deWindows === 5
         ? 'Guardada con la codificación predeterminada de las planillas en Windows también ingresó sin pérdida. '
@@ -158,8 +157,12 @@ test('A.7.1 — Importación de contactos desde planilla de cálculo', async ({ 
           `pero solo ${deWindows} de 5 conservaron nombres y domicilios sin alterar: las letras acentuadas ` +
           'llegaron corrompidas, sin que el sistema lo advirtiera. ') +
       'En los dos casos el asistente no reconoció los encabezados en español: dejó las ' +
-      `${columnasSinReconocer} columnas sin asignar y hubo que indicar a mano a qué campo va cada una. La ` +
-      'necesidad queda resuelta con un procedimiento que se repite en cada importación: guardar la planilla ' +
+      `${columnasSinReconocer} columnas sin asignar y hubo que indicar a mano a qué campo va cada una.`,
+    caracteristicas:
+      'El asistente de importación admite archivos de texto separados por comas y la propia pantalla advierte ' +
+      'que "debe ser codificado en UTF-8".',
+    justificacion:
+      'La necesidad queda resuelta con un procedimiento que se repite en cada importación: guardar la planilla ' +
       'en el formato que pide el sistema y asignar sus columnas.',
     evidencia: [capPedido, capWindows, capUtf8],
     documentacion: fuente,
@@ -199,12 +202,15 @@ test('A.7.2 — Importación de contactos desde las agendas de correo', async ({
     plataforma,
     cumple: 1,
     costo: 2,
+    comoLoHace:
+      'Las extensiones del fabricante para Google y Outlook sincronizan calendario y correo, y para los ' +
+      'contactos hacen el camino inverso: envían los del sistema a la agenda, no los incorporan.',
+    caracteristicas:
+      'El sistema no se conecta con la agenda de ningún correo para traer contactos.',
     justificacion:
-      'El sistema no se conecta con la agenda de ningún correo para traer contactos. Las extensiones del ' +
-      'fabricante para Google y Outlook sincronizan calendario y correo, y para los contactos hacen el camino ' +
-      'inverso: envían los del sistema a la agenda, no los incorporan. La vía que queda es exportar la agenda ' +
-      'del correo web o del gestor de escritorio a un archivo y pasarlo por el asistente de importación, que es ' +
-      'un procedimiento que se repite cada vez que la agenda cambia.',
+      'La vía que queda es exportar la agenda del correo web o del gestor de escritorio a un archivo y ' +
+      'pasarlo por el asistente de importación, que es un procedimiento que se repite cada vez que la ' +
+      'agenda cambia.',
     evidencia: [capIntegraciones],
     documentacion: fuentes,
   });
@@ -272,12 +278,14 @@ test('A.7.3 — Sincronización del correo de varios usuarios', async ({ page },
     plataforma,
     cumple: 2,
     costo: 1,
-    justificacion:
+    comoLoHace:
+      'Se configuraron dos casillas personales, de dos usuarios distintos, contra el mismo servidor de ' +
+      'correo, y el sistema trajo el mensaje de cada una a la bandeja de su dueño y solo a la suya.',
+    caracteristicas:
       'Cada usuario puede tener su propia casilla sincronizada: la administración tiene una sección de ' +
-      'cuentas de correo personales, y también de cuentas grupales para casillas compartidas. Se configuraron ' +
-      'dos casillas personales, de dos usuarios distintos, contra el mismo servidor de correo, y el sistema ' +
-      'trajo el mensaje de cada una a la bandeja de su dueño y solo a la suya. Configurar cada casilla es ' +
-      'trabajo de una sola vez.',
+      'cuentas de correo personales, y también de cuentas grupales para casillas compartidas.',
+    justificacion:
+      'Configurar cada casilla es trabajo de una sola vez.',
     evidencia: [capCasillas, capBandeja],
   });
 });
@@ -324,11 +332,14 @@ test('A.7.4 — Vinculación automática del correo a la ficha', async ({ page }
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Con la casilla de atención de la compañía sincronizada, un asegurado escribió desde su propia ' +
+      'dirección y el mensaje apareció en el historial de su ficha sin que nadie lo moviera.',
+    caracteristicas:
+      'El sistema reconoció la dirección del remitente y lo vinculó con el asegurado que la tiene cargada.',
     justificacion:
-      'Con la casilla de atención de la compañía sincronizada, un asegurado escribió desde su propia dirección ' +
-      'y el mensaje apareció en el historial de su ficha sin que nadie lo moviera: el sistema reconoció la ' +
-      'dirección del remitente y lo vinculó con el asegurado que la tiene cargada. Configurar la casilla ' +
-      'compartida es trabajo de una sola vez; la vinculación ocurre sola en cada mensaje.',
+      'Configurar la casilla compartida es trabajo de una sola vez; la vinculación ocurre sola en cada ' +
+      'mensaje.',
     evidencia: [capFicha],
   });
 });
@@ -368,12 +379,15 @@ test('A.7.5 — Formatos de intercambio aceptados', async ({ page, browser }, in
     plataforma,
     cumple: 1,
     costo: 2,
-    justificacion:
+    comoLoHace:
       `Los datos salen en ${salida.join(' y ')} —los formatos de planilla que la compañía usa— y por la ` +
-      'interfaz de programación en JSON, que es el formato de intercambio entre sistemas. Pero solo entran ' +
-      'por archivo de texto separado por comas: el asistente de importación no acepta planillas de cálculo ni ' +
-      'agendas en su formato propio. Cada vez que la compañía quiera cargar una planilla, tiene que guardarla ' +
-      'antes como archivo de texto, con la codificación correcta.',
+      'interfaz de programación en JSON, que es el formato de intercambio entre sistemas.',
+    caracteristicas:
+      'Pero solo entran por archivo de texto separado por comas: el asistente de importación no acepta ' +
+      'planillas de cálculo ni agendas en su formato propio.',
+    justificacion:
+      'Cada vez que la compañía quiera cargar una planilla, tiene que guardarla antes como archivo de ' +
+      'texto, con la codificación correcta.',
     evidencia: [capEntrada, capSalida],
     documentacion: fuente,
     medicion: `Entrada: ${entrada} · salida: ${salida.join(', ')} · interfaz de programación: JSON`,
@@ -423,11 +437,15 @@ test('A.7.6 — Exportación de la cartera sin pérdida de datos', async ({ page
     plataforma,
     cumple: 2,
     costo: 0,
-    justificacion:
+    comoLoHace:
       'Se exportaron desde el listado los asegurados importados y se comparó el archivo con la planilla ' +
-      `original: salieron las ${originales.length} filas, cada una con nombre, apellido, correo y ciudad, y ` +
-      'con las tildes y eñes intactas. La exportación viene de fábrica en todos los listados y toma los ' +
-      'registros seleccionados o el resultado de un filtro.',
+      'original.',
+    caracteristicas:
+      `Salieron las ${originales.length} filas, cada una con nombre, apellido, correo y ciudad, y con las ` +
+      'tildes y eñes intactas.',
+    justificacion:
+      'La exportación viene de fábrica en todos los listados y toma los registros seleccionados o el ' +
+      'resultado de un filtro.',
     evidencia: [capExportacion],
     medicion: `${conservados} de ${originales.length} filas idénticas al original`,
   });

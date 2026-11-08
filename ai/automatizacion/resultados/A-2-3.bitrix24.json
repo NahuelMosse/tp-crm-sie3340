@@ -2,7 +2,9 @@
   "criterio": "A.2.3",
   "plataforma": "bitrix24",
   "cumple": 1,
-  "justificacion": "La conversión de un interesado en oportunidad es una acción del módulo de prospectos, y ese módulo no está en la edición gratuita: al abrir «Prospectos» el sistema informa que no está incluido en el plan. Con el solicitante como contacto, lo más cercano es crear la negociación desde su ficha: queda ligada a él y su teléfono y correo se ven en la negociación sin volver a escribirlos, pero no hay una acción que la arme con lo que el solicitante pidió: la cobertura solicitada, un campo propio del contacto, se vuelve a cargar a mano en cada negociación.",
+  "comoLoHace": "Con el solicitante como contacto, lo más cercano es crear la negociación desde su ficha.",
+  "caracteristicas": "Queda ligada a él y su teléfono y correo se ven en la negociación sin volver a escribirlos, pero no hay una acción que la arme con lo que el solicitante pidió: la cobertura solicitada, un campo propio del contacto, se vuelve a cargar a mano en cada negociación.",
+  "justificacion": "El módulo de prospectos, que convierte al interesado en oportunidad, no está en la edición gratuita. La negociación se crea igual desde la ficha del solicitante y queda ligada a él, pero lo que pidió se vuelve a cargar a mano en cada caso.",
   "evidencia": [
     "A-2-3-bitrix24-1-prospectos-no-incluidos.png",
     "A-2-3-bitrix24-2-negociacion-desde-el-contacto.png",

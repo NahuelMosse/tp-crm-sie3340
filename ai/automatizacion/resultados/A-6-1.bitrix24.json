@@ -3,7 +3,9 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 0,
-  "justificacion": "La negociación —que hace de póliza en la edición gratuita— trae de fábrica el campo «Cliente», donde se elige el contacto por su nombre. Una vez guardada, la póliza figura en la pestaña «Negociaciones» de la ficha del contacto y su propia ficha muestra al titular, sin configurar nada: la relación se ve desde los dos lados.",
+  "comoLoHace": "Una vez guardada, la póliza figura en la pestaña «Negociaciones» de la ficha del contacto y su propia ficha muestra al titular, sin configurar nada.",
+  "caracteristicas": "La negociación —que hace de póliza en la edición gratuita— trae de fábrica el campo «Cliente», donde se elige el contacto por su nombre.",
+  "justificacion": "La relación se ve desde los dos lados.",
   "evidencia": [
     "A-6-1-bitrix24-1-ficha-del-contacto.png",
     "A-6-1-bitrix24-2-ficha-de-la-poliza.png"

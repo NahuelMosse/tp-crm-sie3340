@@ -1,5 +1,5 @@
 import { test, expect } from '../../humano';
-import { registrar } from '../../evaluar';
+import { registrar, sinVerificar } from '../../evaluar';
 import { entrar, plataformaDe } from '../../sesion';
 import { soloEn, capturar } from '../comun';
 import { citar } from '../../fuentes';
@@ -114,12 +114,15 @@ test('A.4.1 — Segmentación reutilizable de la cartera', async ({ page }, info
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Desde el listado de contactos se definió un conjunto por un criterio —los asegurados que llegaron ' +
+      'por recomendación— y se lo guardó con nombre desde el propio filtro, sin programar.',
+    caracteristicas:
+      'Al salir del listado y volver, el segmento figura entre los filtros guardados; al abrirlo trajo de ' +
+      'nuevo los mismos asegurados, y como se guarda el criterio y no la lista, uno que lo cumpla más ' +
+      'adelante entra solo.',
     justificacion:
-      'Desde el listado de contactos se definió un conjunto por un criterio —los asegurados que llegaron por ' +
-      'recomendación— y se lo guardó con nombre desde el propio filtro, sin programar. Al salir del listado y ' +
-      'volver, el segmento figura entre los filtros guardados; al abrirlo trajo de nuevo los mismos asegurados, ' +
-      'y como se guarda el criterio y no la lista, uno que lo cumpla más adelante entra solo. El origen no ' +
-      'viene entre los campos visibles del filtro: agregarlo es configuración de una vez.',
+      'El origen no viene entre los campos visibles del filtro: agregarlo es configuración de una vez.',
     evidencia: [capGuardado, capReabierto],
     medicion: `${reabiertas.length} asegurados en el segmento`,
   });
@@ -230,13 +233,17 @@ test('A.4.2 — Diseño de campañas sobre un segmento', async ({ page, browser 
     criterio: 'A.4.2',
     plataforma,
     cumple: 0,
+    comoLoHace:
+      'En la edición gratuita no se puede crear una campaña: se abrió el segmento guardado, se marcaron ' +
+      `sus ${segmento.length} asegurados y se pidió «Crear boletín», y el sistema respondió que la ` +
+      'herramienta «estará disponible una vez que actualice su plan»; desde Marketing, «Campaña de correo ' +
+      'electrónico» dice que se desbloquea con el plan Standard o el Professional.',
+    caracteristicas:
+      'El producto sí la tiene: la campaña se dirige a un segmento existente y su contenido se personaliza ' +
+      'con datos del CRM, como el nombre.',
     justificacion:
-      `En la edición gratuita no se puede crear una campaña: se abrió el segmento guardado, se marcaron sus ${segmento.length} ` +
-      'asegurados y se pidió «Crear boletín», y el sistema respondió que la herramienta «estará disponible una vez que ' +
-      'actualice su plan»; desde Marketing, «Campaña de correo electrónico» dice que se desbloquea con el plan Standard ' +
-      'o el Professional. El comparativo del fabricante lo confirma: el correo masivo no figura en la edición ' +
-      'gratuita ni en el plan Basic. El producto sí la tiene: la campaña se dirige a un segmento existente y su ' +
-      'contenido se personaliza con datos del CRM, como el nombre.',
+      'El comparativo del fabricante lo confirma: el correo masivo no figura en la edición gratuita ni en ' +
+      'el plan Basic.',
     evidencia: [capBoletin, capCampana],
     documentacion: [fila.fuente, personaliza, segmentos, ...precio],
     conPlan: [conPlanDe(BITRIX24_STANDARD, {
@@ -296,11 +303,13 @@ test('A.4.3 — Medición de los resultados de la campaña', async ({ page, brow
     criterio: 'A.4.3',
     plataforma,
     cumple: 0,
+    comoLoHace:
+      'El fabricante documenta lo que el producto mide cuando la campaña sale: envíos, y con el seguimiento ' +
+      'del correo activado, aperturas y clics.',
     justificacion:
-      'En la edición gratuita no hay campañas que medir: el listado de Marketing › Campañas trae las columnas Estado, ' +
-      'Estadística y Consentimiento pero está vacío, y crear una campaña de correo pide el plan Standard o el ' +
-      'Professional. El fabricante documenta lo que el producto mide cuando la campaña sale: envíos, y con el ' +
-      'seguimiento del correo activado, aperturas y clics.',
+      'En la edición gratuita no hay campañas que medir: el listado de Marketing › Campañas trae las ' +
+      'columnas Estado, Estadística y Consentimiento pero está vacío, y crear una campaña de correo pide el ' +
+      'plan Standard o el Professional.',
     evidencia: [capListado, capAviso],
     documentacion: [seguimiento, lectura, fila.fuente, ...precio],
     conPlan: [conPlanDe(BITRIX24_STANDARD, {
@@ -364,21 +373,14 @@ test('A.4.4 — Captación de interesados desde redes sociales', async ({ page, 
   expect(paso, 'el siguiente paso pide autorizar con la cuenta de Facebook').toMatch(/autorice con la cuenta de Facebook/i);
   expect(fila.planes[CODIGOS.free], 'la conexión con redes viene en la edición gratuita').toBe('check');
 
-  registrar({
-    criterio: 'A.4.4',
-    plataforma,
-    cumple: 2,
-    costo: 1,
-    justificacion:
-      'El centro de contacto del CRM ofrece conectar Facebook, Instagram, WhatsApp, Telegram y otros canales, y en la ' +
-      'edición gratuita la conexión no encuentra ningún muro de pago: se abrió la de Facebook y el sistema llegó al ' +
-      'paso de autorizar con la cuenta que administra la página de la compañía —esta evaluación no tiene una—, ' +
-      'donde se detuvo la prueba. Según el fabricante, lo que llega por ahí queda en el CRM con su historial y ' +
-      'cualquier chat puede convertirse en una negociación, es decir, en un interesado en la base. Conectar cada ' +
-      'canal es configuración de una vez, a cargo de quien administra la página.',
-    evidencia: [capCatalogo, capConexion],
-    documentacion: fila.fuente,
-  });
+  // La conexión exige autorizar con la cuenta que administra la página: sin ella no entra ningún
+  // mensaje y no se puede observar que el interesado quede en la base
+  sinVerificar('A.4.4', plataforma,
+    'El centro de contacto ofrece conectar Facebook, Instagram, Telegram y otros canales, y en la edición ' +
+    'gratuita la conexión no encuentra muro de pago, pero exige autorizar con la cuenta que administra la ' +
+    'página de la compañía. Sin esa cuenta no entró ningún mensaje y no se pudo comprobar que el contacto ' +
+    'quede como interesado en la base.');
+  void capCatalogo; void capConexion;
 });
 
 // ── A.4.5 ────────────────────────────────────────────────────────────────────
@@ -432,14 +434,18 @@ test('A.4.5 — Escucha de menciones en canales públicos', async ({ page, brows
     plataforma,
     cumple: 1,
     costo: 2,
+    comoLoHace:
+      'Lo más cercano es el conector «Facebook: Comentarios» del centro de contacto, disponible en la ' +
+      'edición gratuita, que trae los comentarios de la página propia de la compañía al CRM: cubre lo que ' +
+      'se dice en sus propios canales, y solo ahí. El catálogo de aplicaciones tampoco ofrece una de ' +
+      'escucha: se buscó «menciones», «social listening» y «brand monitoring» y no aparece ninguna.',
+    caracteristicas:
+      'El fabricante promociona «monitoreo de redes desde el CRM», que en el producto es ese mismo ' +
+      'intercambio de mensajes y comentarios propios.',
     justificacion:
-      'El producto no trae un seguimiento de menciones en canales públicos ni de la competencia. Lo más cercano es ' +
-      'el conector «Facebook: Comentarios» del centro de contacto, disponible en la edición gratuita, que trae los ' +
-      'comentarios de la página propia de la compañía al CRM: cubre lo que se dice en sus propios canales, y solo ' +
-      'ahí. El catálogo de aplicaciones tampoco ofrece una de escucha: se buscó «menciones», «social listening» y ' +
-      '«brand monitoring» y no aparece ninguna. El fabricante promociona «monitoreo de redes desde el CRM», ' +
-      'que en el producto es ese mismo intercambio de mensajes y comentarios propios. Para la competencia ' +
-      'habría que resolverlo con una herramienta externa.',
+      'Cubre lo que se dice en los canales propios de la compañía, con el conector de comentarios de ' +
+      'Facebook. No sigue menciones en canales públicos ni de la competencia: para eso hace falta una ' +
+      'herramienta externa.',
     evidencia: [capComentarios, capMarket],
     documentacion: [fila.fuente, marketing],
   });
@@ -479,13 +485,15 @@ test('A.4.6 — Publicación en redes desde el sistema', async ({ page, browser 
     criterio: 'A.4.6',
     plataforma,
     cumple: 0,
+    comoLoHace:
+      'El sistema no publica en las redes: lo único que emite hacia Facebook e Instagram son anuncios ' +
+      'pagos sobre publicaciones que ya existen en la red o sobre un segmento del CRM, desde «Marketing › ' +
+      'Anuncios de Facebook», que en la edición gratuita pide actualizar al plan Standard o Professional. ' +
+      'No hay donde componer un texto y emitirlo a la página conectada.',
     justificacion:
-      'El sistema no publica en las redes: lo único que emite hacia Facebook e Instagram son anuncios pagos sobre ' +
-      'publicaciones que ya existen en la red o sobre un segmento del CRM, desde «Marketing › Anuncios de Facebook», ' +
-      'que en la edición gratuita pide actualizar al plan Standard o Professional. No hay donde componer un texto y ' +
-      'emitirlo a la página conectada. El fabricante lo declara en su documentación de la integración con Facebook e ' +
-      'Instagram: publicar en la página de Facebook figura entre las opciones que todavía no están disponibles. ' +
-      'La conexión de la página que sí existe es la de comentarios y mensajes recibidos, no la de publicación.',
+      'El fabricante lo declara en su documentación de la integración con Facebook e Instagram: publicar ' +
+      'en la página de Facebook figura entre las opciones que todavía no están disponibles. La conexión de ' +
+      'la página que sí existe es la de comentarios y mensajes recibidos, no la de publicación.',
     evidencia: [capAnuncio],
     documentacion: [noDisponible, fila.fuente],
   });
@@ -548,11 +556,15 @@ test('A.4.7 — Registro de la competencia y del motivo de pérdida', async ({ p
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Se agregaron dos campos propios a la negociación, el motivo, como lista, y el competidor, como ' +
+      'texto; se marcó una oportunidad como perdida y se le registraron el motivo y el competidor desde su ' +
+      'ficha, y quedaron guardados.',
+    caracteristicas:
+      'Al cerrar una negociación como perdida el sistema pregunta solo el resultado —«Cerrado Perdido» o ' +
+      '«Analizar la falla», las dos etapas de fábrica—: no trae dónde anotar por qué se perdió ni quién la ' +
+      'ganó.',
     justificacion:
-      'Al cerrar una negociación como perdida el sistema pregunta solo el resultado —«Cerrado Perdido» o «Analizar ' +
-      'la falla», las dos etapas de fábrica—: no trae dónde anotar por qué se perdió ni quién la ganó. Se agregaron ' +
-      'dos campos propios a la negociación, el motivo, como lista, y el competidor, como texto; se marcó una ' +
-      'oportunidad como perdida y se le registraron el motivo y el competidor desde su ficha, y quedaron guardados. ' +
       'Agregar los campos es configuración de una sola vez.',
     evidencia: [capCierre, capFicha],
   });

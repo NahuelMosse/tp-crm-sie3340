@@ -65,12 +65,14 @@ test('A.9.1 — Restricción de la cartera por productor', async ({ page, browse
     criterio: 'A.9.1',
     plataforma,
     cumple: 0,
+    comoLoHace:
+      'En la edición evaluada los roles restringen por objeto —ver, editar, borrar— y por campo, pero ' +
+      'no por registro: el productor, con el rol de miembro, abrió por dirección directa una póliza de ' +
+      'otro productor y la vio completa.',
     justificacion:
-      'En la edición evaluada los roles restringen por objeto —ver, editar, borrar— y por campo, pero no por ' +
-      'registro: el productor, con el rol de miembro, abrió por dirección directa una póliza de otro productor y ' +
-      'la vio completa. La pantalla del rol muestra el nivel de registro como función del plan Organization, y ' +
-      'el fabricante lo confirma: los permisos por registro, que limitan a cada vendedor a lo suyo, son una ' +
-      'función premium de ese plan. Sin él, la cartera de un productor queda a la vista de todos.',
+      'La pantalla del rol muestra el nivel de registro como función del plan Organization, y el ' +
+      'fabricante lo confirma: los permisos por registro, que limitan a cada vendedor a lo suyo, son ' +
+      'una función premium de ese plan. Sin él, la cartera de un productor queda a la vista de todos.',
     evidencia: [capRol, capAjena],
     documentacion: fuentes,
     conPlan: [conPlanDe(TWENTY_ORGANIZATION, {
@@ -121,14 +123,18 @@ test('A.9.2 — Autenticación de los usuarios bajo control de la compañía', a
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'La seguridad del espacio de trabajo permite imponer el segundo factor a todos los usuarios en ' +
+      'cada ingreso y apagar el ingreso con correo y contraseña, de modo que solo se entre con la ' +
+      'cuenta de la compañía.',
+    caracteristicas:
+      'La instalación propia admite el ingreso con cuentas de Google y de Microsoft registrando sus ' +
+      'credenciales, que es como se unifica el acceso con el directorio de una compañía que usa esos ' +
+      'servicios; la conexión por SAML u OIDC con cualquier otro directorio es del plan Organization. ' +
+      'No hay una política de contraseñas que se configure —largo, vencimiento—, que deja de importar ' +
+      'si el ingreso es con la cuenta de la compañía y segundo factor.',
     justificacion:
-      'La seguridad del espacio de trabajo permite imponer el segundo factor a todos los usuarios en cada ' +
-      'ingreso y apagar el ingreso con correo y contraseña, de modo que solo se entre con la cuenta de la ' +
-      'compañía. La instalación propia admite el ingreso con cuentas de Google y de Microsoft registrando sus ' +
-      'credenciales, que es como se unifica el acceso con el directorio de una compañía que usa esos servicios; ' +
-      'la conexión por SAML u OIDC con cualquier otro directorio es del plan Organization. No hay una política ' +
-      'de contraseñas que se configure —largo, vencimiento—, que deja de importar si el ingreso es con la ' +
-      'cuenta de la compañía y segundo factor. Es configuración de una sola vez.',
+      'Es configuración de una sola vez.',
     evidencia: [capSeguridad],
     documentacion: fuentes,
   });
@@ -182,13 +188,18 @@ test('A.9.3 — Registro de quién modificó cada dato', async ({ page, browser 
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      'El productor cambió el ramo de una ' +
+      `póliza de ${antes} a Hogar desde la ficha, y el administrador, con su cuenta, encontró la ` +
+      'constancia en la línea de tiempo de la póliza: quién lo cambió, cuándo, y el valor anterior ' +
+      'junto al nuevo.',
+    caracteristicas:
+      'Cada registro trae de fábrica una línea de tiempo con sus cambios. Los cambios seguidos de la ' +
+      'misma persona sobre un registro, dentro de los diez minutos, se funden en una entrada con el ' +
+      'primer valor y el último.',
     justificacion:
-      'Cada registro trae de fábrica una línea de tiempo con sus cambios. El productor cambió el ramo de una ' +
-      `póliza de ${antes} a Hogar desde la ficha, y el administrador, con su cuenta, encontró la constancia en ` +
-      'la línea de tiempo de la póliza: quién lo cambió, cuándo, y el valor anterior junto al nuevo. Viene ' +
-      'listo, sin configurar nada. Los cambios seguidos de la misma persona sobre un registro, dentro de los ' +
-      'diez minutos, se funden en una entrada con el primer valor y el último. El registro de auditoría de todo ' +
-      'el espacio de trabajo es aparte, y es del plan Organization.',
+      'Viene listo, sin configurar nada. El registro de auditoría de todo el espacio de trabajo es ' +
+      'aparte, y es del plan Organization.',
     evidencia: [capLinea],
     medicion: `${antes} → Hogar, por ${PRODUCTOR.nombre} ${PRODUCTOR.apellido}, ${cambio.happensAt}`,
   });

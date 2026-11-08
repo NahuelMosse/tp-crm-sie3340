@@ -3,7 +3,9 @@
   "plataforma": "espocrm",
   "cumple": 1,
   "costo": 2,
-  "justificacion": "Los datos salen en XLSX · Spreadsheet y CSV —los formatos de planilla que la compañía usa— y por la interfaz de programación en JSON, que es el formato de intercambio entre sistemas. Pero solo entran por archivo de texto separado por comas: el asistente de importación no acepta planillas de cálculo ni agendas en su formato propio. Cada vez que la compañía quiera cargar una planilla, tiene que guardarla antes como archivo de texto, con la codificación correcta.",
+  "comoLoHace": "Los datos salen en XLSX · Spreadsheet y CSV —los formatos de planilla que la compañía usa— y por la interfaz de programación en JSON, que es el formato de intercambio entre sistemas.",
+  "caracteristicas": "Pero solo entran por archivo de texto separado por comas: el asistente de importación no acepta planillas de cálculo ni agendas en su formato propio.",
+  "justificacion": "Cada vez que la compañía quiera cargar una planilla, tiene que guardarla antes como archivo de texto, con la codificación correcta.",
   "evidencia": [
     "A-7-5-espocrm-1-formatos-de-entrada.png",
     "A-7-5-espocrm-2-formatos-de-salida.png"

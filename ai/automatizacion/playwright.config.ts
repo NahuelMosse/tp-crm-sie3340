@@ -56,7 +56,7 @@ export default defineConfig({
       name: 'twenty',
       testMatch: [/twenty[\\/](?!guardar-sesion).*\.spec\.ts/, /criterios[\\/].*\.spec\.ts/, /descubrir\.spec\.ts/],
       use: {
-        baseURL: 'http://localhost:8704',
+        baseURL: process.env.TWENTY_URL ?? 'http://localhost:8704',
         storageState: existsSync('auth-twenty.json') ? 'auth-twenty.json' : undefined,
       },
     },

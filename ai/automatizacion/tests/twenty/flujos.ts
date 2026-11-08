@@ -101,7 +101,11 @@ export async function elegirObjeto(page: Page, objeto: string) {
   const r = (await etiqueta.boundingBox())!;
   // El valor elegido queda escrito en el desplegable, debajo de la etiqueta: se comprueba y, si no quedó, se repite
   const elegido = async () => (await page.getByText(objeto, { exact: true }).filter({ visible: true })
-    .evaluateAll((es, y) => es.some(e => Math.abs(e.getBoundingClientRect().y - y) < 30), r.y + r.height + 12));
+    .evaluateAll((es, [x, y]) => es.some(e => {
+      // Solo cuenta lo que está en el panel: el menú lateral también tiene un «People»
+      const c = e.getBoundingClientRect();
+      return c.x >= x - 10 && Math.abs(c.y - y) < 30;
+    }), [r.x, r.y + r.height + 12]));
   for (let intento = 0; intento < 3 && !(await elegido()); intento++) {
     await page.mouse.move(r.x + 120, r.y + r.height + 18, { steps: 8 });
     await page.mouse.click(r.x + 120, r.y + r.height + 18);
@@ -109,10 +113,16 @@ export async function elegirObjeto(page: Page, objeto: string) {
     const buscar = page.getByPlaceholder(/^Buscar|^Search/).last();
     if (await buscar.isVisible().catch(() => false)) {
       await clicReal(page, buscar);
+      await buscar.press('Control+a');
+      await buscar.press('Backspace');
       await buscar.pressSequentially(objeto.slice(0, 6), { delay: 50 });
       await page.waitForTimeout(800);
     }
-    await clicReal(page, page.getByRole('listbox').last().getByText(objeto, { exact: true }).last());
+    // El menú se achica al filtrar: el puntero espera sobre la opción hasta que quede quieta
+    const opcion = page.getByRole('listbox').last().getByText(objeto, { exact: true }).last();
+    await opcion.waitFor({ state: 'visible', timeout: 30_000 });
+    await page.waitForTimeout(600);
+    await clicReal(page, opcion);
     await page.waitForTimeout(1500);
   }
 }

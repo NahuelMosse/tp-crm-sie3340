@@ -88,7 +88,9 @@ function bloque(c, p, r) {
 
   return `<div class="plat" style="--c:${P.color}" id="${ancla(c.id, p)}">
     <h4>${esc(P.nombre)} ${valor}</h4>
-    <p>${esc(r.justificacion)}</p>
+    ${r.comoLoHace ? `<p><b>Cómo lo hace:</b> ${esc(r.comoLoHace)}</p>` : ''}
+    ${r.caracteristicas ? `<p><b>Características:</b> ${esc(r.caracteristicas)}</p>` : ''}
+    <p>${r.comoLoHace ? '<b>Justificación:</b> ' : ''}${esc(r.justificacion)}</p>
     ${r.medicion ? `<p class="medicion"><b>Medición:</b> ${esc(r.medicion)}</p>` : ''}
     ${r.licencia ? `<p class="medicion"><b>Licencia:</b> ${esc(r.licencia.plan)} — ${esc(r.licencia.monto)}</p>` : ''}
     ${planes ? `<div class="sub">Con un plan pago</div><ul class="planes">${planes}</ul>` : ''}
@@ -119,6 +121,7 @@ for (const parte of ['A', 'B']) {
         `<span class="dots">${Object.keys(PLATAFORMAS).map(p => punto(r[p], p)).join('')}</span></a>`;
       cuerpo += `<article class="caso" id="${ancla(c.id)}">
         <header><div class="badge">${esc(c.id)}</div><h3>${esc(c.nombre)}</h3></header>
+        <p class="preg"><b>Qué resuelve:</b> ${esc(c.necesidad)}</p>
         <p class="preg"><b>Procedimiento:</b> ${esc(c.procedimiento)}</p>
         ${Object.keys(PLATAFORMAS).map(p => bloque(c, p, r[p])).join('')}
       </article>`;

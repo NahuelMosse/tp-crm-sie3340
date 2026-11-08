@@ -72,13 +72,16 @@ test('A.10.4 — Intercambio de datos con otros sistemas de la compañía', asyn
     plataforma,
     cumple: 2,
     costo: 1,
-    justificacion:
+    comoLoHace:
+      'Con esa clave, desde fuera del sistema, se creó un asegurado y se lo volvió a consultar.',
+    caracteristicas:
       'El producto trae una interfaz de programación completa y un tipo de usuario pensado para otros ' +
       'sistemas: se dio de alta un usuario de integración con su propia clave y los permisos de un rol, sin ' +
-      'contraseña de ninguna persona. Con esa clave, desde fuera del sistema, se creó un asegurado y se lo ' +
-      'volvió a consultar. El sistema de emisión o el de cobranza de la compañía pueden cargar y leer datos por ' +
-      'esa vía. Crear el usuario es configuración; lo que el otro sistema haga con la interfaz es trabajo de ' +
-      'ese sistema, no de este.',
+      'contraseña de ninguna persona. El sistema de emisión o el de cobranza de la compañía pueden cargar y ' +
+      'leer datos por esa vía.',
+    justificacion:
+      'Crear el usuario de integración es configuración; lo que el otro sistema haga con la interfaz es trabajo de ese ' +
+      'sistema, no de este.',
     evidencia: [capUsuario],
     documentacion: fuente,
   });
@@ -92,14 +95,19 @@ test('A.10.4 — Intercambio de datos con otros sistemas de la compañía', asyn
  * propia no hay un límite publicado: se mide qué admite el equipo, en ráfaga y
  * de a una. Hasta que se fija, el test mide, informa y no registra nada.
  */
-const VEREDICTO_A105: null | { cumple: 2 | 1 | 0; lectura: string } = {
+const VEREDICTO_A105: null | { cumple: 2 | 1 | 0; lectura: { comoLoHace: string; caracteristicas: string; justificacion: string } } = {
   cumple: 2,
-  lectura:
-    'Las dos veces el sistema aceptó las quinientas: en ráfaga llevó alrededor de un minuto, y de a una unos ' +
-    'cinco. En una corrida anterior, con el equipo ocupado por otros procesos, tres de quinientas altas en ' +
-    'ráfaga fueron rechazadas y pasaron al repetirlas: el límite es el del equipo, no una cuota del producto. ' +
-    'El movimiento de un día entra con holgura en minutos, y la sincronización con otros sistemas no tiene ' +
-    'que espaciarse más allá de reintentar lo que falle.',
+  lectura: {
+    comoLoHace:
+      'Las dos veces el sistema aceptó las quinientas: en ráfaga llevó alrededor de un minuto, y de a una unos ' +
+      'cinco.',
+    caracteristicas:
+      'En una corrida anterior, con el equipo ocupado por otros procesos, tres de quinientas altas en ' +
+      'ráfaga fueron rechazadas y pasaron al repetirlas: el límite es el del equipo, no una cuota del producto.',
+    justificacion:
+      'El movimiento de un día entra con holgura en minutos, y la sincronización con otros sistemas no tiene ' +
+      'que espaciarse más allá de reintentar lo que falle.',
+  },
 };
 
 test('A.10.5 — Intercambio sin límite de volumen que condicione la operación', async ({ browser }, info) => {
@@ -162,10 +170,13 @@ test('A.10.5 — Intercambio sin límite de volumen que condicione la operación
     plataforma,
     cumple: VEREDICTO_A105.cumple,
     costo: 0,
-    justificacion:
+    comoLoHace:
+      'Se mandó el movimiento de un día entero —' + MOVIMIENTO_DIARIO +
+      ' altas— dos veces: en ráfaga, de a diez simultáneas, y de a una. ' + VEREDICTO_A105.lectura.comoLoHace,
+    caracteristicas:
       'En la instalación propia la interfaz de programación no tiene un tope publicado: no lo impone el ' +
-      'fabricante sino el equipo donde corre. Se mandó el movimiento de un día entero —' + MOVIMIENTO_DIARIO +
-      ' altas— dos veces: en ráfaga, de a diez simultáneas, y de a una. ' + VEREDICTO_A105.lectura,
+      'fabricante sino el equipo donde corre. ' + VEREDICTO_A105.lectura.caracteristicas,
+    justificacion: VEREDICTO_A105.lectura.justificacion,
     documentacion: fuente,
     medicion: lectura,
   });
@@ -237,13 +248,19 @@ test('A.10.1 — Indicadores sobre la operación', async ({ page, browser }, inf
     plataforma,
     cumple: 1,
     costo: 2,
+    comoLoHace:
+      'Para obtener el total de primas por estado de cobranza o el tiempo promedio de resolución hay que ' +
+      `exportar el listado —${formatos.join(' o ')}— y calcularlo en una planilla, cada vez que se quiere ` +
+      'ver el número.',
+    caracteristicas:
+      'Los indicadores que trae la edición gratuita son los de ventas —oportunidades por etapa, por origen ' +
+      'y por mes—. Para las pólizas y los reclamos el tablero ofrece listas, como los tickets pendientes de ' +
+      'cada usuario, pero ninguna suma ni promedia.',
     justificacion:
-      'Los indicadores que trae la edición gratuita son los de ventas —oportunidades por etapa, por origen y ' +
-      'por mes—. Para las pólizas y los reclamos el tablero ofrece listas, como los tickets pendientes de cada ' +
-      'usuario, pero ninguna suma ni promedia. Para obtener el total de primas ' +
-      'por estado de cobranza o el tiempo promedio de resolución hay que exportar el listado ' +
-      `—${formatos.join(' o ')}— y calcularlo en una planilla, cada vez que se quiere ver el número. El módulo ` +
-      'de informes que vende el fabricante agrupa y resume con sumas y promedios, y lo muestra en el tablero.',
+      'Los totales y promedios sobre pólizas y reclamos se obtienen exportando el listado y calculándolos en ' +
+      'una planilla cada vez, porque el tablero de la edición gratuita ofrece listas y ninguna suma ni promedia. ' +
+      'El módulo de informes que vende el fabricante agrupa y resume con sumas y promedios, y lo muestra en ' +
+      'el tablero.',
     evidencia: [capCajas, capExportar],
     documentacion: fuentes,
     conPlan: [
@@ -278,11 +295,17 @@ test('A.10.2 — Generación de informes definidos por el usuario', async ({ pag
     plataforma,
     cumple: 1,
     costo: 2,
-    justificacion:
+    comoLoHace:
+      'El total de primas por productor se arma en la planilla exportada, a mano, cada vez que se pide el ' +
+      'informe.',
+    caracteristicas:
       'En la edición gratuita el listado de pólizas se filtra por productor y por período y se exporta en ' +
-      `${formatos.join(' o ')}, pero no suma: el total de primas por productor se arma en la planilla ` +
-      'exportada, a mano, cada vez que se pide el informe. El módulo de informes del fabricante agrupa por ' +
-      'productor, suma las primas del período elegido y exporta el resultado ya calculado.',
+      `${formatos.join(' o ')}, pero no suma.`,
+    justificacion:
+      'El total de primas por productor se arma a mano en la planilla exportada cada vez que se pide, porque el ' +
+      'listado de pólizas de la edición gratuita filtra por productor y período pero no suma. ' +
+      'El módulo de informes del fabricante agrupa por productor, suma las primas del período elegido y ' +
+      'exporta el resultado ya calculado.',
     evidencia: [capExportar],
     documentacion: fuentes,
     conPlan: [
@@ -319,12 +342,17 @@ test('A.10.3 — Informe paramétrico reutilizable', async ({ page, browser }, i
     plataforma,
     cumple: 1,
     costo: 2,
-    justificacion:
+    comoLoHace:
+      'Pero no es un informe con parámetro: para verlo sobre otro período hay que cambiar la condición, y ' +
+      'el resultado sigue siendo un listado que hay que exportar y totalizar afuera.',
+    caracteristicas:
       'La edición gratuita guarda búsquedas con períodos relativos —mes actual, mes pasado, trimestre, ' +
-      `próximos días, entre ${periodos.length} opciones—, que se vuelven a abrir sin rearmarlas. Pero no es un ` +
-      'informe con parámetro: para verlo sobre otro período hay que cambiar la condición, y el resultado sigue ' +
-      'siendo un listado que hay que exportar y totalizar afuera. Los filtros al ejecutar del módulo de informes ' +
-      'del fabricante piden el período cada vez que se corre el informe, sin editarlo.',
+      `próximos días, entre ${periodos.length} opciones—, que se vuelven a abrir sin rearmarlas.`,
+    justificacion:
+      'La búsqueda guardada con período relativo no es un informe con parámetro: para verlo sobre otro período ' +
+      'hay que cambiar la condición, y el resultado sigue siendo un listado que hay que exportar y totalizar afuera. ' +
+      'Los filtros al ejecutar del módulo de informes del fabricante piden el período cada vez que se corre ' +
+      'el informe, sin editarlo.',
     evidencia: [capPeriodos],
     documentacion: fuentes,
     conPlan: [

@@ -3,15 +3,17 @@
   "plataforma": "twenty",
   "cumple": 1,
   "costo": 2,
-  "justificacion": "El informe se armó desde un tablero, eligiendo los criterios sin programar: un gráfico con la suma de la prima de las pólizas agrupada por productor, filtrado por las que empezaron su vigencia en los últimos seis meses. Muestra el total de cada productor y queda guardado. Pero el gráfico no se exporta: el widget no ofrece descargarlo. Lo que se puede sacar es el listado de pólizas, a un archivo que la planilla abre, y los totales por productor hay que rehacerlos ahí cada vez que se necesita el informe fuera del sistema.",
+  "comoLoHace": "El informe se armó desde un tablero, eligiendo los criterios sin programar: un gráfico con la suma de la prima de las pólizas agrupada por productor, filtrado por las que empezaron su vigencia en los últimos seis meses.",
+  "caracteristicas": "Muestra el total de cada productor y queda guardado. Pero el gráfico no se exporta: el widget no ofrece descargarlo.",
+  "justificacion": "Lo que se puede sacar es el listado de pólizas, a un archivo que la planilla abre, y los totales por productor hay que rehacerlos ahí cada vez que se necesita el informe fuera del sistema.",
   "evidencia": [
     "A-10-2-twenty-1-primas-por-productor.png",
     "A-10-2-twenty-2-acciones-del-widget.png"
   ],
-  "medicion": "Totales esperados: Pablo Gómez 207000 · TP TP 207000 · (sin productor) 0 · 32 pólizas exportadas",
+  "medicion": "Totales esperados: TP TP 207000 · Pablo Gómez 207000 · (sin productor) 0 · 34 pólizas exportadas",
   "criterioNombre": "Generación de informes definidos por el usuario",
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-09-29T04:01:29.428Z"
+  "momento": "2026-10-30T07:59:14.428Z"
 }

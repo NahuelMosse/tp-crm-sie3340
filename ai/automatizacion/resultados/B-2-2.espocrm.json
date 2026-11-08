@@ -2,7 +2,8 @@
   "criterio": "B.2.2",
   "plataforma": "espocrm",
   "cumple": 0,
-  "justificacion": "El fabricante no publica una aplicación móvil. En la tienda de aplicaciones, la búsqueda del producto devuelve 6 aplicaciones hechas para este producto, y todas son de desarrolladores independientes, sin respaldo del fabricante; ni su catálogo de extensiones ni su página de descarga ofrecen una. Lo que sí ofrece es la misma interfaz adaptada a la pantalla del teléfono, que se usa desde el navegador con conexión: el productor puede consultar y cargar durante una visita, pero no es una aplicación instalada.",
+  "comoLoHace": "En la tienda de aplicaciones, la búsqueda del producto devuelve 4 aplicaciones hechas para este producto, y todas son de desarrolladores independientes, sin respaldo del fabricante; ni su catálogo de extensiones ni su página de descarga ofrecen una. Lo que sí ofrece es la misma interfaz adaptada a la pantalla del teléfono, que se usa desde el navegador con conexión: el productor puede consultar y cargar durante una visita, pero no es una aplicación instalada.",
+  "justificacion": "El fabricante no publica una aplicación móvil.",
   "evidencia": [
     "B-2-2-espocrm-1-tienda.png",
     "B-2-2-espocrm-2-en-el-navegador-del-telefono.png"
@@ -10,14 +11,14 @@
   "documentacion": [
     {
       "url": "https://play.google.com/store/search?q=espocrm&c=apps",
-      "cita": "YouCRM for EspoCRM UP5 TECH Company Limited",
-      "consultado": "2026-09-28",
+      "cita": "Call Sync to Espocrm HAIT GmbH $ 8.715,85",
+      "consultado": "2026-10-30",
       "captura": "B-2-2-espocrm-3-busqueda-en-la-tienda.png"
     }
   ],
-  "medicion": "6 aplicaciones para el producto en la tienda, 0 del fabricante",
+  "medicion": "4 aplicaciones para el producto en la tienda, 0 del fabricante",
   "criterioNombre": "Aplicación móvil nativa",
   "licencia": null,
   "conPlan": [],
-  "momento": "2026-09-28T21:44:40.534Z"
+  "momento": "2026-10-30T06:13:40.835Z"
 }

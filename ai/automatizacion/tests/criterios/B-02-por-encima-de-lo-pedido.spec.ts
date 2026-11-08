@@ -40,11 +40,12 @@ test('B.2.1 — Asistente de inteligencia artificial', async ({ page, browser },
     criterio: 'B.2.1',
     plataforma,
     cumple: 0,
-    justificacion:
+    comoLoHace:
       'La edición gratuita no incluye un asistente de inteligencia artificial: la administración no ofrece ' +
-      'ninguna función de ese tipo y el fabricante la vende como extensión aparte. Con ella el sistema resume ' +
-      'registros, redacta correos y clasifica o extrae datos con fórmulas, usando el proveedor de inteligencia ' +
-      'artificial que la compañía elija y contrate.',
+      'ninguna función de ese tipo y el fabricante la vende como extensión aparte.',
+    justificacion:
+      'Con ella el sistema resume registros, redacta correos y clasifica o extrae datos con fórmulas, ' +
+      'usando el proveedor de inteligencia artificial que la compañía elija y contrate.',
     evidencia: [capAdmin],
     documentacion: fuentes,
     conPlan: [conPlanDe(ESPOCRM_INTELLIGENCE, {
@@ -96,13 +97,14 @@ test('B.2.2 — Aplicación móvil nativa', async ({ page, browser }, info) => {
     criterio: 'B.2.2',
     plataforma,
     cumple: 0,
+    comoLoHace:
+      `En la tienda de aplicaciones, la búsqueda del producto devuelve ${delProducto.length} aplicaciones ` +
+      'hechas para este producto, y todas son de desarrolladores independientes, sin respaldo del ' +
+      'fabricante; ni su catálogo de extensiones ni su página de descarga ofrecen una. Lo que sí ofrece es ' +
+      'la misma interfaz adaptada a la pantalla del teléfono, que se usa desde el navegador con conexión: ' +
+      'el productor puede consultar y cargar durante una visita, pero no es una aplicación instalada.',
     justificacion:
-      'El fabricante no publica una aplicación móvil. En la tienda de aplicaciones, la búsqueda del producto ' +
-      `devuelve ${delProducto.length} aplicaciones hechas para este producto, y todas son de desarrolladores ` +
-      'independientes, sin respaldo del ' +
-      'fabricante; ni su catálogo de extensiones ni su página de descarga ofrecen una. Lo que sí ofrece es la ' +
-      'misma interfaz adaptada a la pantalla del teléfono, que se usa desde el navegador con conexión: el ' +
-      'productor puede consultar y cargar durante una visita, pero no es una aplicación instalada.',
+      'El fabricante no publica una aplicación móvil.',
     evidencia: ['B-2-2-espocrm-1-tienda.png', capMovil],
     documentacion: fuente,
     medicion: `${delProducto.length} aplicaciones para el producto en la tienda, ${delFabricante.length} del fabricante`,
@@ -138,12 +140,17 @@ test('B.2.3 — Suite de trabajo integrada', async ({ page }, info) => {
     plataforma,
     cumple: 1,
     costo: 2,
-    justificacion:
+    comoLoHace:
       `Además del CRM, el producto incluye ${herramientas.join(', ')} y una línea de publicaciones internas ` +
-      'en cada registro, y todas operan sobre los mismos datos: un correo queda en la ficha del asegurado, una ' +
-      'reunión en su historial, un documento vinculado a su póliza. Faltan la mensajería instantánea entre ' +
-      'usuarios, la edición colaborativa de documentos y la firma electrónica: para eso la compañía sigue ' +
-      'necesitando otras herramientas, y pasar la información de una a otra es trabajo en cada uso.',
+      'en cada registro, y todas operan sobre los mismos datos: un correo queda en la ficha del asegurado, ' +
+      'una reunión en su historial, un documento vinculado a su póliza.',
+    caracteristicas:
+      'Faltan la mensajería instantánea entre usuarios, la edición colaborativa de documentos y la firma ' +
+      'electrónica.',
+    justificacion:
+      'Para la mensajería instantánea entre usuarios, la edición colaborativa de documentos y la firma electrónica ' +
+      'la compañía sigue necesitando otras herramientas, y pasar la información de una a otra es ' +
+      'trabajo en cada uso.',
     evidencia: [capHerramientas],
   });
 });
@@ -174,11 +181,12 @@ test('B.2.4 — Telefonía y videollamada integradas', async ({ page, browser },
     criterio: 'B.2.4',
     plataforma,
     cumple: 0,
-    justificacion:
+    comoLoHace:
       'La edición gratuita no integra telefonía ni videollamada: el número de teléfono de una ficha abre el ' +
-      'marcador del equipo, pero la llamada ocurre afuera y se registra a mano. El fabricante vende las dos ' +
-      'funciones como extensiones separadas: una conecta la central telefónica —3CX, Asterisk, Twilio, entre ' +
-      'otras— y la otra agrega las videollamadas.',
+      'marcador del equipo, pero la llamada ocurre afuera y se registra a mano.',
+    justificacion:
+      'El fabricante vende las dos funciones como extensiones separadas: una conecta la central telefónica ' +
+      '—3CX, Asterisk, Twilio, entre otras— y la otra agrega las videollamadas.',
     evidencia: [capIntegraciones],
     documentacion: fuentes,
     conPlan: [
@@ -235,11 +243,14 @@ test('B.2.5 — Uso sin restricciones comerciales en la interfaz', async ({ page
     plataforma,
     cumple: 2,
     costo: 0,
-    justificacion:
+    comoLoHace:
       'Se recorrieron las pantallas de uso diario —inicio, asegurados, pólizas, reclamos, oportunidades y ' +
-      'calendario— y ninguna muestra avisos de venta, invitaciones a mejorar el plan ni funciones bloqueadas a ' +
-      'la vista. Lo que no está en la edición gratuita simplemente no aparece: el usuario trabaja sin ' +
-      'interrupciones comerciales.',
+      'calendario— y ninguna muestra avisos de venta, invitaciones a mejorar el plan ni funciones ' +
+      'bloqueadas a la vista.',
+    caracteristicas:
+      'Lo que no está en la edición gratuita simplemente no aparece.',
+    justificacion:
+      'El usuario trabaja sin interrupciones comerciales.',
     evidencia: capturas,
   });
 });

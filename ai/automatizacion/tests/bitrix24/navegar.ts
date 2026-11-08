@@ -113,9 +113,9 @@ export async function pestana(page: Page, nombre: string | RegExp, opcion?: stri
   await asentar(page, 4000);
 }
 
-/** Elige una opción de un menú desplegable abierto. */
+/** Elige una opción de un menú desplegable abierto. La opción puede llevar al lado el contador de novedades. */
 export async function elegirEnMenu(page: Page, opcion: string | RegExp) {
-  const texto = typeof opcion === 'string' ? new RegExp(`^\\s*${opcion.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`) : opcion;
+  const texto = typeof opcion === 'string' ? new RegExp(`^\\s*${opcion.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*\\d*\\s*$`) : opcion;
   await page.locator('.menu-popup-item-text, .menu-popup-item').filter({ hasText: texto }).filter({ visible: true }).last().click();
   await page.waitForTimeout(1200);
 }

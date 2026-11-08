@@ -87,13 +87,15 @@ test('A.9.1 — Restricción de la cartera por productor', async ({ page }, info
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Con un rol de productor restringido a lo propio, su listado de pólizas muestra solo la que tiene a ' +
+      'cargo; al pegar en el navegador la dirección de una póliza ajena el sistema niega el acceso, y la ' +
+      'interfaz de programación, consultada con sus credenciales, responde que no tiene permiso.',
+    caracteristicas:
+      'Los roles de la administración definen, entidad por entidad, si el usuario ve todo, lo de su equipo ' +
+      'o solo lo suyo. La restricción se aplica en el servidor y no solo en la pantalla.',
     justificacion:
-      'Los roles de la administración definen, entidad por entidad, si el usuario ve todo, lo de su equipo o ' +
-      'solo lo suyo. Con un rol de productor restringido a lo propio, su listado de pólizas muestra solo la ' +
-      'que tiene a cargo; al pegar en el navegador la dirección de una póliza ajena el sistema niega el acceso, ' +
-      'y la interfaz de programación, consultada con sus credenciales, responde que no tiene permiso. La ' +
-      'restricción se aplica en el servidor y no solo en la pantalla. Definir el rol es configuración de una ' +
-      'vez.',
+      'Definir el rol es configuración de una vez.',
     evidencia: [capRol, capListado, capDirecta],
     medicion: `Acceso a una póliza ajena por la interfaz de programación: respuesta ${porApi}`,
   });
@@ -140,12 +142,15 @@ test('A.9.2 — Autenticación de los usuarios bajo control de la compañía', a
     plataforma,
     cumple: 2,
     costo: 1,
-    justificacion:
+    comoLoHace:
       'La pantalla de autenticación de la administración reúne las tres cosas: la política de contraseñas ' +
       '—longitud mínima y exigencia de letras, números y caracteres especiales—, el segundo factor para los ' +
       `usuarios, y el ingreso contra el directorio de la compañía entre ${metodos.length} métodos ` +
-      `(${metodos.join(', ')}). La compañía decide cómo se valida la identidad de cada usuario sin depender ` +
-      'del fabricante. Viene en el producto y se activa desde esa pantalla: es configuración.',
+      `(${metodos.join(', ')}).`,
+    caracteristicas:
+      'La compañía decide cómo se valida la identidad de cada usuario sin depender del fabricante.',
+    justificacion:
+      'Viene en el producto y se activa desde esa pantalla: es configuración.',
     evidencia: [capAutenticacion, capMetodos, capContrasenas],
   });
 });
@@ -187,12 +192,15 @@ test('A.9.3 — Registro de quién modificó cada dato', async ({ page }, info) 
     plataforma,
     cumple: 2,
     costo: 1,
-    justificacion:
+    comoLoHace:
       'Un productor cambió el ramo de una póliza de automotor a hogar, y al abrirla con otro usuario la ' +
-      'historia de la ficha muestra la constancia completa: el valor anterior, el nuevo, quién lo cambió y en ' +
-      'qué momento. Para que un campo deje esa constancia se lo marca como auditado desde el Administrador de ' +
-      'Campos, una sola vez y sin programar. Es lo que permite responder quién tocó un dato cuando un ' +
-      'asegurado lo discute.',
+      'historia de la ficha muestra la constancia completa: el valor anterior, el nuevo, quién lo cambió y ' +
+      'en qué momento.',
+    caracteristicas:
+      'Para que un campo deje esa constancia se lo marca como auditado desde el Administrador de Campos, ' +
+      'una sola vez y sin programar.',
+    justificacion:
+      'Es lo que permite responder quién tocó un dato cuando un asegurado lo discute.',
     evidencia: [capHistoria],
     medicion: `Constancia: ${cambio.data.attributes.was.tipoPoliza} → ${cambio.data.attributes.became.tipoPoliza}, ` +
               `el ${cambio.createdAt}`,

@@ -20,23 +20,23 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 
 | | Enunciado textual | La comprueban |
 |:---:|---|---|
-| **1** | Cuando un cliente quiere solicitar una póliza de seguro, queremos registrar todos los datos y calificar sus necesidades para concretar la venta según lo que nos está pidiendo. | A.2.1, A.2.2, A.2.3 |
-| **2** | Realizar un seguimiento de pólizas. Gestionando los datos de los clientes queremos saber qué tipo de póliza tiene, el estado de pago y si hay una posibilidad de cambio de póliza. | A.1.1, A.1.2, A.2.6, A.6.1 |
+| **1** | Cuando un cliente quiere solicitar una póliza de seguro, queremos registrar todos los datos y calificar sus necesidades para concretar la venta según lo que nos está pidiendo. | A.2.1, A.2.2, A.2.3, A.12.1 |
+| **2** | Realizar un seguimiento de pólizas. Gestionando los datos de los clientes queremos saber qué tipo de póliza tiene, el estado de pago y si hay una posibilidad de cambio de póliza. | A.1.1, A.1.2, A.2.6, A.6.1, A.12.2 |
 | **3** | Gestionar una amplia fuente de información sobre ventas y pólizas que podemos utilizar para captar nuevos clientes. | A.1.6, A.10.1 |
-| **4** | Gestión de los corredores y agentes de seguros y podremos conocer y evaluar las ventas de seguros por parte de los empleados y el seguimiento de los clientes potenciales. Ver todas las actividades que los agentes o corredores de seguros realizan en torno al cliente. | A.2.4, A.3.1, A.3.2, A.9.1, A.10.2 |
-| **5** | Analizar los factores de la competencia, para podemos ofrecer un mejor servicio que aumente nuestras ventas y fidelice nuevos clientes al ofrecer un servicio adecuado a sus necesidades. | A.4.7 |
+| **4** | Gestión de los corredores y agentes de seguros y podremos conocer y evaluar las ventas de seguros por parte de los empleados y el seguimiento de los clientes potenciales. Ver todas las actividades que los agentes o corredores de seguros realizan en torno al cliente. | A.2.4, A.3.1, A.3.2, A.9.1, A.10.2, A.12.4 |
+| **5** | Analizar los factores de la competencia, para podemos ofrecer un mejor servicio que aumente nuestras ventas y fidelice nuevos clientes al ofrecer un servicio adecuado a sus necesidades. | A.4.7, A.12.5 |
 | **6** | Conocer nuevas oportunidades de negocio, a partir de las necesidades de nuestros clientes y prospectos. | A.2.2, A.2.4, A.2.5, A.2.6 |
-| **7** | Conocer la información del cliente, centralizarla y centrar a la organización alrededor del cliente. | A.6.1, A.6.2, A.6.4 |
+| **7** | Conocer la información del cliente, centralizarla y centrar a la organización alrededor del cliente. | A.6.1, A.6.2, A.6.4, A.12.4 |
 | **8** | Optimizar las actividades de los vendedores. | A.3.3, A.8.3 |
 | **9** | Pronosticar todos los movimientos comerciales. | A.3.4 |
 | **10** | Diseñar campañas de marketing personalizables. Análisis de campañas realizadas. | A.4.2, A.4.3 |
 | **11** | Segmentación de clientes. | A.4.1 |
-| **12** | Manejar quejas y reclamaciones. | A.5.1, A.5.2, A.5.3 |
+| **12** | Manejar quejas y reclamaciones. | A.5.1, A.5.2, A.5.3, A.12.5 |
 | **13** | Información de los clientes y conseguir nuevos, así como conocer a la competencia que esté presente en las redes. | A.4.4, A.4.5 |
 | **14** | Conseguir cambiar la imagen y reputación, a partir de las opiniones y comentarios de los clientes y tener mayor repercusión en las redes. | A.4.5, A.4.6, A.6.3 |
-| **15** | Mejora de la calidad del servicio y la atención al cliente. | A.5.4, A.10.1 |
+| **15** | Mejora de la calidad del servicio y la atención al cliente. | A.5.4, A.10.1, A.12.5 |
 | **16** | Conocer y agrupar la información de los clientes. | A.4.1, A.6.3 |
-| **17** | Gestionar de manera eficaz todas las pólizas de los clientes y generar nuevas oportunidades e venta. | A.1.5, A.1.7, A.2.6 |
+| **17** | Gestionar de manera eficaz todas las pólizas de los clientes y generar nuevas oportunidades e venta. | A.1.5, A.1.7, A.2.6, A.12.1 |
 | **18** | Importar contactos desde Excel, Gmail y Outlook. | A.7.1, A.7.2 |
 | **19** | Sincronizar el email de todos en tu empresa para que se guarde automáticamente en las fichas de los clientes | A.7.3, A.7.4 |
 | **20** | Crear tareas y asignar a personas de la empresa | A.5.5, A.5.6 |
@@ -55,8 +55,8 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | **8** | Seguridad de la información, autentificación de usuarios, esquema de roles y perfiles, pistas de auditoría, etc. | A.9.1, A.9.2, A.9.3 |
 | **9** | Herramientas de explotación de datos y medición de resultados. | A.10.1 |
 | **10** | Generación de reportes e informes. Paramétricos y Ad Hoc | A.10.2, A.10.3 |
-| **11** | Factibilidad de interfaz con otras aplicaciones locales o remotas. | A.10.4, A.10.5 |
-| **12** | Posibilidades de integración: relacionado con la facilidad que posee para ser incorporada en un contexto más amplio. | A.11.9 |
+| **11** | Factibilidad de interfaz con otras aplicaciones locales o remotas. | A.10.4, A.10.5, A.12.3 |
+| **12** | Posibilidades de integración: relacionado con la facilidad que posee para ser incorporada en un contexto más amplio. | A.11.9, A.12.3 |
 | **13** | Soporte técnico, capacitación, blog de usuarios, etc. | A.11.10, A.11.11, A.11.12, A.11.13 |
 
 ## Cada criterio y su fuente
@@ -129,6 +129,11 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | A.11.12 | Comunidad activa de usuarios | `CRIT 13` |
 | A.11.13 | Soporte técnico con compromiso de respuesta | `CRIT 13` |
 | A.11.14 | Continuidad de las versiones en uso | `RUBRO` |
+| A.12.1 | Emisión de la póliza al cerrar la venta | `REQ 1, REQ 17` |
+| A.12.2 | Plan de pago de la prima | `REQ 2` |
+| A.12.3 | Datos que administra el sistema central | `CRIT 11, CRIT 12, RUBRO` |
+| A.12.4 | Historia del cliente desde el primer contacto | `REQ 7, REQ 4` |
+| A.12.5 | Satisfacción después de la atención | `REQ 15, REQ 12, REQ 5` |
 | B.1.1 | Persistencia de los datos sin uso continuo | `RUBRO` |
 | B.1.2 | Copia propia y completa de la cartera | `RUBRO` |
 | B.1.3 | Copia periódica sin intervención manual | `RUBRO` |
@@ -146,10 +151,10 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 
 | Origen | Criterios |
 |---|---|
-| `RUBRO` | A.1.3, A.1.4, A.2.5, A.6.4, A.8.1, A.8.4, A.11.6, A.11.14, B.1.1, B.1.2, B.1.3, B.1.4, B.1.5, B.1.6, B.1.7 |
+| `RUBRO` | A.1.3, A.1.4, A.2.5, A.6.4, A.8.1, A.8.4, A.11.6, A.11.14, A.12.3, B.1.1, B.1.2, B.1.3, B.1.4, B.1.5, B.1.6, B.1.7 |
 | `OBS` | B.2.1, B.2.2, B.2.3, B.2.4, B.2.5 |
 
 ## Resultado
 
 - **33 fuentes**: todas cubiertas.
-- **78 criterios**, todos con origen declarado.
+- **83 criterios**, todos con origen declarado.

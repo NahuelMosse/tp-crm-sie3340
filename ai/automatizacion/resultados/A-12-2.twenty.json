@@ -1,0 +1,18 @@
+{
+  "criterio": "A.12.2",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "comoLoHace": "Twenty no trae cuotas: se crea un objeto propio «Cuotas» con vencimiento, importe y estado, ligado a la póliza, y a la póliza se le agrega un campo de lista «Forma de pago». Cada cuota se carga desde el listado de cuotas y queda en la ficha de la póliza. El listado de impagas es el listado de cuotas filtrado por el estado «Impaga», que trae las dos vencidas y ninguna de las otras.",
+  "caracteristicas": "Objeto propio con campos de fecha, moneda y lista; relación con la póliza que muestra las cuotas en su ficha; filtro por estado en el listado, sin desarrollo.",
+  "justificacion": "La forma de pago y las cuotas se registran y el listado de impagas sale con un filtro, en cada uso, sin trabajo extra. Definir el objeto de cuotas y sus campos es configuración que se hace una sola vez.",
+  "evidencia": [
+    "A-12-2-twenty-1-forma-de-pago-y-cuotas-en-la-poliza.png",
+    "A-12-2-twenty-2-cuotas-impagas.png"
+  ],
+  "criterioNombre": "Plan de pago de la prima",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-10-30T02:55:02.732Z"
+}

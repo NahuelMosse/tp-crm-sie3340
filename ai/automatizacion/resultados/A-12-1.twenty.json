@@ -1,0 +1,20 @@
+{
+  "criterio": "A.12.1",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "comoLoHace": "Un flujo de trabajo se dispara al actualizarse una oportunidad, filtra por la etapa «Customer» y crea un registro de Pólizas con el nombre de la oportunidad, el asegurado como titular y el monto como prima, tomados con el selector de variables. Al pasar la oportunidad a esa etapa desde su ficha, la póliza aparece vinculada al asegurado y se ve en su ficha, con la prima de la oportunidad.",
+  "caracteristicas": "Disparador por actualización de registro con condición sobre la etapa; paso «Crear registro» sobre el objeto propio de pólizas; variables del registro disparador para no recargar datos —el importe de la prima se arma con dos variables, el monto en micros y el código de moneda de la oportunidad—; la póliza queda en la ficha del asegurado.",
+  "justificacion": "El flujo se arma una sola vez y cada venta ganada emite la póliza con sus datos sin intervención. Configurar el flujo y el objeto de pólizas es trabajo de configuración, sin desarrollo.",
+  "evidencia": [
+    "A-12-1-twenty-1-evento-y-condicion.png",
+    "A-12-1-twenty-2-datos-que-pasan-a-la-poliza.png",
+    "A-12-1-twenty-3-poliza-emitida.png",
+    "A-12-1-twenty-4-poliza-en-la-ficha-del-asegurado.png"
+  ],
+  "criterioNombre": "Emisión de la póliza al cerrar la venta",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-10-30T09:32:50.321Z"
+}

@@ -117,6 +117,15 @@ export async function ficha(page: Page, singular: string, id: string) {
   const buscar = async () => {
     const campo = page.getByPlaceholder(/^Escribe cualquier cosa|^Type anything|^Search/).filter({ visible: true }).first();
     if (!(await campo.isVisible().catch(() => false))) {
+      // Con un registro abierto en el panel lateral, el buscador no aparece: se cierra con su X, arriba a la derecha
+      const ancho = page.viewportSize()?.width ?? 1440;
+      const cerrar = page.locator('button:visible').filter({ has: page.locator('svg') });
+      const cajas = await cerrar.evaluateAll((es, w) => es.map((e, i) => ({ i, r: e.getBoundingClientRect() }))
+        .filter(c => c.r.x > w - 60 && c.r.y < 48 && c.r.width < 48).map(c => c.i), ancho);
+      if (cajas.length && await page.getByRole('button', { name: /Expand record|Expandir registro/ }).first().isVisible().catch(() => false)) {
+        await clicReal(page, cerrar.nth(cajas[cajas.length - 1]));
+        await page.waitForTimeout(800);
+      }
       await clicReal(page, page.getByRole('button', { name: /^Search$|^Buscar$/ }).first());
       await page.waitForTimeout(800);
     }

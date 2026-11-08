@@ -57,14 +57,17 @@ test('A.11.1 — Recursos que la compañía debe disponer para sostenerlo', asyn
     criterio: 'A.11.1',
     plataforma,
     cumple: 1,
-    justificacion:
+    comoLoHace:
       'La edición gratuita se instala en infraestructura de la compañía, con cuatro contenedores: la ' +
       'aplicación, un proceso que ejecuta las tareas en segundo plano, la base de datos y una memoria ' +
-      'intermedia. No exige un servidor dedicado: el fabricante pide al menos 2 GB de memoria, y la instalación ' +
-      `evaluada corre en un equipo de escritorio común, donde ocupa ${Math.round(megas)} MB con la cartera de ` +
-      'prueba cargada. La condición se satisface con una limitación que la compañía asume de forma permanente: ' +
-      'alguien tiene que mantener ese equipo encendido, respaldado y actualizado. El servicio en la nube del ' +
-      'fabricante elimina esa carga.',
+      'intermedia. El servicio en la nube del fabricante elimina esa carga.',
+    caracteristicas:
+      'No exige un servidor dedicado: el fabricante pide al menos 2 GB de memoria, y la instalación ' +
+      `evaluada corre en un equipo de escritorio común, donde ocupa ${Math.round(megas)} MB con la ` +
+      'cartera de prueba cargada.',
+    justificacion:
+      'La condición se satisface con una limitación que la compañía asume de forma permanente: alguien ' +
+      'tiene que mantener ese equipo encendido, respaldado y actualizado.',
     evidencia: [capSalud],
     documentacion: fuentes,
     medicion: `${Math.round(megas)} MB de memoria entre los cuatro contenedores`,
@@ -93,12 +96,15 @@ test('A.11.2 — Compatibilidad con la plataforma que la compañía usa', async 
     criterio: 'A.11.2',
     plataforma,
     cumple: 1,
+    comoLoHace:
+      'La instalación propia corre sobre contenedores, que funcionan en Linux, en Windows y en macOS, ' +
+      'pero con una sola combinación de componentes: PostgreSQL como base de datos —de la versión 15 ' +
+      'en adelante— y Redis como memoria intermedia.',
+    caracteristicas:
+      'No hay variante para otro motor de base de datos.',
     justificacion:
-      'La instalación propia corre sobre contenedores, que funcionan en Linux, en Windows y en macOS, pero con ' +
-      'una sola combinación de componentes: PostgreSQL como base de datos —de la versión 15 en adelante— y ' +
-      'Redis como memoria intermedia. No hay variante para otro motor de base de datos. Si la compañía ya ' +
-      'administra contenedores y PostgreSQL, es su plataforma; si no, tiene que incorporar y sostener esas ' +
-      'tecnologías para operar el sistema.',
+      'Si la compañía ya administra contenedores y PostgreSQL, es su plataforma; si no, tiene que ' +
+      'incorporar y sostener esas tecnologías para operar el sistema.',
     documentacion: fuentes,
     conPlan: [conPlanDe(TWENTY_PRO, {
       cumple: 2,
@@ -134,15 +140,20 @@ test('A.11.3 — Puesta en marcha sin perfil técnico especializado', async ({ p
     criterio: 'A.11.3',
     plataforma,
     cumple: 1,
+    comoLoHace:
+      'La instalación evaluada se llevó de cero a operativa por esa vía. Pero no la completa alguien ' +
+      'sin perfil técnico: hay que instalar el motor de contenedores, completar las variables del ' +
+      'archivo —claves, dirección pública— y, para usar funciones del producto, cambiar variables de ' +
+      `configuración que vienen apagadas: en esta instalación, ${variables.length}, para conectar ` +
+      'casillas de correo de la red propia y para ejecutar el código de los flujos.',
+    caracteristicas:
+      'El fabricante ofrece un archivo de contenedores que deja la aplicación, las tareas en segundo ' +
+      'plano, la base de datos y la memoria intermedia funcionando juntas, y el primer ingreso guía la ' +
+      'creación del espacio de trabajo.',
     justificacion:
-      'El fabricante ofrece un archivo de contenedores que deja la aplicación, las tareas en segundo plano, la ' +
-      'base de datos y la memoria intermedia funcionando juntas, y el primer ingreso guía la creación del ' +
-      'espacio de trabajo. La instalación evaluada se llevó de cero a operativa por esa vía. Pero no la ' +
-      'completa alguien sin perfil técnico: hay que instalar el motor de contenedores, completar las variables ' +
-      'del archivo —claves, dirección pública— y, para usar funciones del producto, cambiar variables de ' +
-      `configuración que vienen apagadas: en esta instalación, ${variables.length}, para conectar casillas de ` +
-      'correo de la red propia y para ejecutar el código de los flujos. Son conocimientos puntuales, guiados ' +
-      'por la documentación, que la compañía necesita tener a mano cada vez que instala o actualiza.',
+      'Instalar con el archivo de contenedores exige conocimientos puntuales —el motor de contenedores, las variables del ' +
+      'archivo y las variables de configuración apagadas—, guiados por la documentación, que la compañía necesita tener a ' +
+      'mano cada vez que instala o actualiza.',
     evidencia: [capVariables],
     documentacion: fuentes,
     medicion: `Variables de configuración cambiadas: ${variables.map(v => v.split('=')[0]).join(', ')}`,
@@ -199,13 +210,16 @@ test('A.11.4 — Menú y navegabilidad para la operación diaria', async ({ page
     criterio: 'A.11.4',
     plataforma,
     cumple: 2,
+    comoLoHace:
+      'Desde el ingreso, el menú lateral lleva directo a las personas, y el alta se hace en el mismo ' +
+      'listado, escribiendo nombre y apellido en una fila nueva. Guardado el asegurado, la póliza se ' +
+      'carga desde su propia ficha, en el campo de sus pólizas, escribiendo su número y agregándola: ' +
+      'queda creada y ligada a él sin salir de la ficha.',
+    caracteristicas:
+      `El recorrido completo pasó por ${pantallas.length} pantallas sin volver sobre ninguna y llevó ` +
+      `${segundos} segundos.`,
     justificacion:
-      'Desde el ingreso, el menú lateral lleva directo a las personas, y el alta se hace en el mismo listado, ' +
-      'escribiendo nombre y apellido en una fila nueva. Guardado el asegurado, la póliza se carga desde su ' +
-      'propia ficha, en el campo de sus pólizas, escribiendo su número y agregándola: queda creada y ligada a ' +
-      `él sin salir de la ficha. El recorrido completo pasó por ${pantallas.length} pantallas sin volver sobre ` +
-      `ninguna y llevó ${segundos} segundos. Los objetos propios, como la póliza, aparecen en el mismo menú ` +
-      'lateral que los de fábrica.',
+      'Los objetos propios, como la póliza, aparecen en el mismo menú lateral que los de fábrica.',
     evidencia: [capFinal],
     medicion: `${pantallas.length} pantallas, ninguna revisitada, ${segundos} s`,
   });
@@ -257,17 +271,21 @@ test('A.11.5 — Aprendizaje sin capacitación previa', async ({ page }, info) =
     criterio: 'A.11.5',
     plataforma,
     cumple,
-    justificacion:
+    comoLoHace:
       'Tres agentes independientes, sin conocimiento previo de la plataforma, intentaron sin instrucción las ' +
       'cinco operaciones que un productor repite a diario —dar de alta un asegurado, cargarle una póliza, ' +
       'averiguar qué pólizas de su cartera vencen en los próximos 30 días, registrar un reclamo y agendar un ' +
-      `llamado—, operando la pantalla como lo haría una persona. Completaron ${15 - pendientes.length} de las ` +
-      'quince, según lo que quedó guardado en el sistema. ' +
-      (cumple === 2 ? 'Los tres completaron las cinco tareas.'
+      'llamado—, operando la pantalla como lo haría una persona.',
+    // El detalle de cada tarea incompleta va en las características; la justificación dice por qué vale 1
+    caracteristicas:
+      `Completaron ${15 - pendientes.length} de las ` +
+      'quince, según lo que quedó guardado en el sistema.' +
+      (cumple === 1 ? ` ${detalle.join('; ').replace(/^la/, 'La')}.` : ''),
+    justificacion:
+      cumple === 2 ? 'Los tres completaron las cinco tareas.'
         : cumple === 0 ? `Ninguno logró completar la tarea ${ningunoLogra.join(' ni la ')}: ${detalle.join('; ')}.`
-        : `Cada tarea la completó al menos uno, pero ${detalle.join('; ')}.` +
-          (sinSaber.length ? ' Que quien no la terminó no sepa decir qué le faltó no impide que otro la complete: ' +
-            'el sistema se deja aprender, con un tropiezo que la compañía asume en cada incorporación.' : '')),
+        : 'Cada tarea la completó al menos uno de los tres, aunque no todos completaron todas: ' +
+          'el sistema se deja aprender, con un tropiezo que la compañía asume en cada incorporación.',
     evidencia,
     medicion: `${15 - pendientes.length} de 15 tareas completadas`,
   });
@@ -308,14 +326,18 @@ test('A.11.6 — Localización completa al español, modelo incluido', async ({ 
     criterio: 'A.11.6',
     plataforma,
     cumple: enIngles.length ? 1 : 2,
-    justificacion: enIngles.length
+    comoLoHace: enIngles.length
       ? 'Con el idioma de la interfaz en español, los menús de configuración, los botones y los mensajes ' +
         'están traducidos, pero los objetos y campos que trae el producto quedan con su nombre en inglés: ' +
-        `en el menú y en la ficha del asegurado se leen ${enIngles.slice(0, 8).join(', ')}, entre otros. Son ` +
-        'nombres que igual se entienden —personas, correos, teléfonos, empresa, cargo— y cada uno se puede ' +
-        'renombrar desde el modelo de datos, que admite cambiar el nombre en singular y en plural. Lo que ' +
-        'agregó la compañía, como la póliza y sus campos, queda con el nombre que ella le puso.'
+        `en el menú y en la ficha del asegurado se leen ${enIngles.slice(0, 8).join(', ')}, entre otros.`
+      : 'Se recorrieron el menú principal y la ficha del asegurado con el idioma de la interfaz en español.',
+    caracteristicas: enIngles.length
+      ? 'Lo que agregó la compañía, como la póliza y sus campos, queda con el nombre que ella le puso.'
       : 'El menú y la ficha del asegurado están enteramente en español, incluidos los campos del modelo.',
+    justificacion: enIngles.length
+      ? 'Son nombres que igual se entienden —personas, correos, teléfonos, empresa, cargo— y cada uno se puede ' +
+        'renombrar desde el modelo de datos, que admite cambiar el nombre en singular y en plural.'
+      : 'Todo lo que el personal ve en la operación diaria está en su idioma, sin nada que corregir.',
     evidencia: [capIdioma, capFicha],
     medicion: `Nombres en inglés en el recorrido: ${enIngles.join(', ') || 'ninguno'}`,
   });
@@ -342,11 +364,14 @@ test('A.11.7 — Cantidad de usuarios sin límite que condicione la operación',
     criterio: 'A.11.7',
     plataforma,
     cumple: 2,
+    comoLoHace:
+      'La edición autoalojada es gratuita y se distribuye bajo una licencia libre que no limita la ' +
+      'cantidad de usuarios, y la instalación no impone ningún tope: se invitan los que la compañía ' +
+      'necesite, sea cual fuere su plantel de productores y de personal administrativo.',
+    caracteristicas:
+      'En la nube se paga por usuario, sin tope de cantidad.',
     justificacion:
-      'La edición autoalojada es gratuita y se distribuye bajo una licencia libre que no limita la cantidad de ' +
-      'usuarios, y la instalación no impone ningún tope: se invitan los que la compañía necesite, sea cual ' +
-      'fuere su plantel de productores y de personal administrativo. El único límite es el del equipo donde ' +
-      'corre. En la nube se paga por usuario, sin tope de cantidad.',
+      'El único límite es el del equipo donde corre.',
     evidencia: [capUsuarios],
     documentacion: fuentes,
   });
@@ -407,15 +432,16 @@ test('A.11.8 — Operación concurrente sobre la misma cartera', async ({ page, 
     criterio: 'A.11.8',
     plataforma,
     cumple: envivo ? 2 : 1,
-    justificacion:
-      'Tres sesiones abrieron a la vez la misma póliza y cambiaron su ramo una detrás de otra, desde la ficha. ' +
-      `Quedó el último cambio, ${final}. ` +
-      (envivo
-        ? 'Cada sesión vio aparecer el cambio de la anterior en su pantalla, sin recargar, antes de hacer el ' +
-          'suyo: el sistema actualiza en vivo lo que otros modifican, así que nadie pisa el trabajo de otro sin verlo.'
-        : 'El sistema no avisa que otro usuario modificó el registro mientras estaba abierto: cada guardado ' +
-          'reemplaza al anterior sin advertencia, y una sesión puede estar mirando un valor viejo. La condición se ' +
-          'satisface con una limitación: cuando dos personas trabajan la misma póliza, gana la última que guarda.'),
+    comoLoHace:
+      'Tres sesiones abrieron a la vez la misma póliza y cambiaron su ramo una detrás de otra, desde la ficha.',
+    caracteristicas:
+      `Quedó el último cambio, ${final}.`,
+    justificacion: envivo
+      ? 'Cada sesión vio aparecer el cambio de la anterior en su pantalla, sin recargar, antes de hacer el ' +
+        'suyo: el sistema actualiza en vivo lo que otros modifican, así que nadie pisa el trabajo de otro sin verlo.'
+      : 'El sistema no avisa que otro usuario modificó el registro mientras estaba abierto: cada guardado ' +
+        'reemplaza al anterior sin advertencia, y una sesión puede estar mirando un valor viejo. La condición se ' +
+        'satisface con una limitación: cuando dos personas trabajan la misma póliza, gana la última que guarda.',
     evidencia: [captura],
     medicion: `Final: ${final} · actualización en vivo en las otras sesiones: ${envivo ? 'sí' : 'no'}`,
   });
@@ -436,7 +462,7 @@ test('A.11.9 — Ecosistema de integraciones disponible', async ({ page, browser
   const capApi = await capturar(page, 'A.11.9', plataforma, '2-mcp-y-api');
 
   const fuentes = [
-    await citar(browser, { url: 'https://docs.twenty.com/developers/extend/apps/getting-started/concepts', buscar: 'Twenty apps are TypeScript packages', captura: 'A-11-9-twenty-3-aplicaciones' }),
+    await citar(browser, { url: 'https://docs.twenty.com/developers/extend/apps/getting-started/concepts', buscar: 'How Twenty apps work', captura: 'A-11-9-twenty-3-aplicaciones' }),
     await citar(browser, { url: 'https://docs.twenty.com/developers/extend/webhooks', buscar: /HTTP POST/i, captura: 'A-11-9-twenty-4-webhooks' }),
   ];
 
@@ -446,13 +472,18 @@ test('A.11.9 — Ecosistema de integraciones disponible', async ({ page, browser
     criterio: 'A.11.9',
     plataforma,
     cumple: 1,
-    justificacion:
+    comoLoHace:
+      'Lo que sí trae es la vía para integrar lo que falte —interfaces de programación, avisos a otros ' +
+      'sistemas ante cada cambio y un servidor para asistentes de inteligencia artificial—, todo sin ' +
+      'costo.',
+    caracteristicas:
       'El producto se conecta de fábrica con el correo y el calendario de Google y de Microsoft, y con ' +
-      'cualquier casilla por IMAP. Más allá de eso no hay un catálogo de conectores: la sección de aplicaciones ' +
-      'ofrece muy pocas, y las aplicaciones son paquetes de código que se desarrollan con el kit del fabricante. ' +
-      'Lo que sí trae es la vía para integrar lo que falte —interfaces de programación, avisos a otros sistemas ' +
-      'ante cada cambio y un servidor para asistentes de inteligencia artificial—, todo sin costo. La condición ' +
-      'se satisface con una limitación: fuera del correo y el calendario, cada integración es trabajo propio.',
+      'cualquier casilla por IMAP. Más allá de eso no hay un catálogo de conectores: la sección de ' +
+      'aplicaciones ofrece muy pocas, y las aplicaciones son paquetes de código que se desarrollan con ' +
+      'el kit del fabricante.',
+    justificacion:
+      'La condición se satisface con una limitación: fuera del correo y el calendario, cada ' +
+      'integración es trabajo propio.',
     evidencia: [capCatalogo, capApi],
     documentacion: fuentes,
   });
@@ -481,10 +512,14 @@ test('A.11.10 — Documentación en español', async ({ page, browser }, info) =
     criterio: 'A.11.10',
     plataforma,
     cumple: 2,
+    comoLoHace:
+      'La documentación oficial se publica también en español.',
+    caracteristicas:
+      'La guía de usuario y las páginas de ' +
+      'configuración tienen su versión traducida, con el mismo contenido y la misma estructura que la ' +
+      'original en inglés.',
     justificacion:
-      'La documentación oficial se publica también en español: la guía de usuario y las páginas de ' +
-      'configuración tienen su versión traducida, con el mismo contenido y la misma estructura que la original ' +
-      'en inglés. Quien consulte cómo se usa o se configura el sistema lo hace en su idioma.',
+      'Quien consulte cómo se usa o se configura el sistema lo hace en su idioma.',
     evidencia: [capPortada],
     documentacion: fuente,
   });
@@ -507,11 +542,15 @@ test('A.11.11 — Material de capacitación para el usuario final', async ({ bro
     criterio: 'A.11.11',
     plataforma,
     cumple: 2,
-    justificacion:
+    comoLoHace:
       'El fabricante publica una guía de usuario de acceso libre, separada de la documentación para ' +
-      'desarrolladores, con más de cien páginas: qué hace cada función y guías paso a paso para las tareas ' +
-      'de todos los días —importar contactos, trabajar el correo y el calendario, armar vistas, tableros y ' +
-      'flujos—. Está dirigida a quien opera el sistema, y está también en español.',
+      'desarrolladores, con más de cien páginas.',
+    caracteristicas:
+      'Qué hace cada función y guías paso a paso para las ' +
+      'tareas de todos los días —importar contactos, trabajar el correo y el calendario, armar vistas, ' +
+      'tableros y flujos—.',
+    justificacion:
+      'Está dirigida a quien opera el sistema, y está también en español.',
     documentacion: fuentes,
   });
 });
@@ -553,14 +592,17 @@ test('A.11.12 — Comunidad activa de usuarios', async ({ browser }, info) => {
     criterio: 'A.11.12',
     plataforma,
     cumple: tipica.valor,
-    justificacion:
+    comoLoHace:
       'El canal de la comunidad que ofrece el fabricante es un servidor de chat que solo se lee con cuenta, así ' +
       'que la medición se hizo sobre lo que la comunidad publica abierto: las discusiones del repositorio ' +
       `oficial. Se tomaron las ${CONSULTAS} consultas más recientes con más de una semana, que alcanzan hasta ` +
-      `${desde}. En ${cuantas(2)} otro usuario respondió dentro de la semana y quien consultó confirmó después que ` +
+      `${desde}.`,
+    caracteristicas:
+      `En ${cuantas(2)} otro usuario respondió dentro de la semana y quien consultó confirmó después que ` +
       `la respuesta le había servido; en ${cuantas(1)} hubo respuesta, pero llegó más tarde o sin que el autor ` +
-      'confirmara que lo resolvía; ' + (cuantas(0) ? `${cuantas(0)} no recibieron respuesta. ` : 'ninguna quedó sin respuesta. ') +
-      (medianaHoras !== undefined ? `La primera respuesta llegó, en el caso típico, a ${tiempo(medianaHoras)}. ` : '') +
+      'confirmara que lo resolvía; ' + (cuantas(0) ? `${cuantas(0)} no recibieron respuesta.` : 'ninguna quedó sin respuesta.') +
+      (medianaHoras !== undefined ? ` La primera respuesta llegó, en el caso típico, a ${tiempo(medianaHoras)}.` : ''),
+    justificacion:
       (tipica.valor === 2 ? 'La consulta típica se resuelve dentro de la semana.'
         : tipica.valor === 1 ? 'La consulta típica recibe respuesta, pero no queda constancia de que se resuelva dentro de la semana: ' +
           'la compañía puede contar con que alguien conteste, no con que la conteste a tiempo y a su medida.'
@@ -589,12 +631,14 @@ test('A.11.13 — Soporte técnico con compromiso de respuesta', async ({ browse
     criterio: 'A.11.13',
     plataforma,
     cumple: 0,
+    comoLoHace:
+      'La oferta de soporte del fabricante tiene tres niveles y ninguno compromete un plazo: la ' +
+      'edición gratuita se apoya en la comunidad, en su servidor de chat; el plan Organization en la ' +
+      'nube agrega soporte prioritario, y en la instalación propia, soporte del equipo del fabricante, ' +
+      'sin que ninguno declare en cuánto tiempo responde.',
     justificacion:
-      'La oferta de soporte del fabricante tiene tres niveles y ninguno compromete un plazo: la edición ' +
-      'gratuita se apoya en la comunidad, en su servidor de chat; el plan Organization en la nube agrega soporte ' +
-      'prioritario, y en la instalación propia, soporte del equipo del fabricante, sin que ninguno declare en ' +
-      'cuánto tiempo responde. La condición que la compañía necesita —saber en cuánto tiempo le van a responder ' +
-      'cuando el sistema falle— no la ofrece ninguna modalidad publicada.',
+      'La condición que la compañía necesita —saber en cuánto tiempo le van a responder cuando el ' +
+      'sistema falle— no la ofrece ninguna modalidad publicada.',
     documentacion: fuentes,
   });
 });
@@ -627,12 +671,16 @@ test('A.11.14 — Continuidad de las versiones en uso', async ({ browser }, info
     criterio: 'A.11.14',
     plataforma,
     cumple: 0,
+    comoLoHace:
+      'El fabricante no publica por cuánto tiempo corrige una versión: no hay política de soporte por ' +
+      'versión ni versiones de soporte extendido.',
+    caracteristicas:
+      `Publica versiones nuevas a un ritmo de ${porMes} por mes, y la guía de ` +
+      'actualización lo que asegura es poder saltar desde cualquier versión soportada directo a la ' +
+      'última.',
     justificacion:
-      'El fabricante no publica por cuánto tiempo corrige una versión: no hay política de soporte por versión ' +
-      `ni versiones de soporte extendido. Publica versiones nuevas a un ritmo de ${porMes} por mes, y la guía de ` +
-      'actualización lo que asegura es poder saltar desde cualquier versión soportada directo a la última. La ' +
-      'compañía no puede fijar la actualización en su plan anual: tiene que seguir el ritmo del fabricante para ' +
-      'recibir correcciones.',
+      'La compañía no puede fijar la actualización en su plan anual: tiene que seguir el ritmo del ' +
+      'fabricante para recibir correcciones.',
     documentacion: fuentes,
     medicion: `${versiones.length} versiones publicadas en ${Math.round(dias)} días`,
   });

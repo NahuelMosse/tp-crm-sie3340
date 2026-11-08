@@ -2,7 +2,9 @@
   "criterio": "A.7.5",
   "plataforma": "bitrix24",
   "cumple": 1,
-  "justificacion": "En la edición gratuita los datos entran por vCard y por CSV —con asistentes para las agendas de Gmail, Outlook y Yahoo! y una migración desde otro CRM— pero no salen: «Exportar a CSV» no se abre y el sistema responde que hay que actualizar a un plan superior. La comparación de planes del fabricante publica la opción de exportar contactos a CSV, Excel y Outlook en los planes de pago, desde el Basic. Sin ella la compañía solo puede compartir datos con sus otros sistemas en un sentido.",
+  "comoLoHace": "«Exportar a CSV» no se abre y el sistema responde que hay que actualizar a un plan superior.",
+  "caracteristicas": "En la edición gratuita los datos entran por vCard y por CSV —con asistentes para las agendas de Gmail, Outlook y Yahoo! y una migración desde otro CRM— pero no salen.",
+  "justificacion": "Los datos entran por planilla y por vCard, pero no salen: la exportación a CSV, Excel y Outlook está en los planes pagos, desde el Basic. La compañía solo puede compartir datos con sus otros sistemas en un sentido.",
   "conPlan": [
     {
       "plan": "Bitrix24 Basic",

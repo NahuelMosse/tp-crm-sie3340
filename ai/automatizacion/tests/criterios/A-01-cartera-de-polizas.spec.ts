@@ -118,12 +118,16 @@ test('A.1.1 — Modelado de la póliza como objeto propio', async ({ page }, inf
     plataforma,
     cumple: 2,
     costo: 1,
-    justificacion:
+    comoLoHace:
       'El Administrador de Entidades crea la entidad Póliza desde la pantalla de administración, sin escribir ' +
-      'código ni tocar archivos del servidor. Queda con identidad propia: figura en el modelo de datos, tiene ' +
+      'código ni tocar archivos del servidor.',
+    caracteristicas:
+      'Queda con identidad propia: figura en el modelo de datos, tiene ' +
       'su entrada en el menú principal, su listado y su ficha, y admite registros. A partir de ahí el usuario ' +
       'opera con la póliza igual que con las entidades que trae el producto —la busca, la filtra, la relaciona— ' +
-      'de modo que la necesidad queda resuelta desde el sistema. Definirla es trabajo de una sola vez, y eso ' +
+      'de modo que la necesidad queda resuelta desde el sistema.',
+    justificacion:
+      'Definirla es trabajo de una sola vez, y eso ' +
       'es lo que refleja el costo de implementación.',
     evidencia: [capModelo, capMenu, capListado],
   });
@@ -172,13 +176,17 @@ test('A.1.2 — Campos de lista para el ramo y el estado de cobranza', async ({ 
     plataforma,
     cumple: 2,
     costo: 1,
-    justificacion:
+    comoLoHace:
       'El Administrador de Campos agrega campos de tipo lista y admite escribir sus valores, sin programar. Se ' +
       `definieron los ramos que comercializa la compañía —${RAMOS.join(', ')}— y los estados de cobranza, y se ` +
       'cargó una póliza de cada ramo desde el formulario: las cuatro quedaron con su ramo visible en el ' +
-      'listado. El estado de cobranza se cambia desde la ficha y el cambio queda guardado. El usuario elige de ' +
+      'listado. El estado de cobranza se cambia desde la ficha y el cambio queda guardado.',
+    caracteristicas:
+      'El usuario elige de ' +
       'la lista y no puede escribir un valor imprevisto, que es lo que vuelve confiable la clasificación de la ' +
-      'cartera. El campo se define en una pantalla y se ubica en el formulario en otra, ambas de ' +
+      'cartera.',
+    justificacion:
+      'El campo se define en una pantalla y se ubica en el formulario en otra, ambas de ' +
       'administración: es configuración inicial, no desarrollo.',
     evidencia: [capCampos, capCartera, capEstado],
     medicion: `${cargados.length} ramos cargados y visibles en el listado`,
@@ -210,11 +218,14 @@ test('A.1.3 — Prima con importe y moneda', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 1,
-    justificacion:
-      'El producto ofrece un tipo de campo de importe con moneda, que se agrega desde la administración. ' +
+    comoLoHace:
       'Cargada una prima de 184.532,75, la ficha la devuelve con sus centavos y con la denominación, y el ' +
       'sistema la trata como importe y no como texto: guarda la moneda junto al valor y mantiene una lista de ' +
-      'monedas habilitadas. Es lo que necesita una compañía que cobra primas en pesos y emite pólizas en ' +
+      'monedas habilitadas.',
+    caracteristicas:
+      'El producto ofrece un tipo de campo de importe con moneda, que se agrega desde la administración.',
+    justificacion:
+      'El campo de importe con moneda es lo que necesita una compañía que cobra primas en pesos y emite pólizas en ' +
       'dólares sin que los importes se mezclen al sumarlos.',
     evidencia: [capPrima],
     medicion: 'Prima de 184.532,75 registrada y devuelta con centavos y denominación',
@@ -271,13 +282,16 @@ test('A.1.4 — Vigencia con fecha de inicio y de fin', async ({ page }, info) =
     plataforma,
     cumple: 2,
     costo: 1,
-    justificacion:
+    comoLoHace:
       'Los campos de inicio y de fin de vigencia se agregan como campos de fecha desde la administración, y el ' +
       'sistema los trata como tales y no como texto. Se cargaron dos pólizas, una que vence en doce días y otra ' +
       'en trescientos: ordenado por vencimiento, el listado pone primero la que vence antes, y la condición ' +
-      '"vence en los próximos 30 días" devuelve la primera y deja afuera la segunda. El filtro ofrece ' +
-      `${comparaciones.length} comparaciones propias de una fecha —próximos o últimos X días, antes, después, ` +
-      'entre, mes o trimestre en curso—. Para poder filtrar por un campo propio hay que habilitarlo antes entre ' +
+      '"vence en los próximos 30 días" devuelve la primera y deja afuera la segunda.',
+    caracteristicas:
+      `El filtro ofrece ${comparaciones.length} comparaciones propias de una fecha —próximos o últimos X días, antes, después, ` +
+      'entre, mes o trimestre en curso—.',
+    justificacion:
+      'Para poder filtrar por un campo propio hay que habilitarlo antes entre ' +
       'los filtros de búsqueda del listado, en la misma administración: configuración inicial, no desarrollo.',
     evidencia: [capOrden, capFiltro],
     medicion: `${comparaciones.length} comparaciones de fecha en el filtro`,
@@ -329,13 +343,18 @@ test('A.1.5 — Aviso anticipado de vencimiento', async ({ page, browser }, info
     criterio: 'A.1.5',
     plataforma,
     cumple: 1,
-    justificacion:
-      'La edición gratuita no incluye un motor de reglas: la administración ofrece tareas programadas del ' +
-      'sistema, notificaciones y fórmulas, pero ninguna vía para que la compañía defina "avisar de lo que vence ' +
-      'en treinta días" y el sistema lo emita solo. La necesidad se cubre con la consulta del listado —vence en ' +
+    comoLoHace:
+      'La necesidad se cubre con la consulta del listado —vence en ' +
       'los próximos 30 días, y su equivalente sobre el plazo de los reclamos—, que devuelve exactamente lo que ' +
       'hay que atender, pero que alguien tiene que abrir: el trabajo se repite cada día que la compañía quiere ' +
-      'estar al tanto. Queda resuelta con un costo permanente. El fabricante vende el motor de flujos de ' +
+      'estar al tanto.',
+    caracteristicas:
+      'La edición gratuita no incluye un motor de reglas: la administración ofrece tareas programadas del ' +
+      'sistema, notificaciones y fórmulas, pero ninguna vía para que la compañía defina "avisar de lo que vence ' +
+      'en treinta días" y el sistema lo emita solo.',
+    justificacion:
+      'Queda resuelta con la consulta del listado de vencimientos, que alguien tiene que abrir cada día que la ' +
+      'compañía quiere estar al tanto: un costo permanente. El fabricante vende el motor de flujos de ' +
       'trabajo como extensión, y con ella el aviso se define una vez y se emite solo.',
     evidencia: [capAdmin, capConsulta],
     documentacion: fuentes,
@@ -400,11 +419,15 @@ test('A.1.6 — Consulta y filtrado de la cartera', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 1,
-    justificacion:
+    comoLoHace:
       'El listado de pólizas admite combinar condiciones: se pidieron a la vez el ramo Automotor, el estado de ' +
       `cobranza al día y un productor responsable, y de ${sinFiltrar} pólizas el sistema devolvió ` +
-      `${obtenido.length}, exactamente las que cumplen las tres al mismo tiempo. La consulta se arma desde el ` +
-      'listado eligiendo campo, comparación y valor, sin escribir ninguna expresión. Los campos propios de la ' +
+      `${obtenido.length}, exactamente las que cumplen las tres al mismo tiempo.`,
+    caracteristicas:
+      'La consulta se arma desde el ' +
+      'listado eligiendo campo, comparación y valor, sin escribir ninguna expresión.',
+    justificacion:
+      'Los campos propios de la ' +
       'póliza no vienen habilitados como filtro: hay que agregarlos una vez a los filtros de búsqueda desde la ' +
       'administración, y ese paso es el costo de implementación. Es la consulta que el área comercial repite ' +
       'todos los días para saber a quién llamar.',
@@ -468,13 +491,17 @@ test('A.1.7 — Operación masiva sobre la cartera', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 1,
-    justificacion:
+    comoLoHace:
       `Se seleccionaron las ${elegidas.length} pólizas de los ramos Automotor y Hogar desde el listado, y el menú ` +
-      `de acciones sobre la selección ofrece ${acciones.length} operaciones: ${acciones.join(', ')}. Con la ` +
+      `de acciones sobre la selección ofrece ${acciones.length} operaciones (${acciones.join(', ')}). Con la ` +
       'actualización masiva se eligió el estado de cobranza, se le dio un valor y el sistema lo aplicó en una ' +
-      `sola operación: las ${cambiadas} quedaron con el nuevo estado sin recorrerlas una por una. De fábrica la ` +
+      `sola operación: las ${cambiadas} quedaron con el nuevo estado sin recorrerlas una por una.`,
+    caracteristicas:
+      'De fábrica la ' +
       'actualización masiva solo alcanza al usuario y al equipo asignados; para que incluya un campo propio ' +
-      'hay que habilitarlo una vez desde la administración. Es lo que vuelve manejable un cambio de estado por ' +
+      'hay que habilitarlo una vez desde la administración.',
+    justificacion:
+      'Es lo que vuelve manejable un cambio de estado por ' +
       'lote de cobranza o una renovación de cartera.',
     evidencia: [capSeleccion, capAcciones, capResultado],
     medicion: `${cambiadas} pólizas modificadas con una sola acción`,

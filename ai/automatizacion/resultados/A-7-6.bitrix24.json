@@ -2,7 +2,8 @@
   "criterio": "A.7.6",
   "plataforma": "bitrix24",
   "cumple": 0,
-  "justificacion": "En la edición gratuita no se puede exportar la cartera: «Exportar a CSV» no genera ningún archivo y el sistema responde que la función requiere actualizar a un plan superior. La comparación de planes del fabricante confirma que la opción de exportar contactos a CSV, Excel y Outlook no forma parte de la edición gratuita. Sin archivo no hay nada que comparar con la planilla original.",
+  "comoLoHace": "En la edición gratuita no se puede exportar la cartera: «Exportar a CSV» no genera ningún archivo y el sistema responde que la función requiere actualizar a un plan superior.",
+  "justificacion": "La comparación de planes del fabricante confirma que la opción de exportar contactos a CSV, Excel y Outlook no forma parte de la edición gratuita. Sin archivo no hay nada que comparar con la planilla original.",
   "conPlan": [
     {
       "plan": "Bitrix24 Basic",

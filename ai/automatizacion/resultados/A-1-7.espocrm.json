@@ -3,7 +3,9 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 1,
-  "justificacion": "Se seleccionaron las 20 pólizas de los ramos Automotor y Hogar desde el listado, y el menú de acciones sobre la selección ofrece 8 operaciones: Eliminar, Unir, Actualización masiva, Exportar, Seguir, Dejar de seguir, Convertir moneda, Recalcular fórmula. Con la actualización masiva se eligió el estado de cobranza, se le dio un valor y el sistema lo aplicó en una sola operación: las 20 quedaron con el nuevo estado sin recorrerlas una por una. De fábrica la actualización masiva solo alcanza al usuario y al equipo asignados; para que incluya un campo propio hay que habilitarlo una vez desde la administración. Es lo que vuelve manejable un cambio de estado por lote de cobranza o una renovación de cartera.",
+  "comoLoHace": "Se seleccionaron las 20 pólizas de los ramos Automotor y Hogar desde el listado, y el menú de acciones sobre la selección ofrece 8 operaciones (Eliminar, Unir, Actualización masiva, Exportar, Seguir, Dejar de seguir, Convertir moneda, Recalcular fórmula). Con la actualización masiva se eligió el estado de cobranza, se le dio un valor y el sistema lo aplicó en una sola operación: las 20 quedaron con el nuevo estado sin recorrerlas una por una.",
+  "caracteristicas": "De fábrica la actualización masiva solo alcanza al usuario y al equipo asignados; para que incluya un campo propio hay que habilitarlo una vez desde la administración.",
+  "justificacion": "Es lo que vuelve manejable un cambio de estado por lote de cobranza o una renovación de cartera.",
   "evidencia": [
     "A-1-7-espocrm-1-seleccion.png",
     "A-1-7-espocrm-2-acciones-sobre-la-seleccion.png",
@@ -14,5 +16,5 @@
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-09-28T18:39:55.263Z"
+  "momento": "2026-10-30T04:01:42.893Z"
 }

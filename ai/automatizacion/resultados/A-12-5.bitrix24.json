@@ -1,0 +1,17 @@
+{
+  "criterio": "A.12.5",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "costo": 2,
+  "comoLoHace": "Se cerró el reclamo —una negociación— pasándolo a «Cerrado Ganado» y la respuesta del asegurado se registró en un campo de lista «Satisfacción con la atención», agregado a la ficha del contacto; quedó guardada en esa ficha.",
+  "caracteristicas": "Campo de lista con cinco puntajes en el formulario del contacto, creado desde la propia pantalla, sin programar.",
+  "justificacion": "El puntaje queda en la ficha del asegurado pero la encuesta no se envía al cerrar el reclamo ni queda ligada a él: se carga a mano y cada respuesta nueva reemplaza a la anterior. La carga manual se repite con cada reclamo cerrado.",
+  "evidencia": [
+    "A-12-5-bitrix24-1-satisfaccion-en-la-ficha.png"
+  ],
+  "criterioNombre": "Satisfacción después de la atención",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-11-08T17:29:13.737Z"
+}

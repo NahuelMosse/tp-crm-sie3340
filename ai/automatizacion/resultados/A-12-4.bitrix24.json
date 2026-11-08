@@ -1,0 +1,40 @@
+{
+  "criterio": "A.12.4",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "costo": 2,
+  "comoLoHace": "El solicitante se registra como contacto y la llamada se anota en la pestaña «Actividad» de su ficha, como un pendiente de texto libre. Para emitirle la póliza se crea la negociación desde esa misma ficha, que queda a su nombre. En la ficha del asegurado la llamada sigue estando, junto a la póliza.",
+  "caracteristicas": "El mismo contacto es solicitante y asegurado, sin conversión que lo mueva ni lo duplique; su ficha reúne actividades y negociaciones.",
+  "justificacion": "Sin el módulo de prospectos, no hay una etapa de solicitante que se convierta, y la llamada se registra como un pendiente con el tipo escrito en el texto, no como una llamada. Ese tipo se escribe a mano en cada registro.",
+  "evidencia": [
+    "A-12-4-bitrix24-1-llamada-registrada.png",
+    "A-12-4-bitrix24-2-ficha-del-asegurado.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "Todo lo incluido en Basic, más: Almacenamiento de 100 GB Prospectos ilimitados Facturas y cotizaciones Diseñador de formularios CRM Firma electrónica Marketing por WhatsApp Eficiencia de tareas (KPI) Proyectos ilimitados Tableros ilimitados",
+      "consultado": "2026-11-08",
+      "captura": "A-12-4-bitrix24-3-prospectos-en-standard.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "US$ 144",
+      "consultado": "2026-11-08",
+      "captura": "A-12-4-bitrix24-standard-precio-1.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Standard",
+      "monto": "US$ 144 por mes, hasta 50 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "El plan Standard incluye prospectos ilimitados: el solicitante se registra como prospecto con sus llamadas y, al convertirlo, el historial pasa al contacto y a la negociación. Usarlo no requiere más configuración que la de las etapas."
+    }
+  ],
+  "criterioNombre": "Historia del cliente desde el primer contacto",
+  "licencia": null,
+  "momento": "2026-11-08T17:18:13.416Z"
+}

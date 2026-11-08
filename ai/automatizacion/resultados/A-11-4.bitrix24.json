@@ -2,7 +2,9 @@
   "criterio": "A.11.4",
   "plataforma": "bitrix24",
   "cumple": 2,
-  "justificacion": "Desde el ingreso, el menú lateral lleva directo al CRM, sobre el listado de negociaciones —que en la edición gratuita, sin entidades propias, hace de cartera de pólizas—, y el botón «Crear» del propio listado abre el formulario de alta en el mismo lugar, sin cambiar de pantalla. El alta se completó en 69 segundos, a través de 3 pantallas, sin volver sobre ninguna.",
+  "comoLoHace": "Desde el ingreso, el menú lateral lleva directo al CRM, sobre el listado de negociaciones.",
+  "caracteristicas": "—que en la edición gratuita, sin entidades propias, hace de cartera de pólizas—, y el botón «Crear» del propio listado abre el formulario de alta en el mismo lugar, sin cambiar de pantalla.",
+  "justificacion": "El alta se completó en 69 segundos, a través de 3 pantallas, sin volver sobre ninguna.",
   "evidencia": [
     "A-11-4-bitrix24-1-formulario.png",
     "A-11-4-bitrix24-2-poliza-creada.png"

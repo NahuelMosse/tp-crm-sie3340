@@ -3,7 +3,9 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 0,
-  "justificacion": "El segmento guardado se volcó entero a una lista de destinatarios, seleccionando desde la lista con el mismo filtro guardado, y se creó una campaña de correo dirigida a esa lista. El contenido se escribió en una plantilla con marcadores que el sistema reemplaza por los datos de cada destinatario —el nombre en el asunto y en el saludo—, de modo que cada asegurado recibe un mensaje dirigido a él. Campañas, listas y plantillas vienen de fábrica.",
+  "comoLoHace": "El segmento guardado se volcó entero a una lista de destinatarios, seleccionando desde la lista con el mismo filtro guardado, y se creó una campaña de correo dirigida a esa lista.",
+  "caracteristicas": "El contenido se escribió en una plantilla con marcadores que el sistema reemplaza por los datos de cada destinatario —el nombre en el asunto y en el saludo—, de modo que cada asegurado recibe un mensaje dirigido a él.",
+  "justificacion": "Campañas, listas y plantillas vienen de fábrica.",
   "evidencia": [
     "A-4-2-espocrm-1-lista-desde-el-segmento.png",
     "A-4-2-espocrm-2-contenido-personalizado.png",
@@ -14,5 +16,5 @@
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-09-28T19:19:32.612Z"
+  "momento": "2026-10-30T10:35:44.055Z"
 }

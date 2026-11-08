@@ -1,0 +1,18 @@
+{
+  "criterio": "A.12.5",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "costo": 1,
+  "comoLoHace": "La encuesta es un objeto propio con puntaje, comentario y vínculos al asegurado y al reclamo. Al cerrar el reclamo desde su ficha, la respuesta que el asegurado dio por teléfono se registra desde su ficha como una encuesta nueva, ligada al reclamo, y queda listada en la ficha del asegurado.",
+  "caracteristicas": "Objeto propio con campo de lista para el puntaje, texto para el comentario y relaciones con persona y reclamo; la ficha del asegurado lista sus encuestas.",
+  "justificacion": "Cada respuesta se registra una vez y queda en la ficha del asegurado. No hay encuestas incorporadas ni envío automático al cerrar el reclamo; el objeto y sus campos se configuran una sola vez.",
+  "evidencia": [
+    "A-12-5-twenty-1-encuesta-registrada.png",
+    "A-12-5-twenty-2-encuesta-en-la-ficha-del-asegurado.png"
+  ],
+  "criterioNombre": "Satisfacción después de la atención",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-10-30T03:30:39.022Z"
+}

@@ -44,11 +44,16 @@ test('B.1.1 — Persistencia de los datos sin uso continuo', async ({ browser },
     criterio: 'B.1.1',
     plataforma,
     cumple: 2,
+    comoLoHace:
+      'En la instalación propia los datos quedan en el servidor de la compañía y no dependen de ' +
+      'ninguna cuenta del fabricante.',
+    caracteristicas:
+      'No hay condición de servicio que los afecte por falta de uso, ' +
+      'porque no hay servicio de por medio, y el fabricante la ofrece con el control total de los ' +
+      'datos.',
     justificacion:
-      'En la instalación propia los datos quedan en el servidor de la compañía y no dependen de ninguna ' +
-      'cuenta del fabricante: no hay condición de servicio que los afecte por falta de uso, porque no hay ' +
-      'servicio de por medio, y el fabricante la ofrece con el control total de los datos. Una póliza puede ' +
-      'quedar años sin que nadie la abra y sigue ahí mientras el equipo donde corre el sistema se mantenga.',
+      'Una póliza puede quedar años sin que nadie la abra y sigue ahí mientras el equipo donde corre ' +
+      'el sistema se mantenga.',
     documentacion: fuente,
   });
 });
@@ -121,12 +126,17 @@ test('B.1.2 — Copia propia y completa de la cartera', async ({ browser }, info
       criterio: 'B.1.2',
       plataforma,
       cumple: 2,
+      comoLoHace:
+        'Se obtuvo una copia completa con el procedimiento que indica el fabricante: el volcado de la ' +
+        'base de datos, y el archivo de la carpeta donde el servidor guarda los adjuntos.',
+      caracteristicas:
+        'La copia se restituyó en una ' +
+        `base de datos aparte y la cartera volvió entera: ${despues.personas} personas, ` +
+        `${despues.polizas} pólizas y ${despues.reclamos} reclamos, los mismos que en el sistema en ` +
+        'uso.',
       justificacion:
-        'Se obtuvo una copia completa con el procedimiento que indica el fabricante: el volcado de la base de ' +
-        'datos, y el archivo de la carpeta donde el servidor guarda los adjuntos. La copia se restituyó en una ' +
-        `base de datos aparte y la cartera volvió entera: ${despues.personas} personas, ${despues.polizas} pólizas ` +
-        `y ${despues.reclamos} reclamos, los mismos que en el sistema en uso. La compañía tiene en su poder toda ` +
-        'la información, en el formato abierto de la base, y no depende de nadie para recuperarla.',
+        'La compañía tiene en su poder toda la información, en el formato abierto de la base, y no ' +
+        'depende de nadie para recuperarla.',
       documentacion: fuente,
       medicion: `Base de ${Math.round(pesoBase / 1024)} KB y ${archivos} archivos adjuntos en ${Math.round(pesoArchivos / 1024)} KB; ` +
         'restituida sin diferencias',
@@ -163,13 +173,16 @@ test('B.1.3 — Copia periódica sin intervención manual', async ({ page, brows
     criterio: 'B.1.3',
     plataforma,
     cumple: 1,
+    comoLoHace:
+      'La documentación del fabricante resuelve la repetición afuera, con el programador de tareas del ' +
+      'servidor, que ejecuta todas las noches el volcado de la base.',
+    caracteristicas:
+      'El producto no trae una copia programada: su panel de administración muestra el estado del ' +
+      'servidor y sus variables, y ninguna opción genera un respaldo.',
     justificacion:
-      'El producto no trae una copia programada: su panel de administración muestra el estado del servidor y ' +
-      'sus variables, y ninguna opción genera un respaldo. La documentación del fabricante resuelve la ' +
-      'repetición afuera, con el programador de tareas del servidor, que ejecuta todas las noches el volcado ' +
-      'de la base. La condición se satisface con una limitación que la compañía asume: la copia se repite sola, ' +
-      'pero la programa, la vigila y la guarda fuera del equipo alguien con acceso al servidor, porque el ' +
-      'sistema no avisa si una noche falló.',
+      'La condición se satisface con una limitación que la compañía asume: la copia se repite sola, ' +
+      'pero la programa, la vigila y la guarda fuera del equipo alguien con acceso al servidor, porque ' +
+      'el sistema no avisa si una noche falló.',
     evidencia: [capPanel],
     documentacion: fuente,
   });
@@ -203,11 +216,14 @@ test('B.1.5 — Previsibilidad de los cambios del sistema', async ({ browser }, 
     criterio: 'B.1.5',
     plataforma,
     cumple: 2,
+    comoLoHace:
+      'En la instalación propia la actualización no llega sola: el administrador de la compañía cambia ' +
+      'la versión de la imagen, hace antes la copia de la base que pide el fabricante y reinicia.',
+    caracteristicas:
+      'Recién al arrancar la versión nueva el servidor aplica sus cambios.',
     justificacion:
-      'En la instalación propia la actualización no llega sola: el administrador de la compañía cambia la ' +
-      'versión de la imagen, hace antes la copia de la base que pide el fabricante y reinicia; recién al ' +
-      'arrancar la versión nueva el servidor aplica sus cambios. La compañía elige el momento —fuera del ' +
-      'horario de atención, después de probarla— y ningún cambio del sistema la sorprende durante la operación.',
+      'La compañía elige el momento —fuera del horario de atención, después de probarla— y ningún ' +
+      'cambio del sistema la sorprende durante la operación.',
     documentacion: fuentes,
     medicion: `Imagen en uso: ${imagen}`,
   });
@@ -237,12 +253,15 @@ test('B.1.6 — Conocimiento y decisión sobre dónde residen los datos', async 
     criterio: 'B.1.6',
     plataforma,
     cumple: 2,
+    comoLoHace:
+      'En la instalación propia la base de datos reside donde la compañía instala el sistema: en su ' +
+      'propio servidor o en el proveedor que ella elija, en el país que ella elija, y los adjuntos van ' +
+      'al disco del servidor o al almacenamiento que ella configure.',
+    caracteristicas:
+      'La contracara es que la seguridad de esos datos queda también a su cargo.',
     justificacion:
-      'En la instalación propia la base de datos reside donde la compañía instala el sistema: en su propio ' +
-      'servidor o en el proveedor que ella elija, en el país que ella elija, y los adjuntos van al disco del ' +
-      'servidor o al almacenamiento que ella configure. Sabe en todo momento dónde están los datos de sus ' +
-      'asegurados y lo decide ella, que es lo que exige el tratamiento de datos sensibles de los seguros de ' +
-      'personas. La contracara es que la seguridad de esos datos queda también a su cargo.',
+      'Sabe en todo momento dónde están los datos de sus asegurados y lo decide ella, que es lo que ' +
+      'exige el tratamiento de datos sensibles de los seguros de personas.',
     documentacion: fuentes,
   });
 });
@@ -294,12 +313,16 @@ test('B.1.7 — Continuidad de la atención ante una caída del enlace', async (
     criterio: 'B.1.7',
     plataforma,
     cumple: 2,
+    comoLoHace:
+      'Con la salida a internet cortada —el navegador solo alcanzaba el servidor de la red propia— se ' +
+      'ingresó al sistema, se buscó un asegurado y se registró un reclamo, que es la atención de todos ' +
+      'los días.',
+    caracteristicas:
+      'La instalación propia no necesita nada de afuera para operar: lo que se pierde durante el corte ' +
+      'es lo que por naturaleza viaja por internet, como el correo y los logotipos de las empresas que ' +
+      'la interfaz trae de un servicio externo.',
     justificacion:
-      'Con la salida a internet cortada —el navegador solo alcanzaba el servidor de la red propia— se ingresó ' +
-      'al sistema, se buscó un asegurado y se registró un reclamo, que es la atención de todos los días. La ' +
-      'instalación propia no necesita nada de afuera para operar: lo que se pierde durante el corte es lo que ' +
-      'por naturaleza viaja por internet, como el correo y los logotipos de las empresas que la interfaz trae ' +
-      'de un servicio externo. Con el sistema en la red de la compañía, una caída del enlace no detiene la atención.',
+      'Con el sistema en la red de la compañía, una caída del enlace no detiene la atención.',
     evidencia: [capSinEnlace],
     medicion: `${bloqueados.length} pedidos a direcciones externas bloqueados durante la prueba` +
       (bloqueados.length ? ` (${[...new Set(bloqueados)].join(', ')})` : ''),
@@ -313,11 +336,12 @@ test('B.1.7 — Continuidad de la atención ante una caída del enlace', async (
  * que el usuario nota y tolera, o de forma impracticable? No hay un corte en
  * segundos que lo decida. Hasta que se fija, el test mide, informa y no registra nada.
  */
-const VEREDICTO_B14: null | { cumple: 2 | 1 | 0; lectura: string } = {
+const VEREDICTO_B14: null | { cumple: 2 | 1 | 0; lectura: string; justificacion: string } = {
   cumple: 2,
   lectura:
     'Buscar un asegurado entre cinco mil respondió en un cuarto de segundo o menos las tres veces, y filtrar ' +
-    'las doce mil quinientas pólizas por ramo, en menos de dos décimas: no hay espera que el usuario perciba. ' +
+    'las doce mil quinientas pólizas por ramo, en menos de dos décimas: no hay espera que el usuario perciba.',
+  justificacion:
     'Con la cartera de referencia cargada, el sistema responde como con una cartera chica.',
 };
 
@@ -416,11 +440,13 @@ test('B.1.4 — Búsqueda y operación con volumen productivo', async ({ page },
       criterio: 'B.1.4',
       plataforma,
       cumple: VEREDICTO_B14.cumple,
-      justificacion:
+      comoLoHace:
         'Se cargó la cartera de referencia —cinco mil asegurados, doce mil quinientas pólizas y siete mil ' +
         'quinientos reclamos, veinticinco mil registros— y con ella se repitieron las operaciones de todos los ' +
         'días: buscar un asegurado por texto desde la búsqueda general y filtrar las pólizas por ramo, tres veces ' +
-        'cada una. ' + VEREDICTO_B14.lectura,
+        'cada una.',
+      caracteristicas: VEREDICTO_B14.lectura,
+      justificacion: VEREDICTO_B14.justificacion,
       evidencia: [capTexto, capFiltro],
       medicion: lectura,
     });

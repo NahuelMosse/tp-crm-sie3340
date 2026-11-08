@@ -1,5 +1,5 @@
 import type { Reporter, TestCase, TestResult } from '@playwright/test/reporter';
-import { copyFileSync, mkdirSync, renameSync, rmSync } from 'node:fs';
+import { copyFileSync, mkdirSync, renameSync, rmSync, statSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 
 /**
@@ -60,7 +60,9 @@ function acortarPausas(origen: string, destino: string, acciones: [number, numbe
 export default class Videos implements Reporter {
   onTestEnd(test: TestCase, result: TestResult) {
     const criterio = test.title.match(/^([AB]\.\d+\.\d+) /)?.[1];
-    const video = result.attachments.find(a => a.name === 'video' && a.path);
+    // Cada página que abre la prueba graba su video; el de la página principal es el más largo, y es el que respalda el veredicto
+    const video = result.attachments.filter(a => a.name === 'video' && a.path)
+      .sort((a, b) => statSync(b.path!).size - statSync(a.path!).size)[0];
     const plataforma = test.parent.project()?.name;
     if (!criterio || !video || !plataforma || result.status !== 'passed') return;
     mkdirSync('evidencia/videos', { recursive: true });

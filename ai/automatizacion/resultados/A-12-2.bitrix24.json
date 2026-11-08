@@ -1,0 +1,41 @@
+{
+  "criterio": "A.12.2",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "costo": 2,
+  "comoLoHace": "La póliza se lleva como una negociación a la que se agregó un campo de lista «Forma de pago». Sin entidades propias, cada cuota es una negociación con su vencimiento y su estado —pendiente, pagada o impaga— y el número de la póliza en el título. El listado de impagas es el listado de negociaciones filtrado por el estado de la cuota: trae las dos vencidas y ninguna de las otras.",
+  "caracteristicas": "Campos propios de lista y de fecha en el formulario de la negociación, filtro por estado en el listado, sin programar.",
+  "justificacion": "Las cuotas no cuelgan de la póliza: se identifican por el título y comparten el listado con las pólizas y las ventas, de modo que hay que filtrarlas en cada uso. Hay que filtrar y distinguir las cuotas en cada uso, además de definir los campos.",
+  "evidencia": [
+    "A-12-2-bitrix24-1-forma-de-pago-en-la-poliza.png",
+    "A-12-2-bitrix24-2-cuota.png",
+    "A-12-2-bitrix24-3-cuotas-impagas.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.com/promo/professional/",
+      "cita": "SPA (smart process automation)",
+      "consultado": "2026-11-08",
+      "captura": "A-12-2-bitrix24-4-procesos-inteligentes.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "Professional desde US$ 289 desde US$ 199 incluye 100 usuarios Empezar Empezar",
+      "consultado": "2026-11-08",
+      "captura": "A-12-2-bitrix24-professional-precio-1.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Professional",
+      "monto": "US$ 289 por mes, hasta 100 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "El plan Professional trae procesos inteligentes: la cuota pasa a ser una entidad propia, con su listado, sus campos y su vínculo a la póliza, y el listado de impagas deja de mezclarse con las pólizas. Crear la entidad y sus campos es configuración de una vez."
+    }
+  ],
+  "criterioNombre": "Plan de pago de la prima",
+  "licencia": null,
+  "momento": "2026-11-08T17:09:06.842Z"
+}

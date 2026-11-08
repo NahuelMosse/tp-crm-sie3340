@@ -79,11 +79,15 @@ test('A.4.1 — Segmentación reutilizable de la cartera', async ({ page, browse
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      'Desde el listado de asegurados se definió un conjunto por un criterio —los que están a cargo de ' +
+      'un productor— y se lo guardó con nombre como una vista, desde el propio filtro.',
+    caracteristicas:
+      'Al volver al listado, el segmento figura en el selector de vistas; al abrirlo trajo de nuevo ' +
+      'los mismos asegurados, y como el filtro se guarda y no la lista, un asegurado que cumpla el ' +
+      'criterio más adelante entra solo.',
     justificacion:
-      'Desde el listado de asegurados se definió un conjunto por un criterio —los que están a cargo de un ' +
-      'productor— y se lo guardó con nombre como una vista, desde el propio filtro. Al volver al listado, el ' +
-      'segmento figura en el selector de vistas; al abrirlo trajo de nuevo los mismos asegurados, y como el ' +
-      'filtro se guarda y no la lista, un asegurado que cumpla el criterio más adelante entra solo. Viene listo.',
+      'Viene listo.',
     evidencia: [capGuardado, capReabierto],
     medicion: `${reabiertas.length} asegurados en el segmento`,
   });
@@ -168,13 +172,17 @@ test('A.4.2 — Diseño de campañas sobre un segmento', async ({ page, browser 
     plataforma,
     cumple: 1,
     costo: 2,
+    comoLoHace:
+      'Se armó una con un flujo de trabajo que se lanza sobre los registros marcados y le envía a cada ' +
+      'uno un correo desde la casilla comercial, con su nombre en el asunto. Se abrió el segmento ' +
+      'guardado, se ' +
+      `marcaron sus ${destinatarios.length} asegurados, se lanzó la campaña y cada uno recibió su ` +
+      `mensaje, personalizado —«${llegaron[0]?.asunto}»—.`,
+    caracteristicas:
+      'La edición evaluada no trae campañas: el fabricante las tiene en beta y las habilita a pedido.',
     justificacion:
-      'La edición evaluada no trae campañas: el fabricante las tiene en beta y las habilita a ' +
-      'pedido. Se armó una con un flujo de trabajo que se lanza sobre los registros marcados y le envía a cada ' +
-      'uno un correo desde la casilla comercial, con su nombre en el asunto. Se abrió el segmento guardado, se ' +
-      `marcaron sus ${destinatarios.length} asegurados, se lanzó la campaña y cada uno recibió su mensaje, ` +
-      `personalizado —«${llegaron[0]?.asunto}»—. Funciona, pero cada campaña nueva es un flujo nuevo que alguien ` +
-      'tiene que armar, y no hay dónde programarla, darle de baja a un destinatario ni ver sus resultados.',
+      'Funciona, pero cada campaña nueva es un flujo nuevo que alguien tiene que armar, y no hay dónde ' +
+      'programarla, darle de baja a un destinatario ni ver sus resultados.',
     evidencia: [capCampana, capEnviada],
     documentacion: await citar(browser, {
       url: 'https://docs.twenty.com/user-guide/email-campaigns/overview',
@@ -227,14 +235,17 @@ test('A.4.3 — Medición de los resultados de la campaña', async ({ page, brow
     plataforma,
     cumple: 1,
     costo: 2,
-    justificacion:
+    comoLoHace:
+      conRespuesta
+        ? 'Las respuestas llegan: el asegurado contestó y la casilla sincronizada trajo su respuesta a su ficha.'
+        : 'La respuesta de un asegurado no llegó a su ficha en los diez minutos de espera.',
+    caracteristicas:
       'De la campaña armada con un flujo de trabajo queda el registro del envío: cada lanzamiento es una ' +
       'corrida con el resultado de cada paso. ' +
-      (conRespuesta
-        ? 'Las respuestas llegan: el asegurado contestó y la casilla sincronizada trajo su respuesta a su ficha. '
-        : 'La respuesta de un asegurado no llegó a su ficha en los diez minutos de espera. ') +
       'Las aperturas no se registran, y nada reúne los resultados de la campaña: cuántos la recibieron, cuántos ' +
-      'contestaron. Saberlo exige revisar las corridas y las fichas, una por una, después de cada envío.',
+      'contestaron.',
+    justificacion:
+      'Saberlo exige revisar las corridas y las fichas, una por una, después de cada envío.',
     evidencia: [capCorridas, capRespuesta],
     medicion: `${corridas.length} corrida(s) registradas; respuesta en la ficha: ${conRespuesta ? 'sí' : 'no'}`,
   });
@@ -303,13 +314,16 @@ test('A.4.4 — Captación de interesados desde redes sociales', async ({ page, 
     plataforma,
     cumple: 1,
     costo: 2,
+    comoLoHace:
+      'Lo que sí trae es un disparador de flujos por webhook: se armó un flujo que recibe nombre, ' +
+      'apellido y correo y da de alta a la persona, y un pedido con esos datos —lo que enviaría un ' +
+      'intermediario al llegar un interesado desde un formulario de anuncios— la incorporó a la base.',
+    caracteristicas:
+      'El producto no se conecta con ninguna red social: las cuentas que se pueden conectar son de ' +
+      'correo y calendario, y el catálogo de aplicaciones no ofrece ninguna.',
     justificacion:
-      'El producto no se conecta con ninguna red social: las cuentas que se pueden conectar son de correo y ' +
-      'calendario, y el catálogo de aplicaciones no ofrece ninguna. Lo que sí trae es un disparador de flujos ' +
-      'por webhook: se armó un flujo que recibe nombre, apellido y correo y da de alta a la persona, y un pedido ' +
-      'con esos datos —lo que enviaría un intermediario al llegar un interesado desde un formulario de ' +
-      'anuncios— la incorporó a la base. La conexión con cada red queda a cargo de ese intermediario, que ' +
-      'hay que contratar y mantener aparte.',
+      'La conexión con cada red queda a cargo de ese intermediario, que hay que contratar y mantener ' +
+      'aparte.',
     evidencia: [capFlujo, capAlta],
   });
 });
@@ -340,12 +354,14 @@ test('A.4.5 — Escucha de menciones en canales públicos', async ({ page, brows
     criterio: 'A.4.5',
     plataforma,
     cumple: 0,
+    comoLoHace:
+      'El producto no ofrece el seguimiento de lo que se dice de la compañía y de la competencia en ' +
+      'redes y medios, en ninguna edición: la configuración no tiene ninguna función de redes sociales ' +
+      'y el catálogo de aplicaciones del fabricante, dentro del propio producto, ofrece una sola —el ' +
+      'seguimiento del último contacto con cada persona—.',
     justificacion:
-      'El producto no ofrece el seguimiento de lo que se dice de la compañía y de la competencia en redes y ' +
-      'medios, en ninguna edición: la configuración no tiene ninguna función de redes sociales y el catálogo ' +
-      'de aplicaciones del fabricante, dentro del propio producto, ofrece una sola —el seguimiento del último ' +
-      'contacto con cada persona—. El fabricante presenta las aplicaciones como una vía para extender el ' +
-      'producto con código propio: una escucha de redes habría que desarrollarla.',
+      'El fabricante presenta las aplicaciones como una vía para extender el producto con código ' +
+      'propio: una escucha de redes habría que desarrollarla.',
     evidencia: [capCatalogo],
     documentacion: fuente,
   });
@@ -377,11 +393,12 @@ test('A.4.6 — Publicación en redes desde el sistema', async ({ page, browser 
     criterio: 'A.4.6',
     plataforma,
     cumple: 0,
+    comoLoHace:
+      'El producto no permite publicar en redes sociales desde el propio sistema, en ninguna edición: ' +
+      'las cuentas que se pueden conectar son de correo y de calendario —IMAP, SMTP, CalDAV—, ninguna ' +
+      'red social, y el catálogo de aplicaciones del fabricante no ofrece ninguna para eso.',
     justificacion:
-      'El producto no permite publicar en redes sociales desde el propio sistema, en ninguna edición: las ' +
-      'cuentas que se pueden conectar son de correo y de calendario —IMAP, SMTP, CalDAV—, ninguna red social, ' +
-      'y el catálogo de aplicaciones del fabricante no ofrece ninguna para eso. Publicar exigiría desarrollar ' +
-      'una aplicación propia.',
+      'Publicar exigiría desarrollar una aplicación propia.',
     evidencia: [capCuentas],
     documentacion: fuente,
   });
@@ -432,11 +449,15 @@ test('A.4.7 — Registro de la competencia y del motivo de pérdida', async ({ p
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Se agregó la etapa «Perdida» a la lista de etapas y dos campos: el motivo, como lista, y el ' +
+      'competidor que se quedó con la venta. Se marcó una oportunidad como perdida y se le registraron ' +
+      'el motivo y el competidor desde su ficha.',
+    caracteristicas:
+      'El embudo de fábrica termina en la etapa de cliente ganado: no trae una etapa de oportunidad ' +
+      'perdida ni dónde anotar por qué se perdió.',
     justificacion:
-      'El embudo de fábrica termina en la etapa de cliente ganado: no trae una etapa de oportunidad perdida ni ' +
-      'dónde anotar por qué se perdió. Se agregó la etapa «Perdida» a la lista de etapas y dos campos: el ' +
-      'motivo, como lista, y el competidor que se quedó con la venta. Se marcó una oportunidad como perdida y ' +
-      'se le registraron el motivo y el competidor desde su ficha. Agregarlos es trabajo de una sola vez.',
+      'Agregarlos es trabajo de una sola vez.',
     evidencia: [capFicha],
   });
 });

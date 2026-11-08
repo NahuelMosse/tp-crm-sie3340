@@ -3,7 +3,9 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 0,
-  "justificacion": "La ficha del asegurado trae un historial de actividades con acciones para registrar una llamada o una reunión sin salir de ella. Se registraron las dos, con un minuto de diferencia, y el historial las muestra ordenadas por fecha, la más reciente primero, cada una con su responsable y con quién la cargó. Viene de fábrica. Es lo que permite que cualquiera que atienda al asegurado sepa qué se habló antes.",
+  "comoLoHace": "Se registraron las dos, con un minuto de diferencia, y el historial las muestra ordenadas por fecha, la más reciente primero, cada una con su responsable y con quién la cargó.",
+  "caracteristicas": "La ficha del asegurado trae un historial de actividades con acciones para registrar una llamada o una reunión sin salir de ella.",
+  "justificacion": "Viene de fábrica. Es lo que permite que cualquiera que atienda al asegurado sepa qué se habló antes.",
   "evidencia": [
     "A-3-2-espocrm-1-bitacora.png"
   ],
@@ -12,5 +14,5 @@
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-09-28T19:11:14.993Z"
+  "momento": "2026-10-30T04:25:17.459Z"
 }

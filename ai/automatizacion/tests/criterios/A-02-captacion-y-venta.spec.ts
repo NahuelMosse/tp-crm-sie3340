@@ -85,11 +85,14 @@ test('A.2.1 — Registro del solicitante con sus datos de contacto', async ({ pa
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      'Se registró un solicitante con todos esos datos, que se guardaron completos, y se lo recuperó ' +
+      'buscando su apellido desde el listado.',
+    caracteristicas:
+      'El producto trae una entidad para quien todavía no contrató —el posible cliente— con nombre, ' +
+      'teléfono, correo y domicilio desglosado en calle, ciudad, provincia, código postal y país.',
     justificacion:
-      'El producto trae una entidad para quien todavía no contrató —el posible cliente— con nombre, teléfono, ' +
-      'correo y domicilio desglosado en calle, ciudad, provincia, código postal y país. Se registró un ' +
-      'solicitante con todos esos datos, que se guardaron completos, y se lo recuperó buscando su apellido desde ' +
-      'el listado. Viene listo con la instalación, sin configurar nada.',
+      'Viene listo con la instalación, sin configurar nada.',
     evidencia: [capAlta, capBusqueda],
   });
 });
@@ -152,12 +155,16 @@ test('A.2.3 — Conversión del solicitante en oportunidad de venta', async ({ p
     plataforma,
     cumple: 2,
     costo: 0,
-    justificacion:
+    comoLoHace:
+      'Los datos ya cargados pasaron solos: el formulario de conversión trajo el nombre escrito, y el ' +
+      'asegurado quedó con el mismo correo, teléfono y domicilio del solicitante, sin volver a tipearlos. ' +
+      'Solo se completó lo que el solicitante no tenía —monto y fecha de cierre de la venta—. El ' +
+      'solicitante quedó marcado como convertido y la oportunidad, ligada al asegurado.',
+    caracteristicas:
       'La ficha del solicitante trae la acción de convertir, que crea en un solo paso el asegurado y la ' +
-      'oportunidad de venta. Los datos ya cargados pasaron solos: el formulario de conversión trajo el nombre ' +
-      'escrito, y el asegurado quedó con el mismo correo, teléfono y domicilio del solicitante, sin volver a ' +
-      'tipearlos. Solo se completó lo que el solicitante no tenía —monto y fecha de cierre de la venta—. El ' +
-      'solicitante quedó marcado como convertido y la oportunidad, ligada al asegurado. Viene listo de fábrica.',
+      'oportunidad de venta.',
+    justificacion:
+      'Viene listo de fábrica.',
     evidencia: [capConversion, capAsegurado],
   });
 });
@@ -228,13 +235,17 @@ test('A.2.4 — Embudo de oportunidades con etapas', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      'Desde la ficha del asegurado, su panel de oportunidades crea una nueva ya ligada a él. La ' +
+      'oportunidad se hizo avanzar de calificación a propuesta, a negociación y a cerrada ganada: el ' +
+      'sistema ajustó la probabilidad en cada paso, terminó en el cien por ciento, y la historia de la ' +
+      'ficha conserva el recorrido completo.',
+    caracteristicas:
+      `El embudo viene definido de fábrica con ${stage.options.length} etapas y una probabilidad de cierre ` +
+      'asociada a cada una.',
     justificacion:
-      'Desde la ficha del asegurado, su panel de oportunidades crea una nueva ya ligada a él. El embudo viene ' +
-      `definido de fábrica con ${stage.options.length} etapas y una probabilidad de cierre asociada a cada una. ` +
-      'La oportunidad se hizo avanzar de calificación a propuesta, a negociación y a cerrada ganada: el sistema ' +
-      'ajustó la probabilidad en cada paso, terminó en el cien por ciento, y la historia de la ficha conserva ' +
-      'el recorrido completo. Las etapas se pueden renombrar para que sigan el proceso comercial de la ' +
-      'compañía, pero tal como vienen ya lo resuelven.',
+      'Las etapas se pueden renombrar para que sigan el proceso comercial de la compañía, pero tal como ' +
+      'vienen ya lo resuelven.',
     evidencia: [capAlta, capCierre],
     medicion: `Recorrido conservado: ${recorrido.join(' → ')}`,
   });
@@ -310,14 +321,19 @@ test('A.2.6 — Oportunidades de cambio y ampliación sobre la cartera', async (
     plataforma,
     cumple: 1,
     costo: 2,
-    justificacion:
+    comoLoHace:
       'El conjunto de los próximos a vencer sale directo: el listado de pólizas filtrado por vencimiento en ' +
-      'treinta días muestra cada póliza con su titular. El otro conjunto no: el listado de asegurados no admite ' +
-      'condiciones sobre el ramo de sus pólizas, y el de pólizas filtra una por una. Para obtener a los que ' +
-      'tienen automotor y no hogar hay que sacar los dos listados y cruzarlos por fuera del sistema, trabajo ' +
-      'que se repite cada vez que el área comercial arma una campaña de ampliación. El módulo de informes que ' +
-      'vende el fabricante resuelve ese cruce con condiciones de pertenencia y de exclusión sobre los registros ' +
-      'relacionados.',
+      'treinta días muestra cada póliza con su titular. Para obtener a los que tienen automotor y no hogar ' +
+      'hay que sacar los dos listados y cruzarlos por fuera del sistema, trabajo que se repite cada vez que ' +
+      'el área comercial arma una campaña de ampliación.',
+    caracteristicas:
+      'El otro conjunto no: el listado de asegurados no admite condiciones sobre el ramo de sus pólizas, y ' +
+      'el de pólizas filtra una por una.',
+    justificacion:
+      'El conjunto de los próximos a vencer sale directo del listado filtrado, pero obtener a los que tienen ' +
+      'automotor y no hogar exige sacar los dos listados y cruzarlos por fuera del sistema, trabajo que se ' +
+      'repite en cada campaña de ampliación. El módulo de informes que vende el fabricante resuelve ese cruce con condiciones de pertenencia y de ' +
+      'exclusión sobre los registros relacionados.',
     evidencia: [capAutomotor, capHogar, capVencer, capCondiciones],
     documentacion: fuentes,
     conPlan: [
@@ -443,13 +459,17 @@ test('A.2.5 — Embudos diferenciados por ramo', async ({ page }, info) => {
       plataforma,
       cumple: 2,
       costo: 1,
-      justificacion:
-        'Los embudos múltiples vienen en el producto y se habilitan por entidad, con una casilla de su ' +
-        'configuración. Se creó un segundo embudo para los seguros de personas desde su propia pantalla, y su ' +
-        'panel de etapas permitió adaptarlas al ramo: la calificación pasó a ser la declaración de salud, la ' +
+      comoLoHace:
+        'Se creó un segundo embudo para los seguros de personas desde su propia pantalla, y su panel de ' +
+        'etapas permitió adaptarlas al ramo: la calificación pasó a ser la declaración de salud, la ' +
         'propuesta la evaluación médica, y se quitó la negociación, que en ese ramo no existe. Quedaron ' +
         `${nombresDelNuevo.length} etapas contra las ${deFabrica.length} del embudo general. Se cargó una ` +
-        'oportunidad eligiendo ese embudo desde el formulario, y avanza por sus etapas y no por las del otro. ' +
+        'oportunidad eligiendo ese embudo desde el formulario, y avanza por sus etapas y no por las del ' +
+        'otro.',
+      caracteristicas:
+        'Los embudos múltiples vienen en el producto y se habilitan por entidad, con una casilla de su ' +
+        'configuración.',
+      justificacion:
         'Es configuración de una sola vez, sin programar.',
       evidencia: [capHabilitar, capEtapas, capAlta],
       medicion: `Embudo nuevo: ${nombresDelNuevo.join(' → ')}`,
@@ -541,12 +561,15 @@ test('A.2.2 — Calificación y priorización del solicitante', async ({ page, b
     plataforma,
     cumple: 2,
     costo: 1,
-    justificacion:
+    comoLoHace:
       'El posible cliente no trae cobertura pedida ni urgencia: se agregaron como dos campos de lista desde ' +
-      'la administración y se los ubicó en el formulario y en el listado. Se cargaron tres solicitantes en ' +
-      'desorden y, al ordenar el listado por urgencia, el sistema respetó el orden de la lista —alta, media, ' +
-      'baja— y no el alfabético, de modo que los más cercanos a contratar quedan arriba. Configuración de una ' +
-      'sola vez, sin programar.',
+      'la administración y se los ubicó en el formulario y en el listado.',
+    caracteristicas:
+      'Se cargaron tres solicitantes en desorden y, al ordenar el listado por urgencia, el sistema respetó ' +
+      'el orden de la lista —alta, media, baja— y no el alfabético, de modo que los más cercanos a ' +
+      'contratar quedan arriba.',
+    justificacion:
+      'Configuración de una sola vez, sin programar.',
     evidencia: [capOrden],
     medicion: `Orden obtenido: ${orden.join(' · ')}`,
   });

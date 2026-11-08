@@ -114,10 +114,12 @@ test('A.7.1 — Importación de contactos desde planilla de cálculo', async ({ 
     plataforma,
     cumple: deWindows === 5 ? 2 : 1,
     costo: deWindows === 5 ? 1 : 2,
-    justificacion:
+    comoLoHace:
+      'Guardada en UTF-8, la planilla ingresó completa: los cinco asegurados, cada ' +
+      'columna en su campo, con tildes y eñes intactas.',
+    caracteristicas:
       'El listado de personas tiene un asistente de importación que acepta planillas de cálculo y archivos de ' +
-      'texto separados por comas. Guardada en UTF-8, la planilla ingresó completa: los cinco asegurados, cada ' +
-      'columna en su campo, con tildes y eñes intactas. ' +
+      'texto separados por comas. ' +
       (deWindows === 5
         ? 'Guardada con la codificación predeterminada de las planillas en Windows también ingresó sin pérdida. '
         : 'Guardada con la codificación predeterminada de las planillas en Windows, el asistente leyó mal el ' +
@@ -128,10 +130,11 @@ test('A.7.1 — Importación de contactos desde planilla de cálculo', async ({ 
           'no advirtió la corrupción de las que aceptó. ') +
       `El asistente no reconoció los encabezados en español: dejó las ${deUtf.sinReconocer} columnas sin asignar ` +
       'y hubo que indicar a mano a qué campo va cada una, abriendo las partes del nombre, del correo, del teléfono ' +
-      'y del domicilio. ' + (deWindows === 5
-        ? 'Asignar las columnas es trabajo que se repite en cada importación, pero breve.'
-        : 'La necesidad queda resuelta con un procedimiento que se repite en cada importación: guardar la planilla ' +
-          'con la codificación correcta y asignar sus columnas.'),
+      'y del domicilio.',
+    justificacion: deWindows === 5
+      ? 'Asignar las columnas es trabajo que se repite en cada importación, pero breve.'
+      : 'La necesidad queda resuelta con un procedimiento que se repite en cada importación: guardar la planilla ' +
+        'con la codificación correcta y asignar sus columnas.',
     evidencia: [capWindows, capUtf8],
     medicion: `UTF-8: ${deUtf8}/5 intactos · codificación de Windows: ${deVentana}/5 ingresadas, ${deWindows}/5 intactas, ` +
       `${mezcladas} con la fila entera en el nombre · ${deUtf.sinReconocer} columnas sin reconocer`,
@@ -178,14 +181,18 @@ test('A.7.2 — Importación de contactos desde las agendas de correo', async ({
     plataforma,
     cumple: 1,
     costo: 2,
+    comoLoHace:
+      'Lo que ofrece es crear personas a partir del correo sincronizado —cada dirección externa con la ' +
+      'que se intercambian mensajes o reuniones pasa a ser un contacto—, que alcanza a quien ya ' +
+      'escribió, no a la agenda entera.',
+    caracteristicas:
+      'El sistema se conecta con las cuentas de Google y de Microsoft —en la instalación propia, ' +
+      'después de registrar sus credenciales; la evaluada ofrece solo IMAP— y con cualquier casilla ' +
+      'por IMAP, pero para sincronizar correo y calendario: no trae la agenda de contactos de ninguna.',
     justificacion:
-      'El sistema se conecta con las cuentas de Google y de Microsoft —en la instalación propia, después de ' +
-      'registrar sus credenciales; la evaluada ofrece solo IMAP— y con cualquier casilla por IMAP, pero para ' +
-      'sincronizar correo y calendario: no trae la agenda de contactos de ninguna. Lo que ofrece es crear ' +
-      'personas a partir del correo sincronizado —cada dirección externa con la que se intercambian mensajes o ' +
-      'reuniones pasa a ser un contacto—, que alcanza a quien ya escribió, no a la agenda entera. Para ' +
-      'incorporar la agenda del correo web o del gestor de escritorio hay que exportarla a un archivo y pasarlo ' +
-      'por el asistente de importación, un procedimiento que se repite cada vez que la agenda cambia.',
+      'Para incorporar la agenda del correo web o del gestor de escritorio hay que exportarla a un ' +
+      'archivo y pasarlo por el asistente de importación, un procedimiento que se repite cada vez que ' +
+      'la agenda cambia.',
     evidencia: [capCuentas],
     documentacion: fuentes,
   });
@@ -235,11 +242,14 @@ test('A.7.3 — Sincronización del correo de varios usuarios', async ({ page, b
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'El administrador tiene conectada la casilla comercial y el productor, desde su cuenta, conectó ' +
+      'la suya contra el mismo servidor de correo: cada uno ve solo la propia en su lista de cuentas, ' +
+      'y el mensaje que un asegurado le mandó al productor apareció en la ficha del asegurado.',
+    caracteristicas:
+      'Cada usuario conecta su propia casilla desde su configuración personal, por IMAP y SMTP o con ' +
+      'una cuenta de Google o Microsoft.',
     justificacion:
-      'Cada usuario conecta su propia casilla desde su configuración personal, por IMAP y SMTP o con una cuenta ' +
-      'de Google o Microsoft. El administrador tiene conectada la casilla comercial y el productor, desde su ' +
-      'cuenta, conectó la suya contra el mismo servidor de correo: cada uno ve solo la propia en su lista de ' +
-      'cuentas, y el mensaje que un asegurado le mandó al productor apareció en la ficha del asegurado. ' +
       'Configurar cada casilla es trabajo de una sola vez, y lo hace cada usuario.',
     evidencia: [capProductor, capFicha, capAdmin],
   });
@@ -276,11 +286,14 @@ test('A.7.4 — Vinculación automática del correo a la ficha', async ({ page, 
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Con la casilla comercial de la compañía conectada, un asegurado escribió desde su propia ' +
+      'dirección y el mensaje apareció en la pestaña de correos de su ficha sin que nadie lo moviera.',
+    caracteristicas:
+      'El sistema reconoció la dirección del remitente y lo vinculó con la persona que la tiene ' +
+      'cargada.',
     justificacion:
-      'Con la casilla comercial de la compañía conectada, un asegurado escribió desde su propia dirección y el ' +
-      'mensaje apareció en la pestaña de correos de su ficha sin que nadie lo moviera: el sistema reconoció la ' +
-      'dirección del remitente y lo vinculó con la persona que la tiene cargada. Conectar la casilla es trabajo ' +
-      'de una sola vez; la vinculación ocurre sola en cada mensaje.',
+      'Conectar la casilla es trabajo de una sola vez; la vinculación ocurre sola en cada mensaje.',
     evidencia: [capFicha],
   });
 });
@@ -321,12 +334,17 @@ test('A.7.5 — Formatos de intercambio aceptados', async ({ page, browser }, in
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      'Los datos entran por el asistente de importación de cada listado, que acepta ' +
+      `${aceptados.join(', ')}: ` +
+      'la planilla de cálculo se sube tal cual, sin pasarla antes a texto.',
+    caracteristicas:
+      'Salen exportando la vista del ' +
+      `listado a un archivo ${salida.toUpperCase()}, que la planilla abre directamente, y por las ` +
+      'interfaces de programación REST y GraphQL en JSON, que es el formato de intercambio entre ' +
+      'sistemas.',
     justificacion:
-      `Los datos entran por el asistente de importación de cada listado, que acepta ${aceptados.join(', ')}: ` +
-      'la planilla de cálculo se sube tal cual, sin pasarla antes a texto. Salen exportando la vista del ' +
-      `listado a un archivo ${salida.toUpperCase()}, que la planilla abre directamente, y por las interfaces de ` +
-      'programación REST y GraphQL en JSON, que es el formato de intercambio entre sistemas. Los formatos que ' +
-      'la compañía usa están cubiertos de fábrica.',
+      'Los formatos que la compañía usa están cubiertos de fábrica.',
     evidencia: [capMenu, capEntrada],
     documentacion: fuente,
     medicion: `Entrada: ${aceptados.join(', ')} · salida: .${salida} · interfaz de programación: JSON`,
@@ -360,12 +378,17 @@ test('A.7.6 — Exportación de la cartera sin pérdida de datos', async ({ page
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      'Se exportó la vista del listado de personas y se comparó el archivo con la planilla original: ' +
+      'salieron ' +
+      `las ${originales.length} filas importadas, cada una con nombre, apellido, correo y ciudad, y ` +
+      'con las tildes y eñes intactas.',
+    caracteristicas:
+      'El archivo trae todas las columnas de la vista, con los campos compuestos separados en sus ' +
+      'partes, y la marca de codificación que la planilla necesita para abrirlo sin alterar los ' +
+      'acentos.',
     justificacion:
-      'Se exportó la vista del listado de personas y se comparó el archivo con la planilla original: salieron ' +
-      `las ${originales.length} filas importadas, cada una con nombre, apellido, correo y ciudad, y con las ` +
-      'tildes y eñes intactas. El archivo trae todas las columnas de la vista, con los campos compuestos ' +
-      'separados en sus partes, y la marca de codificación que la planilla necesita para abrirlo sin alterar ' +
-      'los acentos. La exportación viene de fábrica en todos los listados.',
+      'La exportación viene de fábrica en todos los listados.',
     evidencia: [capExportacion],
     medicion: `${conservados} de ${originales.length} filas idénticas al original`,
   });

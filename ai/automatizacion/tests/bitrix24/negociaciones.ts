@@ -352,7 +352,7 @@ export async function elegirEnListaDeContacto(page: Page, etiqueta: string, valo
 export async function agregarOtraRegla(page: Page, etapa: string, grupo: string, regla: string) {
   const f = panel(page);
   const etapas = ['En desarrollo', 'Crear documentos', 'Factura', 'En progreso', 'Factura final', 'Cerrado Ganado', 'Cerrado Perdido', 'Analizar la falla'];
-  await f.locator('span.bizproc-automation-robot-btn-add').nth(etapas.indexOf(etapa)).click();
+  await f.locator('button.bizproc-automation-robot-btn-add').nth(etapas.indexOf(etapa)).click();
   await page.waitForTimeout(3000);
   const g = f.getByText(grupo, { exact: true }).last();
   await g.scrollIntoViewIfNeeded();
@@ -383,8 +383,23 @@ export async function correrAlInstante(page: Page) {
 /** Escribe en el cuadro de búsqueda del listado y confirma: deja solo lo que coincide. */
 export async function buscarEnElListado(page: Page, texto: string) {
   const caja = page.locator('.main-ui-filter-search input[type="text"]').first();
+  // Con más de mil registros en el portal la edición gratuita bloquea el buscador: se sigue con el listado como está
+  if (/limit reached|l[ií]mite/i.test(await caja.getAttribute('placeholder').catch(() => '') ?? '')) return false;
   await caja.click();
+  // La caja conserva la búsqueda anterior: se borra antes de escribir
+  await caja.press('Control+a');
+  await caja.press('Backspace');
   await caja.pressSequentially(texto, { delay: 90 });
   await caja.press('Enter');
   await page.waitForTimeout(4000);
+  return true;
+}
+
+/** Ordena el listado por la fecha de creación con un clic en su encabezado, hasta que `titulo` quede a la vista. */
+export async function ordenarPorCreacion(page: Page, titulo: string) {
+  const enlace = page.locator('a').filter({ hasText: new RegExp(`^${titulo}$`) }).filter({ visible: true }).first();
+  for (let i = 0; i < 3 && !(await enlace.isVisible().catch(() => false)); i++) {
+    await page.locator('.main-grid-head-title, .main-grid-cell-head-container').filter({ hasText: /^\s*Crea/ }).filter({ visible: true }).first().click();
+    await page.waitForTimeout(4000);
+  }
 }

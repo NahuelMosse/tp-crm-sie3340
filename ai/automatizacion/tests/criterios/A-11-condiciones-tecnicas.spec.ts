@@ -55,12 +55,16 @@ test('A.11.1 — Recursos que la compañía debe disponer para sostenerlo', asyn
     criterio: 'A.11.1',
     plataforma,
     cumple: 1,
+    comoLoHace:
+      'No exige un servidor dedicado: la instalación evaluada corre en un equipo de escritorio común, con ' +
+      `la imagen oficial de contenedores, y ocupa ${Math.round(megas)} MB de memoria con la cartera de ` +
+      'prueba cargada.',
+    caracteristicas:
+      'La edición gratuita se instala en infraestructura de la compañía: pide un servidor web, PHP y una ' +
+      'base de datos.',
     justificacion:
-      'La edición gratuita se instala en infraestructura de la compañía: pide un servidor web, PHP y una base ' +
-      'de datos. No exige un servidor dedicado: la instalación evaluada corre en un equipo de escritorio común, ' +
-      `con la imagen oficial de contenedores, y ocupa ${Math.round(megas)} MB de memoria con la cartera de ` +
-      'prueba cargada. La condición se satisface con una limitación que la compañía asume de forma permanente: ' +
-      'alguien tiene que mantener ese equipo encendido, respaldado y actualizado. El servicio en la nube del ' +
+      'La condición se satisface con una limitación que la compañía asume de forma permanente: alguien ' +
+      'tiene que mantener ese equipo encendido, respaldado y actualizado. El servicio en la nube del ' +
       'fabricante elimina esa carga.',
     evidencia: [capRequisitos],
     documentacion: [...fuentes, ...await constanciaDe(browser, ESPOCRM_CLOUD_BASIC, 'A-11-1-espocrm-nube')],
@@ -89,11 +93,14 @@ test('A.11.2 — Compatibilidad con la plataforma que la compañía usa', async 
     criterio: 'A.11.2',
     plataforma,
     cumple: 2,
-    justificacion:
+    comoLoHace:
       'Corre sobre los tres servidores web más difundidos —NGINX, Apache e IIS— y sobre los tres motores de ' +
       'base de datos libres más usados —MySQL, MariaDB y PostgreSQL—, y el fabricante publica guías de ' +
-      'instalación para Windows, macOS y Linux. Cualquiera sea la plataforma que la compañía ya administra, ' +
-      'alguna de esas combinaciones es la suya: no la obliga a incorporar una tecnología nueva para sostenerlo.',
+      'instalación para Windows, macOS y Linux.',
+    caracteristicas:
+      'Cualquiera sea la plataforma que la compañía ya administra, alguna de esas combinaciones es la suya.',
+    justificacion:
+      'No la obliga a incorporar una tecnología nueva para sostenerlo.',
     documentacion: fuentes,
   });
 });
@@ -122,14 +129,18 @@ test('A.11.3 — Puesta en marcha sin perfil técnico especializado', async ({ p
     criterio: 'A.11.3',
     plataforma,
     cumple: 1,
+    comoLoHace:
+      'La instalación evaluada se llevó de cero a operativa por esa vía. Pero no la completa alguien sin ' +
+      'perfil técnico: hay que instalar el motor de contenedores, escribir el archivo que los describe y ' +
+      'resolver cómo se conservan los datos entre reinicios, y en esta instalación montar la carpeta ' +
+      'equivocada dejó al sistema sin arrancar hasta corregirlo.',
+    caracteristicas:
+      'El fabricante ofrece una imagen oficial de contenedores que deja el sistema, el servidor web y la ' +
+      'base de datos funcionando juntos, y un asistente que completa la configuración inicial.',
     justificacion:
-      'El fabricante ofrece una imagen oficial de contenedores que deja el sistema, el servidor web y la base ' +
-      'de datos funcionando juntos, y un asistente que completa la configuración inicial. La instalación ' +
-      'evaluada se llevó de cero a operativa por esa vía. Pero no la completa alguien sin perfil técnico: hay ' +
-      'que instalar el motor de contenedores, escribir el archivo que los describe y resolver cómo se conservan ' +
-      'los datos entre reinicios, y en esta instalación montar la carpeta equivocada dejó al sistema sin ' +
-      'arrancar hasta corregirlo. Son conocimientos puntuales, guiados por la documentación, que la compañía ' +
-      'necesita tener a mano cada vez que instala o reinstala.',
+      'Instalar con la imagen oficial exige conocimientos puntuales —el motor de contenedores, el archivo que ' +
+      'los describe y la conservación de los datos—, guiados por la documentación, que la compañía necesita tener a mano ' +
+      'cada vez que instala o reinstala.',
     evidencia: [capOperativo],
     documentacion: fuentes,
     conPlan: [conPlanDe(ESPOCRM_CLOUD_BASIC, {
@@ -176,12 +187,15 @@ test('A.11.5 — Aprendizaje sin capacitación previa', async ({}, info) => {
     criterio: 'A.11.5',
     plataforma,
     cumple,
-    justificacion:
+    comoLoHace:
       'Tres agentes independientes, sin conocimiento previo de la plataforma, intentaron sin instrucción las ' +
       'cinco operaciones que un productor repite a diario —dar de alta un asegurado, cargarle una póliza, ' +
       'averiguar qué pólizas de su cartera vencen en los próximos 30 días, registrar un reclamo y agendar un ' +
-      `llamado—, operando la pantalla como lo haría una persona. Completaron ${15 - pendientes.length} de las ` +
-      'quince, según lo que quedó guardado en el sistema. ' +
+      'llamado—, operando la pantalla como lo haría una persona.',
+    caracteristicas:
+      `Completaron ${15 - pendientes.length} de las ` +
+      'quince, según lo que quedó guardado en el sistema.',
+    justificacion:
       (cumple === 2 ? 'Los tres completaron las cinco tareas.'
         : cumple === 0 ? `Ninguno logró completar la tarea ${ningunoLogra.join(' ni la ')}: ${detalle.join('; ')}.`
         : `Cada tarea la completó al menos uno, pero ${detalle.join('; ')}.` +
@@ -215,11 +229,14 @@ test('A.11.7 — Cantidad de usuarios sin límite que condicione la operación',
     criterio: 'A.11.7',
     plataforma,
     cumple: 2,
+    comoLoHace:
+      'La edición evaluada se distribuye bajo una licencia libre que no limita la cantidad de usuarios, y ' +
+      'la instalación no impone ningún tope: se dan de alta los que la compañía necesite, sea cual fuere su ' +
+      'plantel de productores y de personal administrativo.',
+    caracteristicas:
+      'El único límite es el del equipo donde corre.',
     justificacion:
-      'La edición evaluada se distribuye bajo una licencia libre que no limita la cantidad de usuarios, y la ' +
-      'instalación no impone ningún tope: se dan de alta los que la compañía necesite, sea cual fuere su ' +
-      'plantel de productores y de personal administrativo. El único límite es el del equipo donde corre. Los ' +
-      'topes que publica el fabricante corresponden a los planes de la nube, que se cobran por usuario.',
+      'Los topes que publica el fabricante corresponden a los planes de la nube, que se cobran por usuario.',
     evidencia: [capUsuarios],
     documentacion: fuente,
   });
@@ -246,14 +263,17 @@ test('A.11.9 — Ecosistema de integraciones disponible', async ({ page, browser
     criterio: 'A.11.9',
     plataforma,
     cumple: 1,
-    justificacion:
+    comoLoHace:
+      'La condición se satisface: los conectores que la compañía necesita existen y se consiguen directo ' +
+      'del fabricante.',
+    caracteristicas:
       'El catálogo oficial es corto y concentrado en lo que una oficina usa: correo de Outlook y de Google, ' +
-      'telefonía, videollamadas, cobros y campañas por correo, más una interfaz de programación y ganchos para ' +
-      'conectar lo que falte. Casi todos los conectores se venden aparte, con licencia anual que hay que ' +
-      'renovar para seguir usándolos. La condición se satisface: los conectores que la compañía necesita ' +
-      'existen y se consiguen directo del fabricante. La limitación es que cada uno suma una licencia ' +
-      'renovable, y que fuera del catálogo la integración pasa a ser trabajo propio sobre la interfaz de ' +
-      'programación.',
+      'telefonía, videollamadas, cobros y campañas por correo, más una interfaz de programación y ganchos ' +
+      'para conectar lo que falte. Casi todos los conectores se venden aparte, con licencia anual que hay ' +
+      'que renovar para seguir usándolos.',
+    justificacion:
+      'La limitación es que cada conector suma una licencia renovable, y que fuera del catálogo la integración ' +
+      'pasa a ser trabajo propio sobre la interfaz de programación.',
     evidencia: [capIntegraciones],
     documentacion: fuentes,
   });
@@ -285,11 +305,15 @@ test('A.11.10 — Documentación en español', async ({ page, browser }, info) =
     criterio: 'A.11.10',
     plataforma,
     cumple: 1,
-    justificacion:
-      'La interfaz del sistema está en español, pero la documentación oficial está publicada solo en inglés: ' +
-      'el sitio de documentación no ofrece selector de idioma ni versión en español. La necesidad se cubre ' +
-      'con reparo: quien la consulte lo hace en inglés o con traducción automática del navegador, que es un ' +
+    comoLoHace:
+      'Quien la consulte lo hace en inglés o con traducción automática del navegador, que es un ' +
       'procedimiento que se repite en cada consulta y que en la terminología técnica puede inducir a error.',
+    caracteristicas:
+      'La interfaz del sistema está en español, pero la documentación oficial está publicada solo en ' +
+      'inglés: el sitio de documentación no ofrece selector de idioma ni versión en español.',
+    justificacion:
+      'La documentación oficial está solo en inglés: se consulta con traducción automática, un paso que se ' +
+      'repite en cada consulta y que puede confundir la terminología técnica.',
     evidencia: [capPortada],
     documentacion: fuente,
   });
@@ -312,11 +336,14 @@ test('A.11.11 — Material de capacitación para el usuario final', async ({ bro
     criterio: 'A.11.11',
     plataforma,
     cumple: 2,
-    justificacion:
+    comoLoHace:
       'El fabricante publica una colección de videos de acceso libre que incluye material para quien opera ' +
-      'el sistema y no solo para quien lo administra: cuentas, contactos, prospectos, seguimiento de ' +
-      'oportunidades, calendario y actividades, importación y exportación de datos, impresión y reportes. Cubre ' +
-      'las operaciones que un productor o un administrativo repiten a diario.',
+      'el sistema y no solo para quien lo administra.',
+    caracteristicas:
+      'Cuentas, contactos, prospectos, seguimiento de oportunidades, calendario y actividades, importación ' +
+      'y exportación de datos, impresión y reportes.',
+    justificacion:
+      'Cubre las operaciones que un productor o un administrativo repiten a diario.',
     documentacion: fuentes,
   });
 });
@@ -350,13 +377,16 @@ test('A.11.12 — Comunidad activa de usuarios', async ({ browser }, info) => {
     criterio: 'A.11.12',
     plataforma,
     cumple: tipica.valor,
-    justificacion:
+    comoLoHace:
       `Se tomaron las ${CONSULTAS} consultas más recientes de la sección de uso general del foro oficial que ya ` +
-      `tenían más de una semana de publicadas. En ${cuantas(2)} otro usuario respondió dentro de la semana y quien ` +
+      'tenían más de una semana de publicadas.',
+    caracteristicas:
+      `En ${cuantas(2)} otro usuario respondió dentro de la semana y quien ` +
       `consultó confirmó después que la respuesta le había servido; en ${cuantas(1)} hubo respuesta, pero llegó ` +
       `más tarde o sin que el autor confirmara que lo resolvía; ` +
       (cuantas(0) ? `${cuantas(0)} no recibieron respuesta. ` : 'ninguna quedó sin respuesta. ') +
-      (medianaHoras !== undefined ? `La primera respuesta llegó, en el caso típico, a ${tiempo(medianaHoras)}. ` : '') +
+      (medianaHoras !== undefined ? `La primera respuesta llegó, en el caso típico, a ${tiempo(medianaHoras)}.` : ''),
+    justificacion:
       (tipica.valor === 2 ? 'La consulta típica se resuelve dentro de la semana.'
         : tipica.valor === 1 ? 'La consulta típica recibe respuesta, pero no queda constancia de que se resuelva dentro de la semana: ' +
           'la compañía puede contar con que alguien conteste, no con que la conteste a tiempo y a su medida.'
@@ -385,12 +415,14 @@ test('A.11.13 — Soporte técnico con compromiso de respuesta', async ({ browse
     criterio: 'A.11.13',
     plataforma,
     cumple: 0,
+    comoLoHace:
+      'La oferta de soporte del fabricante tiene tres canales y ninguno compromete un plazo: la asistencia ' +
+      'paga se cobra por hora y se presta por correo, web y teléfono sin tiempo de respuesta garantizado; ' +
+      'el servicio en la nube declara una cobertura de doce horas cinco días a la semana, que es un horario ' +
+      'de atención y no un plazo; y el soporte gratuito es el foro de la comunidad.',
     justificacion:
-      'La oferta de soporte del fabricante tiene tres canales y ninguno compromete un plazo: la asistencia paga ' +
-      'se cobra por hora y se presta por correo, web y teléfono sin tiempo de respuesta garantizado; el servicio ' +
-      'en la nube declara una cobertura de doce horas cinco días a la semana, que es un horario de atención y no ' +
-      'un plazo; y el soporte gratuito es el foro de la comunidad. La condición que la compañía necesita —saber ' +
-      'en cuánto tiempo le van a responder cuando el sistema falle— no la ofrece ninguna modalidad.',
+      'La condición que la compañía necesita —saber en cuánto tiempo le van a responder cuando el sistema ' +
+      'falle— no la ofrece ninguna modalidad.',
     documentacion: fuentes,
   });
 });
@@ -414,11 +446,13 @@ test('A.11.14 — Continuidad de las versiones en uso', async ({ browser }, info
     criterio: 'A.11.14',
     plataforma,
     cumple: 0,
+    comoLoHace:
+      'El fabricante no publica por cuánto tiempo corrige una versión: no hay política de soporte por ' +
+      'versión ni versiones de soporte extendido. Lo que la documentación oficial indica es actualizar ' +
+      'apenas sale una versión nueva, lo que equivale a sostener solo la última.',
     justificacion:
-      'El fabricante no publica por cuánto tiempo corrige una versión: no hay política de soporte por versión ' +
-      'ni versiones de soporte extendido. Lo que la documentación oficial indica es actualizar apenas sale una ' +
-      'versión nueva, lo que equivale a sostener solo la última. La compañía no puede fijar la actualización en ' +
-      'su plan anual: tiene que seguir el ritmo del fabricante para seguir recibiendo correcciones.',
+      'La compañía no puede fijar la actualización en su plan anual: tiene que seguir el ritmo del ' +
+      'fabricante para seguir recibiendo correcciones.',
     documentacion: fuente,
   });
 });
@@ -475,12 +509,16 @@ test('A.11.4 — Menú y navegabilidad para la operación diaria', async ({ page
     criterio: 'A.11.4',
     plataforma,
     cumple: 2,
-    justificacion:
+    comoLoHace:
       'Desde el ingreso, el menú lleva directo a asegurados, y de ahí al alta. Guardado el asegurado, la ' +
-      'póliza se carga desde su propia ficha, en el panel de sus pólizas, sin salir de ella y ya ligada a él. ' +
+      'póliza se carga desde su propia ficha, en el panel de sus pólizas, sin salir de ella y ya ligada a ' +
+      'él.',
+    caracteristicas:
       `El recorrido completo pasó por ${pantallas.length} pantallas sin volver sobre ninguna y llevó ` +
-      `${segundos} segundos. La póliza, que es una entidad creada por la compañía, figura en el menú dentro ` +
-      'del grupo desplegable; el orden del menú se ajusta desde la administración.',
+      `${segundos} segundos.`,
+    justificacion:
+      'La póliza, que es una entidad creada por la compañía, figura en el menú dentro del grupo ' +
+      'desplegable; el orden del menú se ajusta desde la administración.',
     evidencia: [capFinal],
     medicion: `${pantallas.length} pantallas, ninguna revisitada, ${segundos} s`,
   });
@@ -520,15 +558,19 @@ test('A.11.6 — Localización completa al español, modelo incluido', async ({ 
     criterio: 'A.11.6',
     plataforma,
     cumple: unicas.length ? 1 : 2,
-    justificacion: unicas.length
+    comoLoHace: 'Se recorrieron el menú principal y la ficha del asegurado, con los campos del modelo y los que ' +
+      'agregó la compañía.',
+    caracteristicas: unicas.length
       ? 'El menú principal y la ficha del asegurado están en español, incluidos los campos del modelo y los ' +
         'que agregó la compañía. Queda en inglés la palabra "Ticket" para el caso de atención, que se entiende ' +
         'pero no es la que usa una aseguradora, y algunas traducciones son literales —"Posibles clientes", ' +
         '"Historia" para el registro de actividad—. Fuera del recorrido pedido, en los filtros de fecha la ' +
-        'opción que significa "con algún valor" quedó traducida como "Nunca", que dice lo contrario. Se ' +
-        'entiende en conjunto, con salvedades que la compañía puede corregir renombrando las etiquetas.'
+        'opción que significa "con algún valor" quedó traducida como "Nunca", que dice lo contrario.'
       : 'El menú principal y la ficha del asegurado están enteramente en español, incluidos los campos del ' +
         'modelo y los que agregó la compañía.',
+    justificacion: unicas.length
+      ? 'Se entiende en conjunto, con salvedades que la compañía puede corregir renombrando las etiquetas.'
+      : 'Todo lo que el personal ve en la operación diaria está en su idioma, sin nada que corregir.',
     evidencia: [capMenu, capFicha],
     medicion: `Palabras en inglés en el recorrido: ${unicas.join(', ') || 'ninguna'}`,
   });
@@ -608,15 +650,17 @@ test('A.11.8 — Operación concurrente sobre la misma cartera', async ({ browse
     criterio: 'A.11.8',
     plataforma,
     cumple: 2,
-    justificacion:
+    comoLoHace:
       'Tres usuarios abrieron a la vez la misma póliza y guardaron un cambio cada uno. Tal como viene la ' +
-      'entidad creada por la compañía, el sistema aceptó los tres guardados sin advertir el conflicto: quedó ' +
-      `"${deFabrica.final}" y los cambios anteriores se perdieron sin aviso. El producto trae un control de ` +
-      'concurrencia que las entidades de atención, ventas y cuentas tienen activado de fábrica, y que en las ' +
-      'entidades propias se activa con una casilla de su configuración. Activado, los guardados posteriores ' +
-      `recibieron el aviso de que otro usuario había modificado el registro (${advertidos} avisos) y nadie ` +
-      'pisó el trabajo de otro sin saberlo. La condición se satisface, con la precaución de activar el control ' +
-      'en cada entidad propia.',
+      'entidad creada por la compañía, el sistema aceptó los tres guardados sin advertir el conflicto: ' +
+      `quedó "${deFabrica.final}" y los cambios anteriores se perdieron sin aviso. Activado, los guardados ` +
+      `posteriores recibieron el aviso de que otro usuario había modificado el registro (${advertidos} ` +
+      'avisos) y nadie pisó el trabajo de otro sin saberlo.',
+    caracteristicas:
+      'El producto trae un control de concurrencia que las entidades de atención, ventas y cuentas tienen ' +
+      'activado de fábrica, y que en las entidades propias se activa con una casilla de su configuración.',
+    justificacion:
+      'La condición se satisface, con la precaución de activar el control en cada entidad propia.',
     evidencia: [deFabrica.captura, conControl.captura],
     medicion: `Sin control: quedó «${deFabrica.final}» sin aviso · con control: ${advertidos} avisos`,
   });

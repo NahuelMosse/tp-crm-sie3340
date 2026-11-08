@@ -3,7 +3,9 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 1,
-  "justificacion": "Al marcar una oportunidad como perdida, el sistema conserva por su cuenta la etapa en la que se perdió —negociación, en este caso—. El motivo y el competidor que la ganó no vienen de fábrica: se agregaron como dos campos de la oportunidad desde la administración, una lista de motivos y el nombre del competidor, y quedaron registrados junto con la pérdida. Con eso la compañía puede saber por qué pierde ventas y contra quién.",
+  "comoLoHace": "El motivo y el competidor que la ganó no vienen de fábrica: se agregaron como dos campos de la oportunidad desde la administración, una lista de motivos y el nombre del competidor, y quedaron registrados junto con la pérdida.",
+  "caracteristicas": "Al marcar una oportunidad como perdida, el sistema conserva por su cuenta la etapa en la que se perdió —negociación, en este caso—.",
+  "justificacion": "Con eso la compañía puede saber por qué pierde ventas y contra quién.",
   "evidencia": [
     "A-4-7-espocrm-1-perdida-con-motivo.png"
   ],

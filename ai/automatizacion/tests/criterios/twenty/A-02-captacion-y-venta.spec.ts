@@ -75,12 +75,15 @@ test('A.2.1 — Registro del solicitante con sus datos de contacto', async ({ pa
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Twenty no tiene una entidad para quien todavía no contrató: el solicitante se registra como una ' +
+      'persona, igual que el asegurado. Se cargó una solicitante con todos esos datos desde su ficha y ' +
+      'la búsqueda general la encontró por su nombre.',
+    caracteristicas:
+      'La persona trae nombre, correos y teléfonos con su código de país, pero no domicilio: se agregó ' +
+      'un campo de dirección, desglosado en calle, ciudad, provincia, código postal y país.',
     justificacion:
-      'Twenty no tiene una entidad para quien todavía no contrató: el solicitante se registra como una persona, ' +
-      'igual que el asegurado. La persona trae nombre, correos y teléfonos con su código de país, pero no ' +
-      'domicilio: se agregó un campo de dirección, desglosado en calle, ciudad, provincia, código postal y país. ' +
-      'Se cargó una solicitante con todos esos datos desde su ficha y la búsqueda general la encontró por su ' +
-      'nombre. Agregar el domicilio es trabajo de una sola vez.',
+      'Agregar el domicilio es trabajo de una sola vez.',
     evidencia: [capFicha, capBusqueda],
   });
 });
@@ -135,11 +138,15 @@ test('A.2.2 — Calificación y priorización del solicitante', async ({ page },
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'La persona no trae cobertura pedida ni urgencia: se agregaron como dos campos de lista desde el ' +
+      'modelo de datos. Se cargaron tres solicitantes en desorden y, al ordenar el listado por ' +
+      'urgencia, quedaron en el orden de las opciones ' +
+      `—${porPosicion ? 'primero la alta, después la media y al final la baja' : 'de la baja a la alta, y con un clic se invierte'}—, ` +
+      'no alfabético: el orden sale de cómo se definió la lista.',
+    caracteristicas:
+      'El orden se puede guardar en una vista.',
     justificacion:
-      'La persona no trae cobertura pedida ni urgencia: se agregaron como dos campos de lista desde el modelo de ' +
-      'datos. Se cargaron tres solicitantes en desorden y, al ordenar el listado por urgencia, quedaron en el ' +
-      `orden de las opciones —${porPosicion ? 'primero la alta, después la media y al final la baja' : 'de la baja a la alta, y con un clic se invierte'}—, ` +
-      'no alfabético: el orden sale de cómo se definió la lista. El orden se puede guardar en una vista. ' +
       'Definir los dos campos es trabajo de una sola vez.',
     evidencia: [capFicha, capOrden],
   });
@@ -203,13 +210,18 @@ test('A.2.3 — Conversión del solicitante en oportunidad de venta', async ({ p
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Con un flujo de trabajo que se lanza a mano sobre la persona se armó esa acción, sin escribir ' +
+      'código: crea la oportunidad con la cobertura que pidió el solicitante y lo deja como su ' +
+      'contacto. Desde la ficha de la solicitante, la acción aparece en el menú de comandos; al ' +
+      'lanzarla se creó la oportunidad ' +
+      `con la cobertura cargada —«${oportunidad.name}»: el flujo toma el valor interno de la lista, no ` +
+      'su etiqueta— y vinculada a ella, sin volver a escribir nada.',
+    caracteristicas:
+      'Twenty no trae una acción de convertir al solicitante: la persona y la oportunidad son ' +
+      'registros separados.',
     justificacion:
-      'Twenty no trae una acción de convertir al solicitante: la persona y la oportunidad son registros ' +
-      'separados. Con un flujo de trabajo que se lanza a mano sobre la persona se armó esa acción, sin escribir ' +
-      'código: crea la oportunidad con la cobertura que pidió el solicitante y lo deja como su contacto. Desde ' +
-      'la ficha de la solicitante, la acción aparece en el menú de comandos; al lanzarla se creó la oportunidad ' +
-      `con la cobertura cargada —«${oportunidad.name}»: el flujo toma el valor interno de la lista, no su ` +
-      'etiqueta— y vinculada a ella, sin volver a escribir nada. Armar la acción es trabajo de una sola vez.',
+      'Armar la acción es trabajo de una sola vez.',
     evidencia: [capFlujo, capConvertido],
   });
 });
@@ -278,13 +290,17 @@ test('A.2.4 — Embudo de oportunidades con etapas', async ({ page, browser }, i
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      'Desde la ficha del asegurado, su sección de oportunidades crea una nueva ya ligada a él como ' +
+      'contacto. La oportunidad se hizo avanzar etapa por etapa desde su ficha hasta la última, y el ' +
+      'historial registró el avance —los cambios hechos seguidos por la misma persona se agrupan en ' +
+      'una sola entrada—.',
+    caracteristicas:
+      `El embudo viene definido de fábrica con ${etapas.length} etapas —${etapas.join(', ')}— y una ` +
+      'vista de tablero por etapa.',
     justificacion:
-      'Desde la ficha del asegurado, su sección de oportunidades crea una nueva ya ligada a él como contacto. ' +
-      `El embudo viene definido de fábrica con ${etapas.length} etapas —${etapas.join(', ')}— y una vista de ` +
-      'tablero por etapa. La oportunidad se hizo avanzar etapa por etapa desde su ficha hasta la última, y el ' +
-      'historial registró el avance —los cambios hechos seguidos por la misma persona se agrupan en una sola ' +
-      'entrada—. Viene listo, aunque las etapas vienen con nombres en inglés y de una venta genérica: ' +
-      'adaptarlas al seguro es configuración.',
+      'Viene listo, aunque las etapas vienen con nombres en inglés y de una venta genérica: adaptarlas ' +
+      'al seguro es configuración.',
     evidencia: [capFicha],
     medicion: `${etapas.length} etapas recorridas; ${cambiosDeEtapa} entrada(s) de cambio de etapa en el historial`,
   });
@@ -358,13 +374,17 @@ test('A.2.5 — Embudos diferenciados por ramo', async ({ page, browser }, info)
     plataforma,
     cumple: 1,
     costo: 2,
+    comoLoHace:
+      'Un segundo embudo se arma con un segundo campo de lista —para los seguros de personas: ' +
+      'cotización, examen médico, emisión— y un tablero agrupado por él; se hizo así y la oportunidad ' +
+      'quedó ubicada en el segundo embudo.',
+    caracteristicas:
+      'Twenty tiene un solo embudo por objeto: las etapas de la oportunidad son un campo de lista, y ' +
+      'el tablero agrupa por ese campo. Pero las dos listas conviven en todas las oportunidades: nada ' +
+      'impide que una oportunidad de automotor tenga etapa de vida, ni separa qué embudo sigue cada ' +
+      'una.',
     justificacion:
-      'Twenty tiene un solo embudo por objeto: las etapas de la oportunidad son un campo de lista, y el tablero ' +
-      'agrupa por ese campo. Un segundo embudo se arma con un segundo campo de lista —para los seguros de ' +
-      'personas: cotización, examen médico, emisión— y un tablero agrupado por él; se hizo así y la oportunidad ' +
-      'quedó ubicada en el segundo embudo. Pero las dos listas conviven en todas las oportunidades: nada impide ' +
-      'que una oportunidad de automotor tenga etapa de vida, ni separa qué embudo sigue cada una. Mantener esa ' +
-      'separación queda a cargo de quien carga la oportunidad, en cada alta.',
+      'Mantener esa separación queda a cargo de quien carga la oportunidad, en cada alta.',
     evidencia: [capTablero],
   });
 });
@@ -435,12 +455,15 @@ test('A.2.6 — Oportunidades de cambio y ampliación sobre la cartera', async (
     plataforma,
     cumple: 1,
     costo: 2,
+    comoLoHace:
+      'El conjunto de los próximos a vencer sale directo: el listado de pólizas filtrado por ' +
+      'vencimiento en los próximos treinta días muestra cada póliza con su titular.',
+    caracteristicas:
+      'El otro conjunto no: el filtro del listado de asegurados solo ofrece sus propios campos, no las ' +
+      'pólizas que tiene, así que «tiene automotor y no hogar» no se puede preguntar.',
     justificacion:
-      'El conjunto de los próximos a vencer sale directo: el listado de pólizas filtrado por vencimiento en ' +
-      'los próximos treinta días muestra cada póliza con su titular. El otro conjunto no: el filtro del listado ' +
-      'de asegurados solo ofrece sus propios campos, no las pólizas que tiene, así que «tiene automotor y no ' +
-      'hogar» no se puede preguntar. Se obtiene filtrando las pólizas por cada ramo y comparando a mano las dos ' +
-      'listas de titulares, cada vez que se quiere armar la oferta.',
+      'Se obtiene filtrando las pólizas por cada ramo y comparando a mano las dos listas de titulares, ' +
+      'cada vez que se quiere armar la oferta.',
     evidencia: [capAsegurados, capProximas],
     medicion: `${proximas} pólizas próximas a vencer`,
   });

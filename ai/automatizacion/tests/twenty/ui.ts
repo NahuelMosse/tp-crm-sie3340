@@ -11,7 +11,7 @@ import { listado, ficha, configuracion, modeloDe, pestana } from './navegar';
  * módulo mueven el ratón hasta el control y hacen clic ahí, como una persona.
  */
 
-export const BASE = 'http://localhost:8704';
+export const BASE = process.env.TWENTY_URL ?? 'http://localhost:8704';
 
 /** Clic con el ratón en el centro del elemento. */
 export async function clicReal(page: Page, objetivo: Locator) {

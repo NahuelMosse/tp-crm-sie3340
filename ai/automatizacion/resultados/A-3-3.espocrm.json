@@ -3,7 +3,9 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 0,
-  "justificacion": "Al ingresar con la cuenta del productor, su página de inicio muestra sus próximas actividades —la visita agendada para el día siguiente figura ahí— y el calendario reúne reuniones, llamadas y tareas en vistas por día, semana y mes. Cada productor ve lo suyo sin preparar nada: el tablero y el calendario vienen de fábrica, y cada uno puede sumar a su inicio sus tareas, sus casos o sus oportunidades.",
+  "comoLoHace": "Al ingresar con la cuenta del productor, su página de inicio muestra sus próximas actividades —la visita agendada para el día siguiente figura ahí— y el calendario reúne reuniones, llamadas y tareas en vistas por día, semana y mes.",
+  "caracteristicas": "Cada productor ve lo suyo sin preparar nada.",
+  "justificacion": "El tablero y el calendario vienen de fábrica, y cada uno puede sumar a su inicio sus tareas, sus casos o sus oportunidades.",
   "evidencia": [
     "A-3-3-espocrm-1-inicio-del-productor.png",
     "A-3-3-espocrm-2-calendario.png"
@@ -12,5 +14,5 @@
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-09-28T19:12:19.437Z"
+  "momento": "2026-10-30T04:26:06.680Z"
 }

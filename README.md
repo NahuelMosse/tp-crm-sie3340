@@ -46,10 +46,10 @@ Se regenera con `node generar-doc.mjs ../..` desde `ai/automatizacion/`. Lee los
 | `03-metodologia-y-trazabilidad.md` | Las dos escalas, la ponderación y cómo se verificó cada punto | ✅ |
 | `04-criterios-de-analisis.md` | El catálogo de criterios con su procedimiento de verificación | ✅ |
 | `05-matriz-de-veredictos.md` | Cada criterio × 3 plataformas | 🔄 generado |
-| `06-analisis-por-categoria.md` | Cada criterio con su veredicto y justificación | 🔄 generado |
-| `07-por-plataforma.md` | Fortalezas y limitaciones de cada una | ⬜ |
-| `08-conclusiones.md` | Propuesta, polinomio de valor y esquema de decisión | ⬜ |
-| `09-fuentes.md` | Documentación consultada | ⬜ |
+| `06-detalle-por-requerimiento.md` | Cada criterio: qué resuelve, cómo lo hace, características y justificación | 🔄 generado |
+| `07-analisis.md` | Lectura de la tabla y fortalezas y debilidades de cada plataforma | ✏️ borrador |
+| `08-conclusiones.md` | Conclusión, una carilla como máximo | ✏️ borrador |
+| `09-fuentes.md` | Documentación consultada | 🔄 generado |
 
 > Las dos marcadas 🔄 las produce `ai/automatizacion/generar-matriz.mjs` desde los resultados de las pruebas. Editarlas a mano se pierde en la próxima corrida.
 
@@ -75,10 +75,10 @@ docker compose up -d                          # EspoCRM y su base
 npx playwright test --project=espocrm         # evalúa los criterios sobre una plataforma
 $env:NARRAR="1"; npx playwright test          # video didáctico con carteles
 node verificar-resultados.mjs                 # controla los veredictos y muestra el avance
-node generar-matriz.mjs ../..                 # secciones 5 y 6 del informe
+node generar-matriz.mjs ../..                 # secciones 5, 6 y 9 del informe
 node generar-trazabilidad.mjs ../..           # de dónde salió cada criterio
 node generar-doc.mjs ../..                    # rearma la documentación HTML
-node exportar-informe.mjs ../..               # arma el entregable en humanos/entregas/
+python exportar-informe.py ../..             # arma el entregable en humanos/entregas/
 ```
 
 Un archivo de prueba por grupo de criterios, en `tests/criterios/`. Cada veredicto
@@ -154,17 +154,16 @@ Las dos primeras corren en Docker en una máquina del grupo; no son públicas.
 
 ## Exportar el informe
 
-Desde `ai/automatizacion/`:
+Desde `ai/automatizacion/`, con Word y `python-docx` instalados:
 
 ```bash
-node exportar-informe.mjs ../..              # informe completo
-node exportar-informe.mjs ../.. --hasta 4    # solo hasta la seccion 4
+python exportar-informe.py ../..
 ```
 
-El PDF queda en `humanos/entregas/` y se versiona: es lo que se entrega. El `.docx` es
-intermedio y no se versiona. El PDF lo produce LibreOffice; si no esta instalado, queda el `.docx`
-para abrir en Word y guardar desde ahi.
+Arma el informe con el formato de los informes de análisis del equipo: carátula, índice con
+páginas, resumen ejecutivo, tablas con encabezado oscuro, la matriz con un rótulo por grupo y
+las fuentes numeradas, a las que remiten las citas de la sección 6. Word rellena el índice y
+exporta el PDF a `humanos/entregas/`, que se versiona: es lo que se entrega. El `.docx` queda en
+la raíz y no se versiona.
 
-El indice se arma leyendo los titulos de cada seccion, asi que nunca queda desactualizado. No lleva
-numeros de pagina: el indice automatico de pandoc es un campo de Word que solo se rellena al abrir
-el archivo en Word, y convertido a PDF sale vacio.
+El formato vive en el script y el texto en `humanos/informe/`: lo que se corrige es el markdown.

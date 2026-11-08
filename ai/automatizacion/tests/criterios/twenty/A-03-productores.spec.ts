@@ -49,12 +49,15 @@ test('A.3.1 — Registro de productores y asignación de cartera', async ({ page
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'El productor se suma como usuario del espacio de trabajo con el enlace de invitación, desde la ' +
+      'pantalla de miembros: se registra con su correo y su clave, y queda con su propia cuenta. Se ' +
+      'marcaron tres asegurados en el listado y, con la actualización masiva, se los dejó a cargo del ' +
+      'productor de una sola vez.',
+    caracteristicas:
+      'La persona no trae un responsable: se le agregó al modelo una relación con los usuarios.',
     justificacion:
-      'El productor se suma como usuario del espacio de trabajo con el enlace de invitación, desde la pantalla ' +
-      'de miembros: se registra con su correo y su clave, y queda con su propia cuenta. La persona no trae un ' +
-      'responsable: se le agregó al modelo una relación con los usuarios. Se marcaron tres asegurados en el ' +
-      'listado y, con la actualización masiva, se los dejó a cargo del productor de una sola vez. Agregar el ' +
-      'responsable es trabajo de una sola vez.',
+      'Agregar el responsable es trabajo de una sola vez.',
     evidencia: [capMiembros, capSeleccion, capAsignados],
   });
 });
@@ -106,12 +109,15 @@ test('A.3.2 — Bitácora de la actividad con el cliente', async ({ page, browse
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      'Twenty no distingue llamadas de reuniones —las reuniones solo llegan sincronizando un ' +
+      'calendario externo—, así que cada actividad se registró como una nota desde la pestaña de notas ' +
+      'de la ficha. Las dos quedaron en el historial del asegurado, en orden de fecha y cada una con ' +
+      'su autor y su hora.',
+    caracteristicas:
+      'La ficha del asegurado tiene notas y un historial.',
     justificacion:
-      'La ficha del asegurado tiene notas y un historial. Twenty no distingue llamadas de reuniones —las ' +
-      'reuniones solo llegan sincronizando un calendario externo—, así que cada actividad se registró como una ' +
-      'nota desde la pestaña de notas de la ficha. Las dos quedaron en el historial del asegurado, en orden de ' +
-      'fecha y cada una con su autor y su hora. Viene listo; el tipo de actividad queda en el título que escribe ' +
-      'quien la registra.',
+      'Viene listo; el tipo de actividad queda en el título que escribe quien la registra.',
     evidencia: [capHistorial],
   });
 });
@@ -155,11 +161,15 @@ test('A.3.3 — Agenda y carga de trabajo del productor', async ({ page, browser
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      'Al ingresar con la cuenta del productor, las tareas traen de fábrica una vista de las asignadas ' +
+      'a él: ahí figuran sus pendientes con la fecha comprometida —la visita de mañana y la cotización ' +
+      'de la semana—.',
+    caracteristicas:
+      'Las tareas admiten además una vista de calendario por fecha de vencimiento. Las reuniones ' +
+      'agendadas aparecen en la ficha solo si el productor conecta su calendario externo.',
     justificacion:
-      'Al ingresar con la cuenta del productor, las tareas traen de fábrica una vista de las asignadas a él: ' +
-      'ahí figuran sus pendientes con la fecha comprometida —la visita de mañana y la cotización de la semana—. ' +
-      'Las tareas admiten además una vista de calendario por fecha de vencimiento. Las reuniones agendadas ' +
-      'aparecen en la ficha solo si el productor conecta su calendario externo. Viene listo.',
+      'Viene listo.',
     evidencia: [capPendientes],
   });
 });
@@ -202,12 +212,15 @@ test('A.3.4 — Proyección de los movimientos comerciales', async ({ page, brow
     plataforma,
     cumple: 1,
     costo: 2,
+    comoLoHace:
+      'Los tableros suman los montos por etapa y por fecha de cierre, de modo que muestran cuánto hay ' +
+      'en juego en cada período, pero no el total ponderado por la probabilidad de cerrarlo.',
+    caracteristicas:
+      'Las oportunidades tienen monto y fecha de cierre, pero no probabilidad, y el modelo no admite ' +
+      'campos calculados.',
     justificacion:
-      'Las oportunidades tienen monto y fecha de cierre, pero no probabilidad, y el modelo no admite campos ' +
-      'calculados. Los tableros suman los montos por etapa y por fecha de cierre, de modo que muestran cuánto ' +
-      'hay en juego en cada período, pero no el total ponderado por la probabilidad de cerrarlo. Una ' +
-      'probabilidad se puede agregar como campo, pero el total proyectado hay que calcularlo fuera, cada vez que ' +
-      'se lo quiere mirar.',
+      'Una probabilidad se puede agregar como campo, pero el total proyectado hay que calcularlo ' +
+      'fuera, cada vez que se lo quiere mirar.',
     evidencia: [capTablero, capTipos],
   });
 });

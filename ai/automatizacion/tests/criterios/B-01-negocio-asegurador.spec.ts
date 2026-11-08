@@ -41,11 +41,14 @@ test('B.1.1 — Persistencia de los datos sin uso continuo', async ({ browser },
     criterio: 'B.1.1',
     plataforma,
     cumple: 2,
-    justificacion:
+    comoLoHace:
       'En la instalación propia los datos quedan en el servidor de la compañía y no dependen de ninguna ' +
-      'cuenta del fabricante: no hay condición de servicio que los afecte por falta de uso, porque no hay ' +
-      'servicio de por medio. Una póliza puede quedar años sin que nadie la abra y sigue ahí mientras el ' +
-      'equipo donde corre el sistema se mantenga.',
+      'cuenta del fabricante.',
+    caracteristicas:
+      'No hay condición de servicio que los afecte por falta de uso, porque no hay servicio de por medio.',
+    justificacion:
+      'Una póliza puede quedar años sin que nadie la abra y sigue ahí mientras el equipo donde corre el ' +
+      'sistema se mantenga.',
     documentacion: fuente,
   });
 });
@@ -109,11 +112,13 @@ test('B.1.2 — Copia propia y completa de la cartera', async ({ browser }, info
       criterio: 'B.1.2',
       plataforma,
       cumple: 2,
-      justificacion:
+      comoLoHace:
+        `La copia se restituyó en una base de datos aparte y la cartera volvió entera: ${despues.contactos} ` +
+        `asegurados y ${despues.polizas} pólizas, los mismos que en el sistema en uso.`,
+      caracteristicas:
         'Se obtuvo una copia completa con el procedimiento oficial: el volcado de la base de datos y el ' +
-        'archivo de la carpeta de datos, que es donde el sistema guarda los adjuntos. La copia se restituyó ' +
-        'en una base de datos aparte y la cartera volvió entera: ' +
-        `${despues.contactos} asegurados y ${despues.polizas} pólizas, los mismos que en el sistema en uso. ` +
+        'archivo de la carpeta de datos, que es donde el sistema guarda los adjuntos.',
+      justificacion:
         'La compañía tiene en su poder toda la información en formatos abiertos y no depende de nadie para ' +
         'recuperarla.',
       documentacion: fuente,
@@ -153,13 +158,16 @@ test('B.1.3 — Copia periódica sin intervención manual', async ({ page, brows
     criterio: 'B.1.3',
     plataforma,
     cumple: 1,
+    comoLoHace:
+      'La documentación oficial resuelve la repetición afuera, con el programador de tareas del servidor, ' +
+      'que ejecuta todas las noches el mismo procedimiento de copia.',
+    caracteristicas:
+      'El producto no trae una copia programada: sus tareas programadas son de mantenimiento propio y ' +
+      'ninguna genera un respaldo.',
     justificacion:
-      'El producto no trae una copia programada: sus tareas programadas son de mantenimiento propio y ninguna ' +
-      'genera un respaldo. La documentación oficial resuelve la repetición afuera, con el programador de ' +
-      'tareas del servidor, que ejecuta todas las noches el mismo procedimiento de copia. La condición se ' +
-      'satisface con una limitación que la compañía asume: la copia se repite sola, pero la programa, la ' +
-      'vigila y la guarda fuera del equipo alguien con acceso al servidor, porque el sistema no avisa si una ' +
-      'noche falló.',
+      'La condición se satisface con una limitación que la compañía asume: la copia se repite sola, pero la ' +
+      'programa, la vigila y la guarda fuera del equipo alguien con acceso al servidor, porque el sistema ' +
+      'no avisa si una noche falló.',
     evidencia: [capTareas],
     documentacion: fuente,
   });
@@ -190,11 +198,14 @@ test('B.1.5 — Previsibilidad de los cambios del sistema', async ({ browser }, 
     criterio: 'B.1.5',
     plataforma,
     cumple: 2,
-    justificacion:
+    comoLoHace:
       'En la instalación propia la actualización no llega sola: la ejecuta el administrador de la compañía ' +
-      'con un comando, cuando decide hacerlo. El propio fabricante recomienda esperar unos días después de ' +
-      'cada versión nueva antes de aplicarla. La compañía elige el momento —fuera del horario de atención, ' +
-      'después de probarla— y ningún cambio del sistema la sorprende durante la operación.',
+      'con un comando, cuando decide hacerlo.',
+    caracteristicas:
+      'El propio fabricante recomienda esperar unos días después de cada versión nueva antes de aplicarla.',
+    justificacion:
+      'La compañía elige el momento —fuera del horario de atención, después de probarla— y ningún cambio ' +
+      'del sistema la sorprende durante la operación.',
     documentacion: fuentes,
   });
 });
@@ -223,12 +234,15 @@ test('B.1.6 — Conocimiento y decisión sobre dónde residen los datos', async 
     criterio: 'B.1.6',
     plataforma,
     cumple: 2,
-    justificacion:
+    comoLoHace:
       'En la instalación propia la base de datos reside donde la compañía instala el sistema: en su propio ' +
-      'servidor o en el proveedor que ella elija, en el país que ella elija. Sabe en todo momento dónde están ' +
-      'los datos de sus asegurados y lo decide ella, que es lo que exige el tratamiento de datos sensibles de ' +
-      'los seguros de personas. La contracara, que el fabricante declara, es que la seguridad de esos datos ' +
-      'queda también a su cargo.',
+      'servidor o en el proveedor que ella elija, en el país que ella elija.',
+    caracteristicas:
+      'La contracara, que el fabricante declara, es que la seguridad de esos datos queda también a su ' +
+      'cargo.',
+    justificacion:
+      'Sabe en todo momento dónde están los datos de sus asegurados y lo decide ella, que es lo que exige ' +
+      'el tratamiento de datos sensibles de los seguros de personas.',
     documentacion: fuentes,
   });
 });
@@ -277,12 +291,15 @@ test('B.1.7 — Continuidad de la atención ante una caída del enlace', async (
     criterio: 'B.1.7',
     plataforma,
     cumple: 2,
+    comoLoHace:
+      'Con la salida a internet cortada —el navegador solo alcanzaba el servidor de la red propia— se ' +
+      'ingresó al sistema, se buscó un asegurado y se registró un reclamo, que es la atención de todos los ' +
+      'días.',
+    caracteristicas:
+      'La instalación propia no necesita nada de afuera para operar: lo que se pierde durante el corte es ' +
+      'lo que por naturaleza viaja por internet, como el envío y la recepción de correo.',
     justificacion:
-      'Con la salida a internet cortada —el navegador solo alcanzaba el servidor de la red propia— se ingresó ' +
-      'al sistema, se buscó un asegurado y se registró un reclamo, que es la atención de todos los días. La ' +
-      'instalación propia no necesita nada de afuera para operar: lo que se pierde durante el corte es lo que ' +
-      'por naturaleza viaja por internet, como el envío y la recepción de correo. Con el sistema en la red de ' +
-      'la compañía, una caída del enlace no detiene la atención.',
+      'Con el sistema en la red de la compañía, una caída del enlace no detiene la atención.',
     evidencia: [capSinEnlace],
     medicion: `${bloqueados.length} pedidos a direcciones externas bloqueados durante la prueba`,
   });
@@ -296,12 +313,15 @@ test('B.1.7 — Continuidad de la atención ante una caída del enlace', async (
  * segundos que lo decida: elegir ese número sería decidir el resultado. Hasta
  * que se fija, el test mide, informa y no registra nada.
  */
-const VEREDICTO_B14: null | { cumple: 2 | 1 | 0; lectura: string } = {
+const VEREDICTO_B14: null | { cumple: 2 | 1 | 0; lectura: { caracteristicas: string; justificacion: string } } = {
   cumple: 2,
-  lectura:
-    'Buscar un asegurado entre cinco mil respondió en menos de medio segundo las tres veces, y filtrar las ' +
-    'doce mil quinientas pólizas por ramo, en alrededor de medio segundo: no hay espera que el usuario perciba. ' +
-    'Con la cartera de referencia cargada, el sistema responde como con una cartera chica.',
+  lectura: {
+    caracteristicas:
+      'Buscar un asegurado entre cinco mil respondió en menos de medio segundo las tres veces, y filtrar las ' +
+      'doce mil quinientas pólizas por ramo, en alrededor de medio segundo: no hay espera que el usuario perciba.',
+    justificacion:
+      'Con la cartera de referencia cargada, el sistema responde como con una cartera chica.',
+  },
 };
 
 /**
@@ -396,11 +416,12 @@ test('B.1.4 — Búsqueda y operación con volumen productivo', async ({ page },
       criterio: 'B.1.4',
       plataforma,
       cumple: VEREDICTO_B14.cumple,
-      justificacion:
+      comoLoHace:
         'Se cargó la cartera de referencia —cinco mil asegurados, doce mil quinientas pólizas y siete mil ' +
         'quinientos reclamos, veinticinco mil registros— y con ella se repitieron las operaciones de todos los ' +
-        'días: buscar un asegurado por texto y filtrar las pólizas por ramo, tres veces cada una. ' +
-        VEREDICTO_B14.lectura,
+        'días: buscar un asegurado por texto y filtrar las pólizas por ramo, tres veces cada una.',
+      caracteristicas: VEREDICTO_B14.lectura.caracteristicas,
+      justificacion: VEREDICTO_B14.lectura.justificacion,
       evidencia: [capTexto, capFiltro],
       medicion: lectura,
     });

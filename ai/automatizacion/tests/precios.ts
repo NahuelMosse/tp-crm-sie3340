@@ -70,10 +70,10 @@ export const ESPOCRM_SALES_PACK = extension('Sales Pack', 'sales-pack', '260');
  */
 export const TWENTY_ORGANIZATION: Plan = {
   plan: 'Twenty Organization',
-  monto: 'US$ 19 por usuario por mes',
+  monto: 'US$ 39 por usuario por mes, con pago anual',
   modalidad: 'recurrente',
   fuentes: [
-    { url: 'https://twenty.com/pricing', buscar: 'Organization is $19/user/month' },
+    { url: 'https://twenty.com/pricing', buscar: 'Organization is $39/user/month' },
     { url: 'https://docs.twenty.com/user-guide/billing/capabilities/pricing-plans', buscar: 'Premium features are only available on the Organization plans' },
   ],
 };

@@ -3,7 +3,9 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "justificacion": "La persona no trae cobertura pedida ni urgencia: se agregaron como dos campos de lista desde el modelo de datos. Se cargaron tres solicitantes en desorden y, al ordenar el listado por urgencia, quedaron en el orden de las opciones —primero la alta, después la media y al final la baja—, no alfabético: el orden sale de cómo se definió la lista. El orden se puede guardar en una vista. Definir los dos campos es trabajo de una sola vez.",
+  "comoLoHace": "La persona no trae cobertura pedida ni urgencia: se agregaron como dos campos de lista desde el modelo de datos. Se cargaron tres solicitantes en desorden y, al ordenar el listado por urgencia, quedaron en el orden de las opciones —primero la alta, después la media y al final la baja—, no alfabético: el orden sale de cómo se definió la lista.",
+  "caracteristicas": "El orden se puede guardar en una vista.",
+  "justificacion": "Definir los dos campos es trabajo de una sola vez.",
   "evidencia": [
     "A-2-2-twenty-1-calificacion.png",
     "A-2-2-twenty-2-ordenados-por-urgencia.png"
@@ -12,5 +14,5 @@
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-09-29T01:53:28.284Z"
+  "momento": "2026-10-30T07:05:08.911Z"
 }

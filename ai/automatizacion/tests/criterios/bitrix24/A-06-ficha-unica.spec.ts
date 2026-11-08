@@ -81,11 +81,14 @@ test('A.6.1 — Vinculación de la póliza con su titular', async ({ page }, inf
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      'Una vez guardada, la póliza figura en la pestaña «Negociaciones» de la ficha del contacto y su propia ' +
+      'ficha muestra al titular, sin configurar nada.',
+    caracteristicas:
+      'La negociación —que hace de póliza en la edición gratuita— trae de fábrica el campo «Cliente», donde ' +
+      'se elige el contacto por su nombre.',
     justificacion:
-      'La negociación —que hace de póliza en la edición gratuita— trae de fábrica el campo «Cliente», donde se ' +
-      'elige el contacto por su nombre. Una vez guardada, la póliza figura en la pestaña «Negociaciones» de la ' +
-      'ficha del contacto y su propia ficha muestra al titular, sin configurar nada: la relación se ve desde los ' +
-      'dos lados.',
+      'La relación se ve desde los dos lados.',
     evidencia: [capContacto, capPoliza],
   });
 });
@@ -134,12 +137,15 @@ test('A.6.2 — Vista única del asegurado', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'La ficha del contacto reúne en una sola pantalla lo del asegurado: la línea de tiempo con sus ' +
+      'actividades registradas y, en la pestaña «Negociaciones», tanto la póliza como el reclamo, que en ' +
+      'la edición gratuita son negociaciones con el contacto como cliente.',
+    caracteristicas:
+      'No hace falta salir a otro menú ni buscarlo de nuevo.',
     justificacion:
-      'La ficha del contacto reúne en una sola pantalla lo del asegurado: la línea de tiempo con sus actividades ' +
-      'registradas y, en la pestaña «Negociaciones», tanto la póliza como el reclamo, que en la edición gratuita ' +
-      'son negociaciones con el contacto como cliente. No hace falta salir a otro menú ni buscarlo de nuevo. ' +
-      'Como póliza y reclamo comparten esa pestaña, el usuario los distingue por el nombre que se les da al ' +
-      'cargarlos: es una convención que hay que fijar una vez.',
+      'Como póliza y reclamo comparten esa pestaña, el usuario los distingue por el nombre que se les da ' +
+      'al cargarlos: es una convención que hay que fijar una vez.',
     evidencia: [capActividad, capNegociaciones],
   });
 });
@@ -192,11 +198,14 @@ test('A.6.3 — Campos propios del rubro en la ficha', async ({ page }, info) =>
     plataforma,
     cumple: 2,
     costo: 1,
+    comoLoHace:
+      'Desde el mismo formulario del contacto, «Crear campo» agrega un campo de tipo lista —aquí, la ' +
+      'valoración de la atención, con sus cuatro opciones— sin programar. El campo queda en el formulario ' +
+      'de alta: se eligió el valor «Buena» al cargar un asegurado y quedó guardado.',
+    caracteristicas:
+      'En el listado, el filtro de búsqueda ofrece el campo nuevo para agregarlo como condición.',
     justificacion:
-      'Desde el mismo formulario del contacto, «Crear campo» agrega un campo de tipo lista —aquí, la valoración de ' +
-      'la atención, con sus cuatro opciones— sin programar. El campo queda en el formulario de alta: se eligió el ' +
-      'valor «Buena» al cargar un asegurado y quedó guardado. En el listado, el filtro de búsqueda ofrece el campo ' +
-      'nuevo para agregarlo como condición. Definir el campo es una configuración de una sola vez.',
+      'Definir el campo es una configuración de una sola vez.',
     evidencia: [capCampo, capFiltro],
   });
 });
@@ -251,17 +260,17 @@ test('A.6.4 — Unicidad de la ficha del asegurado', async ({ page, browser }, i
   registrar({
     criterio: 'A.6.4',
     plataforma,
-    cumple: 1,
-    justificacion:
+    cumple: 0,
+    comoLoHace:
       'En la edición gratuita, cargar dos veces al mismo asegurado con el mismo correo no dispara ninguna ' +
-      'advertencia: el segundo contacto se guarda igual y quedan dos fichas. La herramienta «Buscar y fusionar ' +
-      'duplicados» del listado de contactos no se abre y responde que está disponible en los planes de nivel ' +
-      'superior. El fabricante documenta que el producto cuenta con ese control de duplicados para prospectos, ' +
-      'contactos y compañías, que detecta las fichas repetidas y las fusiona, pero no publica en qué plan se ' +
-      'incluye. El asistente de importación de planillas tiene un paso «Control de duplicados» —por nombre, ' +
-      'correo o teléfono—, pero su acción ante un duplicado parte de «Allow» (importar todo sin revisar) y viene ' +
-      'marcada con un candado; no se logró cambiarla en la edición gratuita. Detecta la duplicación después de ' +
-      'cargada, no la advierte al cargar, y hay que ejecutar el escaneo cada vez.',
+      'advertencia: el segundo contacto se guarda igual y quedan dos fichas. La herramienta «Buscar y ' +
+      'fusionar duplicados» del listado de contactos no se abre y responde que está disponible en los planes ' +
+      'de nivel superior.',
+    justificacion:
+      'La edición gratuita no advierte la duplicación al cargar un asegurado ni permite buscarla después: el ' +
+      'alta repetida queda guardada como una segunda ficha y la única herramienta de duplicados exige un plan ' +
+      'superior. El fabricante documenta la fusión automática de duplicados para prospectos, contactos y ' +
+      'compañías, pero la condiciona al plan contratado.',
     evidencia: [capSegunda, capDuplicados],
     documentacion: fuente,
   });

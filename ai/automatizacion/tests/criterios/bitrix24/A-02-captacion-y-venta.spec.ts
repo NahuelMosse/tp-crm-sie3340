@@ -86,12 +86,15 @@ test('A.2.1 — Registro del solicitante con sus datos de contacto', async ({ pa
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      'La edición gratuita no incluye el módulo de prospectos: el solicitante se registra como un ' +
+      'contacto, igual que el asegurado. Se cargó una solicitante con todos esos datos desde el formulario ' +
+      'y quedaron guardados; la búsqueda del listado la encontró por su nombre.',
+    caracteristicas:
+      'El formulario del contacto trae nombre y apellido, teléfono, correo y dirección desglosada en ' +
+      'código postal, país, provincia, ciudad y calle.',
     justificacion:
-      'La edición gratuita no incluye el módulo de prospectos: el solicitante se registra como un contacto, igual que ' +
-      'el asegurado. El formulario del contacto trae nombre y apellido, teléfono, correo y dirección desglosada en ' +
-      'código postal, país, provincia, ciudad y calle. Se cargó una solicitante con todos esos datos desde el ' +
-      'formulario y quedaron guardados; la búsqueda del listado la encontró por su nombre. Viene listo: no hay nada ' +
-      'que configurar.',
+      'Viene listo: no hay nada que configurar.',
     evidencia: [capFormulario, capBusqueda],
   });
 });
@@ -162,12 +165,16 @@ test('A.2.2 — Calificación y priorización del solicitante', async ({ page },
       plataforma,
       cumple: 2,
       costo: 1,
+      comoLoHace:
+        'El contacto no trae cobertura pedida ni urgencia: se agregaron como dos campos de lista desde su ' +
+        'propio formulario.',
+      caracteristicas:
+        'Se cargaron tres solicitantes en desorden y, con un clic en el encabezado de la columna ' +
+        '«Urgencia», el listado quedó ordenado ' +
+        `${porPrioridad(a) ? 'primero la alta, después la media y al final la baja' : 'de la baja a la alta'} ` +
+        '—el orden de las opciones de la lista, no el alfabético—; otro clic lo invierte.',
       justificacion:
-        'El contacto no trae cobertura pedida ni urgencia: se agregaron como dos campos de lista desde su propio ' +
-        'formulario. Se cargaron tres solicitantes en desorden y, con un clic en el encabezado de la columna ' +
-        `«Urgencia», el listado quedó ordenado ${porPrioridad(a) ? 'primero la alta, después la media y al final la baja' : 'de la baja a la alta'} ` +
-        '—el orden de las opciones de la lista, no el alfabético—; otro clic lo invierte. Definir los dos campos es ' +
-        'configuración de una sola vez.',
+        'Definir los dos campos es configuración de una sola vez.',
       evidencia: [capFicha, capOrden],
       medicion: `orden: ${a.join(' > ')}`,
     });
@@ -234,13 +241,16 @@ test('A.2.3 — Conversión del solicitante en oportunidad de venta', async ({ p
     criterio: 'A.2.3',
     plataforma,
     cumple: 1,
+    comoLoHace:
+      'Con el solicitante como contacto, lo más cercano es crear la negociación desde su ficha.',
+    caracteristicas:
+      'Queda ligada a él y su teléfono y correo se ven en la negociación sin volver a escribirlos, pero no ' +
+      'hay una acción que la arme con lo que el solicitante pidió: la cobertura solicitada, un campo propio ' +
+      'del contacto, se vuelve a cargar a mano en cada negociación.',
     justificacion:
-      'La conversión de un interesado en oportunidad es una acción del módulo de prospectos, y ese módulo no está en ' +
-      'la edición gratuita: al abrir «Prospectos» el sistema informa que no está incluido en el plan. Con el ' +
-      'solicitante como contacto, lo más cercano es crear la negociación desde su ficha: queda ligada a él y su ' +
-      'teléfono y correo se ven en la negociación sin volver a escribirlos, pero no hay una acción que la arme ' +
-      'con lo que el solicitante pidió: la cobertura solicitada, un campo propio del contacto, se vuelve a cargar ' +
-      'a mano en cada negociación.',
+      'El módulo de prospectos, que convierte al interesado en oportunidad, no está en la edición gratuita. ' +
+      'La negociación se crea igual desde la ficha del solicitante y queda ligada a él, pero lo que pidió ' +
+      'se vuelve a cargar a mano en cada caso.',
     evidencia: [capProspectos, capNegociacion, capGuardada],
     documentacion: fuentes,
     conPlan: [conPlanDe(BITRIX24_STANDARD, {
@@ -300,11 +310,14 @@ test('A.2.4 — Embudo de oportunidades con etapas', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      'Desde la ficha del contacto, la solapa de negociaciones crea una nueva ya ligada a él.',
+    caracteristicas:
+      'El embudo viene definido de fábrica —en desarrollo, crear documentos, factura, en progreso, factura ' +
+      'final y el cierre, ganado o perdido— y la negociación se hizo avanzar con un clic en cada etapa de ' +
+      'la barra de su ficha hasta cerrarla como ganada.',
     justificacion:
-      'Desde la ficha del contacto, la solapa de negociaciones crea una nueva ya ligada a él. El embudo viene ' +
-      'definido de fábrica —en desarrollo, crear documentos, factura, en progreso, factura final y el cierre, ' +
-      'ganado o perdido— y la negociación se hizo avanzar con un clic en cada etapa de la barra de su ficha hasta ' +
-      'cerrarla como ganada. Viene listo, aunque las etapas son las de una venta genérica: adaptarlas al seguro es ' +
+      'Viene listo, aunque las etapas son las de una venta genérica: adaptarlas al seguro es ' +
       'configuración.',
     evidencia: [capEtapas, capCierre],
     medicion: `etapa final: ${final?.STAGE_ID}`,
@@ -366,11 +379,14 @@ test('A.2.5 — Embudos diferenciados por ramo', async ({ page, browser }, info)
     criterio: 'A.2.5',
     plataforma,
     cumple: 0,
+    comoLoHace:
+      'Desde «Pipelines y túneles de ventas», al pedir «Agregar pipeline» el sistema no abre el embudo ' +
+      'nuevo: informa que la cantidad máxima de pipelines depende del plan y ofrece actualizar; la lista ' +
+      'de embudos siguió con uno solo.',
+    caracteristicas:
+      'La edición gratuita trae un solo embudo, el pipeline general.',
     justificacion:
-      'La edición gratuita trae un solo embudo, el pipeline general. Desde «Pipelines y túneles de ventas», ' +
-      'al pedir «Agregar pipeline» el sistema no abre el embudo nuevo: informa que la cantidad máxima de ' +
-      'pipelines depende del plan y ofrece actualizar; la lista de embudos siguió con uno solo. El fabricante publica los embudos de ' +
-      'ventas como función que se suma con el plan Basic.',
+      'El fabricante publica los embudos de ventas como función que se suma con el plan Basic.',
     evidencia: [capMuro],
     documentacion: fuentes,
     conPlan: [conPlanDe(BITRIX24_BASIC, {
@@ -459,13 +475,16 @@ test('A.2.6 — Oportunidades de cambio y ampliación sobre la cartera', async (
       criterio: 'A.2.6',
       plataforma,
       cumple: 1,
+      comoLoHace:
+        'El conjunto de los próximos a vencer sale directo: el filtro del listado de negociaciones sobre ' +
+        'la fecha de fin de vigencia, «próximos 30 días», trajo la póliza que vence en doce días y dejó ' +
+        'afuera las demás, con su cliente en el listado.',
+      caracteristicas:
+        'El otro conjunto no: el filtro del listado de contactos solo ofrece campos del propio contacto, ' +
+        'no las pólizas que tiene, así que «tiene automotor y no hogar» no se puede preguntar.',
       justificacion:
-        'El conjunto de los próximos a vencer sale directo: el filtro del listado de negociaciones sobre la fecha de ' +
-        'fin de vigencia, «próximos 30 días», trajo la póliza que vence en doce días y dejó afuera las demás, con ' +
-        'su cliente en el listado. El otro conjunto no: el filtro del listado de contactos solo ofrece campos del ' +
-        'propio contacto, no las pólizas que tiene, así que «tiene automotor y no hogar» no se puede preguntar. ' +
-        'Se obtiene filtrando las pólizas por cada ramo y comparando a mano las dos listas de clientes, cada vez ' +
-        'que se quiere armar la oferta.',
+        'Se obtiene filtrando las pólizas por cada ramo y comparando a mano las dos listas de clientes, ' +
+        'cada vez que se quiere armar la oferta.',
       evidencia: [capContactos, capRamos, capProximas],
       medicion: `${camposDelContacto.length} campos filtrables del contacto, ninguno sobre sus pólizas · ${proximas.length} póliza próxima a vencer`,
     });

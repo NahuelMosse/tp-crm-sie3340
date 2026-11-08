@@ -1,0 +1,63 @@
+{
+  "criterio": "A.12.1",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "costo": 2,
+  "comoLoHace": "Ganar la oportunidad no emite nada por sí solo: el producto trae la conversión del solicitante en asegurado y oportunidad, y de ahí en adelante la póliza se carga aparte. La emisión se resuelve con un guion en la fórmula de la entidad Oportunidad (Administración › Entidades › Oportunidad › Fórmula) que, cuando la etapa pasa a «Cerrada ganada», crea la póliza con el nombre, el importe como prima, la fecha de cierre como inicio de vigencia y el responsable de la oportunidad, y la liga al asegurado y a la oportunidad de origen. Se marcó ganada desde la ficha y la póliza apareció sola en el panel de pólizas de la oportunidad y en la ficha del asegurado.",
+  "caracteristicas": "La póliza nace vinculada al asegurado y a la oportunidad que la originó, con la prima tomada del importe negociado y sin volver a escribir ningún dato. El guion corre solo cuando la etapa cambia a ganada: guardar otra vez la oportunidad no emite una segunda póliza. Necesita definir antes la relación entre póliza y oportunidad y ubicarla en las pantallas. El ramo y el número definitivo no figuran en la oportunidad: la póliza nace con el ramo que la lista propone por defecto y con el nombre de la venta como número, hasta que se completen o los traiga el sistema central.",
+  "justificacion": "La necesidad queda resuelta desde el sistema, sin reescribir lo negociado. El costo es 2 porque exige escribir un guion con funciones del sistema —crear un registro, buscar el asegurado relacionado— que alguien tiene que mantener cuando cambie el modelo de la póliza; sin él, marcar ganada una oportunidad no dejó ninguna póliza.",
+  "evidencia": [
+    "A-12-1-espocrm-1-guion.png",
+    "A-12-1-espocrm-2-oportunidad-con-su-poliza.png",
+    "A-12-1-espocrm-3-poliza-emitida.png",
+    "A-12-1-espocrm-4-ficha-del-asegurado.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.espocrm.com/administration/workflows/",
+      "cita": "The system will create a new record of any entity type. If there is a relationship between the target entity type and the entity type of records being created, it's possible to relate them.",
+      "consultado": "2026-10-30",
+      "captura": "A-12-1-espocrm-5-flujos-crear-registro.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extensions/advanced-pack/",
+      "cita": "$395.00 1 Year License + Upgrades",
+      "consultado": "2026-10-30",
+      "captura": "A-12-1-espocrm-precio-1.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extension-license-agreement/",
+      "cita": "1.1 Subject to your continuous compliance with the Agreement and payment of the applicable license fees, EspoCRM grants you a non-exclusive, non-transferable, worldwide, limited right to use the Software on a single EspoCRM Application instance on a single server for the Licensed Period. After the license period expires, you must renew or purchase a new license to continue using the Software. You may use or modify the Software only for your own internal business purposes or for non-commercial or personal use.",
+      "consultado": "2026-10-30",
+      "captura": "A-12-1-espocrm-precio-2.png"
+    },
+    {
+      "url": "https://www.espocrm.com/cloud/",
+      "cita": "Basic $15.00 per user/month minimum 3 users 3GB file storage per user 100,000 records SSL Encryption (256 bit keys, TLS 1.3) Full feature set All extensions included External access API 2000+ integrations * 12x5 (hours/days) support Sign Up Free Trial Free Trial is provided for 30 days",
+      "consultado": "2026-10-30",
+      "captura": "A-12-1-espocrm-nube-precio-1.png"
+    }
+  ],
+  "medicion": "Póliza POL-Seguro de hogar — Sandoval con prima 132500 ARS, titular y oportunidad de origen",
+  "conPlan": [
+    {
+      "plan": "Advanced Pack",
+      "monto": "US$ 395 por año y por instalación",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "Los flujos de trabajo de la extensión incluyen la acción «Crear registro» de cualquier entidad al cambiar un campo, de modo que la misma regla se arma desde pantallas, sin escribir el guion."
+    },
+    {
+      "plan": "EspoCRM Cloud Basic",
+      "monto": "US$ 15 por usuario por mes, mínimo 3 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "El servicio en la nube trae las extensiones del fabricante, con los mismos flujos de trabajo."
+    }
+  ],
+  "criterioNombre": "Emisión de la póliza al cerrar la venta",
+  "licencia": null,
+  "momento": "2026-10-30T05:44:52.320Z"
+}

@@ -105,12 +105,15 @@ test('A.3.1 — Registro de productores y asignación de cartera', async ({ page
     plataforma,
     cumple: 2,
     costo: 0,
-    justificacion:
+    comoLoHace:
       'Se dio de alta una productora desde la administración de usuarios —con su rol, que la limita a lo ' +
       'propio— y se le asignaron tres asegurados de una sola vez, marcándolos en el listado y cambiando el ' +
-      'responsable con la actualización masiva. Al ingresar con su cuenta, su listado de asegurados muestra ' +
-      'exactamente esos tres. El responsable asignado viene de fábrica en todas las entidades, y la ' +
-      'actualización masiva lo admite sin configurar nada.',
+      'responsable con la actualización masiva.',
+    caracteristicas:
+      'Al ingresar con su cuenta, su listado de asegurados muestra exactamente esos tres.',
+    justificacion:
+      'El responsable asignado viene de fábrica en todas las entidades, y la actualización masiva lo admite ' +
+      'sin configurar nada.',
     evidencia: [capAlta, capCartera],
   });
 });
@@ -173,10 +176,13 @@ test('A.3.2 — Bitácora de la actividad con el cliente', async ({ page }, info
     plataforma,
     cumple: 2,
     costo: 0,
+    comoLoHace:
+      'Se registraron las dos, con un minuto de diferencia, y el historial las muestra ordenadas por fecha, ' +
+      'la más reciente primero, cada una con su responsable y con quién la cargó.',
+    caracteristicas:
+      'La ficha del asegurado trae un historial de actividades con acciones para registrar una llamada o ' +
+      'una reunión sin salir de ella.',
     justificacion:
-      'La ficha del asegurado trae un historial de actividades con acciones para registrar una llamada o una ' +
-      'reunión sin salir de ella. Se registraron las dos, con un minuto de diferencia, y el historial las ' +
-      'muestra ordenadas por fecha, la más reciente primero, cada una con su responsable y con quién la cargó. ' +
       'Viene de fábrica. Es lo que permite que cualquiera que atienda al asegurado sepa qué se habló antes.',
     evidencia: [capBitacora],
     medicion: `Autor registrado: ${llamada.createdByName}`,
@@ -218,11 +224,15 @@ test('A.3.3 — Agenda y carga de trabajo del productor', async ({ page }, info)
     plataforma,
     cumple: 2,
     costo: 0,
-    justificacion:
+    comoLoHace:
       'Al ingresar con la cuenta del productor, su página de inicio muestra sus próximas actividades —la ' +
-      'visita agendada para el día siguiente figura ahí— y el calendario reúne reuniones, llamadas y tareas en ' +
-      'vistas por día, semana y mes. Cada productor ve lo suyo sin preparar nada: el tablero y el calendario ' +
-      'vienen de fábrica, y cada uno puede sumar a su inicio sus tareas, sus casos o sus oportunidades.',
+      'visita agendada para el día siguiente figura ahí— y el calendario reúne reuniones, llamadas y tareas ' +
+      'en vistas por día, semana y mes.',
+    caracteristicas:
+      'Cada productor ve lo suyo sin preparar nada.',
+    justificacion:
+      'El tablero y el calendario vienen de fábrica, y cada uno puede sumar a su inicio sus tareas, sus ' +
+      'casos o sus oportunidades.',
     evidencia: [capInicio, capCalendario],
   });
 });
@@ -291,14 +301,20 @@ test('A.3.4 — Proyección de los movimientos comerciales', async ({ page, brow
     plataforma,
     cumple: 1,
     costo: 2,
-    justificacion:
+    comoLoHace:
       'Se cargaron tres oportunidades del mes con monto y etapa, y el sistema les asignó la probabilidad de ' +
-      'cada etapa. El tablero de canalización de ventas suma los montos por etapa para el período elegido ' +
-      '—mes, trimestre, año, año fiscal o un rango—, de modo que muestra cuánto hay en juego en cada instancia. ' +
-      'Lo que no calcula es la proyección: cada oportunidad tiene su monto ponderado por la probabilidad, pero ' +
-      'ningún tablero ni listado los totaliza, y el total esperado del período ' +
-      `—${ponderado.toLocaleString('es-AR')} en este caso— se obtiene exportando y sumando afuera cada vez. ` +
-      'El módulo de informes del fabricante suma cualquier campo agrupado por período, el ponderado incluido.',
+      'cada etapa.',
+    caracteristicas:
+      'El tablero de canalización de ventas suma los montos por etapa para el período elegido —mes, ' +
+      'trimestre, año, año fiscal o un rango—, de modo que muestra cuánto hay en juego en cada instancia. ' +
+      'Lo que no calcula es la proyección: cada oportunidad tiene su monto ponderado por la probabilidad, ' +
+      'pero ningún tablero ni listado los totaliza, y el total esperado del período ' +
+      `—${ponderado.toLocaleString('es-AR')} en este caso— se obtiene exportando y sumando afuera cada vez.`,
+    justificacion:
+      'El tablero de canalización suma los montos por etapa, pero el total esperado del período se obtiene ' +
+      'exportando y sumando afuera cada vez, porque ningún tablero ni listado totaliza el monto ponderado. ' +
+      'El módulo de informes del fabricante suma cualquier campo agrupado por período, el ponderado ' +
+      'incluido.',
     evidencia: [capTablero],
     documentacion: fuentes,
     medicion: `Por etapa: ${JSON.stringify(porEtapa)} · proyección ponderada no mostrada: ${ponderado}`,

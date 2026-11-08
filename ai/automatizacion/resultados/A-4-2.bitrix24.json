@@ -2,7 +2,9 @@
   "criterio": "A.4.2",
   "plataforma": "bitrix24",
   "cumple": 0,
-  "justificacion": "En la edición gratuita no se puede crear una campaña: se abrió el segmento guardado, se marcaron sus 3 asegurados y se pidió «Crear boletín», y el sistema respondió que la herramienta «estará disponible una vez que actualice su plan»; desde Marketing, «Campaña de correo electrónico» dice que se desbloquea con el plan Standard o el Professional. El comparativo del fabricante lo confirma: el correo masivo no figura en la edición gratuita ni en el plan Basic. El producto sí la tiene: la campaña se dirige a un segmento existente y su contenido se personaliza con datos del CRM, como el nombre.",
+  "comoLoHace": "En la edición gratuita no se puede crear una campaña: se abrió el segmento guardado, se marcaron sus 3 asegurados y se pidió «Crear boletín», y el sistema respondió que la herramienta «estará disponible una vez que actualice su plan»; desde Marketing, «Campaña de correo electrónico» dice que se desbloquea con el plan Standard o el Professional.",
+  "caracteristicas": "El producto sí la tiene: la campaña se dirige a un segmento existente y su contenido se personaliza con datos del CRM, como el nombre.",
+  "justificacion": "El comparativo del fabricante lo confirma: el correo masivo no figura en la edición gratuita ni en el plan Basic.",
   "evidencia": [
     "A-4-2-bitrix24-1-boletin-sobre-el-segmento.png",
     "A-4-2-bitrix24-2-campana-de-correo.png"

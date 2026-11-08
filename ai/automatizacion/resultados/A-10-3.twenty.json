@@ -3,7 +3,9 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "justificacion": "El informe de primas por productor quedó guardado en su tablero con el período como condición del filtro. Para otro período se abrió el mismo gráfico y se cambió solo la fecha del filtro: los totales se recalcularon sin rehacer el informe, que conserva su fuente, su agrupación y su medida. El período no se pide al abrirlo: cambiarlo modifica el informe guardado para todos los que lo miran, o hay que duplicarlo. Armarlo es configuración de una sola vez.",
+  "comoLoHace": "El informe de primas por productor quedó guardado en su tablero con el período como condición del filtro. Para otro período se abrió el mismo gráfico y se cambió solo la fecha del filtro: los totales se recalcularon sin rehacer el informe, que conserva su fuente, su agrupación y su medida.",
+  "caracteristicas": "El período no se pide al abrirlo: cambiarlo modifica el informe guardado para todos los que lo miran, o hay que duplicarlo.",
+  "justificacion": "Armarlo es configuración de una sola vez.",
   "evidencia": [
     "A-10-3-twenty-1-seis-meses.png",
     "A-10-3-twenty-2-un-anio.png"
@@ -13,5 +15,5 @@
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-09-29T04:03:08.698Z"
+  "momento": "2026-10-30T08:00:46.835Z"
 }

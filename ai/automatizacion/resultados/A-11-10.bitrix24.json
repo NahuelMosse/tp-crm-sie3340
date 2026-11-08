@@ -2,12 +2,14 @@
   "criterio": "A.11.10",
   "plataforma": "bitrix24",
   "cumple": 2,
-  "justificacion": "El fabricante publica su centro de documentación completo en español, en un dominio propio —helpdesk.bitrix24.es—, con el mismo contenido y la misma organización por tema que la versión en inglés. Quien consulta cómo se usa o se configura el sistema lo hace en su idioma, sin depender de una traducción de terceros.",
+  "comoLoHace": "El fabricante publica su centro de documentación completo en español, en un dominio propio.",
+  "caracteristicas": "—helpdesk.bitrix24.es—, con el mismo contenido y la misma organización por tema que la versión en inglés.",
+  "justificacion": "Quien consulta cómo se usa o se configura el sistema lo hace en su idioma, sin depender de una traducción de terceros.",
   "documentacion": [
     {
       "url": "https://helpdesk.bitrix24.es/documentation.php",
       "cita": "Todos los cursos de formación y documentación",
-      "consultado": "2026-09-29",
+      "consultado": "2026-10-30",
       "captura": "A-11-10-bitrix24-1-documentacion-en-espanol.png"
     }
   ],
@@ -15,5 +17,5 @@
   "licencia": null,
   "conPlan": [],
   "evidencia": [],
-  "momento": "2026-09-29T14:28:52.371Z"
+  "momento": "2026-10-30T08:50:55.934Z"
 }

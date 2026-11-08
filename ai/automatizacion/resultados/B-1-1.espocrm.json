@@ -2,12 +2,14 @@
   "criterio": "B.1.1",
   "plataforma": "espocrm",
   "cumple": 2,
-  "justificacion": "En la instalación propia los datos quedan en el servidor de la compañía y no dependen de ninguna cuenta del fabricante: no hay condición de servicio que los afecte por falta de uso, porque no hay servicio de por medio. Una póliza puede quedar años sin que nadie la abra y sigue ahí mientras el equipo donde corre el sistema se mantenga.",
+  "comoLoHace": "En la instalación propia los datos quedan en el servidor de la compañía y no dependen de ninguna cuenta del fabricante.",
+  "caracteristicas": "No hay condición de servicio que los afecte por falta de uso, porque no hay servicio de por medio.",
+  "justificacion": "Una póliza puede quedar años sin que nadie la abra y sigue ahí mientras el equipo donde corre el sistema se mantenga.",
   "documentacion": [
     {
       "url": "https://www.espocrm.com/self-hosted-vs-cloud-crm/",
       "cita": "Self-hosted (on-premise) — You install the software and have all the data stored on your own server. All the server maintenance, as well as data security, will be your responsibility.",
-      "consultado": "2026-09-28",
+      "consultado": "2026-10-30",
       "captura": "B-1-1-espocrm-1-datos-propios.png"
     }
   ],
@@ -15,5 +17,5 @@
   "licencia": null,
   "conPlan": [],
   "evidencia": [],
-  "momento": "2026-09-29T01:11:49.953Z"
+  "momento": "2026-10-30T05:56:03.594Z"
 }

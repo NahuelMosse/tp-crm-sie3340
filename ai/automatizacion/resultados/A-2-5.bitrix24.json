@@ -2,7 +2,9 @@
   "criterio": "A.2.5",
   "plataforma": "bitrix24",
   "cumple": 0,
-  "justificacion": "La edición gratuita trae un solo embudo, el pipeline general. Desde «Pipelines y túneles de ventas», al pedir «Agregar pipeline» el sistema no abre el embudo nuevo: informa que la cantidad máxima de pipelines depende del plan y ofrece actualizar; la lista de embudos siguió con uno solo. El fabricante publica los embudos de ventas como función que se suma con el plan Basic.",
+  "comoLoHace": "Desde «Pipelines y túneles de ventas», al pedir «Agregar pipeline» el sistema no abre el embudo nuevo: informa que la cantidad máxima de pipelines depende del plan y ofrece actualizar; la lista de embudos siguió con uno solo.",
+  "caracteristicas": "La edición gratuita trae un solo embudo, el pipeline general.",
+  "justificacion": "El fabricante publica los embudos de ventas como función que se suma con el plan Basic.",
   "evidencia": [
     "A-2-5-bitrix24-1-al-agregar-el-embudo.png"
   ],
