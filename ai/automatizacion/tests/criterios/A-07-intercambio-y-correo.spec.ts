@@ -151,8 +151,8 @@ test('A.7.1 — Importación de contactos desde planilla de cálculo', async ({ 
     cumple: 1,
     costo: 2,
     resumen: corrompe
-      ? 'Importa planillas en CSV con tildes y eñes intactas si están en UTF-8; con la codificación de ' +
-        'Windows las letras acentuadas se corrompen, y las columnas se asignan a mano.'
+      ? 'Importa planillas CSV; las guardadas con la codificación de Windows corrompen tildes y eñes, y ' +
+        'las columnas se asignan a mano.'
       : 'Importa planillas en CSV con tildes y eñes intactas, en UTF-8 y con la codificación de Windows; ' +
         'las columnas se asignan a mano.',
     comoLoHace: corrompe

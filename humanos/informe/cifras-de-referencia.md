@@ -18,7 +18,7 @@
 
 ## A.11.12
 
-**Cifra de referencia: una semana de espera.** Una consulta de configuración no puede detener la operación más de un ciclo semanal de trabajo. Cada una de las 21 consultas más recientes del canal público de la comunidad se clasifica con la tabla, y el criterio toma el valor de la del medio, con las 21 ordenadas.
+**Cifra de referencia: una semana de espera.** Una consulta de configuración no puede detener la operación más de un ciclo semanal de trabajo. Cada una de las 21 consultas más recientes del canal público de la comunidad se clasifica con la tabla, y se ordenan de la mejor atendida a la peor: el criterio toma el valor de la que queda en el medio, para reflejar la experiencia típica.
 
 | 2 | 1 | 0 |
 |---|---|---|

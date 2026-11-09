@@ -331,7 +331,7 @@ test('B.1.7 — Continuidad de la atención ante una caída del enlace', async (
     cumple: 2,
     resumen:
       'Con la instalación propia, si se corta la salida a internet el sistema sigue operando; ' +
-      'solo dejan de funcionar el correo.',
+      'solo deja de funcionar el correo.',
     comoLoHace:
       'Con la salida a internet cortada, el sistema sigue operando desde la red propia: se ingresa, se ' +
       'busca un asegurado y se registra un reclamo, que es la atención de todos los días.',

@@ -282,7 +282,7 @@ test('A.12.1 — Emisión de la póliza al cerrar la venta', async ({ page, brow
       cumple: 2,
       costo: 2,
       resumen:
-        'No emite la póliza al ganar una oportunidad: un script en la fórmula la crea con los datos ' +
+        'No emite la póliza al ganar una oportunidad: un guion breve escrito en el sistema la crea con los datos ' +
         'negociados, ligada al asegurado y a la oportunidad.',
       comoLoHace:
         'Ganar la oportunidad no emite nada por sí solo: el producto trae la conversión del solicitante en ' +

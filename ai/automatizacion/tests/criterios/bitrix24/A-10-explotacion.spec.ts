@@ -367,7 +367,7 @@ test('A.10.4 — Intercambio de datos con otros sistemas de la compañía', asyn
     criterio: 'A.10.4',
     plataforma,
     cumple: 0,
-    resumen: 'La edición gratuita no permite crear ni consultar registros desde otros sistemas: el webhook entrante exige el plan Basic Vibe+.',
+    resumen: 'La edición gratuita no permite crear ni consultar registros desde otros sistemas: la conexión de entrada para otros sistemas exige el plan Basic Vibe+.',
     comoLoHace:
       'En la edición gratuita no hay forma de crear ni consultar registros desde fuera: Recursos para ' +
       'desarrolladores ofrece «Webhook entrante», y al abrirlo el sistema responde «No disponible en tu ' +

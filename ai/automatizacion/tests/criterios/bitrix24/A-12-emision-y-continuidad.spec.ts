@@ -285,7 +285,7 @@ test('A.12.3 — Datos que administra el sistema central', async ({ page, browse
     criterio: 'A.12.3',
     plataforma,
     cumple: 0,
-    resumen: 'La edición gratuita no permite que el sistema central actualice pólizas desde afuera: el webhook entrante y la API exigen el plan Basic Vibe+.',
+    resumen: 'La edición gratuita no permite que el sistema central actualice pólizas desde afuera: la conexión de entrada para otros sistemas exige el plan Basic Vibe+.',
     comoLoHace:
       'En la edición gratuita el sistema central no tiene por dónde actualizar una póliza: en Recursos para desarrolladores se ofrece ' +
       '«Webhook entrante» y, al abrirlo, el sistema responde «No disponible en tu plan actual» y remite al plan Basic Vibe+.',

@@ -1485,11 +1485,16 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* La pantalla no ofrece ninguna política de contraseñas configurable —longitud, complejidad, vencimiento—.
 - *Características.* Los ajustes de seguridad del portal ofrecen la autenticación de dos factores, que el administrador puede volver obligatoria para todos los empleados con un plazo para habilitarla, y una confirmación adicional del inicio de sesión en el dispositivo de confianza.
 - *Justificación.* El acceso unificado con el directorio de la compañía existe como inicio de sesión único (SSO) con Microsoft Azure Active Directory, pero el fabricante lo limita a los planes Enterprise: en la edición gratuita no está.
+- *Comentario — con Bitrix24 Enterprise* (US$ 579 por mes, desde 250 usuarios, abono recurrente) sería **2** (cumple, costo 1). Con el plan Enterprise, el primero que incluye el inicio de sesión único, los usuarios entran con su cuenta del directorio de Microsoft de la compañía, que aplica su propia política de contraseñas; junto con el segundo factor obligatorio, las reglas de acceso quedan bajo control de la compañía. Se configura una vez. No se contrató el plan, así que no se comprobó.
 - *Evidencia.* Prueba sobre el sistema, con video y las capturas A-9-2-bitrix24-1-seguridad.
 
 > «Single Sign-On (SSO) is available on Bitrix24 Enterprise plans. It lets employees sign in with their Microsoft Azure Active Directory account without entering a password.»
 >
-> — https://helpdesk.bitrix24.com/open/24571280/, consultado el 30 de septiembre de 2026
+> — https://helpdesk.bitrix24.com/open/24571280/, consultado el 9 de noviembre de 2026
+
+> «US$ 579 US$ 579 US$ 399 US$ 919 US$ 919 US$ 639 US$ 1,149 US$ 1,149 US$ 799 US$ 2,299 US$ 2,299 US$ 1,599 US$ 3,449 US$ 3,449 US$ 2,399 US$ 4,599 US$ 4,599 US$ 3,199 US$ 5,749 US$ 5,749 US$ 3,999 US$ 6,899 US$ 6,899 US$ 4,799 US$ 8,049 US$ 8,049 US$ 5,599 US$ 9,199 US$ 9,199 US$ 6,399 US$ 10,349 US$ 10,349 US$ 7,199 US$ 11,499 US$ 11,499 US$ 7,999»
+>
+> — https://www.bitrix24.es/prices/, consultado el 9 de noviembre de 2026
 
 ### A.9.3 Registro de quién modificó cada dato
 
@@ -1753,7 +1758,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 **Twenty** · **2** (cumple) · costo de implementación **0**
 
 - *Cómo lo hace.* La interfaz de programación admite el movimiento de un día entero de altas, enviadas en ráfagas de diez simultáneas, de a un registro por pedido, sin rechazos.
-- *Características.* El fabricante publica el límite de la interfaz de programación: cien pedidos por minuto, y hasta sesenta registros por pedido en las operaciones por lotes. 500 de 500 aceptadas en 0.9 min y 1 ronda(s); 0 rechazos por límite · {"201":500}.
+- *Características.* El fabricante publica el límite de la interfaz de programación: cien pedidos por minuto, y hasta sesenta registros por pedido en las operaciones por lotes. 500 de 500 altas aceptadas en 0,9 minutos, sin rechazos por límite.
 - *Justificación.* El límite deja holgura sobre el movimiento de un día: lo que exige es que el otro sistema espacie sus pedidos o los agrupe, como hace cualquier sincronización.
 
 > «100 per minute»
@@ -1938,7 +1943,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 **EspoCRM** · **2** (cumple)
 
 - *Cómo lo hace.* Desde el ingreso, el menú lleva directo a asegurados, y de ahí al alta. Guardado el asegurado, la póliza se carga desde su propia ficha, en el panel de sus pólizas, sin salir de ella y ya ligada a él.
-- *Características.* El recorrido completo pasó por 4 pantallas sin volver sobre ninguna y llevó 28 segundos. 4 pantallas, ninguna revisitada, 28 s.
+- *Características.* El recorrido completo pasó por cuatro pantallas sin volver sobre ninguna y llevó 28 segundos. 4 pantallas, ninguna revisitada, 28 s.
 - *Justificación.* La póliza, que es una entidad creada por la compañía, figura en el menú dentro del grupo desplegable; el orden del menú se ajusta desde la administración.
 - *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-4-espocrm-1-asegurado-con-su-poliza.
 
@@ -2218,7 +2223,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Qué resuelve.** Tener a quién consultar cuando algo no sale.
 
-**Cifra de referencia: una semana de espera.** Una consulta de configuración no puede detener la operación más de un ciclo semanal de trabajo. Cada una de las 21 consultas más recientes del canal público de la comunidad se clasifica con la tabla, y el criterio toma el valor de la del medio, con las 21 ordenadas.
+**Cifra de referencia: una semana de espera.** Una consulta de configuración no puede detener la operación más de un ciclo semanal de trabajo. Cada una de las 21 consultas más recientes del canal público de la comunidad se clasifica con la tabla, y se ordenan de la mejor atendida a la peor: el criterio toma el valor de la que queda en el medio, para reflejar la experiencia típica.
 
 | 2 | 1 | 0 |
 |---|---|---|
@@ -2576,7 +2581,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 **Twenty** · **0** (no cumple)
 
 - *Cómo lo hace.* El fabricante no publica por cuánto tiempo corrige una versión: no hay política de soporte por versión ni versiones de soporte extendido.
-- *Características.* Publica versiones nuevas a un ritmo de 14.5 por mes, y la guía de actualización lo que asegura es poder saltar desde cualquier versión soportada directo a la última. 30 versiones publicadas en 62 días.
+- *Características.* Publica versiones nuevas a un ritmo de 14,5 por mes, y la guía de actualización lo que asegura es poder saltar desde cualquier versión soportada directo a la última. 30 versiones publicadas en 62 días.
 - *Justificación.* La compañía no puede fijar la actualización en su plan anual: tiene que seguir el ritmo del fabricante para recibir correcciones.
 
 > «Starting from v1.23, Twenty supports cross-version upgrades. You can jump directly from any supported version to the latest release without stepping through each intermediate version.»
@@ -2779,7 +2784,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 ### B.1.1 Persistencia de los datos sin uso continuo
 
-**Qué resuelve.** Una póliza permanece vigente años aunque nadie la consulte.
+**Por qué importa.** Una póliza permanece vigente años aunque nadie la consulte.
 
 **EspoCRM** · **2** (cumple)
 
@@ -2821,7 +2826,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 ### B.1.2 Copia propia y completa de la cartera
 
-**Qué resuelve.** La cartera es el activo principal de la compañía.
+**Por qué importa.** La cartera es el activo principal de la compañía.
 
 **EspoCRM** · **2** (cumple)
 
@@ -2860,7 +2865,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 ### B.1.3 Copia periódica sin intervención manual
 
-**Qué resuelve.** Una copia que depende de que alguien se acuerde no es un resguardo.
+**Por qué importa.** Una copia que depende de que alguien se acuerde no es un resguardo.
 
 **EspoCRM** · **1** (cumple con reparo)
 
@@ -2896,7 +2901,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 ### B.1.4 Búsqueda y operación con volumen productivo
 
-**Qué resuelve.** Una cartera de cinco mil asegurados con dos pólizas y media en promedio y sus reclamos suma veinticinco mil registros.
+**Por qué importa.** Una cartera de cinco mil asegurados con dos pólizas y media en promedio y sus reclamos suma veinticinco mil registros.
 
 **Cifra de referencia: 25.000 registros.** En los ramos patrimoniales del mercado argentino se paga por año un siniestro cada nueve pólizas vigentes, según la Superintendencia de Seguros de la Nación, y las aseguradoras tienen entre 1,2 y 1,7 pólizas por cliente, según relevamientos de McKinsey & Company y del mercado español. Con unos quinientos clientes, la compañía suma unas setecientas cincuenta pólizas y ochenta reclamos por año: poco más de mil seiscientos registros con cinco años de reclamos. La cartera de referencia es unas quince veces esa cifra, para cubrir el crecimiento: cinco mil asegurados con dos pólizas y media cada uno y sus reclamos.
 
@@ -2927,7 +2932,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 ### B.1.5 Previsibilidad de los cambios del sistema
 
-**Qué resuelve.** Un cambio inesperado durante la operación interrumpe la atención.
+**Por qué importa.** Un cambio inesperado durante la operación interrumpe la atención.
 
 **EspoCRM** · **2** (cumple)
 
@@ -2968,7 +2973,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 ### B.1.6 Conocimiento y decisión sobre dónde residen los datos
 
-**Qué resuelve.** Los seguros de personas involucran datos sensibles (Ley 25.326).
+**Por qué importa.** Los seguros de personas involucran datos sensibles (Ley 25.326).
 
 **EspoCRM** · **2** (cumple)
 
@@ -3010,7 +3015,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 ### B.1.7 Continuidad de la atención ante una caída del enlace
 
-**Qué resuelve.** La atención no debería detenerse por una falla de conectividad.
+**Por qué importa.** La atención no debería detenerse por una falla de conectividad.
 
 **EspoCRM** · **2** (cumple)
 

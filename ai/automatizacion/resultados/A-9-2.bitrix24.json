@@ -6,6 +6,16 @@
   "comoLoHace": "La pantalla no ofrece ninguna política de contraseñas configurable —longitud, complejidad, vencimiento—.",
   "caracteristicas": "Los ajustes de seguridad del portal ofrecen la autenticación de dos factores, que el administrador puede volver obligatoria para todos los empleados con un plazo para habilitarla, y una confirmación adicional del inicio de sesión en el dispositivo de confianza.",
   "justificacion": "El acceso unificado con el directorio de la compañía existe como inicio de sesión único (SSO) con Microsoft Azure Active Directory, pero el fabricante lo limita a los planes Enterprise: en la edición gratuita no está.",
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Enterprise",
+      "monto": "US$ 579 por mes, desde 250 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "Con el plan Enterprise, el primero que incluye el inicio de sesión único, los usuarios entran con su cuenta del directorio de Microsoft de la compañía, que aplica su propia política de contraseñas; junto con el segundo factor obligatorio, las reglas de acceso quedan bajo control de la compañía. Se configura una vez. No se contrató el plan, así que no se comprobó."
+    }
+  ],
   "evidencia": [
     "A-9-2-bitrix24-1-seguridad.png"
   ],
@@ -13,13 +23,18 @@
     {
       "url": "https://helpdesk.bitrix24.com/open/24571280/",
       "cita": "Single Sign-On (SSO) is available on Bitrix24 Enterprise plans. It lets employees sign in with their Microsoft Azure Active Directory account without entering a password.",
-      "consultado": "2026-09-30",
+      "consultado": "2026-11-09",
       "captura": "A-9-2-bitrix24-2-sso.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "US$ 579 US$ 579 US$ 399 US$ 919 US$ 919 US$ 639 US$ 1,149 US$ 1,149 US$ 799 US$ 2,299 US$ 2,299 US$ 1,599 US$ 3,449 US$ 3,449 US$ 2,399 US$ 4,599 US$ 4,599 US$ 3,199 US$ 5,749 US$ 5,749 US$ 3,999 US$ 6,899 US$ 6,899 US$ 4,799 US$ 8,049 US$ 8,049 US$ 5,599 US$ 9,199 US$ 9,199 US$ 6,399 US$ 10,349 US$ 10,349 US$ 7,199 US$ 11,499 US$ 11,499 US$ 7,999",
+      "consultado": "2026-11-09",
+      "captura": "A-9-2-bitrix24-enterprise-precio-1.png"
     }
   ],
   "criterioNombre": "Autenticación de los usuarios bajo control de la compañía",
   "costo": 2,
   "licencia": null,
-  "conPlan": [],
-  "momento": "2026-09-30T13:26:30.497Z"
+  "momento": "2026-11-09T13:26:13.697Z"
 }

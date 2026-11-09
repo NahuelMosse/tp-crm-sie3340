@@ -73,7 +73,7 @@ test('A.7.1 — Importación de contactos desde planilla de cálculo', async ({ 
     costo: deWindows === 5 ? 1 : 2,
     resumen: deWindows === 5
       ? 'Importa planillas CSV con tildes y eñes intactas, también en la codificación de Windows; reconoce nombre y apellido solos y la columna del correo se relaciona a mano en cada importación.'
-      : 'Importa planillas CSV con tildes y eñes intactas si están en UTF-8; con la codificación de Windows las letras acentuadas se pierden, y la columna del correo se relaciona a mano en cada importación.',
+      : 'Importa planillas CSV; las guardadas con la codificación de Windows pierden tildes y eñes, y la columna del correo se relaciona a mano en cada importación.',
     comoLoHace:
       'Se sube el archivo con el botón «Subir archivo», se elige la codificación y el delimitador, ' +
       'se relacionan las columnas con los campos y se importa. La columna del correo, con otro ' +

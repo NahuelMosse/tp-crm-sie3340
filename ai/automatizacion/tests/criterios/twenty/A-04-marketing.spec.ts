@@ -325,7 +325,7 @@ test('A.4.4 — Captación de interesados desde redes sociales', async ({ page, 
     cumple: 1,
     costo: 2,
     resumen:
-      'No se conecta con redes sociales; un flujo con webhook da de alta a la persona con los ' +
+      'No se conecta con redes sociales; un flujo con una dirección de entrada da de alta a la persona con los ' +
       'datos que envíe un intermediario, que la compañía contrata y mantiene.',
     comoLoHace:
       'Lo que sí trae es un disparador de flujos por webhook: un flujo recibe nombre, apellido y ' +

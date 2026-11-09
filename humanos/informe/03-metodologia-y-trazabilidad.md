@@ -56,7 +56,7 @@ La pregunta que corresponde está fijada por grupo, y no se decide criterio por 
 
 ## 3.2 Por qué tres valores y no cinco
 
-Una escala de cinco valores obliga a distinguir entre "cumple bastante" y "cumple casi del todo", y esa distinción depende de quién puntúa. Con tres valores la pregunta es cerrada y la respuesta es la misma para cualquiera que mire el sistema. La precisión se obtiene dividiendo cada requerimiento en criterios finos: la cartera de pólizas no recibe una nota global, sino que se separa en representar la póliza, registrar su prima, su vigencia y su estado, y cada parte recibe su valor.
+Una escala de cinco valores obliga a distinguir entre «cumple bastante» y «cumple casi del todo», y esa distinción depende de quién puntúa. Con tres valores la pregunta es cerrada y la respuesta es la misma para cualquiera que mire el sistema. La precisión se obtiene dividiendo cada requerimiento en criterios finos: la cartera de pólizas se divide en representar la póliza, registrar su prima, su vigencia y su estado, y cada parte recibe su valor.
 
 ## 3.3 Lo que la escala no mide, y la segunda escala
 
@@ -68,13 +68,13 @@ Que una capacidad venga de fábrica o haya que configurarla una vez no cambia el
 
 | Valor | | Significa |
 |:---:|---|---|
-| **0** | **Sin trabajo** | Viene listo. No hay nada que implementar |
-| **1** | **Configuración** | Se resuelve una vez con las opciones del sistema, sin programar |
-| **2** | **Desarrollo o trabajo permanente** | Hay que escribir código, o el procedimiento se repite en cada uso |
+| **0** | **Sin trabajo** | Viene listo: no hay nada que implementar |
+| **1** | **Configuración** | Se configura una vez con las opciones del sistema, sin programar |
+| **2** | **Desarrollo o trabajo permanente** | Requiere programar, o hay trabajo en cada uso |
 
-Esta escala corre al revés que la primera porque mide costo y no mérito: acá el 0 es lo bueno.
+Esta escala corre al revés que la primera porque mide costo y no mérito: acá el 0 es lo bueno. En la sección 6 el costo se nombra con esas palabras: «viene listo», «se configura una vez», «requiere programar» o «trabajo en cada uso».
 
-Con cumplimiento **0** el costo no se puntúa; con **1** es siempre **2**, porque repetir trabajo en cada uso es la forma más cara de resolver una necesidad. Los criterios no funcionales no llevan costo: son cualidades del producto, no algo que se pone en marcha.
+Con cumplimiento **0** el costo no se puntúa; con **1** es siempre **2**, porque repetir trabajo en cada uso es la forma más cara de resolver una necesidad. Los criterios no funcionales no llevan costo: son cualidades del producto, que no hace falta poner en marcha.
 
 ### Lo que agrega un plan pago se informa como comentario
 
@@ -84,7 +84,7 @@ La matriz marca esos criterios con **↑**, y la sección 5.5 reúne los planes 
 
 ## 3.4 Todos los criterios se puntúan en las tres plataformas
 
-Todo criterio se formula desde la necesidad y no desde la solución, de modo que admite respuesta en las tres plataformas y ninguno favorece a una modalidad por cómo está redactado: no se pregunta cuánta memoria consume el servidor, sino qué recursos debe disponer la compañía para sostener el sistema.
+Todo criterio se formula desde la necesidad y no desde la solución, de modo que admite respuesta en las tres plataformas y ninguno favorece a una modalidad por cómo está redactado: por ejemplo, se pregunta qué recursos tiene que disponer la compañía para sostener el sistema, en lugar de cuánta memoria consume el servidor.
 
 ### El único estado sin valor: no se pudo verificar
 
@@ -100,7 +100,7 @@ La evaluación funciona como una auditoría sobre la versión elegida: lo que se
 | **1** | El mismo registro, más la descripción del trabajo que agrega en cada uso |
 | **0** | Registro de lo que ocurre al intentarlo en la versión evaluada (la función ausente, el aviso de que exige otro plan) o la constancia del fabricante de que esa versión no la incluye |
 
-Una prueba que falla no prueba que la plataforma falle. Cada resultado negativo se revisa antes de convertirse en veredicto, y se descarta primero que el fallo provenga del procedimiento, del instrumento de prueba o de una decisión de configuración propia.
+Que una prueba falle no alcanza para concluir que la plataforma falla: cada resultado negativo se revisa antes de convertirse en veredicto, y se descarta primero que el fallo provenga del procedimiento, del instrumento de prueba o de una decisión de configuración propia.
 
 Las restricciones de un plan se determinan completando la operación, no por un aviso en pantalla.
 
@@ -136,7 +136,7 @@ Se promedia por grupo, y todos los grupos pesan igual, porque la cantidad de cri
 El **cumplimiento total** se calcula a partir de la primera escala, un nivel por vez:
 
 ```
-% del grupo      =  Σ (cumplimiento)  /  (2 × criterios verificados del grupo)  × 100
+% del grupo      =  Σ (cumplimiento)  /  (2 × criterios verificados del grupo)  × 100
 
 % de la parte    =  promedio de los % de sus grupos
 
@@ -146,7 +146,7 @@ cumplimiento total   =  0,85 × % Parte A  +  0,15 × % Parte B
 El **esfuerzo de implementación** sale de la segunda escala. Se calcula solo sobre los criterios que la plataforma cumple, porque lo que no resuelve no se implementa:
 
 ```
-esfuerzo de implementación  =  Σ (costo) / (2 × criterios cumplidos) × 100
+esfuerzo de implementación  =  Σ (costo) / (2 × criterios cumplidos) × 100
 ```
 
 Conviene lo bajo: 0 % es que todo viene listo y 100 %, que cada capacidad exige programar o repetir trabajo en cada uso. Se publica junto al cumplimiento total, sin sumarse a él.
@@ -161,16 +161,16 @@ Cada criterio se resolvió con un procedimiento automatizado que opera las tres 
 |---|---|---|
 | **Operación del sistema** | Alta de pólizas, filtros, importación, permisos | La prueba recorre la pantalla como un usuario y comprueba el resultado sobre los datos guardados |
 | **Verificación documental** | Continuidad de las versiones, plazo de respuesta comprometido, precios | La prueba abre la página oficial, comprueba que el texto esté publicado y lo registra textual, con su captura y la fecha de consulta |
-| **Agentes sin conocimiento previo** | Aprendizaje sin capacitación previa | Tres agentes de software independientes reciben solo la consigna escrita y operan el sistema mirando la pantalla; la prueba comprueba sobre los datos guardados qué tareas quedaron completas |
+| **Agentes sin conocimiento previo** | Aprendizaje sin capacitación previa | Tres agentes de software independientes reciben solo las instrucciones escritas y operan el sistema mirando la pantalla; la prueba comprueba sobre los datos guardados qué tareas quedaron completas |
 | **Medición sobre lo publicado** | Comunidad activa de usuarios | La prueba lee las consultas del canal público de la comunidad (el foro oficial o, en Twenty, las discusiones de su repositorio) que ya cumplieron la espera aceptable y clasifica cada una según la respuesta que recibió |
 
 Los agentes de la prueba de aprendizaje trabajan cada uno con su propio usuario y solo con lo que la pantalla ofrece, sin direcciones internas, interfaz de programación ni documentación.
 
 ### Cuándo vale la documentación del fabricante como prueba
 
-Hay criterios que no se observan operando la instalación: un compromiso de servicio, una política de versiones o de conservación de los datos, el lugar donde residen, un límite publicado, la documentación y el material que el fabricante pone a disposición. Existen como lo que el fabricante publica, o no existen. Para esos criterios la documentación oficial es la prueba adecuada, y se cita textual con su dirección y su fecha de consulta.
+Hay criterios que no se observan operando la instalación: un compromiso de servicio, una política de versiones o de conservación de los datos, el lugar donde residen, un límite publicado, la documentación y el material que el fabricante pone a disposición. Como esos criterios solo constan en lo que publica el fabricante, su documentación oficial es la prueba adecuada, y se cita textual con su dirección y su fecha de consulta.
 
-Fuera de esa clase, la documentación no sustituye a la comprobación: que un fabricante afirme que su producto hace algo no es evidencia de que lo haga, y cuando la capacidad es observable, se observa. En esos criterios la documentación sola alcanza para el valor **0**, porque probar que algo no existe exige una fuente que lo declare, y para sostener una capacidad cuya prueba no puede completarse por una condición ajena a la plataforma, como las credenciales de un servicio que contrata la compañía. Ese caso se declara en la sección 3.9.
+Fuera de esa clase, la documentación no sustituye a la comprobación: que un fabricante afirme que su producto hace algo no es evidencia de que lo haga, y cuando la capacidad es observable, se observa. En esos criterios la documentación sola alcanza en dos casos. El primero es el valor **0**: que algo no existe solo se prueba con una fuente que lo declare. El segundo es una capacidad cuya prueba no puede completarse por una condición ajena a la plataforma, como las credenciales de un servicio que contrata la compañía; ese caso se declara en la sección 3.9.
 
 ## 3.9 Limitaciones de la evidencia
 

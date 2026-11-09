@@ -15,7 +15,7 @@
       "captura": "A-10-5-twenty-1-limite-publicado.png"
     }
   ],
-  "medicion": "500 de 500 aceptadas en 0.9 min y 1 ronda(s); 0 rechazos por límite · {\"201\":500}",
+  "medicion": "500 de 500 altas aceptadas en 0,9 minutos, sin rechazos por límite",
   "criterioNombre": "Intercambio sin límite de volumen que condicione la operación",
   "licencia": null,
   "conPlan": [],

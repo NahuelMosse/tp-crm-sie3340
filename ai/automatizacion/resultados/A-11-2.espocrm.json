@@ -2,7 +2,7 @@
   "criterio": "A.11.2",
   "plataforma": "espocrm",
   "cumple": 2,
-  "resumen": "Corre sobre NGINX, Apache e IIS, con MySQL, MariaDB o PostgreSQL, y el fabricante publica guías de instalación para Windows, macOS y Linux.",
+  "resumen": "Funciona con los tres servidores web más difundidos y con tres motores de base de datos, y el fabricante publica guías de instalación para Windows, macOS y Linux.",
   "comoLoHace": "Corre sobre los tres servidores web más difundidos —NGINX, Apache e IIS— y sobre los tres motores de base de datos libres más usados —MySQL, MariaDB y PostgreSQL—, y el fabricante publica guías de instalación para Windows, macOS y Linux.",
   "caracteristicas": "Cualquiera sea la plataforma que la compañía ya administra, alguna de esas combinaciones es la suya.",
   "justificacion": "No la obliga a incorporar una tecnología nueva para sostenerlo.",

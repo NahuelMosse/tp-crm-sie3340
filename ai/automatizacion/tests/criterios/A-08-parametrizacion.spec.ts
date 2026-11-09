@@ -234,7 +234,7 @@ test('A.8.3 — Automatización de procesos', async ({ page, browser }, info) =>
     cumple: 2,
     costo: 2,
     resumen:
-      'Ejecuta una acción automática ante un evento mediante un script en la fórmula de la entidad, que ' +
+      'Ejecuta una acción automática ante un evento mediante un guion escrito en el sistema, que ' +
       'exige desarrollo. El motor de flujos del fabricante lo haría desde pantallas.',
     comoLoHace:
       'Se define una acción automática sobre un evento: cuando la cobranza de una póliza pasa a vencida, el ' +

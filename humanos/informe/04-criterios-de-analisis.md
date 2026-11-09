@@ -217,7 +217,7 @@ La venta no termina cuando el cliente dice que sí: hay que emitir la póliza, c
 
 ## 4.6 Resumen
 
-Todos los grupos de una parte pesan lo mismo (sección 3.6): 8,3 % cada uno en la Parte A y 50 % en la Parte B.
+Todos los grupos de una parte pesan lo mismo (sección 3.6): dentro de su parte, 8,3 % cada uno en la Parte A y 50 % en la Parte B; sobre el resultado total, 7,1 % y 7,5 %.
 
 | Categoría | Criterios |
 |---|:---:|

@@ -735,7 +735,7 @@ test('A.11.14 — Continuidad de las versiones en uso', async ({ browser }, info
       'El fabricante no publica por cuánto tiempo corrige una versión: no hay política de soporte por ' +
       'versión ni versiones de soporte extendido.',
     caracteristicas:
-      `Publica versiones nuevas a un ritmo de ${porMes} por mes, y la guía de ` +
+      `Publica versiones nuevas a un ritmo de ${String(porMes).replace('.', ',')} por mes, y la guía de ` +
       'actualización lo que asegura es poder saltar desde cualquier versión soportada directo a la ' +
       'última.',
     justificacion:

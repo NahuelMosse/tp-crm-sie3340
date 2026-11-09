@@ -2,7 +2,7 @@
   "criterio": "A.10.4",
   "plataforma": "bitrix24",
   "cumple": 0,
-  "resumen": "La edición gratuita no permite crear ni consultar registros desde otros sistemas: el webhook entrante exige el plan Basic Vibe+.",
+  "resumen": "La edición gratuita no permite crear ni consultar registros desde otros sistemas: la conexión de entrada para otros sistemas exige el plan Basic Vibe+.",
   "comoLoHace": "En la edición gratuita no hay forma de crear ni consultar registros desde fuera: Recursos para desarrolladores ofrece «Webhook entrante», y al abrirlo el sistema responde «No disponible en tu plan actual» y remite al plan Basic Vibe+.",
   "caracteristicas": "El webhook entrante es una dirección secreta que el otro sistema llama para ejecutar métodos de la API, con los permisos del usuario que lo crea.",
   "justificacion": "El comparativo del fabricante lo confirma: la API REST no figura en la edición gratuita ni en las demás ediciones sin Vibe+, y se habilita sin tope desde el plan Basic Vibe+.",

@@ -2,7 +2,7 @@
   "criterio": "B.1.7",
   "plataforma": "twenty",
   "cumple": 2,
-  "resumen": "Con la instalación propia, si se corta la salida a internet el sistema sigue operando; solo dejan de funcionar el correo.",
+  "resumen": "Con la instalación propia, si se corta la salida a internet el sistema sigue operando; solo deja de funcionar el correo.",
   "comoLoHace": "Con la salida a internet cortada, el sistema sigue operando desde la red propia: se ingresa, se busca un asegurado y se registra un reclamo, que es la atención de todos los días.",
   "caracteristicas": "La instalación propia no necesita nada de afuera para operar: lo que se pierde durante el corte es lo que por naturaleza viaja por internet, como el correo y los logotipos de las empresas que la interfaz trae de un servicio externo.",
   "justificacion": "Con el sistema en la red de la compañía, una caída del enlace no detiene la atención.",

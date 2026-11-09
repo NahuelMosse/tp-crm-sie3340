@@ -108,7 +108,7 @@ Cada grupo cierra con su **subtotal**: puntos obtenidos sobre el máximo posible
 | Criterio | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
 | A.9.1 Restricción de la cartera por productor | ● | ○↑ | ○↑ |
-| A.9.2 Autenticación de los usuarios bajo control de la compañía | ● | ● | ◐ |
+| A.9.2 Autenticación de los usuarios bajo control de la compañía | ● | ● | ◐↑ |
 | A.9.3 Registro de quién modificó cada dato | ● | ● | ○↑ |
 | **Subtotal A.9** | **6/6 · 100,0 %** | **4/6 · 66,7 %** | **1/6 · 16,7 %** |
 
@@ -152,7 +152,7 @@ Cada grupo cierra con su **subtotal**: puntos obtenidos sobre el máximo posible
 |---|:---:|:---:|:---:|
 | Originales | 99/112 · 88,4 % | 95/112 · 84,8 % | 66/112 · 58,9 % |
 | Opcionales | 1/8 · 12,5 % | 4/8 · 50,0 % | 6/8 · 75,0 % |
-| **Total** | **100/120 · 83,3 %** | **99/120 · 82,5 %** | **72/120 · 60,0 %** |
+| **Todos los requerimientos funcionales** | **100/120 · 83,3 %** | **99/120 · 82,5 %** | **72/120 · 60,0 %** |
 
 ## 5.2 Requerimientos técnicos
 
@@ -189,7 +189,7 @@ Cada grupo cierra con su **subtotal**: puntos obtenidos sobre el máximo posible
 |---|:---:|:---:|:---:|
 | Originales | 5/10 · 50,0 % | 4/10 · 40,0 % | 7/10 · 70,0 % |
 | Opcionales | 7/8 · 87,5 % | 7/8 · 87,5 % | 3/8 · 37,5 % |
-| **Total** | **12/18 · 66,7 %** | **11/18 · 61,1 %** | **10/18 · 55,6 %** |
+| **Todos los requerimientos técnicos** | **12/18 · 66,7 %** | **11/18 · 61,1 %** | **10/18 · 55,6 %** |
 
 ## 5.3 Requerimientos operativos
 
@@ -229,7 +229,7 @@ Cada grupo cierra con su **subtotal**: puntos obtenidos sobre el máximo posible
 |---|:---:|:---:|:---:|
 | Originales | 13/18 · 72,2 % | 13/18 · 72,2 % | 12/18 · 66,7 % |
 | Opcionales | 6/6 · 100,0 % | 6/6 · 100,0 % | 0/6 · 0,0 % |
-| **Total** | **19/24 · 79,2 %** | **19/24 · 79,2 %** | **12/24 · 50,0 %** |
+| **Todos los requerimientos operativos** | **19/24 · 79,2 %** | **19/24 · 79,2 %** | **12/24 · 50,0 %** |
 
 ## 5.4 Resultado
 
@@ -240,7 +240,7 @@ Cada grupo cierra con su **subtotal**: puntos obtenidos sobre el máximo posible
 | Cumple ● | 51 | 47 | 33 |
 | Cumple con reparo ◐ | 15 | 18 | 19 |
 | No cumple ○ | 4 | 5 | 18 |
-| *— un plan pago lo mejoraría* | 10 | 4 | 19 |
+| *— un plan pago lo mejoraría* | 10 | 4 | 20 |
 | **% de cumplimiento** | **87,5 %** | **83,3 %** | **57,7 %** |
 
 ### Recuento de los opcionales
@@ -261,11 +261,11 @@ Cada grupo cierra con su **subtotal**: puntos obtenidos sobre el máximo posible
 | Opcionales (15 %) | 52,7 % | 71,4 % | 48,2 % |
 | **Cumplimiento total** | **82,3 %** | **81,5 %** | **56,3 %** |
 | Esfuerzo de implementación *(conviene lo bajo)* | 46,4 % | 53,6 % | 60,0 % |
-| *Comentario: contratando los planes que mejoran algún criterio* | *90,7 %* | *84,7 %* | *82,1 %* |
+| *Comentario: contratando los planes que mejoran algún criterio* | *90,7 %* | *84,7 %* | *83,3 %* |
 
 ### Cómo leer estos recuentos
 
-El porcentaje de los originales y el de los opcionales promedia los de sus grupos (sección 3.6), por eso puede diferir del subtotal por tipo, que suma los puntos de todos sus criterios.
+El resultado de cada plataforma es el cumplimiento total de esta sección, que pondera originales y opcionales 85/15. El porcentaje de cada parte promedia los de sus grupos (sección 3.6); por eso difiere de los subtotales por tipo de las secciones 5.1 a 5.3, que suman los puntos de todos sus criterios y solo sirven para comparar dentro de cada tipo.
 
 ## 5.5 Lo que agregarían las versiones pagas
 
@@ -298,3 +298,4 @@ Las versiones pagas no se operaron: lo que sigue surge de la documentación de c
 | Basic Vibe+ | US$ 89 por mes, hasta 5 usuarios | A.10.4, A.10.5, A.12.3 | *70,4 %* |
 | Standard | US$ 144 por mes, hasta 50 usuarios | A.2.3, A.4.2, A.4.3, A.6.4, A.9.3, A.10.1, A.12.4, B.2.3 | *78,6 %* |
 | Professional | US$ 289 por mes, hasta 100 usuarios | A.1.1, A.8.1, A.12.2 | *82,1 %* |
+| Enterprise | US$ 579 por mes, desde 250 usuarios | A.9.2 | *83,3 %* |

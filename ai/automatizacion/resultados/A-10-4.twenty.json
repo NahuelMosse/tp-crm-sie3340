@@ -3,7 +3,7 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "resumen": "Ofrece interfaces REST y GraphQL generadas desde el modelo de datos, con claves por sistema y rol propio, para que otro sistema dé de alta y consulte registros.",
+  "resumen": "Ofrece interfaces de programación estándar, con una clave y permisos propios para cada sistema, para que otro sistema dé de alta y consulte registros.",
   "comoLoHace": "Desde Configuración se crea una clave para el otro sistema, que lleva un rol que define lo que puede hacer, sin la contraseña de ninguna persona; con esa clave, desde fuera del sistema, el otro sistema da de alta y consulta registros.",
   "caracteristicas": "El producto trae interfaces de programación REST y GraphQL que se generan solas a partir del modelo de datos, incluidos los objetos propios como la póliza.",
   "justificacion": "Crear la clave del otro sistema es configuración; lo que el otro sistema haga con la interfaz es trabajo de ese sistema, no de este.",

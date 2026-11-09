@@ -121,7 +121,7 @@ for (const [tipo, titulo, pregunta] of TIPOS) {
   for (const parte of ['A', 'B']) {
     if (todos(parte).length) matriz += `| ${parte === 'A' ? 'Originales' : 'Opcionales'} | ${PLATAFORMAS.map(([k]) => subtotal(todos(parte), k)).join(' | ')} |\n`;
   }
-  matriz += `| **Total** | ${PLATAFORMAS.map(([k]) => `**${subtotal(todos(), k)}**`).join(' | ')} |\n`;
+  matriz += `| **Todos los ${titulo.toLowerCase()}** | ${PLATAFORMAS.map(([k]) => `**${subtotal(todos(), k)}**`).join(' | ')} |\n`;
 }
 
 // ── recuentos y resultado ────────────────────────────────────────────────────
@@ -255,7 +255,7 @@ ${recuento('B')}
 ${resultado}
 ### Cómo leer estos recuentos
 
-El porcentaje de los originales y el de los opcionales promedia los de sus grupos (sección 3.6), por eso puede diferir del subtotal por tipo, que suma los puntos de todos sus criterios.
+El resultado de cada plataforma es el cumplimiento total de esta sección, que pondera originales y opcionales 85/15. El porcentaje de cada parte promedia los de sus grupos (sección 3.6); por eso difiere de los subtotales por tipo de las secciones 5.1 a 5.3, que suman los puntos de todos sus criterios y solo sirven para comparar dentro de cada tipo.
 ${mejoraConPlan ? `
 ## 5.${nTipo + 2} Lo que agregarían las versiones pagas
 
@@ -273,7 +273,9 @@ let detalle = '';
 for (const g of GRUPOS) {
   detalle += `\n## ${g.id} ${g.nombre}\n`;
   for (const c of g.criterios) {
-    detalle += `\n### ${c.id} ${c.nombre}\n\n**Qué resuelve.** ${c.necesidad}.\n`;
+    // B.1 trae su fundamento, no una capacidad: se rotula como tal
+    const rotulo = c.id.startsWith('B.1.') ? 'Por qué importa' : 'Qué resuelve';
+    detalle += `\n### ${c.id} ${c.nombre}\n\n**${rotulo}.** ${c.necesidad}.\n`;
     if (CIFRAS[c.id]) detalle += `\n${CIFRAS[c.id]}\n`;
     for (const [k, nom] of PLATAFORMAS) {
       const d = res[c.id]?.[k];

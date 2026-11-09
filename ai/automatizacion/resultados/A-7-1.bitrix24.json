@@ -3,7 +3,7 @@
   "plataforma": "bitrix24",
   "cumple": 1,
   "costo": 2,
-  "resumen": "Importa planillas CSV con tildes y eñes intactas si están en UTF-8; con la codificación de Windows las letras acentuadas se pierden, y la columna del correo se relaciona a mano en cada importación.",
+  "resumen": "Importa planillas CSV; las guardadas con la codificación de Windows pierden tildes y eñes, y la columna del correo se relaciona a mano en cada importación.",
   "comoLoHace": "Se sube el archivo con el botón «Subir archivo», se elige la codificación y el delimitador, se relacionan las columnas con los campos y se importa. La columna del correo, con otro rótulo, se relaciona a mano con «E-mail del trabajo» en el paso de mapeo.",
   "caracteristicas": "El listado de contactos trae un asistente de importación de planillas CSV, sin configurar nada. Guardada en UTF-8, la planilla de asegurados ingresó completa con sus correos y la acentuación intacta; guardada con la codificación predeterminada de Windows, ingresaron 0 de 5 filas con los apellidos intactos.",
   "justificacion": "La necesidad queda resuelta con un procedimiento que se repite en cada importación: guardar la planilla con la codificación correcta y relacionar la columna del correo.",

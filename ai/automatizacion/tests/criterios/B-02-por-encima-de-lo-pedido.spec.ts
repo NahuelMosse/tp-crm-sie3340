@@ -146,7 +146,7 @@ test('B.2.3 — Suite de trabajo integrada', async ({ page }, info) => {
     cumple: 1,
     costo: 2,
     resumen:
-      `Reúne ${herramientas.join(', ')} sobre los mismos datos del asegurado; no trae mensajería ` +
+      `Reúne ${herramientas.slice(0, -1).join(', ')} y ${herramientas.at(-1)} sobre los mismos datos del asegurado; no trae mensajería ` +
       'instantánea, edición colaborativa de documentos ni firma electrónica.',
     comoLoHace:
       `Además del CRM, el producto incluye ${herramientas.join(', ')} y una línea de publicaciones internas ` +

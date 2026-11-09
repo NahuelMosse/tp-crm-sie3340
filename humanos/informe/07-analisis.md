@@ -1,14 +1,12 @@
 # 7. Análisis de los resultados
 
-Tres términos aparecen seguido más abajo. Una **entidad** es un tipo de registro propio del sistema, como Póliza o Reclamo; un **flujo** es una automatización que se arma desde la pantalla, sin programar; un **guion** es un programa corto que tiene que escribir alguien con conocimientos técnicos.
-
 ## 7.1 El panorama general
 
 EspoCRM y Twenty superan el 80 % del puntaje posible y Bitrix24, en su plan gratuito, no llega al 60 %. En lo que pidió la compañía EspoCRM aventaja a Twenty por unos cuatro puntos; en las capacidades agregadas Twenty suma más, y en el total la distancia queda en menos de uno.
 
 EspoCRM y Twenty resuelven todo el tramo de emisión, cobranza y continuidad de la relación (A.12), aunque en EspoCRM emitir la póliza automáticamente exige un guion (A.12.1). Bitrix24 lo resuelve a medias: emite la póliza sin el asegurado, las cuotas no cuelgan de la póliza y el sistema central no puede actualizarla (A.12.1 a A.12.3).
 
-Cuatro necesidades no se resuelven bien en ninguna, y no se arreglan cambiando de plataforma:
+Dos necesidades no las resuelve ninguna versión gratuita, y otras dos solo Bitrix24 las cubre en parte; ninguna se arregla cambiando de plataforma:
 
 - **Publicación en redes desde el sistema** (A.4.6). Ninguna la trae.
 - **Continuidad de las versiones** (A.11.14). Ningún fabricante publica por cuánto tiempo corrige una versión, de modo que la compañía va a actualizar al ritmo que fije cada uno.
@@ -29,9 +27,11 @@ Lo que las separa se concentra en pocos criterios:
 | Campañas y su medición (A.4.2, A.4.3) | ● | ◐ | Twenty las arma con un flujo y no reúne sus resultados |
 | Reclamo como caso propio (A.5.1) | ● | ◐ | En Twenty el número del reclamo se asigna a mano |
 | Embudos diferenciados por ramo (A.2.5) | ● | ◐ | En Twenty los embudos conviven en todas las oportunidades y la separación la mantiene quien carga |
-| Compatibilidad con la plataforma de la compañía (A.11.2) | ● | ◐↑ | Twenty admite una sola combinación de base de datos y memoria intermedia |
+| Compatibilidad con la plataforma de la compañía (A.11.2) | ● | ◐↑ | Twenty admite una sola combinación de componentes en el servidor |
 | Aprendizaje sin capacitación (A.11.5) | ● | ◐ | En EspoCRM los tres agentes de la prueba completaron todas las tareas |
 | Documentación en español (A.11.10) | ◐ | ● | La de EspoCRM está solo en inglés |
+
+La flecha ↑ indica que un plan pago o una extensión del fabricante mejoraría ese valor (sección 5.5).
 
 La diferencia más sensible para una aseguradora es la primera. Si un productor puede abrir la cartera de otro, la información comercial de la compañía queda al alcance de quien no debe verla, y en Twenty gratuito eso no se puede impedir (A.9.1).
 
@@ -54,9 +54,9 @@ Buena parte de lo que le falta se resuelve contratando. La sección 5.5 muestra 
 
 ## 7.3 Cuánto pesa cada diferencia en el puntaje
 
-El puntaje resume, pero no decide. La distancia entre EspoCRM y Twenty es menor que el peso de un solo grupo.
+La distancia entre EspoCRM y Twenty es menor que el peso de un solo grupo, así que el puntaje por sí solo no alcanza para elegir entre ellas.
 
-La infraestructura pesa más de lo que muestra la matriz. EspoCRM y Twenty obtienen medio círculo en recursos y puesta en marcha (A.11.1, A.11.3), y detrás de ese reparo hay un trabajo permanente: alguien tiene que instalarlas, mantener el servidor y hacer las copias. Bitrix24 no tiene ese costo.
+La infraestructura pesa más de lo que muestra la matriz. EspoCRM y Twenty cumplen con reparo en recursos y puesta en marcha (A.11.1, A.11.3), y detrás de ese reparo hay un trabajo permanente: alguien tiene que instalarlas, mantener el servidor y hacer las copias. Bitrix24 no tiene ese costo.
 
 ## 7.4 Cada plataforma en síntesis
 
@@ -70,7 +70,7 @@ En contra, sin el Advanced Pack no emite avisos solos ni arma informes con total
 
 Es la que menos reserva para los planes pagos: los avisos automáticos y los informes reutilizables vienen en la versión gratuita (A.1.5, A.10.3). La cartera de pólizas y la ficha del asegurado quedan resueltas por completo (A.1, A.6), y la documentación está en español (A.11.10). Trae además un asistente de inteligencia artificial que, según su documentación, consulta y resume los registros con un proveedor de modelos que contrata la compañía (B.2.1).
 
-Su punto débil es que no restringe la cartera por productor sin pagar el plan Organization (A.9.1), la falta más delicada para una aseguradora. No trae campañas de correo propias (A.4.2, A.4.3) y el reclamo no tiene numeración propia (A.5.1). Publica versiones nuevas a un ritmo muy alto que obliga a actualizar seguido (A.11.14).
+Su punto débil es que no restringe la cartera por productor sin pagar el plan Organization (A.9.1), la falta más delicada para una aseguradora. No trae campañas de correo propias (A.4.2, A.4.3) y el reclamo no tiene numeración propia (A.5.1). Publica unas catorce versiones por mes y no se compromete a corregir las anteriores, así que obliga a actualizar seguido (A.11.14).
 
 ### Bitrix24
 

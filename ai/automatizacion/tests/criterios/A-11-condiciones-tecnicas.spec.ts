@@ -97,7 +97,8 @@ test('A.11.2 — Compatibilidad con la plataforma que la compañía usa', async 
     plataforma,
     cumple: 2,
     resumen:
-      'Corre sobre NGINX, Apache e IIS, con MySQL, MariaDB o PostgreSQL, y el fabricante publica guías de ' +
+      'Funciona con los tres servidores web más difundidos y con tres motores de base de datos, y el ' +
+      'fabricante publica guías de ' +
       'instalación para Windows, macOS y Linux.',
     comoLoHace:
       'Corre sobre los tres servidores web más difundidos —NGINX, Apache e IIS— y sobre los tres motores de ' +
@@ -546,19 +547,22 @@ test('A.11.4 — Menú y navegabilidad para la operación diaria', async ({ page
   expect(enFicha, 'la póliza debe quedar en la ficha del asegurado').toBeTruthy();
   expect(revisitadas, 'el alta no debe obligar a volver sobre pantallas').toEqual([]);
 
+  // Los números chicos van en letras, como en el resto del informe
+  const cantidad = ['cero', 'una', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez'][pantallas.length] ?? String(pantallas.length);
+
   registrar({
     criterio: 'A.11.4',
     plataforma,
     cumple: 2,
     resumen:
       'El menú lleva directo a asegurados y la póliza se carga desde su ficha: el alta completa recorre ' +
-      `${pantallas.length} pantallas sin volver sobre ninguna.`,
+      `${cantidad} pantallas sin volver sobre ninguna.`,
     comoLoHace:
       'Desde el ingreso, el menú lleva directo a asegurados, y de ahí al alta. Guardado el asegurado, la ' +
       'póliza se carga desde su propia ficha, en el panel de sus pólizas, sin salir de ella y ya ligada a ' +
       'él.',
     caracteristicas:
-      `El recorrido completo pasó por ${pantallas.length} pantallas sin volver sobre ninguna y llevó ` +
+      `El recorrido completo pasó por ${cantidad} pantallas sin volver sobre ninguna y llevó ` +
       `${segundos} segundos.`,
     justificacion:
       'La póliza, que es una entidad creada por la compañía, figura en el menú dentro del grupo ' +

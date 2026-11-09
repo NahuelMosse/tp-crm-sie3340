@@ -333,6 +333,8 @@ def anchos(filas):
     pesos = [min(max(len(c) for c in col), 70) for col in celdas]
     # Arial en negrita ocupa más que el promedio: la palabra más larga define el piso de la columna
     piso = [max(1.2, 0.23 * max(len(w) for c in col for w in (c.split() or [""])) + 0.5) for col in celdas]
+    # Un rótulo corto («Cumple con reparo») entra entero en su renglón
+    piso = [max(p, max((0.21 * len(c) + 0.5 for c in col[1:] if len(c) <= 18), default=0)) for p, col in zip(piso, celdas)]
     fijas = set()
     while True:
         libre = ANCHO_UTIL - sum(piso[j] for j in fijas)
@@ -360,7 +362,10 @@ def tabla(doc, filas, size=9.5, grupos=None, matriz=False):
     filetes(t)
     t.alignment = WD_TABLE_ALIGNMENT.CENTER
     if matriz:
-        w = [ANCHO_UTIL - 2.5 * (ncol - 1)] + [2.5] * (ncol - 1)
+        w = [ANCHO_UTIL - 3.0 * (ncol - 1)] + [3.0] * (ncol - 1)
+    elif [c.replace("*", "") for c in filas[0]] == ["Versión", "Precio", "Criterios que cambia", "Cumplimiento total"]:
+        # Las tres tablas de planes de la sección 5.5 comparten columnas
+        w = [4.4, 4.4, 4.4, 2.8]
     else:
         w = anchos(filas)
     # El encabezado se alinea como su columna: centrado solo sobre columnas de valores
@@ -384,7 +389,8 @@ def tabla(doc, filas, size=9.5, grupos=None, matriz=False):
             else:
                 relleno = None
                 if subtotal and matriz:
-                    valor = valor.replace(' ', ' ')
+                    # El porcentaje no se separa de su signo; el renglón se corta después del «·»
+                    valor = valor.replace(' %', ' %')
                 celda_texto(t.cell(k, j), valor, size + (1.5 if circulo else 0),
                             subtotal and matriz,
                             None, WD_ALIGN_PARAGRAPH.CENTER if (de_valores(j) and es_valor(valor)) else WD_ALIGN_PARAGRAPH.LEFT,
@@ -503,18 +509,27 @@ def render(doc, bs, size=11, matriz=False):
             if len(b) > 2 and b[2]:
                 respaldo = b[2]
                 numeros = sorted({NUMERO_DE_URL[u] for u in respaldo["fuentes"] if u in NUMERO_DE_URL})
-                _run(par, " (" + ("prueba" + ("; " if numeros else "") if respaldo["prueba"] else ""),
-                     size - 1, False, True, False, None)
+                # Solo con la prueba va entre paréntesis; las fuentes solas ya llevan sus corchetes
+                entre = respaldo["prueba"]
+                _run(par, " (prueba" + ("; " if numeros else "") if entre else " ",
+                     size - 1, False, False, False, None)
                 for k, (a, b) in enumerate(tramos(numeros)):
                     if k:
-                        _run(par, ", ", size - 1, False, True, False, None)
-                    enlace(par, "[%d]" % a, size - 1, ancla(a), False, negrita=True)
+                        _run(par, ", ", size - 1, False, False, False, None)
+                    enlace(par, "[%d]" % a, size - 1, ancla(a), False)
                     if b != a:
-                        _run(par, "–", size - 1, False, True, False, None)
-                        enlace(par, "[%d]" % b, size - 1, ancla(b), False, negrita=True)
-                _run(par, ")", size - 1, False, True, False, None)
+                        _run(par, "–", size - 1, False, False, False, None)
+                        enlace(par, "[%d]" % b, size - 1, ancla(b), False)
+                if entre:
+                    _run(par, ")", size - 1, False, False, False, None)
+            siguiente_es_veredicto = (i + 1 < len(bs) and bs[i + 1][0] == "p"
+                                      and re.match(r"^\*\*(EspoCRM|Twenty|Bitrix24)\*\* ", bs[i + 1][1]))
             if plataforma:
                 par.paragraph_format.space_before = Pt(6)
+                # En la versión completa el veredicto sigue con su lista
+                par.paragraph_format.keep_with_next = bool(siguiente_es_veredicto) or (
+                    i + 1 < len(bs) and bs[i + 1][0] == "lista")
+            elif texto.startswith(("**Qué resuelve", "**Por qué importa", "**Cifra de referencia")):
                 par.paragraph_format.keep_with_next = True
             bajada = texto.startswith("*") and texto.endswith("*") and not texto.startswith("**")
             if bajada:
@@ -528,7 +543,9 @@ def render(doc, bs, size=11, matriz=False):
                 par = parrafo(doc, ("%d. " % j if b[1] else "") + item, size=size, space_after=3,
                               style=None if b[1] else 'List Bullet', indent=0.6 if b[1] else None)
         elif tipo == "tabla":
-            tabla(doc, b[1], size=9.5 if size >= 11 else 9, matriz=matriz)
+            # Solo las tablas con una columna por plataforma llevan el ancho fijo de la matriz
+            por_plataforma = all(c.replace("*", "").strip() in ("EspoCRM", "Twenty", "Bitrix24") for c in b[1][0][1:])
+            tabla(doc, b[1], size=9.5 if size >= 11 else 9, matriz=matriz and por_plataforma)
         elif tipo == "cita":
             cita(doc, b[1], size)
         elif tipo == "codigo":
@@ -623,7 +640,7 @@ def fuentes(doc, texto, completa=True):
                     par.alignment = WD_ALIGN_PARAGRAPH.LEFT
                     fmt = par.paragraph_format
                     fmt.space_after = Pt(2); fmt.line_spacing = 1.0
-                    fmt.left_indent = Cm(0.9); fmt.first_line_indent = Cm(-0.9)
+                    fmt.left_indent = Cm(1.7); fmt.first_line_indent = Cm(-1.7)
                     r0 = par.add_run("[%d]–[%d]\t" % (min(nums), max(nums))); r0.bold = True; r0.font.size = Pt(8.5)
                     runs(par, "%s: las %d consultas medidas en A.11.12." % (it[0], len(nums)), 8.5)
                     for n in nums:
@@ -637,7 +654,7 @@ def fuentes(doc, texto, completa=True):
                 par.alignment = WD_ALIGN_PARAGRAPH.LEFT
                 fmt = par.paragraph_format
                 fmt.space_after = Pt(2); fmt.line_spacing = 1.0
-                fmt.left_indent = Cm(0.9); fmt.first_line_indent = Cm(-0.9)
+                fmt.left_indent = Cm(1.7); fmt.first_line_indent = Cm(-1.7)
                 m = re.match(r"^(https?://\S+)(?: — (.*))?$", item)
                 if m and m.group(1) in NUMERO_DE_URL:
                     n = NUMERO_DE_URL[m.group(1)]
@@ -654,8 +671,8 @@ def fuentes(doc, texto, completa=True):
 
 # La entrega reduce la sección 6 al veredicto breve de cada plataforma.
 REMISION_DETALLE = (
-    "Entre paréntesis va el respaldo de cada veredicto: «prueba» si se comprobó operando el sistema, "
-    "con video y capturas, y el número de la fuente oficial de la sección 9 si se apoya en documentación.")
+    "Cada veredicto cierra con su respaldo: «(prueba)» si se comprobó operando el sistema, "
+    "con video y capturas, y entre corchetes el número de la fuente oficial de la sección 9 si se apoya en documentación.")
 
 SIMBOLO = {2: "●", 1: "◐", 0: "○"}
 PLATAFORMAS = (("espocrm", "EspoCRM"), ("twenty", "Twenty"), ("bitrix24", "Bitrix24"))
@@ -699,10 +716,10 @@ def detalle_breve(bs):
                     pendientes.append(("p", f"**{nombre}** ◍ sin verificar. {motivo}"))
                     continue
                 costo = costo_en_palabras(d)
-                rotulo = f"**{nombre}** {SIMBOLO[d['cumple']]}" + (f", {costo}." if costo else "")
+                rotulo = f"**{nombre}** {SIMBOLO[d['cumple']]}" + (f" *{costo[0].upper() + costo[1:]}.*" if costo else "")
                 respaldo = {"prueba": bool(d.get("evidencia")), "fuentes": [x["url"] for x in d.get("documentacion") or []]}
                 pendientes.append(("p", f"{rotulo} {d.get('resumen') or d['comoLoHace']}", respaldo))
-        elif b[0] == "tabla" or (b[0] == "p" and b[1].startswith(("**Qué resuelve", "**Cifra de referencia"))):
+        elif b[0] == "tabla" or (b[0] == "p" and b[1].startswith(("**Qué resuelve", "**Por qué importa", "**Cifra de referencia"))):
             out.append(b)
     out += pendientes
     return out
@@ -757,7 +774,7 @@ def generar(completa):
 
     nueva_seccion(doc)
     par = doc.add_paragraph()
-    r = par.add_run("Índice"); r.font.size = Pt(14); r.bold = True
+    r = par.add_run("Índice"); r.font.size = Pt(15); r.bold = True; r.font.name = FUENTE_TITULOS
     par.paragraph_format.space_after = Pt(12)
     add_field(doc.add_paragraph(), ' TOC \\o "1-2" \\h \\z \\u ', 'Índice')
 

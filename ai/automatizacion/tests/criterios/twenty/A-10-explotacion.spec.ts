@@ -321,8 +321,8 @@ test('A.10.4 — Intercambio de datos con otros sistemas de la compañía', asyn
     cumple: 2,
     costo: 1,
     resumen:
-      'Ofrece interfaces REST y GraphQL generadas desde el modelo de datos, con claves por ' +
-      'sistema y rol propio, para que otro sistema dé de alta y consulte registros.',
+      'Ofrece interfaces de programación estándar, con una clave y permisos propios para cada ' +
+      'sistema, para que otro sistema dé de alta y consulte registros.',
     comoLoHace:
       'Desde Configuración se crea una clave para el otro sistema, que lleva un rol que define lo que ' +
       'puede hacer, sin la contraseña de ninguna persona; con esa clave, desde fuera del sistema, el ' +
@@ -426,6 +426,7 @@ test('A.10.5 — Intercambio sin límite de volumen que condicione la operación
       'El límite deja holgura sobre el movimiento de un día: lo que exige es que el otro sistema espacie sus ' +
       'pedidos o los agrupe, como hace cualquier sincronización.',
     documentacion: fuente,
-    medicion: lectura,
+    medicion: `${aceptadas} de ${MOVIMIENTO_DIARIO} altas aceptadas en ${String(minutos).replace('.', ',')} minutos, ` +
+      (limitadas ? `con ${limitadas} rechazos por límite` : 'sin rechazos por límite'),
   });
 });

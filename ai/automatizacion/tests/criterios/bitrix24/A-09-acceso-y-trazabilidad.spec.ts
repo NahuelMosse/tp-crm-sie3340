@@ -2,7 +2,7 @@ import type { Page } from '@playwright/test';
 import { test, expect, escribirDireccion } from '../../humano';
 import { registrar, sinVerificar } from '../../evaluar';
 import { citar } from '../../fuentes';
-import { BITRIX24_BASIC, BITRIX24_STANDARD, conPlanDe, constanciaDe } from '../../precios';
+import { BITRIX24_BASIC, BITRIX24_ENTERPRISE, BITRIX24_STANDARD, conPlanDe, constanciaDe } from '../../precios';
 import { entrar, plataformaDe } from '../../sesion';
 import { soloEn, capturar } from '../comun';
 import { panel, cerrarPaneles, panelesAbiertos, menuLateral, pestana } from '../../bitrix24/navegar';
@@ -291,6 +291,7 @@ test('A.9.2 — Autenticación de los usuarios bajo control de la compañía', a
     buscar: /Single Sign-On \(SSO\) is available on Bitrix24 Enterprise plans/i,
     captura: 'A-9-2-bitrix24-2-sso',
   });
+  const precio = await constanciaDe(browser, BITRIX24_ENTERPRISE, 'A-9-2-bitrix24-enterprise');
 
   expect(conSegundoFactor, 'la pantalla de seguridad debe ofrecer la autenticación de dos factores').toBeTruthy();
   expect(conPoliticaDeClaves, 'no se espera una política de contraseñas configurable en esa pantalla').toBeFalsy();
@@ -311,8 +312,17 @@ test('A.9.2 — Autenticación de los usuarios bajo control de la compañía', a
       'El acceso unificado con el directorio de la compañía existe como inicio de sesión único (SSO) con ' +
       'Microsoft Azure Active Directory, pero el fabricante lo limita a los planes Enterprise: en la ' +
       'edición gratuita no está.',
+    conPlan: [conPlanDe(BITRIX24_ENTERPRISE, {
+      cumple: 2,
+      costo: 1,
+      justificacion:
+        'Con el plan Enterprise, el primero que incluye el inicio de sesión único, los usuarios entran con su ' +
+        'cuenta del directorio de Microsoft de la compañía, que aplica su propia política de contraseñas; junto ' +
+        'con el segundo factor obligatorio, las reglas de acceso quedan bajo control de la compañía. Se configura ' +
+        'una vez. No se contrató el plan, así que no se comprobó.',
+    })],
     evidencia: [capSeguridad],
-    documentacion: fuente,
+    documentacion: [fuente, ...precio],
   });
 });
 
