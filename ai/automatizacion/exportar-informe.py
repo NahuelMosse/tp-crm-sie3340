@@ -652,13 +652,10 @@ def fuentes(doc, texto, completa=True):
             render(doc, [b], 10)
 
 
-# La entrega reduce la sección 6 al veredicto breve de cada plataforma; el detalle va en la versión
-# completa, que comparte la numeración para que las referencias valgan en ambas.
+# La entrega reduce la sección 6 al veredicto breve de cada plataforma.
 REMISION_DETALLE = (
     "Entre paréntesis va el respaldo de cada veredicto: «prueba» si se comprobó operando el sistema, "
-    "con video y capturas, y el número de la fuente oficial de la sección 9 si se apoya en documentación. "
-    "El detalle de cada solución y las citas textuales están en la versión completa de este informe, "
-    "con la misma numeración.")
+    "con video y capturas, y el número de la fuente oficial de la sección 9 si se apoya en documentación.")
 
 SIMBOLO = {2: "●", 1: "◐", 0: "○"}
 PLATAFORMAS = (("espocrm", "EspoCRM"), ("twenty", "Twenty"), ("bitrix24", "Bitrix24"))
@@ -713,10 +710,8 @@ def detalle_breve(bs):
 
 REMISION_CATALOGO = {
     "4.4": "Los criterios de la Parte A se presentan con su valor en cada plataforma en la matriz de "
-           "la sección 5, y con lo que resuelve para la compañía en la sección 6. El procedimiento con "
-           "que se verificó cada criterio figura en la versión completa de este informe.",
-    "4.5": "Los criterios de la Parte B se presentan del mismo modo en la matriz de la sección 5, "
-           "y su procedimiento de verificación, en la versión completa.",
+           "la sección 5, y con lo que resuelve para la compañía en la sección 6.",
+    "4.5": "Los criterios de la Parte B se presentan del mismo modo en las secciones 5 y 6.",
 }
 
 def sin_catalogo(bs):
