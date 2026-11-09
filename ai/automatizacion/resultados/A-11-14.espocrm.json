@@ -2,6 +2,7 @@
   "criterio": "A.11.14",
   "plataforma": "espocrm",
   "cumple": 0,
+  "resumen": "No publica por cuánto tiempo corrige cada versión: recomienda actualizar apenas sale una nueva, es decir, solo sostiene la última.",
   "comoLoHace": "El fabricante no publica por cuánto tiempo corrige una versión: no hay política de soporte por versión ni versiones de soporte extendido. Lo que la documentación oficial indica es actualizar apenas sale una versión nueva, lo que equivale a sostener solo la última.",
   "justificacion": "La compañía no puede fijar la actualización en su plan anual: tiene que seguir el ritmo del fabricante para seguir recibiendo correcciones.",
   "documentacion": [

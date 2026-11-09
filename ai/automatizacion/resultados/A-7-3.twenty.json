@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "El administrador tiene conectada la casilla comercial y el productor, desde su cuenta, conectó la suya contra el mismo servidor de correo: cada uno ve solo la propia en su lista de cuentas, y el mensaje que un asegurado le mandó al productor apareció en la ficha del asegurado.",
+  "resumen": "Cada usuario conecta su propia casilla, por IMAP y SMTP o con Google o Microsoft, y ve solo la suya; los mensajes de un asegurado aparecen en su ficha.",
+  "comoLoHace": "Cada usuario conecta su casilla: el administrador la comercial y el productor, desde su cuenta, la suya contra el mismo servidor de correo; cada uno ve solo la propia en su lista de cuentas, y el mensaje que un asegurado le manda al productor aparece en la ficha del asegurado.",
   "caracteristicas": "Cada usuario conecta su propia casilla desde su configuración personal, por IMAP y SMTP o con una cuenta de Google o Microsoft.",
   "justificacion": "Configurar cada casilla es trabajo de una sola vez, y lo hace cada usuario.",
   "evidencia": [

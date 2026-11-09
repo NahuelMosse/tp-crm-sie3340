@@ -3,6 +3,7 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
+  "resumen": "Las cuotas se modelan como objeto propio ligado a la póliza, con vencimiento, importe y estado; el listado de impagas sale filtrando por estado, sin desarrollo.",
   "comoLoHace": "Twenty no trae cuotas: se crea un objeto propio «Cuotas» con vencimiento, importe y estado, ligado a la póliza, y a la póliza se le agrega un campo de lista «Forma de pago». Cada cuota se carga desde el listado de cuotas y queda en la ficha de la póliza. El listado de impagas es el listado de cuotas filtrado por el estado «Impaga», que trae las dos vencidas y ninguna de las otras.",
   "caracteristicas": "Objeto propio con campos de fecha, moneda y lista; relación con la póliza que muestra las cuotas en su ficha; filtro por estado en el listado, sin desarrollo.",
   "justificacion": "La forma de pago y las cuotas se registran y el listado de impagas sale con un filtro, en cada uso, sin trabajo extra. Definir el objeto de cuotas y sus campos es configuración que se hace una sola vez.",

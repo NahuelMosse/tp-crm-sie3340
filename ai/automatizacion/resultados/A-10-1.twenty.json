@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 1,
   "costo": 2,
-  "comoLoHace": "Los tableros vienen de fábrica: se armó un gráfico con el total de primas por estado de cobranza eligiendo el objeto, el campo del eje y la suma de la prima, sin programar, y quedó guardado para consultarlo cuando se quiera.",
+  "resumen": "Arma gráficos guardados, como el total de primas por estado de cobranza; no muestra el tiempo promedio de resolución de reclamos, que exige desarrollar un flujo con código.",
+  "comoLoHace": "Los tableros vienen de fábrica: se arma un gráfico con el total de primas por estado de cobranza eligiendo el objeto, el campo del eje y la suma de la prima, sin programar, y queda guardado para consultarlo cuando se quiera.",
   "caracteristicas": "El tiempo promedio de resolución de los reclamos, en cambio, no se puede mostrar: el gráfico promedia campos numéricos, y el producto no calcula la duración de cada reclamo ni tiene campos que la deriven de sus fechas.",
   "justificacion": "Para mostrar el tiempo promedio de resolución hay que agregar la duración de cada reclamo con un flujo con código que la escriba al cerrarse cada reclamo, que es desarrollo.",
   "evidencia": [

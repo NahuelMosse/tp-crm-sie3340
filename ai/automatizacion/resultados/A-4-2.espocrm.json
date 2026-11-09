@@ -3,7 +3,8 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "El segmento guardado se volcó entero a una lista de destinatarios, seleccionando desde la lista con el mismo filtro guardado, y se creó una campaña de correo dirigida a esa lista.",
+  "resumen": "Vuelca un segmento guardado a una lista de destinatarios y envía una campaña de correo con plantilla, personalizada con los datos de cada uno.",
+  "comoLoHace": "El segmento guardado se vuelca entero a una lista de destinatarios, seleccionando desde el listado con el mismo filtro guardado, y se crea una campaña de correo dirigida a esa lista.",
   "caracteristicas": "El contenido se escribió en una plantilla con marcadores que el sistema reemplaza por los datos de cada destinatario —el nombre en el asunto y en el saludo—, de modo que cada asegurado recibe un mensaje dirigido a él.",
   "justificacion": "Campañas, listas y plantillas vienen de fábrica.",
   "evidencia": [

@@ -2,9 +2,10 @@
   "criterio": "A.11.8",
   "plataforma": "twenty",
   "cumple": 2,
-  "comoLoHace": "Tres sesiones abrieron a la vez la misma póliza y cambiaron su ramo una detrás de otra, desde la ficha.",
+  "resumen": "Varias sesiones editan a la vez la misma póliza y cada una ve en vivo, sin recargar, el cambio de las otras: nadie pisa trabajo ajeno sin verlo.",
+  "comoLoHace": "Varias sesiones pueden abrir a la vez la misma póliza y cambiar su ramo una detrás de otra, desde la ficha.",
   "caracteristicas": "Quedó el último cambio, Salud.",
-  "justificacion": "Cada sesión vio aparecer el cambio de la anterior en su pantalla, sin recargar, antes de hacer el suyo: el sistema actualiza en vivo lo que otros modifican, así que nadie pisa el trabajo de otro sin verlo.",
+  "justificacion": "Cada sesión ve aparecer el cambio de la anterior en su pantalla, sin recargar, antes de hacer el suyo: el sistema actualiza en vivo lo que otros modifican, así que nadie pisa el trabajo de otro sin verlo.",
   "evidencia": [
     "A-11-8-twenty-1-primera-sesion-despues.png"
   ],

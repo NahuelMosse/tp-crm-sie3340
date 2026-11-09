@@ -2,7 +2,8 @@
   "criterio": "A.11.7",
   "plataforma": "bitrix24",
   "cumple": 2,
-  "comoLoHace": "Se consultó en la oferta del fabricante cuántos usuarios admite la edición gratuita.",
+  "resumen": "La edición gratuita admite un número ilimitado de usuarios sin costo, de modo que la cantidad no condiciona la operación.",
+  "comoLoHace": "El fabricante publica en su oferta cuántos usuarios admite la edición gratuita.",
   "caracteristicas": "El fabricante publica que la edición gratuita admite un número ilimitado de usuarios, sin costo.",
   "justificacion": "La compañía puede dar de alta a todo su plantel de productores y personal administrativo sin que la cantidad de usuarios sea una condición que limite la operación.",
   "evidencia": [

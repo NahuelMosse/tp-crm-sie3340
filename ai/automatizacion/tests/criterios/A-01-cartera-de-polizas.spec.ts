@@ -118,6 +118,9 @@ test('A.1.1 — Modelado de la póliza como objeto propio', async ({ page }, inf
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Permite definir la póliza como objeto propio, con su menú, su listado y su ficha, sin programar ni ' +
+      'tocar el servidor.',
     comoLoHace:
       'El Administrador de Entidades crea la entidad Póliza desde la pantalla de administración, sin escribir ' +
       'código ni tocar archivos del servidor.',
@@ -176,11 +179,14 @@ test('A.1.2 — Campos de lista para el ramo y el estado de cobranza', async ({ 
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Agrega campos de lista para el ramo y el estado de cobranza, sin programar; el usuario elige entre ' +
+      'valores definidos y no puede escribir uno imprevisto.',
     comoLoHace:
-      'El Administrador de Campos agrega campos de tipo lista y admite escribir sus valores, sin programar. Se ' +
-      `definieron los ramos que comercializa la compañía —${RAMOS.join(', ')}— y los estados de cobranza, y se ` +
-      'cargó una póliza de cada ramo desde el formulario: las cuatro quedaron con su ramo visible en el ' +
-      'listado. El estado de cobranza se cambia desde la ficha y el cambio queda guardado.',
+      'El Administrador de Campos agrega campos de tipo lista y admite escribir sus valores, sin programar: ' +
+      'con él se definen los ramos que comercializa la compañía y los estados de cobranza, y cada póliza ' +
+      'muestra su ramo en el listado. El estado de cobranza se cambia desde la ficha y el cambio queda ' +
+      'guardado.',
     caracteristicas:
       'El usuario elige de ' +
       'la lista y no puede escribir un valor imprevisto, que es lo que vuelve confiable la clasificación de la ' +
@@ -218,10 +224,12 @@ test('A.1.3 — Prima con importe y moneda', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Ofrece un campo de importe con moneda: guarda los centavos y la denominación junto al valor.',
     comoLoHace:
-      'Cargada una prima de 184.532,75, la ficha la devuelve con sus centavos y con la denominación, y el ' +
-      'sistema la trata como importe y no como texto: guarda la moneda junto al valor y mantiene una lista de ' +
-      'monedas habilitadas.',
+      'El campo de importe guarda la prima con sus centavos y con la denominación, y el sistema lo trata ' +
+      'como importe y no como texto: guarda la moneda junto al valor y mantiene una lista de monedas ' +
+      'habilitadas.',
     caracteristicas:
       'El producto ofrece un tipo de campo de importe con moneda, que se agrega desde la administración.',
     justificacion:
@@ -282,11 +290,13 @@ test('A.1.4 — Vigencia con fecha de inicio y de fin', async ({ page }, info) =
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Trata el inicio y el fin de vigencia como fechas: ordena por vencimiento y filtra por rangos, como ' +
+      'los próximos 30 días.',
     comoLoHace:
-      'Los campos de inicio y de fin de vigencia se agregan como campos de fecha desde la administración, y el ' +
-      'sistema los trata como tales y no como texto. Se cargaron dos pólizas, una que vence en doce días y otra ' +
-      'en trescientos: ordenado por vencimiento, el listado pone primero la que vence antes, y la condición ' +
-      '"vence en los próximos 30 días" devuelve la primera y deja afuera la segunda.',
+      'Los campos de inicio y de fin de vigencia se agregan como campos de fecha desde la administración, y ' +
+      'el sistema los trata como tales y no como texto: el listado se ordena por vencimiento y admite la ' +
+      'condición «vence en los próximos 30 días».',
     caracteristicas:
       `El filtro ofrece ${comparaciones.length} comparaciones propias de una fecha —próximos o últimos X días, antes, después, ` +
       'entre, mes o trimestre en curso—.',
@@ -343,6 +353,9 @@ test('A.1.5 — Aviso anticipado de vencimiento', async ({ page, browser }, info
     criterio: 'A.1.5',
     plataforma,
     cumple: 1,
+    resumen:
+      'No emite avisos solos: los vencimientos se consultan en un listado que alguien debe abrir cada día. ' +
+      'El motor de flujos que los emitiría es una extensión.',
     comoLoHace:
       'La necesidad se cubre con la consulta del listado —vence en ' +
       'los próximos 30 días, y su equivalente sobre el plazo de los reclamos—, que devuelve exactamente lo que ' +
@@ -419,10 +432,12 @@ test('A.1.6 — Consulta y filtrado de la cartera', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Combina ramo, estado de cobranza y productor en un solo filtro del listado y devuelve las pólizas ' +
+      'que cumplen todas las condiciones.',
     comoLoHace:
-      'El listado de pólizas admite combinar condiciones: se pidieron a la vez el ramo Automotor, el estado de ' +
-      `cobranza al día y un productor responsable, y de ${sinFiltrar} pólizas el sistema devolvió ` +
-      `${obtenido.length}, exactamente las que cumplen las tres al mismo tiempo.`,
+      'El listado de pólizas admite combinar condiciones —por ejemplo el ramo, el estado de cobranza y el ' +
+      'productor responsable— y devuelve exactamente las pólizas que cumplen todas al mismo tiempo.',
     caracteristicas:
       'La consulta se arma desde el ' +
       'listado eligiendo campo, comparación y valor, sin escribir ninguna expresión.',
@@ -491,11 +506,13 @@ test('A.1.7 — Operación masiva sobre la cartera', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Modifica un campo en todas las pólizas seleccionadas con una sola operación; para los campos propios ' +
+      'hay que habilitarlos antes.',
     comoLoHace:
-      `Se seleccionaron las ${elegidas.length} pólizas de los ramos Automotor y Hogar desde el listado, y el menú ` +
-      `de acciones sobre la selección ofrece ${acciones.length} operaciones (${acciones.join(', ')}). Con la ` +
-      'actualización masiva se eligió el estado de cobranza, se le dio un valor y el sistema lo aplicó en una ' +
-      `sola operación: las ${cambiadas} quedaron con el nuevo estado sin recorrerlas una por una.`,
+      'Seleccionadas las pólizas desde el listado, el menú de acciones sobre la selección ofrece, entre ' +
+      'otras, la actualización masiva: se elige un campo, como el estado de cobranza, se le da un valor y ' +
+      'el sistema lo aplica en una sola operación a todas las seleccionadas, sin recorrerlas una por una.',
     caracteristicas:
       'De fábrica la ' +
       'actualización masiva solo alcanza al usuario y al equipo asignados; para que incluya un campo propio ' +

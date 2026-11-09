@@ -2,6 +2,7 @@
   "criterio": "B.1.1",
   "plataforma": "twenty",
   "cumple": 2,
+  "resumen": "Con la instalación propia los datos quedan en el servidor de la compañía y no dependen de ninguna cuenta del fabricante ni de que se los use.",
   "comoLoHace": "En la instalación propia los datos quedan en el servidor de la compañía y no dependen de ninguna cuenta del fabricante.",
   "caracteristicas": "No hay condición de servicio que los afecte por falta de uso, porque no hay servicio de por medio, y el fabricante la ofrece con el control total de los datos.",
   "justificacion": "Una póliza puede quedar años sin que nadie la abra y sigue ahí mientras el equipo donde corre el sistema se mantenga.",

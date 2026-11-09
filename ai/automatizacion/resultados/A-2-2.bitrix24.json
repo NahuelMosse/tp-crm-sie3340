@@ -3,7 +3,8 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "El contacto no trae cobertura pedida ni urgencia: se agregaron como dos campos de lista desde su propio formulario.",
+  "resumen": "Suma la cobertura pedida y la urgencia como campos de lista; el listado ordena por urgencia según el orden de las opciones y no el alfabético.",
+  "comoLoHace": "El contacto no trae cobertura pedida ni urgencia: se agregan como dos campos de lista desde su propio formulario.",
   "caracteristicas": "Se cargaron tres solicitantes en desorden y, con un clic en el encabezado de la columna «Urgencia», el listado quedó ordenado primero la alta, después la media y al final la baja —el orden de las opciones de la lista, no el alfabético—; otro clic lo invierte.",
   "justificacion": "Definir los dos campos es configuración de una sola vez.",
   "evidencia": [

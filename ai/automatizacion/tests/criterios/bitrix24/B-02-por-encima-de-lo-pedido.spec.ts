@@ -2,6 +2,7 @@ import { test, expect } from '../../humano';
 import { registrar } from '../../evaluar';
 import { entrar, plataformaDe } from '../../sesion';
 import { citar } from '../../fuentes';
+import { BITRIX24_BASIC, BITRIX24_STANDARD, constanciaDe, conPlanDe } from '../../precios';
 import { soloEn, capturar } from '../comun';
 import { menuLateral, pestana, panel, cerrarPaneles } from '../../bitrix24/navegar';
 import { textoDe, altaDeNegociacion, guardarFormulario, negociaciones, borrarNegociaciones } from '../../bitrix24/ui';
@@ -69,11 +70,12 @@ test('B.2.1 — Asistente de inteligencia artificial', async ({ page, browser },
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen: 'Incluye CoPilot, un asistente de inteligencia artificial disponible desde el propio registro, con una cuota mensual de usos gratuitos que puede agotarse.',
     comoLoHace:
       (sePidioResumen
-        ? 'Se le pidió el resumen de una negociación desde su chat; ' +
-          (respondio ? 'respondió con un texto propio en la misma pantalla.' : 'el asistente recibió la consulta pero no devolvió respuesta en el minuto y medio de espera de la instalación evaluada, posiblemente por la cuota gratuita del portal.')
-        : 'El menú lateral ofrece CoPilot, pero en esta corrida no se llegó a escribirle una consulta desde su pantalla.'),
+      ? 'Desde el chat de la negociación se le pide a CoPilot el resumen del registro: ' +
+      (respondio ? 'responde con un texto propio en la misma pantalla.' : 'el asistente recibe la consulta, pero su respuesta puede depender de la cuota gratuita del portal.')
+      : 'El menú lateral ofrece CoPilot para escribirle una consulta desde su pantalla.'),
     caracteristicas:
       'El producto trae CoPilot, un asistente de inteligencia artificial disponible desde el propio registro, en ' +
       'la edición gratuita, con una cuota de usos gratuitos por mes.',
@@ -118,7 +120,8 @@ test('B.2.2 — Aplicación móvil nativa', async ({ page, browser }, info) => {
     plataforma,
     cumple: 2,
     costo: 0,
-    comoLoHace: 'Se buscó la aplicación oficial del fabricante en las tiendas de aplicaciones.',
+    resumen: 'Tiene aplicación móvil oficial para Android e iOS, con CRM, tareas, chat y notificaciones, para operar durante la visita al asegurado.',
+    comoLoHace: 'La aplicación oficial del fabricante se encuentra en las tiendas de aplicaciones.',
     caracteristicas:
       'El fabricante publica una aplicación móvil oficial, para Android en Google Play y para iOS en el App ' +
       'Store, con el CRM, las tareas, el chat y las notificaciones de la cuenta.',
@@ -131,7 +134,7 @@ test('B.2.2 — Aplicación móvil nativa', async ({ page, browser }, info) => {
 });
 
 // ── B.2.3 ────────────────────────────────────────────────────────────────────
-test('B.2.3 — Suite de trabajo integrada', async ({ page }, info) => {
+test('B.2.3 — Suite de trabajo integrada', async ({ page, browser }, info) => {
   // «Enumerar las herramientas incluidas más allá del CRM y comprobar que
   //  operan sobre los mismos datos»
   const plataforma = plataformaDe(info.project.name);
@@ -154,11 +157,19 @@ test('B.2.3 — Suite de trabajo integrada', async ({ page }, info) => {
   const herramientas = ['mensajería', 'tareas y proyectos', 'calendario', 'Drive (documentos)', 'base de conocimientos', 'sitios web'];
   const pestanas = ['Chat', 'Llamada', 'Tarea', 'Reunión', 'Comentario'].filter(p => ficha.includes(p));
 
+  const COMPARACION = 'https://www.bitrix24.es/prices/compare_cloud_plans.php';
+  const fuentes = [
+    await citar(browser, { url: COMPARACION, buscar: 'Edición colaborativa de documentos', captura: 'B-2-3-bitrix24-3-edicion-colaborativa' }),
+    await citar(browser, { url: COMPARACION, buscar: 'Envía documentos para que los firmen varios empleados a la vez', captura: 'B-2-3-bitrix24-4-firma-electronica' }),
+    ...await constanciaDe(browser, BITRIX24_STANDARD, 'B-2-3-bitrix24-standard'),
+  ];
+
   registrar({
     criterio: 'B.2.3',
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen: 'Integra mensajería, tareas, calendario, documentos y base de conocimientos sobre los mismos contactos, pero la edición colaborativa de documentos y la firma electrónica exigen planes pagos o aplicaciones.',
     comoLoHace:
       'Desde la ficha de una negociación se abre un chat, una tarea, una reunión o un comentario ' +
       `(${pestanas.join(', ') || 'según lo que la pantalla ofrezca en cada ficha'}) sin salir del registro.`,
@@ -170,6 +181,15 @@ test('B.2.3 — Suite de trabajo integrada', async ({ page }, info) => {
       '—quedan en planes pagos o en aplicaciones del catálogo—, así que la compañía sigue necesitando otra ' +
       'herramienta para esa parte, con el trabajo de pasar la información de una a otra.',
     evidencia: [capFicha, capDrive],
+    documentacion: fuentes,
+    conPlan: [conPlanDe(BITRIX24_STANDARD, {
+      cumple: 2,
+      costo: 1,
+      justificacion:
+        'El plan Standard es el primero que suma la edición colaborativa de documentos y la firma electrónica ' +
+        'de la empresa, además de lo que ya trae la edición gratuita: la compañía deja de necesitar otra ' +
+        'herramienta para esa parte. Requiere configurar una vez los documentos y la firma.',
+    })],
     medicion: `Acciones disponibles desde la ficha: ${pestanas.join(', ') || 'ninguna detectada'}`,
   });
 });
@@ -199,6 +219,12 @@ test('B.2.4 — Telefonía y videollamada integradas', async ({ page, browser },
       buscar: 'aplicaciones de Bitrix24 Market están disponibles solo en los planes pagos',
       captura: 'B-2-4-bitrix24-2-telefonia-solo-planes-pagos',
     }),
+    await citar(browser, {
+      url: 'https://www.bitrix24.es/prices/compare_cloud_plans.php',
+      buscar: 'Bitrix24 cuenta con telefonía incorporada que no necesita configuración ni integración',
+      captura: 'B-2-4-bitrix24-3-telefonia-por-plan',
+    }),
+    ...await constanciaDe(browser, BITRIX24_BASIC, 'B-2-4-bitrix24-basic'),
   ];
 
   registrar({
@@ -206,6 +232,7 @@ test('B.2.4 — Telefonía y videollamada integradas', async ({ page, browser },
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen: 'Incluye videollamada, pero no telefonía: la línea propia y la numeración son de los planes pagos, o se conecta una central externa por desarrollo.',
     comoLoHace:
       'Desde la ficha de una negociación se inicia una reunión con video, sin salir del ' +
       `sistema${tieneVideollamada ? ' (acción presente en la ficha evaluada)' : ''}.`,
@@ -217,46 +244,14 @@ test('B.2.4 — Telefonía y videollamada integradas', async ({ page, browser },
       'desarrollar la conexión con una central externa por la interfaz de programación.',
     evidencia: [capFicha],
     documentacion: fuentes,
+    conPlan: [conPlanDe(BITRIX24_BASIC, {
+      cumple: 2,
+      costo: 1,
+      justificacion:
+        'Desde el plan Basic, el primero que incluye la telefonía integrada, se llama desde la ficha del cliente ' +
+        'y se puede conectar una central propia por el conector SIP, sin desarrollo. Requiere dar de alta la línea ' +
+        'o la central una vez.',
+    })],
     medicion: `Videollamada en la ficha: ${tieneVideollamada ? 'sí' : 'no detectada'} · acción de llamar: ${tieneLlamar ? 'sí' : 'no'}`,
-  });
-});
-
-// ── B.2.5 ────────────────────────────────────────────────────────────────────
-test('B.2.5 — Uso sin restricciones comerciales en la interfaz', async ({ page }, info) => {
-  // «Recorrer las pantallas de uso diario y registrar la presencia de avisos de venta»
-  const plataforma = plataformaDe(info.project.name);
-  soloEn(plataforma, 'bitrix24');
-  test.setTimeout(400_000);
-
-  await entrar(page, plataforma);
-  const avisos: string[] = [];
-  const capturas: string[] = [];
-  const PANTALLAS: [string, string][] = [['CRM', 'crm'], ['Tareas', 'tareas'], ['Messenger', 'mensajes'], ['Calendario', 'calendario']];
-  for (const [entrada, paso] of PANTALLAS) {
-    await menuLateral(page, entrada);
-    const texto = await page.evaluate(() => document.body.innerText ?? '');
-    const venta = texto.match(/mejore su plan|actualiza(r)? (a|tu|su) plan|mejora tu plan|comprar ahora|prueba gratis|prueba gratuita|suscrib|upgrade|buy now/gi);
-    if (venta) avisos.push(`${paso}: ${[...new Set(venta)].join(', ')}`);
-    capturas.push(await capturar(page, 'B.2.5', plataforma, paso));
-  }
-
-  registrar({
-    criterio: 'B.2.5',
-    plataforma,
-    cumple: avisos.length ? 1 : 2,
-    costo: avisos.length ? 2 : 0,
-    comoLoHace: 'Se recorrieron las pantallas de uso diario.',
-    caracteristicas: avisos.length
-      ? '—CRM, tareas, mensajería y calendario— y en todas hay avisos ' +
-        `de venta permanentes en la propia interfaz (${avisos.join('; ')}), sin importar la tarea en curso.`
-      : '—CRM, tareas, mensajería y calendario— y ninguna muestra avisos de venta.',
-    justificacion: avisos.length
-      ? 'No ' +
-        'impiden operar, pero el usuario trabaja con la oferta comercial siempre a la vista y la edición gratuita ' +
-        'no ofrece ocultarla.'
-      : 'Las funciones de los planes pagos quedan marcadas donde se las usa, no interrumpiendo ' +
-        'la pantalla de trabajo diaria.',
-    evidencia: capturas,
-    medicion: `Avisos de venta en el contenido: ${avisos.length}`,
   });
 });

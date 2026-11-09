@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "La persona no trae cobertura pedida ni urgencia: se agregaron como dos campos de lista desde el modelo de datos. Se cargaron tres solicitantes en desorden y, al ordenar el listado por urgencia, quedaron en el orden de las opciones —primero la alta, después la media y al final la baja—, no alfabético: el orden sale de cómo se definió la lista.",
+  "resumen": "La cobertura pedida y la urgencia se agregan como campos de lista, y el listado se ordena por ellos siguiendo el orden de las opciones, no el alfabético.",
+  "comoLoHace": "La persona no trae cobertura pedida ni urgencia: se agregan como dos campos de lista desde el modelo de datos. Al ordenar el listado por urgencia, los solicitantes quedan en el orden de las opciones —primero la alta, después la media y al final la baja—, no alfabético: el orden sale de cómo se define la lista.",
   "caracteristicas": "El orden se puede guardar en una vista.",
   "justificacion": "Definir los dos campos es trabajo de una sola vez.",
   "evidencia": [

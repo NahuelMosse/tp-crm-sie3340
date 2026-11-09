@@ -64,7 +64,7 @@ const ORIGEN = {
   'A.5.4': 'REQ 15', 'A.5.5': 'REQ 20', 'A.5.6': 'REQ 20',
   'A.6.1': 'REQ 2, REQ 7', 'A.6.2': 'REQ 7', 'A.6.3': 'REQ 16, REQ 14', 'A.6.4': 'REQ 7, RUBRO',
   'A.7.1': 'REQ 18, CRIT 7', 'A.7.2': 'REQ 18', 'A.7.3': 'REQ 19', 'A.7.4': 'REQ 19',
-  'A.7.5': 'CRIT 7', 'A.7.6': 'CRIT 7',
+  'A.7.5': 'CRIT 7',
   'A.8.1': 'CRIT 6, RUBRO', 'A.8.2': 'CRIT 6', 'A.8.3': 'CRIT 6, REQ 8', 'A.8.4': 'RUBRO',
   'A.9.1': 'CRIT 8, REQ 4', 'A.9.2': 'CRIT 8', 'A.9.3': 'CRIT 8',
   'A.10.1': 'CRIT 9, REQ 3, REQ 15', 'A.10.2': 'CRIT 10, REQ 4', 'A.10.3': 'CRIT 10',
@@ -77,7 +77,7 @@ const ORIGEN = {
   'A.12.4': 'REQ 7, REQ 4', 'A.12.5': 'REQ 15, REQ 12, REQ 5',
   'B.1.1': 'RUBRO', 'B.1.2': 'RUBRO', 'B.1.3': 'RUBRO', 'B.1.4': 'RUBRO',
   'B.1.5': 'RUBRO', 'B.1.6': 'RUBRO', 'B.1.7': 'RUBRO',
-  'B.2.1': 'OBS', 'B.2.2': 'OBS', 'B.2.3': 'OBS', 'B.2.4': 'OBS', 'B.2.5': 'OBS',
+  'B.2.1': 'OBS', 'B.2.2': 'OBS', 'B.2.3': 'OBS', 'B.2.4': 'OBS',
 };
 
 // ── Catalogo, leido de la seccion 4 ──────────────────────────────────────────

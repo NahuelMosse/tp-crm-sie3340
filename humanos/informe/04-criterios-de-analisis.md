@@ -1,10 +1,10 @@
 # 4. Criterios de análisis
 
-Cada criterio se enuncia como una capacidad y se acompaña del procedimiento concreto que se ejecuta para comprobarla. El resultado de ese procedimiento se convierte en un valor de 0 a 2 en cada una de las dos escalas definidas en la sección anterior, y los resultados obtenidos se presentan en las secciones 5 y 6.
+Cada criterio se enuncia como una capacidad y se comprueba con un procedimiento concreto, idéntico en las tres plataformas.
 
 ## 4.1 De dónde provienen
 
-Los criterios tienen tres orígenes, y la distinción determina su peso en el resultado.
+Los criterios tienen cuatro orígenes, y la distinción determina su peso en el resultado.
 
 El primero es el pedido del cliente: veinte requerimientos relevados, en lenguaje de negocio, que describen qué debe hacer el sistema. Entran todos, sin excepción.
 
@@ -12,40 +12,21 @@ El segundo es el marco técnico de evaluación de software. Son trece criterios 
 
 El tercero es el negocio asegurador: condiciones que ninguna de las dos fuentes anteriores menciona pero que una compañía de seguros no puede ignorar. Se incorporan con su fundamento explícito.
 
-A esas tres se suman las capacidades que las plataformas ofrecen por encima de lo pedido y que aparecieron al operarlas.
+El cuarto son capacidades que ninguna fuente pide pero que distinguen a las plataformas.
 
-## 4.2 Por qué se dividen en dos partes
-
-| Parte | Contiene | Peso |
-|---|---|:---:|
-| **A — Solicitados** | Pedido del cliente + marco técnico de evaluación | 85 % |
-| **B — No solicitados** | Condiciones del negocio + capacidades por encima de lo pedido | 15 % |
-
-La separación responde a un riesgo concreto. Una plataforma puede ofrecer inteligencia artificial, aplicación móvil y telefonía integrada, ninguna solicitada, y compensar con eso el incumplimiento de algo que la compañía sí necesita. Con los conjuntos separados y ponderados, ese intercambio no es posible.
-
-## 4.3 Del requerimiento al criterio verificable
+## 4.2 Del requerimiento al criterio verificable
 
 Los requerimientos del cliente están escritos en lenguaje de negocio y no son verificables tal como se enuncian: *"Mejora de la calidad del servicio y la atención al cliente"* no admite comprobación. El trabajo previo consistió en traducirlos a capacidades comprobables con una regla: si un requerimiento admite verificaciones independientes, se divide hasta que cada criterio tenga una sola respuesta posible.
 
-> Por ejemplo, el requerimiento *"seguimiento de pólizas: qué tipo tiene, el estado de pago y si hay posibilidad de cambio"* se descompone en el modelado de la póliza como objeto, los tipos de dato que admite, su vinculación con el asegurado y la operación sobre el conjunto. Cada uno se comprueba por separado.
+## 4.3 Cómo se evalúa cada criterio
 
-## 4.4 Cómo se evalúa cada criterio
+El pedido del cliente y el marco técnico, junto con cuatro condiciones del rubro que hacen a la cartera (la prima, la vigencia, la conservación de lo adaptado y la continuidad de las versiones), forman la **Parte A**, que pesa el 85 %; las condiciones del negocio y las capacidades por encima de lo pedido forman la **Parte B**, que pesa el 15 % (sección 3.6).
 
-Cada criterio lleva un **procedimiento de verificación**, que es la acción concreta que se ejecuta sobre cada plataforma. Es idéntico en las tres, lo que hace comparables los resultados.
-
-De la ejecución surgen tres datos, uno por cada cosa que el informe mide por separado:
-
-1. Si la versión evaluada lo resuelve, que determina el valor de **cumplimiento**.
-2. Por qué vía se obtuvo (disponible al instalar, configurando desde la administración, o programando), que determina el **costo de implementación**.
-3. Si un plan pago lo resolvería mejor, que no afecta ninguno de los dos valores y se consigna como comentario, con el plan que lo resuelve y su precio.
-
-Los dos primeros se puntúan de 0 a 2 según las escalas de la sección 3. El procedimiento describe qué hacer, y la escala, cómo puntuar lo observado.
-
-Cada criterio se acompaña además de su **qué resuelve** para la compañía, que es la necesidad de negocio que lo justifica. La sección 6 justifica el valor de cada uno en cada plataforma.
+Cinco criterios necesitan, además de su procedimiento, una cifra de referencia para valorar lo observado, como cuántos registros son muchos o cuánta espera es tarde: esas cifras salen del tamaño de la compañía, se fijaron antes de medir y figuran en la sección 6 junto a su criterio.
 
 ---
 
-## 4.5 Parte A — Criterios solicitados
+## 4.4 Parte A — Criterios solicitados
 
 ### A.1 Cartera de pólizas
 
@@ -133,8 +114,7 @@ Cada criterio se acompaña además de su **qué resuelve** para la compañía, q
 | A.7.2 | Importación de contactos desde las agendas de correo | Sumar los contactos que cada productor tiene en su correo | Buscar la conexión con el correo web y con el gestor de escritorio que usa la compañía, e incorporar contactos desde la agenda de cada uno |
 | A.7.3 | Sincronización del correo de varios usuarios | Que el correo de cada usuario con los clientes llegue al sistema | Configurar una casilla y comprobar si la configuración admite hacerlo para varios usuarios o solo para uno |
 | A.7.4 | Vinculación automática del correo a la ficha | Que cada mensaje con un cliente quede en su historia sin que alguien lo copie | Enviar un mensaje a la dirección de un asegurado cargado y comprobar si queda registrado en su ficha sin intervención |
-| A.7.5 | Formatos de intercambio aceptados | Pasar datos entre el sistema y los otros que usa la compañía sin convertirlos a mano | Enumerar los formatos en que el sistema admite entrar y sacar datos, y determinar si incluyen los que la compañía usa con sus otros sistemas |
-| A.7.6 | Exportación de la cartera sin pérdida de datos | Que la cartera se pueda sacar del sistema completa y legible | Exportar los registros importados y comparar el archivo con el original: si coincide, si pierde acentuación o campos, o si faltan filas |
+| A.7.5 | Exportación de la cartera sin pérdida de datos | Que la cartera se pueda sacar del sistema completa y legible | Exportar los registros importados y comparar el archivo con el original: si coincide, si pierde acentuación o campos, o si faltan filas |
 
 ### A.8 Parametrización del modelo de negocio
 
@@ -186,7 +166,7 @@ Cada criterio se acompaña además de su **qué resuelve** para la compañía, q
 | A.11.9 | Técnica | Ecosistema de integraciones disponible | Conectarlo con otras herramientas sin desarrollar cada conexión | Revisar el catálogo de conectores disponibles y su accesibilidad |
 | A.11.10 | Operativa | Documentación en español | Resolver dudas de uso con material en el idioma de la compañía | Consultar la documentación oficial y verificar la disponibilidad del idioma |
 | A.11.11 | Operativa | Material de capacitación para el usuario final | Capacitar a quienes operan el sistema con material del propio fabricante | Buscar en la oferta del fabricante material de formación —cursos, videos o guías de uso— dirigido a quien opera el sistema y no a quien lo administra |
-| A.11.12 | Operativa | Comunidad activa de usuarios | Tener a quién consultar cuando algo no sale | Tomar las 21 consultas más recientes del foro oficial que ya cumplieron la espera aceptable, y registrar para la consulta típica si recibió una respuesta que la resolvió dentro de esa espera, si llegó más tarde o sin resolver, o si no llegó |
+| A.11.12 | Operativa | Comunidad activa de usuarios | Tener a quién consultar cuando algo no sale | Tomar las 21 consultas más recientes del canal público de la comunidad que ya cumplieron la espera aceptable, y registrar para la consulta típica si recibió una respuesta que la resolvió dentro de esa espera, si llegó más tarde o sin resolver, o si no llegó |
 | A.11.13 | Operativa | Soporte técnico con compromiso de respuesta | Saber en cuánto tiempo se obtiene ayuda ante una falla | Verificar en la documentación comercial la existencia de un canal con plazo comprometido |
 | A.11.14 | Técnica | Continuidad de las versiones en uso | Planificar las actualizaciones sin quedar con una versión sin correcciones | Determinar si el fabricante publica por cuánto tiempo sostiene con correcciones una versión, y si ese plazo cubre el horizonte de planificación o fuerza a adelantar la actualización |
 
@@ -206,7 +186,7 @@ La venta no termina cuando el cliente dice que sí: hay que emitir la póliza, c
 
 ---
 
-## 4.6 Parte B — Criterios no solicitados
+## 4.5 Parte B — Criterios no solicitados
 
 ### B.1 Condiciones que impone el negocio asegurador
 
@@ -232,118 +212,34 @@ La venta no termina cuando el cliente dice que sí: hay que emitir la póliza, c
 | B.2.2 | Aplicación móvil nativa | Verificar la existencia de aplicación oficial en las tiendas de aplicaciones | El productor registra la operación durante la visita |
 | B.2.3 | Suite de trabajo integrada | Enumerar las herramientas incluidas más allá del CRM y comprobar que operan sobre los mismos datos | Mensajería, documentos y firma en el mismo entorno |
 | B.2.4 | Telefonía y videollamada integradas | Verificar la existencia de la función dentro del sistema | Atención sin cambiar de herramienta |
-| B.2.5 | Uso sin restricciones comerciales en la interfaz | Recorrer las pantallas de uso diario y registrar la presencia de avisos de venta | Operación sin interrupciones comerciales |
 
 ---
 
-## 4.7 Cifras de referencia
+## 4.6 Resumen
 
-Cinco criterios no se pueden responder sin saber contra qué se compara: cuántos registros son "muchos", cuánta espera es "tarde". Esas cifras salen del tamaño y del funcionamiento de la compañía, se fijan antes de medir y se publican acá con el criterio que las usa y el valor que produce cada resultado.
+Todos los grupos de una parte pesan lo mismo (sección 3.6): 8,3 % cada uno en la Parte A y 50 % en la Parte B.
 
-### Tamaño de la cartera: 25.000 registros
+| Categoría | Criterios |
+|---|:---:|
+| A.1 Cartera de pólizas | 7 |
+| A.2 Captación y proceso de venta | 6 |
+| A.3 Productores y actividad comercial | 4 |
+| A.4 Marketing, segmentación y reputación | 7 |
+| A.5 Atención al asegurado y reclamos | 6 |
+| A.6 Ficha única del asegurado | 4 |
+| A.7 Intercambio de datos y correo | 5 |
+| A.8 Parametrización del modelo de negocio | 4 |
+| A.9 Control de acceso y trazabilidad | 3 |
+| A.10 Explotación de la información | 5 |
+| A.11 Condiciones técnicas y operativas del producto | 14 |
+| A.12 Emisión, cobranza y continuidad de la relación | 5 |
+| **Subtotal Parte A** | **70** |
+| B.1 Condiciones que impone el negocio asegurador | 7 |
+| B.2 Capacidades por encima de lo solicitado | 4 |
+| **Subtotal Parte B** | **11** |
+| **Total** | **81** |
 
-La compañía atiende alrededor de quinientos clientes. Para estimar su cartera se combinan dos proporciones:
 
-- **Siniestros por póliza, del mercado argentino.** Según la Superintendencia de Seguros de la Nación, en los ramos patrimoniales se paga por año aproximadamente un siniestro cada nueve pólizas vigentes: 4.029.545 siniestros pagados en los últimos doce meses sobre 36.908.241 pólizas vigentes al primer trimestre de 2026.
-- **Pólizas por cliente, de referencias internacionales.** La Superintendencia publica pólizas y siniestros, pero no cantidad de clientes, y no hay una estadística argentina pública de pólizas por cliente. Un relevamiento de McKinsey & Company sobre más de veinte aseguradoras de Europa y Estados Unidos ubica el promedio entre 1,2 y 1,5, y un actuario del mercado español lo sitúa entre 1,2 y 1,7.
+Ningún criterio repite el procedimiento de otro: evaluar dos veces lo mismo le daría a esa capacidad un peso que nadie decidió. La única excepción es la póliza como entidad propia (A.1.1), que se evalúa aparte de la creación de entidades (A.8.1) porque es el objeto central del negocio y el pedido del cliente la nombra.
 
-Con esas proporciones, la compañía tiene unas setecientas cincuenta pólizas y unos ochenta reclamos por año: poco más de mil seiscientos registros con cinco años de reclamos acumulados. Las fuentes figuran en la sección 9. La cartera de referencia es unas quince veces esa cifra, para que la prueba cubra el crecimiento y no solo la operación de hoy: cinco mil asegurados, con sus pólizas y sus reclamos. Usa dos pólizas y media por asegurado, por encima de esos promedios, porque el cliente con varias coberturas es el caso más exigente para la ficha única y para la búsqueda.
-
-| Criterio | 2 | 1 | 0 |
-|---|---|---|---|
-| **B.1.4** Volumen productivo | Con la cartera cargada, la búsqueda responde sin espera perceptible | Responde con una demora que el usuario nota y tolera | La operación se vuelve impracticable, o falla |
-
-### Movimiento diario: 500 operaciones
-
-Son las altas, los cambios de estado y los cierres de reclamo de una jornada sobre esa cartera.
-
-| Criterio | 2 | 1 | 0 |
-|---|---|---|---|
-| **A.10.5** Intercambio sin límite de volumen | El límite publicado deja holgura sobre las 500 operaciones diarias | Las admite, pero se agota en una jornada intensa y obliga a espaciar los envíos | Queda por debajo de 500, o no está publicado |
-
-### Prueba de aprendizaje: 5 tareas, 3 agentes
-
-Son las cinco operaciones que un productor repite a diario, y las hacen tres agentes independientes para que un recorrido individual no defina el resultado.
-
-| Criterio | 2 | 1 | 0 |
-|---|---|---|---|
-| **A.11.5** Aprendizaje sin capacitación previa | Los tres completan las cinco tareas | Alguna queda sin completar, y quien la intentó sabe decir qué le faltó | Hay tareas que ninguno de los tres logra completar |
-
-### Espera aceptable en el foro: 1 semana
-
-Una consulta de configuración no puede detener la operación más de un ciclo semanal de trabajo. Cada una de las 21 consultas se clasifica con la tabla, y el criterio toma el valor de la consulta típica: la del medio, con las 21 ordenadas. Al ser una cantidad impar, la del medio es siempre una consulta real, sin promedios.
-
-| Criterio | 2 | 1 | 0 |
-|---|---|---|---|
-| **A.11.12** Comunidad activa de usuarios | Llega una respuesta que resuelve la consulta dentro de la semana | Llega después de la semana, o antes pero sin resolver | No llega respuesta |
-
-### Horizonte de planificación: 12 meses
-
-La compañía planifica sus cambios de sistema por ejercicio anual.
-
-| Criterio | 2 | 1 | 0 |
-|---|---|---|---|
-| **A.11.14** Continuidad de las versiones | El fabricante sostiene cada versión doce meses o más, de modo que la actualización entra en el plan del ejercicio | Publica un plazo menor, que obliga a adelantar la actualización | No publica ningún compromiso |
-
-Estas cinco son las únicas cifras del análisis. Los demás criterios se responden con la escala de la sección 3, y su propio procedimiento dice qué distingue una respuesta de otra, de modo que ningún otro número decide un valor.
-
-## 4.8 Criterios descartados
-
-Se evaluó la incorporación de varios criterios y se resolvió excluirlos, por cuatro motivos distintos.
-
-Algunos no discriminan: una capacidad que las tres plataformas resuelven de manera equivalente no aporta información para decidir.
-
-| Criterio considerado | Por qué no discrimina |
-|---|---|
-| Cantidad de idiomas disponibles | Las tres superan holgadamente lo necesario; solo importa la calidad del español, evaluada en A.11.6 |
-| Estilo de la interfaz de programación | Las tres ofrecen una; el estilo es una preferencia técnica sin consecuencia para el negocio |
-
-Otros ya están cubiertos por un criterio existente.
-
-| Criterio considerado | Dónde se evalúa |
-|---|---|
-| Existencia de tableros visuales | A.10.1, que evalúa la capacidad de construir indicadores y no su presentación |
-
-Otros discriminan pero sin consecuencia para la operación: existe diferencia entre las plataformas y aun así no entran, porque puntuarlos movería el resultado por algo que la compañía no llega a percibir.
-
-| Criterio considerado | Por qué no entra |
-|---|---|
-| Navegación por teclado | La diferencia es real, pero no altera el tiempo ni la calidad de la operación diaria |
-
-Por último, hay criterios fuera del alcance, porque resuelven un problema distinto del que la compañía planteó.
-
-| Criterio considerado | Por qué no entra |
-|---|---|
-| Gestión de inventario y constructor de sitios web | Funciones ajenas a la relación con el asegurado, que es lo que este análisis evalúa |
-
-## 4.9 Resumen
-
-Los grupos de cada parte pesan lo mismo entre sí, según la regla de la sección 3: el pedido del cliente no jerarquiza sus necesidades y el análisis no las jerarquiza por él. La columna de peso lo deja a la vista.
-
-| Parte | Categoría | Criterios | Peso en su parte |
-|---|---|:---:|:---:|
-| A | A.1 Cartera de pólizas | 7 | 8,3 % |
-| A | A.2 Captación y proceso de venta | 6 | 8,3 % |
-| A | A.3 Productores y actividad comercial | 4 | 8,3 % |
-| A | A.4 Marketing, segmentación y reputación | 7 | 8,3 % |
-| A | A.5 Atención al asegurado y reclamos | 6 | 8,3 % |
-| A | A.6 Ficha única del asegurado | 4 | 8,3 % |
-| A | A.7 Intercambio de datos y correo | 6 | 8,3 % |
-| A | A.8 Parametrización del modelo de negocio | 4 | 8,3 % |
-| A | A.9 Control de acceso y trazabilidad | 3 | 8,3 % |
-| A | A.10 Explotación de la información | 5 | 8,3 % |
-| A | A.11 Condiciones técnicas y operativas del producto | 14 | 8,3 % |
-| A | A.12 Emisión, cobranza y continuidad de la relación | 5 | 8,3 % |
-| | **Subtotal Parte A** | **71** | **100 %** |
-| B | B.1 Condiciones que impone el negocio asegurador | 7 | 50,0 % |
-| B | B.2 Capacidades por encima de lo solicitado | 5 | 50,0 % |
-| | **Subtotal Parte B** | **12** | **100 %** |
-| | **Total** | **83** | |
-
-57 de los 71 criterios de la Parte A son funcionales, es decir, describen algo que un usuario ejecuta sobre el sistema. Los 14 restantes son condiciones del producto que se cumplen o no con independencia de quién lo use, y se dividen en **técnicas** (lo que el sistema exige para funcionar y sostenerse) y **operativas** (cómo se comporta en el trabajo diario de la compañía). La misma división se aplica a las condiciones del negocio asegurador de la Parte B. La sección 5 presenta los resultados ordenados por esos tres tipos, y dentro de cada uno separa lo que pidió el cliente de lo que se agregó.
-
-Ningún criterio repite el procedimiento de otro. Cuando dos capacidades se comprobaban con la misma acción sobre distinto objeto (el historial de una póliza y el de cualquier registro, o el total de primas por productor y el informe que lo produce), se conservó una sola, con el procedimiento ampliado para cubrir ambos casos. Evaluar dos veces lo mismo le daría a esa capacidad un peso que nadie decidió.
-
-Cuando un procedimiento ampliado abarca dos objetos y el sistema resuelve solo uno, el criterio puntúa 1. Si una plataforma conecta con la agenda del correo web pero no con la del gestor de escritorio, la necesidad queda cubierta con una salvedad permanente, que es lo que la sección 3 define como *cumple con reparo*.
-
-Tres criterios (el aviso de vencimiento, el aviso al usuario asignado y la automatización de procesos) dependen del mismo motor de automatización, y responden a disparadores distintos: una fecha, una asignación y un evento. Está decidido a propósito, porque en una compañía de seguros el trabajo que nadie dispara a mano, como las renovaciones, los avisos de cobranza o la derivación de reclamos, es la diferencia entre una cartera atendida y una cartera olvidada.
+Cuando un procedimiento abarca dos objetos y el sistema resuelve solo uno, el criterio puntúa 1.

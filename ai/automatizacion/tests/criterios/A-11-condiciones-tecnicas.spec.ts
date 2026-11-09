@@ -55,10 +55,13 @@ test('A.11.1 — Recursos que la compañía debe disponer para sostenerlo', asyn
     criterio: 'A.11.1',
     plataforma,
     cumple: 1,
+    resumen:
+      'No exige servidor dedicado: corre en un equipo de escritorio con imagen de contenedores, pero la ' +
+      'compañía debe mantenerlo encendido, respaldado y actualizado. La nube del fabricante evita esa ' +
+      'carga.',
     comoLoHace:
-      'No exige un servidor dedicado: la instalación evaluada corre en un equipo de escritorio común, con ' +
-      `la imagen oficial de contenedores, y ocupa ${Math.round(megas)} MB de memoria con la cartera de ` +
-      'prueba cargada.',
+      'No exige un servidor dedicado: corre en un equipo de escritorio común, con la imagen oficial de ' +
+      'contenedores, con un consumo de memoria que ese equipo sostiene aun con una cartera cargada.',
     caracteristicas:
       'La edición gratuita se instala en infraestructura de la compañía: pide un servidor web, PHP y una ' +
       'base de datos.',
@@ -93,6 +96,9 @@ test('A.11.2 — Compatibilidad con la plataforma que la compañía usa', async 
     criterio: 'A.11.2',
     plataforma,
     cumple: 2,
+    resumen:
+      'Corre sobre NGINX, Apache e IIS, con MySQL, MariaDB o PostgreSQL, y el fabricante publica guías de ' +
+      'instalación para Windows, macOS y Linux.',
     comoLoHace:
       'Corre sobre los tres servidores web más difundidos —NGINX, Apache e IIS— y sobre los tres motores de ' +
       'base de datos libres más usados —MySQL, MariaDB y PostgreSQL—, y el fabricante publica guías de ' +
@@ -129,11 +135,15 @@ test('A.11.3 — Puesta en marcha sin perfil técnico especializado', async ({ p
     criterio: 'A.11.3',
     plataforma,
     cumple: 1,
+    resumen:
+      'Se instala con una imagen de contenedores y un asistente, pero exige conocimientos puntuales ' +
+      '—contenedores, archivo de descripción, conservación de datos— que una persona sin perfil técnico no ' +
+      'tiene.',
     comoLoHace:
-      'La instalación evaluada se llevó de cero a operativa por esa vía. Pero no la completa alguien sin ' +
-      'perfil técnico: hay que instalar el motor de contenedores, escribir el archivo que los describe y ' +
-      'resolver cómo se conservan los datos entre reinicios, y en esta instalación montar la carpeta ' +
-      'equivocada dejó al sistema sin arrancar hasta corregirlo.',
+      'La instalación con la imagen oficial de contenedores lleva el sistema de cero a operativo. Pero no ' +
+      'la completa alguien sin perfil técnico: hay que instalar el motor de contenedores, escribir el ' +
+      'archivo que los describe y resolver cómo se conservan los datos entre reinicios, y montar la carpeta ' +
+      'equivocada deja al sistema sin arrancar hasta corregirlo.',
     caracteristicas:
       'El fabricante ofrece una imagen oficial de contenedores que deja el sistema, el servidor web y la ' +
       'base de datos funcionando juntos, y un asistente que completa la configuración inicial.',
@@ -187,21 +197,30 @@ test('A.11.5 — Aprendizaje sin capacitación previa', async ({}, info) => {
     criterio: 'A.11.5',
     plataforma,
     cumple,
+    resumen: cumple === 2
+      ? 'Las cinco tareas diarias del productor se resuelven desde la pantalla, sin instrucción previa; ' +
+        `${15 - pendientes.length} de 15 quedaron completas.`
+      : cumple === 0
+        ? 'Sin instrucción previa, ninguno de los tres agentes logra completar al menos una de las tareas ' +
+          'diarias del productor.'
+        : `Sin instrucción previa, los agentes completan ${15 - pendientes.length} de 15 tareas diarias: cada ` +
+          'tarea la resuelve alguno, pero no todos las resuelven todas.',
     comoLoHace:
-      'Tres agentes independientes, sin conocimiento previo de la plataforma, intentaron sin instrucción las ' +
-      'cinco operaciones que un productor repite a diario —dar de alta un asegurado, cargarle una póliza, ' +
-      'averiguar qué pólizas de su cartera vencen en los próximos 30 días, registrar un reclamo y agendar un ' +
-      'llamado—, operando la pantalla como lo haría una persona.',
+      'Las cinco operaciones que un productor repite a diario —dar de alta un asegurado, cargarle una ' +
+      'póliza, averiguar qué pólizas de su cartera vencen en los próximos 30 días, registrar un reclamo y ' +
+      'agendar un llamado— ' +
+      (cumple === 2 ? 'se resuelven desde la pantalla, sin instrucción ni conocimiento previo de la plataforma.'
+        : cumple === 0 ? 'no se logran resolver todas desde la pantalla sin instrucción previa: alguna no la completa ningún agente.'
+        : 'se resuelven desde la pantalla sin instrucción previa, aunque no todos los agentes las completan todas.'),
     caracteristicas:
       `Completaron ${15 - pendientes.length} de las ` +
-      'quince, según lo que quedó guardado en el sistema.',
+      'quince, según lo que quedó guardado en el sistema.' +
+      (cumple === 1 ? ` ${detalle.join('; ').replace(/^la/, 'La')}.` : ''),
     justificacion:
-      (cumple === 2 ? 'Los tres completaron las cinco tareas.'
-        : cumple === 0 ? `Ninguno logró completar la tarea ${ningunoLogra.join(' ni la ')}: ${detalle.join('; ')}.`
-        : `Cada tarea la completó al menos uno, pero ${detalle.join('; ')}.` +
-          (sinSaber.length ? ' Que quien no la terminó no sepa decir qué le faltó no impide que otro la complete: ' +
-            'el sistema se deja aprender, con un tropiezo que la compañía asume en cada incorporación.' : '')),
-    evidencia,
+      cumple === 2 ? 'Quien opera la pantalla sin instrucción previa completa las cinco tareas del productor.'
+        : cumple === 0 ? `Ninguno logra completar la tarea ${ningunoLogra.join(' ni la ')}: ${detalle.join('; ')}.`
+        : 'Cada tarea la completa al menos uno de los tres agentes, aunque no todos completan todas: ' +
+          'el sistema se deja aprender, con un tropiezo que la compañía asume en cada incorporación.',
     medicion: `${15 - pendientes.length} de 15 tareas completadas`,
   });
 });
@@ -229,6 +248,8 @@ test('A.11.7 — Cantidad de usuarios sin límite que condicione la operación',
     criterio: 'A.11.7',
     plataforma,
     cumple: 2,
+    resumen:
+      'No limita la cantidad de usuarios: la licencia es libre y el único tope es el del equipo.',
     comoLoHace:
       'La edición evaluada se distribuye bajo una licencia libre que no limita la cantidad de usuarios, y ' +
       'la instalación no impone ningún tope: se dan de alta los que la compañía necesite, sea cual fuere su ' +
@@ -263,6 +284,10 @@ test('A.11.9 — Ecosistema de integraciones disponible', async ({ page, browser
     criterio: 'A.11.9',
     plataforma,
     cumple: 1,
+    resumen:
+      'Los conectores existen —Outlook, Google, telefonía, videollamadas, cobros, campañas—, pero casi ' +
+      'todos se venden aparte con licencia anual renovable; lo demás exige trabajo propio sobre la interfaz ' +
+      'de programación.',
     comoLoHace:
       'La condición se satisface: los conectores que la compañía necesita existen y se consiguen directo ' +
       'del fabricante.',
@@ -305,6 +330,9 @@ test('A.11.10 — Documentación en español', async ({ page, browser }, info) =
     criterio: 'A.11.10',
     plataforma,
     cumple: 1,
+    resumen:
+      'La interfaz está en español, pero la documentación oficial solo se publica en inglés y se consulta ' +
+      'con traducción automática, que puede confundir la terminología técnica.',
     comoLoHace:
       'Quien la consulte lo hace en inglés o con traducción automática del navegador, que es un ' +
       'procedimiento que se repite en cada consulta y que en la terminología técnica puede inducir a error.',
@@ -336,6 +364,8 @@ test('A.11.11 — Material de capacitación para el usuario final', async ({ bro
     criterio: 'A.11.11',
     plataforma,
     cumple: 2,
+    resumen:
+      'Publica videos de acceso libre para quien opera el sistema.',
     comoLoHace:
       'El fabricante publica una colección de videos de acceso libre que incluye material para quien opera ' +
       'el sistema y no solo para quien lo administra.',
@@ -377,9 +407,14 @@ test('A.11.12 — Comunidad activa de usuarios', async ({ browser }, info) => {
     criterio: 'A.11.12',
     plataforma,
     cumple: tipica.valor,
+    resumen:
+      `En el foro oficial, ${cuantas(2)} de ${CONSULTAS} consultas se resolvieron dentro de la semana; ` +
+      (tipica.valor === 2 ? 'la consulta típica se resuelve dentro de la semana.'
+        : tipica.valor === 1 ? 'la consulta típica recibe respuesta, pero sin constancia de que la resuelva a tiempo.'
+        : 'la consulta típica queda sin respuesta.'),
     comoLoHace:
-      `Se tomaron las ${CONSULTAS} consultas más recientes de la sección de uso general del foro oficial que ya ` +
-      'tenían más de una semana de publicadas.',
+      'La comunidad responde en la sección de uso general del foro oficial, donde los usuarios publican sus ' +
+      'consultas y otros usuarios las contestan.',
     caracteristicas:
       `En ${cuantas(2)} otro usuario respondió dentro de la semana y quien ` +
       `consultó confirmó después que la respuesta le había servido; en ${cuantas(1)} hubo respuesta, pero llegó ` +
@@ -415,6 +450,9 @@ test('A.11.13 — Soporte técnico con compromiso de respuesta', async ({ browse
     criterio: 'A.11.13',
     plataforma,
     cumple: 0,
+    resumen:
+      'Ningún canal de soporte compromete un plazo: la asistencia paga se cobra por hora, la nube declara ' +
+      'solo un horario de atención y el soporte gratuito es el foro.',
     comoLoHace:
       'La oferta de soporte del fabricante tiene tres canales y ninguno compromete un plazo: la asistencia ' +
       'paga se cobra por hora y se presta por correo, web y teléfono sin tiempo de respuesta garantizado; ' +
@@ -446,6 +484,9 @@ test('A.11.14 — Continuidad de las versiones en uso', async ({ browser }, info
     criterio: 'A.11.14',
     plataforma,
     cumple: 0,
+    resumen:
+      'No publica por cuánto tiempo corrige cada versión: recomienda actualizar apenas sale una nueva, es ' +
+      'decir, solo sostiene la última.',
     comoLoHace:
       'El fabricante no publica por cuánto tiempo corrige una versión: no hay política de soporte por ' +
       'versión ni versiones de soporte extendido. Lo que la documentación oficial indica es actualizar ' +
@@ -509,6 +550,9 @@ test('A.11.4 — Menú y navegabilidad para la operación diaria', async ({ page
     criterio: 'A.11.4',
     plataforma,
     cumple: 2,
+    resumen:
+      'El menú lleva directo a asegurados y la póliza se carga desde su ficha: el alta completa recorre ' +
+      `${pantallas.length} pantallas sin volver sobre ninguna.`,
     comoLoHace:
       'Desde el ingreso, el menú lleva directo a asegurados, y de ahí al alta. Guardado el asegurado, la ' +
       'póliza se carga desde su propia ficha, en el panel de sus pólizas, sin salir de ella y ya ligada a ' +
@@ -558,8 +602,14 @@ test('A.11.6 — Localización completa al español, modelo incluido', async ({ 
     criterio: 'A.11.6',
     plataforma,
     cumple: unicas.length ? 1 : 2,
-    comoLoHace: 'Se recorrieron el menú principal y la ficha del asegurado, con los campos del modelo y los que ' +
-      'agregó la compañía.',
+    resumen:
+      unicas.length
+        ? 'El menú y la ficha están en español, pero queda «Ticket» en inglés, hay traducciones literales y una opción ' +
+          'de filtro de fecha traducida al revés («Nunca»).'
+        : 'El menú y la ficha están enteramente en español, incluidos los campos propios de la compañía.',
+    comoLoHace:
+      'El menú principal y la ficha del asegurado se presentan en español, con los campos del modelo y los ' +
+      'que agrega la compañía.',
     caracteristicas: unicas.length
       ? 'El menú principal y la ficha del asegurado están en español, incluidos los campos del modelo y los ' +
         'que agregó la compañía. Queda en inglés la palabra "Ticket" para el caso de atención, que se entiende ' +
@@ -650,12 +700,14 @@ test('A.11.8 — Operación concurrente sobre la misma cartera', async ({ browse
     criterio: 'A.11.8',
     plataforma,
     cumple: 2,
+    resumen:
+      'Las entidades propias no advierten ediciones simultáneas hasta activar una casilla de control; con ' +
+      'ella, quien guarda después recibe el aviso de que otro modificó el registro.',
     comoLoHace:
-      'Tres usuarios abrieron a la vez la misma póliza y guardaron un cambio cada uno. Tal como viene la ' +
-      'entidad creada por la compañía, el sistema aceptó los tres guardados sin advertir el conflicto: ' +
-      `quedó "${deFabrica.final}" y los cambios anteriores se perdieron sin aviso. Activado, los guardados ` +
-      `posteriores recibieron el aviso de que otro usuario había modificado el registro (${advertidos} ` +
-      'avisos) y nadie pisó el trabajo de otro sin saberlo.',
+      'La entidad creada por la compañía no advierte por sí sola el conflicto cuando varios usuarios abren ' +
+      'a la vez la misma póliza: el último guardado se impone y los cambios anteriores se pierden sin ' +
+      'aviso. Con el control de concurrencia activado en la entidad, quien guarda después de otro recibe el ' +
+      'aviso de que otro usuario modificó el registro, y nadie pisa el trabajo ajeno sin saberlo.',
     caracteristicas:
       'El producto trae un control de concurrencia que las entidades de atención, ventas y cuentas tienen ' +
       'activado de fábrica, y que en las entidades propias se activa con una casilla de su configuración.',

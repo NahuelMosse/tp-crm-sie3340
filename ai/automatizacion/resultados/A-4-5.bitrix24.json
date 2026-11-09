@@ -3,7 +3,8 @@
   "plataforma": "bitrix24",
   "cumple": 1,
   "costo": 2,
-  "comoLoHace": "Lo más cercano es el conector «Facebook: Comentarios» del centro de contacto, disponible en la edición gratuita, que trae los comentarios de la página propia de la compañía al CRM: cubre lo que se dice en sus propios canales, y solo ahí. El catálogo de aplicaciones tampoco ofrece una de escucha: se buscó «menciones», «social listening» y «brand monitoring» y no aparece ninguna.",
+  "resumen": "Trae los comentarios de la página de Facebook de la compañía al CRM, pero no sigue menciones en canales públicos ni de la competencia; eso requiere una herramienta externa.",
+  "comoLoHace": "Lo más cercano es el conector «Facebook: Comentarios» del centro de contacto, disponible en la edición gratuita, que trae los comentarios de la página propia de la compañía al CRM: cubre lo que se dice en sus propios canales, y solo ahí. El catálogo de aplicaciones tampoco ofrece una de escucha: para «menciones», «social listening» y «brand monitoring» no aparece ninguna.",
   "caracteristicas": "El fabricante promociona «monitoreo de redes desde el CRM», que en el producto es ese mismo intercambio de mensajes y comentarios propios.",
   "justificacion": "Cubre lo que se dice en los canales propios de la compañía, con el conector de comentarios de Facebook. No sigue menciones en canales públicos ni de la competencia: para eso hace falta una herramienta externa.",
   "evidencia": [

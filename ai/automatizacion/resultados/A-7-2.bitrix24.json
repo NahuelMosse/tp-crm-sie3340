@@ -2,6 +2,7 @@
   "criterio": "A.7.2",
   "plataforma": "bitrix24",
   "cumple": 1,
+  "resumen": "Ofrece importar desde Gmail, Outlook y Yahoo!, pero siempre a partir de un CSV que el usuario exporta antes; no hay conexión que lea la agenda.",
   "comoLoHace": "Incorporar los contactos de la compañía exige, en cada carga, exportar el archivo desde el correo web o el gestor de escritorio e importarlo después con el asistente.",
   "caracteristicas": "El listado de contactos ofrece una importación para cada agenda de correo —Gmail, Outlook y Yahoo!—, pero todas parten de un archivo CSV que el usuario exporta antes desde su correo.",
   "justificacion": "No hay una conexión que lea la agenda directamente.",

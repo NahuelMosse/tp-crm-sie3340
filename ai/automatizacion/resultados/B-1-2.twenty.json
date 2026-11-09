@@ -2,7 +2,8 @@
   "criterio": "B.1.2",
   "plataforma": "twenty",
   "cumple": 2,
-  "comoLoHace": "Se obtuvo una copia completa con el procedimiento que indica el fabricante: el volcado de la base de datos, y el archivo de la carpeta donde el servidor guarda los adjuntos.",
+  "resumen": "Permite una copia completa y propia de la cartera: volcado de la base y de la carpeta de adjuntos, en formato abierto, restituible en otra base.",
+  "comoLoHace": "Se obtiene una copia completa con el procedimiento que indica el fabricante: el volcado de la base de datos, y el archivo de la carpeta donde el servidor guarda los adjuntos.",
   "caracteristicas": "La copia se restituyó en una base de datos aparte y la cartera volvió entera: 29 personas, 35 pólizas y 6 reclamos, los mismos que en el sistema en uso.",
   "justificacion": "La compañía tiene en su poder toda la información, en el formato abierto de la base, y no depende de nadie para recuperarla.",
   "documentacion": [

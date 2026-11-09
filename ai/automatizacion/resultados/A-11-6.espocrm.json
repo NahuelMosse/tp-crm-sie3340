@@ -2,7 +2,8 @@
   "criterio": "A.11.6",
   "plataforma": "espocrm",
   "cumple": 1,
-  "comoLoHace": "Se recorrieron el menú principal y la ficha del asegurado, con los campos del modelo y los que agregó la compañía.",
+  "resumen": "El menú y la ficha están en español, pero queda «Ticket» en inglés, hay traducciones literales y una opción de filtro de fecha traducida al revés («Nunca»).",
+  "comoLoHace": "El menú principal y la ficha del asegurado se presentan en español, con los campos del modelo y los que agrega la compañía.",
   "caracteristicas": "El menú principal y la ficha del asegurado están en español, incluidos los campos del modelo y los que agregó la compañía. Queda en inglés la palabra \"Ticket\" para el caso de atención, que se entiende pero no es la que usa una aseguradora, y algunas traducciones son literales —\"Posibles clientes\", \"Historia\" para el registro de actividad—. Fuera del recorrido pedido, en los filtros de fecha la opción que significa \"con algún valor\" quedó traducida como \"Nunca\", que dice lo contrario.",
   "justificacion": "Se entiende en conjunto, con salvedades que la compañía puede corregir renombrando las etiquetas.",
   "evidencia": [

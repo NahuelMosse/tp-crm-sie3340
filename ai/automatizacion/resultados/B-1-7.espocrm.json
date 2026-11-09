@@ -2,7 +2,8 @@
   "criterio": "B.1.7",
   "plataforma": "espocrm",
   "cumple": 2,
-  "comoLoHace": "Con la salida a internet cortada —el navegador solo alcanzaba el servidor de la red propia— se ingresó al sistema, se buscó un asegurado y se registró un reclamo, que es la atención de todos los días.",
+  "resumen": "Sin salida a internet, la atención diaria sigue —ingresar, buscar asegurados, registrar reclamos—; solo se pierde lo que viaja por internet, como el correo.",
+  "comoLoHace": "Con la salida a internet cortada y solo la red propia alcanzable, el sistema permite ingresar, buscar un asegurado y registrar un reclamo, que es la atención de todos los días.",
   "caracteristicas": "La instalación propia no necesita nada de afuera para operar: lo que se pierde durante el corte es lo que por naturaleza viaja por internet, como el envío y la recepción de correo.",
   "justificacion": "Con el sistema en la red de la compañía, una caída del enlace no detiene la atención.",
   "evidencia": [

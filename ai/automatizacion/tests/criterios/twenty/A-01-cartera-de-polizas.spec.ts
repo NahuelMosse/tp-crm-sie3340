@@ -66,6 +66,9 @@ test('A.1.1 — Modelado de la póliza como objeto propio', async ({ page }, inf
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Permite crear objetos propios, como la póliza, con ' +
+      'listado, menú y registros, sin programar.',
     comoLoHace:
       'Desde Configuración › Modelo de datos se crea el objeto Póliza con su nombre en singular y ' +
       'plural, sin escribir código ni tocar el servidor.',
@@ -127,10 +130,13 @@ test('A.1.2 — Campos de lista para el ramo y el estado de cobranza', async ({ 
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Admite campos de lista con las opciones que define la compañía, como ramo y estado de ' +
+      'cobranza; los valores se guardan como opciones, no como texto libre.',
     comoLoHace:
-      'Se agregaron el ramo, con los cuatro que comercializa, y el estado de pago, con los cuatro ' +
-      'estados de cobranza; se cargó por pantalla una póliza de cada ramo y a cada una se le cambió el ' +
-      'estado desde su ficha, eligiendo la opción en un desplegable con buscador.',
+      'Desde Configuración › Modelo de datos se agregan a la póliza el ramo, con los que comercializa ' +
+      'la compañía, y el estado de pago, con los estados de cobranza; en cada póliza el estado se ' +
+      'cambia desde su ficha, eligiendo la opción en un desplegable con buscador.',
     caracteristicas:
       'El modelo de datos admite campos de lista con las opciones que define la compañía. Los valores ' +
       'quedan guardados como opciones de la lista, no como texto libre.',
@@ -176,10 +182,14 @@ test('A.1.3 — Prima con importe y moneda', async ({ page, browser }, info) => 
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Ofrece un campo de importe con moneda y centavos; hay que definirlo con formato ' +
+      'completo y dos decimales, porque el de fábrica guarda el importe multiplicado por ' +
+      'cien.',
     comoLoHace:
-      'Se agregó la prima en pesos argentinos y se cargó 45.250,75 desde la ficha: quedó guardada con ' +
-      'los centavos y con su moneda. Para eso el campo se define una vez con formato completo y dos ' +
-      'decimales.',
+      'Desde Configuración › Modelo de datos se agrega la prima como campo de importe en pesos ' +
+      'argentinos: guarda el importe con centavos y su moneda. Para eso el campo se define una vez con ' +
+      'formato completo y dos decimales.',
     caracteristicas:
       'El modelo de datos tiene un tipo de campo de importe con moneda. Con la definición de fábrica ' +
       '—formato corto, sin decimales— el editor descarta el separador decimal y guarda el importe ' +
@@ -283,12 +293,14 @@ test('A.1.4 — Vigencia con fecha de inicio y de fin', async ({ page }, info) =
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Trata inicio y fin de vigencia como fechas: ordena por vencimiento y filtra con ' +
+      'comparaciones propias, como los que vencen en los próximos 30 días.',
     comoLoHace:
-      'Se agregaron el inicio y el fin de la vigencia y se cargaron dos pólizas desde su ficha. El ' +
-      'sistema los trata como fechas: el listado ordenado por fin de vigencia pone primero la que ' +
+      'Desde Configuración › Modelo de datos se agregan el inicio y el fin de la vigencia, que el ' +
+      'sistema trata como fechas: el listado ordenado por fin de vigencia pone primero la póliza que ' +
       'vence antes, y el filtro sobre ese campo ofrece comparaciones propias de una fecha —antes, ' +
-      'después, en el pasado, en el futuro, relativa—: «vence en los próximos 30 días» trae la póliza ' +
-      'que vence en doce días y deja afuera la que vence en trescientos.',
+      'después, en el pasado, en el futuro, relativa—, como «vence en los próximos 30 días».',
     caracteristicas:
       'El modelo de datos tiene un tipo de campo de fecha.',
     justificacion:
@@ -406,10 +418,13 @@ test('A.1.5 — Aviso anticipado de vencimiento', async ({ page, browser }, info
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Avisa solo, con un flujo programado, de las pólizas que vencen en treinta días y de ' +
+      'los reclamos cuyo plazo vence en dos, dejando una tarea por cada uno.',
     comoLoHace:
-      'Se activó el flujo y, sin que nadie interviniera, en la corrida siguiente del programador ' +
-      `aparecieron los ${esperadas.length} avisos de pólizas por vencer y el del reclamo que alcanza ` +
-      'su plazo; no avisó las pólizas que vencen más adelante ni el reclamo que tiene tres semanas.',
+      'Un flujo de trabajo activado avisa sin que nadie intervenga, en cada corrida del programador, ' +
+      'de las pólizas por vencer y de los reclamos que alcanzan su plazo; no avisa de las pólizas que ' +
+      'vencen más adelante ni de los reclamos con plazo lejano.',
     caracteristicas:
       'Los flujos de trabajo de la edición gratuita alcanzan para el aviso, armados desde el lienzo ' +
       'sin escribir código: un disparador programado busca las pólizas cuyo fin de vigencia cae en los ' +
@@ -453,11 +468,12 @@ test('A.1.6 — Consulta y filtrado de la cartera', async ({ page, browser }, in
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Filtra la cartera combinando condiciones sobre cualquier campo, como ramo, estado de ' +
+      'pago y productor responsable, y guarda la combinación como vista con nombre.',
     comoLoHace:
-      'El listado de pólizas combina filtros sobre cualquier campo: se filtró por ramo, por estado de ' +
-      'pago y ' +
-      `por productor responsable, y el resultado trajo exactamente las ${esperadas.length} pólizas de ` +
-      'la cartera que cumplen las tres condiciones.',
+      'El listado de pólizas combina filtros sobre cualquier campo, como el ramo, el estado de pago y ' +
+      'el productor responsable, y trae exactamente las pólizas que cumplen todas las condiciones.',
     caracteristicas:
       'La combinación se puede guardar como una vista con nombre.',
     justificacion:
@@ -514,11 +530,12 @@ test('A.1.7 — Operación masiva sobre la cartera', async ({ page, browser }, i
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      'Actualiza de una vez el campo que se elija en todas las pólizas seleccionadas.',
     comoLoHace:
-      `Se seleccionaron las ${elegidas.length} pólizas del ramo Hogar desde el listado y, con la ` +
-      'selección hecha, la acción de actualizar abre un panel con los campos de la póliza: se eligió ' +
-      'el estado de pago nuevo y se aplicó a todas de una vez, tras una confirmación que advierte que ' +
-      'el cambio no se puede deshacer.',
+      'Con las pólizas seleccionadas desde el listado, la acción de actualizar abre un panel con los ' +
+      'campos de la póliza: se elige el valor nuevo, por ejemplo el estado de pago, y se aplica a ' +
+      'todas de una vez, tras una confirmación que advierte que el cambio no se puede deshacer.',
     caracteristicas:
       'Las seleccionadas quedaron con el estado nuevo.',
     justificacion:

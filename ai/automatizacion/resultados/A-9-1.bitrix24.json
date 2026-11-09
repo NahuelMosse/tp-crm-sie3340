@@ -2,6 +2,7 @@
   "criterio": "A.9.1",
   "plataforma": "bitrix24",
   "cumple": 0,
+  "resumen": "La edición gratuita no permite crear roles de acceso: todos los empleados comparten el mismo permiso. Los permisos por rol exigen desde el plan Basic.",
   "comoLoHace": "En la edición gratuita no se puede crear la restricción por productor: desde CRM › Más › Configuraciones › «Permisos de acceso al CRM» el editor deja armar el rol «Productor» con leer, agregar, editar y eliminar limitados a «Solo sus propios elementos» en contactos y negociaciones y asignárselo al productor, pero al guardar el sistema abre una pantalla de oferta —«En su plan actual, todos los empleados tienen los mismos permisos de acceso. Actualice a uno de los planes de nivel superior para asignar roles a los empleados»— y el rol no queda creado. Con la sesión del productor, sin rol propio, el asegurado ajeno figura en su listado y se abre al escribir la dirección de su ficha: todos los empleados comparten el mismo permiso, y no se puede distinguir a un productor de un supervisor ni ajustar el acceso de ninguno.",
   "justificacion": "El fabricante confirma que los permisos por rol del CRM no están en todos los planes, y su comparación de planes los publica desde el plan Basic.",
   "conPlan": [

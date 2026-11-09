@@ -3,6 +3,7 @@ import { registrar } from '../../evaluar';
 import { entrar, plataformaDe } from '../../sesion';
 import { soloEn, capturar } from '../comun';
 import { citar } from '../../fuentes';
+import { BITRIX24_PROFESSIONAL, constanciaDe, conPlanDe } from '../../precios';
 import { menuLateral, pestana, panel, panelListo, cerrarPaneles } from '../../bitrix24/navegar';
 import {
   procesos, borrarProceso, textoDe, altaDeNegociacion, crearCampo, elegirEnLista, guardarFormulario, quitarCampo,
@@ -57,11 +58,19 @@ test('A.1.1 — Modelado de la póliza como objeto propio', async ({ page, brows
   const pidePlan = /Actualiza al plan (Professional|Enterprise)|Professional o Enterprise/i.test(aviso);
   console.log(`    creada: ${creada} · el sistema pide otro plan: ${pidePlan}`);
 
-  const fuente = await citar(browser, {
-    url: 'https://www.bitrix24.com/promo/professional/',
-    buscar: /SPA \(smart process automation\)/i,
-    captura: 'A-1-1-bitrix24-3-procesos-inteligentes',
-  });
+  const fuente = [
+    await citar(browser, {
+      url: COMPARACION,
+      buscar: 'Cree sus propios procesos inteligentes y personalícelos según las necesidades de su empresa',
+      captura: 'A-1-1-bitrix24-4-procesos-personalizados',
+    }),
+    await citar(browser, {
+      url: 'https://www.bitrix24.com/promo/professional/',
+      buscar: /SPA \(smart process automation\)/i,
+      captura: 'A-1-1-bitrix24-3-procesos-inteligentes',
+    }),
+    ...await constanciaDe(browser, BITRIX24_PROFESSIONAL, 'A-1-1-bitrix24-professional'),
+  ];
 
   expect(creada, 'si la edición gratuita creara la entidad, este veredicto no corresponde').toBeFalsy();
   expect(pidePlan, 'al guardar, el sistema debe informar el plan que la habilita').toBeTruthy();
@@ -70,9 +79,10 @@ test('A.1.1 — Modelado de la póliza como objeto propio', async ({ page, brows
     criterio: 'A.1.1',
     plataforma,
     cumple: 0,
+    resumen: 'La edición gratuita no crea entidades propias: la póliza queda como una negociación. Las entidades, llamadas procesos inteligentes, exigen el plan Professional.',
     comoLoHace:
-      'En la edición gratuita el formulario se completa, pero al guardar el sistema no crea la entidad y ' +
-      'avisa que los procesos inteligentes requieren el plan Professional o el Enterprise.',
+      'La edición gratuita no crea entidades propias: al guardar, avisa que los procesos ' +
+      'inteligentes requieren el plan Professional o el Enterprise.',
     caracteristicas:
       'Las entidades propias de Bitrix24 son los procesos inteligentes, que se crean desde la barra del ' +
       'CRM sin programar: nombre, etapas, embudos y reglas de automatización.',
@@ -81,6 +91,14 @@ test('A.1.1 — Modelado de la póliza como objeto propio', async ({ page, brows
       'producto.',
     evidencia: [capFormulario, capAviso],
     documentacion: fuente,
+    conPlan: [conPlanDe(BITRIX24_PROFESSIONAL, {
+      cumple: 2,
+      costo: 1,
+      justificacion:
+        'Con el plan Professional, el primero que incluye los procesos inteligentes, la póliza se crea como ' +
+        'entidad propia desde la barra del CRM, con su nombre, sus etapas y sus campos, sin escribir código. ' +
+        'Es configuración de una vez.',
+    })],
   });
 });
 
@@ -143,11 +161,12 @@ test('A.1.2 — Campos de lista para el ramo y el estado de cobranza', async ({ 
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen: 'Agrega campos de lista para el ramo y el estado de cobranza sin programar; el usuario elige de la lista y no puede cargar un valor imprevisto.',
     comoLoHace:
       'Desde el formulario de la negociación —que en la edición gratuita hace de póliza, a falta de ' +
-      'entidades propias— se agregan campos de tipo lista sin programar. Se definieron los ramos ' +
-      `—${RAMOS.join(', ')}— y los estados de cobranza, se cargó una póliza de cada ramo y a la de salud ` +
-      'se le cambió el estado desde su ficha: todo quedó guardado.',
+      'entidades propias— se agregan campos de tipo lista sin programar, por ejemplo el ramo y el ' +
+      'estado de cobranza. Cada póliza se carga con valores elegidos de esas listas y el estado se ' +
+      'cambia desde su ficha.',
     caracteristicas:
       'El usuario elige de la lista y no puede escribir un valor imprevisto.',
     justificacion:
@@ -217,10 +236,11 @@ test('A.1.3 — Prima con importe y moneda', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen: 'Guarda la prima como importe con centavos y moneda en un mismo campo. El peso argentino no viene incluido: se agrega una vez con su cotización.',
     comoLoHace:
-      'El peso argentino no venía entre las monedas del portal: se agregó desde la configuración del CRM, ' +
-      'eligiéndolo de la lista de monedas y cargando su cotización. Se cargó una prima de 15.250,50 pesos ' +
-      'y quedó guardada con sus centavos y su moneda.',
+      'El peso argentino no viene entre las monedas del portal: se agrega desde la configuración ' +
+      'del CRM, eligiéndolo de la lista de monedas y cargando su cotización. El campo de prima ' +
+      'guarda el importe con centavos y su moneda.',
     caracteristicas:
       'El formulario de la negociación, que hace de póliza en la edición gratuita, admite campos de tipo ' +
       'dinero: importe y moneda en el mismo campo.',
@@ -303,9 +323,10 @@ test('A.1.4 — Vigencia con fecha de inicio y de fin', async ({ page }, info) =
       plataforma,
       cumple: 2,
       costo: 1,
+      resumen: 'Admite campos de fecha para el inicio y el fin de la vigencia; el listado los ordena y filtra como fechas, por ejemplo vencimientos en los próximos 30 días.',
       comoLoHace:
-        'Se agregaron el inicio y el fin de la vigencia desde el mismo formulario y se cargaron tres ' +
-        'pólizas con sus fechas.',
+        'Desde el mismo formulario de la póliza se agregan campos de fecha para el inicio y el fin de ' +
+        'la vigencia, que cada póliza guarda con sus fechas.',
       caracteristicas:
         'El formulario de la negociación, que en la edición gratuita hace de póliza, admite campos de tipo ' +
         'fecha. El sistema las trata como fechas: con un clic en el encabezado de la columna el listado se ' +
@@ -456,14 +477,14 @@ test('A.1.5 — Aviso anticipado de vencimiento', async ({ page, browser }, info
       plataforma,
       cumple: 2,
       costo: 1,
+      resumen: 'Avisa por notificación al responsable una cantidad de días antes de una fecha del registro, como el fin de vigencia. Admite hasta cinco reglas en total.',
       comoLoHace:
-        'Se definieron desde la pantalla, sin código, dos avisos por notificación al responsable: treinta ' +
-        'días antes del fin de vigencia de la póliza y dos días antes del plazo de resolución del reclamo ' +
-        '—que en la edición gratuita, sin entidad propia, es un campo de fecha de la negociación—, con ' +
-        'fecha y hora. Se cargaron una póliza que vence dentro de treinta días y unos minutos, otra en ' +
-        '200, un reclamo que agota su plazo dentro de dos días y unos minutos y otro en 25 días, y nadie ' +
-        `tocó nada más: a los ${minutosHasta} minutos llegaron las notificaciones de la póliza y del ` +
-        'reclamo cuyo momento de aviso había llegado, y no las de los que todavía están lejos.',
+        'Se definen desde la pantalla, sin código, avisos por notificación al responsable, con fecha ' +
+        'y hora, un tiempo antes de una fecha del registro: por ejemplo treinta días antes del fin de ' +
+        'vigencia de la póliza o dos días antes del plazo de resolución del reclamo —que en la ' +
+        'edición gratuita, sin entidad propia, es un campo de fecha de la negociación—. Sin que nadie ' +
+        'toque nada más, llegan las notificaciones de los registros cuyo momento de aviso ya llegó, y ' +
+        'no las de los que todavía están lejos.',
       caracteristicas:
         'Las reglas de automatización de la negociación aceptan un momento de ejecución relativo a una ' +
         'fecha: «N días antes» del valor de un campo de tipo fecha. El aviso se calcula sobre el valor del ' +
@@ -551,9 +572,10 @@ test('A.1.6 — Consulta y filtrado de la cartera', async ({ page }, info) => {
       plataforma,
       cumple: 2,
       costo: 1,
+      resumen: 'Filtra la cartera por ramo, estado de cobranza y productor responsable a la vez, y permite guardar el filtro con nombre.',
       comoLoHace:
-        'De una cartera de seis pólizas se filtró por ramo Automotor, estado de cobranza Al día y ' +
-        'productor responsable, y el listado trajo exactamente las dos que cumplen las tres.',
+        'El listado de negociaciones se filtra a la vez por ramo, estado de cobranza y productor ' +
+        'responsable, y trae solo las pólizas que cumplen las tres condiciones.',
       caracteristicas:
         'El filtro del listado de negociaciones combina condiciones sobre cualquier campo. El filtro se ' +
         'puede guardar con nombre.',
@@ -615,11 +637,11 @@ test('A.1.7 — Operación masiva sobre la cartera', async ({ page }, info) => {
       plataforma,
       cumple: 2,
       costo: 0,
+      resumen: 'Cambia en bloque el productor responsable de todas las pólizas seleccionadas con una sola acción; otros campos propios, como el estado de cobranza, no se modifican en bloque.',
       comoLoHace:
-        'Se filtró el listado por el ramo Hogar, se tildó la casilla del encabezado —que selecciona las ' +
-        `${elegidas.length} pólizas— y en el desplegable de acciones de la selección se eligió «Cambiar a la ` +
-        `persona responsable»: con el productor ${productor.nombre} y un solo «Aplicar», todas quedaron a su ` +
-        'cargo.',
+        'En el listado filtrado se tilda la casilla del encabezado, que selecciona todas las pólizas, ' +
+        'y en el desplegable de acciones de la selección se elige «Cambiar a la persona responsable»: ' +
+        'con el productor elegido y un solo «Aplicar», todas quedan a su cargo.',
       caracteristicas:
         'Las acciones de la selección vienen con el producto y no hay nada que configurar.',
       justificacion:

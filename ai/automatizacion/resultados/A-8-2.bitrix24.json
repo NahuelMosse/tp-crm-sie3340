@@ -3,7 +3,8 @@
   "plataforma": "bitrix24",
   "cumple": 1,
   "costo": 2,
-  "comoLoHace": "El cálculo se armó con dos reglas de automatización de la etapa «En progreso»: «Ejecutar operaciones matemáticas» multiplica la prima neta por 1,21 y deja el resultado en una variable, y «Modificar elemento» lo escribe en el campo «Prima total». Se cargó una póliza con prima neta de 1.000 y se la pasó a esa etapa desde su ficha: sin intervención, la prima total quedó en 1210.",
+  "resumen": "Calcula el valor derivado con reglas que corren al llegar a una etapa, sin campos calculados: no acompaña los cambios posteriores del dato de partida.",
+  "comoLoHace": "El cálculo se arma con dos reglas de automatización de la etapa «En progreso»: «Ejecutar operaciones matemáticas» multiplica la prima neta por el factor del recargo y deja el resultado en una variable, y «Modificar elemento» lo escribe en el campo «Prima total». Al pasar una póliza a esa etapa desde su ficha, sin intervención, la prima total queda calculada.",
   "caracteristicas": "Bitrix24 no tiene campos calculados: entre los tipos de campo que ofrece el formulario —cadena, lista, fecha, dinero, número y los adicionales— ninguno deriva su valor de otro. El cálculo se configura sin código, pero las reglas corren cuando la negociación llega a la etapa y la regla matemática solo toma campos numéricos, no los de dinero como la prima de la póliza. Al corregir después la prima neta a 2.000 por la interfaz de programación, la prima total siguió en 1210.",
   "justificacion": "El valor derivado se calcula una vez y no acompaña a la prima corregida después: la compañía tiene que volver a pasar la póliza por la etapa cada vez que cambia el dato de partida.",
   "evidencia": [

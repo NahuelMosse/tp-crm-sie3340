@@ -2,7 +2,8 @@
   "criterio": "A.1.1",
   "plataforma": "bitrix24",
   "cumple": 0,
-  "comoLoHace": "En la edición gratuita el formulario se completa, pero al guardar el sistema no crea la entidad y avisa que los procesos inteligentes requieren el plan Professional o el Enterprise.",
+  "resumen": "La edición gratuita no crea entidades propias: la póliza queda como una negociación. Las entidades, llamadas procesos inteligentes, exigen el plan Professional.",
+  "comoLoHace": "La edición gratuita no crea entidades propias: al guardar, avisa que los procesos inteligentes requieren el plan Professional o el Enterprise.",
   "caracteristicas": "Las entidades propias de Bitrix24 son los procesos inteligentes, que se crean desde la barra del CRM sin programar: nombre, etapas, embudos y reglas de automatización.",
   "justificacion": "Sin ellos la póliza no tiene identidad propia: habría que forzarla dentro de otra entidad del producto.",
   "evidencia": [
@@ -11,14 +12,35 @@
   ],
   "documentacion": [
     {
+      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
+      "cita": "Cree sus propios procesos inteligentes y personalícelos según las necesidades de su empresa.",
+      "consultado": "2026-11-09",
+      "captura": "A-1-1-bitrix24-4-procesos-personalizados.png"
+    },
+    {
       "url": "https://www.bitrix24.com/promo/professional/",
       "cita": "SPA (smart process automation)",
-      "consultado": "2026-09-29",
+      "consultado": "2026-11-09",
       "captura": "A-1-1-bitrix24-3-procesos-inteligentes.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "Professional desde US$ 289 desde US$ 199 incluye 100 usuarios Empezar Empezar",
+      "consultado": "2026-11-09",
+      "captura": "A-1-1-bitrix24-professional-precio-1.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Professional",
+      "monto": "US$ 289 por mes, hasta 100 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "Con el plan Professional, el primero que incluye los procesos inteligentes, la póliza se crea como entidad propia desde la barra del CRM, con su nombre, sus etapas y sus campos, sin escribir código. Es configuración de una vez."
     }
   ],
   "criterioNombre": "Modelado de la póliza como objeto propio",
   "licencia": null,
-  "conPlan": [],
-  "momento": "2026-09-29T13:14:25.465Z"
+  "momento": "2026-11-09T03:43:37.106Z"
 }

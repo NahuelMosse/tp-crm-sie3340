@@ -3,6 +3,7 @@
   "plataforma": "bitrix24",
   "cumple": 1,
   "costo": 2,
+  "resumen": "Incluye videollamada, pero no telefonía: la línea propia y la numeración son de los planes pagos, o se conecta una central externa por desarrollo.",
   "comoLoHace": "Desde la ficha de una negociación se inicia una reunión con video, sin salir del sistema.",
   "caracteristicas": "La videollamada está integrada de fábrica.",
   "justificacion": "La telefonía no: el fabricante reserva la línea propia y la numeración de Bitrix24 Telephony a los planes pagos, así que en la edición gratuita llamar desde el sistema requiere contratar ese módulo o desarrollar la conexión con una central externa por la interfaz de programación.",
@@ -13,13 +14,34 @@
     {
       "url": "https://www.bitrix24.es/prices/",
       "cita": "¡Sí, lo es! El plan Free es un estado de cuenta predeterminado, en el que se puede agregar un número ilimitado de usuarios y disfrutar de las herramientas disponibles de forma totalmente gratuita durante el tiempo ilimitado. Tenga en cuenta que algunas herramientas como Telefonía y aplicaciones de Bitrix24 Market están disponibles solo en los planes pagos.",
-      "consultado": "2026-09-29",
+      "consultado": "2026-11-08",
       "captura": "B-2-4-bitrix24-2-telefonia-solo-planes-pagos.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
+      "cita": "Bitrix24 cuenta con telefonía incorporada que no necesita configuración ni integración",
+      "consultado": "2026-11-08",
+      "captura": "B-2-4-bitrix24-3-telefonia-por-plan.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "Basic desde US$ 69 desde US$ 49 incluye 5 usuarios Empezar Empezar",
+      "consultado": "2026-11-08",
+      "captura": "B-2-4-bitrix24-basic-precio-1.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Basic",
+      "monto": "US$ 69 por mes, hasta 5 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "Desde el plan Basic, el primero que incluye la telefonía integrada, se llama desde la ficha del cliente y se puede conectar una central propia por el conector SIP, sin desarrollo. Requiere dar de alta la línea o la central una vez."
     }
   ],
   "medicion": "Videollamada en la ficha: no detectada · acción de llamar: no",
   "criterioNombre": "Telefonía y videollamada integradas",
   "licencia": null,
-  "conPlan": [],
-  "momento": "2026-09-30T00:24:00.267Z"
+  "momento": "2026-11-09T00:35:58.433Z"
 }

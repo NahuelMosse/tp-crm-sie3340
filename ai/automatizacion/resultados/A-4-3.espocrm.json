@@ -3,7 +3,8 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "La campaña se envió a su lista y llegaron los 4 mensajes, cada uno con el nombre de su destinatario en el asunto —\"Martina, su póliza de hogar vence pronto\"—.",
+  "resumen": "Registra cada envío de la campaña y cada apertura, con fecha y destinatario, además de clics y bajas; el seguimiento de aperturas viene apagado y se activa.",
+  "comoLoHace": "La campaña se envía a su lista y cada destinatario recibe su mensaje con su propio nombre en el asunto.",
   "caracteristicas": "El registro de la campaña anotó cada envío y, cuando uno de los asegurados abrió el mensaje, anotó también la apertura, con la fecha y el destinatario. Lo mismo hace con los clics en enlaces seguidos y las bajas.",
   "justificacion": "La medición viene en el producto; lo que hay que configurar una vez es el servidor de correo saliente de la compañía y activar, en esa misma configuración, el seguimiento de aperturas, que viene apagado.",
   "evidencia": [

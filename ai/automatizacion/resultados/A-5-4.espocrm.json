@@ -3,9 +3,10 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "Se escribió un artículo con una condición de cobertura —qué cubre la póliza de automotor ante granizo y qué excluye—, se lo publicó y se lo recuperó buscando \"granizo\" desde su listado.",
+  "resumen": "Trae una base de conocimiento propia: se escribe y publica un artículo con una condición de cobertura y se lo recupera buscando una palabra.",
+  "comoLoHace": "Un artículo con una condición de cobertura —por ejemplo, qué cubre la póliza de automotor ante granizo y qué excluye— se escribe, se publica y se recupera buscando una palabra desde el listado de la base de conocimiento.",
   "caracteristicas": "El producto trae una base de conocimiento propia.",
-  "justificacion": "Viene lista: no hubo que crear ni configurar nada. Es lo que permite que quien atiende responda igual que su compañero de al lado, sin depender de la memoria.",
+  "justificacion": "Viene lista: no requiere crear ni configurar nada. Es lo que permite que quien atiende responda igual que su compañero de al lado, sin depender de la memoria.",
   "evidencia": [
     "A-5-4-espocrm-1-busqueda.png"
   ],

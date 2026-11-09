@@ -105,9 +105,12 @@ test('A.3.1 — Registro de productores y asignación de cartera', async ({ page
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      'Da de alta productores con un rol que los limita a lo propio y asigna varios asegurados de una vez; ' +
+      'cada productor ve solo su cartera.',
     comoLoHace:
-      'Se dio de alta una productora desde la administración de usuarios —con su rol, que la limita a lo ' +
-      'propio— y se le asignaron tres asegurados de una sola vez, marcándolos en el listado y cambiando el ' +
+      'Una productora se da de alta desde la administración de usuarios, con su rol, que la limita a lo ' +
+      'propio, y se le asignan varios asegurados de una sola vez, marcándolos en el listado y cambiando el ' +
       'responsable con la actualización masiva.',
     caracteristicas:
       'Al ingresar con su cuenta, su listado de asegurados muestra exactamente esos tres.',
@@ -176,9 +179,12 @@ test('A.3.2 — Bitácora de la actividad con el cliente', async ({ page }, info
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      'Registra llamadas y reuniones desde la ficha del asegurado; el historial las ordena por fecha, la ' +
+      'más reciente primero, con su responsable y quien las cargó.',
     comoLoHace:
-      'Se registraron las dos, con un minuto de diferencia, y el historial las muestra ordenadas por fecha, ' +
-      'la más reciente primero, cada una con su responsable y con quién la cargó.',
+      'Cada actividad se registra en la ficha y el historial las muestra ordenadas por fecha, la más ' +
+      'reciente primero, cada una con su responsable y con quién la cargó.',
     caracteristicas:
       'La ficha del asegurado trae un historial de actividades con acciones para registrar una llamada o ' +
       'una reunión sin salir de ella.',
@@ -224,10 +230,13 @@ test('A.3.3 — Agenda y carga de trabajo del productor', async ({ page }, info)
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      'El inicio de cada productor muestra sus próximas actividades, y el calendario reúne reuniones, ' +
+      'llamadas y tareas por día, semana y mes.',
     comoLoHace:
-      'Al ingresar con la cuenta del productor, su página de inicio muestra sus próximas actividades —la ' +
-      'visita agendada para el día siguiente figura ahí— y el calendario reúne reuniones, llamadas y tareas ' +
-      'en vistas por día, semana y mes.',
+      'Al ingresar con la cuenta del productor, su página de inicio muestra sus próximas actividades —como ' +
+      'una visita agendada— y el calendario reúne reuniones, llamadas y tareas en vistas por día, semana y ' +
+      'mes.',
     caracteristicas:
       'Cada productor ve lo suyo sin preparar nada.',
     justificacion:
@@ -301,9 +310,11 @@ test('A.3.4 — Proyección de los movimientos comerciales', async ({ page, brow
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen:
+      'Totaliza por etapa los montos del período, pero no el monto ponderado por probabilidad: la ' +
+      'proyección se obtiene exportando y sumando afuera. Los informes del fabricante la calculan.',
     comoLoHace:
-      'Se cargaron tres oportunidades del mes con monto y etapa, y el sistema les asignó la probabilidad de ' +
-      'cada etapa.',
+      'Cada oportunidad se carga con monto y etapa, y el sistema le asigna la probabilidad de la etapa.',
     caracteristicas:
       'El tablero de canalización de ventas suma los montos por etapa para el período elegido —mes, ' +
       'trimestre, año, año fiscal o un rango—, de modo que muestra cuánto hay en juego en cada instancia. ' +

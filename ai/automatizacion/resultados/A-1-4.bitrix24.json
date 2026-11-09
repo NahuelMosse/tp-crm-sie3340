@@ -3,7 +3,8 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Se agregaron el inicio y el fin de la vigencia desde el mismo formulario y se cargaron tres pólizas con sus fechas.",
+  "resumen": "Admite campos de fecha para el inicio y el fin de la vigencia; el listado los ordena y filtra como fechas, por ejemplo vencimientos en los próximos 30 días.",
+  "comoLoHace": "Desde el mismo formulario de la póliza se agregan campos de fecha para el inicio y el fin de la vigencia, que cada póliza guarda con sus fechas.",
   "caracteristicas": "El formulario de la negociación, que en la edición gratuita hace de póliza, admite campos de tipo fecha. El sistema las trata como fechas: con un clic en el encabezado de la columna el listado se ordena por calendario —no alfabéticamente— y otro clic invierte el orden; y el filtro sobre ese campo ofrece comparaciones propias de una fecha —hoy, próximos N días, rango, mes, trimestre—: «vence en los próximos 30 días» trajo solo la póliza que vence en doce días y dejó afuera las de 150 y 300.",
   "justificacion": "Definir los campos y mostrarlos como columna y en el filtro es trabajo de una sola vez.",
   "evidencia": [

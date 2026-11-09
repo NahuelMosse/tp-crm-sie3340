@@ -27,6 +27,9 @@ function reparos(e) {
   }
 
   // Sección 6: cada requerimiento dice cómo lo hace la plataforma, qué trae y por qué ese valor.
+  // El resumen es lo que lee quien decide: corto, o no es un resumen
+  if (!e.resumen?.trim()) mal.push('falta el resumen para la entrega');
+  else if (e.resumen.trim().split(/\s+/).length > 35) mal.push(`el resumen pasa de 35 palabras (${e.resumen.trim().split(/\s+/).length})`);
   if (!e.comoLoHace?.trim()) mal.push('falta cómo lo hace la plataforma, o qué ofrece en su lugar');
   if (e.cumple > 0 && !e.caracteristicas?.trim()) mal.push('falta qué características trae la solución');
   if (!e.justificacion?.trim()) mal.push('la justificación es obligatoria');

@@ -92,10 +92,13 @@ test('A.8.1 — Creación de entidades sin programar', async ({ page }, info) =>
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Crea entidades nuevas desde un formulario de administración, eligiendo nombre, etiquetas y tipo, sin ' +
+      'escribir código ni reiniciar nada; quedan operativas en el acto.',
     comoLoHace:
-      'El Administrador de Entidades crea una entidad desde un formulario de la administración: se creó el ' +
-      'Endoso —la modificación de una póliza vigente— indicando el nombre, las etiquetas en singular y ' +
-      `plural y el tipo, entre ${tipos.length} que ofrece (${tipos.join(', ')}).`,
+      'El Administrador de Entidades crea una entidad desde un formulario de la administración: se indican ' +
+      'el nombre, las etiquetas en singular y plural y el tipo, entre los 5 que ofrece (Base, Base Plus, ' +
+      'Evento, Persona, Empresa).',
     caracteristicas:
       'No hizo falta escribir código, tocar archivos del servidor ni reiniciar nada: la entidad quedó ' +
       'disponible en el acto y admitió su primer registro.',
@@ -151,10 +154,13 @@ test('A.8.2 — Campos calculados sobre datos propios', async ({ page }, info) =
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Calcula un campo a partir de otros al guardar, con una expresión de tipo planilla definida en la ' +
+      'fórmula de cada entidad, sin programar.',
     comoLoHace:
-      'Se definió la prima anual como doce veces la mensual con una sola expresión, del tipo de una fórmula ' +
-      'de planilla, y al guardar una póliza con prima de 15.250,50 el sistema calculó ' +
-      `${guardada.primaAnual} sin intervención.`,
+      'El cálculo se define con una sola expresión, del tipo de una fórmula de planilla —por ejemplo, la ' +
+      'prima anual como doce veces la mensual—, y al guardar una póliza el sistema lo calcula sin ' +
+      'intervención.',
     caracteristicas:
       'La administración de cada entidad trae una fórmula que, según la propia pantalla, "se ejecuta cada ' +
       'vez que se guarda una entidad" y "se utiliza para configurar campos calculados".',
@@ -227,11 +233,13 @@ test('A.8.3 — Automatización de procesos', async ({ page, browser }, info) =>
     plataforma,
     cumple: 2,
     costo: 2,
+    resumen:
+      'Ejecuta una acción automática ante un evento mediante un script en la fórmula de la entidad, que ' +
+      'exige desarrollo. El motor de flujos del fabricante lo haría desde pantallas.',
     comoLoHace:
-      'Se definió una acción automática sobre un evento: cuando la cobranza de una póliza pasa a vencida, ' +
-      'el sistema le crea una tarea de gestión a su productor. Se provocó el evento cambiando el estado ' +
-      `desde la ficha, y la tarea "${tareas[0].name}" apareció sola, asignada al productor y vinculada a la ` +
-      'póliza.',
+      'Se define una acción automática sobre un evento: cuando la cobranza de una póliza pasa a vencida, el ' +
+      'sistema crea una tarea de gestión a su productor. Al cambiar el estado desde la ficha, la tarea ' +
+      'aparece sola, asignada al productor y vinculada a la póliza.',
     caracteristicas:
       'La edición gratuita lo resuelve, pero con la fórmula de la entidad, que para esto exige escribir un ' +
       'script con condiciones y funciones del sistema: es desarrollo, aunque sea breve, y lo tiene que ' +
@@ -394,21 +402,21 @@ test('A.8.4 — Conservación de la parametrización al actualizar', async ({ pa
       plataforma,
       cumple: 2,
       costo: 0,
+      resumen:
+        'Conserva entidades, campos, diseños, fórmulas y registros al actualizar de versión con el ' +
+        'procedimiento oficial para Docker, sin rehacer ni reconfigurar nada.',
       comoLoHace:
-        `Se aplicó el procedimiento oficial para Docker sobre una copia de la instalación: la versión ${origen} ` +
-        `se actualizó a la ${destino} cambiando la imagen y volviendo a crear el contenedor con la misma ` +
-        'configuración y las mismas carpetas de datos. Después se ingresó con el administrador: las entidades ' +
-        'Póliza, Endoso y Cuota seguían en el administrador de entidades, la fórmula de la póliza estaba guardada, ' +
-        `la póliza ${previaNombre} cargada antes mostraba sus campos propios con sus valores (tipo, estado de pago y prima mensual de ` +
-        `${previaPrima}), las ${antes.polizas} pólizas y los ${antes.endosos} endosos seguían en su lugar, y una ` +
-        'póliza dada de alta de nuevo calculó su prima anual (12000 sobre una prima mensual de 1000) y generó la tarea de cobranza al pasar a vencida.',
+        'Se aplica el procedimiento oficial para Docker: se cambia la imagen y se vuelve a crear el ' +
+        'contenedor con la misma configuración y las mismas carpetas de datos. Tras ingresar con el ' +
+        'administrador, las entidades creadas, las fórmulas, los campos propios con sus valores y los ' +
+        'registros siguen en su lugar, y las automatizaciones siguen funcionando.',
       caracteristicas:
         'El procedimiento no pide exportar ni volver a cargar la parametrización: entidades, campos, diseños y ' +
         'fórmula viven en las carpetas de datos y en la base, que la actualización conserva. El fabricante ' +
         'declara que las personalizaciones hechas desde la interfaz no deberían romperse con una actualización.',
       justificacion:
-        `Tras pasar de la versión ${origen} a la ${destino} no hubo que rehacer ni reconfigurar nada de lo ` +
-        'parametrizado, de modo que la conservación no suma trabajo.',
+        'Al pasar de una versión a otra no hay que rehacer ni reconfigurar nada de lo parametrizado, de ' +
+        'modo que la conservación no suma trabajo.',
       evidencia: [capEntidades, capFormula, capPrevia, capAlta, capNueva, capTarea],
       documentacion: fuentes,
     });

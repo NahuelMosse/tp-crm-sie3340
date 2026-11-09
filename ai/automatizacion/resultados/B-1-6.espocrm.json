@@ -2,6 +2,7 @@
   "criterio": "B.1.6",
   "plataforma": "espocrm",
   "cumple": 2,
+  "resumen": "Los datos residen donde la compañía instala el sistema, en el servidor, proveedor y país que elija; su seguridad queda también a cargo de ella.",
   "comoLoHace": "En la instalación propia la base de datos reside donde la compañía instala el sistema: en su propio servidor o en el proveedor que ella elija, en el país que ella elija.",
   "caracteristicas": "La contracara, que el fabricante declara, es que la seguridad de esos datos queda también a su cargo.",
   "justificacion": "Sabe en todo momento dónde están los datos de sus asegurados y lo decide ella, que es lo que exige el tratamiento de datos sensibles de los seguros de personas.",

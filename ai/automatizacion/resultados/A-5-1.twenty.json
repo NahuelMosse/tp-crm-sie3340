@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 1,
   "costo": 2,
-  "comoLoHace": "Twenty no trae un objeto de reclamos o casos: se definió como objeto propio, con estado, plazo de resolución, asegurado y responsable.",
+  "resumen": "El reclamo se define como objeto propio, con estado, plazo, asegurado y responsable; no tiene número automático, así que se asigna a mano en cada alta.",
+  "comoLoHace": "Twenty no trae un objeto de reclamos o casos: se define como objeto propio, con estado, plazo de resolución, asegurado y responsable.",
   "caracteristicas": "Así tiene listado y ficha propios, y se crea desde el campo de reclamos de la ficha del asegurado, ya ligado a él. Pero no tiene número: ningún tipo de campo se numera solo, y el identificador interno no sirve para dictárselo a un asegurado.",
   "justificacion": "El número hay que asignarlo a mano en cada alta, o desarrollarlo.",
   "evidencia": [

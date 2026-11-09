@@ -3,7 +3,8 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Con esa clave, desde fuera del sistema, se creó un asegurado y se lo volvió a consultar.",
+  "resumen": "Trae una interfaz de programación completa y usuarios de integración con clave propia y permisos de rol, para que otros sistemas creen y consulten registros.",
+  "comoLoHace": "Desde fuera del sistema, un usuario de integración con su propia clave puede crear registros —por ejemplo un asegurado— y volver a consultarlos por la interfaz de programación.",
   "caracteristicas": "El producto trae una interfaz de programación completa y un tipo de usuario pensado para otros sistemas: se dio de alta un usuario de integración con su propia clave y los permisos de un rol, sin contraseña de ninguna persona. El sistema de emisión o el de cobranza de la compañía pueden cargar y leer datos por esa vía.",
   "justificacion": "Crear el usuario de integración es configuración; lo que el otro sistema haga con la interfaz es trabajo de ese sistema, no de este.",
   "evidencia": [

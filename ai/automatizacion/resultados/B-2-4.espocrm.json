@@ -2,6 +2,7 @@
   "criterio": "B.2.4",
   "plataforma": "espocrm",
   "cumple": 0,
+  "resumen": "No integra telefonía ni videollamada: el teléfono de la ficha abre el marcador y la llamada se registra a mano. El fabricante las vende como extensiones aparte.",
   "comoLoHace": "La edición gratuita no integra telefonía ni videollamada: el número de teléfono de una ficha abre el marcador del equipo, pero la llamada ocurre afuera y se registra a mano.",
   "justificacion": "El fabricante vende las dos funciones como extensiones separadas: una conecta la central telefónica —3CX, Asterisk, Twilio, entre otras— y la otra agrega las videollamadas.",
   "evidencia": [

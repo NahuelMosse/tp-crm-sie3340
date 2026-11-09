@@ -1,7 +1,20 @@
 {
   "criterio": "A.4.4",
   "plataforma": "bitrix24",
-  "puntua": false,
-  "motivo": "El centro de contacto ofrece conectar Facebook, Instagram, Telegram y otros canales, y en la edición gratuita la conexión no encuentra muro de pago, pero exige autorizar con la cuenta que administra la página de la compañía. Sin esa cuenta no entró ningún mensaje y no se pudo comprobar que el contacto quede como interesado en la base.",
-  "momento": "2026-11-08T02:28:06.244Z"
+  "cumple": 2,
+  "costo": 1,
+  "resumen": "Conecta el bot de Telegram y crea solo un contacto y una negociación por cada interesado, con su origen y la conversación; cobertura y urgencia se completan a mano.",
+  "comoLoHace": "En Clientes › Contact center se conecta una vez el bot de Telegram de la compañía al canal abierto, pegando su clave de acceso, sin planes de pago. Cuando un interesado le escribe al bot, el sistema crea solo, sin intervención de nadie, un contacto y una negociación (la ficha la menciona como prospecto); desde la ficha del contacto, con «Abrir», se ve la conversación con el mensaje tal como llegó.",
+  "caracteristicas": "El contacto queda con el origen «Telegram - Canal Abierto» y con el enlace al canal en la ficha; la negociación se llama «Nawi - Canal Abierto», se asigna al responsable de la cola del canal y la conversación completa queda en el historial del contacto. El texto del mensaje no se vuelca a campos (cobertura solicitada y urgencia quedan vacíos): se completan a mano desde la ficha. La edición gratuita incluye Telegram además de Facebook e Instagram.",
+  "justificacion": "La necesidad queda resuelta: el interesado que escribe por la red entra a la base como cualquier otro, con su origen. Conectar el canal es configuración de una sola vez, por eso el costo es 1; completar los datos del seguro en cada contacto es tarea del agente, pero no impide que el interesado esté en la base.",
+  "evidencia": [
+    "A-4-4-bitrix24-1-canales.png",
+    "A-4-4-bitrix24-2-contacto-creado.png",
+    "A-4-4-bitrix24-3-conversacion.png"
+  ],
+  "criterioNombre": "Captación de interesados desde redes sociales",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-11-08T20:36:34.121Z"
 }

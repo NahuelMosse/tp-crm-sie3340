@@ -2,9 +2,10 @@
   "criterio": "A.11.5",
   "plataforma": "twenty",
   "cumple": 1,
-  "comoLoHace": "Tres agentes independientes, sin conocimiento previo de la plataforma, intentaron sin instrucción las cinco operaciones que un productor repite a diario —dar de alta un asegurado, cargarle una póliza, averiguar qué pólizas de su cartera vencen en los próximos 30 días, registrar un reclamo y agendar un llamado—, operando la pantalla como lo haría una persona.",
+  "resumen": "Sin instrucción previa, los productores completan 14 de 15 tareas diarias: cada tarea la resuelve alguno, pero no todos las resuelven todas.",
+  "comoLoHace": "Sin instrucción previa, quien no conoce la plataforma opera la pantalla, como lo haría una persona, para resolver las cinco operaciones que un productor repite a diario —dar de alta un asegurado, cargarle una póliza, averiguar qué pólizas de su cartera vencen en los próximos 30 días, registrar un reclamo y agendar un llamado—.",
   "caracteristicas": "Completaron 14 de las quince, según lo que quedó guardado en el sistema. La tarea 3 quedó sin completar para el agente 1 (respondió 18; la respuesta correcta es 3), que no supo decir qué le faltó.",
-  "justificacion": "Cada tarea la completó al menos uno de los tres, aunque no todos completaron todas: el sistema se deja aprender, con un tropiezo que la compañía asume en cada incorporación.",
+  "justificacion": "Cada tarea la completa al menos uno de cada tres productores, aunque no todos completan todas: el sistema se deja aprender, con un tropiezo que la compañía asume en cada incorporación.",
   "evidencia": [
     "A-11-5-twenty-p1-t1.png",
     "A-11-5-twenty-p1-t2.png",

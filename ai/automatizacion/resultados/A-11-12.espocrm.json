@@ -2,7 +2,8 @@
   "criterio": "A.11.12",
   "plataforma": "espocrm",
   "cumple": 1,
-  "comoLoHace": "Se tomaron las 21 consultas más recientes de la sección de uso general del foro oficial que ya tenían más de una semana de publicadas.",
+  "resumen": "En el foro oficial, 7 de 21 consultas se resolvieron dentro de la semana; la consulta típica recibe respuesta, pero sin constancia de que la resuelva a tiempo.",
+  "comoLoHace": "La comunidad responde en la sección de uso general del foro oficial, donde los usuarios publican sus consultas y otros usuarios las contestan.",
   "caracteristicas": "En 7 otro usuario respondió dentro de la semana y quien consultó confirmó después que la respuesta le había servido; en 13 hubo respuesta, pero llegó más tarde o sin que el autor confirmara que lo resolvía; 1 no recibieron respuesta. La primera respuesta llegó, en el caso típico, a las 2 horas.",
   "justificacion": "La consulta típica recibe respuesta, pero no queda constancia de que se resuelva dentro de la semana: la compañía puede contar con que alguien conteste, no con que la conteste a tiempo y a su medida.",
   "documentacion": [

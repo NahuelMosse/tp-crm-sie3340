@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "Desde el listado de asegurados se definió un conjunto por un criterio —los que están a cargo de un productor— y se lo guardó con nombre como una vista, desde el propio filtro.",
+  "resumen": "Un segmento se define con filtros y se guarda con nombre como vista; como se guarda el filtro y no la lista, quien cumpla el criterio después entra solo.",
+  "comoLoHace": "Desde el listado de asegurados se define un conjunto por un criterio —por ejemplo, los que están a cargo de un productor— y se lo guarda con nombre como una vista, desde el propio filtro.",
   "caracteristicas": "Al volver al listado, el segmento figura en el selector de vistas; al abrirlo trajo de nuevo los mismos asegurados, y como el filtro se guarda y no la lista, un asegurado que cumpla el criterio más adelante entra solo.",
   "justificacion": "Viene listo.",
   "evidencia": [

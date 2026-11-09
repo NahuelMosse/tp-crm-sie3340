@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "El productor cambió el ramo de una póliza de Automotor a Hogar desde la ficha, y el administrador, con su cuenta, encontró la constancia en la línea de tiempo de la póliza: quién lo cambió, cuándo, y el valor anterior junto al nuevo.",
+  "resumen": "Cada registro trae una línea de tiempo con quién cambió cada dato, cuándo y el valor anterior y el nuevo.",
+  "comoLoHace": "Cuando el productor cambia el ramo de una póliza desde la ficha, el administrador, con su cuenta, encuentra la constancia en la línea de tiempo de la póliza: quién lo cambió, cuándo, y el valor anterior junto al nuevo.",
   "caracteristicas": "Cada registro trae de fábrica una línea de tiempo con sus cambios. Los cambios seguidos de la misma persona sobre un registro, dentro de los diez minutos, se funden en una entrada con el primer valor y el último.",
   "justificacion": "Viene listo, sin configurar nada. El registro de auditoría de todo el espacio de trabajo es aparte, y es del plan Organization.",
   "evidencia": [

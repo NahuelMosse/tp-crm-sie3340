@@ -3,6 +3,7 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
+  "resumen": "La encuesta es un objeto propio, con puntaje, comentario y vínculos al asegurado y al reclamo; no trae encuestas incorporadas ni envío automático al cerrar el reclamo.",
   "comoLoHace": "La encuesta es un objeto propio con puntaje, comentario y vínculos al asegurado y al reclamo. Al cerrar el reclamo desde su ficha, la respuesta que el asegurado dio por teléfono se registra desde su ficha como una encuesta nueva, ligada al reclamo, y queda listada en la ficha del asegurado.",
   "caracteristicas": "Objeto propio con campo de lista para el puntaje, texto para el comentario y relaciones con persona y reclamo; la ficha del asegurado lista sus encuestas.",
   "justificacion": "Cada respuesta se registra una vez y queda en la ficha del asegurado. No hay encuestas incorporadas ni envío automático al cerrar el reclamo; el objeto y sus campos se configuran una sola vez.",

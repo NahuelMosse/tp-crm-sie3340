@@ -1,18 +1,38 @@
 {
   "criterio": "B.1.2",
   "plataforma": "bitrix24",
-  "cumple": 1,
-  "comoLoHace": "El listado de negociaciones —que en la edición gratuita hace de cartera de pólizas— ofrece la acción «Exportar», pero no aparece habilitada en el listado de la edición gratuita. La compañía igual obtiene una copia completa de sus datos, registro por registro, con la interfaz de programación de la misma cuenta: se leyeron 9 negociaciones y 10 contactos con todos sus campos, incluidos los propios.",
-  "caracteristicas": "Lo que no se resuelve por pantalla en un solo paso es la copia de los archivos adjuntos de Drive, que el fabricante no ofrece como descarga masiva en la edición gratuita: hay que bajarlos uno por uno o contratar una aplicación de respaldo del catálogo.",
-  "justificacion": "La compañía obtiene una copia completa de sus datos, pero no con la acción «Exportar», que no está habilitada en la edición gratuita: la copia se arma registro por registro con la interfaz de programación y los adjuntos se bajan uno por uno. El reparo es que no se resuelve en un solo paso, aunque el procedimiento se repite igual en cada copia.",
+  "cumple": 0,
+  "resumen": "La edición gratuita no ofrece ningún medio para sacar una copia de la cartera: la exportación y la interfaz de programación para otros sistemas exigen un plan pago.",
+  "comoLoHace": "El listado de negociaciones, que en la edición gratuita hace de cartera de pólizas, no ofrece una acción «Exportar» habilitada. La exportación de contactos pide actualizar a un plan superior y el webhook entrante, que es el camino para que otro sistema lea los datos, no está disponible en el plan actual. El respaldo diario del fabricante no se descarga: solo se restituye pidiéndolo a soporte.",
+  "justificacion": "Para la compañía no hay función del producto que entregue una copia de su cartera: la exportación y el acceso desde otros sistemas son de planes pagos, y el respaldo es del fabricante y no se puede bajar. Lo único que devuelve los datos completos es la llamada interna que usan las pantallas del portal, que solo un programador puede invocar desde la consola del navegador: no es una función ofrecida al usuario, así que no cuenta como medio.",
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Basic",
+      "monto": "US$ 69 por mes, hasta 5 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 1,
+      "justificacion": "El plan Basic incluye la exportación de contactos a CSV, Excel y Outlook, con lo que una parte de la cartera se puede sacar del sistema. El reparo es que el fabricante solo publica esa opción para contactos, y los archivos adjuntos se siguen bajando uno por uno. La interfaz de programación completa llega recién con el plan Basic Vibe+."
+    }
+  ],
   "evidencia": [
     "B-1-2-bitrix24-1-listado.png",
     "B-1-2-bitrix24-2-opcion-de-exportar.png"
   ],
-  "medicion": "9 negociaciones y 10 contactos leídos por la interfaz de programación",
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
+      "cita": "Opción para exportar contactos a CSV, Excel y Outlook",
+      "consultado": "2026-11-08",
+      "captura": "B-1-2-bitrix24-3-comparacion-de-planes.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "Basic desde US$ 69 desde US$ 49 incluye 5 usuarios Empezar Empezar",
+      "consultado": "2026-11-08",
+      "captura": "B-1-2-bitrix24-basic-precio-1.png"
+    }
+  ],
   "criterioNombre": "Copia propia y completa de la cartera",
   "licencia": null,
-  "conPlan": [],
-  "documentacion": [],
-  "momento": "2026-09-29T23:48:32.906Z"
+  "momento": "2026-11-09T02:52:33.248Z"
 }

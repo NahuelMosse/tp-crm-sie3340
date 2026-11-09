@@ -2,6 +2,7 @@
   "criterio": "B.1.3",
   "plataforma": "espocrm",
   "cumple": 1,
+  "resumen": "No programa copias por sí mismo: se repiten con el programador de tareas del servidor, pero alguien debe vigilarlas y guardarlas afuera, porque el sistema no avisa si una falla.",
   "comoLoHace": "La documentación oficial resuelve la repetición afuera, con el programador de tareas del servidor, que ejecuta todas las noches el mismo procedimiento de copia.",
   "caracteristicas": "El producto no trae una copia programada: sus tareas programadas son de mantenimiento propio y ninguna genera un respaldo.",
   "justificacion": "La condición se satisface con una limitación que la compañía asume: la copia se repite sola, pero la programa, la vigila y la guarda fuera del equipo alguien con acceso al servidor, porque el sistema no avisa si una noche falló.",

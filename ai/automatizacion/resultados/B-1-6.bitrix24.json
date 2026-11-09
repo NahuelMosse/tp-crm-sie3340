@@ -17,5 +17,6 @@
   "licencia": null,
   "conPlan": [],
   "evidencia": [],
-  "momento": "2026-10-30T08:54:10.525Z"
+  "momento": "2026-10-30T08:54:10.525Z",
+  "resumen": "Los datos se alojan en Virginia o en Fráncfort, a elección al crear el portal; cambiar de región exige migrar a un portal nuevo."
 }

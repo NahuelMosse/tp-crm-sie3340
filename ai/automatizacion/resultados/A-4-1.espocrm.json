@@ -3,9 +3,10 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Desde el listado de asegurados se definió un conjunto por un criterio —los que viven en Buenos Aires— y se lo guardó con nombre desde el menú de filtros.",
+  "resumen": "Guarda con nombre un conjunto de asegurados definido por un criterio y lo reabre con el mismo resultado; los campos propios deben habilitarse antes como condición.",
+  "comoLoHace": "Desde el listado de asegurados se define un conjunto por un criterio —por ejemplo, los que viven en una ciudad— y se lo guarda con nombre desde el menú de filtros.",
   "caracteristicas": "Al volver al listado, el segmento figura entre los filtros guardados y devuelve el mismo conjunto sin rearmarlo.",
-  "justificacion": "Guardar segmentos viene de fábrica; que la ciudad esté disponible como condición exigió habilitarla una vez entre los filtros de búsqueda.",
+  "justificacion": "Guardar segmentos viene de fábrica; que la ciudad esté disponible como condición exige habilitarla una vez entre los filtros de búsqueda.",
   "evidencia": [
     "A-4-1-espocrm-1-segmento-guardado.png",
     "A-4-1-espocrm-2-segmento-reabierto.png"

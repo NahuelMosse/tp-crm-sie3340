@@ -3,7 +3,8 @@
   "plataforma": "bitrix24",
   "cumple": 1,
   "costo": 2,
-  "comoLoHace": "La póliza se lleva como una negociación a la que se agregó un campo de lista «Forma de pago». Sin entidades propias, cada cuota es una negociación con su vencimiento y su estado —pendiente, pagada o impaga— y el número de la póliza en el título. El listado de impagas es el listado de negociaciones filtrado por el estado de la cuota: trae las dos vencidas y ninguna de las otras.",
+  "resumen": "Lleva cada cuota como una negociación con vencimiento y estado, identificada por el título; las cuotas no cuelgan de la póliza y se filtran a mano en cada uso.",
+  "comoLoHace": "La póliza se lleva como una negociación con un campo de lista «Forma de pago». Sin entidades propias, cada cuota es una negociación con su vencimiento y su estado —pendiente, pagada o impaga— y el número de la póliza en el título. El listado de impagas es el listado de negociaciones filtrado por el estado de la cuota.",
   "caracteristicas": "Campos propios de lista y de fecha en el formulario de la negociación, filtro por estado en el listado, sin programar.",
   "justificacion": "Las cuotas no cuelgan de la póliza: se identifican por el título y comparten el listado con las pólizas y las ventas, de modo que hay que filtrarlas en cada uso. Hay que filtrar y distinguir las cuotas en cada uso, además de definir los campos.",
   "evidencia": [

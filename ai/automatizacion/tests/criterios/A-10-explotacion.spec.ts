@@ -72,8 +72,12 @@ test('A.10.4 — Intercambio de datos con otros sistemas de la compañía', asyn
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Trae una interfaz de programación completa y usuarios de integración con clave propia y permisos de ' +
+      'rol, para que otros sistemas creen y consulten registros.',
     comoLoHace:
-      'Con esa clave, desde fuera del sistema, se creó un asegurado y se lo volvió a consultar.',
+      'Desde fuera del sistema, un usuario de integración con su propia clave puede crear registros —por ' +
+      'ejemplo un asegurado— y volver a consultarlos por la interfaz de programación.',
     caracteristicas:
       'El producto trae una interfaz de programación completa y un tipo de usuario pensado para otros ' +
       'sistemas: se dio de alta un usuario de integración con su propia clave y los permisos de un rol, sin ' +
@@ -95,12 +99,15 @@ test('A.10.4 — Intercambio de datos con otros sistemas de la compañía', asyn
  * propia no hay un límite publicado: se mide qué admite el equipo, en ráfaga y
  * de a una. Hasta que se fija, el test mide, informa y no registra nada.
  */
-const VEREDICTO_A105: null | { cumple: 2 | 1 | 0; lectura: { comoLoHace: string; caracteristicas: string; justificacion: string } } = {
+const VEREDICTO_A105: null | { cumple: 2 | 1 | 0; lectura: { resumen: string; comoLoHace: string; caracteristicas: string; justificacion: string } } = {
   cumple: 2,
   lectura: {
+    resumen:
+      'La interfaz de programación acepta el movimiento de un día entero de altas, en ráfaga y de a una; no tiene ' +
+      'tope publicado, lo marca la capacidad del equipo.',
     comoLoHace:
-      'Las dos veces el sistema aceptó las quinientas: en ráfaga llevó alrededor de un minuto, y de a una unos ' +
-      'cinco.',
+      'La interfaz de programación acepta el movimiento de un día entero de altas, tanto en ráfaga —varias ' +
+      'operaciones simultáneas— como de a una, en minutos.',
     caracteristicas:
       'En una corrida anterior, con el equipo ocupado por otros procesos, tres de quinientas altas en ' +
       'ráfaga fueron rechazadas y pasaron al repetirlas: el límite es el del equipo, no una cuota del producto.',
@@ -170,9 +177,9 @@ test('A.10.5 — Intercambio sin límite de volumen que condicione la operación
     plataforma,
     cumple: VEREDICTO_A105.cumple,
     costo: 0,
+    resumen: VEREDICTO_A105.lectura.resumen,
     comoLoHace:
-      'Se mandó el movimiento de un día entero —' + MOVIMIENTO_DIARIO +
-      ' altas— dos veces: en ráfaga, de a diez simultáneas, y de a una. ' + VEREDICTO_A105.lectura.comoLoHace,
+      VEREDICTO_A105.lectura.comoLoHace,
     caracteristicas:
       'En la instalación propia la interfaz de programación no tiene un tope publicado: no lo impone el ' +
       'fabricante sino el equipo donde corre. ' + VEREDICTO_A105.lectura.caracteristicas,
@@ -248,6 +255,9 @@ test('A.10.1 — Indicadores sobre la operación', async ({ page, browser }, inf
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen:
+      'No suma ni promedia pólizas ni reclamos: los indicadores son de ventas y lo demás se calcula ' +
+      'exportando a XLSX o CSV. Lo resuelve el módulo de informes.',
     comoLoHace:
       'Para obtener el total de primas por estado de cobranza o el tiempo promedio de resolución hay que ' +
       `exportar el listado —${formatos.join(' o ')}— y calcularlo en una planilla, cada vez que se quiere ` +
@@ -295,6 +305,9 @@ test('A.10.2 — Generación de informes definidos por el usuario', async ({ pag
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen:
+      'Filtra el listado de pólizas por productor y período y lo exporta a XLSX o CSV, pero no suma: el ' +
+      'total de primas se arma en una planilla cada vez.',
     comoLoHace:
       'El total de primas por productor se arma en la planilla exportada, a mano, cada vez que se pide el ' +
       'informe.',
@@ -342,6 +355,9 @@ test('A.10.3 — Informe paramétrico reutilizable', async ({ page, browser }, i
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen:
+      'Guarda búsquedas con período relativo, pero no informes con parámetro: para otro período se cambia ' +
+      'la condición y el total se calcula afuera. Lo resuelve el módulo de informes.',
     comoLoHace:
       'Pero no es un informe con parámetro: para verlo sobre otro período hay que cambiar la condición, y ' +
       'el resultado sigue siendo un listado que hay que exportar y totalizar afuera.',

@@ -75,10 +75,11 @@ test('A.8.1 — Creación de entidades sin programar', async ({ page, browser },
     criterio: 'A.8.1',
     plataforma,
     cumple: 0,
+    resumen: 'La edición gratuita no crea entidades propias; lo más cercano es forzar el concepto dentro de una negociación. Las entidades, llamadas procesos inteligentes, exigen el plan Professional.',
     comoLoHace:
-      'En la edición gratuita el formulario se completa, pero al guardar el sistema no crea la entidad y ' +
-      'avisa que los procesos inteligentes requieren el plan Professional o el Enterprise; la tabla ' +
-      'comparativa del fabricante los lista entre las funciones que ese plan agrega.',
+      'La edición gratuita no crea entidades propias: al guardar, avisa que los procesos ' +
+      'inteligentes requieren el plan Professional o el Enterprise; la tabla comparativa del ' +
+      'fabricante los lista entre las funciones que ese plan agrega.',
     caracteristicas:
       'Las entidades nuevas de Bitrix24 son los procesos inteligentes: se crean desde la barra del CRM, ' +
       'con su nombre, sus etapas y sus campos, sin escribir código. Con el plan Professional la entidad se ' +
@@ -268,11 +269,15 @@ test('A.8.2 — Campos calculados sobre datos propios', async ({ page, browser }
       plataforma,
       cumple: sigue ? 1 : 2,
       costo: sigue ? 2 : 1,
+      resumen: sigue
+        ? 'Calcula el valor derivado con reglas que corren al llegar a una etapa, sin campos calculados: no acompaña los cambios posteriores del dato de partida.'
+        : 'Recalcula el valor derivado con reglas de automatización cada vez que cambia el dato de partida, con una configuración de una sola vez.',
       comoLoHace:
-        'El cálculo se armó con dos reglas de automatización de la etapa «En progreso»: «Ejecutar operaciones ' +
-        `matemáticas» multiplica la prima neta por ${RECARGO.replace('.', ',')} y deja el resultado en una variable, y «Modificar ` +
-        'elemento» lo escribe en el campo «Prima total». Se cargó una póliza con prima neta de 1.000 y se la ' +
-        `pasó a esa etapa desde su ficha: sin intervención, la prima total quedó en ${coma(v.total)}.`,
+        'El cálculo se arma con dos reglas de automatización de la etapa «En progreso»: «Ejecutar ' +
+        'operaciones matemáticas» multiplica la prima neta por el factor del recargo y deja el ' +
+        'resultado en una variable, y «Modificar elemento» lo escribe en el campo «Prima total». Al ' +
+        'pasar una póliza a esa etapa desde su ficha, sin intervención, la prima total queda ' +
+        'calculada.',
       caracteristicas:
         'Bitrix24 no tiene campos calculados: entre los tipos de campo que ofrece el formulario —cadena, ' +
         'lista, fecha, dinero, número y los adicionales— ninguno deriva su valor de otro. El cálculo se ' +
@@ -375,11 +380,11 @@ test('A.8.3 — Automatización de procesos', async ({ page, browser }, info) =>
       plataforma,
       cumple: 2,
       costo: 1,
+      resumen: 'Automatiza acciones por etapa con reglas armadas por pantalla, sin código: comunicar, crear tareas, modificar campos o comentar. Admite hasta cinco reglas en total.',
       comoLoHace:
-        'Se definió una que deja un comentario en el historial al llegar a «En progreso». Para provocar el ' +
-        'evento se abrió una póliza desde el listado y se la pasó a esa etapa con un clic en la barra de ' +
-        `etapas de su ficha: sin que nadie hiciera nada más, el comentario «${TEXTO}» apareció en el ` +
-        'historial de la póliza.',
+        'Se define una regla que deja un comentario en el historial al llegar a «En progreso». Al ' +
+        'pasar una póliza a esa etapa con un clic en la barra de etapas de su ficha, sin que nadie ' +
+        'haga nada más, el comentario aparece en el historial de la póliza.',
       caracteristicas:
         'Las reglas de automatización de la negociación se arman desde la pantalla, sin código: se elige ' +
         'la etapa, la acción —comunicar, crear tareas, modificar campos, dejar comentarios— y el momento. ' +
@@ -457,6 +462,7 @@ test('A.8.4 — Conservación de la parametrización al actualizar', async ({ pa
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen: 'El fabricante actualiza el servicio por su cuenta y la parametrización propia, con sus campos y datos cargados, se conserva sin trabajo de la compañía.',
     comoLoHace:
       'El fabricante actualiza el servicio por su cuenta, sin que la compañía aplique ningún procedimiento ni ' +
       'elija el momento. El registro de cambios oficial fecha el 22 de octubre de 2026 una versión nueva del ' +

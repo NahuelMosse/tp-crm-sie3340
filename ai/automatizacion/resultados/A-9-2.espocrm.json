@@ -3,6 +3,7 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 1,
+  "resumen": "Ofrece política de contraseñas, segundo factor para los usuarios e ingreso contra el directorio de la compañía.",
   "comoLoHace": "La pantalla de autenticación de la administración reúne las tres cosas: la política de contraseñas —longitud mínima y exigencia de letras, números y caracteres especiales—, el segundo factor para los usuarios, y el ingreso contra el directorio de la compañía entre 3 métodos (Espo, LDAP, OIDC).",
   "caracteristicas": "La compañía decide cómo se valida la identidad de cada usuario sin depender del fabricante.",
   "justificacion": "Viene en el producto y se activa desde esa pantalla: es configuración.",

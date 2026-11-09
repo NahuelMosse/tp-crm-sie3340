@@ -2,7 +2,8 @@
   "criterio": "A.7.4",
   "plataforma": "bitrix24",
   "cumple": 0,
-  "comoLoHace": "Con el asegurado cargado —ACT-Lucia Correo, lucia.correo@example.com— se mandó un mensaje desde esa dirección a la casilla de atención, que lo recibió, y después de esperar dos minutos la ficha no registra ninguna actividad de correo.",
+  "resumen": "El correo del asegurado no llega a su ficha porque la edición gratuita no permite conectar la casilla de la compañía.",
+  "comoLoHace": "En la edición gratuita el correo que un asegurado envía a la casilla de atención de la compañía no queda registrado en su ficha: la ficha no muestra ninguna actividad de correo.",
   "caracteristicas": "La ayuda del fabricante describe que, con la opción «Integración de CRM» activada en el buzón, los correos entrantes aparecen en la ficha correspondiente; esa opción forma parte de la conexión del buzón, que la edición gratuita no permite.",
   "justificacion": "En la edición gratuita el correo de un asegurado no llega a su ficha porque no se puede conectar la casilla de la compañía: «Buzón personalizado» responde «No disponible en su plan» y no abre el formulario.",
   "conPlan": [

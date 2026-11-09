@@ -3,7 +3,8 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "El posible cliente no trae cobertura pedida ni urgencia: se agregaron como dos campos de lista desde la administración y se los ubicó en el formulario y en el listado.",
+  "resumen": "Agrega campos de lista para la cobertura pedida y la urgencia, y ordena el listado según el orden de la lista y no el alfabético.",
+  "comoLoHace": "El posible cliente no trae cobertura pedida ni urgencia: se agregan como dos campos de lista desde la administración y se ubican en el formulario y en el listado.",
   "caracteristicas": "Se cargaron tres solicitantes en desorden y, al ordenar el listado por urgencia, el sistema respetó el orden de la lista —alta, media, baja— y no el alfabético, de modo que los más cercanos a contratar quedan arriba.",
   "justificacion": "Configuración de una sola vez, sin programar.",
   "evidencia": [

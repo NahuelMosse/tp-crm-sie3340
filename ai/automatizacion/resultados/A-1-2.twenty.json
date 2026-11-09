@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Se agregaron el ramo, con los cuatro que comercializa, y el estado de pago, con los cuatro estados de cobranza; se cargó por pantalla una póliza de cada ramo y a cada una se le cambió el estado desde su ficha, eligiendo la opción en un desplegable con buscador.",
+  "resumen": "Admite campos de lista con las opciones que define la compañía, como ramo y estado de cobranza; los valores se guardan como opciones, no como texto libre.",
+  "comoLoHace": "Desde Configuración › Modelo de datos se agregan a la póliza el ramo, con los que comercializa la compañía, y el estado de pago, con los estados de cobranza; en cada póliza el estado se cambia desde su ficha, eligiendo la opción en un desplegable con buscador.",
   "caracteristicas": "El modelo de datos admite campos de lista con las opciones que define la compañía. Los valores quedan guardados como opciones de la lista, no como texto libre.",
   "justificacion": "Definir los campos es trabajo de una sola vez.",
   "evidencia": [

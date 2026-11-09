@@ -98,6 +98,10 @@ export interface Evaluacion {
   licencia?: Licencia;
   /** Lo que cambiaría contratando un plan; comentario, no puntúa */
   conPlan?: ConPlan[];
+  /** Para quien decide, en una o dos oraciones: qué hace la plataforma con esa necesidad (formatos,
+   *  límites, el reparo de un 1, lo que falta en un 0), sin el camino en la pantalla. Es el texto
+   *  de la sección 6 en la entrega. */
+  resumen: string;
   /** Cómo lo resuelve la plataforma: el camino concreto en el sistema, o qué ofrece en su lugar */
   comoLoHace: string;
   /** Lo que trae la solución: tipos de dato, límites, alcance. Obligatorias si cumple */

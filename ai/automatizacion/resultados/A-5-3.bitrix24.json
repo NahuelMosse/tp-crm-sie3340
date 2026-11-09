@@ -3,6 +3,7 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 1,
+  "resumen": "Asigna el reclamo a un productor desde el listado y le aparece en su propia vista. Los reclamos comparten listado con pólizas y oportunidades y se distinguen por el nombre.",
   "comoLoHace": "El responsable de un reclamo —la negociación del asegurado— se cambia en el listado, marcando el registro y eligiendo «Cambiar a la persona responsable».",
   "caracteristicas": "Con la sesión del productor, el reclamo asignado aparece en su listado de negociaciones, sin buscarlo.",
   "justificacion": "Los reclamos comparten ese listado con las pólizas y las oportunidades, y el usuario los distingue por el nombre: es una convención que se fija una vez.",

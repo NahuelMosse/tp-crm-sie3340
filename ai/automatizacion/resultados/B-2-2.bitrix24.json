@@ -3,7 +3,8 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "Se buscó la aplicación oficial del fabricante en las tiendas de aplicaciones.",
+  "resumen": "Tiene aplicación móvil oficial para Android e iOS, con CRM, tareas, chat y notificaciones, para operar durante la visita al asegurado.",
+  "comoLoHace": "La aplicación oficial del fabricante se encuentra en las tiendas de aplicaciones.",
   "caracteristicas": "El fabricante publica una aplicación móvil oficial, para Android en Google Play y para iOS en el App Store, con el CRM, las tareas, el chat y las notificaciones de la cuenta.",
   "justificacion": "El productor puede registrar la operación durante la visita al asegurado, desde su teléfono, sin instalar ni configurar nada además de bajar la aplicación e iniciar sesión.",
   "evidencia": [

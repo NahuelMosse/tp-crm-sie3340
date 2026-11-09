@@ -281,14 +281,17 @@ test('A.12.1 — Emisión de la póliza al cerrar la venta', async ({ page, brow
       plataforma,
       cumple: 2,
       costo: 2,
+      resumen:
+        'No emite la póliza al ganar una oportunidad: un script en la fórmula la crea con los datos ' +
+        'negociados, ligada al asegurado y a la oportunidad.',
       comoLoHace:
         'Ganar la oportunidad no emite nada por sí solo: el producto trae la conversión del solicitante en ' +
-        'asegurado y oportunidad, y de ahí en adelante la póliza se carga aparte. La emisión se resuelve con un ' +
-        'guion en la fórmula de la entidad Oportunidad (Administración › Entidades › Oportunidad › Fórmula) que, ' +
-        'cuando la etapa pasa a «Cerrada ganada», crea la póliza con el nombre, el importe como prima, la fecha ' +
-        'de cierre como inicio de vigencia y el responsable de la oportunidad, y la liga al asegurado y a la ' +
-        'oportunidad de origen. Se marcó ganada desde la ficha y la póliza apareció sola en el panel de pólizas ' +
-        'de la oportunidad y en la ficha del asegurado.',
+        'asegurado y oportunidad, y de ahí en adelante la póliza se carga aparte. La emisión se resuelve ' +
+        'con un guion en la fórmula de la entidad Oportunidad (Administración › Entidades › Oportunidad › ' +
+        'Fórmula) que, cuando la etapa pasa a «Cerrada ganada», crea la póliza con el nombre, el importe ' +
+        'como prima, la fecha de cierre como inicio de vigencia y el responsable de la oportunidad, y la ' +
+        'liga al asegurado y a la oportunidad de origen. Al marcar ganada la oportunidad desde la ficha, la ' +
+        'póliza aparece sola en el panel de pólizas de la oportunidad y en la ficha del asegurado.',
       caracteristicas:
         'La póliza nace vinculada al asegurado y a la oportunidad que la originó, con la prima tomada del importe ' +
         'negociado y sin volver a escribir ningún dato. El guion corre solo cuando la etapa cambia a ganada: ' +
@@ -297,10 +300,10 @@ test('A.12.1 — Emisión de la póliza al cerrar la venta', async ({ page, brow
         'oportunidad: la póliza nace con el ramo que la lista propone por defecto y con el nombre de la venta ' +
         'como número, hasta que se completen o los traiga el sistema central.',
       justificacion:
-        'La necesidad queda resuelta desde el sistema, sin reescribir lo negociado. El costo es 2 porque exige ' +
-        'escribir un guion con funciones del sistema —crear un registro, buscar el asegurado relacionado— que ' +
-        'alguien tiene que mantener cuando cambie el modelo de la póliza; sin él, marcar ganada una oportunidad ' +
-        'no dejó ninguna póliza.',
+        'La necesidad queda resuelta desde el sistema, sin reescribir lo negociado. El costo es 2 porque ' +
+        'exige escribir un guion con funciones del sistema —crear un registro, buscar el asegurado ' +
+        'relacionado— que alguien tiene que mantener cuando cambie el modelo de la póliza; sin él, marcar ' +
+        'ganada una oportunidad no deja ninguna póliza.',
       evidencia: [capGuion, capOportunidad, capPoliza, capAsegurado],
       documentacion: fuentes,
       medicion: `Póliza ${poliza.name} con prima ${poliza.prima} ${poliza.primaCurrency}, titular y oportunidad de origen`,
@@ -399,6 +402,9 @@ test('A.12.2 — Plan de pago de la prima', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Permite registrar las cuotas de la póliza con importe, vencimiento y estado, y su forma de pago, y ' +
+      'lista las impagas; no calcula el cronograma.',
     comoLoHace:
       'El producto no trae cuotas: se crea la entidad Cuota con el Administrador de Entidades, con importe, ' +
       'vencimiento y estado (pendiente o pagada) y una relación de muchas cuotas a una póliza, y se agrega a la ' +
@@ -507,14 +513,17 @@ test('A.12.3 — Datos que administra el sistema central', async ({ page, browse
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Un sistema central actualiza la póliza por su número sin duplicarla, y un rol deja esos campos en ' +
+      'solo lectura para el operador; no exige unicidad del número.',
     comoLoHace:
-      'El sistema central usa un usuario de integración propio (Administración › Usuarios de API), con su clave y ' +
-      'un rol con permiso de edición sobre la póliza. Busca la póliza por su número —una consulta con condición ' +
-      'sobre el nombre— y la actualiza por el identificador que recibe: se actualizaron prima, estado de cobranza ' +
-      'y vigencia, dos veces, y siguió habiendo una sola póliza con ese número. Para los usuarios del CRM, un rol ' +
-      'con seguridad por campo deja número, prima, estado de cobranza y vigencia en solo lectura: el operador ' +
-      'abre la edición de la póliza, ve los valores que mandó el central y el formulario solo ofrece editar los ' +
-      'campos propios del CRM, como el ramo.',
+      'El sistema central usa un usuario de integración propio (Administración › Usuarios de API), con su ' +
+      'clave y un rol con permiso de edición sobre la póliza. Busca la póliza por su número —una consulta ' +
+      'con condición sobre el nombre— y la actualiza por el identificador que recibe: actualiza prima, ' +
+      'estado de cobranza y vigencia, y si repite el envío sigue habiendo una sola póliza con ese número. ' +
+      'Para los usuarios del CRM, un rol con seguridad por campo deja número, prima, estado de cobranza y ' +
+      'vigencia en solo lectura: el operador, al abrir la edición de la póliza, ve los valores que mandó el ' +
+      'central y el formulario solo ofrece editar los campos propios del CRM, como el ramo.',
     caracteristicas:
       'La seguridad por campo es del rol, de modo que el mismo campo se edita para el usuario de integración y se ' +
       'bloquea para el operador; el bloqueo se mantuvo también ante un intento de cambio del operador por la ' +
@@ -609,20 +618,23 @@ test('A.12.4 — Historia del cliente desde el primer contacto', async ({ page }
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      'El historial reúne llamadas, reuniones y correos desde el primer contacto: la llamada al solicitante ' +
+      'sigue en la ficha del asegurado tras convertirlo, sin copiarla a mano.',
     comoLoHace:
-      'La llamada se registra desde el panel Historial de la ficha del solicitante. Al convertir al solicitante ' +
-      'en asegurado, el sistema crea la ficha del asegurado; después se le emitió la póliza desde su formulario. ' +
-      'La ficha del asegurado muestra, en su Historial, la llamada hecha antes de que fuera cliente, y en su ' +
-      'panel de pólizas la póliza emitida.',
+      'La llamada se registra desde el panel Historial de la ficha del solicitante. Al convertir al ' +
+      'solicitante en asegurado, el sistema crea la ficha del asegurado, y la póliza se emite desde su ' +
+      'formulario. La ficha del asegurado muestra, en su Historial, la llamada hecha antes de que fuera ' +
+      'cliente, y en su panel de pólizas la póliza emitida.',
     caracteristicas:
       'El historial reúne llamadas, reuniones y correos en orden cronológico. La llamada es un único registro, ' +
       `que sigue ligado ${ligadaA}` +
       `${alAsegurado ? ' y figura además entre los contactos del asegurado' : ''}: no hay que copiar nada a ` +
       'mano. La ficha del solicitante queda marcada como convertida y conserva el vínculo con el asegurado creado.',
     justificacion:
-      'Viene de fábrica: registrar la llamada, convertir y consultar el historial no requirieron configurar ' +
-      'nada. La póliza aparece en la ficha porque su relación con el titular ya está definida para el resto del ' +
-      'catálogo (A.6.1).',
+      'Viene de fábrica: registrar la llamada, convertir y consultar el historial no requieren configurar ' +
+      'nada. La póliza aparece en la ficha porque su relación con el titular ya está definida para el resto ' +
+      'del catálogo (A.6.1).',
     evidencia: [capLlamada, capAsegurado],
   });
 });
@@ -679,11 +691,15 @@ test('A.12.5 — Satisfacción después de la atención', async ({ page }, info)
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Registra la satisfacción del asegurado al cerrar un reclamo mediante un campo de lista propio, ' +
+      'visible en su ficha; no envía la encuesta ni recibe la respuesta por formulario.',
     comoLoHace:
-      'El producto no trae encuestas: entre sus entidades no figura ninguna. Se agregó al reclamo un campo de ' +
-      'lista «Satisfacción con la atención» con el Administrador de Campos y se lo ubicó en el formulario y en ' +
-      'el panel de reclamos de la ficha del asegurado. Al cerrar el reclamo se registra la respuesta que dio el ' +
-      'asegurado; la ficha del asegurado muestra su reclamo cerrado con la satisfacción registrada.',
+      'El producto no trae encuestas: entre sus entidades no figura ninguna. Se agrega al reclamo un campo ' +
+      'de lista «Satisfacción con la atención» con el Administrador de Campos y se lo ubica en el ' +
+      'formulario y en el panel de reclamos de la ficha del asegurado. Al cerrar el reclamo se registra la ' +
+      'respuesta del asegurado, y la ficha del asegurado muestra su reclamo cerrado con la satisfacción ' +
+      'registrada.',
     caracteristicas:
       'La respuesta es un valor de una lista cerrada —muy satisfecho, satisfecho, insatisfecho—, de modo que se ' +
       'puede filtrar y contar por reclamo. Se registra a mano al cerrar: el producto no envía la encuesta ni ' +

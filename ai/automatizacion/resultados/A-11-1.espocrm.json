@@ -2,7 +2,8 @@
   "criterio": "A.11.1",
   "plataforma": "espocrm",
   "cumple": 1,
-  "comoLoHace": "No exige un servidor dedicado: la instalación evaluada corre en un equipo de escritorio común, con la imagen oficial de contenedores, y ocupa 471 MB de memoria con la cartera de prueba cargada.",
+  "resumen": "No exige servidor dedicado: corre en un equipo de escritorio con imagen de contenedores, pero la compañía debe mantenerlo encendido, respaldado y actualizado. La nube del fabricante evita esa carga.",
+  "comoLoHace": "No exige un servidor dedicado: corre en un equipo de escritorio común, con la imagen oficial de contenedores, con un consumo de memoria que ese equipo sostiene aun con una cartera cargada.",
   "caracteristicas": "La edición gratuita se instala en infraestructura de la compañía: pide un servidor web, PHP y una base de datos.",
   "justificacion": "La condición se satisface con una limitación que la compañía asume de forma permanente: alguien tiene que mantener ese equipo encendido, respaldado y actualizado. El servicio en la nube del fabricante elimina esa carga.",
   "evidencia": [

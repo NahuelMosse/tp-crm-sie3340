@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Con la casilla comercial de la compañía conectada, un asegurado escribió desde su propia dirección y el mensaje apareció en la pestaña de correos de su ficha sin que nadie lo moviera.",
+  "resumen": "Con la casilla de la compañía conectada, el sistema reconoce la dirección del remitente y vincula cada mensaje a la ficha de la persona, sin intervención.",
+  "comoLoHace": "Con la casilla comercial de la compañía conectada, el mensaje que un asegurado escribe desde su propia dirección aparece en la pestaña de correos de su ficha sin que nadie lo mueva.",
   "caracteristicas": "El sistema reconoció la dirección del remitente y lo vinculó con la persona que la tiene cargada.",
   "justificacion": "Conectar la casilla es trabajo de una sola vez; la vinculación ocurre sola en cada mensaje.",
   "evidencia": [

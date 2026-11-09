@@ -2,7 +2,8 @@
   "criterio": "A.11.3",
   "plataforma": "twenty",
   "cumple": 1,
-  "comoLoHace": "La instalación evaluada se llevó de cero a operativa por esa vía. Pero no la completa alguien sin perfil técnico: hay que instalar el motor de contenedores, completar las variables del archivo —claves, dirección pública— y, para usar funciones del producto, cambiar variables de configuración que vienen apagadas: en esta instalación, 2, para conectar casillas de correo de la red propia y para ejecutar el código de los flujos.",
+  "resumen": "Exige instalar el motor de contenedores, completar variables del archivo y activar variables apagadas, como las del correo en red propia y el código de flujos.",
+  "comoLoHace": "La instalación se lleva de cero a operativa por esa vía, pero no la completa alguien sin perfil técnico: hay que instalar el motor de contenedores, completar las variables del archivo —claves, dirección pública— y, para usar funciones del producto, cambiar variables de configuración que vienen apagadas, como las que permiten conectar casillas de correo de la red propia y ejecutar el código de los flujos.",
   "caracteristicas": "El fabricante ofrece un archivo de contenedores que deja la aplicación, las tareas en segundo plano, la base de datos y la memoria intermedia funcionando juntas, y el primer ingreso guía la creación del espacio de trabajo.",
   "justificacion": "Instalar con el archivo de contenedores exige conocimientos puntuales —el motor de contenedores, las variables del archivo y las variables de configuración apagadas—, guiados por la documentación, que la compañía necesita tener a mano cada vez que instala o actualiza.",
   "evidencia": [

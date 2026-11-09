@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 1,
   "costo": 2,
-  "comoLoHace": "Se armó una con un flujo de trabajo que se lanza sobre los registros marcados y le envía a cada uno un correo desde la casilla comercial, con su nombre en el asunto. Se abrió el segmento guardado, se marcaron sus 3 asegurados, se lanzó la campaña y cada uno recibió su mensaje, personalizado —«Su póliza vence pronto, Sofía»—.",
+  "resumen": "No trae campañas en la edición evaluada: cada una es un flujo que envía correos personalizados a los registros marcados, sin programación, baja de destinatarios ni resultados.",
+  "comoLoHace": "Una campaña se arma con un flujo de trabajo que se lanza sobre los registros marcados y le envía a cada uno un correo desde la casilla comercial, con su nombre en el asunto: se abre el segmento guardado, se marcan sus asegurados, se lanza la campaña y cada uno recibe su mensaje personalizado.",
   "caracteristicas": "La edición evaluada no trae campañas: el fabricante las tiene en beta y las habilita a pedido.",
   "justificacion": "Funciona, pero cada campaña nueva es un flujo nuevo que alguien tiene que armar, y no hay dónde programarla, darle de baja a un destinatario ni ver sus resultados.",
   "evidencia": [

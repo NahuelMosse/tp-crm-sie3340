@@ -79,8 +79,11 @@ test('A.5.1 — Reclamo como caso con identidad propia', async ({ page, browser 
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen:
+      'El reclamo se define como objeto propio, con estado, plazo, asegurado y responsable; ' +
+      'no tiene número automático, así que se asigna a mano en cada alta.',
     comoLoHace:
-      'Twenty no trae un objeto de reclamos o casos: se definió como objeto propio, con estado, plazo ' +
+      'Twenty no trae un objeto de reclamos o casos: se define como objeto propio, con estado, plazo ' +
       'de resolución, asegurado y responsable.',
     caracteristicas:
       'Así tiene listado y ficha propios, y se crea desde el campo de reclamos de la ficha del ' +
@@ -137,9 +140,12 @@ test('A.5.2 — Estado y seguimiento del reclamo', async ({ page, browser }, inf
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'El estado es un campo de lista que define la compañía; el historial registra los ' +
+      'cambios con autor y fecha.',
     comoLoHace:
-      'Se lo cambió tres veces desde la ficha y el historial del reclamo conserva la secuencia ' +
-      `${secuencia.map(etiqueta).join(' → ')}, con quién hizo cada cambio y cuándo.`,
+      'El estado se cambia desde la ficha y el historial del reclamo conserva la secuencia de estados, ' +
+      'con quién hizo cada cambio y cuándo.',
     caracteristicas:
       'El estado del reclamo es un campo de lista del objeto propio, con los estados que define la ' +
       'compañía. Los cambios que la misma persona hace sobre el mismo reclamo dentro de los diez ' +
@@ -191,9 +197,12 @@ test('A.5.3 — Responsable asignado a cada reclamo', async ({ page, browser }, 
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Cada reclamo tiene un responsable, relación con los usuarios, y cada productor filtra ' +
+      'los que tiene a cargo; el filtro se guarda como vista.',
     comoLoHace:
-      'Se lo asignó al productor desde la ficha; al ingresar con su cuenta y filtrar los reclamos por ' +
-      'los que tiene a su cargo, figura entre sus pendientes.',
+      'El reclamo se asigna al productor desde la ficha; al ingresar con su cuenta y filtrar los ' +
+      'reclamos por los que tiene a su cargo, figura entre sus pendientes.',
     caracteristicas:
       'El reclamo tiene un responsable, que es una relación con los usuarios del objeto propio. Ese ' +
       'filtro se guarda como una vista para no rehacerlo.',
@@ -244,10 +253,15 @@ test('A.5.4 — Base de conocimiento para la atención', async ({ page, browser 
     plataforma,
     cumple: encuentraContenido ? 2 : 1,
     costo: encuentraContenido ? 1 : 2,
+    resumen: encuentraContenido
+      ? 'No trae base de conocimiento: se define un objeto propio, que la búsqueda general ' +
+        'encuentra por título y por palabras del texto.'
+      : 'No trae base de conocimiento: se define un objeto propio, que la búsqueda general ' +
+        'encuentra solo por el título, no por su contenido.',
     comoLoHace:
-      'Twenty no trae una base de conocimiento: el artículo se definió como un objeto propio, con su título y ' +
-      'la condición de cobertura. Se cargó uno sobre el granizo en automotor y la búsqueda general lo encontró ' +
-      'por su título.',
+      'Twenty no trae una base de conocimiento: el artículo se define como un objeto propio, con su ' +
+      'título y la condición de cobertura. Al cargar un artículo, la búsqueda general lo encuentra por ' +
+      'su título.',
     caracteristicas: encuentraContenido
       ? 'También lo encontró por una palabra del texto de la condición.'
       : 'No lo encontró por una palabra del texto de la condición.',
@@ -298,8 +312,11 @@ test('A.5.5 — Tareas asignables con responsable y vencimiento', async ({ page,
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      'Las tareas vienen de fábrica con responsable y fecha y hora de vencimiento, y cada ' +
+      'usuario ve en una vista las que tiene asignadas.',
     comoLoHace:
-      'Se creó una desde el listado, se la asignó al productor y se le puso fecha y hora de ' +
+      'La tarea se crea desde el listado, se asigna al productor y se le pone fecha y hora de ' +
       'vencimiento desde su ficha. Al ingresar con la cuenta del productor, figura en la vista de las ' +
       'tareas asignadas a él, con su vencimiento.',
     caracteristicas:
@@ -377,12 +394,14 @@ test('A.5.6 — Aviso al usuario al que se le asigna una tarea', async ({ page, 
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'No avisa por sí mismo al asignar una tarea, porque no tiene centro de notificaciones; ' +
+      'un flujo de trabajo envía al responsable un correo desde la casilla de la compañía.',
     comoLoHace:
-      'El aviso se armó con un flujo de trabajo, sin escribir código: cuando a una tarea se le pone ' +
-      'responsable, lo busca y le envía un correo desde la casilla de la compañía. Se creó una tarea ' +
-      'desde el listado, se la asignó al productor en su ficha, y le llegó el correo ' +
-      `«${aviso?.subject}» sin ` +
-      'que tuviera que abrir el listado.',
+      'El aviso se arma con un flujo de trabajo, sin escribir código: cuando a una tarea se le pone ' +
+      'responsable, lo busca y le envía un correo desde la casilla de la compañía. Se crea la tarea ' +
+      'desde el listado, se la asigna al productor en su ficha, y el correo le llega sin que tenga que ' +
+      'abrir el listado.',
     caracteristicas:
       'Twenty no avisa por su cuenta: la interfaz no tiene un centro de notificaciones y asignar una ' +
       'tarea no le manda nada al responsable.',

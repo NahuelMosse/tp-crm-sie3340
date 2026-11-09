@@ -2,6 +2,7 @@
   "criterio": "B.1.5",
   "plataforma": "twenty",
   "cumple": 2,
+  "resumen": "En la instalación propia las actualizaciones no llegan solas: el administrador elige cuándo cambiar la versión, previa copia de la base, y ningún cambio sorprende en plena operación.",
   "comoLoHace": "En la instalación propia la actualización no llega sola: el administrador de la compañía cambia la versión de la imagen, hace antes la copia de la base que pide el fabricante y reinicia.",
   "caracteristicas": "Recién al arrancar la versión nueva el servidor aplica sus cambios.",
   "justificacion": "La compañía elige el momento —fuera del horario de atención, después de probarla— y ningún cambio del sistema la sorprende durante la operación.",

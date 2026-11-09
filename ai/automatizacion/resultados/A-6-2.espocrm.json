@@ -3,6 +3,7 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 1,
+  "resumen": "La ficha del asegurado reúne en paneles sus pólizas, reclamos, actividades pendientes e historial de llamadas, reuniones y correos, además de la línea de tiempo de cambios.",
   "comoLoHace": "Desde ahí se llega a cada registro sin pasar por otro menú.",
   "caracteristicas": "La ficha del asegurado reúne en paneles todo lo suyo: sus pólizas, sus reclamos, sus actividades pendientes y el historial de llamadas, reuniones y correos, además de la línea de tiempo de cambios.",
   "justificacion": "Los reclamos y la actividad vienen de fábrica; el panel de pólizas aparece al definir la relación con el titular, que es configuración de una sola vez.",

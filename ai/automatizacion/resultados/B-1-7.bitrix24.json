@@ -20,5 +20,6 @@
   "criterioNombre": "Continuidad de la atención ante una caída del enlace",
   "licencia": null,
   "conPlan": [],
-  "momento": "2026-09-29T23:59:04.233Z"
+  "momento": "2026-09-29T23:59:04.233Z",
+  "resumen": "Sin conexión el portal del CRM deja de responder; solo la aplicación de escritorio permite enviar mensajes y trabajar con documentos sin enlace."
 }

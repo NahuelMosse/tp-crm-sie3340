@@ -2,6 +2,7 @@
   "criterio": "A.11.13",
   "plataforma": "bitrix24",
   "cumple": 1,
+  "resumen": "Publica un compromiso de plazos de respuesta por severidad, pero cubre caídas de la plataforma y no consultas puntuales; el soporte por chat o ticket es de los planes pagos.",
   "comoLoHace": "El fabricante publica un acuerdo de nivel de servicio con plazos de respuesta por severidad del incidente —una hora, veinticuatro horas o setenta y dos horas—, pero ese compromiso cubre las caídas de la plataforma, no una consulta puntual de una compañía sobre su cuenta.",
   "caracteristicas": "El soporte personalizado, por chat o por ticket, queda reservado a los planes pagos, y la edición gratuita se apoya en la documentación y en la comunidad.",
   "justificacion": "La condición se satisface parcialmente: existe un compromiso público de plazo, pero no alcanza el tipo de consulta que un productor o un administrador hace en el día a día.",

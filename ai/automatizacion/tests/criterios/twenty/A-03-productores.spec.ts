@@ -49,10 +49,13 @@ test('A.3.1 — Registro de productores y asignación de cartera', async ({ page
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'El productor se invita como usuario con cuenta propia y se le asigna cartera en masa ' +
+      'mediante un campo de relación con usuarios que se agrega al asegurado.',
     comoLoHace:
       'El productor se suma como usuario del espacio de trabajo con el enlace de invitación, desde la ' +
       'pantalla de miembros: se registra con su correo y su clave, y queda con su propia cuenta. Se ' +
-      'marcaron tres asegurados en el listado y, con la actualización masiva, se los dejó a cargo del ' +
+      'marcan asegurados en el listado y, con la actualización masiva, se los deja a cargo del ' +
       'productor de una sola vez.',
     caracteristicas:
       'La persona no trae un responsable: se le agregó al modelo una relación con los usuarios.',
@@ -109,11 +112,14 @@ test('A.3.2 — Bitácora de la actividad con el cliente', async ({ page, browse
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      'No distingue llamadas de reuniones: cada actividad se registra como nota en la ficha ' +
+      'del asegurado, con autor, fecha y hora, en el historial.',
     comoLoHace:
       'Twenty no distingue llamadas de reuniones —las reuniones solo llegan sincronizando un ' +
-      'calendario externo—, así que cada actividad se registró como una nota desde la pestaña de notas ' +
-      'de la ficha. Las dos quedaron en el historial del asegurado, en orden de fecha y cada una con ' +
-      'su autor y su hora.',
+      'calendario externo—, así que cada actividad se registra como una nota desde la pestaña de notas ' +
+      'de la ficha. Quedan en el historial del asegurado, en orden de fecha y cada una con su autor y ' +
+      'su hora.',
     caracteristicas:
       'La ficha del asegurado tiene notas y un historial.',
     justificacion:
@@ -161,10 +167,13 @@ test('A.3.3 — Agenda y carga de trabajo del productor', async ({ page, browser
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      'Las tareas traen de fábrica una vista de las asignadas a cada usuario, con fecha ' +
+      'comprometida, y una de calendario; las reuniones requieren conectar un calendario ' +
+      'externo.',
     comoLoHace:
       'Al ingresar con la cuenta del productor, las tareas traen de fábrica una vista de las asignadas ' +
-      'a él: ahí figuran sus pendientes con la fecha comprometida —la visita de mañana y la cotización ' +
-      'de la semana—.',
+      'a él: ahí figuran sus pendientes con la fecha comprometida.',
     caracteristicas:
       'Las tareas admiten además una vista de calendario por fecha de vencimiento. Las reuniones ' +
       'agendadas aparecen en la ficha solo si el productor conecta su calendario externo.',
@@ -212,6 +221,9 @@ test('A.3.4 — Proyección de los movimientos comerciales', async ({ page, brow
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen:
+      'Los tableros suman montos por etapa y fecha de cierre, pero no hay probabilidad de ' +
+      'cierre ni campos calculados, así que el total ponderado se calcula fuera.',
     comoLoHace:
       'Los tableros suman los montos por etapa y por fecha de cierre, de modo que muestran cuánto hay ' +
       'en juego en cada período, pero no el total ponderado por la probabilidad de cerrarlo.',

@@ -3,7 +3,8 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "De una cartera de seis pólizas se filtró por ramo Automotor, estado de cobranza Al día y productor responsable, y el listado trajo exactamente las dos que cumplen las tres.",
+  "resumen": "Filtra la cartera por ramo, estado de cobranza y productor responsable a la vez, y permite guardar el filtro con nombre.",
+  "comoLoHace": "El listado de negociaciones se filtra a la vez por ramo, estado de cobranza y productor responsable, y trae solo las pólizas que cumplen las tres condiciones.",
   "caracteristicas": "El filtro del listado de negociaciones combina condiciones sobre cualquier campo. El filtro se puede guardar con nombre.",
   "justificacion": "El productor responsable viene en toda negociación como «Persona responsable»; el ramo y el estado son campos propios que hay que mostrar en el filtro una vez, con «Agregar campo».",
   "evidencia": [

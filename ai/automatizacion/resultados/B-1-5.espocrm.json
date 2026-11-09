@@ -2,6 +2,7 @@
   "criterio": "B.1.5",
   "plataforma": "espocrm",
   "cumple": 2,
+  "resumen": "La actualización no llega sola: la ejecuta el administrador con un comando cuando decide.",
   "comoLoHace": "En la instalación propia la actualización no llega sola: la ejecuta el administrador de la compañía con un comando, cuando decide hacerlo.",
   "caracteristicas": "El propio fabricante recomienda esperar unos días después de cada versión nueva antes de aplicarla.",
   "justificacion": "La compañía elige el momento —fuera del horario de atención, después de probarla— y ningún cambio del sistema la sorprende durante la operación.",

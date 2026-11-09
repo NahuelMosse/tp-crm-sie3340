@@ -79,10 +79,13 @@ test('A.6.1 — Vinculación de la póliza con su titular', async ({ page, brows
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'La póliza se liga a su titular con un campo de relación: cada póliza tiene un titular ' +
+      'y la ficha de la persona lista todas las suyas.',
     comoLoHace:
-      'Se cargó una póliza, se eligió al titular buscándolo por nombre, y las dos puntas del vínculo ' +
-      'quedaron a la vista: la póliza muestra al titular y la ficha del asegurado lista la póliza ' +
-      'junto con las demás suyas.',
+      'Al cargar una póliza se elige al titular buscándolo por nombre, y las dos puntas del vínculo ' +
+      'quedan a la vista: la póliza muestra al titular y la ficha del asegurado lista la póliza junto ' +
+      'con las demás suyas.',
     caracteristicas:
       'La póliza se liga con la persona que es su titular mediante un campo de relación, que se define ' +
       'una vez desde el modelo de datos, sin programar: cada póliza tiene un titular y una persona ' +
@@ -140,9 +143,12 @@ test('A.6.2 — Vista única del asegurado', async ({ page, browser }, info) => 
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'La ficha del asegurado reúne sus pólizas y reclamos, más línea de tiempo, tareas, ' +
+      'notas, archivos, correos y calendario, todo accesible sin pasar por otro menú.',
     comoLoHace:
-      'Desde la ficha de un asegurado se llegó a su póliza, a su reclamo y a la tarea hecha con él sin ' +
-      'pasar por otro menú.',
+      'Desde la ficha de un asegurado se llega a su póliza, a su reclamo y a las tareas hechas con él, ' +
+      'sin pasar por otro menú.',
     caracteristicas:
       'La ficha de la persona reúne lo suyo: a la izquierda, sus campos, entre ellos sus pólizas y sus ' +
       'reclamos, que se abren desde ahí; a la derecha, pestañas con la línea de tiempo de cambios, las ' +
@@ -194,9 +200,12 @@ test('A.6.3 — Campos propios del rubro en la ficha', async ({ page, browser },
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Agrega a la persona campos propios, con sus valores; aparecen solos en la ficha y ' +
+      'sirven de condición de filtro del listado.',
     comoLoHace:
-      'Se agregó a la persona un campo que el producto no trae —la valoración que dejó sobre la ' +
-      'atención recibida, con cuatro valores— desde el modelo de datos.',
+      'Desde Configuración › Modelo de datos se agrega a la persona un campo que el producto no trae, ' +
+      'como la valoración que dejó sobre la atención recibida, con sus valores.',
     caracteristicas:
       'Apareció solo en la ficha, sin ubicarlo en ningún diseño; se cargó en un asegurado y se lo pudo ' +
       'usar enseguida como condición de filtro del listado para ver a los que valoraron la atención ' +
@@ -266,11 +275,15 @@ test('A.6.4 — Unicidad de la ficha del asegurado', async ({ page, browser }, i
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Un campo del documento marcado como único rechaza el alta de un asegurado repetido; de ' +
+      'fábrica la persona solo se compara por nombre, correo y LinkedIn para sugerir ' +
+      'duplicados.',
     comoLoHace:
-      'Se agregó el documento como campo de texto y, al crearlo, se lo marcó como único con un ' +
-      'interruptor de la misma pantalla. Se cargó un asegurado con su documento y, al cargar otro con ' +
-      'el mismo documento y el apellido escrito distinto, el sistema rechazó el valor y avisó: ' +
-      `«${mensaje}».`,
+      'Desde Configuración › Modelo de datos se agrega el documento como campo de texto y, al crearlo, ' +
+      'se lo marca como único con un interruptor de la misma pantalla. Al cargar un asegurado con un ' +
+      'documento ya registrado, aunque el apellido esté escrito distinto, el sistema rechaza el valor ' +
+      'y avisa que el registro ya existe.',
     caracteristicas:
       'De fábrica la persona se compara por nombre, correo y perfil de LinkedIn para sugerir ' +
       'duplicados, pero no trae documento.',

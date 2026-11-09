@@ -2,6 +2,7 @@
   "criterio": "A.11.10",
   "plataforma": "bitrix24",
   "cumple": 2,
+  "resumen": "La documentación completa está publicada en español, con el mismo contenido y organización que la versión en inglés.",
   "comoLoHace": "El fabricante publica su centro de documentación completo en español, en un dominio propio.",
   "caracteristicas": "—helpdesk.bitrix24.es—, con el mismo contenido y la misma organización por tema que la versión en inglés.",
   "justificacion": "Quien consulta cómo se usa o se configura el sistema lo hace en su idioma, sin depender de una traducción de terceros.",

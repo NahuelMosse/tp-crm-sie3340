@@ -3,7 +3,8 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "Se dio de alta una productora desde la administración de usuarios —con su rol, que la limita a lo propio— y se le asignaron tres asegurados de una sola vez, marcándolos en el listado y cambiando el responsable con la actualización masiva.",
+  "resumen": "Da de alta productores con un rol que los limita a lo propio y asigna varios asegurados de una vez; cada productor ve solo su cartera.",
+  "comoLoHace": "Una productora se da de alta desde la administración de usuarios, con su rol, que la limita a lo propio, y se le asignan varios asegurados de una sola vez, marcándolos en el listado y cambiando el responsable con la actualización masiva.",
   "caracteristicas": "Al ingresar con su cuenta, su listado de asegurados muestra exactamente esos tres.",
   "justificacion": "El responsable asignado viene de fábrica en todas las entidades, y la actualización masiva lo admite sin configurar nada.",
   "evidencia": [

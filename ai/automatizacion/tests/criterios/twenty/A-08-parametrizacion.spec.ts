@@ -58,14 +58,17 @@ test('A.8.1 — Creación de entidades sin programar', async ({ page }, info) =>
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Crea entidades nuevas con descripción y campos propios, ' +
+      'que aparecen enseguida en el menú con listado y ficha, sin escribir código.',
     comoLoHace:
-      'Desde Configuración › Modelo de datos se creó una entidad que el producto no trae —la ' +
-      'inspección del riesgo antes de emitir— con su nombre en singular y plural y una descripción, y ' +
-      'se le agregó un campo de fecha.',
+      'Desde Configuración › Modelo de datos se crea una entidad que el producto no trae —por ejemplo, ' +
+      'la inspección del riesgo antes de emitir— con su nombre en singular y plural y una descripción, ' +
+      'y se le agregan campos, como uno de fecha.',
     caracteristicas:
       'Apareció en el menú con su listado y su ficha, y admitió registros enseguida.',
     justificacion:
-      'No hizo falta escribir código en ningún paso: es configuración.',
+      'No hace falta escribir código en ningún paso: es configuración.',
     evidencia: [capModelo, capRegistro],
     medicion: `Entidad creada, con un campo y un registro cargado, en ${segundos} segundos`,
   });
@@ -163,11 +166,14 @@ test('A.8.2 — Campos calculados sobre datos propios', async ({ page, browser }
     plataforma,
     cumple: 2,
     costo: 2,
+    resumen:
+      'No tiene campos calculados: el cálculo se arma con un flujo y un paso de código en ' +
+      'TypeScript, que exige desarrollo y habilitar la ejecución de funciones.',
     comoLoHace:
-      'El cálculo se armó con un flujo de trabajo que corre cada vez que se guarda la prima de una ' +
+      'El cálculo se arma con un flujo de trabajo que corre cada vez que se guarda la prima de una ' +
       'póliza, con un paso de código que multiplica la prima mensual por doce y un paso que escribe el ' +
-      'resultado en el campo de la prima anual. Al cargar desde la ficha una póliza ' +
-      `con prima de 15.250,50 el sistema completó ${calculada} sin intervención.`,
+      'resultado en el campo de la prima anual: al cargar la prima desde la ficha, el sistema completa ' +
+      'la anual sin intervención.',
     caracteristicas:
       'Twenty no tiene campos calculados: ningún tipo de campo deriva su valor de otro. La necesidad ' +
       'queda resuelta desde el sistema, pero exige escribir una función en TypeScript —con la prima ' +
@@ -259,12 +265,13 @@ test('A.8.3 — Automatización de procesos', async ({ page, browser }, info) =>
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Los flujos de trabajo, armados en un editor visual sin código, reaccionan a cambios en ' +
+      'registros, como un estado de pago vencido, y crean tareas asignadas al productor.',
     comoLoHace:
-      'Se definió uno que escucha las actualizaciones de las pólizas, con la condición de que el ' +
-      'estado de pago quede en vencida, y que crea una tarea de gestión a nombre del productor de la ' +
-      'póliza. Se provocó ' +
-      `el evento cambiando el estado desde la ficha y la tarea «${TAREA}» apareció sola, asignada a ` +
-      `${PRODUCTOR.nombre} ${PRODUCTOR.apellido}.`,
+      'Un flujo de trabajo escucha las actualizaciones de las pólizas, con la condición de que el ' +
+      'estado de pago quede en vencida, y crea una tarea de gestión a nombre del productor de la ' +
+      'póliza: al cambiar el estado desde la ficha, la tarea aparece sola, asignada al productor.',
     caracteristicas:
       'Los flujos de trabajo vienen en la edición evaluada y se arman desde un editor visual, sin ' +
       'escribir código.',
@@ -509,21 +516,22 @@ test('A.8.4 — Conservación de la parametrización al actualizar', async ({ pa
       plataforma,
       cumple: 2,
       costo: 0,
+      resumen:
+        'La actualización de versión migra sola objetos, campos, relaciones, vistas, flujos y ' +
+        'registros propios, sin rehacer ni reconfigurar nada de lo parametrizado.',
       comoLoHace:
-        `Se aplicó el procedimiento oficial sobre una copia de la instalación: la versión ${origen} se ` +
-        `actualizó a la ${destino} cambiando la imagen y volviendo a levantar los contenedores, y el servidor ` +
-        'corrió solo sus migraciones al arrancar. Después se ingresó al espacio de trabajo: los objetos ' +
-        'Pólizas, Reclamos y Cuotas seguían en el modelo de datos con sus campos propios, los ' +
-        `${antes.flujos} flujos de trabajo seguían definidos, la póliza ${previaNombre} cargada antes mostraba ` +
-        `su ramo y sus demás valores, las ${antes.polizas} pólizas y los ${antes.reclamos} reclamos seguían ` +
-        `en su lugar, una póliza dada de alta de nuevo admitió sus campos propios y el flujo «${FLUJO}», ` +
-        'activado en la versión nueva, creó la tarea de cobranza al pasar una póliza a vencida.',
+        'Con el procedimiento oficial, la versión se actualiza cambiando la imagen y volviendo a ' +
+        'levantar los contenedores, y el servidor corre solo sus migraciones al arrancar. Después de ' +
+        'actualizar, los objetos propios y sus campos siguen en el modelo de datos, los flujos de ' +
+        'trabajo siguen definidos, los registros cargados siguen en su lugar con todos sus valores, una ' +
+        'póliza dada de alta de nuevo admite sus campos propios y un flujo activado en la versión nueva ' +
+        'sigue operando, como el que crea la tarea de cobranza al pasar una póliza a vencida.',
       caracteristicas:
         'Lo que la compañía parametriza —objetos, campos, relaciones, vistas y flujos— es parte del modelo de ' +
         'datos del espacio de trabajo, no del código del producto: la actualización lo migra con los ' +
         'registros, sin pasos manuales.',
       justificacion:
-        `Tras pasar de la versión ${origen} a la ${destino} no hubo que rehacer ni reconfigurar nada de lo ` +
+        'Al pasar de una versión a la siguiente no hay que rehacer ni reconfigurar nada de lo ' +
         'parametrizado, de modo que la conservación no suma trabajo.',
       evidencia: [capModelo, capCampos, capFlujos, capPrevia, capNueva, capTarea],
       documentacion: fuentes,

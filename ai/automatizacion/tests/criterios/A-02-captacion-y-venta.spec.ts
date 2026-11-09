@@ -85,9 +85,12 @@ test('A.2.1 — Registro del solicitante con sus datos de contacto', async ({ pa
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      'Trae el posible cliente como entidad propia, con nombre, teléfono, correo y domicilio; ' +
+      'se recupera por búsqueda.',
     comoLoHace:
-      'Se registró un solicitante con todos esos datos, que se guardaron completos, y se lo recuperó ' +
-      'buscando su apellido desde el listado.',
+      'El formulario del posible cliente guarda todos sus datos —nombre, teléfono, correo y domicilio— y ' +
+      'permite recuperarlo buscando su apellido desde el listado.',
     caracteristicas:
       'El producto trae una entidad para quien todavía no contrató —el posible cliente— con nombre, ' +
       'teléfono, correo y domicilio desglosado en calle, ciudad, provincia, código postal y país.',
@@ -155,11 +158,14 @@ test('A.2.3 — Conversión del solicitante en oportunidad de venta', async ({ p
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      'Convierte el solicitante en asegurado y oportunidad en un solo paso, trasladando correo, teléfono y ' +
+      'domicilio; solo se completan el monto y la fecha de cierre.',
     comoLoHace:
-      'Los datos ya cargados pasaron solos: el formulario de conversión trajo el nombre escrito, y el ' +
-      'asegurado quedó con el mismo correo, teléfono y domicilio del solicitante, sin volver a tipearlos. ' +
-      'Solo se completó lo que el solicitante no tenía —monto y fecha de cierre de la venta—. El ' +
-      'solicitante quedó marcado como convertido y la oportunidad, ligada al asegurado.',
+      'Los datos ya cargados pasan solos: el formulario de conversión trae el nombre escrito, y el ' +
+      'asegurado queda con el mismo correo, teléfono y domicilio del solicitante, sin volver a tipearlos. ' +
+      'Solo se completa lo que el solicitante no tiene —monto y fecha de cierre de la venta—. El ' +
+      'solicitante queda marcado como convertido y la oportunidad, ligada al asegurado.',
     caracteristicas:
       'La ficha del solicitante trae la acción de convertir, que crea en un solo paso el asegurado y la ' +
       'oportunidad de venta.',
@@ -235,11 +241,14 @@ test('A.2.4 — Embudo de oportunidades con etapas', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      `Trae un embudo de ${stage.options.length} etapas con una probabilidad de cierre cada una; la ` +
+      'oportunidad se crea desde la ficha del asegurado y su recorrido queda en el historial.',
     comoLoHace:
       'Desde la ficha del asegurado, su panel de oportunidades crea una nueva ya ligada a él. La ' +
-      'oportunidad se hizo avanzar de calificación a propuesta, a negociación y a cerrada ganada: el ' +
-      'sistema ajustó la probabilidad en cada paso, terminó en el cien por ciento, y la historia de la ' +
-      'ficha conserva el recorrido completo.',
+      'oportunidad avanza de calificación a propuesta, a negociación y a cerrada ganada: el sistema ajusta ' +
+      'la probabilidad en cada paso, termina en el cien por ciento, y la historia de la ficha conserva el ' +
+      'recorrido completo.',
     caracteristicas:
       `El embudo viene definido de fábrica con ${stage.options.length} etapas y una probabilidad de cierre ` +
       'asociada a cada una.',
@@ -321,6 +330,9 @@ test('A.2.6 — Oportunidades de cambio y ampliación sobre la cartera', async (
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen:
+      'Las pólizas por vencer salen de un listado filtrado; los asegurados con un ramo y sin otro exigen ' +
+      'cruzar dos listados afuera, cada vez. Lo resuelve una extensión.',
     comoLoHace:
       'El conjunto de los próximos a vencer sale directo: el listado de pólizas filtrado por vencimiento en ' +
       'treinta días muestra cada póliza con su titular. Para obtener a los que tienen automotor y no hogar ' +
@@ -459,13 +471,15 @@ test('A.2.5 — Embudos diferenciados por ramo', async ({ page }, info) => {
       plataforma,
       cumple: 2,
       costo: 1,
+      resumen:
+        'Admite varios embudos por entidad, cada uno con etapas propias que se renombran, quitan y agregan; ' +
+        'la oportunidad se asigna al embudo al cargarla.',
       comoLoHace:
-        'Se creó un segundo embudo para los seguros de personas desde su propia pantalla, y su panel de ' +
-        'etapas permitió adaptarlas al ramo: la calificación pasó a ser la declaración de salud, la ' +
-        'propuesta la evaluación médica, y se quitó la negociación, que en ese ramo no existe. Quedaron ' +
-        `${nombresDelNuevo.length} etapas contra las ${deFabrica.length} del embudo general. Se cargó una ` +
-        'oportunidad eligiendo ese embudo desde el formulario, y avanza por sus etapas y no por las del ' +
-        'otro.',
+        'Se crea un segundo embudo para los seguros de personas desde su propia pantalla, y su panel de ' +
+        'etapas permite adaptarlas al ramo: por ejemplo, la calificación pasa a ser la declaración de ' +
+        'salud, la propuesta la evaluación médica, y se quita la negociación, que en ese ramo no existe. ' +
+        'Una oportunidad se carga eligiendo ese embudo desde el formulario y avanza por sus etapas y no por ' +
+        'las del otro.',
       caracteristicas:
         'Los embudos múltiples vienen en el producto y se habilitan por entidad, con una casilla de su ' +
         'configuración.',
@@ -561,9 +575,12 @@ test('A.2.2 — Calificación y priorización del solicitante', async ({ page, b
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Agrega campos de lista para la cobertura pedida y la urgencia, y ordena el listado según el orden de ' +
+      'la lista y no el alfabético.',
     comoLoHace:
-      'El posible cliente no trae cobertura pedida ni urgencia: se agregaron como dos campos de lista desde ' +
-      'la administración y se los ubicó en el formulario y en el listado.',
+      'El posible cliente no trae cobertura pedida ni urgencia: se agregan como dos campos de lista desde ' +
+      'la administración y se ubican en el formulario y en el listado.',
     caracteristicas:
       'Se cargaron tres solicitantes en desorden y, al ordenar el listado por urgencia, el sistema respetó ' +
       'el orden de la lista —alta, media, baja— y no el alfabético, de modo que los más cercanos a ' +

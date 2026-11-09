@@ -235,31 +235,16 @@ for (const [k, nom] of PLATAFORMAS) {
   }
 }
 
-const conMejora = GRUPOS.flatMap(g => g.criterios)
-  .filter(c => PLATAFORMAS.some(([k]) => puntua(res[c.id]?.[k]) && res[c.id][k].conPlan?.length));
-let porCriterio = `\n| Criterio con ↑ | ${PLATAFORMAS.map(p => p[1]).join(' | ')} |\n|---|${PLATAFORMAS.map(() => '---').join('|')}|\n`;
-for (const c of conMejora) {
-  porCriterio += `| ${c.id} ${c.nombre} | ${PLATAFORMAS.map(([k]) => {
-    const d = res[c.id]?.[k];
-    if (!puntua(d) || !d.conPlan?.length) return '';
-    return d.conPlan.map(p => `${p.plan.replace(`${PLATAFORMAS.find(x => x[0] === k)[1]} `, '')}: ${SIMBOLO[d.cumple]}→${SIMBOLO[p.cumple]}`).join('; ');
-  }).join(' | ')} |\n`;
-}
-
 const salidaMatriz = `# 5. Matriz de veredictos
-
-*Generada automáticamente a partir de los resultados registrados por las pruebas. No se transcribe ningún valor a mano.*
 
 **● 2 cumple  ◐ 1 cumple con reparo  ○ 0 no cumple${faltan ? '  ◍ no se pudo verificar' : ''}**
 
-Se evalúa la versión elegida de cada plataforma (EspoCRM Community, Twenty autoalojado y Bitrix24 en su plan gratuito) y solo lo que esa versión trae. El ● y el ◐ indican que la necesidad queda resuelta; el ◐, que queda resuelta con un costo o una salvedad que la compañía carga de forma permanente. El ○ indica que la versión evaluada no la resuelve.
-
 La flecha **↑** marca los criterios que un plan pago o una extensión del fabricante mejorarían. Es un comentario y no cambia el valor: qué plan lo incluye y cuánto cuesta figura en la sección 5.${nTipo + 2}.
 
-La tabla se ordena como se relevaron los requerimientos: primero por tipo (funcionales, técnicos y operativos), dentro de cada tipo por origen (lo que pidió el cliente y lo que se agregó) y dentro de cada origen por grupo. Cada grupo cierra con su **subtotal**: los puntos obtenidos sobre el máximo posible y el porcentaje que representan.
-
+Cada grupo cierra con su **subtotal**: puntos obtenidos sobre el máximo posible y su porcentaje.
+${faltan ? `
 Estado: **${evaluadas - sinVerificar} de ${TOTAL_BASE} evaluaciones completas.**
-${matriz}
+` : ''}${matriz}
 ## 5.${nTipo + 1} Resultado
 
 ### Recuento de los originales
@@ -270,34 +255,26 @@ ${recuento('B')}
 ${resultado}
 ### Cómo leer estos recuentos
 
-El porcentaje de los originales y el de los opcionales es el promedio de los porcentajes de sus grupos: cada grupo pesa lo mismo, aunque tenga más criterios que otro. Por eso puede diferir del subtotal por tipo, que suma los puntos de todos los criterios del tipo.
-
-El cumplimiento total combina las dos partes: **85 % los originales y 15 % los opcionales** (sección 3.6).
-
-El esfuerzo de implementación mide, sobre lo que cada plataforma cumple, cuánto trabajo exige dejarlo funcionando: 0 % si todo viene listo, 100 % si todo exige programar o repetir trabajo en cada uso. Se publica junto al cumplimiento total y no se suma a él.${mejoraConPlan ? `
-
-La última fila es un comentario: muestra dónde quedaría cada plataforma si se contrataran los planes que mejoran algún criterio. No es su puntaje, porque se evalúa la versión elegida.` : ''}${faltan ? `
-
-Lo que no se pudo verificar no recibe valor y queda fuera del cálculo, tanto del obtenido como del máximo posible.` : ''}
+El porcentaje de los originales y el de los opcionales promedia los de sus grupos (sección 3.6), por eso puede diferir del subtotal por tipo, que suma los puntos de todos sus criterios.
 ${mejoraConPlan ? `
 ## 5.${nTipo + 2} Lo que agregarían las versiones pagas
 
-Las versiones pagas no se operaron: lo que sigue surge de la documentación de cada fabricante y se informa como comentario, sin cambiar el puntaje de la versión evaluada. Se listan solo las versiones que cambian algún criterio; las que agregan únicamente usuarios, almacenamiento o alojamiento figuran con su precio en la sección 2.5.
-
-La columna de cumplimiento total indica dónde quedaría la plataforma contratando esa versión. En Twenty y en Bitrix24 cada plan incluye lo de los más baratos; en EspoCRM cada extensión se compra por separado y agrega solo lo suyo.
-${pagas}
-### Qué versión cambia cada criterio
-
-Para cada criterio, el valor en la versión evaluada y el que tendría con cada versión paga que lo cambia. Cuando el símbolo no cambia, la versión paga reduce el costo de implementación.
-${porCriterio}` : ''}`;
+Las versiones pagas no se operaron: lo que sigue surge de la documentación de cada fabricante. En Twenty y en Bitrix24 cada plan incluye lo de los más baratos; en EspoCRM cada extensión se compra por separado y agrega solo lo suyo.
+${pagas}` : ''}`;
 
 
 // ── 6. detalle por requerimiento ─────────────────────────────────────────────
+// Las cifras de referencia de los criterios que las necesitan van con su criterio, debajo del «qué resuelve»
+const CIFRAS = Object.fromEntries(
+  readFileSync(join(AQUI, '..', '..', 'humanos', 'informe', 'cifras-de-referencia.md'), 'utf8')
+    .replace(/\r/g, '').split(/^## /m).slice(1)
+    .map(b => { const [id, ...resto] = b.split('\n'); return [id.trim(), resto.join('\n').trim()]; }));
 let detalle = '';
 for (const g of GRUPOS) {
   detalle += `\n## ${g.id} ${g.nombre}\n`;
   for (const c of g.criterios) {
     detalle += `\n### ${c.id} ${c.nombre}\n\n**Qué resuelve.** ${c.necesidad}.\n`;
+    if (CIFRAS[c.id]) detalle += `\n${CIFRAS[c.id]}\n`;
     for (const [k, nom] of PLATAFORMAS) {
       const d = res[c.id]?.[k];
       if (!d) { detalle += `\n**${nom}** — *pendiente de evaluación.*\n`; continue; }
@@ -317,6 +294,9 @@ for (const g of GRUPOS) {
         const precio = `${x.monto}, ${x.modalidad === 'unico' ? 'pago único' : 'abono recurrente'}`;
         detalle += `- *Comentario — con ${x.plan}* (${precio}) sería **${x.cumple}** (${ETIQUETA[x.cumple]}${cx}). ${x.justificacion}\n`;
       }
+      if (d.evidencia?.length) {
+        detalle += `- *Evidencia.* Prueba sobre el sistema, con video y las capturas ${d.evidencia.map(x => x.replace(/\.png$/, '')).join(', ')}.\n`;
+      }
       // La constancia va textual: una parafrasis no se puede contrastar
       for (const f of d.documentacion ?? []) {
         detalle += `\n> «${f.cita}»\n>\n> — ${f.url}, consultado el ${fecha(f.consultado)}\n`;
@@ -333,12 +313,7 @@ for (const [k, nom] of PLATAFORMAS) {
     if (!puntua(d)) continue;
     for (const f of d.documentacion ?? []) {
       const previa = porUrl.get(f.url);
-      const criterios = new Set([...(previa?.criterios ?? []), d.criterio]);
-      porUrl.set(f.url, {
-        plataforma: previa?.plataforma && previa.plataforma !== nom ? 'Varias' : nom,
-        consultado: !previa || f.consultado > previa.consultado ? f.consultado : previa.consultado,
-        criterios,
-      });
+      porUrl.set(f.url, { plataforma: previa?.plataforma && previa.plataforma !== nom ? 'Varias' : nom });
     }
   }
 }
@@ -348,7 +323,7 @@ for (const nom of [...PLATAFORMAS.map(p => p[1]), 'Varias']) {
   if (!lista.length) continue;
   fuentes += `\n### ${nom === 'Varias' ? 'Fuentes comunes a más de una plataforma' : nom}\n\n`;
   for (const [url, v] of lista) {
-    fuentes += `- ${url} — consultado el ${fecha(v.consultado)}. Sostiene ${[...v.criterios].sort(orden).join(', ')}.\n`;
+    fuentes += `- ${url}\n`;
   }
 }
 
@@ -358,33 +333,22 @@ rmSync(join(SALIDA, '06-analisis-por-categoria.md'), { force: true });
 writeFileSync(join(SALIDA, '06-detalle-por-requerimiento.md'),
   `# 6. Detalle por requerimiento
 
-*Generado automáticamente a partir de lo registrado durante las pruebas.*
-
 Cada requerimiento indica qué resuelve para la compañía y, para cada plataforma, el valor obtenido, cómo lo resuelve, las características de esa solución y la justificación del valor. Cuando un plan pago lo cambiaría, se agrega como comentario: no modifica el valor. Las escalas están definidas en la sección 3 y los procedimientos, en la sección 4.
 ${detalle}`, 'utf8');
 writeFileSync(join(SALIDA, '09-fuentes.md'), `# 9. Fuentes
 
-*Generada automáticamente a partir de las constancias registradas durante las pruebas.*
-
 ## 9.1 Documentación oficial de las plataformas
 
-Cada dirección se consultó en la fecha indicada.
 ${fuentes}
-## 9.2 Evidencia propia
+## 9.2 Marco normativo
 
-Los valores asignados en la sección 5 surgen de ejecutar los procedimientos de la sección 4 sobre cada plataforma. Cada ejecución dejó registro en video y capturas de pantalla, conservados por el equipo y disponibles ante consulta.
+- Ley 25.326 de Protección de Datos Personales, República Argentina.
 
-Este informe no depende de ese material para su lectura: los hallazgos relevantes están volcados en las secciones 5 a 8, con el detalle necesario para sostener cada conclusión.
+## 9.3 Datos del mercado asegurador
 
-## 9.3 Marco normativo
-
-- Ley 25.326 de Protección de Datos Personales, República Argentina. Sostiene el criterio B.1.6.
-
-## 9.4 Datos del mercado asegurador
-
-- https://www.argentina.gob.ar/superintendencia-de-seguros/estadisticas/polizas-siniestros-y-primas — Superintendencia de Seguros de la Nación, *Pólizas y Cantidad de Siniestros, 1er trimestre de 2026* (IF-2026-59950848-APN-GEYE#SSN), consultado el 7 de noviembre de 2026. Sostiene la cifra de referencia de la sección 4.7.
-- https://karriere.mckinsey.de/industries/financial-services/our-insights/unlocking-the-potential-of-deeper-customer-agent-insurer-relationships — McKinsey & Company, *Unlocking the potential of deeper customer-agent-insurer relationships*, consultado el 7 de noviembre de 2026. Sostiene la cifra de referencia de la sección 4.7.
-- https://www.muysegura.com/reflexiones-sobre-la-venta-cruzada-de-seguros/ — Isidre Martínez Ivars, *Reflexiones sobre la venta cruzada de seguros*, Muy Segura, 25 de mayo de 2021, consultado el 7 de noviembre de 2026. Sostiene la cifra de referencia de la sección 4.7.
+- https://www.argentina.gob.ar/superintendencia-de-seguros/estadisticas/polizas-siniestros-y-primas — Superintendencia de Seguros de la Nación, *Pólizas y Cantidad de Siniestros, 1er trimestre de 2026* (IF-2026-59950848-APN-GEYE#SSN).
+- https://karriere.mckinsey.de/industries/financial-services/our-insights/unlocking-the-potential-of-deeper-customer-agent-insurer-relationships — McKinsey & Company, *Unlocking the potential of deeper customer-agent-insurer relationships*.
+- https://www.muysegura.com/reflexiones-sobre-la-venta-cruzada-de-seguros/ — Isidre Martínez Ivars, *Reflexiones sobre la venta cruzada de seguros*, Muy Segura, 25 de mayo de 2021.
 `, 'utf8');
 
 console.log(`Matriz, detalle y fuentes generados en ${SALIDA}`);

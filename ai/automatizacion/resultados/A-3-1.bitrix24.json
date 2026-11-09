@@ -3,6 +3,7 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 1,
+  "resumen": "Da de alta al productor como empleado con su propia cuenta y reasigna en bloque la cartera de asegurados con una acción del listado.",
   "comoLoHace": "Un usuario se da de alta como empleado desde «Empleados», con su propia cuenta y contraseña: es el productor.",
   "caracteristicas": "Sobre el listado de contactos —que en la edición gratuita hace de cartera de asegurados, a falta de una entidad propia— se seleccionan varios registros y se les cambia el responsable en bloque a ese productor, sin programar nada.",
   "justificacion": "El alta del usuario es un trámite de una vez por productor; asignar la cartera es una acción del listado que se repite cuando cambia la asignación.",

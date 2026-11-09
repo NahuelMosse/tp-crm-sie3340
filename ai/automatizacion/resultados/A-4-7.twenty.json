@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Se agregó la etapa «Perdida» a la lista de etapas y dos campos: el motivo, como lista, y el competidor que se quedó con la venta. Se marcó una oportunidad como perdida y se le registraron el motivo y el competidor desde su ficha.",
+  "resumen": "La etapa «Perdida», el motivo y el competidor se agregan como campos y se registran en la ficha de la oportunidad; el embudo de fábrica no los trae.",
+  "comoLoHace": "Desde Configuración › Modelo de datos se agrega la etapa «Perdida» a la lista de etapas y dos campos: el motivo, como lista, y el competidor que se quedó con la venta. Al marcar una oportunidad como perdida, se registran el motivo y el competidor desde su ficha.",
   "caracteristicas": "El embudo de fábrica termina en la etapa de cliente ganado: no trae una etapa de oportunidad perdida ni dónde anotar por qué se perdió.",
   "justificacion": "Agregarlos es trabajo de una sola vez.",
   "evidencia": [

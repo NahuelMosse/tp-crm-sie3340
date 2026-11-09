@@ -3,6 +3,7 @@
   "plataforma": "espocrm",
   "cumple": 1,
   "costo": 2,
+  "resumen": "No se conecta con ninguna red social; trae un formulario web que carga solo a quien lo completa, y los interesados que escriben por mensaje se cargan a mano.",
   "comoLoHace": "Lo que sí trae es la captura de posibles clientes, un formulario web propio que carga solo a cada interesado que lo completa.",
   "caracteristicas": "El producto no se conecta con ninguna red social: la administración de integraciones no ofrece ninguna y el catálogo del fabricante tampoco.",
   "justificacion": "Enlazado desde las publicaciones y los perfiles de la compañía, incorpora a la base a quien llega desde una red; pero cada campaña en la red tiene que llevar ese enlace, y los interesados que escriben por mensaje o comentan en la publicación se cargan a mano.",

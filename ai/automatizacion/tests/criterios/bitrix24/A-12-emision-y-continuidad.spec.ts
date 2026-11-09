@@ -130,17 +130,34 @@ test('A.12.1 — Emisión de la póliza al cerrar la venta', async ({ page, brow
     plataforma,
     cumple: conCliente && conImporte ? 2 : 1,
     costo: conCliente && conImporte ? 1 : 2,
+    resumen: conCliente && conImporte
+      ? 'Emite la póliza al ganar la venta, con el nombre, el importe y el asegurado vinculados.'
+      : conImporte
+        ? 'Emite la póliza al ganar la venta, pero sin el asegurado, que se vincula a mano cada vez.'
+        : conCliente
+          ? 'Emite la póliza al ganar la venta con el asegurado vinculado, pero sin el importe, que se completa a mano cada vez.'
+          : 'Emite la póliza al ganar la venta, pero sin el asegurado ni el importe, que se completan a mano cada vez.',
     comoLoHace:
       'Una regla de automatización de la etapa «Cerrado Ganado» del embudo —«Crear un elemento CRM» de tipo negociación— ' +
       'crea la póliza con el nombre y el importe de la venta como variables del documento. El campo «Contacto» de la regla solo ofrece elegir ' +
-      `contactos concretos, no una variable. Al marcar ganada la venta desde su ficha apareció la negociación «${EMITIDA}»` +
+      'contactos concretos, no una variable. Al marcar ganada la venta desde su ficha, la regla crea la negociación' +
       `${conImporte ? ' con el importe de la venta' : ' sin el importe'}${conCliente ? ' y vinculada al asegurado' : ', sin el asegurado: se vincula a mano en cada venta'}.`,
-    caracteristicas:
-      'La regla corre sola al llegar la negociación a la etapa; toma el título y el importe de la venta con variables del documento, ' +
-      'sin volver a escribirlos, y la póliza queda en el listado de negociaciones.',
-    justificacion:
-      'La póliza se emite sola con el nombre y el importe de la venta, pero el asegurado no pasa: la regla no admite una variable ' +
-      'en el campo del cliente y se vincula a mano en cada venta. La vinculación al asegurado es trabajo permanente en cada venta, además de definir la regla; la edición gratuita admite cinco reglas en total.',
+    caracteristicas: conImporte
+      ? 'La regla corre sola al llegar la negociación a la etapa; toma el título y el importe de la venta con variables del documento, ' +
+        'sin volver a escribirlos, y la póliza queda en el listado de negociaciones.'
+      : 'La regla corre sola al llegar la negociación a la etapa; toma el título de la venta con una variable del documento, ' +
+        'sin volver a escribirlo, y la póliza queda en el listado de negociaciones.',
+    justificacion: conCliente && conImporte
+      ? 'La póliza se emite sola con el nombre, el importe y el asegurado de la venta. Definir la regla es configuración de una vez; ' +
+        'la edición gratuita admite cinco reglas en total.'
+      : conImporte
+        ? 'La póliza se emite sola con el nombre y el importe de la venta, pero el asegurado no pasa: la regla no admite una variable ' +
+          'en el campo del cliente y se vincula a mano en cada venta. La vinculación al asegurado es trabajo permanente en cada venta, además de definir la regla; la edición gratuita admite cinco reglas en total.'
+        : conCliente
+          ? 'La póliza se emite sola con el nombre y el asegurado de la venta, pero el importe no pasa y se completa a mano en cada venta. ' +
+            'Completar el importe es trabajo permanente en cada venta, además de definir la regla; la edición gratuita admite cinco reglas en total.'
+          : 'La póliza se emite sola con el nombre de la venta, pero ni el asegurado ni el importe pasan y se completan a mano en cada venta. ' +
+            'Completarlos es trabajo permanente en cada venta, además de definir la regla; la edición gratuita admite cinco reglas en total.',
     evidencia: [capRegla, capListado, capPoliza].filter(Boolean),
   });
 });
@@ -210,10 +227,12 @@ test('A.12.2 — Plan de pago de la prima', async ({ page, browser }, info) => {
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen: 'Lleva cada cuota como una negociación con vencimiento y estado, identificada por el título; las cuotas no cuelgan de la póliza y se filtran a mano en cada uso.',
     comoLoHace:
-      'La póliza se lleva como una negociación a la que se agregó un campo de lista «Forma de pago». Sin entidades propias, cada cuota ' +
-      'es una negociación con su vencimiento y su estado —pendiente, pagada o impaga— y el número de la póliza en el título. ' +
-      'El listado de impagas es el listado de negociaciones filtrado por el estado de la cuota: trae las dos vencidas y ninguna de las otras.',
+      'La póliza se lleva como una negociación con un campo de lista «Forma de pago». Sin entidades ' +
+      'propias, cada cuota es una negociación con su vencimiento y su estado —pendiente, pagada o ' +
+      'impaga— y el número de la póliza en el título. El listado de impagas es el listado de ' +
+      'negociaciones filtrado por el estado de la cuota.',
     caracteristicas:
       'Campos propios de lista y de fecha en el formulario de la negociación, filtro por estado en el listado, sin programar.',
     justificacion:
@@ -266,6 +285,7 @@ test('A.12.3 — Datos que administra el sistema central', async ({ page, browse
     criterio: 'A.12.3',
     plataforma,
     cumple: 0,
+    resumen: 'La edición gratuita no permite que el sistema central actualice pólizas desde afuera: el webhook entrante y la API exigen el plan Basic Vibe+.',
     comoLoHace:
       'En la edición gratuita el sistema central no tiene por dónde actualizar una póliza: en Recursos para desarrolladores se ofrece ' +
       '«Webhook entrante» y, al abrirlo, el sistema responde «No disponible en tu plan actual» y remite al plan Basic Vibe+.',
@@ -344,6 +364,7 @@ test('A.12.4 — Historia del cliente desde el primer contacto', async ({ page, 
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen: 'Un mismo contacto es solicitante y asegurado, con su historia en una ficha; sin prospectos, la llamada se registra como pendiente con el tipo escrito a mano.',
     comoLoHace:
       'El solicitante se registra como contacto y la llamada se anota en la pestaña «Actividad» de su ficha, como un pendiente de texto libre. ' +
       'Para emitirle la póliza se crea la negociación desde esa misma ficha, que queda a su nombre. En la ficha del asegurado la llamada sigue estando, junto a la póliza.',
@@ -414,9 +435,11 @@ test('A.12.5 — Satisfacción después de la atención', async ({ page }, info)
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen: 'Guarda el puntaje de satisfacción en la ficha del asegurado, pero la encuesta no se envía al cerrar el reclamo: se carga a mano y cada respuesta reemplaza la anterior.',
     comoLoHace:
-      'Se cerró el reclamo —una negociación— pasándolo a «Cerrado Ganado» y la respuesta del asegurado se registró en un campo de lista ' +
-      '«Satisfacción con la atención», agregado a la ficha del contacto; quedó guardada en esa ficha.',
+      'El reclamo —una negociación— se cierra pasándolo a «Cerrado Ganado», y la respuesta del ' +
+      'asegurado se registra en un campo de lista «Satisfacción con la atención», agregado a la ' +
+      'ficha del contacto, donde queda guardada.',
     caracteristicas:
       'Campo de lista con cinco puntajes en el formulario del contacto, creado desde la propia pantalla, sin programar.',
     justificacion:

@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Se definió uno que escucha las actualizaciones de las pólizas, con la condición de que el estado de pago quede en vencida, y que crea una tarea de gestión a nombre del productor de la póliza. Se provocó el evento cambiando el estado desde la ficha y la tarea «Gestionar cobranza de POL-CART-01» apareció sola, asignada a Pablo Gómez.",
+  "resumen": "Los flujos de trabajo, armados en un editor visual sin código, reaccionan a cambios en registros, como un estado de pago vencido, y crean tareas asignadas al productor.",
+  "comoLoHace": "Un flujo de trabajo escucha las actualizaciones de las pólizas, con la condición de que el estado de pago quede en vencida, y crea una tarea de gestión a nombre del productor de la póliza: al cambiar el estado desde la ficha, la tarea aparece sola, asignada al productor.",
   "caracteristicas": "Los flujos de trabajo vienen en la edición evaluada y se arman desde un editor visual, sin escribir código.",
   "justificacion": "Definir el flujo es configuración de una sola vez.",
   "evidencia": [

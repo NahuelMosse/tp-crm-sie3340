@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Se lo asignó al productor desde la ficha; al ingresar con su cuenta y filtrar los reclamos por los que tiene a su cargo, figura entre sus pendientes.",
+  "resumen": "Cada reclamo tiene un responsable, relación con los usuarios, y cada productor filtra los que tiene a cargo; el filtro se guarda como vista.",
+  "comoLoHace": "El reclamo se asigna al productor desde la ficha; al ingresar con su cuenta y filtrar los reclamos por los que tiene a su cargo, figura entre sus pendientes.",
   "caracteristicas": "El reclamo tiene un responsable, que es una relación con los usuarios del objeto propio. Ese filtro se guarda como una vista para no rehacerlo.",
   "justificacion": "Definir el responsable es trabajo de una sola vez.",
   "evidencia": [

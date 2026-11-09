@@ -3,9 +3,10 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "Se aplicó el procedimiento oficial sobre una copia de la instalación: la versión v2.37.4 se actualizó a la v2.56.1 cambiando la imagen y volviendo a levantar los contenedores, y el servidor corrió solo sus migraciones al arrancar. Después se ingresó al espacio de trabajo: los objetos Pólizas, Reclamos y Cuotas seguían en el modelo de datos con sus campos propios, los 10 flujos de trabajo seguían definidos, la póliza POL-CART-01 cargada antes mostraba su ramo y sus demás valores, las 36 pólizas y los 6 reclamos seguían en su lugar, una póliza dada de alta de nuevo admitió sus campos propios y el flujo «Gestión de cobranza vencida», activado en la versión nueva, creó la tarea de cobranza al pasar una póliza a vencida.",
+  "resumen": "La actualización de versión migra sola objetos, campos, relaciones, vistas, flujos y registros propios, sin rehacer ni reconfigurar nada de lo parametrizado.",
+  "comoLoHace": "Con el procedimiento oficial, la versión se actualiza cambiando la imagen y volviendo a levantar los contenedores, y el servidor corre solo sus migraciones al arrancar. Después de actualizar, los objetos propios y sus campos siguen en el modelo de datos, los flujos de trabajo siguen definidos, los registros cargados siguen en su lugar con todos sus valores, una póliza dada de alta de nuevo admite sus campos propios y un flujo activado en la versión nueva sigue operando, como el que crea la tarea de cobranza al pasar una póliza a vencida.",
   "caracteristicas": "Lo que la compañía parametriza —objetos, campos, relaciones, vistas y flujos— es parte del modelo de datos del espacio de trabajo, no del código del producto: la actualización lo migra con los registros, sin pasos manuales.",
-  "justificacion": "Tras pasar de la versión v2.37.4 a la v2.56.1 no hubo que rehacer ni reconfigurar nada de lo parametrizado, de modo que la conservación no suma trabajo.",
+  "justificacion": "Al pasar de una versión a la siguiente no hay que rehacer ni reconfigurar nada de lo parametrizado, de modo que la conservación no suma trabajo.",
   "evidencia": [
     "A-8-4-twenty-3-objetos-propios.png",
     "A-8-4-twenty-4-campos-de-la-poliza.png",

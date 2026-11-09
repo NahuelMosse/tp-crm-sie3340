@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "Se mandó el movimiento de un día entero —500 altas— en ráfagas de diez simultáneas, de a un registro por pedido: entraron las 500 en 0.9 minutos, sin rechazos.",
+  "resumen": "La interfaz admite un día entero de altas sin rechazos; el límite publicado es de cien pedidos por minuto y sesenta registros por pedido en lotes.",
+  "comoLoHace": "La interfaz de programación admite el movimiento de un día entero de altas, enviadas en ráfagas de diez simultáneas, de a un registro por pedido, sin rechazos.",
   "caracteristicas": "El fabricante publica el límite de la interfaz de programación: cien pedidos por minuto, y hasta sesenta registros por pedido en las operaciones por lotes.",
   "justificacion": "El límite deja holgura sobre el movimiento de un día: lo que exige es que el otro sistema espacie sus pedidos o los agrupe, como hace cualquier sincronización.",
   "documentacion": [

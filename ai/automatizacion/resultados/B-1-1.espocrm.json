@@ -2,6 +2,7 @@
   "criterio": "B.1.1",
   "plataforma": "espocrm",
   "cumple": 2,
+  "resumen": "En la instalación propia los datos quedan en el servidor de la compañía; ningún plazo de inactividad los afecta, porque no hay servicio de por medio.",
   "comoLoHace": "En la instalación propia los datos quedan en el servidor de la compañía y no dependen de ninguna cuenta del fabricante.",
   "caracteristicas": "No hay condición de servicio que los afecte por falta de uso, porque no hay servicio de por medio.",
   "justificacion": "Una póliza puede quedar años sin que nadie la abra y sigue ahí mientras el equipo donde corre el sistema se mantenga.",

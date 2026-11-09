@@ -3,7 +3,8 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "El producto no trae encuestas: entre sus entidades no figura ninguna. Se agregó al reclamo un campo de lista «Satisfacción con la atención» con el Administrador de Campos y se lo ubicó en el formulario y en el panel de reclamos de la ficha del asegurado. Al cerrar el reclamo se registra la respuesta que dio el asegurado; la ficha del asegurado muestra su reclamo cerrado con la satisfacción registrada.",
+  "resumen": "Registra la satisfacción del asegurado al cerrar un reclamo mediante un campo de lista propio, visible en su ficha; no envía la encuesta ni recibe la respuesta por formulario.",
+  "comoLoHace": "El producto no trae encuestas: entre sus entidades no figura ninguna. Se agrega al reclamo un campo de lista «Satisfacción con la atención» con el Administrador de Campos y se lo ubica en el formulario y en el panel de reclamos de la ficha del asegurado. Al cerrar el reclamo se registra la respuesta del asegurado, y la ficha del asegurado muestra su reclamo cerrado con la satisfacción registrada.",
   "caracteristicas": "La respuesta es un valor de una lista cerrada —muy satisfecho, satisfecho, insatisfecho—, de modo que se puede filtrar y contar por reclamo. Se registra a mano al cerrar: el producto no envía la encuesta ni recibe la respuesta por un formulario o un enlace.",
   "justificacion": "Registrar la respuesta queda resuelto con un campo, configurado una vez y sin programar. El envío automático al cerrar el reclamo no existe en la edición evaluada y no se necesita para registrar.",
   "evidencia": [

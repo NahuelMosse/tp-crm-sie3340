@@ -3,7 +3,8 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Se creó el artículo desde «Empleados › Base de conocimientos».",
+  "resumen": "Crea artículos en una base de conocimientos con bloques de texto y los encuentra por búsqueda.",
+  "comoLoHace": "El artículo se crea desde «Empleados › Base de conocimientos».",
   "caracteristicas": "Una página en blanco con un bloque de texto, cuyo texto de ejemplo se reemplazó por la condición de cobertura de granizo, y se la buscó por «granizo» en la base publicada, que la devolvió.",
   "justificacion": "La base se arma una vez con una plantilla (la edición gratuita admite una sola).",
   "evidencia": [

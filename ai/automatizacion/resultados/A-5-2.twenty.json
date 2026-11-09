@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Se lo cambió tres veces desde la ficha y el historial del reclamo conserva la secuencia En curso → Resuelto → Cerrado, con quién hizo cada cambio y cuándo.",
+  "resumen": "El estado es un campo de lista que define la compañía; el historial registra los cambios con autor y fecha.",
+  "comoLoHace": "El estado se cambia desde la ficha y el historial del reclamo conserva la secuencia de estados, con quién hizo cada cambio y cuándo.",
   "caracteristicas": "El estado del reclamo es un campo de lista del objeto propio, con los estados que define la compañía. Los cambios que la misma persona hace sobre el mismo reclamo dentro de los diez minutos se funden en una sola entrada, que muestra el estado de partida y el último: un estado intermedio que dura menos que eso no queda registrado.",
   "justificacion": "Con el ritmo de un reclamo, que cambia de estado en días, cada paso queda por separado. Definir el estado es trabajo de una sola vez.",
   "evidencia": [

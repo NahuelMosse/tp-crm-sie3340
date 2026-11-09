@@ -101,14 +101,17 @@ test('A.4.1 — Segmentación reutilizable de la cartera', async ({ page }, info
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Guarda con nombre un conjunto de asegurados definido por un criterio y lo reabre con el mismo ' +
+      'resultado; los campos propios deben habilitarse antes como condición.',
     comoLoHace:
-      'Desde el listado de asegurados se definió un conjunto por un criterio —los que viven en Buenos ' +
-      'Aires— y se lo guardó con nombre desde el menú de filtros.',
+      'Desde el listado de asegurados se define un conjunto por un criterio —por ejemplo, los que viven en ' +
+      'una ciudad— y se lo guarda con nombre desde el menú de filtros.',
     caracteristicas:
       'Al volver al listado, el segmento figura entre los filtros guardados y devuelve el mismo conjunto ' +
       'sin rearmarlo.',
     justificacion:
-      'Guardar segmentos viene de fábrica; que la ciudad esté disponible como condición exigió habilitarla ' +
+      'Guardar segmentos viene de fábrica; que la ciudad esté disponible como condición exige habilitarla ' +
       'una vez entre los filtros de búsqueda.',
     evidencia: [capGuardado, capReabierto],
     medicion: `${definido.length} asegurados en el segmento`,
@@ -188,9 +191,12 @@ test('A.4.2 — Diseño de campañas sobre un segmento', async ({ page }, info) 
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      'Vuelca un segmento guardado a una lista de destinatarios y envía una campaña de correo con ' +
+      'plantilla, personalizada con los datos de cada uno.',
     comoLoHace:
-      'El segmento guardado se volcó entero a una lista de destinatarios, seleccionando desde la lista con ' +
-      'el mismo filtro guardado, y se creó una campaña de correo dirigida a esa lista.',
+      'El segmento guardado se vuelca entero a una lista de destinatarios, seleccionando desde el listado ' +
+      'con el mismo filtro guardado, y se crea una campaña de correo dirigida a esa lista.',
     caracteristicas:
       'El contenido se escribió en una plantilla con marcadores que el sistema reemplaza por los datos de ' +
       'cada destinatario —el nombre en el asunto y en el saludo—, de modo que cada asegurado recibe un ' +
@@ -326,9 +332,12 @@ test('A.4.3 — Medición de los resultados de la campaña', async ({ page, requ
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Registra cada envío de la campaña y cada apertura, con fecha y destinatario, además de clics y ' +
+      'bajas; el seguimiento de aperturas viene apagado y se activa.',
     comoLoHace:
-      `La campaña se envió a su lista y llegaron los ${llegados.length} mensajes, cada uno con el nombre de ` +
-      `su destinatario en el asunto —"${abierto.mensaje.subject}"—.`,
+      'La campaña se envía a su lista y cada destinatario recibe su mensaje con su propio nombre en el ' +
+      'asunto.',
     caracteristicas:
       'El registro de la campaña anotó cada envío y, cuando uno de los asegurados abrió el mensaje, anotó ' +
       'también la apertura, con la fecha y el destinatario. Lo mismo hace con los clics en enlaces seguidos ' +
@@ -372,6 +381,9 @@ test('A.4.4 — Captación de interesados desde redes sociales', async ({ page, 
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen:
+      'No se conecta con ninguna red social; trae un formulario web que carga solo a quien lo completa, y ' +
+      'los interesados que escriben por mensaje se cargan a mano.',
     comoLoHace:
       'Lo que sí trae es la captura de posibles clientes, un formulario web propio que carga solo a cada ' +
       'interesado que lo completa.',
@@ -423,6 +435,8 @@ for (const [id, nombre, procedimiento, buscado] of [
       criterio: id,
       plataforma,
       cumple: 0,
+      resumen:
+        `No ofrece ${buscado}, ni como función ni como extensión del catálogo oficial.`,
       comoLoHace:
         `El producto no ofrece ${buscado}, en ninguna edición: la administración no tiene ninguna función ` +
         'de redes sociales y el catálogo oficial de extensiones —informes y automatización, ventas, ' +
@@ -472,9 +486,12 @@ test('A.4.7 — Registro de la competencia y del motivo de pérdida', async ({ p
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Registra el motivo de pérdida y el competidor mediante campos propios agregados a la oportunidad, y ' +
+      'conserva por su cuenta la etapa en la que se perdió.',
     comoLoHace:
-      'El motivo y el competidor que la ganó no vienen de fábrica: se agregaron como dos campos de la ' +
-      'oportunidad desde la administración, una lista de motivos y el nombre del competidor, y quedaron ' +
+      'El motivo y el competidor que ganó la venta no vienen de fábrica: se agregan como dos campos de la ' +
+      'oportunidad desde la administración, una lista de motivos y el nombre del competidor, y quedan ' +
       'registrados junto con la pérdida.',
     caracteristicas:
       'Al marcar una oportunidad como perdida, el sistema conserva por su cuenta la etapa en la que se ' +

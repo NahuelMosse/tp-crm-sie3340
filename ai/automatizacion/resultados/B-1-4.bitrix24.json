@@ -2,18 +2,21 @@
   "criterio": "B.1.4",
   "plataforma": "bitrix24",
   "cumple": 0,
+  "resumen": "Con más de mil negociaciones deja de buscar por texto y de filtrar por campo; solo quedan los filtros predeterminados.",
   "comoLoHace": "Se cargó la cartera de referencia —cinco mil asegurados, doce mil quinientas pólizas y siete mil quinientos reclamos, veinticinco mil registros— y con ella se repitieron las operaciones de todos los días: buscar un asegurado por texto y filtrar las pólizas por ramo.",
-  "caracteristicas": "Con la cartera cargada, buscar un asegurado por texto respondió en 0,56, 0,67 y 0,49 segundos. El listado de negociaciones, donde la edición gratuita lleva las pólizas y los reclamos, bloqueó la búsqueda y el filtro con el aviso «Alcanzó el límite de búsqueda de negociaciones (1000)», y en una corrida posterior el listado de contactos mostró el mismo bloqueo: «Alcanzó el límite de búsqueda de contactos (1000)».",
-  "justificacion": "Con más de mil registros, la edición gratuita deja de buscar y filtrar en el listado. La compañía, con unas setecientas cincuenta pólizas por año y los reclamos de cinco años, supera ese número en las negociaciones, y lo superaría en los asegurados al crecer: la operación diaria sobre la cartera se vuelve impracticable.",
+  "caracteristicas": "Con la cartera cargada, buscar un asegurado por texto respondió en 0,77, 0,76 y 0,62 segundos. En el listado de negociaciones, donde la edición gratuita lleva las pólizas y los reclamos, mostró el aviso «Alcanzó el límite de búsqueda de negociaciones (1000)» 36 minutos después de empezar a cargar las negociaciones, con las mil superadas desde los primeros minutos: la búsqueda por texto dejó de filtrar y el aviso tapa los campos del filtro, de modo que solo quedan los filtros predeterminados, como las negociaciones en progreso o las cerradas.",
+  "justificacion": "Con más de mil registros, la edición gratuita deja de buscar por texto y de filtrar por campo en el listado; solo quedan los filtros predeterminados, que no ubican una póliza ni un asegurado puntual. La compañía, con unas setecientas cincuenta pólizas por año y los reclamos de cinco años, supera ese número en las negociaciones, y lo superaría en los asegurados al crecer: la operación diaria sobre la cartera se vuelve impracticable.",
   "evidencia": [
     "B-1-4-bitrix24-limite-negociaciones.png",
-    "B-1-4-bitrix24-1-busqueda-por-texto.png",
-    "B-1-4-bitrix24-limite-contactos.png"
+    "B-1-4-bitrix24-3-busqueda-por-texto-de-una-poliza.png",
+    "B-1-4-bitrix24-4-filtro-por-campo-tapado-por-el-aviso.png",
+    "B-1-4-bitrix24-5-filtro-predeterminado-negociaciones-en-progreso.png",
+    "B-1-4-bitrix24-1-busqueda-por-texto.png"
   ],
-  "medicion": "texto 0.56 / 0.67 / 0.49 s (VOL-00777 sí, VOL-04321 sí, VOL-02468 sí) · filtro sin medir · carga {\"contactos\":5000,\"polizas\":12500,\"reclamos\":7500} en 40 min · aviso del sistema (negociaciones, antes de filtrar por ramo): Alcanzó el límite de búsqueda de negociaciones (1000). Nos esforzamos por mejorar la calidad y el rendimiento del servicio para adaptarnos a la escala de su empresa. La cantidad de datos aumenta a medida que su empresa crece: cada día se crean nuevas tareas, negociaciones y otras entidades.",
+  "medicion": "texto 0.77 / 0.76 / 0.62 s (VOL-00777 sí, VOL-04321 sí, VOL-02468 sí) · filtro sin medir · carga {\"contactos\":5000,\"polizas\":12500,\"reclamos\":7500} en 39 min · bloqueo a los 36 min de empezar la carga de negociaciones · aviso del sistema (negociaciones): Alcanzó el límite de búsqueda de negociaciones (1000). Nos esforzamos por mejorar la calidad y el rendimiento del servicio para adaptarnos a la escala de su empresa. La cantidad de datos aumenta a medida que su empresa crece: cada día se crean nuevas tareas, negociaciones y otras entidades.",
   "criterioNombre": "Búsqueda y operación con volumen productivo",
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-11-08T01:29:02.358Z"
+  "momento": "2026-11-09T01:31:53.835Z"
 }

@@ -159,8 +159,15 @@ test('A.12.1 — Emisión de la póliza al cerrar la venta', async ({ page, brow
     plataforma,
     cumple: llevaMonto ? 2 : 1,
     costo: 1,
+    resumen: llevaMonto
+      ? 'Al pasar una oportunidad a la etapa de venta ganada, un flujo emite solo la póliza, ' +
+        'ligada al asegurado y con la prima de la oportunidad.'
+      : 'Al pasar una oportunidad a la etapa de venta ganada, un flujo emite solo la póliza, ' +
+        'ligada al asegurado, pero la prima queda vacía y se carga en cada venta.',
     comoLoHace: `Un flujo de trabajo se dispara al actualizarse una oportunidad, filtra por la etapa «${ganada.label}» y crea un registro de Pólizas con el nombre de la oportunidad, el asegurado como titular${llevaMonto ? ' y el monto como prima' : ''}, tomados con el selector de variables. Al pasar la oportunidad a esa etapa desde su ficha, la póliza aparece vinculada al asegurado y se ve en su ficha${llevaMonto ? ', con la prima de la oportunidad' : '; la prima quedó vacía y hay que cargarla'}.`,
-    caracteristicas: 'Disparador por actualización de registro con condición sobre la etapa; paso «Crear registro» sobre el objeto propio de pólizas; variables del registro disparador para no recargar datos —el importe de la prima se arma con dos variables, el monto en micros y el código de moneda de la oportunidad—; la póliza queda en la ficha del asegurado.',
+    caracteristicas: llevaMonto
+      ? 'Disparador por actualización de registro con condición sobre la etapa; paso «Crear registro» sobre el objeto propio de pólizas; variables del registro disparador para no recargar datos —el importe de la prima se arma con dos variables, el monto en micros y el código de moneda de la oportunidad—; la póliza queda en la ficha del asegurado.'
+      : 'Disparador por actualización de registro con condición sobre la etapa; paso «Crear registro» sobre el objeto propio de pólizas; variables del registro disparador para no recargar datos; la póliza queda en la ficha del asegurado.',
     justificacion: llevaMonto
       ? 'El flujo se arma una sola vez y cada venta ganada emite la póliza con sus datos sin intervención. Configurar el flujo y el objeto de pólizas es trabajo de configuración, sin desarrollo.'
       : 'La póliza se emite sola y vinculada al asegurado, pero el monto negociado no pasó a la prima y se carga en cada venta. Configurar el flujo y el objeto de pólizas es configuración, sin desarrollo.',
@@ -248,6 +255,9 @@ test('A.12.2 — Plan de pago de la prima', async ({ page, browser }, info) => {
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Las cuotas se modelan como objeto propio ligado a la póliza, con vencimiento, importe ' +
+      'y estado; el listado de impagas sale filtrando por estado, sin desarrollo.',
     comoLoHace: 'Twenty no trae cuotas: se crea un objeto propio «Cuotas» con vencimiento, importe y estado, ligado a la póliza, y a la póliza se le agrega un campo de lista «Forma de pago». Cada cuota se carga desde el listado de cuotas y queda en la ficha de la póliza. El listado de impagas es el listado de cuotas filtrado por el estado «Impaga», que trae las dos vencidas y ninguna de las otras.',
     caracteristicas: 'Objeto propio con campos de fecha, moneda y lista; relación con la póliza que muestra las cuotas en su ficha; filtro por estado en el listado, sin desarrollo.',
     justificacion: 'La forma de pago y las cuotas se registran y el listado de impagas sale con un filtro, en cada uso, sin trabajo extra. Definir el objeto de cuotas y sus campos es configuración que se hace una sola vez.',
@@ -376,7 +386,17 @@ test('A.12.3 — Datos que administra el sistema central', async ({ page, browse
     plataforma,
     cumple: 2,
     costo: 1,
-    comoLoHace: 'El sistema central trabaja por la interfaz de programación: busca la póliza por su número con una condición sobre el nombre y la actualiza por el identificador que recibe; se actualizaron estado de pago, prima y vigencia dos veces y siguió habiendo una sola póliza con ese número. Para el productor, una regla del rol sobre Pólizas deja en solo lectura número, prima, estado de pago y vigencia: al hacer clic en cada uno no se abre la edición, mientras que el ramo, que es del CRM, se edita con normalidad.',
+    resumen:
+      'El sistema central actualiza pólizas por la interfaz buscándolas antes por número, sin ' +
+      'duplicarlas, y el rol del productor deja en solo lectura los campos que el central ' +
+      'administra.',
+    comoLoHace:
+      'El sistema central trabaja por la interfaz de programación: busca la póliza por su número con ' +
+      'una condición sobre el nombre y la actualiza por el identificador que recibe, de modo que ' +
+      'actualizar estado de pago, prima y vigencia varias veces deja una sola póliza con ese número. ' +
+      'Para el productor, una regla del rol sobre Pólizas deja en solo lectura número, prima, estado ' +
+      'de pago y vigencia: esos campos no se abren a la edición, mientras que el ramo, que es del CRM, ' +
+      'se edita con normalidad.',
     caracteristicas: `El permiso por campo es del rol —ver y editar por separado para cada campo de cada objeto—, así que el mismo dato lo escribe quien integra y el productor lo ve sin poder tocarlo. La actualización no es una operación única por clave: quien envía busca por número y decide${duplicaAlta ? ', y un alta repetida con el mismo número, incluso pidiendo «upsert», crea una segunda póliza' : ''}.`,
     justificacion: 'El central actualiza sin duplicar y el productor no puede modificar lo que el central administra, en cada uso y sin trabajo extra. Hace falta una regla en el rol del productor con cinco campos marcados, desde la pantalla de roles y sin programar; buscar antes de actualizar es parte del cliente de integración.',
     evidencia: [capRol, capBloqueo],
@@ -459,6 +479,9 @@ test('A.12.4 — Historia del cliente desde el primer contacto', async ({ page, 
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'La persona es la misma desde la primera llamada hasta la póliza: sin conversión que ' +
+      'duplique datos, su ficha reúne notas, oportunidades y pólizas.',
     comoLoHace: 'La llamada se registra como nota en la ficha de la persona que consulta. Al convertirla, la misma persona queda como contacto de una oportunidad que pasa a la etapa de venta ganada, y el flujo de emisión crea la póliza a su nombre. En la ficha del asegurado la llamada sigue estando, junto a la póliza.',
     caracteristicas: 'Notas vinculadas a la persona; la misma persona pasa de solicitante a asegurado sin duplicarse; la ficha reúne notas, oportunidades y pólizas.',
     justificacion: 'No hay una conversión que mueva o duplique datos: la persona es la misma desde la primera llamada y todo lo que se le registró queda en su ficha. La emisión depende del flujo configurado en A.12.1.',
@@ -532,6 +555,9 @@ test('A.12.5 — Satisfacción después de la atención', async ({ page, browser
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'La encuesta es un objeto propio, con puntaje, comentario y vínculos al asegurado y al ' +
+      'reclamo; no trae encuestas incorporadas ni envío automático al cerrar el reclamo.',
     comoLoHace: 'La encuesta es un objeto propio con puntaje, comentario y vínculos al asegurado y al reclamo. Al cerrar el reclamo desde su ficha, la respuesta que el asegurado dio por teléfono se registra desde su ficha como una encuesta nueva, ligada al reclamo, y queda listada en la ficha del asegurado.',
     caracteristicas: 'Objeto propio con campo de lista para el puntaje, texto para el comentario y relaciones con persona y reclamo; la ficha del asegurado lista sus encuestas.',
     justificacion: 'Cada respuesta se registra una vez y queda en la ficha del asegurado. No hay encuestas incorporadas ni envío automático al cerrar el reclamo; el objeto y sus campos se configuran una sola vez.',

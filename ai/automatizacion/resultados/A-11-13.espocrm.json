@@ -2,6 +2,7 @@
   "criterio": "A.11.13",
   "plataforma": "espocrm",
   "cumple": 0,
+  "resumen": "Ningún canal de soporte compromete un plazo: la asistencia paga se cobra por hora, la nube declara solo un horario de atención y el soporte gratuito es el foro.",
   "comoLoHace": "La oferta de soporte del fabricante tiene tres canales y ninguno compromete un plazo: la asistencia paga se cobra por hora y se presta por correo, web y teléfono sin tiempo de respuesta garantizado; el servicio en la nube declara una cobertura de doce horas cinco días a la semana, que es un horario de atención y no un plazo; y el soporte gratuito es el foro de la comunidad.",
   "justificacion": "La condición que la compañía necesita —saber en cuánto tiempo le van a responder cuando el sistema falle— no la ofrece ninguna modalidad.",
   "documentacion": [

@@ -2,6 +2,7 @@
   "criterio": "B.1.6",
   "plataforma": "twenty",
   "cumple": 2,
+  "resumen": "En la instalación propia la compañía decide en qué servidor y país reside la base y dónde van los adjuntos, y asume la seguridad de esos datos.",
   "comoLoHace": "En la instalación propia la base de datos reside donde la compañía instala el sistema: en su propio servidor o en el proveedor que ella elija, en el país que ella elija, y los adjuntos van al disco del servidor o al almacenamiento que ella configure.",
   "caracteristicas": "La contracara es que la seguridad de esos datos queda también a su cargo.",
   "justificacion": "Sabe en todo momento dónde están los datos de sus asegurados y lo decide ella, que es lo que exige el tratamiento de datos sensibles de los seguros de personas.",

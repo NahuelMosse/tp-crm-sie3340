@@ -2,6 +2,7 @@
   "criterio": "A.11.3",
   "plataforma": "bitrix24",
   "cumple": 2,
+  "resumen": "El portal se da de alta con un correo y una contraseña y queda funcionando de inmediato; el resto es configuración guiada, sin perfil técnico.",
   "comoLoHace": "El alta del portal se completa con un correo y una contraseña, sin instalar nada ni preparar un servidor: el fabricante entrega el sistema funcionando de inmediato, con datos de ejemplo y un asistente inicial.",
   "caracteristicas": "Lo que sigue —crear los campos propios, cargar la cartera— es configuración desde la pantalla, guiada por el propio producto, sin conocimientos de instalación ni de administración de servidores.",
   "justificacion": "Lo completa cualquiera que sepa operar un sistema de oficina.",

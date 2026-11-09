@@ -1,6 +1,7 @@
 import { test, expect } from '../../humano';
 import { registrar } from '../../evaluar';
 import { citar } from '../../fuentes';
+import { BITRIX24_STANDARD, constanciaDe, conPlanDe } from '../../precios';
 import { entrar, plataformaDe } from '../../sesion';
 import { soloEn, capturar } from '../comun';
 import { menuLateral, pestana, panel, cerrarPaneles } from '../../bitrix24/navegar';
@@ -81,6 +82,7 @@ test('A.6.1 — Vinculación de la póliza con su titular', async ({ page }, inf
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen: 'Vincula la póliza con su titular mediante el campo Cliente; la relación se ve desde la ficha de ambos lados.',
     comoLoHace:
       'Una vez guardada, la póliza figura en la pestaña «Negociaciones» de la ficha del contacto y su propia ' +
       'ficha muestra al titular, sin configurar nada.',
@@ -137,6 +139,7 @@ test('A.6.2 — Vista única del asegurado', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen: 'Reúne en la ficha del asegurado sus actividades, pólizas y reclamos en una sola pantalla. Pólizas y reclamos comparten pestaña y se distinguen por el nombre.',
     comoLoHace:
       'La ficha del contacto reúne en una sola pantalla lo del asegurado: la línea de tiempo con sus ' +
       'actividades registradas y, en la pestaña «Negociaciones», tanto la póliza como el reclamo, que en ' +
@@ -198,10 +201,11 @@ test('A.6.3 — Campos propios del rubro en la ficha', async ({ page }, info) =>
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen: 'Agrega campos de lista propios del rubro a la ficha del contacto sin programar; el campo queda en el alta y disponible en el filtro.',
     comoLoHace:
-      'Desde el mismo formulario del contacto, «Crear campo» agrega un campo de tipo lista —aquí, la ' +
-      'valoración de la atención, con sus cuatro opciones— sin programar. El campo queda en el formulario ' +
-      'de alta: se eligió el valor «Buena» al cargar un asegurado y quedó guardado.',
+      'Desde el mismo formulario del contacto, «Crear campo» agrega un campo de tipo lista —por ' +
+      'ejemplo, la valoración de la atención, con sus opciones— sin programar. El campo queda en el ' +
+      'formulario de alta: su valor se elige al cargar un asegurado y queda guardado.',
     caracteristicas:
       'En el listado, el filtro de búsqueda ofrece el campo nuevo para agregarlo como condición.',
     justificacion:
@@ -221,6 +225,7 @@ test('A.6.4 — Unicidad de la ficha del asegurado', async ({ page, browser }, i
   await borrarContactos(page, /^ACT-DUP-/);
   const correo = 'act.dup@aseguradora-test.com';
   let capSegunda = '';
+  let advierte = false;
 
   for (const [i, nombre] of ['Uno', 'Dos'].entries()) {
     await altaDeContacto(page);
@@ -229,6 +234,7 @@ test('A.6.4 — Unicidad de la ficha del asegurado', async ({ page, browser }, i
     await page.waitForTimeout(4000);
     const aviso = /duplic/i.test(await textoDe(page));
     console.log(`    alta ${i + 1}: aviso de duplicado en pantalla: ${aviso}`);
+    advierte ||= aviso;
     if (i === 1) capSegunda = await capturar(page, 'A.6.4', plataforma, '1-segunda-alta');
     await guardarContacto(page);
     await cerrarPaneles(page);
@@ -248,11 +254,19 @@ test('A.6.4 — Unicidad de la ficha del asegurado', async ({ page, browser }, i
   console.log(`    el control de duplicados pide otro plan: ${herramientaPideOtroPlan}`);
   await borrarContactos(page, /^ACT-DUP-/);
 
-  const fuente = await citar(browser, {
-    url: 'https://helpdesk.bitrix24.com/open/18346126/',
-    buscar: /Automatic duplicate merging is available for leads, contacts, and companies/i,
-    captura: 'A-6-4-bitrix24-3-control-de-duplicados',
-  });
+  const fuente = [
+    await citar(browser, {
+      url: 'https://helpdesk.bitrix24.com/open/18346126/',
+      buscar: /Automatic duplicate merging is available for leads, contacts, and companies/i,
+      captura: 'A-6-4-bitrix24-3-control-de-duplicados',
+    }),
+    await citar(browser, {
+      url: 'https://www.bitrix24.es/prices/compare_cloud_plans.php',
+      buscar: 'Control de duplicados en CRM (búsqueda de duplicados)',
+      captura: 'A-6-4-bitrix24-4-duplicados-por-plan',
+    }),
+    ...await constanciaDe(browser, BITRIX24_STANDARD, 'A-6-4-bitrix24-standard'),
+  ];
 
   expect(guardados.length, 'sin control de duplicados, el segundo alta con el mismo correo se guarda').toBe(2);
   expect(herramientaPideOtroPlan, 'la herramienta de duplicados debe pedir un plan superior').toBeTruthy();
@@ -261,17 +275,30 @@ test('A.6.4 — Unicidad de la ficha del asegurado', async ({ page, browser }, i
     criterio: 'A.6.4',
     plataforma,
     cumple: 0,
+    resumen: advierte
+      ? 'La edición gratuita avisa en pantalla de la duplicación al cargar un asegurado, pero el alta repetida genera igual una segunda ficha. La herramienta de fusión de duplicados exige un plan superior.'
+      : 'La edición gratuita no advierte la duplicación al cargar un asegurado: el alta repetida genera una segunda ficha. La herramienta de fusión de duplicados exige un plan superior.',
     comoLoHace:
-      'En la edición gratuita, cargar dos veces al mismo asegurado con el mismo correo no dispara ninguna ' +
-      'advertencia: el segundo contacto se guarda igual y quedan dos fichas. La herramienta «Buscar y ' +
+      'En la edición gratuita, cargar dos veces al mismo asegurado con el mismo correo ' +
+      (advierte ? 'muestra un aviso en pantalla, pero no lo impide' : 'no dispara ninguna advertencia') +
+      ': el segundo contacto se guarda igual y quedan dos fichas. La herramienta «Buscar y ' +
       'fusionar duplicados» del listado de contactos no se abre y responde que está disponible en los planes ' +
       'de nivel superior.',
     justificacion:
-      'La edición gratuita no advierte la duplicación al cargar un asegurado ni permite buscarla después: el ' +
+      (advierte ? 'La edición gratuita solo avisa la duplicación al cargar un asegurado y no permite buscarla después: el '
+        : 'La edición gratuita no advierte la duplicación al cargar un asegurado ni permite buscarla después: el ') +
       'alta repetida queda guardada como una segunda ficha y la única herramienta de duplicados exige un plan ' +
       'superior. El fabricante documenta la fusión automática de duplicados para prospectos, contactos y ' +
       'compañías, pero la condiciona al plan contratado.',
     evidencia: [capSegunda, capDuplicados],
     documentacion: fuente,
+    conPlan: [conPlanDe(BITRIX24_STANDARD, {
+      cumple: 1,
+      costo: 2,
+      justificacion:
+        'El plan Standard, el primero que incluye el control de duplicados del CRM, permite buscar y fusionar ' +
+        'las fichas repetidas del mismo asegurado. El alta repetida se guarda igual: la duplicación se detecta ' +
+        'después, con una revisión que hay que repetir en cada uso.',
+    })],
   });
 });

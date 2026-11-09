@@ -2,6 +2,7 @@
   "criterio": "A.4.6",
   "plataforma": "twenty",
   "cumple": 0,
+  "resumen": "No permite publicar en redes sociales: solo conecta cuentas de correo y calendario, y publicar exigiría desarrollar una aplicación propia.",
   "comoLoHace": "El producto no permite publicar en redes sociales desde el propio sistema, en ninguna edición: las cuentas que se pueden conectar son de correo y de calendario —IMAP, SMTP, CalDAV—, ninguna red social, y el catálogo de aplicaciones del fabricante no ofrece ninguna para eso.",
   "justificacion": "Publicar exigiría desarrollar una aplicación propia.",
   "evidencia": [

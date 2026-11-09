@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Se cargó una póliza, se eligió al titular buscándolo por nombre, y las dos puntas del vínculo quedaron a la vista: la póliza muestra al titular y la ficha del asegurado lista la póliza junto con las demás suyas.",
+  "resumen": "La póliza se liga a su titular con un campo de relación: cada póliza tiene un titular y la ficha de la persona lista todas las suyas.",
+  "comoLoHace": "Al cargar una póliza se elige al titular buscándolo por nombre, y las dos puntas del vínculo quedan a la vista: la póliza muestra al titular y la ficha del asegurado lista la póliza junto con las demás suyas.",
   "caracteristicas": "La póliza se liga con la persona que es su titular mediante un campo de relación, que se define una vez desde el modelo de datos, sin programar: cada póliza tiene un titular y una persona puede tener muchas pólizas.",
   "justificacion": "Al definirlo, la ficha de la persona suma sola el campo con sus pólizas.",
   "evidencia": [

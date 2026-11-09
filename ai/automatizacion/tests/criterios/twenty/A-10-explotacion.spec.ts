@@ -87,9 +87,12 @@ test('A.10.1 — Indicadores sobre la operación', async ({ page, browser }, inf
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen:
+      'Arma gráficos guardados, como el total de primas por estado de cobranza; no muestra el ' +
+      'tiempo promedio de resolución de reclamos, que exige desarrollar un flujo con código.',
     comoLoHace:
-      'Los tableros vienen de fábrica: se armó un gráfico con el total de primas por estado de ' +
-      'cobranza eligiendo el objeto, el campo del eje y la suma de la prima, sin programar, y quedó ' +
+      'Los tableros vienen de fábrica: se arma un gráfico con el total de primas por estado de ' +
+      'cobranza eligiendo el objeto, el campo del eje y la suma de la prima, sin programar, y queda ' +
       'guardado para consultarlo cuando se quiera.',
     caracteristicas:
       'El tiempo promedio de resolución de los reclamos, en cambio, no se puede mostrar: el gráfico ' +
@@ -163,10 +166,13 @@ test('A.10.2 — Generación de informes definidos por el usuario', async ({ pag
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen:
+      'Arma informes con criterios elegidos, como primas por productor en un período, y los ' +
+      'guarda; el gráfico no se exporta, solo el listado de pólizas a un archivo.',
     comoLoHace:
-      'El informe se armó desde un tablero, eligiendo los criterios sin programar: un gráfico con la ' +
+      'El informe se arma desde un tablero, eligiendo los criterios sin programar: un gráfico con la ' +
       'suma de la prima de las pólizas agrupada por productor, filtrado por las que empezaron su ' +
-      'vigencia en los últimos seis meses.',
+      'vigencia en un período dado.',
     caracteristicas:
       'Muestra el total de cada productor y queda guardado. Pero el gráfico no se exporta: el widget ' +
       'no ofrece descargarlo.',
@@ -222,11 +228,13 @@ test('A.10.3 — Informe paramétrico reutilizable', async ({ page, browser }, i
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'El informe guardado conserva fuente, agrupación y medida, y recalcula los totales al ' +
+      'cambiar el período; el período no se pide al abrirlo y cambiarlo afecta a todos.',
     comoLoHace:
-      'El informe de primas por productor quedó guardado en su tablero con el período como condición ' +
-      'del filtro. Para otro período se abrió el mismo gráfico y se cambió solo la fecha del filtro: ' +
-      'los totales se recalcularon sin rehacer el informe, que conserva su fuente, su agrupación y su ' +
-      'medida.',
+      'El informe de primas por productor se guarda en su tablero con el período como condición del ' +
+      'filtro. Para otro período se cambia solo la fecha del filtro del mismo gráfico: los totales se ' +
+      'recalculan sin rehacer el informe, que conserva su fuente, su agrupación y su medida.',
     caracteristicas:
       'El período no se pide al abrirlo: cambiarlo modifica el informe guardado para todos los que lo ' +
       'miran, o hay que duplicarlo.',
@@ -312,10 +320,13 @@ test('A.10.4 — Intercambio de datos con otros sistemas de la compañía', asyn
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Ofrece interfaces REST y GraphQL generadas desde el modelo de datos, con claves por ' +
+      'sistema y rol propio, para que otro sistema dé de alta y consulte registros.',
     comoLoHace:
-      'Desde Configuración se creó una clave para el otro sistema, que lleva un rol que define lo que ' +
-      'puede hacer, sin la contraseña de ninguna persona; con esa clave, desde fuera del sistema, se ' +
-      'dio de alta un asegurado y se lo volvió a consultar.',
+      'Desde Configuración se crea una clave para el otro sistema, que lleva un rol que define lo que ' +
+      'puede hacer, sin la contraseña de ninguna persona; con esa clave, desde fuera del sistema, el ' +
+      'otro sistema da de alta y consulta registros.',
     caracteristicas:
       'El producto trae interfaces de programación REST y GraphQL que se generan solas a partir del ' +
       'modelo de datos, incluidos los objetos propios como la póliza.',
@@ -397,13 +408,17 @@ test('A.10.5 — Intercambio sin límite de volumen que condicione la operación
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen: limitadas
+      ? 'La interfaz admite un día entero de altas, aunque rechaza algunas por el límite de ' +
+        'cien pedidos por minuto y sesenta registros por lote, que pasan al reintentar.'
+      : 'La interfaz admite un día entero de altas sin rechazos; el límite publicado es de cien ' +
+        'pedidos por minuto y sesenta registros por pedido en lotes.',
     comoLoHace:
-      'Se mandó el movimiento de un día entero —' +
-      `${MOVIMIENTO_DIARIO} altas— en ráfagas de diez simultáneas, de a un registro por pedido: ` +
+      'La interfaz de programación admite el movimiento de un día entero de altas, enviadas en ráfagas de ' +
+      'diez simultáneas, de a un registro por pedido' +
       (limitadas
-        ? `${limitadas} fueron rechazadas por el límite y pasaron al reintentarlas un minuto después; las ${MOVIMIENTO_DIARIO} ` +
-          `entraron en ${minutos} minutos.`
-        : `entraron las ${MOVIMIENTO_DIARIO} en ${minutos} minutos, sin rechazos.`),
+        ? ': algunas son rechazadas por el límite y pasan al reintentarlas un minuto después.'
+        : ', sin rechazos.'),
     caracteristicas:
       'El fabricante publica el límite de la interfaz de programación: cien pedidos por minuto, y hasta sesenta ' +
       'registros por pedido en las operaciones por lotes.',

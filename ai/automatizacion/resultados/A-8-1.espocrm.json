@@ -3,7 +3,8 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "El Administrador de Entidades crea una entidad desde un formulario de la administración: se creó el Endoso —la modificación de una póliza vigente— indicando el nombre, las etiquetas en singular y plural y el tipo, entre 5 que ofrece (Base, Base Plus, Evento, Persona, Empresa).",
+  "resumen": "Crea entidades nuevas desde un formulario de administración, eligiendo nombre, etiquetas y tipo, sin escribir código ni reiniciar nada; quedan operativas en el acto.",
+  "comoLoHace": "El Administrador de Entidades crea una entidad desde un formulario de la administración: se indican el nombre, las etiquetas en singular y plural y el tipo, entre los 5 que ofrece (Base, Base Plus, Evento, Persona, Empresa).",
   "caracteristicas": "No hizo falta escribir código, tocar archivos del servidor ni reiniciar nada: la entidad quedó disponible en el acto y admitió su primer registro.",
   "justificacion": "Es trabajo de configuración que se hace una vez, y es lo que permite que el modelo de datos siga al negocio asegurador en lugar de obligar al negocio a acomodarse a un modelo genérico.",
   "evidencia": [

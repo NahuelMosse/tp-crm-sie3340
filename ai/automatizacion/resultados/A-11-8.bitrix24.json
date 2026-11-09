@@ -1,17 +1,18 @@
 {
   "criterio": "A.11.8",
   "plataforma": "bitrix24",
-  "cumple": 2,
-  "comoLoHace": "Tres sesiones con la misma cuenta abrieron, una detrás de otra, la misma negociación desde el listado del CRM y cada una cambió su título.",
-  "caracteristicas": "Quedó el último cambio, «DOC-CONCURRENCIA-S3».",
-  "justificacion": "Cada sesión, al abrir el formulario, ya veía el cambio que había dejado la anterior: el listado no guarda una versión vieja del registro entre una apertura y otra.",
+  "cumple": 0,
+  "resumen": "Tres usuarios editan a la vez la misma negociación y el sistema acepta los tres guardados sin avisar: gana el último y los cambios anteriores quedan reemplazados.",
+  "comoLoHace": "Tres usuarios con su propia sesión abren a la vez la misma negociación desde el listado del CRM, la editan desde el formulario y guardan uno detrás de otro.",
+  "caracteristicas": "Quedó el último cambio, «DOC-CONCURRENCIA-CTOLEDO». Ningún usuario recibió aviso de que otro había modificado el registro.",
+  "justificacion": "Cada guardado reemplaza al anterior sin advertencia, aunque el formulario se haya abierto antes del cambio de otro usuario. Como la edición gratuita tampoco guarda quién cambió cada dato, los cambios de los demás se pierden sin aviso ni constancia: cuando dos personas trabajan la misma negociación, gana la última que guarda.",
   "evidencia": [
-    "A-11-8-bitrix24-1-tercera-sesion-tras-los-tres-cambios.png"
+    "A-11-8-bitrix24-1-primera-sesion-tras-los-tres-cambios.png"
   ],
-  "medicion": "Título final: DOC-CONCURRENCIA-S3 · cada sesión vio el cambio anterior al abrir: sí",
+  "medicion": "Título final: DOC-CONCURRENCIA-CTOLEDO · aviso de conflicto: no",
   "criterioNombre": "Operación concurrente sobre la misma cartera",
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-09-29T23:36:57.348Z"
+  "momento": "2026-11-09T02:02:07.064Z"
 }

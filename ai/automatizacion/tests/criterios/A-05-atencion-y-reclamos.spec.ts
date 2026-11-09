@@ -89,14 +89,17 @@ test('A.5.1 — Reclamo como caso con identidad propia', async ({ page }, info) 
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      'Trae el reclamo como caso de atención con entidad propia: número asignado al guardarlo, asociación ' +
+      'al asegurado, listado y ficha.',
     comoLoHace:
-      `Se registró un reclamo asociado a un asegurado y el sistema le asignó el número ${guardado.number} ` +
-      'al guardarlo; la ficha muestra al asegurado y el reclamo figura en el listado de casos.',
+      'Al guardar un reclamo asociado a un asegurado, el sistema le asigna un número; la ficha muestra al ' +
+      'asegurado y el reclamo figura en el listado de casos.',
     caracteristicas:
       'El producto trae el caso de atención como entidad propia, con su entrada de menú, su listado y su ' +
       'ficha.',
     justificacion:
-      'No hubo que crear ni configurar nada: viene listo con la instalación. El número propio es lo que ' +
+      'Viene listo con la instalación: no requiere crear ni configurar nada. El número propio es lo que ' +
       'permite que la compañía y el asegurado hablen del mismo reclamo sin ambigüedad.',
     evidencia: [capAlta, capFicha, capListado],
     medicion: `Reclamo número ${guardado.number}`,
@@ -140,8 +143,11 @@ test('A.5.2 — Estado y seguimiento del reclamo', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      'Conserva la secuencia de estados del reclamo en su historia, con el valor anterior, el nuevo, quién ' +
+      'lo cambió y cuándo; viene auditado de fábrica.',
     comoLoHace:
-      'El reclamo se pasó de nuevo a asignado, a pendiente y a cerrado, y la ficha conserva la secuencia ' +
+      'El reclamo pasa por los estados de asignado, pendiente y cerrado, y la ficha conserva la secuencia ' +
       'completa en su historia: cada cambio de estado queda registrado con el valor anterior, el nuevo, ' +
       'quién lo hizo y cuándo.',
     caracteristicas:
@@ -184,9 +190,11 @@ test('A.5.3 — Responsable asignado a cada reclamo', async ({ page }, info) => 
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      'Asigna cada reclamo a un responsable, y el reclamo figura en el listado de casos de ese usuario.',
     comoLoHace:
-      'Se asignó el reclamo a un productor desde la ficha y, al ingresar con la cuenta de ese productor, el ' +
-      'reclamo figura en su listado de casos.',
+      'El reclamo se asigna a un productor desde la ficha y, al ingresar con la cuenta de ese productor, ' +
+      'figura en su listado de casos.',
     caracteristicas:
       'El caso trae un responsable asignado de fábrica.',
     justificacion:
@@ -238,13 +246,17 @@ test('A.5.4 — Base de conocimiento para la atención', async ({ page }, info) 
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      'Trae una base de conocimiento propia: se escribe y publica un artículo con una condición de ' +
+      'cobertura y se lo recupera buscando una palabra.',
     comoLoHace:
-      'Se escribió un artículo con una condición de cobertura —qué cubre la póliza de automotor ante ' +
-      'granizo y qué excluye—, se lo publicó y se lo recuperó buscando "granizo" desde su listado.',
+      'Un artículo con una condición de cobertura —por ejemplo, qué cubre la póliza de automotor ante ' +
+      'granizo y qué excluye— se escribe, se publica y se recupera buscando una palabra desde el listado de ' +
+      'la base de conocimiento.',
     caracteristicas:
       'El producto trae una base de conocimiento propia.',
     justificacion:
-      'Viene lista: no hubo que crear ni configurar nada. Es lo que permite que quien atiende responda ' +
+      'Viene lista: no requiere crear ni configurar nada. Es lo que permite que quien atiende responda ' +
       'igual que su compañero de al lado, sin depender de la memoria.',
     evidencia: [capBusqueda],
   });
@@ -294,8 +306,11 @@ test('A.5.5 — Tareas asignables con responsable y vencimiento', async ({ page 
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      'Crea tareas con responsable y fecha de vencimiento, y cada usuario las ve en su listado con su ' +
+      'fecha.',
     comoLoHace:
-      'Se creó una tarea con vencimiento en tres días y se la asignó a un productor.',
+      'La tarea se crea con vencimiento y se asigna a un productor.',
     caracteristicas:
       'Al ingresar con la cuenta de ese productor, la tarea figura en su listado con su fecha.',
     justificacion:
@@ -330,10 +345,13 @@ test('A.5.6 — Aviso al usuario al que se le asigna una tarea', async ({ page }
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      'Avisa dentro del sistema al usuario al que se le asigna una tarea o un reclamo, sin que consulte un ' +
+      'listado; viene activado de fábrica.',
     comoLoHace:
-      'Al asignarle la tarea y el reclamo, el productor recibió el aviso en el propio sistema: al ingresar, ' +
+      'Al asignarle una tarea o un reclamo, el productor recibe el aviso en el propio sistema: al ingresar, ' +
       'el indicador de notificaciones lo muestra sin que tenga que abrir ningún listado, y cada aviso lleva ' +
-      'al registro que le asignaron.',
+      'al registro asignado.',
     caracteristicas:
       'Viene activado de fábrica.',
     justificacion:

@@ -143,27 +143,37 @@ test('A.7.1 — Importación de contactos desde planilla de cálculo', async ({ 
 
   expect(deUtf8, 'la planilla en UTF-8 debe ingresar completa y sin pérdida').toBe(5);
 
+  // La codificación de Windows corrompe las letras acentuadas si alguna fila llega alterada
+  const corrompe = deWindows < 5;
   registrar({
     criterio: 'A.7.1',
     plataforma,
     cumple: 1,
     costo: 2,
-    comoLoHace:
-      'Guardada así, la planilla ingresó completa: los cinco asegurados, ' +
-      'cada columna en su campo, con tildes y eñes intactas. ' +
-      (deWindows === 5
-        ? 'Guardada con la codificación predeterminada de las planillas en Windows también ingresó sin pérdida. '
-        : 'Guardada con la codificación predeterminada de las planillas en Windows, ingresaron todas las filas ' +
-          `pero solo ${deWindows} de 5 conservaron nombres y domicilios sin alterar: las letras acentuadas ` +
-          'llegaron corrompidas, sin que el sistema lo advirtiera. ') +
-      'En los dos casos el asistente no reconoció los encabezados en español: dejó las ' +
-      `${columnasSinReconocer} columnas sin asignar y hubo que indicar a mano a qué campo va cada una.`,
+    resumen: corrompe
+      ? 'Importa planillas en CSV con tildes y eñes intactas si están en UTF-8; con la codificación de ' +
+        'Windows las letras acentuadas se corrompen, y las columnas se asignan a mano.'
+      : 'Importa planillas en CSV con tildes y eñes intactas, en UTF-8 y con la codificación de Windows; ' +
+        'las columnas se asignan a mano.',
+    comoLoHace: corrompe
+      ? 'El asistente de importación incorpora la planilla completa, cada columna en su campo y con tildes y ' +
+        'eñes intactas, siempre que se guarde en CSV con codificación UTF-8. Si se guarda con la codificación ' +
+        'predeterminada de las planillas en Windows, ingresan todas las filas pero las letras acentuadas ' +
+        'llegan corrompidas, sin que el sistema lo advierta. En ambos casos el asistente no reconoce los ' +
+        'encabezados en español: deja las columnas sin asignar y hay que indicar a mano a qué campo va cada ' +
+        'una.'
+      : 'El asistente de importación incorpora la planilla completa con tildes y eñes intactas, tanto si se ' +
+        'guarda en CSV con codificación UTF-8 como con la codificación predeterminada de las planillas en ' +
+        'Windows. El asistente no reconoce los encabezados en español: deja las columnas sin asignar y hay ' +
+        'que indicar a mano a qué campo va cada una.',
     caracteristicas:
       'El asistente de importación admite archivos de texto separados por comas y la propia pantalla advierte ' +
       'que "debe ser codificado en UTF-8".',
-    justificacion:
-      'La necesidad queda resuelta con un procedimiento que se repite en cada importación: guardar la planilla ' +
-      'en el formato que pide el sistema y asignar sus columnas.',
+    justificacion: corrompe
+      ? 'La necesidad queda resuelta con un procedimiento que se repite en cada importación: guardar la planilla ' +
+        'en el formato que pide el sistema y asignar sus columnas.'
+      : 'La necesidad queda resuelta con un procedimiento que se repite en cada importación: asignar las ' +
+        'columnas de la planilla.',
     evidencia: [capPedido, capWindows, capUtf8],
     documentacion: fuente,
     medicion: `UTF-8: ${deUtf8}/5 intactos · codificación de Windows: ${deWindows}/5 intactos`,
@@ -202,6 +212,9 @@ test('A.7.2 — Importación de contactos desde las agendas de correo', async ({
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen:
+      'No trae contactos desde la agenda de ningún correo: las extensiones para Google y Outlook solo ' +
+      'envían contactos a la agenda. La vía es exportar la agenda e importarla.',
     comoLoHace:
       'Las extensiones del fabricante para Google y Outlook sincronizan calendario y correo, y para los ' +
       'contactos hacen el camino inverso: envían los del sistema a la agenda, no los incorporan.',
@@ -278,9 +291,12 @@ test('A.7.3 — Sincronización del correo de varios usuarios', async ({ page },
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Cada usuario sincroniza su casilla personal con el servidor de correo, y los mensajes llegan solo a ' +
+      'su bandeja.',
     comoLoHace:
-      'Se configuraron dos casillas personales, de dos usuarios distintos, contra el mismo servidor de ' +
-      'correo, y el sistema trajo el mensaje de cada una a la bandeja de su dueño y solo a la suya.',
+      'Cada usuario configura su casilla personal contra el servidor de correo, y el sistema trae el ' +
+      'mensaje de cada una a la bandeja de su dueño y solo a la suya.',
     caracteristicas:
       'Cada usuario puede tener su propia casilla sincronizada: la administración tiene una sección de ' +
       'cuentas de correo personales, y también de cuentas grupales para casillas compartidas.',
@@ -332,9 +348,12 @@ test('A.7.4 — Vinculación automática del correo a la ficha', async ({ page }
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Vincula solo a la ficha del asegurado el correo que llega a la casilla de la compañía, reconociendo ' +
+      'la dirección del remitente.',
     comoLoHace:
-      'Con la casilla de atención de la compañía sincronizada, un asegurado escribió desde su propia ' +
-      'dirección y el mensaje apareció en el historial de su ficha sin que nadie lo moviera.',
+      'Con la casilla de atención de la compañía sincronizada, el mensaje que un asegurado escribe desde su ' +
+      'propia dirección aparece en el historial de su ficha sin que nadie lo mueva.',
     caracteristicas:
       'El sistema reconoció la dirección del remitente y lo vinculó con el asegurado que la tiene cargada.',
     justificacion:
@@ -345,57 +364,7 @@ test('A.7.4 — Vinculación automática del correo a la ficha', async ({ page }
 });
 
 // ── A.7.5 ────────────────────────────────────────────────────────────────────
-test('A.7.5 — Formatos de intercambio aceptados', async ({ page, browser }, info) => {
-  // «Enumerar los formatos en que el sistema admite entrar y sacar datos, y
-  //  determinar si incluyen los que la compañía usa con sus otros sistemas»
-  const plataforma = plataformaDe(info.project.name);
-  soloEn(plataforma, 'espocrm');
-  test.setTimeout(400_000);
-
-  await entrar(page, plataforma);
-  await pestana(page, 'Import');
-  await page.locator('#import-file').waitFor({ state: 'attached', timeout: 40_000 });
-  const entrada = await page.locator('#import-file').getAttribute('accept');
-  const capEntrada = await capturar(page, 'A.7.5', plataforma, '1-formatos-de-entrada');
-
-  await listadoLimpio(page, 'Contact');
-  await page.locator('thead input[type="checkbox"]').first().check({ force: true });
-  await page.locator('.actions-button:visible').first().click();
-  await page.locator('[data-action="export"]:visible').first().click();
-  const dialogo = page.locator('.modal-dialog').first();
-  await dialogo.waitFor({ state: 'visible', timeout: 20_000 });
-  await dialogo.locator('.field[data-name="format"] .selectize-input').first().click();
-  const salida = (await page.locator('.selectize-dropdown:visible .option').allTextContents()).map(t => t.trim());
-  await page.keyboard.press('Escape');
-  const capSalida = await capturar(page, 'A.7.5', plataforma, '2-formatos-de-salida');
-  await page.keyboard.press('Escape');
-
-  const fuente = await citar(browser, { url: 'https://docs.espocrm.com/development/api/', buscar: /JSON/, captura: 'A-7-5-espocrm-3-api-json' });
-
-  expect(entrada).toBe('.csv');
-
-  registrar({
-    criterio: 'A.7.5',
-    plataforma,
-    cumple: 1,
-    costo: 2,
-    comoLoHace:
-      `Los datos salen en ${salida.join(' y ')} —los formatos de planilla que la compañía usa— y por la ` +
-      'interfaz de programación en JSON, que es el formato de intercambio entre sistemas.',
-    caracteristicas:
-      'Pero solo entran por archivo de texto separado por comas: el asistente de importación no acepta ' +
-      'planillas de cálculo ni agendas en su formato propio.',
-    justificacion:
-      'Cada vez que la compañía quiera cargar una planilla, tiene que guardarla antes como archivo de ' +
-      'texto, con la codificación correcta.',
-    evidencia: [capEntrada, capSalida],
-    documentacion: fuente,
-    medicion: `Entrada: ${entrada} · salida: ${salida.join(', ')} · interfaz de programación: JSON`,
-  });
-});
-
-// ── A.7.6 ────────────────────────────────────────────────────────────────────
-test('A.7.6 — Exportación de la cartera sin pérdida de datos', async ({ page }, info) => {
+test('A.7.5 — Exportación de la cartera sin pérdida de datos', async ({ page }, info) => {
   // «Exportar los registros importados y comparar el archivo con el original:
   //  si coincide, si pierde acentuación o campos, o si faltan filas»
   const plataforma = plataformaDe(info.project.name);
@@ -425,7 +394,7 @@ test('A.7.6 — Exportación de la cartera sin pérdida de datos', async ({ page
   ]);
   const archivo = join(dir, 'exportado.csv');
   await descarga.saveAs(archivo);
-  const capExportacion = await capturar(page, 'A.7.6', plataforma, '1-exportacion');
+  const capExportacion = await capturar(page, 'A.7.5', plataforma, '1-exportacion');
 
   const contenido = readFileSync(archivo, 'utf8').replace(/^﻿/, '');
   const conservados = originales.filter(f => [f[0], f[1], f[2], f[4]].every(v => contenido.includes(v))).length;
@@ -433,13 +402,16 @@ test('A.7.6 — Exportación de la cartera sin pérdida de datos', async ({ page
   expect(conservados, 'cada asegurado debe salir con sus datos y su acentuación').toBe(originales.length);
 
   registrar({
-    criterio: 'A.7.6',
+    criterio: 'A.7.5',
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      'Exporta los asegurados seleccionados o filtrados desde cualquier listado, con todos los campos y las ' +
+      'tildes y eñes intactas.',
     comoLoHace:
-      'Se exportaron desde el listado los asegurados importados y se comparó el archivo con la planilla ' +
-      'original.',
+      'Desde el listado se exportan los asegurados seleccionados a un archivo que conserva los datos tal ' +
+      'como están en el sistema, con tildes y eñes intactas.',
     caracteristicas:
       `Salieron las ${originales.length} filas, cada una con nombre, apellido, correo y ciudad, y con las ` +
       'tildes y eñes intactas.',

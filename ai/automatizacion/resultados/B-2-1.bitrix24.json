@@ -3,7 +3,8 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Se le pidió el resumen de una negociación desde su chat; el asistente recibió la consulta pero no devolvió respuesta en el minuto y medio de espera de la instalación evaluada, posiblemente por la cuota gratuita del portal.",
+  "resumen": "Incluye CoPilot, un asistente de inteligencia artificial disponible desde el propio registro, con una cuota mensual de usos gratuitos que puede agotarse.",
+  "comoLoHace": "Desde el chat de la negociación se le pide a CoPilot el resumen del registro: el asistente recibe la consulta, pero su respuesta puede depender de la cuota gratuita del portal.",
   "caracteristicas": "El producto trae CoPilot, un asistente de inteligencia artificial disponible desde el propio registro, en la edición gratuita, con una cuota de usos gratuitos por mes.",
   "justificacion": "Queda disponible de fábrica, sin instalar nada: lo único que puede requerir una configuración de una vez es elegir o ampliar la cuota de uso cuando la gratuita se agota.",
   "evidencia": [

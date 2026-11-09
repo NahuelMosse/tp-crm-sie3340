@@ -3,6 +3,7 @@
   "plataforma": "bitrix24",
   "cumple": 1,
   "costo": 2,
+  "resumen": "Un mismo contacto es solicitante y asegurado, con su historia en una ficha; sin prospectos, la llamada se registra como pendiente con el tipo escrito a mano.",
   "comoLoHace": "El solicitante se registra como contacto y la llamada se anota en la pestaña «Actividad» de su ficha, como un pendiente de texto libre. Para emitirle la póliza se crea la negociación desde esa misma ficha, que queda a su nombre. En la ficha del asegurado la llamada sigue estando, junto a la póliza.",
   "caracteristicas": "El mismo contacto es solicitante y asegurado, sin conversión que lo mueva ni lo duplique; su ficha reúne actividades y negociaciones.",
   "justificacion": "Sin el módulo de prospectos, no hay una etapa de solicitante que se convierta, y la llamada se registra como un pendiente con el tipo escrito en el texto, no como una llamada. Ese tipo se escribe a mano en cada registro.",

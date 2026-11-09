@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "El productor se suma como usuario del espacio de trabajo con el enlace de invitación, desde la pantalla de miembros: se registra con su correo y su clave, y queda con su propia cuenta. Se marcaron tres asegurados en el listado y, con la actualización masiva, se los dejó a cargo del productor de una sola vez.",
+  "resumen": "El productor se invita como usuario con cuenta propia y se le asigna cartera en masa mediante un campo de relación con usuarios que se agrega al asegurado.",
+  "comoLoHace": "El productor se suma como usuario del espacio de trabajo con el enlace de invitación, desde la pantalla de miembros: se registra con su correo y su clave, y queda con su propia cuenta. Se marcan asegurados en el listado y, con la actualización masiva, se los deja a cargo del productor de una sola vez.",
   "caracteristicas": "La persona no trae un responsable: se le agregó al modelo una relación con los usuarios.",
   "justificacion": "Agregar el responsable es trabajo de una sola vez.",
   "evidencia": [

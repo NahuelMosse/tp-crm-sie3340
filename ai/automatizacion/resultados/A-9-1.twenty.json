@@ -2,7 +2,8 @@
   "criterio": "A.9.1",
   "plataforma": "twenty",
   "cumple": 0,
-  "comoLoHace": "En la edición evaluada los roles restringen por objeto —ver, editar, borrar— y por campo, pero no por registro: el productor, con el rol de miembro, abrió por dirección directa una póliza de otro productor y la vio completa.",
+  "resumen": "Los roles restringen por objeto y por campo, pero no por registro: un productor puede ver la póliza de otro; limitarlo a su cartera exige el plan Organization.",
+  "comoLoHace": "En la edición evaluada los roles restringen por objeto —ver, editar, borrar— y por campo, pero no por registro: un productor, con el rol de miembro, puede abrir la póliza de otro productor y verla completa.",
   "justificacion": "La pantalla del rol muestra el nivel de registro como función del plan Organization, y el fabricante lo confirma: los permisos por registro, que limitan a cada vendedor a lo suyo, son una función premium de ese plan. Sin él, la cartera de un productor queda a la vista de todos.",
   "evidencia": [
     "A-9-1-twenty-1-permisos-del-rol.png",

@@ -3,9 +3,10 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "La llamada se registra desde el panel Historial de la ficha del solicitante. Al convertir al solicitante en asegurado, el sistema crea la ficha del asegurado; después se le emitió la póliza desde su formulario. La ficha del asegurado muestra, en su Historial, la llamada hecha antes de que fuera cliente, y en su panel de pólizas la póliza emitida.",
+  "resumen": "El historial reúne llamadas, reuniones y correos desde el primer contacto: la llamada al solicitante sigue en la ficha del asegurado tras convertirlo, sin copiarla a mano.",
+  "comoLoHace": "La llamada se registra desde el panel Historial de la ficha del solicitante. Al convertir al solicitante en asegurado, el sistema crea la ficha del asegurado, y la póliza se emite desde su formulario. La ficha del asegurado muestra, en su Historial, la llamada hecha antes de que fuera cliente, y en su panel de pólizas la póliza emitida.",
   "caracteristicas": "El historial reúne llamadas, reuniones y correos en orden cronológico. La llamada es un único registro, que sigue ligado al solicitante y figura además entre los contactos del asegurado: no hay que copiar nada a mano. La ficha del solicitante queda marcada como convertida y conserva el vínculo con el asegurado creado.",
-  "justificacion": "Viene de fábrica: registrar la llamada, convertir y consultar el historial no requirieron configurar nada. La póliza aparece en la ficha porque su relación con el titular ya está definida para el resto del catálogo (A.6.1).",
+  "justificacion": "Viene de fábrica: registrar la llamada, convertir y consultar el historial no requieren configurar nada. La póliza aparece en la ficha porque su relación con el titular ya está definida para el resto del catálogo (A.6.1).",
   "evidencia": [
     "A-12-4-espocrm-1-llamada-al-solicitante.png",
     "A-12-4-espocrm-2-ficha-del-asegurado.png"

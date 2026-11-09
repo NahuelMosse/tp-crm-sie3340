@@ -1,4 +1,5 @@
 import { test, expect } from '../../humano';
+import type { Page } from '@playwright/test';
 import { existsSync } from 'node:fs';
 import { PERSONAS, Resultado, informeDe } from '../../aprendizaje';
 import { verificarBitrix } from '../../bitrix24/aprendizaje';
@@ -9,7 +10,7 @@ import { citar } from '../../fuentes';
 import { BITRIX24_BASIC, BITRIX24_PROFESSIONAL, constanciaDe, conPlanDe } from '../../precios';
 import { soloEn, capturar } from '../comun';
 import { menuLateral, pestana, panel, panelListo, cerrarPaneles } from '../../bitrix24/navegar';
-import { textoDe, rest, altaDeNegociacion, guardarFormulario, negociaciones, borrarNegociaciones } from '../../bitrix24/ui';
+import { textoDe, rest, altaDeNegociacion, guardarFormulario, negociaciones, borrarNegociaciones, descartarAvisos } from '../../bitrix24/ui';
 import { PREFIJO } from '../../bitrix24/documental';
 
 /**
@@ -45,6 +46,7 @@ test('A.11.1 — Recursos que la compañía debe disponer para sostenerlo', asyn
     criterio: 'A.11.1',
     plataforma,
     cumple: 2,
+    resumen: 'Es un servicio en la nube que se opera desde el navegador: el fabricante sostiene servidores, copias y disponibilidad, y la compañía no instala ni respalda nada.',
     comoLoHace:
       'La edición evaluada es un servicio en la nube: se opera entera desde el navegador, sin ningún ' +
       'componente que la compañía instale, actualice o respalde.',
@@ -81,6 +83,7 @@ test('A.11.2 — Compatibilidad con la plataforma que la compañía usa', async 
     criterio: 'A.11.2',
     plataforma,
     cumple: 2,
+    resumen: 'Se usa desde cualquier navegador de uso común en Windows, macOS o Linux; no hay versión que instalar ni plataforma propia que elegir.',
     comoLoHace:
       'Es un servicio en la nube que se abre con un navegador de uso común, en cualquier equipo con el que ' +
       'la compañía ya trabaje —Windows, macOS o Linux—.',
@@ -119,6 +122,7 @@ test('A.11.3 — Puesta en marcha sin perfil técnico especializado', async ({ p
     criterio: 'A.11.3',
     plataforma,
     cumple: 2,
+    resumen: 'El portal se da de alta con un correo y una contraseña y queda funcionando de inmediato; el resto es configuración guiada, sin perfil técnico.',
     comoLoHace:
       'El alta del portal se completa con un correo y una contraseña, sin instalar nada ni preparar un ' +
       'servidor: el fabricante entrega el sistema funcionando de inmediato, con datos de ejemplo y un ' +
@@ -171,6 +175,9 @@ test('A.11.4 — Menú y navegabilidad para la operación diaria', async ({ page
     criterio: 'A.11.4',
     plataforma,
     cumple: revisitadas.length ? 1 : 2,
+    resumen: revisitadas.length
+      ? 'El alta se completa en pocas pantallas desde el menú lateral, aunque se vuelve sobre alguna de ellas.'
+      : 'El alta se completa en pocas pantallas desde el menú lateral, sin volver sobre ninguna, con el formulario abierto en el mismo listado.',
     comoLoHace:
       'Desde el ingreso, el menú lateral lleva directo al CRM, sobre el listado de negociaciones.',
     caracteristicas:
@@ -178,9 +185,8 @@ test('A.11.4 — Menú y navegabilidad para la operación diaria', async ({ page
       'edición gratuita, sin entidades propias, hace de cartera de pólizas—, y el botón «Crear» del propio ' +
       'listado abre el formulario de alta en el mismo lugar, sin cambiar de pantalla.',
     justificacion:
-      `El alta se completó en ` +
-      `${segundos} segundos, a través de ${pantallas.length} pantallas` +
-      (revisitadas.length ? `, volviendo sobre ${revisitadas.length} de ellas.` : ', sin volver sobre ninguna.'),
+      `El alta se completa en pocas pantallas` +
+      (revisitadas.length ? ', volviendo sobre alguna de ellas.' : ', sin volver sobre ninguna.'),
     evidencia: [capFormulario, capFinal],
     medicion: `${pantallas.length} pantallas, ${revisitadas.length} revisitadas, ${segundos} s`,
   });
@@ -231,11 +237,14 @@ test('A.11.5 — Aprendizaje sin capacitación previa', async ({ page }, info) =
     criterio: 'A.11.5',
     plataforma,
     cumple,
+    resumen: cumple === 2 ? 'Los tres agentes completaron sin instrucción previa las cinco tareas diarias del productor: alta de asegurado, póliza, vencimientos, reclamo y llamado.' : cumple === 0 ? 'Ninguno de los tres agentes logró completar sin instrucción alguna de las cinco tareas diarias del productor.' : 'Cada una de las cinco tareas diarias del productor la completó al menos uno de tres agentes sin instrucción, pero no todos las completaron todas.',
     comoLoHace:
-      'Tres agentes independientes, sin conocimiento previo de la plataforma, intentaron sin instrucción las ' +
-      'cinco operaciones que un productor repite a diario —dar de alta un asegurado, cargarle una póliza, ' +
-      'averiguar qué pólizas de su cartera vencen en los próximos 30 días, registrar un reclamo y agendar un ' +
-      `llamado—, operando la pantalla como lo haría una persona.`,
+      'Las cinco operaciones que un productor repite a diario —dar de alta un asegurado, cargarle ' +
+      'una póliza, averiguar qué pólizas de su cartera vencen en los próximos 30 días, registrar un ' +
+      'reclamo y agendar un llamado— ' +
+      (cumple === 2 ? 'se operan desde la pantalla sin instrucción previa, sin tropiezos en el aprendizaje.'
+        : cumple === 0 ? 'no se logran operar todas desde la pantalla sin instrucción previa: alguna no la completa ningún usuario.'
+        : 'se operan desde la pantalla sin instrucción previa, con algún tropiezo en el aprendizaje.'),
     // El detalle de cada tarea incompleta va en las características; la justificación dice por qué vale 1
     caracteristicas:
       `Completaron ${15 - pendientes.length} de las ` +
@@ -281,7 +290,12 @@ test('A.11.6 — Localización completa al español, modelo incluido', async ({ 
     criterio: 'A.11.6',
     plataforma,
     cumple: enIngles.length ? 1 : 2,
-    comoLoHace: 'Se recorrieron el menú principal y la ficha del contacto con el portal configurado en español.',
+    resumen: enIngles.length
+      ? 'La mayor parte del menú y las pantallas está en español, pero quedan nombres de fábrica sin traducir.'
+      : 'El menú y las fichas, incluidos los objetos de fábrica, están enteramente en español.',
+    comoLoHace: enIngles.length
+      ? 'Con el portal configurado en español, el menú principal y la ficha del contacto se muestran en ese idioma, salvo algunos nombres de fábrica que quedan en inglés.'
+      : 'Con el portal configurado en español, el menú principal y la ficha del contacto se muestran en ese idioma.',
     caracteristicas: enIngles.length
       ? 'La mayor parte del menú y de las pantallas están en español, pero quedan nombres de fábrica sin ' +
         `traducir: ${enIngles.join(', ')}.`
@@ -317,7 +331,8 @@ test('A.11.7 — Cantidad de usuarios sin límite que condicione la operación',
     criterio: 'A.11.7',
     plataforma,
     cumple: 2,
-    comoLoHace: 'Se consultó en la oferta del fabricante cuántos usuarios admite la edición gratuita.',
+    resumen: 'La edición gratuita admite un número ilimitado de usuarios sin costo, de modo que la cantidad no condiciona la operación.',
+    comoLoHace: 'El fabricante publica en su oferta cuántos usuarios admite la edición gratuita.',
     caracteristicas:
       'El fabricante publica que la edición gratuita admite un número ilimitado de usuarios, sin costo.',
     justificacion:
@@ -337,109 +352,116 @@ test('A.11.8 — Operación concurrente sobre la misma cartera', async ({ page, 
   test.setTimeout(900_000);
 
   await entrar(page, plataforma);
-  await borrarNegociaciones(page, new RegExp(`^${PREFIJO}CONCURRENCIA$`));
+  // El portal acumula miles de negociaciones de otras mediciones: se consulta solo la de esta prueba
+  const buscar = () => rest<any[]>(page, 'crm.deal.list', { filter: { '%TITLE': `${PREFIJO}CONCURRENCIA` }, select: ['ID', 'TITLE'] });
+  const limpiar = async () => { for (const n of await buscar()) await rest(page, 'crm.deal.delete', { id: n.ID }); };
+  await limpiar();
   await altaDeNegociacion(page);
   await panel(page).locator('input[name="TITLE"]').fill(`${PREFIJO}CONCURRENCIA`);
   await guardarFormulario(page);
-  // Al guardar, el sistema sugiere un siguiente paso sobre la negociación: se descarta antes de cerrar
-  const cancelarSugerencia = page.getByText('CANCELAR', { exact: true }).filter({ visible: true }).first();
-  if (await cancelarSugerencia.isVisible({ timeout: 4000 }).catch(() => false)) await cancelarSugerencia.click();
   await cerrarPaneles(page);
-  const [poliza] = await negociaciones(page, new RegExp(`^${PREFIJO}CONCURRENCIA$`));
 
-  // Tres sesiones, con la misma sesión de administrador, abren el mismo listado del CRM y editan
-  // el título de la misma negociación, una detrás de otra
-  const sesiones = await Promise.all([0, 1, 2].map(async () => {
-    const contexto = await browser.newContext({ storageState: 'auth-bitrix.json', viewport: { width: 1440, height: 900 } });
+  // Tres usuarios distintos, cada uno con su propia sesión
+  const USUARIOS = ['arios', 'bsalas', 'ctoledo'];
+  const TITULOS = USUARIOS.map(u => `${PREFIJO}CONCURRENCIA-${u.toUpperCase()}`);
+  const sesiones = await Promise.all(USUARIOS.map(async u => {
+    const contexto = await browser.newContext({ storageState: `auth-bitrix-${u}.json`, viewport: { width: 1440, height: 900 } });
     const pagina = await contexto.newPage();
     await pagina.goto('/', { waitUntil: 'domcontentloaded' });
     await pagina.waitForTimeout(3000);
     return { contexto, pagina };
   }));
-  const TITULOS = [`${PREFIJO}CONCURRENCIA-S1`, `${PREFIJO}CONCURRENCIA-S2`, `${PREFIJO}CONCURRENCIA-S3`];
   let capturaFinal = '';
-  let titulosVistos: string[] = [];
+  let vistos: string[] = [];
+  const avisos: string[] = [];
   let fallaDeInstrumento = '';
-  try {
-    let tituloActual = `${PREFIJO}CONCURRENCIA`;
-    for (const [i, { pagina }] of sesiones.entries()) {
-      // La ficha se abre en lectura: el formulario de edición se abre desde el lápiz junto al título
-      let abierto = false;
-      for (let intento = 0; intento < 3 && !abierto; intento++) {
-        try {
-          await menuLateral(pagina, 'CRM');
-          const enlace = pagina.locator('a').filter({ hasText: new RegExp(`^${tituloActual}$`) }).filter({ visible: true }).first();
-          await enlace.waitFor({ state: 'visible', timeout: 25_000 });
-          await enlace.click();
-          const titulo = panel(pagina).getByText(tituloActual, { exact: true }).first();
-          await titulo.waitFor({ state: 'visible', timeout: 25_000 });
-          await pagina.waitForTimeout(1500);
-          const caja = (await titulo.boundingBox())!;
-          await pagina.mouse.move(caja.x + caja.width + 10, caja.y + caja.height / 2);
-          await pagina.waitForTimeout(400);
-          const lapiz = panel(pagina).locator('.ui-entity-card-title-edit-icon, .pagetitle-edit-button, .ui-entity-editor-header-edit-lnk').filter({ visible: true }).first();
-          if (await lapiz.count()) await lapiz.click();
-          else await pagina.mouse.click(caja.x + caja.width + 22, caja.y + caja.height / 2);
-          await panel(pagina).locator('input[type="text"]').filter({ visible: true }).first().waitFor({ state: 'visible', timeout: 15_000 });
-          abierto = true;
-        } catch (e) {
-          if (intento === 2) throw e;
-          await pagina.reload({ waitUntil: 'domcontentloaded' });
-          await pagina.waitForTimeout(3000);
+  const abrirEdicion = async (pagina: Page) => {
+    for (let intento = 0; intento < 3; intento++) {
+      try {
+        await menuLateral(pagina, 'CRM');
+        const enlace = pagina.locator('a').filter({ hasText: new RegExp(`^${PREFIJO}CONCURRENCIA$`) }).filter({ visible: true }).first();
+        // El listado trae miles de negociaciones: se ordena por nombre, con un clic en el encabezado, para que la prueba quede arriba
+        for (let orden = 0; orden < 2 && !(await enlace.isVisible().catch(() => false)); orden++) {
+          await pagina.locator('.main-grid-head-title, .main-grid-cell-head').filter({ hasText: /^\s*Negociación\s*$/ }).filter({ visible: true }).first().click();
+          await pagina.waitForTimeout(5000);
         }
+        await enlace.waitFor({ state: 'visible', timeout: 25_000 });
+        await enlace.click();
+        const titulo = panel(pagina).getByText(`${PREFIJO}CONCURRENCIA`, { exact: true }).first();
+        await titulo.waitFor({ state: 'visible', timeout: 25_000 });
+        await pagina.waitForTimeout(1500);
+        const caja = (await titulo.boundingBox())!;
+        await pagina.mouse.move(caja.x + caja.width + 10, caja.y + caja.height / 2);
+        await pagina.waitForTimeout(400);
+        const lapiz = panel(pagina).locator('.ui-entity-card-title-edit-icon, .pagetitle-edit-button, .ui-entity-editor-header-edit-lnk').filter({ visible: true }).first();
+        if (await lapiz.count()) await lapiz.click();
+        else await pagina.mouse.click(caja.x + caja.width + 22, caja.y + caja.height / 2);
+        await panel(pagina).locator('input[type="text"]').filter({ visible: true }).first().waitFor({ state: 'visible', timeout: 15_000 });
+        return;
+      } catch (e) {
+        if (intento === 2) throw e;
+        await pagina.reload({ waitUntil: 'domcontentloaded' });
+        await pagina.waitForTimeout(3000);
       }
-      const campo = panel(pagina).locator('input[type="text"]').filter({ visible: true }).first();
-      // Lo que esta sesión ve al abrir, antes de escribir el suyo: si ya ve el cambio anterior,
-      // el sistema mantiene la cartera al día entre sesiones simultáneas
-      titulosVistos.push(await campo.inputValue().catch(() => ''));
-      await campo.fill(TITULOS[i]);
-      await guardarFormulario(pagina);
-      const cancelar = pagina.getByText('CANCELAR', { exact: true }).filter({ visible: true }).first();
-      if (await cancelar.isVisible({ timeout: 4000 }).catch(() => false)) await cancelar.click();
-      tituloActual = TITULOS[i];
+    }
+  };
+  try {
+    // Los tres abren la misma negociación a la vez
+    await Promise.all(sesiones.map(s => abrirEdicion(s.pagina)));
+    const campoDe = (pagina: Page) => panel(pagina).locator('input[type="text"]').filter({ visible: true }).first();
+    vistos = await Promise.all(sesiones.map(s => campoDe(s.pagina).inputValue().catch(() => '')));
+    // Cada uno modifica el título y guarda, en orden, sobre el formulario que ya tenía abierto
+    for (const [i, { pagina }] of sesiones.entries()) {
+      await campoDe(pagina).fill(TITULOS[i]);
+      const antes = await textoDe(pagina);
+      await panel(pagina).locator('button, .ui-btn').filter({ hasText: /^\s*GUARDAR\s*$/i }).filter({ visible: true }).last().click();
+      await pagina.waitForTimeout(5000);
+      const despues = await textoDe(pagina);
+      // Cualquier mensaje sobre un cambio ajeno: conflicto, registro modificado por otro usuario
+      const aviso = (despues.match(/[^.\n]*(conflicto|modificad[oa] por|ya fue (modificad|cambiad)|otro usuario)[^.\n]*/i) ?? [''])[0].trim();
+      avisos.push(aviso && !antes.includes(aviso) ? aviso : '');
+      await descartarAvisos(pagina);
       await pagina.waitForTimeout(1000);
     }
-    capturaFinal = await capturar(sesiones[2].pagina, 'A.11.8', plataforma, '1-tercera-sesion-tras-los-tres-cambios');
+    capturaFinal = await capturar(sesiones[0].pagina, 'A.11.8', plataforma, '1-primera-sesion-tras-los-tres-cambios');
   } catch (e) {
-    // Si el portal no responde dentro del plazo, es una falla del instrumento y no del criterio:
-    // se deja sin verificar en vez de hacer fallar toda la corrida.
     fallaDeInstrumento = e instanceof Error ? e.message.split('\n')[0] : String(e);
   } finally {
     for (const s of sesiones) await s.contexto.close();
   }
   if (fallaDeInstrumento) {
-    await borrarNegociaciones(page, new RegExp(`^${PREFIJO}CONCURRENCIA`));
+    await limpiar();
     sinVerificar('A.11.8', plataforma,
-      `El panel de edición no quedó listo a tiempo en alguna de las tres sesiones (${fallaDeInstrumento}). ` +
-      'Es una falla del instrumento contra la instalación real —el panel deslizante tarda de forma variable en ' +
-      'cargar en una sesión recién creada—, no evidencia de que el producto no admita el acceso concurrente.');
+      `Alguno de los tres usuarios no pudo abrir o guardar la negociación a tiempo (${fallaDeInstrumento}). ` +
+      'Es una falla del instrumento contra la instalación real, no evidencia de que el producto no admita el acceso concurrente.');
     return;
   }
 
-  const final = (await negociaciones(page, new RegExp(`^${PREFIJO}CONCURRENCIA-S`)))[0];
-  const alDia = titulosVistos.slice(1).map((v, k) => v === TITULOS[k]);
-  await borrarNegociaciones(page, new RegExp(`^${PREFIJO}CONCURRENCIA`));
+  const final = (await buscar())[0];
+  console.log(`    final «${final?.TITLE}» · lo que vio cada usuario al abrir: ${vistos.map(v => `«${v}»`).join(', ')} · avisos: ${avisos.map(a => `«${a}»`).join(', ')}`);
+  await limpiar();
 
+  const conAviso = avisos.some(Boolean);
   expect(final?.TITLE, 'debe quedar el último cambio').toBe(TITULOS[2]);
 
-  const envivo = alDia.every(Boolean);
   registrar({
     criterio: 'A.11.8',
     plataforma,
-    cumple: envivo ? 2 : 1,
+    cumple: conAviso ? 2 : 0,
+    resumen: conAviso
+      ? 'Tres usuarios editan a la vez la misma negociación y el sistema avisa cuando otro modificó el registro antes de guardar.'
+      : 'Tres usuarios editan a la vez la misma negociación y el sistema acepta los tres guardados sin avisar: gana el último y los cambios anteriores quedan reemplazados.',
     comoLoHace:
-      'Tres sesiones con la misma cuenta abrieron, una detrás de otra, la misma negociación desde el listado del ' +
-      'CRM y cada una cambió su título.',
+      'Tres usuarios con su propia sesión abren a la vez la misma negociación desde el listado del CRM, ' +
+      'la editan desde el formulario y guardan uno detrás de otro.',
     caracteristicas:
-      `Quedó el último cambio, «${TITULOS[2]}».`,
-    justificacion:
-      (envivo
-        ? 'Cada sesión, al abrir el formulario, ya veía el cambio que había dejado la anterior: el listado no ' +
-          'guarda una versión vieja del registro entre una apertura y otra.'
-        : 'Alguna sesión abrió el formulario y todavía veía el título anterior al último cambio hecho por otra: ' +
-          'el sistema no avisa que el registro cambió mientras estaba por editarse, y gana quien guarda al final.'),
+      `Quedó el último cambio, «${final?.TITLE}». ` +
+      (conAviso ? `El sistema avisó: «${avisos.find(Boolean)}».` : 'Ningún usuario recibió aviso de que otro había modificado el registro.'),
+    justificacion: conAviso
+      ? 'El sistema detecta que el registro cambió desde que se abrió y lo informa, de modo que nadie pisa el trabajo de otro sin enterarse.'
+      : 'Cada guardado reemplaza al anterior sin advertencia, aunque el formulario se haya abierto antes del cambio de otro usuario. Como la edición gratuita tampoco guarda quién cambió cada dato, los cambios de los demás se pierden sin aviso ni constancia: cuando dos personas trabajan la misma negociación, gana la última que guarda.',
     evidencia: [capturaFinal],
-    medicion: `Título final: ${final?.TITLE} · cada sesión vio el cambio anterior al abrir: ${envivo ? 'sí' : 'no'}`,
+    medicion: `Título final: ${final?.TITLE} · aviso de conflicto: ${conAviso ? 'sí' : 'no'}`,
   });
 });
 
@@ -472,6 +494,7 @@ test('A.11.9 — Ecosistema de integraciones disponible', async ({ page, browser
     criterio: 'A.11.9',
     plataforma,
     cumple: 1,
+    resumen: 'Publica un catálogo de más de 810 aplicaciones e integraciones, pero instalarlas exige un plan pago, incluso para un conector puntual.',
     comoLoHace:
       'El catálogo se puede evaluar sin costo, pero usarlo exige pagar, incluso para un conector puntual.',
     caracteristicas:
@@ -506,6 +529,7 @@ test('A.11.10 — Documentación en español', async ({ page, browser }, info) =
     criterio: 'A.11.10',
     plataforma,
     cumple: 2,
+    resumen: 'La documentación completa está publicada en español, con el mismo contenido y organización que la versión en inglés.',
     comoLoHace:
       'El fabricante publica su centro de documentación completo en español, en un dominio propio.',
     caracteristicas:
@@ -543,6 +567,7 @@ test('A.11.11 — Material de capacitación para el usuario final', async ({ bro
     criterio: 'A.11.11',
     plataforma,
     cumple: 2,
+    resumen: 'Reúne cursos y documentación de uso diario —CRM, tareas, mensajería, calendario— con artículos paso a paso y videos, publicados en español.',
     comoLoHace:
       'El fabricante reúne en un mismo centro los cursos y la documentación de uso diario.',
     caracteristicas:
@@ -587,11 +612,12 @@ test('A.11.12 — Comunidad activa de usuarios', async ({ browser }, info) => {
     criterio: 'A.11.12',
     plataforma,
     cumple: tipica.valor,
+    resumen: tipica.valor === 2 ? 'El foro público está en ruso y la comunidad de la nube exige cuenta; la consulta típica se resuelve dentro de la semana.' : tipica.valor === 1 ? 'El foro público está en ruso y la comunidad de la nube exige cuenta; la consulta típica recibe respuesta, pero sin constancia de resolverse en la semana.' : 'El foro público está en ruso y la comunidad de la nube exige cuenta para leerla; la consulta típica queda sin respuesta.',
     comoLoHace:
-      'El foro oficial público del fabricante está en ruso (dev.1c-bitrix.ru, subforo de Bitrix24), y la comunidad ' +
-      'de la nube conversa en un espacio que exige cuenta para leer, así que la medición se hizo sobre el foro ruso; ' +
-      'su muestra mezcla consultas de la instalación propia con las de la nube. Se tomaron las ' +
-      `${CONSULTAS} consultas más recientes, sin los temas fijados, con más de una semana, que alcanzan hasta ${desde}.`,
+      'El foro oficial público del fabricante está en ruso (dev.1c-bitrix.ru, subforo de Bitrix24), ' +
+      'y la comunidad de la nube conversa en un espacio que exige cuenta para leer: lo que se puede ' +
+      'consultar públicamente es el foro ruso, cuya actividad mezcla consultas de la instalación ' +
+      'propia con las de la nube.',
     caracteristicas:
       `En ${cuantas(2)} otro usuario respondió dentro de la semana y quien consultó confirmó después que la respuesta ` +
       `le había servido; en ${cuantas(1)} hubo respuesta, pero llegó más tarde o sin que el autor confirmara que lo ` +
@@ -626,6 +652,7 @@ test('A.11.13 — Soporte técnico con compromiso de respuesta', async ({ browse
     criterio: 'A.11.13',
     plataforma,
     cumple: 1,
+    resumen: 'Publica un compromiso de plazos de respuesta por severidad, pero cubre caídas de la plataforma y no consultas puntuales; el soporte por chat o ticket es de los planes pagos.',
     comoLoHace:
       'El fabricante publica un acuerdo de nivel de servicio con plazos de respuesta por severidad del ' +
       'incidente —una hora, veinticuatro horas o setenta y dos horas—, pero ese compromiso cubre las caídas ' +
@@ -659,6 +686,7 @@ test('A.11.14 — Continuidad de las versiones en uso', async ({ browser }, info
     criterio: 'A.11.14',
     plataforma,
     cumple: 0,
+    resumen: 'Es un servicio de versión única que el fabricante actualiza a todos a la vez y sin aviso previo, y no publica compromiso de estabilidad de las funciones.',
     comoLoHace:
       'La edición evaluada es un servicio en la nube de versión única: no hay "versiones" que la compañía ' +
       'elija sostener, porque el fabricante actualiza el portal de todos sus clientes a la vez y sin aviso ' +

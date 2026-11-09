@@ -3,7 +3,8 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Un productor cambió el ramo de una póliza de automotor a hogar, y al abrirla con otro usuario la historia de la ficha muestra la constancia completa: el valor anterior, el nuevo, quién lo cambió y en qué momento.",
+  "resumen": "Deja constancia de los cambios de un campo auditado, con valor anterior, valor nuevo, autor y momento, visible en la historia de la ficha.",
+  "comoLoHace": "Cuando un productor cambia el ramo de una póliza, al abrirla otro usuario la historia de la ficha muestra la constancia completa: el valor anterior, el nuevo, quién lo cambió y en qué momento.",
   "caracteristicas": "Para que un campo deje esa constancia se lo marca como auditado desde el Administrador de Campos, una sola vez y sin programar.",
   "justificacion": "Es lo que permite responder quién tocó un dato cuando un asegurado lo discute.",
   "evidencia": [

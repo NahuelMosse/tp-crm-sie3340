@@ -41,6 +41,9 @@ test('B.1.1 — Persistencia de los datos sin uso continuo', async ({ browser },
     criterio: 'B.1.1',
     plataforma,
     cumple: 2,
+    resumen:
+      'En la instalación propia los datos quedan en el servidor de la compañía; ningún plazo de inactividad ' +
+      'los afecta, porque no hay servicio de por medio.',
     comoLoHace:
       'En la instalación propia los datos quedan en el servidor de la compañía y no dependen de ninguna ' +
       'cuenta del fabricante.',
@@ -112,9 +115,12 @@ test('B.1.2 — Copia propia y completa de la cartera', async ({ browser }, info
       criterio: 'B.1.2',
       plataforma,
       cumple: 2,
+      resumen:
+        'Permite una copia completa —base de datos y carpeta de adjuntos— con el procedimiento oficial, y ' +
+        'la cartera se restituye entera en formatos abiertos, sin depender del fabricante.',
       comoLoHace:
-        `La copia se restituyó en una base de datos aparte y la cartera volvió entera: ${despues.contactos} ` +
-        `asegurados y ${despues.polizas} pólizas, los mismos que en el sistema en uso.`,
+        'La copia se restituye en una base de datos aparte y la cartera vuelve entera, con los mismos ' +
+        'asegurados y pólizas que en el sistema en uso.',
       caracteristicas:
         'Se obtuvo una copia completa con el procedimiento oficial: el volcado de la base de datos y el ' +
         'archivo de la carpeta de datos, que es donde el sistema guarda los adjuntos.',
@@ -158,6 +164,9 @@ test('B.1.3 — Copia periódica sin intervención manual', async ({ page, brows
     criterio: 'B.1.3',
     plataforma,
     cumple: 1,
+    resumen:
+      'No programa copias por sí mismo: se repiten con el programador de tareas del servidor, pero alguien ' +
+      'debe vigilarlas y guardarlas afuera, porque el sistema no avisa si una falla.',
     comoLoHace:
       'La documentación oficial resuelve la repetición afuera, con el programador de tareas del servidor, ' +
       'que ejecuta todas las noches el mismo procedimiento de copia.',
@@ -198,6 +207,8 @@ test('B.1.5 — Previsibilidad de los cambios del sistema', async ({ browser }, 
     criterio: 'B.1.5',
     plataforma,
     cumple: 2,
+    resumen:
+      'La actualización no llega sola: la ejecuta el administrador con un comando cuando decide.',
     comoLoHace:
       'En la instalación propia la actualización no llega sola: la ejecuta el administrador de la compañía ' +
       'con un comando, cuando decide hacerlo.',
@@ -234,6 +245,9 @@ test('B.1.6 — Conocimiento y decisión sobre dónde residen los datos', async 
     criterio: 'B.1.6',
     plataforma,
     cumple: 2,
+    resumen:
+      'Los datos residen donde la compañía instala el sistema, en el servidor, proveedor y país que elija; ' +
+      'su seguridad queda también a cargo de ella.',
     comoLoHace:
       'En la instalación propia la base de datos reside donde la compañía instala el sistema: en su propio ' +
       'servidor o en el proveedor que ella elija, en el país que ella elija.',
@@ -291,10 +305,12 @@ test('B.1.7 — Continuidad de la atención ante una caída del enlace', async (
     criterio: 'B.1.7',
     plataforma,
     cumple: 2,
+    resumen:
+      'Sin salida a internet, la atención diaria sigue —ingresar, buscar asegurados, registrar reclamos—; ' +
+      'solo se pierde lo que viaja por internet, como el correo.',
     comoLoHace:
-      'Con la salida a internet cortada —el navegador solo alcanzaba el servidor de la red propia— se ' +
-      'ingresó al sistema, se buscó un asegurado y se registró un reclamo, que es la atención de todos los ' +
-      'días.',
+      'Con la salida a internet cortada y solo la red propia alcanzable, el sistema permite ingresar, ' +
+      'buscar un asegurado y registrar un reclamo, que es la atención de todos los días.',
     caracteristicas:
       'La instalación propia no necesita nada de afuera para operar: lo que se pierde durante el corte es ' +
       'lo que por naturaleza viaja por internet, como el envío y la recepción de correo.',
@@ -313,9 +329,12 @@ test('B.1.7 — Continuidad de la atención ante una caída del enlace', async (
  * segundos que lo decida: elegir ese número sería decidir el resultado. Hasta
  * que se fija, el test mide, informa y no registra nada.
  */
-const VEREDICTO_B14: null | { cumple: 2 | 1 | 0; lectura: { caracteristicas: string; justificacion: string } } = {
+const VEREDICTO_B14: null | { cumple: 2 | 1 | 0; lectura: { resumen: string; caracteristicas: string; justificacion: string } } = {
   cumple: 2,
   lectura: {
+    resumen:
+      'Con 25.000 registros, buscar un asegurado entre cinco mil responde en menos de medio segundo y filtrar ' +
+      'doce mil quinientas pólizas por ramo, en alrededor de medio segundo.',
     caracteristicas:
       'Buscar un asegurado entre cinco mil respondió en menos de medio segundo las tres veces, y filtrar las ' +
       'doce mil quinientas pólizas por ramo, en alrededor de medio segundo: no hay espera que el usuario perciba.',
@@ -416,10 +435,11 @@ test('B.1.4 — Búsqueda y operación con volumen productivo', async ({ page },
       criterio: 'B.1.4',
       plataforma,
       cumple: VEREDICTO_B14.cumple,
+      resumen: VEREDICTO_B14.lectura.resumen,
       comoLoHace:
-        'Se cargó la cartera de referencia —cinco mil asegurados, doce mil quinientas pólizas y siete mil ' +
-        'quinientos reclamos, veinticinco mil registros— y con ella se repitieron las operaciones de todos los ' +
-        'días: buscar un asegurado por texto y filtrar las pólizas por ramo, tres veces cada una.',
+        'Con una cartera de referencia de veinticinco mil registros —cinco mil asegurados, doce mil ' +
+        'quinientas pólizas y siete mil quinientos reclamos— el sistema resuelve las operaciones de todos ' +
+        'los días: buscar un asegurado por texto y filtrar las pólizas por ramo.',
       caracteristicas: VEREDICTO_B14.lectura.caracteristicas,
       justificacion: VEREDICTO_B14.lectura.justificacion,
       evidencia: [capTexto, capFiltro],

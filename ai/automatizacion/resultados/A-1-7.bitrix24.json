@@ -3,7 +3,8 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "Se filtró el listado por el ramo Hogar, se tildó la casilla del encabezado —que selecciona las 3 pólizas— y en el desplegable de acciones de la selección se eligió «Cambiar a la persona responsable»: con el productor Gómez Productor y un solo «Aplicar», todas quedaron a su cargo.",
+  "resumen": "Cambia en bloque el productor responsable de todas las pólizas seleccionadas con una sola acción; otros campos propios, como el estado de cobranza, no se modifican en bloque.",
+  "comoLoHace": "En el listado filtrado se tilda la casilla del encabezado, que selecciona todas las pólizas, y en el desplegable de acciones de la selección se elige «Cambiar a la persona responsable»: con el productor elegido y un solo «Aplicar», todas quedan a su cargo.",
   "caracteristicas": "Las acciones de la selección vienen con el producto y no hay nada que configurar.",
   "justificacion": "Modificar en bloque otro campo propio, como el estado de cobranza, no figura entre ellas.",
   "evidencia": [

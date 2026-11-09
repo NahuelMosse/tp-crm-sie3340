@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "El aviso se armó con un flujo de trabajo, sin escribir código: cuando a una tarea se le pone responsable, lo busca y le envía un correo desde la casilla de la compañía. Se creó una tarea desde el listado, se la asignó al productor en su ficha, y le llegó el correo «Tarea nueva: Llamar al perito por el siniestro» sin que tuviera que abrir el listado.",
+  "resumen": "No avisa por sí mismo al asignar una tarea, porque no tiene centro de notificaciones; un flujo de trabajo envía al responsable un correo desde la casilla de la compañía.",
+  "comoLoHace": "El aviso se arma con un flujo de trabajo, sin escribir código: cuando a una tarea se le pone responsable, lo busca y le envía un correo desde la casilla de la compañía. Se crea la tarea desde el listado, se la asigna al productor en su ficha, y el correo le llega sin que tenga que abrir el listado.",
   "caracteristicas": "Twenty no avisa por su cuenta: la interfaz no tiene un centro de notificaciones y asignar una tarea no le manda nada al responsable.",
   "justificacion": "Armar el flujo es trabajo de una sola vez.",
   "evidencia": [

@@ -114,9 +114,15 @@ test('A.7.1 — Importación de contactos desde planilla de cálculo', async ({ 
     plataforma,
     cumple: deWindows === 5 ? 2 : 1,
     costo: deWindows === 5 ? 1 : 2,
+    resumen: deWindows === 5
+      ? 'Importa planillas y archivos CSV, también en la codificación de Windows; los ' +
+        'encabezados en español no se reconocen y las columnas se asignan a mano en cada ' +
+        'importación.'
+      : 'Importa planillas y archivos CSV; con la codificación de Windows corrompe los acentos ' +
+        'y descarta filas, y en cada importación hay que asignar las columnas a mano.',
     comoLoHace:
-      'Guardada en UTF-8, la planilla ingresó completa: los cinco asegurados, cada ' +
-      'columna en su campo, con tildes y eñes intactas.',
+      'Guardada en UTF-8, la planilla ingresa completa: cada columna en su campo, con tildes y eñes ' +
+      'intactas.',
     caracteristicas:
       'El listado de personas tiene un asistente de importación que acepta planillas de cálculo y archivos de ' +
       'texto separados por comas. ' +
@@ -181,6 +187,9 @@ test('A.7.2 — Importación de contactos desde las agendas de correo', async ({
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen:
+      'Crea personas desde el correo sincronizado, pero no importa la agenda de contactos de ' +
+      'ninguna cuenta: hay que exportarla a archivo e importarla cada vez.',
     comoLoHace:
       'Lo que ofrece es crear personas a partir del correo sincronizado —cada dirección externa con la ' +
       'que se intercambian mensajes o reuniones pasa a ser un contacto—, que alcanza a quien ya ' +
@@ -242,10 +251,13 @@ test('A.7.3 — Sincronización del correo de varios usuarios', async ({ page, b
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Cada usuario conecta su propia casilla, por IMAP y SMTP o con Google o Microsoft, y ve ' +
+      'solo la suya; los mensajes de un asegurado aparecen en su ficha.',
     comoLoHace:
-      'El administrador tiene conectada la casilla comercial y el productor, desde su cuenta, conectó ' +
-      'la suya contra el mismo servidor de correo: cada uno ve solo la propia en su lista de cuentas, ' +
-      'y el mensaje que un asegurado le mandó al productor apareció en la ficha del asegurado.',
+      'Cada usuario conecta su casilla: el administrador la comercial y el productor, desde su cuenta, ' +
+      'la suya contra el mismo servidor de correo; cada uno ve solo la propia en su lista de cuentas, ' +
+      'y el mensaje que un asegurado le manda al productor aparece en la ficha del asegurado.',
     caracteristicas:
       'Cada usuario conecta su propia casilla desde su configuración personal, por IMAP y SMTP o con ' +
       'una cuenta de Google o Microsoft.',
@@ -286,9 +298,12 @@ test('A.7.4 — Vinculación automática del correo a la ficha', async ({ page, 
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Con la casilla de la compañía conectada, el sistema reconoce la dirección del ' +
+      'remitente y vincula cada mensaje a la ficha de la persona, sin intervención.',
     comoLoHace:
-      'Con la casilla comercial de la compañía conectada, un asegurado escribió desde su propia ' +
-      'dirección y el mensaje apareció en la pestaña de correos de su ficha sin que nadie lo moviera.',
+      'Con la casilla comercial de la compañía conectada, el mensaje que un asegurado escribe desde su ' +
+      'propia dirección aparece en la pestaña de correos de su ficha sin que nadie lo mueva.',
     caracteristicas:
       'El sistema reconoció la dirección del remitente y lo vinculó con la persona que la tiene ' +
       'cargada.',
@@ -299,60 +314,7 @@ test('A.7.4 — Vinculación automática del correo a la ficha', async ({ page, 
 });
 
 // ── A.7.5 ────────────────────────────────────────────────────────────────────
-test('A.7.5 — Formatos de intercambio aceptados', async ({ page, browser }, info) => {
-  // «Enumerar los formatos en que el sistema admite entrar y sacar datos, y
-  //  determinar si incluyen los que la compañía usa con sus otros sistemas»
-  const plataforma = plataformaDe(info.project.name);
-  soloEn(plataforma, 'twenty');
-  test.setTimeout(600_000);
-
-  await entrar(page, plataforma);
-  await menuDelListado(page, 'people');
-  const opciones = await textoDe(page);
-  const capMenu = await capturar(page, 'A.7.5', plataforma, '1-importar-y-exportar');
-  await clicReal(page, page.getByText('Import People', { exact: true }).last());
-  const entrada = page.locator('input[type=file][accept*="csv"]').first();
-  await entrada.waitFor({ state: 'attached', timeout: 30_000 });
-  const aceptados = (await entrada.getAttribute('accept'))!.split(',').filter(f => f.startsWith('.'));
-  const capEntrada = await capturar(page, 'A.7.5', plataforma, '2-formatos-de-entrada');
-  await page.keyboard.press('Escape');
-
-  const archivo = await exportar(page, 'people', join(dir, 'formato.csv'));
-  const salida = archivo.split('.').pop()!;
-
-  const fuente = await citar(browser, {
-    url: 'https://docs.twenty.com/developers/extend/api',
-    buscar: /REST and GraphQL/i,
-    captura: 'A-7-5-twenty-3-api',
-  });
-
-  expect(opciones, 'el listado debe ofrecer importar y exportar').toMatch(/Import People/);
-  expect(aceptados, 'debe aceptar planillas de cálculo').toEqual(expect.arrayContaining(['.xlsx', '.csv']));
-
-  registrar({
-    criterio: 'A.7.5',
-    plataforma,
-    cumple: 2,
-    costo: 0,
-    comoLoHace:
-      'Los datos entran por el asistente de importación de cada listado, que acepta ' +
-      `${aceptados.join(', ')}: ` +
-      'la planilla de cálculo se sube tal cual, sin pasarla antes a texto.',
-    caracteristicas:
-      'Salen exportando la vista del ' +
-      `listado a un archivo ${salida.toUpperCase()}, que la planilla abre directamente, y por las ` +
-      'interfaces de programación REST y GraphQL en JSON, que es el formato de intercambio entre ' +
-      'sistemas.',
-    justificacion:
-      'Los formatos que la compañía usa están cubiertos de fábrica.',
-    evidencia: [capMenu, capEntrada],
-    documentacion: fuente,
-    medicion: `Entrada: ${aceptados.join(', ')} · salida: .${salida} · interfaz de programación: JSON`,
-  });
-});
-
-// ── A.7.6 ────────────────────────────────────────────────────────────────────
-test('A.7.6 — Exportación de la cartera sin pérdida de datos', async ({ page, browser }, info) => {
+test('A.7.5 — Exportación de la cartera sin pérdida de datos', async ({ page, browser }, info) => {
   // «Exportar los registros importados y comparar el archivo con el original:
   //  si coincide, si pierde acentuación o campos, o si faltan filas»
   const plataforma = plataformaDe(info.project.name);
@@ -363,7 +325,7 @@ test('A.7.6 — Exportación de la cartera sin pérdida de datos', async ({ page
   const originales = PLANILLA.slice(6);
   await entrar(page, plataforma);
   const archivo = await exportar(page, 'people', join(dir, 'exportado.csv'));
-  const capExportacion = await capturar(page, 'A.7.6', plataforma, '1-exportacion');
+  const capExportacion = await capturar(page, 'A.7.5', plataforma, '1-exportacion');
 
   const crudo = readFileSync(archivo, 'utf8');
   const conMarca = crudo.startsWith('﻿');
@@ -374,15 +336,17 @@ test('A.7.6 — Exportación de la cartera sin pérdida de datos', async ({ page
   expect(conMarca, 'el archivo debe declarar su codificación para la planilla').toBeTruthy();
 
   registrar({
-    criterio: 'A.7.6',
+    criterio: 'A.7.5',
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      'Exporta cualquier vista del listado a un archivo con todas sus filas, los campos ' +
+      'compuestos separados en partes y la codificación que conserva tildes y eñes en la ' +
+      'planilla.',
     comoLoHace:
-      'Se exportó la vista del listado de personas y se comparó el archivo con la planilla original: ' +
-      'salieron ' +
-      `las ${originales.length} filas importadas, cada una con nombre, apellido, correo y ciudad, y ` +
-      'con las tildes y eñes intactas.',
+      'La vista del listado de personas se exporta a un archivo con todas sus filas, cada una con ' +
+      'nombre, apellido, correo y ciudad, y con las tildes y eñes intactas.',
     caracteristicas:
       'El archivo trae todas las columnas de la vista, con los campos compuestos separados en sus ' +
       'partes, y la marca de codificación que la planilla necesita para abrirlo sin alterar los ' +

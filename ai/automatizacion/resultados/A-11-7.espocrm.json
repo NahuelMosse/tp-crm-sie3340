@@ -2,6 +2,7 @@
   "criterio": "A.11.7",
   "plataforma": "espocrm",
   "cumple": 2,
+  "resumen": "No limita la cantidad de usuarios: la licencia es libre y el único tope es el del equipo.",
   "comoLoHace": "La edición evaluada se distribuye bajo una licencia libre que no limita la cantidad de usuarios, y la instalación no impone ningún tope: se dan de alta los que la compañía necesite, sea cual fuere su plantel de productores y de personal administrativo.",
   "caracteristicas": "El único límite es el del equipo donde corre.",
   "justificacion": "Los topes que publica el fabricante corresponden a los planes de la nube, que se cobran por usuario.",

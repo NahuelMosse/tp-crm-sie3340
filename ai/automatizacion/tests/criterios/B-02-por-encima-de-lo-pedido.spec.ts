@@ -40,6 +40,8 @@ test('B.2.1 — Asistente de inteligencia artificial', async ({ page, browser },
     criterio: 'B.2.1',
     plataforma,
     cumple: 0,
+    resumen:
+      'No incluye asistente de inteligencia artificial: el fabricante lo vende como extensión aparte.',
     comoLoHace:
       'La edición gratuita no incluye un asistente de inteligencia artificial: la administración no ofrece ' +
       'ninguna función de ese tipo y el fabricante la vende como extensión aparte.',
@@ -97,9 +99,12 @@ test('B.2.2 — Aplicación móvil nativa', async ({ page, browser }, info) => {
     criterio: 'B.2.2',
     plataforma,
     cumple: 0,
+    resumen:
+      'El fabricante no publica aplicación móvil nativa; la misma interfaz se adapta a la pantalla del ' +
+      'teléfono y se usa desde el navegador con conexión.',
     comoLoHace:
-      `En la tienda de aplicaciones, la búsqueda del producto devuelve ${delProducto.length} aplicaciones ` +
-      'hechas para este producto, y todas son de desarrolladores independientes, sin respaldo del ' +
+      'En la tienda de aplicaciones, la búsqueda del producto devuelve solo aplicaciones de desarrolladores ' +
+      'independientes, sin respaldo del ' +
       'fabricante; ni su catálogo de extensiones ni su página de descarga ofrecen una. Lo que sí ofrece es ' +
       'la misma interfaz adaptada a la pantalla del teléfono, que se usa desde el navegador con conexión: ' +
       'el productor puede consultar y cargar durante una visita, pero no es una aplicación instalada.',
@@ -140,6 +145,9 @@ test('B.2.3 — Suite de trabajo integrada', async ({ page }, info) => {
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen:
+      `Reúne ${herramientas.join(', ')} sobre los mismos datos del asegurado; no trae mensajería ` +
+      'instantánea, edición colaborativa de documentos ni firma electrónica.',
     comoLoHace:
       `Además del CRM, el producto incluye ${herramientas.join(', ')} y una línea de publicaciones internas ` +
       'en cada registro, y todas operan sobre los mismos datos: un correo queda en la ficha del asegurado, ' +
@@ -181,6 +189,9 @@ test('B.2.4 — Telefonía y videollamada integradas', async ({ page, browser },
     criterio: 'B.2.4',
     plataforma,
     cumple: 0,
+    resumen:
+      'No integra telefonía ni videollamada: el teléfono de la ficha abre el marcador y la llamada se ' +
+      'registra a mano. El fabricante las vende como extensiones aparte.',
     comoLoHace:
       'La edición gratuita no integra telefonía ni videollamada: el número de teléfono de una ficha abre el ' +
       'marcador del equipo, pero la llamada ocurre afuera y se registra a mano.',
@@ -207,50 +218,5 @@ test('B.2.4 — Telefonía y videollamada integradas', async ({ page, browser },
         justificacion: 'El servicio en la nube incluye las dos extensiones entre todas las del fabricante.',
       }),
     ],
-  });
-});
-
-// ── B.2.5 ────────────────────────────────────────────────────────────────────
-test('B.2.5 — Uso sin restricciones comerciales en la interfaz', async ({ page }, info) => {
-  // «Recorrer las pantallas de uso diario y registrar la presencia de avisos de venta»
-  const plataforma = plataformaDe(info.project.name);
-  soloEn(plataforma, 'espocrm');
-  test.setTimeout(400_000);
-
-  await entrar(page, plataforma);
-  const avisos: string[] = [];
-  const capturas: string[] = [];
-  for (const [ir, paso] of [
-    [() => inicio(page), 'inicio'],
-    [() => listado(page, 'Contact'), 'asegurados'],
-    [() => listado(page, 'CPoliza'), 'polizas'],
-    [() => listado(page, 'Case'), 'reclamos'],
-    [() => listado(page, 'Opportunity'), 'oportunidades'],
-    [() => pestana(page, 'Calendar'), 'calendario'],
-  ] as const) {
-    await ir();
-    await page.waitForTimeout(4000);
-    const texto = await textoDe(page);
-    const venta = texto.match(/mejor(e|á) su plan|upgrade|comprar|buy now|suscrib|prueba gratuita|trial|premium/gi);
-    if (venta) avisos.push(`${paso}: ${[...new Set(venta)].join(', ')}`);
-    capturas.push(await capturar(page, 'B.2.5', plataforma, paso));
-  }
-
-  expect(avisos, 'las pantallas de uso diario no deben mostrar avisos de venta').toEqual([]);
-
-  registrar({
-    criterio: 'B.2.5',
-    plataforma,
-    cumple: 2,
-    costo: 0,
-    comoLoHace:
-      'Se recorrieron las pantallas de uso diario —inicio, asegurados, pólizas, reclamos, oportunidades y ' +
-      'calendario— y ninguna muestra avisos de venta, invitaciones a mejorar el plan ni funciones ' +
-      'bloqueadas a la vista.',
-    caracteristicas:
-      'Lo que no está en la edición gratuita simplemente no aparece.',
-    justificacion:
-      'El usuario trabaja sin interrupciones comerciales.',
-    evidencia: capturas,
   });
 });

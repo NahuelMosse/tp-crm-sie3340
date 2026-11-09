@@ -1,5 +1,5 @@
 import { test, expect } from '../../humano';
-import { registrar, sinVerificar } from '../../evaluar';
+import { registrar } from '../../evaluar';
 import { entrar, plataformaDe } from '../../sesion';
 import { soloEn, capturar } from '../comun';
 import { citar } from '../../fuentes';
@@ -114,9 +114,11 @@ test('A.4.1 — Segmentación reutilizable de la cartera', async ({ page }, info
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen: 'Guarda con nombre un segmento de contactos definido por criterio; al reabrirlo recalcula quiénes lo cumplen, de modo que entran solos los que lo cumplan después.',
     comoLoHace:
-      'Desde el listado de contactos se definió un conjunto por un criterio —los asegurados que llegaron ' +
-      'por recomendación— y se lo guardó con nombre desde el propio filtro, sin programar.',
+      'Desde el listado de contactos se define un conjunto por un criterio —por ejemplo, los ' +
+      'asegurados que llegaron por recomendación— y se lo guarda con nombre desde el propio filtro, ' +
+      'sin programar.',
     caracteristicas:
       'Al salir del listado y volver, el segmento figura entre los filtros guardados; al abrirlo trajo de ' +
       'nuevo los mismos asegurados, y como se guarda el criterio y no la lista, uno que lo cumpla más ' +
@@ -233,11 +235,12 @@ test('A.4.2 — Diseño de campañas sobre un segmento', async ({ page, browser 
     criterio: 'A.4.2',
     plataforma,
     cumple: 0,
+    resumen: 'La edición gratuita no permite crear campañas de correo sobre un segmento: la herramienta exige el plan Standard o el Professional.',
     comoLoHace:
-      'En la edición gratuita no se puede crear una campaña: se abrió el segmento guardado, se marcaron ' +
-      `sus ${segmento.length} asegurados y se pidió «Crear boletín», y el sistema respondió que la ` +
-      'herramienta «estará disponible una vez que actualice su plan»; desde Marketing, «Campaña de correo ' +
-      'electrónico» dice que se desbloquea con el plan Standard o el Professional.',
+      'En la edición gratuita no se puede crear una campaña: al pedir «Crear boletín» sobre un ' +
+      'segmento guardado, el sistema responde que la herramienta «estará disponible una vez que ' +
+      'actualice su plan»; desde Marketing, «Campaña de correo electrónico» dice que se desbloquea ' +
+      'con el plan Standard o el Professional.',
     caracteristicas:
       'El producto sí la tiene: la campaña se dirige a un segmento existente y su contenido se personaliza ' +
       'con datos del CRM, como el nombre.',
@@ -303,6 +306,7 @@ test('A.4.3 — Medición de los resultados de la campaña', async ({ page, brow
     criterio: 'A.4.3',
     plataforma,
     cumple: 0,
+    resumen: 'La edición gratuita no tiene campañas, por lo que no hay envíos que medir. La medición de aperturas y clics depende del plan Standard o del Professional.',
     comoLoHace:
       'El fabricante documenta lo que el producto mide cuando la campaña sale: envíos, y con el seguimiento ' +
       'del correo activado, aperturas y clics.',
@@ -331,56 +335,75 @@ async function desconectar(page: Pagina) {
 }
 
 // ── A.4.4 ────────────────────────────────────────────────────────────────────
-test('A.4.4 — Captación de interesados desde redes sociales', async ({ page, browser }, info) => {
+test('A.4.4 — Captación de interesados desde redes sociales', async ({ page }, info) => {
   // «Buscar la conexión con alguna red social y comprobar que permite
   //  incorporar interesados a la base»
   const plataforma = plataformaDe(info.project.name);
   soloEn(plataforma, 'bitrix24');
   test.setTimeout(600_000);
+  const MENSAJE = 'Hola, quiero cotizar un seguro para mi auto';
 
   await entrar(page, plataforma);
+
+  // La conexión con las redes está en el centro de contacto
   await menuLateral(page, 'CRM');
   await pestana(page, 'Clientes', 'Contact center');
   const catalogo = await textoDe(page);
   const capCatalogo = await capturar(page, 'A.4.4', plataforma, '1-canales');
 
-  // La conexión con Facebook: se abre su tarjeta y se sigue hasta el paso que pide la cuenta de la red
-  await panel(page).getByText('Facebook', { exact: true }).first().click();
-  await panelListo(page, /Responda a las preguntas de sus clientes en Facebook|No se ha terminado la instalación/);
-  // Una conexión que quedó a medias de una prueba anterior se desconecta antes de empezar
-  if (await panel(page).getByText('No se ha terminado la instalación').first().isVisible().catch(() => false)) {
-    await desconectar(page);
-    await panelListo(page, /Responda a las preguntas de sus clientes en Facebook/);
-  }
-  const presentacion = await textoDe(page);
-  await panel(page).getByRole('button', { name: /^conectar$/i }).click();
-  await panelListo(page, /Iniciar sesión/i);
-  const paso = await textoDe(page);
-  const capConexion = await capturar(page, 'A.4.4', plataforma, '2-conexion-con-facebook');
-  await cerrarPaneles(page);
+  // El interesado escribió al bot de Telegram conectado al canal abierto; llegó como contacto
+  await listadoDeContactos(page);
+  await page.locator('.main-grid-row a[href*="/crm/contact/details/"]').filter({ hasText: 'Nawi' }).first().click();
+  await panelListo(page, /Nawi/);
+  await page.waitForTimeout(5000);
+  const ficha = await textoDe(page);
+  const capFicha = await capturar(page, 'A.4.4', plataforma, '2-contacto-creado');
 
-  // El portal queda como estaba: la conexión a medias se desconecta desde su propia tarjeta
-  await pestana(page, 'Clientes', 'Contact center');
-  await panel(page).getByText('Facebook', { exact: true }).first().click();
-  await panelListo(page, /No se ha terminado la instalación/);
-  await desconectar(page);
-  await cerrarPaneles(page);
+  // Desde la ficha se abre la conversación y se ve lo que escribió
+  await panel(page).getByText('Abrir', { exact: true }).filter({ visible: true }).first().click();
+  const mensaje = page.getByText(MENSAJE, { exact: true }).filter({ visible: true }).first();
+  await mensaje.waitFor({ state: 'visible', timeout: 30_000 });
+  await page.waitForTimeout(1500);
+  const conversacion = await page.locator('body').innerText();
+  const capConversacion = await capturar(page, 'A.4.4', plataforma, '3-conversacion');
 
-  const fila = await comparativo(browser, /^Facebook, Instagram, etc\./, 'A-4-4-bitrix24-3-redes-por-plan');
+  // Lo que quedó en la base
+  const contactos = await rest<any[]>(page, 'crm.contact.list', { filter: { SOURCE_ID: '2|TELEGRAM' }, select: ['ID', 'NAME', 'SOURCE_ID'] });
+  const prospectos = await rest<any[]>(page, 'crm.lead.list', { filter: { SOURCE_ID: '2|TELEGRAM' }, select: ['ID', 'TITLE', 'SOURCE_ID'] });
 
-  expect(catalogo, 'el centro de contacto debe ofrecer Facebook e Instagram').toMatch(/Facebook[\s\S]*Instagram Direct/);
-  expect(presentacion).toMatch(/historial de comunicaciones en el CRM/);
-  expect(paso, 'el siguiente paso pide autorizar con la cuenta de Facebook').toMatch(/autorice con la cuenta de Facebook/i);
-  expect(fila.planes[CODIGOS.free], 'la conexión con redes viene en la edición gratuita').toBe('check');
+  expect(catalogo, 'el centro de contacto ofrece Telegram').toMatch(/Telegram/);
+  expect(ficha, 'el contacto lleva el origen de la red').toMatch(/Origen\s*Telegram - Canal Abierto/);
+  expect(ficha, 'la ficha enlaza el canal por el que llegó').toMatch(/Messenger\s*Telegram\s*Canal Abierto/);
+  expect(conversacion, 'la conversación trae el mensaje del interesado').toContain(MENSAJE);
+  expect(conversacion, 'el sistema avisó que creó el contacto').toMatch(/Nuevo contacto creado/);
+  expect(contactos.length, 'el interesado quedó como contacto').toBeGreaterThan(0);
+  expect(prospectos.length, 'y como prospecto en el CRM').toBeGreaterThan(0);
 
-  // La conexión exige autorizar con la cuenta que administra la página: sin ella no entra ningún
-  // mensaje y no se puede observar que el interesado quede en la base
-  sinVerificar('A.4.4', plataforma,
-    'El centro de contacto ofrece conectar Facebook, Instagram, Telegram y otros canales, y en la edición ' +
-    'gratuita la conexión no encuentra muro de pago, pero exige autorizar con la cuenta que administra la ' +
-    'página de la compañía. Sin esa cuenta no entró ningún mensaje y no se pudo comprobar que el contacto ' +
-    'quede como interesado en la base.');
-  void capCatalogo; void capConexion;
+  registrar({
+    criterio: 'A.4.4',
+    plataforma,
+    cumple: 2,
+    costo: 1,
+    resumen: 'Conecta el bot de Telegram y crea solo un contacto y una negociación por cada interesado, con su origen y la conversación; cobertura y urgencia se completan a mano.',
+    comoLoHace:
+      'En Clientes › Contact center se conecta una vez el bot de Telegram de la compañía al canal ' +
+      'abierto, pegando su clave de acceso, sin planes de pago. Cuando un interesado le escribe al ' +
+      'bot, el sistema crea solo, sin intervención de nadie, un contacto y una negociación (la ' +
+      'ficha la menciona como prospecto); desde la ficha del contacto, con «Abrir», se ve la ' +
+      'conversación con el mensaje tal como llegó.',
+    caracteristicas:
+      'El contacto queda con el origen «Telegram - Canal Abierto» y con el enlace al canal en la ficha; ' +
+      'la negociación se llama «Nawi - Canal Abierto», se asigna al responsable de la cola del canal y la ' +
+      'conversación completa queda en el historial del contacto. El texto del mensaje no se vuelca a campos ' +
+      '(cobertura solicitada y urgencia quedan vacíos): se completan a mano desde la ficha. ' +
+      'La edición gratuita incluye Telegram además de Facebook e Instagram.',
+    justificacion:
+      'La necesidad queda resuelta: el interesado que escribe por la red entra a la base como cualquier ' +
+      'otro, con su origen. Conectar el canal es configuración de una sola vez, por eso el costo es 1; ' +
+      'completar los datos del seguro en cada contacto es tarea del agente, pero no impide que el ' +
+      'interesado esté en la base.',
+    evidencia: [capCatalogo, capFicha, capConversacion],
+  });
 });
 
 // ── A.4.5 ────────────────────────────────────────────────────────────────────
@@ -434,11 +457,13 @@ test('A.4.5 — Escucha de menciones en canales públicos', async ({ page, brows
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen: 'Trae los comentarios de la página de Facebook de la compañía al CRM, pero no sigue menciones en canales públicos ni de la competencia; eso requiere una herramienta externa.',
     comoLoHace:
-      'Lo más cercano es el conector «Facebook: Comentarios» del centro de contacto, disponible en la ' +
-      'edición gratuita, que trae los comentarios de la página propia de la compañía al CRM: cubre lo que ' +
-      'se dice en sus propios canales, y solo ahí. El catálogo de aplicaciones tampoco ofrece una de ' +
-      'escucha: se buscó «menciones», «social listening» y «brand monitoring» y no aparece ninguna.',
+      'Lo más cercano es el conector «Facebook: Comentarios» del centro de contacto, disponible en ' +
+      'la edición gratuita, que trae los comentarios de la página propia de la compañía al CRM: ' +
+      'cubre lo que se dice en sus propios canales, y solo ahí. El catálogo de aplicaciones tampoco ' +
+      'ofrece una de escucha: para «menciones», «social listening» y «brand monitoring» no aparece ' +
+      'ninguna.',
     caracteristicas:
       'El fabricante promociona «monitoreo de redes desde el CRM», que en el producto es ese mismo ' +
       'intercambio de mensajes y comentarios propios.',
@@ -485,6 +510,7 @@ test('A.4.6 — Publicación en redes desde el sistema', async ({ page, browser 
     criterio: 'A.4.6',
     plataforma,
     cumple: 0,
+    resumen: 'El sistema no publica en las redes.',
     comoLoHace:
       'El sistema no publica en las redes: lo único que emite hacia Facebook e Instagram son anuncios ' +
       'pagos sobre publicaciones que ya existen en la red o sobre un segmento del CRM, desde «Marketing › ' +
@@ -556,10 +582,11 @@ test('A.4.7 — Registro de la competencia y del motivo de pérdida', async ({ p
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen: 'Registra el motivo de pérdida como lista y el competidor como texto en campos propios de la negociación; el cierre de fábrica solo pregunta el resultado.',
     comoLoHace:
-      'Se agregaron dos campos propios a la negociación, el motivo, como lista, y el competidor, como ' +
-      'texto; se marcó una oportunidad como perdida y se le registraron el motivo y el competidor desde su ' +
-      'ficha, y quedaron guardados.',
+      'Se agregan dos campos propios a la negociación, el motivo, como lista, y el competidor, como ' +
+      'texto; al marcar una oportunidad como perdida se registran el motivo y el competidor desde ' +
+      'su ficha, y quedan guardados.',
     caracteristicas:
       'Al cerrar una negociación como perdida el sistema pregunta solo el resultado —«Cerrado Perdido» o ' +
       '«Analizar la falla», las dos etapas de fábrica—: no trae dónde anotar por qué se perdió ni quién la ' +

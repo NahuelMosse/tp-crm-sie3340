@@ -2,6 +2,7 @@
   "criterio": "A.11.13",
   "plataforma": "twenty",
   "cumple": 0,
+  "resumen": "Ningún nivel de soporte compromete un plazo de respuesta: la edición gratuita se apoya en la comunidad y Organization suma soporte prioritario, sin declarar tiempos.",
   "comoLoHace": "La oferta de soporte del fabricante tiene tres niveles y ninguno compromete un plazo: la edición gratuita se apoya en la comunidad, en su servidor de chat; el plan Organization en la nube agrega soporte prioritario, y en la instalación propia, soporte del equipo del fabricante, sin que ninguno declare en cuánto tiempo responde.",
   "justificacion": "La condición que la compañía necesita —saber en cuánto tiempo le van a responder cuando el sistema falle— no la ofrece ninguna modalidad publicada.",
   "documentacion": [

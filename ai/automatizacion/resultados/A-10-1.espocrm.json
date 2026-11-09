@@ -3,6 +3,7 @@
   "plataforma": "espocrm",
   "cumple": 1,
   "costo": 2,
+  "resumen": "No suma ni promedia pólizas ni reclamos: los indicadores son de ventas y lo demás se calcula exportando a XLSX o CSV. Lo resuelve el módulo de informes.",
   "comoLoHace": "Para obtener el total de primas por estado de cobranza o el tiempo promedio de resolución hay que exportar el listado —XLSX · Spreadsheet o CSV— y calcularlo en una planilla, cada vez que se quiere ver el número.",
   "caracteristicas": "Los indicadores que trae la edición gratuita son los de ventas —oportunidades por etapa, por origen y por mes—. Para las pólizas y los reclamos el tablero ofrece listas, como los tickets pendientes de cada usuario, pero ninguna suma ni promedia.",
   "justificacion": "Los totales y promedios sobre pólizas y reclamos se obtienen exportando el listado y calculándolos en una planilla cada vez, porque el tablero de la edición gratuita ofrece listas y ninguna suma ni promedia. El módulo de informes que vende el fabricante agrupa y resume con sumas y promedios, y lo muestra en el tablero.",

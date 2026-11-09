@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "Se creó una desde el listado, se la asignó al productor y se le puso fecha y hora de vencimiento desde su ficha. Al ingresar con la cuenta del productor, figura en la vista de las tareas asignadas a él, con su vencimiento.",
+  "resumen": "Las tareas vienen de fábrica con responsable y fecha y hora de vencimiento, y cada usuario ve en una vista las que tiene asignadas.",
+  "comoLoHace": "La tarea se crea desde el listado, se asigna al productor y se le pone fecha y hora de vencimiento desde su ficha. Al ingresar con la cuenta del productor, figura en la vista de las tareas asignadas a él, con su vencimiento.",
   "caracteristicas": "Las tareas vienen de fábrica con responsable y vencimiento.",
   "justificacion": "Viene listo.",
   "evidencia": [

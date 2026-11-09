@@ -2,6 +2,7 @@
   "criterio": "A.11.1",
   "plataforma": "twenty",
   "cumple": 1,
+  "resumen": "Se instala en infraestructura propia, con cuatro contenedores y 2 GB de memoria como mínimo; alguien debe mantener ese equipo encendido, respaldado y actualizado.",
   "comoLoHace": "La edición gratuita se instala en infraestructura de la compañía, con cuatro contenedores: la aplicación, un proceso que ejecuta las tareas en segundo plano, la base de datos y una memoria intermedia. El servicio en la nube del fabricante elimina esa carga.",
   "caracteristicas": "No exige un servidor dedicado: el fabricante pide al menos 2 GB de memoria, y la instalación evaluada corre en un equipo de escritorio común, donde ocupa 2421 MB con la cartera de prueba cargada.",
   "justificacion": "La condición se satisface con una limitación que la compañía asume de forma permanente: alguien tiene que mantener ese equipo encendido, respaldado y actualizado.",

@@ -3,9 +3,10 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "Se registró un reclamo asociado a un asegurado y el sistema le asignó el número 102447 al guardarlo; la ficha muestra al asegurado y el reclamo figura en el listado de casos.",
+  "resumen": "Trae el reclamo como caso de atención con entidad propia: número asignado al guardarlo, asociación al asegurado, listado y ficha.",
+  "comoLoHace": "Al guardar un reclamo asociado a un asegurado, el sistema le asigna un número; la ficha muestra al asegurado y el reclamo figura en el listado de casos.",
   "caracteristicas": "El producto trae el caso de atención como entidad propia, con su entrada de menú, su listado y su ficha.",
-  "justificacion": "No hubo que crear ni configurar nada: viene listo con la instalación. El número propio es lo que permite que la compañía y el asegurado hablen del mismo reclamo sin ambigüedad.",
+  "justificacion": "Viene listo con la instalación: no requiere crear ni configurar nada. El número propio es lo que permite que la compañía y el asegurado hablen del mismo reclamo sin ambigüedad.",
   "evidencia": [
     "A-5-1-espocrm-1-alta.png",
     "A-5-1-espocrm-2-ficha.png",

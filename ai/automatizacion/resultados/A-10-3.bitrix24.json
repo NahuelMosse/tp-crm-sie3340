@@ -3,7 +3,8 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "El informe de primas por productor se guardó una sola vez, sin período fijo, y la pantalla del informe trae el período como parámetro: se ejecutó del 1 al 20 de septiembre y, sin volver a armarlo, se lo volvió a ejecutar del 1 de enero al 31 de marzo.",
+  "resumen": "Guarda el informe de primas por productor sin período fijo y pide el rango de fechas en cada ejecución, sin volver a armarlo.",
+  "comoLoHace": "El informe de primas por productor se guarda una sola vez, sin período fijo, y la pantalla del informe trae el período como parámetro: se lo ejecuta para un rango de fechas y, sin volver a armarlo, se lo vuelve a ejecutar para otro.",
   "caracteristicas": "Cada ejecución recalculó los totales por productor —Gómez Productor 900 y Nahuel Mosse 300 en septiembre; Nahuel Mosse 900 en el primer trimestre—, iguales a los que suman las negociaciones.",
   "justificacion": "Armarlo es configuración de una vez; el período se pide cada vez que se abre.",
   "evidencia": [

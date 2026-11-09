@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Se agregó el documento como campo de texto y, al crearlo, se lo marcó como único con un interruptor de la misma pantalla. Se cargó un asegurado con su documento y, al cargar otro con el mismo documento y el apellido escrito distinto, el sistema rechazó el valor y avisó: «This record already exists. Please check your data and try again.».",
+  "resumen": "Un campo del documento marcado como único rechaza el alta de un asegurado repetido; de fábrica la persona solo se compara por nombre, correo y LinkedIn para sugerir duplicados.",
+  "comoLoHace": "Desde Configuración › Modelo de datos se agrega el documento como campo de texto y, al crearlo, se lo marca como único con un interruptor de la misma pantalla. Al cargar un asegurado con un documento ya registrado, aunque el apellido esté escrito distinto, el sistema rechaza el valor y avisa que el registro ya existe.",
   "caracteristicas": "De fábrica la persona se compara por nombre, correo y perfil de LinkedIn para sugerir duplicados, pero no trae documento.",
   "justificacion": "La necesidad queda resuelta con configuración de una sola vez, sin programar.",
   "evidencia": [

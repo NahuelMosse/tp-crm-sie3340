@@ -3,7 +3,8 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Desde el formulario de la negociación —que en la edición gratuita hace de póliza, a falta de entidades propias— se agregan campos de tipo lista sin programar. Se definieron los ramos —Automotor, Hogar, Vida, Salud— y los estados de cobranza, se cargó una póliza de cada ramo y a la de salud se le cambió el estado desde su ficha: todo quedó guardado.",
+  "resumen": "Agrega campos de lista para el ramo y el estado de cobranza sin programar; el usuario elige de la lista y no puede cargar un valor imprevisto.",
+  "comoLoHace": "Desde el formulario de la negociación —que en la edición gratuita hace de póliza, a falta de entidades propias— se agregan campos de tipo lista sin programar, por ejemplo el ramo y el estado de cobranza. Cada póliza se carga con valores elegidos de esas listas y el estado se cambia desde su ficha.",
   "caracteristicas": "El usuario elige de la lista y no puede escribir un valor imprevisto.",
   "justificacion": "Definir los campos es configuración de una vez, en el mismo formulario.",
   "evidencia": [

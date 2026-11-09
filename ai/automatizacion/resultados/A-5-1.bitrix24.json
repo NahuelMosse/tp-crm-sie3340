@@ -2,7 +2,8 @@
   "criterio": "A.5.1",
   "plataforma": "bitrix24",
   "cumple": 1,
-  "comoLoHace": "El reclamo se lleva entonces como una negociación con el asegurado como cliente: recibe un número propio, abre su propia ficha y queda asociada al contacto (reclamo n.º 226).",
+  "resumen": "Lleva el reclamo como una negociación con número, ficha y vínculo con el asegurado, pero comparte listado con pólizas y oportunidades, y se separa a mano en cada consulta.",
+  "comoLoHace": "El reclamo se lleva entonces como una negociación con el asegurado como cliente: recibe un número propio, abre su propia ficha y queda asociada al contacto.",
   "caracteristicas": "No tiene listado propio: comparte el de las demás negociaciones —pólizas y oportunidades—, y hay que distinguirlo por el nombre o con un filtro en cada uso.",
   "justificacion": "La edición gratuita no permite crear una entidad Reclamo ni vincular tareas al asegurado: «Tareas en CRM» requiere al menos el plan Basic. El reclamo se lleva igual como una negociación con número y ficha propios, pero mezclado con pólizas y oportunidades, y hay que separarlo en cada consulta.",
   "evidencia": [

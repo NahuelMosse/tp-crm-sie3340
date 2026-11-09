@@ -3,7 +3,8 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Los campos de inicio y de fin de vigencia se agregan como campos de fecha desde la administración, y el sistema los trata como tales y no como texto. Se cargaron dos pólizas, una que vence en doce días y otra en trescientos: ordenado por vencimiento, el listado pone primero la que vence antes, y la condición \"vence en los próximos 30 días\" devuelve la primera y deja afuera la segunda.",
+  "resumen": "Trata el inicio y el fin de vigencia como fechas: ordena por vencimiento y filtra por rangos, como los próximos 30 días.",
+  "comoLoHace": "Los campos de inicio y de fin de vigencia se agregan como campos de fecha desde la administración, y el sistema los trata como tales y no como texto: el listado se ordena por vencimiento y admite la condición «vence en los próximos 30 días».",
   "caracteristicas": "El filtro ofrece 21 comparaciones propias de una fecha —próximos o últimos X días, antes, después, entre, mes o trimestre en curso—.",
   "justificacion": "Para poder filtrar por un campo propio hay que habilitarlo antes entre los filtros de búsqueda del listado, en la misma administración: configuración inicial, no desarrollo.",
   "evidencia": [

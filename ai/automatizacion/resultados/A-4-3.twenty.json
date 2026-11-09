@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 1,
   "costo": 2,
-  "comoLoHace": "Las respuestas llegan: el asegurado contestó y la casilla sincronizada trajo su respuesta a su ficha.",
+  "resumen": "Cada envío queda como una corrida con el resultado de cada paso; no registra aperturas ni reúne cuántos recibieron o contestaron.",
+  "comoLoHace": "Las respuestas llegan: la casilla sincronizada trae la respuesta del asegurado a su ficha.",
   "caracteristicas": "De la campaña armada con un flujo de trabajo queda el registro del envío: cada lanzamiento es una corrida con el resultado de cada paso. Las aperturas no se registran, y nada reúne los resultados de la campaña: cuántos la recibieron, cuántos contestaron.",
   "justificacion": "Saberlo exige revisar las corridas y las fichas, una por una, después de cada envío.",
   "evidencia": [

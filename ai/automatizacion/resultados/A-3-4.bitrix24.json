@@ -2,7 +2,8 @@
   "criterio": "A.3.4",
   "plataforma": "bitrix24",
   "cumple": 1,
-  "comoLoHace": "Se cargaron dos oportunidades (10.000 con 50 % y 20.000 con 25 %) y quedaron guardadas.",
+  "resumen": "Guarda monto y probabilidad de cada oportunidad, pero no calcula el total proyectado por período: la proyección se hace fuera del sistema. El informe de tendencia exige otro plan.",
+  "comoLoHace": "La negociación, que hace de oportunidad comercial, se carga con su monto y su probabilidad, y quedan guardados.",
   "caracteristicas": "La negociación, que hace de oportunidad comercial, admite monto y probabilidad: el campo «Probabilidad» existe pero viene oculto, y se agrega al formulario una vez con «Seleccionar campo». Lo que no hay en la edición gratuita es el total proyectado por período: el listado suma importes sin ponderarlos por la probabilidad, y el informe de tendencia de ventas, en Analítica, no se abre y ofrece en su lugar BI Builder, que exige actualizar el plan.",
   "justificacion": "La proyección se calcula fuera del sistema cada vez que se la necesita.",
   "evidencia": [

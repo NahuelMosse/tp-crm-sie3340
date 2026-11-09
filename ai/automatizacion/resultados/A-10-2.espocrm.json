@@ -3,6 +3,7 @@
   "plataforma": "espocrm",
   "cumple": 1,
   "costo": 2,
+  "resumen": "Filtra el listado de pólizas por productor y período y lo exporta a XLSX o CSV, pero no suma: el total de primas se arma en una planilla cada vez.",
   "comoLoHace": "El total de primas por productor se arma en la planilla exportada, a mano, cada vez que se pide el informe.",
   "caracteristicas": "En la edición gratuita el listado de pólizas se filtra por productor y por período y se exporta en XLSX · Spreadsheet o CSV, pero no suma.",
   "justificacion": "El total de primas por productor se arma a mano en la planilla exportada cada vez que se pide, porque el listado de pólizas de la edición gratuita filtra por productor y período pero no suma. El módulo de informes del fabricante agrupa por productor, suma las primas del período elegido y exporta el resultado ya calculado.",

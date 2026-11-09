@@ -1,7 +1,27 @@
 {
   "criterio": "B.2.1",
   "plataforma": "twenty",
-  "puntua": false,
-  "motivo": "El asistente se abre desde el menú, pero solo responde con un proveedor de modelos habilitado (Anthropic, Google, Mistral, OpenAI o xAI), con credenciales que contrata la compañía. Sin un proveedor habilitado no produjo el resumen pedido y la capacidad no se pudo observar.",
-  "momento": "2026-11-08T02:28:06.223Z"
+  "cumple": 2,
+  "costo": 1,
+  "resumen": "Asistente de inteligencia artificial que consulta los registros con los permisos del usuario y resume en lenguaje natural; requiere credenciales de un proveedor de modelos que contrata la compañía.",
+  "comoLoHace": "El asistente se abre desde el menú, con la ficha a la vista. En la instalación propia hay que cargarle las credenciales de un proveedor de modelos —Anthropic, Google, Mistral, OpenAI o xAI—, que la compañía elige y contrata; con un proveedor habilitado, el fabricante documenta que consulta los registros y resume su información.",
+  "caracteristicas": "El producto trae un asistente de inteligencia artificial que se abre desde el menú, con un chat que consulta los registros con los permisos del usuario y resume la información del sistema en lenguaje natural. Conectar un proveedor propio, como un modelo instalado en la red de la compañía, es del plan Organization.",
+  "justificacion": "Habilitarlo es configuración de una sola vez, más el costo del proveedor.",
+  "evidencia": [
+    "B-2-1-twenty-1-pedido-de-resumen.png",
+    "B-2-1-twenty-2-proveedores-de-modelos.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/getting-started/core-concepts/ai",
+      "cita": "Ask questions about your data in natural language. The AI chatbot can query your CRM records, summarize information, and help you find what you’re looking for without building complex filters.",
+      "consultado": "2026-11-08",
+      "captura": "B-2-1-twenty-3-asistente.png"
+    }
+  ],
+  "medicion": "Sin proveedor habilitado: capacidad según la documentación oficial",
+  "criterioNombre": "Asistente de inteligencia artificial",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-11-08T23:38:17.311Z"
 }

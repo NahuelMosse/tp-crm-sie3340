@@ -65,10 +65,13 @@ test('A.9.1 — Restricción de la cartera por productor', async ({ page, browse
     criterio: 'A.9.1',
     plataforma,
     cumple: 0,
+    resumen:
+      'Los roles restringen por objeto y por campo, pero no por registro: un productor puede ' +
+      'ver la póliza de otro; limitarlo a su cartera exige el plan Organization.',
     comoLoHace:
       'En la edición evaluada los roles restringen por objeto —ver, editar, borrar— y por campo, pero ' +
-      'no por registro: el productor, con el rol de miembro, abrió por dirección directa una póliza de ' +
-      'otro productor y la vio completa.',
+      'no por registro: un productor, con el rol de miembro, puede abrir la póliza de otro productor y ' +
+      'verla completa.',
     justificacion:
       'La pantalla del rol muestra el nivel de registro como función del plan Organization, y el ' +
       'fabricante lo confirma: los permisos por registro, que limitan a cada vendedor a lo suyo, son ' +
@@ -123,6 +126,9 @@ test('A.9.2 — Autenticación de los usuarios bajo control de la compañía', a
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Permite exigir segundo factor a todos y apagar el ingreso con contraseña para entrar ' +
+      'solo con cuenta de Google o Microsoft; SAML u OIDC es del plan Organization.',
     comoLoHace:
       'La seguridad del espacio de trabajo permite imponer el segundo factor a todos los usuarios en ' +
       'cada ingreso y apagar el ingreso con correo y contraseña, de modo que solo se entre con la ' +
@@ -188,11 +194,13 @@ test('A.9.3 — Registro de quién modificó cada dato', async ({ page, browser 
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      'Cada registro trae una línea de tiempo con quién cambió cada dato, cuándo y el valor ' +
+      'anterior y el nuevo.',
     comoLoHace:
-      'El productor cambió el ramo de una ' +
-      `póliza de ${antes} a Hogar desde la ficha, y el administrador, con su cuenta, encontró la ` +
-      'constancia en la línea de tiempo de la póliza: quién lo cambió, cuándo, y el valor anterior ' +
-      'junto al nuevo.',
+      'Cuando el productor cambia el ramo de una póliza desde la ficha, el administrador, con su ' +
+      'cuenta, encuentra la constancia en la línea de tiempo de la póliza: quién lo cambió, cuándo, y ' +
+      'el valor anterior junto al nuevo.',
     caracteristicas:
       'Cada registro trae de fábrica una línea de tiempo con sus cambios. Los cambios seguidos de la ' +
       'misma persona sobre un registro, dentro de los diez minutos, se funden en una entrada con el ' +

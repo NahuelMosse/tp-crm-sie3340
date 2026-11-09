@@ -2,6 +2,7 @@
   "criterio": "A.6.4",
   "plataforma": "bitrix24",
   "cumple": 0,
+  "resumen": "La edición gratuita no advierte la duplicación al cargar un asegurado: el alta repetida genera una segunda ficha. La herramienta de fusión de duplicados exige un plan superior.",
   "comoLoHace": "En la edición gratuita, cargar dos veces al mismo asegurado con el mismo correo no dispara ninguna advertencia: el segundo contacto se guarda igual y quedan dos fichas. La herramienta «Buscar y fusionar duplicados» del listado de contactos no se abre y responde que está disponible en los planes de nivel superior.",
   "justificacion": "La edición gratuita no advierte la duplicación al cargar un asegurado ni permite buscarla después: el alta repetida queda guardada como una segunda ficha y la única herramienta de duplicados exige un plan superior. El fabricante documenta la fusión automática de duplicados para prospectos, contactos y compañías, pero la condiciona al plan contratado.",
   "evidencia": [
@@ -14,10 +15,31 @@
       "cita": "Automatic duplicate merging is available for leads, contacts, and companies. Check if this option is available on your Bitrix24 plan.",
       "consultado": "2026-11-08",
       "captura": "A-6-4-bitrix24-3-control-de-duplicados.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
+      "cita": "Control de duplicados en CRM (búsqueda de duplicados)",
+      "consultado": "2026-11-08",
+      "captura": "A-6-4-bitrix24-4-duplicados-por-plan.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "US$ 144",
+      "consultado": "2026-11-08",
+      "captura": "A-6-4-bitrix24-standard-precio-1.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Standard",
+      "monto": "US$ 144 por mes, hasta 50 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 1,
+      "costo": 2,
+      "justificacion": "El plan Standard, el primero que incluye el control de duplicados del CRM, permite buscar y fusionar las fichas repetidas del mismo asegurado. El alta repetida se guarda igual: la duplicación se detecta después, con una revisión que hay que repetir en cada uso."
     }
   ],
   "criterioNombre": "Unicidad de la ficha del asegurado",
   "licencia": null,
-  "conPlan": [],
-  "momento": "2026-11-08T17:22:02.201Z"
+  "momento": "2026-11-09T00:14:43.751Z"
 }

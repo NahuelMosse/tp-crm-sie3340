@@ -3,17 +3,46 @@
   "plataforma": "bitrix24",
   "cumple": 1,
   "costo": 2,
-  "comoLoHace": "Desde la ficha de una negociación se abre un chat, una tarea, una reunión o un comentario (Tarea, Comentario) sin salir del registro.",
+  "resumen": "Integra mensajería, tareas, calendario, documentos y base de conocimientos sobre los mismos contactos, pero la edición colaborativa de documentos y la firma electrónica exigen planes pagos o aplicaciones.",
+  "comoLoHace": "Desde la ficha de una negociación se abre un chat, una tarea, una reunión o un comentario (Chat, Tarea, Comentario) sin salir del registro.",
   "caracteristicas": "Además del CRM, el producto incluye mensajería, tareas y proyectos, calendario, Drive (documentos), base de conocimientos, sitios web, todo en la misma cuenta y sobre los mismos contactos.",
   "justificacion": "Falta la edición colaborativa de documentos de oficina y la firma electrónica en la edición gratuita —quedan en planes pagos o en aplicaciones del catálogo—, así que la compañía sigue necesitando otra herramienta para esa parte, con el trabajo de pasar la información de una a otra.",
   "evidencia": [
     "B-2-3-bitrix24-1-herramientas-en-la-negociacion.png",
     "B-2-3-bitrix24-2-drive.png"
   ],
-  "medicion": "Acciones disponibles desde la ficha: Tarea, Comentario",
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
+      "cita": "Edición colaborativa de documentos Cree y edite documentos, hojas de cálculo y presentaciones en su cuenta de Bitrix24, sin necesidad de instalar aplicaciones/extensiones adicionales.",
+      "consultado": "2026-11-08",
+      "captura": "B-2-3-bitrix24-3-edicion-colaborativa.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
+      "cita": "Envía documentos para que los firmen varios empleados a la vez.",
+      "consultado": "2026-11-08",
+      "captura": "B-2-3-bitrix24-4-firma-electronica.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "US$ 144",
+      "consultado": "2026-11-08",
+      "captura": "B-2-3-bitrix24-standard-precio-1.png"
+    }
+  ],
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Standard",
+      "monto": "US$ 144 por mes, hasta 50 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "El plan Standard es el primero que suma la edición colaborativa de documentos y la firma electrónica de la empresa, además de lo que ya trae la edición gratuita: la compañía deja de necesitar otra herramienta para esa parte. Requiere configurar una vez los documentos y la firma."
+    }
+  ],
+  "medicion": "Acciones disponibles desde la ficha: Chat, Tarea, Comentario",
   "criterioNombre": "Suite de trabajo integrada",
   "licencia": null,
-  "conPlan": [],
-  "documentacion": [],
-  "momento": "2026-09-30T00:34:28.024Z"
+  "momento": "2026-11-09T00:43:37.862Z"
 }

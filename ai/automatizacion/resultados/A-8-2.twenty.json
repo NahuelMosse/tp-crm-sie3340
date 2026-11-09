@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 2,
-  "comoLoHace": "El cálculo se armó con un flujo de trabajo que corre cada vez que se guarda la prima de una póliza, con un paso de código que multiplica la prima mensual por doce y un paso que escribe el resultado en el campo de la prima anual. Al cargar desde la ficha una póliza con prima de 15.250,50 el sistema completó 183006 sin intervención.",
+  "resumen": "No tiene campos calculados: el cálculo se arma con un flujo y un paso de código en TypeScript, que exige desarrollo y habilitar la ejecución de funciones.",
+  "comoLoHace": "El cálculo se arma con un flujo de trabajo que corre cada vez que se guarda la prima de una póliza, con un paso de código que multiplica la prima mensual por doce y un paso que escribe el resultado en el campo de la prima anual: al cargar la prima desde la ficha, el sistema completa la anual sin intervención.",
   "caracteristicas": "Twenty no tiene campos calculados: ningún tipo de campo deriva su valor de otro. La necesidad queda resuelta desde el sistema, pero exige escribir una función en TypeScript —con la prima guardada en millonésimas— y, en la instalación propia, habilitar la ejecución de funciones, que viene deshabilitada.",
   "justificacion": "Es desarrollo, breve, que alguien tiene que saber leer y mantener.",
   "evidencia": [

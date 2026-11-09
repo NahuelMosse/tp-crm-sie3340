@@ -79,6 +79,7 @@ test('A.3.1 — Registro de productores y asignación de cartera', async ({ page
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen: 'Da de alta al productor como empleado con su propia cuenta y reasigna en bloque la cartera de asegurados con una acción del listado.',
     comoLoHace:
       'Un usuario se da de alta como empleado desde «Empleados», con su propia cuenta y contraseña: es el ' +
       'productor.',
@@ -129,6 +130,7 @@ test('A.3.2 — Bitácora de la actividad con el cliente', async ({ page }, info
     criterio: 'A.3.2',
     plataforma,
     cumple: 1,
+    resumen: 'Registra las actividades con autor y momento en la línea de tiempo, pero llamada y reunión no son tipos propios: el tipo se escribe en el texto de cada pendiente.',
     comoLoHace:
       'En la edición gratuita, sin embargo, la ficha no ofrece la llamada ni la reunión como tipos de ' +
       'actividad propios: la pestaña «Actividad» carga un pendiente de texto libre, y la llamada nativa ' +
@@ -187,10 +189,12 @@ test('A.3.3 — Agenda y carga de trabajo del productor', async ({ page, browser
       plataforma,
       cumple: 2,
       costo: 0,
+      resumen: `Muestra al productor ${['sus tareas con fecha límite', ...(enCalendario ? ['su calendario'] : []), ...(conActividades ? ['sus actividades de CRM'] : [])]
+        .join(', ').replace(/, ([^,]*)$/, ' y $1')}, ya filtradas a su cuenta y sin configurar nada.`,
       comoLoHace:
         'Con la sesión propia del productor, «Tareas» abre «Mis tareas» con lo que tiene asignado, con su ' +
-        `fecha límite${enCalendario ? ', y el Calendario del portal trae ese mismo compromiso' : ''}; el CRM ` +
-        'suma «Mis actividades» para las llamadas y reuniones de sus asegurados.',
+        `fecha límite${enCalendario ? ', y el Calendario del portal trae ese mismo compromiso' : ''}` +
+        (conActividades ? '; el CRM suma «Mis actividades» para las llamadas y reuniones de sus asegurados.' : '.'),
       caracteristicas:
         'Son vistas que vienen de fábrica en la edición gratuita, ya filtradas a su cuenta.',
       justificacion:
@@ -268,8 +272,10 @@ test('A.3.4 — Proyección de los movimientos comerciales', async ({ page }, in
     criterio: 'A.3.4',
     plataforma,
     cumple: 1,
+    resumen: 'Guarda monto y probabilidad de cada oportunidad, pero no calcula el total proyectado por período: la proyección se hace fuera del sistema. El informe de tendencia exige otro plan.',
     comoLoHace:
-      'Se cargaron dos oportunidades (10.000 con 50 % y 20.000 con 25 %) y quedaron guardadas.',
+      'La negociación, que hace de oportunidad comercial, se carga con su monto y su probabilidad, ' +
+      'y quedan guardados.',
     caracteristicas:
       'La negociación, que hace de oportunidad comercial, admite monto y probabilidad: el campo ' +
       '«Probabilidad» existe pero viene oculto, y se agrega al formulario una vez con «Seleccionar campo». ' +

@@ -3,6 +3,7 @@
   "plataforma": "twenty",
   "cumple": 1,
   "costo": 2,
+  "resumen": "Los tableros suman montos por etapa y fecha de cierre, pero no hay probabilidad de cierre ni campos calculados, así que el total ponderado se calcula fuera.",
   "comoLoHace": "Los tableros suman los montos por etapa y por fecha de cierre, de modo que muestran cuánto hay en juego en cada período, pero no el total ponderado por la probabilidad de cerrarlo.",
   "caracteristicas": "Las oportunidades tienen monto y fecha de cierre, pero no probabilidad, y el modelo no admite campos calculados.",
   "justificacion": "Una probabilidad se puede agregar como campo, pero el total proyectado hay que calcularlo fuera, cada vez que se lo quiere mirar.",

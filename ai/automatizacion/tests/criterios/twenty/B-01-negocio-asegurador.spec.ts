@@ -44,6 +44,9 @@ test('B.1.1 — Persistencia de los datos sin uso continuo', async ({ browser },
     criterio: 'B.1.1',
     plataforma,
     cumple: 2,
+    resumen:
+      'Con la instalación propia los datos quedan en el servidor de la compañía y no dependen ' +
+      'de ninguna cuenta del fabricante ni de que se los use.',
     comoLoHace:
       'En la instalación propia los datos quedan en el servidor de la compañía y no dependen de ' +
       'ninguna cuenta del fabricante.',
@@ -126,8 +129,11 @@ test('B.1.2 — Copia propia y completa de la cartera', async ({ browser }, info
       criterio: 'B.1.2',
       plataforma,
       cumple: 2,
+      resumen:
+        'Permite una copia completa y propia de la cartera: volcado de la base y de la carpeta ' +
+        'de adjuntos, en formato abierto, restituible en otra base.',
       comoLoHace:
-        'Se obtuvo una copia completa con el procedimiento que indica el fabricante: el volcado de la ' +
+        'Se obtiene una copia completa con el procedimiento que indica el fabricante: el volcado de la ' +
         'base de datos, y el archivo de la carpeta donde el servidor guarda los adjuntos.',
       caracteristicas:
         'La copia se restituyó en una ' +
@@ -173,6 +179,9 @@ test('B.1.3 — Copia periódica sin intervención manual', async ({ page, brows
     criterio: 'B.1.3',
     plataforma,
     cumple: 1,
+    resumen:
+      'El sistema no trae copia programada: se repite con el programador de tareas del ' +
+      'servidor, y no avisa si una noche falla; la vigila y guarda quien administra.',
     comoLoHace:
       'La documentación del fabricante resuelve la repetición afuera, con el programador de tareas del ' +
       'servidor, que ejecuta todas las noches el volcado de la base.',
@@ -216,6 +225,10 @@ test('B.1.5 — Previsibilidad de los cambios del sistema', async ({ browser }, 
     criterio: 'B.1.5',
     plataforma,
     cumple: 2,
+    resumen:
+      'En la instalación propia las actualizaciones no llegan solas: el administrador elige ' +
+      'cuándo cambiar la versión, previa copia de la base, y ningún cambio sorprende en plena ' +
+      'operación.',
     comoLoHace:
       'En la instalación propia la actualización no llega sola: el administrador de la compañía cambia ' +
       'la versión de la imagen, hace antes la copia de la base que pide el fabricante y reinicia.',
@@ -253,6 +266,9 @@ test('B.1.6 — Conocimiento y decisión sobre dónde residen los datos', async 
     criterio: 'B.1.6',
     plataforma,
     cumple: 2,
+    resumen:
+      'En la instalación propia la compañía decide en qué servidor y país reside la base y ' +
+      'dónde van los adjuntos, y asume la seguridad de esos datos.',
     comoLoHace:
       'En la instalación propia la base de datos reside donde la compañía instala el sistema: en su ' +
       'propio servidor o en el proveedor que ella elija, en el país que ella elija, y los adjuntos van ' +
@@ -313,10 +329,12 @@ test('B.1.7 — Continuidad de la atención ante una caída del enlace', async (
     criterio: 'B.1.7',
     plataforma,
     cumple: 2,
+    resumen:
+      'Con la instalación propia, si se corta la salida a internet el sistema sigue operando; ' +
+      'solo dejan de funcionar el correo.',
     comoLoHace:
-      'Con la salida a internet cortada —el navegador solo alcanzaba el servidor de la red propia— se ' +
-      'ingresó al sistema, se buscó un asegurado y se registró un reclamo, que es la atención de todos ' +
-      'los días.',
+      'Con la salida a internet cortada, el sistema sigue operando desde la red propia: se ingresa, se ' +
+      'busca un asegurado y se registra un reclamo, que es la atención de todos los días.',
     caracteristicas:
       'La instalación propia no necesita nada de afuera para operar: lo que se pierde durante el corte ' +
       'es lo que por naturaleza viaja por internet, como el correo y los logotipos de las empresas que ' +
@@ -440,11 +458,13 @@ test('B.1.4 — Búsqueda y operación con volumen productivo', async ({ page },
       criterio: 'B.1.4',
       plataforma,
       cumple: VEREDICTO_B14.cumple,
+      resumen:
+        'Con veinticinco mil registros, la búsqueda por texto y el filtro por ramo responden ' +
+        'sin espera perceptible.',
       comoLoHace:
-        'Se cargó la cartera de referencia —cinco mil asegurados, doce mil quinientas pólizas y siete mil ' +
-        'quinientos reclamos, veinticinco mil registros— y con ella se repitieron las operaciones de todos los ' +
-        'días: buscar un asegurado por texto desde la búsqueda general y filtrar las pólizas por ramo, tres veces ' +
-        'cada una.',
+        'Las operaciones de todos los días —buscar un asegurado por texto desde la búsqueda general y ' +
+        'filtrar las pólizas por ramo— se hacen sobre una cartera de veinticinco mil registros: cinco ' +
+        'mil asegurados, doce mil quinientas pólizas y siete mil quinientos reclamos.',
       caracteristicas: VEREDICTO_B14.lectura,
       justificacion: VEREDICTO_B14.justificacion,
       evidencia: [capTexto, capFiltro],

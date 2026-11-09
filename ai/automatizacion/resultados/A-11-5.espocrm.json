@@ -2,9 +2,10 @@
   "criterio": "A.11.5",
   "plataforma": "espocrm",
   "cumple": 2,
-  "comoLoHace": "Tres agentes independientes, sin conocimiento previo de la plataforma, intentaron sin instrucción las cinco operaciones que un productor repite a diario —dar de alta un asegurado, cargarle una póliza, averiguar qué pólizas de su cartera vencen en los próximos 30 días, registrar un reclamo y agendar un llamado—, operando la pantalla como lo haría una persona.",
+  "resumen": "Las cinco tareas diarias del productor se resuelven desde la pantalla, sin instrucción previa; 15 de 15 quedaron completas.",
+  "comoLoHace": "Las cinco operaciones que un productor repite a diario —dar de alta un asegurado, cargarle una póliza, averiguar qué pólizas de su cartera vencen en los próximos 30 días, registrar un reclamo y agendar un llamado— se resuelven desde la pantalla, sin instrucción ni conocimiento previo de la plataforma.",
   "caracteristicas": "Completaron 15 de las quince, según lo que quedó guardado en el sistema.",
-  "justificacion": "Los tres completaron las cinco tareas.",
+  "justificacion": "Quien opera la pantalla sin instrucción previa completa las cinco tareas del productor.",
   "evidencia": [
     "A-11-5-espocrm-p1-t1.png",
     "A-11-5-espocrm-p1-t2.png",

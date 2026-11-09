@@ -3,7 +3,8 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Se definió la prima anual como doce veces la mensual con una sola expresión, del tipo de una fórmula de planilla, y al guardar una póliza con prima de 15.250,50 el sistema calculó 183006 sin intervención.",
+  "resumen": "Calcula un campo a partir de otros al guardar, con una expresión de tipo planilla definida en la fórmula de cada entidad, sin programar.",
+  "comoLoHace": "El cálculo se define con una sola expresión, del tipo de una fórmula de planilla —por ejemplo, la prima anual como doce veces la mensual—, y al guardar una póliza el sistema lo calcula sin intervención.",
   "caracteristicas": "La administración de cada entidad trae una fórmula que, según la propia pantalla, \"se ejecuta cada vez que se guarda una entidad\" y \"se utiliza para configurar campos calculados\".",
   "justificacion": "El cálculo se escribe una vez desde la administración, sin instalar nada ni programar la aplicación: es configuración.",
   "evidencia": [

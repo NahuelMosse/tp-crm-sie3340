@@ -3,6 +3,7 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 0,
+  "resumen": "Muestra al productor sus tareas con fecha límite, su calendario y sus actividades de CRM, ya filtradas a su cuenta y sin configurar nada.",
   "comoLoHace": "Con la sesión propia del productor, «Tareas» abre «Mis tareas» con lo que tiene asignado, con su fecha límite, y el Calendario del portal trae ese mismo compromiso; el CRM suma «Mis actividades» para las llamadas y reuniones de sus asegurados.",
   "caracteristicas": "Son vistas que vienen de fábrica en la edición gratuita, ya filtradas a su cuenta.",
   "justificacion": "No hay nada que configurar.",

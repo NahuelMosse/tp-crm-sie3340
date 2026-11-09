@@ -3,6 +3,7 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 0,
+  "resumen": "El fabricante actualiza el servicio por su cuenta y la parametrización propia, con sus campos y datos cargados, se conserva sin trabajo de la compañía.",
   "comoLoHace": "El fabricante actualiza el servicio por su cuenta, sin que la compañía aplique ningún procedimiento ni elija el momento. El registro de cambios oficial fecha el 22 de octubre de 2026 una versión nueva del módulo CRM, con métodos para trabajar con sus formularios, que llega a todas las cuentas en la nube.",
   "caracteristicas": "Los campos propios creados por pantalla (Ramo, Estado de cobranza, Prima, Motivo de pérdida, Competidor, Plazo de resolución, Vigencia desde, Vigencia hasta, Forma de pago, Vencimiento de la cuota, Estado de la cuota, Plazo de resolución del reclamo, Vencimiento de la póliza) siguen en el formulario después de esa versión, y las 41 pólizas cargadas antes con esos campos conservan sus valores: la más antigua, del 29/09/2026, se abrió y muestra su ramo.",
   "justificacion": "Lo que la compañía parametrizó atravesó una versión nueva del CRM sin perderse ni tener que rehacerse, y no exige ningún trabajo de su parte.",

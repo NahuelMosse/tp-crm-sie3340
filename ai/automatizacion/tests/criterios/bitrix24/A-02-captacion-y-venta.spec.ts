@@ -86,10 +86,11 @@ test('A.2.1 — Registro del solicitante con sus datos de contacto', async ({ pa
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen: 'Registra al solicitante como contacto, con nombre, teléfono, correo y dirección desglosada. El módulo de prospectos no está en la edición gratuita.',
     comoLoHace:
       'La edición gratuita no incluye el módulo de prospectos: el solicitante se registra como un ' +
-      'contacto, igual que el asegurado. Se cargó una solicitante con todos esos datos desde el formulario ' +
-      'y quedaron guardados; la búsqueda del listado la encontró por su nombre.',
+      'contacto, igual que el asegurado, con todos sus datos desde el formulario, y la búsqueda del ' +
+      'listado lo encuentra por su nombre.',
     caracteristicas:
       'El formulario del contacto trae nombre y apellido, teléfono, correo y dirección desglosada en ' +
       'código postal, país, provincia, ciudad y calle.',
@@ -165,9 +166,10 @@ test('A.2.2 — Calificación y priorización del solicitante', async ({ page },
       plataforma,
       cumple: 2,
       costo: 1,
+      resumen: 'Suma la cobertura pedida y la urgencia como campos de lista; el listado ordena por urgencia según el orden de las opciones y no el alfabético.',
       comoLoHace:
-        'El contacto no trae cobertura pedida ni urgencia: se agregaron como dos campos de lista desde su ' +
-        'propio formulario.',
+        'El contacto no trae cobertura pedida ni urgencia: se agregan como dos campos de lista desde ' +
+        'su propio formulario.',
       caracteristicas:
         'Se cargaron tres solicitantes en desorden y, con un clic en el encabezado de la columna ' +
         '«Urgencia», el listado quedó ordenado ' +
@@ -241,6 +243,7 @@ test('A.2.3 — Conversión del solicitante en oportunidad de venta', async ({ p
     criterio: 'A.2.3',
     plataforma,
     cumple: 1,
+    resumen: 'Crea la negociación desde la ficha del solicitante, ligada a él, pero la cobertura que pidió se vuelve a cargar a mano en cada una.',
     comoLoHace:
       'Con el solicitante como contacto, lo más cercano es crear la negociación desde su ficha.',
     caracteristicas:
@@ -310,6 +313,7 @@ test('A.2.4 — Embudo de oportunidades con etapas', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen: 'Trae un embudo de etapas de fábrica, de la creación al cierre ganado o perdido; las etapas son las de una venta genérica y se adaptan por configuración.',
     comoLoHace:
       'Desde la ficha del contacto, la solapa de negociaciones crea una nueva ya ligada a él.',
     caracteristicas:
@@ -379,10 +383,11 @@ test('A.2.5 — Embudos diferenciados por ramo', async ({ page, browser }, info)
     criterio: 'A.2.5',
     plataforma,
     cumple: 0,
+    resumen: 'La edición gratuita trae un solo embudo y no permite crear otros: al intentarlo ofrece cambiar de plan. Los embudos adicionales requieren el plan Basic.',
     comoLoHace:
-      'Desde «Pipelines y túneles de ventas», al pedir «Agregar pipeline» el sistema no abre el embudo ' +
-      'nuevo: informa que la cantidad máxima de pipelines depende del plan y ofrece actualizar; la lista ' +
-      'de embudos siguió con uno solo.',
+      'Desde «Pipelines y túneles de ventas», al pedir «Agregar pipeline» el sistema no abre el ' +
+      'embudo nuevo: informa que la cantidad máxima de pipelines depende del plan y ofrece ' +
+      'actualizar; la lista de embudos sigue con uno solo.',
     caracteristicas:
       'La edición gratuita trae un solo embudo, el pipeline general.',
     justificacion:
@@ -475,10 +480,11 @@ test('A.2.6 — Oportunidades de cambio y ampliación sobre la cartera', async (
       criterio: 'A.2.6',
       plataforma,
       cumple: 1,
+      resumen: 'Obtiene las pólizas próximas a vencer filtrando por fecha de fin, pero no puede preguntar qué clientes tienen un ramo y no otro: se comparan a mano dos listas.',
       comoLoHace:
-        'El conjunto de los próximos a vencer sale directo: el filtro del listado de negociaciones sobre ' +
-        'la fecha de fin de vigencia, «próximos 30 días», trajo la póliza que vence en doce días y dejó ' +
-        'afuera las demás, con su cliente en el listado.',
+        'El conjunto de los próximos a vencer sale directo: el filtro del listado de negociaciones ' +
+        'sobre la fecha de fin de vigencia, «próximos 30 días», trae las pólizas que vencen en ese ' +
+        'plazo y deja afuera las demás, con su cliente en el listado.',
       caracteristicas:
         'El otro conjunto no: el filtro del listado de contactos solo ofrece campos del propio contacto, ' +
         'no las pólizas que tiene, así que «tiene automotor y no hogar» no se puede preguntar.',

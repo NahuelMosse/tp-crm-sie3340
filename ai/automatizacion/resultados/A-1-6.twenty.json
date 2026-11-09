@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "El listado de pólizas combina filtros sobre cualquier campo: se filtró por ramo, por estado de pago y por productor responsable, y el resultado trajo exactamente las 2 pólizas de la cartera que cumplen las tres condiciones.",
+  "resumen": "Filtra la cartera combinando condiciones sobre cualquier campo, como ramo, estado de pago y productor responsable, y guarda la combinación como vista con nombre.",
+  "comoLoHace": "El listado de pólizas combina filtros sobre cualquier campo, como el ramo, el estado de pago y el productor responsable, y trae exactamente las pólizas que cumplen todas las condiciones.",
   "caracteristicas": "La combinación se puede guardar como una vista con nombre.",
   "justificacion": "El productor responsable es un campo de relación con los usuarios que se agrega al modelo una vez: la póliza, como objeto propio, no lo trae.",
   "evidencia": [

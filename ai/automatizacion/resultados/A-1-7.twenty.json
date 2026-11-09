@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "Se seleccionaron las 7 pólizas del ramo Hogar desde el listado y, con la selección hecha, la acción de actualizar abre un panel con los campos de la póliza: se eligió el estado de pago nuevo y se aplicó a todas de una vez, tras una confirmación que advierte que el cambio no se puede deshacer.",
+  "resumen": "Actualiza de una vez el campo que se elija en todas las pólizas seleccionadas.",
+  "comoLoHace": "Con las pólizas seleccionadas desde el listado, la acción de actualizar abre un panel con los campos de la póliza: se elige el valor nuevo, por ejemplo el estado de pago, y se aplica a todas de una vez, tras una confirmación que advierte que el cambio no se puede deshacer.",
   "caracteristicas": "Las seleccionadas quedaron con el estado nuevo.",
   "justificacion": "Viene listo: no hay nada que configurar.",
   "evidencia": [

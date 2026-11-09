@@ -2,6 +2,7 @@
   "criterio": "A.4.3",
   "plataforma": "bitrix24",
   "cumple": 0,
+  "resumen": "La edición gratuita no tiene campañas, por lo que no hay envíos que medir. La medición de aperturas y clics depende del plan Standard o del Professional.",
   "comoLoHace": "El fabricante documenta lo que el producto mide cuando la campaña sale: envíos, y con el seguimiento del correo activado, aperturas y clics.",
   "justificacion": "En la edición gratuita no hay campañas que medir: el listado de Marketing › Campañas trae las columnas Estado, Estadística y Consentimiento pero está vacío, y crear una campaña de correo pide el plan Standard o el Professional.",
   "evidencia": [

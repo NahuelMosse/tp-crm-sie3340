@@ -1,7 +1,5 @@
 # 6. Detalle por requerimiento
 
-*Generado automáticamente a partir de lo registrado durante las pruebas.*
-
 Cada requerimiento indica qué resuelve para la compañía y, para cada plataforma, el valor obtenido, cómo lo resuelve, las características de esa solución y la justificación del valor. Cuando un plan pago lo cambiaría, se agrega como comentario: no modifica el valor. Las escalas están definidas en la sección 3 y los procedimientos, en la sección 4.
 
 ## A.1 Cartera de pólizas
@@ -15,22 +13,34 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* El Administrador de Entidades crea la entidad Póliza desde la pantalla de administración, sin escribir código ni tocar archivos del servidor.
 - *Características.* Queda con identidad propia: figura en el modelo de datos, tiene su entrada en el menú principal, su listado y su ficha, y admite registros. A partir de ahí el usuario opera con la póliza igual que con las entidades que trae el producto —la busca, la filtra, la relaciona— de modo que la necesidad queda resuelta desde el sistema.
 - *Justificación.* Definirla es trabajo de una sola vez, y eso es lo que refleja el costo de implementación.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-1-1-espocrm-1-modelo, A-1-1-espocrm-2-menu, A-1-1-espocrm-3-listado.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
 - *Cómo lo hace.* Desde Configuración › Modelo de datos se crea el objeto Póliza con su nombre en singular y plural, sin escribir código ni tocar el servidor.
 - *Características.* Queda con identidad propia: figura entre los objetos del modelo, aparece en el menú de la izquierda junto a los que trae el producto, tiene su listado y admite registros, que se cargan desde el mismo listado.
 - *Justificación.* Definirlo es trabajo de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-1-1-twenty-1-modelo, A-1-1-twenty-2-menu, A-1-1-twenty-3-listado.
 
 **Bitrix24** · **0** (no cumple)
 
-- *Cómo lo hace.* En la edición gratuita el formulario se completa, pero al guardar el sistema no crea la entidad y avisa que los procesos inteligentes requieren el plan Professional o el Enterprise.
+- *Cómo lo hace.* La edición gratuita no crea entidades propias: al guardar, avisa que los procesos inteligentes requieren el plan Professional o el Enterprise.
 - *Características.* Las entidades propias de Bitrix24 son los procesos inteligentes, que se crean desde la barra del CRM sin programar: nombre, etapas, embudos y reglas de automatización.
 - *Justificación.* Sin ellos la póliza no tiene identidad propia: habría que forzarla dentro de otra entidad del producto.
+- *Comentario — con Bitrix24 Professional* (US$ 289 por mes, hasta 100 usuarios, abono recurrente) sería **2** (cumple, costo 1). Con el plan Professional, el primero que incluye los procesos inteligentes, la póliza se crea como entidad propia desde la barra del CRM, con su nombre, sus etapas y sus campos, sin escribir código. Es configuración de una vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-1-1-bitrix24-1-formulario, A-1-1-bitrix24-2-al-guardar.
+
+> «Cree sus propios procesos inteligentes y personalícelos según las necesidades de su empresa.»
+>
+> — https://www.bitrix24.es/prices/compare_cloud_plans.php, consultado el 9 de noviembre de 2026
 
 > «SPA (smart process automation)»
 >
-> — https://www.bitrix24.com/promo/professional/, consultado el 29 de septiembre de 2026
+> — https://www.bitrix24.com/promo/professional/, consultado el 9 de noviembre de 2026
+
+> «Professional desde US$ 289 desde US$ 199 incluye 100 usuarios Empezar Empezar»
+>
+> — https://www.bitrix24.es/prices/, consultado el 9 de noviembre de 2026
 
 ### A.1.2 Campos de lista para el ramo y el estado de cobranza
 
@@ -38,21 +48,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* El Administrador de Campos agrega campos de tipo lista y admite escribir sus valores, sin programar. Se definieron los ramos que comercializa la compañía —Automotor, Hogar, Vida, Salud— y los estados de cobranza, y se cargó una póliza de cada ramo desde el formulario: las cuatro quedaron con su ramo visible en el listado. El estado de cobranza se cambia desde la ficha y el cambio queda guardado.
+- *Cómo lo hace.* El Administrador de Campos agrega campos de tipo lista y admite escribir sus valores, sin programar: con él se definen los ramos que comercializa la compañía y los estados de cobranza, y cada póliza muestra su ramo en el listado. El estado de cobranza se cambia desde la ficha y el cambio queda guardado.
 - *Características.* El usuario elige de la lista y no puede escribir un valor imprevisto, que es lo que vuelve confiable la clasificación de la cartera. 4 ramos cargados y visibles en el listado.
 - *Justificación.* El campo se define en una pantalla y se ubica en el formulario en otra, ambas de administración: es configuración inicial, no desarrollo.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-1-2-espocrm-1-campos, A-1-2-espocrm-2-cartera, A-1-2-espocrm-3-estado.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se agregaron el ramo, con los cuatro que comercializa, y el estado de pago, con los cuatro estados de cobranza; se cargó por pantalla una póliza de cada ramo y a cada una se le cambió el estado desde su ficha, eligiendo la opción en un desplegable con buscador.
+- *Cómo lo hace.* Desde Configuración › Modelo de datos se agregan a la póliza el ramo, con los que comercializa la compañía, y el estado de pago, con los estados de cobranza; en cada póliza el estado se cambia desde su ficha, eligiendo la opción en un desplegable con buscador.
 - *Características.* El modelo de datos admite campos de lista con las opciones que define la compañía. Los valores quedan guardados como opciones de la lista, no como texto libre.
 - *Justificación.* Definir los campos es trabajo de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-1-2-twenty-1-campos, A-1-2-twenty-2-ficha-con-estado-cambiado, A-1-2-twenty-3-una-por-ramo.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Desde el formulario de la negociación —que en la edición gratuita hace de póliza, a falta de entidades propias— se agregan campos de tipo lista sin programar. Se definieron los ramos —Automotor, Hogar, Vida, Salud— y los estados de cobranza, se cargó una póliza de cada ramo y a la de salud se le cambió el estado desde su ficha: todo quedó guardado.
+- *Cómo lo hace.* Desde el formulario de la negociación —que en la edición gratuita hace de póliza, a falta de entidades propias— se agregan campos de tipo lista sin programar, por ejemplo el ramo y el estado de cobranza. Cada póliza se carga con valores elegidos de esas listas y el estado se cambia desde su ficha.
 - *Características.* El usuario elige de la lista y no puede escribir un valor imprevisto. 4 ramos cargados.
 - *Justificación.* Definir los campos es configuración de una vez, en el mismo formulario.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-1-2-bitrix24-1-campos, A-1-2-bitrix24-2-cartera, A-1-2-bitrix24-3-estado.
 
 ### A.1.3 Prima con importe y moneda
 
@@ -60,16 +73,18 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Cargada una prima de 184.532,75, la ficha la devuelve con sus centavos y con la denominación, y el sistema la trata como importe y no como texto: guarda la moneda junto al valor y mantiene una lista de monedas habilitadas.
+- *Cómo lo hace.* El campo de importe guarda la prima con sus centavos y con la denominación, y el sistema lo trata como importe y no como texto: guarda la moneda junto al valor y mantiene una lista de monedas habilitadas.
 - *Características.* El producto ofrece un tipo de campo de importe con moneda, que se agrega desde la administración. Prima de 184.532,75 registrada y devuelta con centavos y denominación.
 - *Justificación.* El campo de importe con moneda es lo que necesita una compañía que cobra primas en pesos y emite pólizas en dólares sin que los importes se mezclen al sumarlos.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-1-3-espocrm-1-prima.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se agregó la prima en pesos argentinos y se cargó 45.250,75 desde la ficha: quedó guardada con los centavos y con su moneda. Para eso el campo se define una vez con formato completo y dos decimales.
+- *Cómo lo hace.* Desde Configuración › Modelo de datos se agrega la prima como campo de importe en pesos argentinos: guarda el importe con centavos y su moneda. Para eso el campo se define una vez con formato completo y dos decimales.
 - *Características.* El modelo de datos tiene un tipo de campo de importe con moneda. Con la definición de fábrica —formato corto, sin decimales— el editor descarta el separador decimal y guarda el importe multiplicado por cien sin avisar, un error que el fabricante tiene registrado; quien define el campo tiene que saberlo. guardado 45250.75 ARS; en pantalla «45.250,75
 45.250,75».
 - *Justificación.* Definirlo bien es trabajo de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-1-3-twenty-1-campo-configurado, A-1-3-twenty-2-prima-cargada.
 
 > «In a currency field left at the default Number of decimals = 0, the editor rejects the typed decimal separator but keeps the digits after it. The amount is saved 10^n times too large, with no warning.»
 >
@@ -77,9 +92,10 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Bitrix24** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* El peso argentino no venía entre las monedas del portal: se agregó desde la configuración del CRM, eligiéndolo de la lista de monedas y cargando su cotización. Se cargó una prima de 15.250,50 pesos y quedó guardada con sus centavos y su moneda.
+- *Cómo lo hace.* El peso argentino no viene entre las monedas del portal: se agrega desde la configuración del CRM, eligiéndolo de la lista de monedas y cargando su cotización. El campo de prima guarda el importe con centavos y su moneda.
 - *Características.* El formulario de la negociación, que hace de póliza en la edición gratuita, admite campos de tipo dinero: importe y moneda en el mismo campo. Guardado: 15250.5|ARS.
 - *Justificación.* Agregar la moneda y el campo es configuración de una vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-1-3-bitrix24-1-moneda, A-1-3-bitrix24-2-prima, A-1-3-bitrix24-3-guardada.
 
 ### A.1.4 Vigencia con fecha de inicio y de fin
 
@@ -87,21 +103,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Los campos de inicio y de fin de vigencia se agregan como campos de fecha desde la administración, y el sistema los trata como tales y no como texto. Se cargaron dos pólizas, una que vence en doce días y otra en trescientos: ordenado por vencimiento, el listado pone primero la que vence antes, y la condición "vence en los próximos 30 días" devuelve la primera y deja afuera la segunda.
+- *Cómo lo hace.* Los campos de inicio y de fin de vigencia se agregan como campos de fecha desde la administración, y el sistema los trata como tales y no como texto: el listado se ordena por vencimiento y admite la condición «vence en los próximos 30 días».
 - *Características.* El filtro ofrece 21 comparaciones propias de una fecha —próximos o últimos X días, antes, después, entre, mes o trimestre en curso—. 21 comparaciones de fecha en el filtro.
 - *Justificación.* Para poder filtrar por un campo propio hay que habilitarlo antes entre los filtros de búsqueda del listado, en la misma administración: configuración inicial, no desarrollo.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-1-4-espocrm-1-orden-por-vencimiento, A-1-4-espocrm-2-vencen-en-30-dias.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se agregaron el inicio y el fin de la vigencia y se cargaron dos pólizas desde su ficha. El sistema los trata como fechas: el listado ordenado por fin de vigencia pone primero la que vence antes, y el filtro sobre ese campo ofrece comparaciones propias de una fecha —antes, después, en el pasado, en el futuro, relativa—: «vence en los próximos 30 días» trae la póliza que vence en doce días y deja afuera la que vence en trescientos.
+- *Cómo lo hace.* Desde Configuración › Modelo de datos se agregan el inicio y el fin de la vigencia, que el sistema trata como fechas: el listado ordenado por fin de vigencia pone primero la póliza que vence antes, y el filtro sobre ese campo ofrece comparaciones propias de una fecha —antes, después, en el pasado, en el futuro, relativa—, como «vence en los próximos 30 días».
 - *Características.* El modelo de datos tiene un tipo de campo de fecha. comparaciones del filtro de fecha: .
 - *Justificación.* Definir los campos es trabajo de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-1-4-twenty-1-orden-por-vencimiento, A-1-4-twenty-2-comparaciones-de-fecha, A-1-4-twenty-3-vencen-en-30-dias.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se agregaron el inicio y el fin de la vigencia desde el mismo formulario y se cargaron tres pólizas con sus fechas.
+- *Cómo lo hace.* Desde el mismo formulario de la póliza se agregan campos de fecha para el inicio y el fin de la vigencia, que cada póliza guarda con sus fechas.
 - *Características.* El formulario de la negociación, que en la edición gratuita hace de póliza, admite campos de tipo fecha. El sistema las trata como fechas: con un clic en el encabezado de la columna el listado se ordena por calendario —no alfabéticamente— y otro clic invierte el orden; y el filtro sobre ese campo ofrece comparaciones propias de una fecha —hoy, próximos N días, rango, mes, trimestre—: «vence en los próximos 30 días» trajo solo la póliza que vence en doce días y dejó afuera las de 150 y 300. orden POL-VENCE-PRONTO > POL-VENCE-MEDIO > POL-VENCE-TARDE · vencen en 30 días: POL-VENCE-PRONTO.
 - *Justificación.* Definir los campos y mostrarlos como columna y en el filtro es trabajo de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-1-4-bitrix24-1-vigencia-en-la-poliza, A-1-4-bitrix24-2-orden-por-vencimiento, A-1-4-bitrix24-3-vencen-en-30-dias, A-1-4-bitrix24-4-listado-filtrado.
 
 ### A.1.5 Aviso anticipado de vencimiento
 
@@ -114,6 +133,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Justificación.* Queda resuelta con la consulta del listado de vencimientos, que alguien tiene que abrir cada día que la compañía quiere estar al tanto: un costo permanente. El fabricante vende el motor de flujos de trabajo como extensión, y con ella el aviso se define una vez y se emite solo.
 - *Comentario — con Advanced Pack* (US$ 395 por año y por instalación, abono recurrente) sería **2** (cumple, costo 1). La extensión agrega los flujos de trabajo: la condición de vencimiento y la de plazo de reclamo se definen una vez desde la administración, y el sistema emite el aviso sin que nadie abra nada.
 - *Comentario — con EspoCRM Cloud Basic* (US$ 15 por usuario por mes, mínimo 3 usuarios, abono recurrente) sería **2** (cumple, costo 1). El servicio en la nube incluye todas las extensiones del fabricante, flujos de trabajo incluidos: el aviso se configura igual que con la extensión, sin comprarla aparte.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-1-5-espocrm-1-administracion, A-1-5-espocrm-2-consulta-de-vencimientos.
 
 > «Workflows»
 >
@@ -133,15 +153,17 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se activó el flujo y, sin que nadie interviniera, en la corrida siguiente del programador aparecieron los 9 avisos de pólizas por vencer y el del reclamo que alcanza su plazo; no avisó las pólizas que vencen más adelante ni el reclamo que tiene tres semanas.
+- *Cómo lo hace.* Un flujo de trabajo activado avisa sin que nadie intervenga, en cada corrida del programador, de las pólizas por vencer y de los reclamos que alcanzan su plazo; no avisa de las pólizas que vencen más adelante ni de los reclamos con plazo lejano.
 - *Características.* Los flujos de trabajo de la edición gratuita alcanzan para el aviso, armados desde el lienzo sin escribir código: un disparador programado busca las pólizas cuyo fin de vigencia cae en los próximos treinta días y los reclamos cuyo plazo de resolución vence en los próximos dos, y por cada uno deja una tarea con su nombre. 10 avisos emitidos sin intervención.
 - *Justificación.* Armar el flujo es trabajo de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-1-5-twenty-1-flujo-del-aviso, A-1-5-twenty-2-avisos-emitidos.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se definieron desde la pantalla, sin código, dos avisos por notificación al responsable: treinta días antes del fin de vigencia de la póliza y dos días antes del plazo de resolución del reclamo —que en la edición gratuita, sin entidad propia, es un campo de fecha de la negociación—, con fecha y hora. Se cargaron una póliza que vence dentro de treinta días y unos minutos, otra en 200, un reclamo que agota su plazo dentro de dos días y unos minutos y otro en 25 días, y nadie tocó nada más: a los 10 minutos llegaron las notificaciones de la póliza y del reclamo cuyo momento de aviso había llegado, y no las de los que todavía están lejos.
+- *Cómo lo hace.* Se definen desde la pantalla, sin código, avisos por notificación al responsable, con fecha y hora, un tiempo antes de una fecha del registro: por ejemplo treinta días antes del fin de vigencia de la póliza o dos días antes del plazo de resolución del reclamo —que en la edición gratuita, sin entidad propia, es un campo de fecha de la negociación—. Sin que nadie toque nada más, llegan las notificaciones de los registros cuyo momento de aviso ya llegó, y no las de los que todavía están lejos.
 - *Características.* Las reglas de automatización de la negociación aceptan un momento de ejecución relativo a una fecha: «N días antes» del valor de un campo de tipo fecha. El aviso se calcula sobre el valor del campo —la fecha y hora menos treinta días—, y un campo de solo fecha lo calcularía a la medianoche; el sistema lo ejecuta con su programador, con una demora de unos minutos sobre el instante calculado, sin consecuencia para avisos de días de anticipación. Cada aviso se marca «En paralelo»: por omisión una regla espera a que termine la anterior de su etapa, y con una regla previa de un día de retraso el aviso saldría un día tarde. La edición gratuita admite hasta 5 reglas y disparadores en total: el portal trae 2 reglas de muestra en la etapa inicial y, con ellas, los dos avisos entran sin pedir otro plan. Avisos emitidos sin intervención: 2, a los 10 minutos.
 - *Justificación.* Armar cada aviso es configuración de una vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-1-5-bitrix24-1-avisos-definidos, A-1-5-bitrix24-2-avisos-guardados, A-1-5-bitrix24-3-avisos-emitidos.
 
 > «Time ranges are available for fields with the Date and Date and time types.»
 >
@@ -153,21 +175,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* El listado de pólizas admite combinar condiciones: se pidieron a la vez el ramo Automotor, el estado de cobranza al día y un productor responsable, y de 20 pólizas el sistema devolvió 2, exactamente las que cumplen las tres al mismo tiempo.
+- *Cómo lo hace.* El listado de pólizas admite combinar condiciones —por ejemplo el ramo, el estado de cobranza y el productor responsable— y devuelve exactamente las pólizas que cumplen todas al mismo tiempo.
 - *Características.* La consulta se arma desde el listado eligiendo campo, comparación y valor, sin escribir ninguna expresión. 2 de 20 pólizas cumplen las tres condiciones.
 - *Justificación.* Los campos propios de la póliza no vienen habilitados como filtro: hay que agregarlos una vez a los filtros de búsqueda desde la administración, y ese paso es el costo de implementación. Es la consulta que el área comercial repite todos los días para saber a quién llamar.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-1-6-espocrm-1-filtros-combinados.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* El listado de pólizas combina filtros sobre cualquier campo: se filtró por ramo, por estado de pago y por productor responsable, y el resultado trajo exactamente las 2 pólizas de la cartera que cumplen las tres condiciones.
+- *Cómo lo hace.* El listado de pólizas combina filtros sobre cualquier campo, como el ramo, el estado de pago y el productor responsable, y trae exactamente las pólizas que cumplen todas las condiciones.
 - *Características.* La combinación se puede guardar como una vista con nombre. 2 pólizas con ramo Automotor, estado Al día y productor Pablo Gómez.
 - *Justificación.* El productor responsable es un campo de relación con los usuarios que se agrega al modelo una vez: la póliza, como objeto propio, no lo trae.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-1-6-twenty-1-filtros-combinados.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* De una cartera de seis pólizas se filtró por ramo Automotor, estado de cobranza Al día y productor responsable, y el listado trajo exactamente las dos que cumplen las tres.
+- *Cómo lo hace.* El listado de negociaciones se filtra a la vez por ramo, estado de cobranza y productor responsable, y trae solo las pólizas que cumplen las tres condiciones.
 - *Características.* El filtro del listado de negociaciones combina condiciones sobre cualquier campo. El filtro se puede guardar con nombre. 2 pólizas: ramo Automotor, estado Al día, productor Gómez Productor.
 - *Justificación.* El productor responsable viene en toda negociación como «Persona responsable»; el ramo y el estado son campos propios que hay que mostrar en el filtro una vez, con «Agregar campo».
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-1-6-bitrix24-1-filtros-combinados, A-1-6-bitrix24-2-listado-resultante.
 
 ### A.1.7 Operación masiva sobre la cartera
 
@@ -175,21 +200,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se seleccionaron las 20 pólizas de los ramos Automotor y Hogar desde el listado, y el menú de acciones sobre la selección ofrece 8 operaciones (Eliminar, Unir, Actualización masiva, Exportar, Seguir, Dejar de seguir, Convertir moneda, Recalcular fórmula). Con la actualización masiva se eligió el estado de cobranza, se le dio un valor y el sistema lo aplicó en una sola operación: las 20 quedaron con el nuevo estado sin recorrerlas una por una.
+- *Cómo lo hace.* Seleccionadas las pólizas desde el listado, el menú de acciones sobre la selección ofrece, entre otras, la actualización masiva: se elige un campo, como el estado de cobranza, se le da un valor y el sistema lo aplica en una sola operación a todas las seleccionadas, sin recorrerlas una por una.
 - *Características.* De fábrica la actualización masiva solo alcanza al usuario y al equipo asignados; para que incluya un campo propio hay que habilitarlo una vez desde la administración. 20 pólizas modificadas con una sola acción.
 - *Justificación.* Es lo que vuelve manejable un cambio de estado por lote de cobranza o una renovación de cartera.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-1-7-espocrm-1-seleccion, A-1-7-espocrm-2-acciones-sobre-la-seleccion, A-1-7-espocrm-3-resultado.
 
 **Twenty** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Se seleccionaron las 7 pólizas del ramo Hogar desde el listado y, con la selección hecha, la acción de actualizar abre un panel con los campos de la póliza: se eligió el estado de pago nuevo y se aplicó a todas de una vez, tras una confirmación que advierte que el cambio no se puede deshacer.
+- *Cómo lo hace.* Con las pólizas seleccionadas desde el listado, la acción de actualizar abre un panel con los campos de la póliza: se elige el valor nuevo, por ejemplo el estado de pago, y se aplica a todas de una vez, tras una confirmación que advierte que el cambio no se puede deshacer.
 - *Características.* Las seleccionadas quedaron con el estado nuevo. 7 de 7 pólizas actualizadas con una sola acción.
 - *Justificación.* Viene listo: no hay nada que configurar.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-1-7-twenty-1-seleccion, A-1-7-twenty-2-actualizar-registros, A-1-7-twenty-3-confirmacion, A-1-7-twenty-4-resultado.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Se filtró el listado por el ramo Hogar, se tildó la casilla del encabezado —que selecciona las 3 pólizas— y en el desplegable de acciones de la selección se eligió «Cambiar a la persona responsable»: con el productor Gómez Productor y un solo «Aplicar», todas quedaron a su cargo.
+- *Cómo lo hace.* En el listado filtrado se tilda la casilla del encabezado, que selecciona todas las pólizas, y en el desplegable de acciones de la selección se elige «Cambiar a la persona responsable»: con el productor elegido y un solo «Aplicar», todas quedan a su cargo.
 - *Características.* Las acciones de la selección vienen con el producto y no hay nada que configurar. 3 de 3 pólizas reasignadas con una sola acción.
 - *Justificación.* Modificar en bloque otro campo propio, como el estado de cobranza, no figura entre ellas.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-1-7-bitrix24-1-seleccion, A-1-7-bitrix24-2-accion, A-1-7-bitrix24-3-resultado.
 
 ## A.2 Captación y proceso de venta
 
@@ -199,21 +227,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Se registró un solicitante con todos esos datos, que se guardaron completos, y se lo recuperó buscando su apellido desde el listado.
+- *Cómo lo hace.* El formulario del posible cliente guarda todos sus datos —nombre, teléfono, correo y domicilio— y permite recuperarlo buscando su apellido desde el listado.
 - *Características.* El producto trae una entidad para quien todavía no contrató —el posible cliente— con nombre, teléfono, correo y domicilio desglosado en calle, ciudad, provincia, código postal y país.
 - *Justificación.* Viene listo con la instalación, sin configurar nada.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-2-1-espocrm-1-alta, A-2-1-espocrm-2-busqueda.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Twenty no tiene una entidad para quien todavía no contrató: el solicitante se registra como una persona, igual que el asegurado. Se cargó una solicitante con todos esos datos desde su ficha y la búsqueda general la encontró por su nombre.
+- *Cómo lo hace.* Twenty no tiene una entidad para quien todavía no contrató: el solicitante se registra como una persona, igual que el asegurado, con todos sus datos desde su ficha, y la búsqueda general lo encuentra por su nombre.
 - *Características.* La persona trae nombre, correos y teléfonos con su código de país, pero no domicilio: se agregó un campo de dirección, desglosado en calle, ciudad, provincia, código postal y país.
 - *Justificación.* Agregar el domicilio es trabajo de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-2-1-twenty-1-solicitante-cargado, A-2-1-twenty-2-busqueda.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* La edición gratuita no incluye el módulo de prospectos: el solicitante se registra como un contacto, igual que el asegurado. Se cargó una solicitante con todos esos datos desde el formulario y quedaron guardados; la búsqueda del listado la encontró por su nombre.
+- *Cómo lo hace.* La edición gratuita no incluye el módulo de prospectos: el solicitante se registra como un contacto, igual que el asegurado, con todos sus datos desde el formulario, y la búsqueda del listado lo encuentra por su nombre.
 - *Características.* El formulario del contacto trae nombre y apellido, teléfono, correo y dirección desglosada en código postal, país, provincia, ciudad y calle.
 - *Justificación.* Viene listo: no hay nada que configurar.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-2-1-bitrix24-1-solicitante-cargado, A-2-1-bitrix24-2-busqueda.
 
 ### A.2.2 Calificación y priorización del solicitante
 
@@ -221,21 +252,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* El posible cliente no trae cobertura pedida ni urgencia: se agregaron como dos campos de lista desde la administración y se los ubicó en el formulario y en el listado.
+- *Cómo lo hace.* El posible cliente no trae cobertura pedida ni urgencia: se agregan como dos campos de lista desde la administración y se ubican en el formulario y en el listado.
 - *Características.* Se cargaron tres solicitantes en desorden y, al ordenar el listado por urgencia, el sistema respetó el orden de la lista —alta, media, baja— y no el alfabético, de modo que los más cercanos a contratar quedan arriba. Orden obtenido: Prioridad Alta · Prioridad Media · Prioridad Baja.
 - *Justificación.* Configuración de una sola vez, sin programar.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-2-2-espocrm-1-ordenado-por-urgencia.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* La persona no trae cobertura pedida ni urgencia: se agregaron como dos campos de lista desde el modelo de datos. Se cargaron tres solicitantes en desorden y, al ordenar el listado por urgencia, quedaron en el orden de las opciones —primero la alta, después la media y al final la baja—, no alfabético: el orden sale de cómo se definió la lista.
+- *Cómo lo hace.* La persona no trae cobertura pedida ni urgencia: se agregan como dos campos de lista desde el modelo de datos. Al ordenar el listado por urgencia, los solicitantes quedan en el orden de las opciones —primero la alta, después la media y al final la baja—, no alfabético: el orden sale de cómo se define la lista.
 - *Características.* El orden se puede guardar en una vista.
 - *Justificación.* Definir los dos campos es trabajo de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-2-2-twenty-1-calificacion, A-2-2-twenty-2-ordenados-por-urgencia.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* El contacto no trae cobertura pedida ni urgencia: se agregaron como dos campos de lista desde su propio formulario.
+- *Cómo lo hace.* El contacto no trae cobertura pedida ni urgencia: se agregan como dos campos de lista desde su propio formulario.
 - *Características.* Se cargaron tres solicitantes en desorden y, con un clic en el encabezado de la columna «Urgencia», el listado quedó ordenado primero la alta, después la media y al final la baja —el orden de las opciones de la lista, no el alfabético—; otro clic lo invierte. orden: Vera > Sosa > Ríos.
 - *Justificación.* Definir los dos campos es configuración de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-2-2-bitrix24-1-calificacion, A-2-2-bitrix24-2-ordenados-por-urgencia.
 
 ### A.2.3 Conversión del solicitante en oportunidad de venta
 
@@ -243,15 +277,17 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Los datos ya cargados pasaron solos: el formulario de conversión trajo el nombre escrito, y el asegurado quedó con el mismo correo, teléfono y domicilio del solicitante, sin volver a tipearlos. Solo se completó lo que el solicitante no tenía —monto y fecha de cierre de la venta—. El solicitante quedó marcado como convertido y la oportunidad, ligada al asegurado.
+- *Cómo lo hace.* Los datos ya cargados pasan solos: el formulario de conversión trae el nombre escrito, y el asegurado queda con el mismo correo, teléfono y domicilio del solicitante, sin volver a tipearlos. Solo se completa lo que el solicitante no tiene —monto y fecha de cierre de la venta—. El solicitante queda marcado como convertido y la oportunidad, ligada al asegurado.
 - *Características.* La ficha del solicitante trae la acción de convertir, que crea en un solo paso el asegurado y la oportunidad de venta.
 - *Justificación.* Viene listo de fábrica.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-2-3-espocrm-1-conversion, A-2-3-espocrm-2-asegurado-creado.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Con un flujo de trabajo que se lanza a mano sobre la persona se armó esa acción, sin escribir código: crea la oportunidad con la cobertura que pidió el solicitante y lo deja como su contacto. Desde la ficha de la solicitante, la acción aparece en el menú de comandos; al lanzarla se creó la oportunidad con la cobertura cargada —«AUTOMOTOR»: el flujo toma el valor interno de la lista, no su etiqueta— y vinculada a ella, sin volver a escribir nada.
+- *Cómo lo hace.* Con un flujo de trabajo que se lanza a mano sobre la persona se arma esa acción, sin escribir código: crea la oportunidad con la cobertura que pidió el solicitante y lo deja como su contacto. Desde la ficha del solicitante, la acción aparece en el menú de comandos; al lanzarla se crea la oportunidad con la cobertura cargada —el flujo toma el valor interno de la lista, no su etiqueta— y vinculada a la persona, sin volver a escribir nada.
 - *Características.* Twenty no trae una acción de convertir al solicitante: la persona y la oportunidad son registros separados.
 - *Justificación.* Armar la acción es trabajo de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-2-3-twenty-1-accion-de-convertir, A-2-3-twenty-2-oportunidad-creada.
 
 **Bitrix24** · **1** (cumple con reparo) · costo de implementación **2**
 
@@ -259,6 +295,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Características.* Queda ligada a él y su teléfono y correo se ven en la negociación sin volver a escribirlos, pero no hay una acción que la arme con lo que el solicitante pidió: la cobertura solicitada, un campo propio del contacto, se vuelve a cargar a mano en cada negociación.
 - *Justificación.* El módulo de prospectos, que convierte al interesado en oportunidad, no está en la edición gratuita. La negociación se crea igual desde la ficha del solicitante y queda ligada a él, pero lo que pidió se vuelve a cargar a mano en cada caso.
 - *Comentario — con Bitrix24 Standard* (US$ 144 por mes, hasta 50 usuarios, abono recurrente) sería **2** (cumple, costo 1). El plan Standard incluye prospectos ilimitados, con su acción de convertir el prospecto en contacto, compañía y negociación llevando los datos cargados. Los campos propios pasan a la negociación si existen con el mismo nombre en las dos entidades: crearlos es configuración de una vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-2-3-bitrix24-1-prospectos-no-incluidos, A-2-3-bitrix24-2-negociacion-desde-el-contacto, A-2-3-bitrix24-3-negociacion-guardada.
 
 > «Todo lo incluido en Basic, más: Almacenamiento de 100 GB Prospectos ilimitados Facturas y cotizaciones Diseñador de formularios CRM Firma electrónica Marketing por WhatsApp Eficiencia de tareas (KPI) Proyectos ilimitados Tableros ilimitados»
 >
@@ -274,21 +311,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Desde la ficha del asegurado, su panel de oportunidades crea una nueva ya ligada a él. La oportunidad se hizo avanzar de calificación a propuesta, a negociación y a cerrada ganada: el sistema ajustó la probabilidad en cada paso, terminó en el cien por ciento, y la historia de la ficha conserva el recorrido completo.
+- *Cómo lo hace.* Desde la ficha del asegurado, su panel de oportunidades crea una nueva ya ligada a él. La oportunidad avanza de calificación a propuesta, a negociación y a cerrada ganada: el sistema ajusta la probabilidad en cada paso, termina en el cien por ciento, y la historia de la ficha conserva el recorrido completo.
 - *Características.* El embudo viene definido de fábrica con 6 etapas y una probabilidad de cierre asociada a cada una. Recorrido conservado: Qualification → Proposal → Negotiation → Closed Won.
 - *Justificación.* Las etapas se pueden renombrar para que sigan el proceso comercial de la compañía, pero tal como vienen ya lo resuelven.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-2-4-espocrm-1-desde-la-ficha, A-2-4-espocrm-2-cerrada-ganada.
 
 **Twenty** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Desde la ficha del asegurado, su sección de oportunidades crea una nueva ya ligada a él como contacto. La oportunidad se hizo avanzar etapa por etapa desde su ficha hasta la última, y el historial registró el avance —los cambios hechos seguidos por la misma persona se agrupan en una sola entrada—.
+- *Cómo lo hace.* Desde la ficha del asegurado, su sección de oportunidades crea una nueva ya ligada a él como contacto. La oportunidad avanza etapa por etapa desde su ficha hasta la última, y el historial registra el avance —los cambios hechos seguidos por la misma persona se agrupan en una sola entrada—.
 - *Características.* El embudo viene definido de fábrica con 6 etapas —New, Screening, Meeting, Proposal, Customer, Perdida— y una vista de tablero por etapa. 6 etapas recorridas; 1 entrada(s) de cambio de etapa en el historial.
 - *Justificación.* Viene listo, aunque las etapas vienen con nombres en inglés y de una venta genérica: adaptarlas al seguro es configuración.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-2-4-twenty-1-oportunidad-cerrada.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **0**
 
 - *Cómo lo hace.* Desde la ficha del contacto, la solapa de negociaciones crea una nueva ya ligada a él.
 - *Características.* El embudo viene definido de fábrica —en desarrollo, crear documentos, factura, en progreso, factura final y el cierre, ganado o perdido— y la negociación se hizo avanzar con un clic en cada etapa de la barra de su ficha hasta cerrarla como ganada. etapa final: WON.
 - *Justificación.* Viene listo, aunque las etapas son las de una venta genérica: adaptarlas al seguro es configuración.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-2-4-bitrix24-1-etapas-recorridas, A-2-4-bitrix24-2-negociacion-cerrada.
 
 ### A.2.5 Embudos diferenciados por ramo
 
@@ -296,22 +336,25 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se creó un segundo embudo para los seguros de personas desde su propia pantalla, y su panel de etapas permitió adaptarlas al ramo: la calificación pasó a ser la declaración de salud, la propuesta la evaluación médica, y se quitó la negociación, que en ese ramo no existe. Quedaron 5 etapas contra las 6 del embudo general. Se cargó una oportunidad eligiendo ese embudo desde el formulario, y avanza por sus etapas y no por las del otro.
+- *Cómo lo hace.* Se crea un segundo embudo para los seguros de personas desde su propia pantalla, y su panel de etapas permite adaptarlas al ramo: por ejemplo, la calificación pasa a ser la declaración de salud, la propuesta la evaluación médica, y se quita la negociación, que en ese ramo no existe. Una oportunidad se carga eligiendo ese embudo desde el formulario y avanza por sus etapas y no por las del otro.
 - *Características.* Los embudos múltiples vienen en el producto y se habilitan por entidad, con una casilla de su configuración. Embudo nuevo: Prospección → Declaración de salud → Evaluación médica → Cerrado ganado → Cerrado perdido.
 - *Justificación.* Es configuración de una sola vez, sin programar.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-2-5-espocrm-1-embudos-habilitados, A-2-5-espocrm-2-etapas-del-segundo-embudo, A-2-5-espocrm-3-oportunidad-en-el-embudo.
 
 **Twenty** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* Un segundo embudo se arma con un segundo campo de lista —para los seguros de personas: cotización, examen médico, emisión— y un tablero agrupado por él; se hizo así y la oportunidad quedó ubicada en el segundo embudo.
+- *Cómo lo hace.* Un segundo embudo se arma con un segundo campo de lista —para los seguros de personas: cotización, examen médico, emisión— y un tablero agrupado por él, donde la oportunidad queda ubicada en el segundo embudo.
 - *Características.* Twenty tiene un solo embudo por objeto: las etapas de la oportunidad son un campo de lista, y el tablero agrupa por ese campo. Pero las dos listas conviven en todas las oportunidades: nada impide que una oportunidad de automotor tenga etapa de vida, ni separa qué embudo sigue cada una.
 - *Justificación.* Mantener esa separación queda a cargo de quien carga la oportunidad, en cada alta.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-2-5-twenty-1-segundo-embudo.
 
 **Bitrix24** · **0** (no cumple)
 
-- *Cómo lo hace.* Desde «Pipelines y túneles de ventas», al pedir «Agregar pipeline» el sistema no abre el embudo nuevo: informa que la cantidad máxima de pipelines depende del plan y ofrece actualizar; la lista de embudos siguió con uno solo.
+- *Cómo lo hace.* Desde «Pipelines y túneles de ventas», al pedir «Agregar pipeline» el sistema no abre el embudo nuevo: informa que la cantidad máxima de pipelines depende del plan y ofrece actualizar; la lista de embudos sigue con uno solo.
 - *Características.* La edición gratuita trae un solo embudo, el pipeline general.
 - *Justificación.* El fabricante publica los embudos de ventas como función que se suma con el plan Basic.
 - *Comentario — con Bitrix24 Basic* (US$ 69 por mes, hasta 5 usuarios, abono recurrente) sería **2** (cumple, costo 1). Con el plan de entrada se pueden crear embudos adicionales, cada uno con sus propias etapas: uno por ramo y una negociación en el que corresponde. Definirlos es configuración de una vez. Los planes superiores suben la cantidad de embudos y no cambian lo que se resuelve.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-2-5-bitrix24-1-al-agregar-el-embudo.
 
 > «Todo lo incluido en Free, más: Almacenamiento de 24 GB IA para el trabajo diario en Bitrix24 Embudos de ventas Negociaciones recurrentes Pagos en línea Integración de correo electrónico Integración de WhatsApp Integración de telefonía»
 >
@@ -336,6 +379,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Justificación.* El conjunto de los próximos a vencer sale directo del listado filtrado, pero obtener a los que tienen automotor y no hogar exige sacar los dos listados y cruzarlos por fuera del sistema, trabajo que se repite en cada campaña de ampliación. El módulo de informes que vende el fabricante resuelve ese cruce con condiciones de pertenencia y de exclusión sobre los registros relacionados.
 - *Comentario — con Advanced Pack* (US$ 395 por año y por instalación, abono recurrente) sería **2** (cumple, costo 1). Un informe de asegurados con un grupo de pertenencia —tienen pólizas de automotor— y uno de exclusión —no tienen de hogar— devuelve el conjunto directo, y se guarda para repetirlo.
 - *Comentario — con EspoCRM Cloud Basic* (US$ 15 por usuario por mes, mínimo 3 usuarios, abono recurrente) sería **2** (cumple, costo 1). El servicio en la nube incluye el módulo de informes, con las mismas condiciones.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-2-6-espocrm-1-polizas-de-automotor, A-2-6-espocrm-2-polizas-de-hogar, A-2-6-espocrm-3-proximas-a-vencer, A-2-6-espocrm-4-condiciones-sobre-asegurados.
 
 > «NOT IN provides the ability to filter records that don't meet specified criteria. E.g. listing accounts that don't have any opportunity with 'Closed Won' or 'Closed Lost' status.»
 >
@@ -362,12 +406,14 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* El conjunto de los próximos a vencer sale directo: el listado de pólizas filtrado por vencimiento en los próximos treinta días muestra cada póliza con su titular.
 - *Características.* El otro conjunto no: el filtro del listado de asegurados solo ofrece sus propios campos, no las pólizas que tiene, así que «tiene automotor y no hogar» no se puede preguntar. 9 pólizas próximas a vencer.
 - *Justificación.* Se obtiene filtrando las pólizas por cada ramo y comparando a mano las dos listas de titulares, cada vez que se quiere armar la oferta.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-2-6-twenty-1-filtros-del-asegurado, A-2-6-twenty-2-proximas-a-vencer.
 
 **Bitrix24** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* El conjunto de los próximos a vencer sale directo: el filtro del listado de negociaciones sobre la fecha de fin de vigencia, «próximos 30 días», trajo la póliza que vence en doce días y dejó afuera las demás, con su cliente en el listado.
+- *Cómo lo hace.* El conjunto de los próximos a vencer sale directo: el filtro del listado de negociaciones sobre la fecha de fin de vigencia, «próximos 30 días», trae las pólizas que vencen en ese plazo y deja afuera las demás, con su cliente en el listado.
 - *Características.* El otro conjunto no: el filtro del listado de contactos solo ofrece campos del propio contacto, no las pólizas que tiene, así que «tiene automotor y no hogar» no se puede preguntar. 61 campos filtrables del contacto, ninguno sobre sus pólizas · 1 póliza próxima a vencer.
 - *Justificación.* Se obtiene filtrando las pólizas por cada ramo y comparando a mano las dos listas de clientes, cada vez que se quiere armar la oferta.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-2-6-bitrix24-1-filtros-del-contacto, A-2-6-bitrix24-2-polizas-por-ramo, A-2-6-bitrix24-3-proximas-a-vencer.
 
 ## A.3 Productores y actividad comercial
 
@@ -377,21 +423,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Se dio de alta una productora desde la administración de usuarios —con su rol, que la limita a lo propio— y se le asignaron tres asegurados de una sola vez, marcándolos en el listado y cambiando el responsable con la actualización masiva.
+- *Cómo lo hace.* Una productora se da de alta desde la administración de usuarios, con su rol, que la limita a lo propio, y se le asignan varios asegurados de una sola vez, marcándolos en el listado y cambiando el responsable con la actualización masiva.
 - *Características.* Al ingresar con su cuenta, su listado de asegurados muestra exactamente esos tres.
 - *Justificación.* El responsable asignado viene de fábrica en todas las entidades, y la actualización masiva lo admite sin configurar nada.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-3-1-espocrm-1-alta-del-productor, A-3-1-espocrm-2-cartera-de-la-productora.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* El productor se suma como usuario del espacio de trabajo con el enlace de invitación, desde la pantalla de miembros: se registra con su correo y su clave, y queda con su propia cuenta. Se marcaron tres asegurados en el listado y, con la actualización masiva, se los dejó a cargo del productor de una sola vez.
+- *Cómo lo hace.* El productor se suma como usuario del espacio de trabajo con el enlace de invitación, desde la pantalla de miembros: se registra con su correo y su clave, y queda con su propia cuenta. Se marcan asegurados en el listado y, con la actualización masiva, se los deja a cargo del productor de una sola vez.
 - *Características.* La persona no trae un responsable: se le agregó al modelo una relación con los usuarios.
 - *Justificación.* Agregar el responsable es trabajo de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-3-1-twenty-1-miembros, A-3-1-twenty-2-seleccion, A-3-1-twenty-3-asignados.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **1**
 
 - *Cómo lo hace.* Un usuario se da de alta como empleado desde «Empleados», con su propia cuenta y contraseña: es el productor.
 - *Características.* Sobre el listado de contactos —que en la edición gratuita hace de cartera de asegurados, a falta de una entidad propia— se seleccionan varios registros y se les cambia el responsable en bloque a ese productor, sin programar nada. 3 asegurados asignados al productor gomez.
 - *Justificación.* El alta del usuario es un trámite de una vez por productor; asignar la cartera es una acción del listado que se repite cuando cambia la asignación.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-3-1-bitrix24-1-productor-alta, A-3-1-bitrix24-2-asegurados, A-3-1-bitrix24-3-seleccion, A-3-1-bitrix24-4-asignados.
 
 ### A.3.2 Bitácora de la actividad con el cliente
 
@@ -399,21 +448,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Se registraron las dos, con un minuto de diferencia, y el historial las muestra ordenadas por fecha, la más reciente primero, cada una con su responsable y con quién la cargó.
+- *Cómo lo hace.* Cada actividad se registra en la ficha y el historial las muestra ordenadas por fecha, la más reciente primero, cada una con su responsable y con quién la cargó.
 - *Características.* La ficha del asegurado trae un historial de actividades con acciones para registrar una llamada o una reunión sin salir de ella. Autor registrado: Admin.
 - *Justificación.* Viene de fábrica. Es lo que permite que cualquiera que atienda al asegurado sepa qué se habló antes.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-3-2-espocrm-1-bitacora.
 
 **Twenty** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Twenty no distingue llamadas de reuniones —las reuniones solo llegan sincronizando un calendario externo—, así que cada actividad se registró como una nota desde la pestaña de notas de la ficha. Las dos quedaron en el historial del asegurado, en orden de fecha y cada una con su autor y su hora.
+- *Cómo lo hace.* Twenty no distingue llamadas de reuniones —las reuniones solo llegan sincronizando un calendario externo—, así que cada actividad se registra como una nota desde la pestaña de notas de la ficha. Quedan en el historial del asegurado, en orden de fecha y cada una con su autor y su hora.
 - *Características.* La ficha del asegurado tiene notas y un historial.
 - *Justificación.* Viene listo; el tipo de actividad queda en el título que escribe quien la registra.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-3-2-twenty-1-historial.
 
 **Bitrix24** · **1** (cumple con reparo) · costo de implementación **2**
 
 - *Cómo lo hace.* En la edición gratuita, sin embargo, la ficha no ofrece la llamada ni la reunión como tipos de actividad propios: la pestaña «Actividad» carga un pendiente de texto libre, y la llamada nativa exige telefonía y la reunión, una integración de videoconferencia.
 - *Características.* La línea de tiempo del contacto registra actividades con su autor y su momento, en orden cronológico, sin configurar nada. 2 actividades registradas.
 - *Justificación.* La llamada y la reunión se registran como pendientes que indican el tipo en el texto, de modo que el usuario debe escribirlo cada vez y no se puede filtrar el historial por tipo.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-3-2-bitrix24-1-ficha, A-3-2-bitrix24-2-llamada, A-3-2-bitrix24-3-reunion.
 
 ### A.3.3 Agenda y carga de trabajo del productor
 
@@ -421,21 +473,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Al ingresar con la cuenta del productor, su página de inicio muestra sus próximas actividades —la visita agendada para el día siguiente figura ahí— y el calendario reúne reuniones, llamadas y tareas en vistas por día, semana y mes.
+- *Cómo lo hace.* Al ingresar con la cuenta del productor, su página de inicio muestra sus próximas actividades —como una visita agendada— y el calendario reúne reuniones, llamadas y tareas en vistas por día, semana y mes.
 - *Características.* Cada productor ve lo suyo sin preparar nada.
 - *Justificación.* El tablero y el calendario vienen de fábrica, y cada uno puede sumar a su inicio sus tareas, sus casos o sus oportunidades.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-3-3-espocrm-1-inicio-del-productor, A-3-3-espocrm-2-calendario.
 
 **Twenty** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Al ingresar con la cuenta del productor, las tareas traen de fábrica una vista de las asignadas a él: ahí figuran sus pendientes con la fecha comprometida —la visita de mañana y la cotización de la semana—.
+- *Cómo lo hace.* Al ingresar con la cuenta del productor, las tareas traen de fábrica una vista de las asignadas a él: ahí figuran sus pendientes con la fecha comprometida.
 - *Características.* Las tareas admiten además una vista de calendario por fecha de vencimiento. Las reuniones agendadas aparecen en la ficha solo si el productor conecta su calendario externo.
 - *Justificación.* Viene listo.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-3-3-twenty-1-asignadas-a-mi.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **0**
 
 - *Cómo lo hace.* Con la sesión propia del productor, «Tareas» abre «Mis tareas» con lo que tiene asignado, con su fecha límite, y el Calendario del portal trae ese mismo compromiso; el CRM suma «Mis actividades» para las llamadas y reuniones de sus asegurados.
 - *Características.* Son vistas que vienen de fábrica en la edición gratuita, ya filtradas a su cuenta.
 - *Justificación.* No hay nada que configurar.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-3-3-bitrix24-1-mis-tareas, A-3-3-bitrix24-2-calendario, A-3-3-bitrix24-3-mis-actividades.
 
 ### A.3.4 Proyección de los movimientos comerciales
 
@@ -443,11 +498,12 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* Se cargaron tres oportunidades del mes con monto y etapa, y el sistema les asignó la probabilidad de cada etapa.
+- *Cómo lo hace.* Cada oportunidad se carga con monto y etapa, y el sistema le asigna la probabilidad de la etapa.
 - *Características.* El tablero de canalización de ventas suma los montos por etapa para el período elegido —mes, trimestre, año, año fiscal o un rango—, de modo que muestra cuánto hay en juego en cada instancia. Lo que no calcula es la proyección: cada oportunidad tiene su monto ponderado por la probabilidad, pero ningún tablero ni listado los totaliza, y el total esperado del período —286.000 en este caso— se obtiene exportando y sumando afuera cada vez. Por etapa: {"Prospecting":0,"Qualification":80000,"Proposal":300000,"Negotiation":150000,"Closed Won":0} · proyección ponderada no mostrada: 286000.
 - *Justificación.* El tablero de canalización suma los montos por etapa, pero el total esperado del período se obtiene exportando y sumando afuera cada vez, porque ningún tablero ni listado totaliza el monto ponderado. El módulo de informes del fabricante suma cualquier campo agrupado por período, el ponderado incluido.
 - *Comentario — con Advanced Pack* (US$ 395 por año y por instalación, abono recurrente) sería **2** (cumple, costo 1). Un informe agrupado por mes de cierre suma el monto ponderado y da la proyección del período.
 - *Comentario — con EspoCRM Cloud Basic* (US$ 15 por usuario por mes, mínimo 3 usuarios, abono recurrente) sería **2** (cumple, costo 1). El servicio en la nube incluye el módulo de informes.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-3-4-espocrm-1-canalizacion-del-mes.
 
 > «Grid reports display summarized values, can be grouped by one or two fields, and support chart visualization.»
 >
@@ -470,12 +526,14 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* Los tableros suman los montos por etapa y por fecha de cierre, de modo que muestran cuánto hay en juego en cada período, pero no el total ponderado por la probabilidad de cerrarlo.
 - *Características.* Las oportunidades tienen monto y fecha de cierre, pero no probabilidad, y el modelo no admite campos calculados.
 - *Justificación.* Una probabilidad se puede agregar como campo, pero el total proyectado hay que calcularlo fuera, cada vez que se lo quiere mirar.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-3-4-twenty-1-tablero, A-3-4-twenty-2-tipos-de-campo.
 
 **Bitrix24** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* Se cargaron dos oportunidades (10.000 con 50 % y 20.000 con 25 %) y quedaron guardadas.
+- *Cómo lo hace.* La negociación, que hace de oportunidad comercial, se carga con su monto y su probabilidad, y quedan guardados.
 - *Características.* La negociación, que hace de oportunidad comercial, admite monto y probabilidad: el campo «Probabilidad» existe pero viene oculto, y se agrega al formulario una vez con «Seleccionar campo». Lo que no hay en la edición gratuita es el total proyectado por período: el listado suma importes sin ponderarlos por la probabilidad, y el informe de tendencia de ventas, en Analítica, no se abre y ofrece en su lugar BI Builder, que exige actualizar el plan. 2 oportunidades con monto y probabilidad.
 - *Justificación.* La proyección se calcula fuera del sistema cada vez que se la necesita.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-3-4-bitrix24-1-formulario, A-3-4-bitrix24-2-listado, A-3-4-bitrix24-3-tendencia-de-ventas.
 
 ## A.4 Marketing, segmentación y reputación
 
@@ -485,21 +543,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Desde el listado de asegurados se definió un conjunto por un criterio —los que viven en Buenos Aires— y se lo guardó con nombre desde el menú de filtros.
+- *Cómo lo hace.* Desde el listado de asegurados se define un conjunto por un criterio —por ejemplo, los que viven en una ciudad— y se lo guarda con nombre desde el menú de filtros.
 - *Características.* Al volver al listado, el segmento figura entre los filtros guardados y devuelve el mismo conjunto sin rearmarlo. 4 asegurados en el segmento.
-- *Justificación.* Guardar segmentos viene de fábrica; que la ciudad esté disponible como condición exigió habilitarla una vez entre los filtros de búsqueda.
+- *Justificación.* Guardar segmentos viene de fábrica; que la ciudad esté disponible como condición exige habilitarla una vez entre los filtros de búsqueda.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-4-1-espocrm-1-segmento-guardado, A-4-1-espocrm-2-segmento-reabierto.
 
 **Twenty** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Desde el listado de asegurados se definió un conjunto por un criterio —los que están a cargo de un productor— y se lo guardó con nombre como una vista, desde el propio filtro.
+- *Cómo lo hace.* Desde el listado de asegurados se define un conjunto por un criterio —por ejemplo, los que están a cargo de un productor— y se lo guarda con nombre como una vista, desde el propio filtro.
 - *Características.* Al volver al listado, el segmento figura en el selector de vistas; al abrirlo trajo de nuevo los mismos asegurados, y como el filtro se guarda y no la lista, un asegurado que cumpla el criterio más adelante entra solo. 3 asegurados en el segmento.
 - *Justificación.* Viene listo.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-4-1-twenty-1-segmento-guardado, A-4-1-twenty-2-segmento-reabierto.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Desde el listado de contactos se definió un conjunto por un criterio —los asegurados que llegaron por recomendación— y se lo guardó con nombre desde el propio filtro, sin programar.
+- *Cómo lo hace.* Desde el listado de contactos se define un conjunto por un criterio —por ejemplo, los asegurados que llegaron por recomendación— y se lo guarda con nombre desde el propio filtro, sin programar.
 - *Características.* Al salir del listado y volver, el segmento figura entre los filtros guardados; al abrirlo trajo de nuevo los mismos asegurados, y como se guarda el criterio y no la lista, uno que lo cumpla más adelante entra solo. 3 asegurados en el segmento.
 - *Justificación.* El origen no viene entre los campos visibles del filtro: agregarlo es configuración de una vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-4-1-bitrix24-1-segmento-guardado, A-4-1-bitrix24-2-segmento-reabierto.
 
 ### A.4.2 Diseño de campañas sobre un segmento
 
@@ -507,15 +568,17 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* El segmento guardado se volcó entero a una lista de destinatarios, seleccionando desde la lista con el mismo filtro guardado, y se creó una campaña de correo dirigida a esa lista.
+- *Cómo lo hace.* El segmento guardado se vuelca entero a una lista de destinatarios, seleccionando desde el listado con el mismo filtro guardado, y se crea una campaña de correo dirigida a esa lista.
 - *Características.* El contenido se escribió en una plantilla con marcadores que el sistema reemplaza por los datos de cada destinatario —el nombre en el asunto y en el saludo—, de modo que cada asegurado recibe un mensaje dirigido a él. 4 destinatarios en la lista de la campaña.
 - *Justificación.* Campañas, listas y plantillas vienen de fábrica.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-4-2-espocrm-1-lista-desde-el-segmento, A-4-2-espocrm-2-contenido-personalizado, A-4-2-espocrm-3-campana.
 
 **Twenty** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* Se armó una con un flujo de trabajo que se lanza sobre los registros marcados y le envía a cada uno un correo desde la casilla comercial, con su nombre en el asunto. Se abrió el segmento guardado, se marcaron sus 3 asegurados, se lanzó la campaña y cada uno recibió su mensaje, personalizado —«Su póliza vence pronto, Sofía»—.
+- *Cómo lo hace.* Una campaña se arma con un flujo de trabajo que se lanza sobre los registros marcados y le envía a cada uno un correo desde la casilla comercial, con su nombre en el asunto: se abre el segmento guardado, se marcan sus asegurados, se lanza la campaña y cada uno recibe su mensaje personalizado.
 - *Características.* La edición evaluada no trae campañas: el fabricante las tiene en beta y las habilita a pedido. 3 de 3 mensajes recibidos.
 - *Justificación.* Funciona, pero cada campaña nueva es un flujo nuevo que alguien tiene que armar, y no hay dónde programarla, darle de baja a un destinatario ni ver sus resultados.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-4-2-twenty-1-campana, A-4-2-twenty-2-campana-lanzada.
 
 > «Beta Feature: Email campaigns are in beta. Contact us via chat to enable them for your workspace.»
 >
@@ -523,10 +586,11 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Bitrix24** · **0** (no cumple)
 
-- *Cómo lo hace.* En la edición gratuita no se puede crear una campaña: se abrió el segmento guardado, se marcaron sus 3 asegurados y se pidió «Crear boletín», y el sistema respondió que la herramienta «estará disponible una vez que actualice su plan»; desde Marketing, «Campaña de correo electrónico» dice que se desbloquea con el plan Standard o el Professional.
+- *Cómo lo hace.* En la edición gratuita no se puede crear una campaña: al pedir «Crear boletín» sobre un segmento guardado, el sistema responde que la herramienta «estará disponible una vez que actualice su plan»; desde Marketing, «Campaña de correo electrónico» dice que se desbloquea con el plan Standard o el Professional.
 - *Características.* El producto sí la tiene: la campaña se dirige a un segmento existente y su contenido se personaliza con datos del CRM, como el nombre.
 - *Justificación.* El comparativo del fabricante lo confirma: el correo masivo no figura en la edición gratuita ni en el plan Basic.
 - *Comentario — con Bitrix24 Standard* (US$ 144 por mes, hasta 50 usuarios, abono recurrente) sería **2** (cumple, costo 1). Con el plan Standard —el de entrada para el correo masivo, hasta 50.000 correos por mes— la campaña se arma sobre un segmento del CRM y se personaliza con variables como el nombre o la fecha de nacimiento, sin programar. Hay que dejar configurada una vez la casilla desde la que sale y el límite mensual.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-4-2-bitrix24-1-boletin-sobre-el-segmento, A-4-2-bitrix24-2-campana-de-correo.
 
 > «Correos electrónicos masivos Número máximo de direcciones de e-mails que se pueden usar para marketing por correo electrónico para cada plan»
 >
@@ -550,21 +614,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* La campaña se envió a su lista y llegaron los 4 mensajes, cada uno con el nombre de su destinatario en el asunto —"Martina, su póliza de hogar vence pronto"—.
+- *Cómo lo hace.* La campaña se envía a su lista y cada destinatario recibe su mensaje con su propio nombre en el asunto.
 - *Características.* El registro de la campaña anotó cada envío y, cuando uno de los asegurados abrió el mensaje, anotó también la apertura, con la fecha y el destinatario. Lo mismo hace con los clics en enlaces seguidos y las bajas. 4 envíos y 1 apertura registrados.
 - *Justificación.* La medición viene en el producto; lo que hay que configurar una vez es el servidor de correo saliente de la compañía y activar, en esa misma configuración, el seguimiento de aperturas, que viene apagado.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-4-3-espocrm-0-envio-programado, A-4-3-espocrm-1-resultados-de-la-campana.
 
 **Twenty** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* Las respuestas llegan: el asegurado contestó y la casilla sincronizada trajo su respuesta a su ficha.
+- *Cómo lo hace.* Las respuestas llegan: la casilla sincronizada trae la respuesta del asegurado a su ficha.
 - *Características.* De la campaña armada con un flujo de trabajo queda el registro del envío: cada lanzamiento es una corrida con el resultado de cada paso. Las aperturas no se registran, y nada reúne los resultados de la campaña: cuántos la recibieron, cuántos contestaron. 1 corrida(s) registradas; respuesta en la ficha: sí.
 - *Justificación.* Saberlo exige revisar las corridas y las fichas, una por una, después de cada envío.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-4-3-twenty-1-envios, A-4-3-twenty-2-respuesta-en-la-ficha.
 
 **Bitrix24** · **0** (no cumple)
 
 - *Cómo lo hace.* El fabricante documenta lo que el producto mide cuando la campaña sale: envíos, y con el seguimiento del correo activado, aperturas y clics.
 - *Justificación.* En la edición gratuita no hay campañas que medir: el listado de Marketing › Campañas trae las columnas Estado, Estadística y Consentimiento pero está vacío, y crear una campaña de correo pide el plan Standard o el Professional.
 - *Comentario — con Bitrix24 Standard* (US$ 144 por mes, hasta 50 usuarios, abono recurrente) sería **2** (cumple, costo 1). Con el plan Standard cada campaña registra su estadística en el listado de campañas; las aperturas y los clics se miden si se activa el seguimiento del correo y de los enlaces, una opción de configuración que se deja prendida una vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-4-3-bitrix24-1-listado-de-campanas, A-4-3-bitrix24-2-crear-campana.
 
 > «Email tracking. Enable this option to track opens and clicks.»
 >
@@ -591,6 +658,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* Lo que sí trae es la captura de posibles clientes, un formulario web propio que carga solo a cada interesado que lo completa.
 - *Características.* El producto no se conecta con ninguna red social: la administración de integraciones no ofrece ninguna y el catálogo del fabricante tampoco.
 - *Justificación.* Enlazado desde las publicaciones y los perfiles de la compañía, incorpora a la base a quien llega desde una red; pero cada campaña en la red tiene que llevar ese enlace, y los interesados que escriben por mensaje o comentan en la publicación se cargan a mano.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-4-4-espocrm-1-integraciones, A-4-4-espocrm-2-captura-de-posibles-clientes.
 
 > «The Web-to-Lead feature provides the ability to create web forms for capturing information about website visitors and then save this information as new leads to the CRM instance.»
 >
@@ -598,11 +666,17 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Twenty** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* Lo que sí trae es un disparador de flujos por webhook: se armó un flujo que recibe nombre, apellido y correo y da de alta a la persona, y un pedido con esos datos —lo que enviaría un intermediario al llegar un interesado desde un formulario de anuncios— la incorporó a la base.
+- *Cómo lo hace.* Lo que sí trae es un disparador de flujos por webhook: un flujo recibe nombre, apellido y correo y da de alta a la persona, de modo que un pedido con esos datos —lo que enviaría un intermediario al llegar un interesado desde un formulario de anuncios— la incorpora a la base.
 - *Características.* El producto no se conecta con ninguna red social: las cuentas que se pueden conectar son de correo y calendario, y el catálogo de aplicaciones no ofrece ninguna.
 - *Justificación.* La conexión con cada red queda a cargo de ese intermediario, que hay que contratar y mantener aparte.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-4-4-twenty-1-entrada-por-webhook, A-4-4-twenty-2-interesado-incorporado.
 
-**Bitrix24** — *no se pudo verificar.* El centro de contacto ofrece conectar Facebook, Instagram, Telegram y otros canales, y en la edición gratuita la conexión no encuentra muro de pago, pero exige autorizar con la cuenta que administra la página de la compañía. Sin esa cuenta no entró ningún mensaje y no se pudo comprobar que el contacto quede como interesado en la base.
+**Bitrix24** · **2** (cumple) · costo de implementación **1**
+
+- *Cómo lo hace.* En Clientes › Contact center se conecta una vez el bot de Telegram de la compañía al canal abierto, pegando su clave de acceso, sin planes de pago. Cuando un interesado le escribe al bot, el sistema crea solo, sin intervención de nadie, un contacto y una negociación (la ficha la menciona como prospecto); desde la ficha del contacto, con «Abrir», se ve la conversación con el mensaje tal como llegó.
+- *Características.* El contacto queda con el origen «Telegram - Canal Abierto» y con el enlace al canal en la ficha; la negociación se llama «Nawi - Canal Abierto», se asigna al responsable de la cola del canal y la conversación completa queda en el historial del contacto. El texto del mensaje no se vuelca a campos (cobertura solicitada y urgencia quedan vacíos): se completan a mano desde la ficha. La edición gratuita incluye Telegram además de Facebook e Instagram.
+- *Justificación.* La necesidad queda resuelta: el interesado que escribe por la red entra a la base como cualquier otro, con su origen. Conectar el canal es configuración de una sola vez, por eso el costo es 1; completar los datos del seguro en cada contacto es tarea del agente, pero no impide que el interesado esté en la base.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-4-4-bitrix24-1-canales, A-4-4-bitrix24-2-contacto-creado, A-4-4-bitrix24-3-conversacion.
 
 ### A.4.5 Escucha de menciones en canales públicos
 
@@ -612,6 +686,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 - *Cómo lo hace.* El producto no ofrece el seguimiento de lo que se dice de la compañía y de la competencia en redes y medios, en ninguna edición: la administración no tiene ninguna función de redes sociales y el catálogo oficial de extensiones —informes y automatización, ventas, proyectos, inteligencia artificial, telefonía, agenda de reuniones, integraciones con Outlook, Google, Zoom, Stripe y MailChimp— no incluye ninguna.
 - *Justificación.* La compañía tendría que resolverlo con otra herramienta.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-4-5-espocrm-1-administracion.
 
 > «Real Estate»
 >
@@ -621,6 +696,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 - *Cómo lo hace.* El producto no ofrece el seguimiento de lo que se dice de la compañía y de la competencia en redes y medios, en ninguna edición: la configuración no tiene ninguna función de redes sociales y el catálogo de aplicaciones del fabricante, dentro del propio producto, ofrece una sola —el seguimiento del último contacto con cada persona—.
 - *Justificación.* El fabricante presenta las aplicaciones como una vía para extender el producto con código propio: una escucha de redes habría que desarrollarla.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-4-5-twenty-1-catalogo-de-aplicaciones.
 
 > «Extend Twenty with code — custom objects, server-side logic, UI components, and AI agents, all as TypeScript packages.»
 >
@@ -628,9 +704,10 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Bitrix24** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* Lo más cercano es el conector «Facebook: Comentarios» del centro de contacto, disponible en la edición gratuita, que trae los comentarios de la página propia de la compañía al CRM: cubre lo que se dice en sus propios canales, y solo ahí. El catálogo de aplicaciones tampoco ofrece una de escucha: se buscó «menciones», «social listening» y «brand monitoring» y no aparece ninguna.
+- *Cómo lo hace.* Lo más cercano es el conector «Facebook: Comentarios» del centro de contacto, disponible en la edición gratuita, que trae los comentarios de la página propia de la compañía al CRM: cubre lo que se dice en sus propios canales, y solo ahí. El catálogo de aplicaciones tampoco ofrece una de escucha: para «menciones», «social listening» y «brand monitoring» no aparece ninguna.
 - *Características.* El fabricante promociona «monitoreo de redes desde el CRM», que en el producto es ese mismo intercambio de mensajes y comentarios propios.
 - *Justificación.* Cubre lo que se dice en los canales propios de la compañía, con el conector de comentarios de Facebook. No sigue menciones en canales públicos ni de la competencia: para eso hace falta una herramienta externa.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-4-5-bitrix24-1-comentarios-de-la-pagina, A-4-5-bitrix24-2-market-sin-escucha.
 
 > «Redes sociales y messengers Vincule diferentes redes sociales y messengers, y permita que sus clientes se comuniquen mediante el canal de comunicación que más les convenga.»
 >
@@ -648,6 +725,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 - *Cómo lo hace.* El producto no ofrece la publicación en redes sociales desde el propio sistema, en ninguna edición: la administración no tiene ninguna función de redes sociales y el catálogo oficial de extensiones —informes y automatización, ventas, proyectos, inteligencia artificial, telefonía, agenda de reuniones, integraciones con Outlook, Google, Zoom, Stripe y MailChimp— no incluye ninguna.
 - *Justificación.* La compañía tendría que resolverlo con otra herramienta.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-4-6-espocrm-1-administracion.
 
 > «Real Estate»
 >
@@ -657,6 +735,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 - *Cómo lo hace.* El producto no permite publicar en redes sociales desde el propio sistema, en ninguna edición: las cuentas que se pueden conectar son de correo y de calendario —IMAP, SMTP, CalDAV—, ninguna red social, y el catálogo de aplicaciones del fabricante no ofrece ninguna para eso.
 - *Justificación.* Publicar exigiría desarrollar una aplicación propia.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-4-6-twenty-1-cuentas-conectables.
 
 > «Extend Twenty with code — custom objects, server-side logic, UI components, and AI agents, all as TypeScript packages.»
 >
@@ -666,6 +745,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 - *Cómo lo hace.* El sistema no publica en las redes: lo único que emite hacia Facebook e Instagram son anuncios pagos sobre publicaciones que ya existen en la red o sobre un segmento del CRM, desde «Marketing › Anuncios de Facebook», que en la edición gratuita pide actualizar al plan Standard o Professional. No hay donde componer un texto y emitirlo a la página conectada.
 - *Justificación.* El fabricante lo declara en su documentación de la integración con Facebook e Instagram: publicar en la página de Facebook figura entre las opciones que todavía no están disponibles. La conexión de la página que sí existe es la de comentarios y mensajes recibidos, no la de publicación.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-4-6-bitrix24-1-anuncio-de-facebook.
 
 > «Options like Post on Facebook page, Facebook page card, and Messenger chat are not available yet.»
 >
@@ -681,21 +761,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* El motivo y el competidor que la ganó no vienen de fábrica: se agregaron como dos campos de la oportunidad desde la administración, una lista de motivos y el nombre del competidor, y quedaron registrados junto con la pérdida.
+- *Cómo lo hace.* El motivo y el competidor que ganó la venta no vienen de fábrica: se agregan como dos campos de la oportunidad desde la administración, una lista de motivos y el nombre del competidor, y quedan registrados junto con la pérdida.
 - *Características.* Al marcar una oportunidad como perdida, el sistema conserva por su cuenta la etapa en la que se perdió —negociación, en este caso—.
 - *Justificación.* Con eso la compañía puede saber por qué pierde ventas y contra quién.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-4-7-espocrm-1-perdida-con-motivo.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se agregó la etapa «Perdida» a la lista de etapas y dos campos: el motivo, como lista, y el competidor que se quedó con la venta. Se marcó una oportunidad como perdida y se le registraron el motivo y el competidor desde su ficha.
+- *Cómo lo hace.* Desde Configuración › Modelo de datos se agrega la etapa «Perdida» a la lista de etapas y dos campos: el motivo, como lista, y el competidor que se quedó con la venta. Al marcar una oportunidad como perdida, se registran el motivo y el competidor desde su ficha.
 - *Características.* El embudo de fábrica termina en la etapa de cliente ganado: no trae una etapa de oportunidad perdida ni dónde anotar por qué se perdió.
 - *Justificación.* Agregarlos es trabajo de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-4-7-twenty-1-oportunidad-perdida.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se agregaron dos campos propios a la negociación, el motivo, como lista, y el competidor, como texto; se marcó una oportunidad como perdida y se le registraron el motivo y el competidor desde su ficha, y quedaron guardados.
+- *Cómo lo hace.* Se agregan dos campos propios a la negociación, el motivo, como lista, y el competidor, como texto; al marcar una oportunidad como perdida se registran el motivo y el competidor desde su ficha, y quedan guardados.
 - *Características.* Al cerrar una negociación como perdida el sistema pregunta solo el resultado —«Cerrado Perdido» o «Analizar la falla», las dos etapas de fábrica—: no trae dónde anotar por qué se perdió ni quién la ganó.
 - *Justificación.* Agregar los campos es configuración de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-4-7-bitrix24-1-cierre-de-la-negociacion, A-4-7-bitrix24-2-motivo-y-competidor.
 
 ## A.5 Atención al asegurado y reclamos
 
@@ -705,21 +788,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Se registró un reclamo asociado a un asegurado y el sistema le asignó el número 102447 al guardarlo; la ficha muestra al asegurado y el reclamo figura en el listado de casos.
+- *Cómo lo hace.* Al guardar un reclamo asociado a un asegurado, el sistema le asigna un número; la ficha muestra al asegurado y el reclamo figura en el listado de casos.
 - *Características.* El producto trae el caso de atención como entidad propia, con su entrada de menú, su listado y su ficha. Reclamo número 102447.
-- *Justificación.* No hubo que crear ni configurar nada: viene listo con la instalación. El número propio es lo que permite que la compañía y el asegurado hablen del mismo reclamo sin ambigüedad.
+- *Justificación.* Viene listo con la instalación: no requiere crear ni configurar nada. El número propio es lo que permite que la compañía y el asegurado hablen del mismo reclamo sin ambigüedad.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-5-1-espocrm-1-alta, A-5-1-espocrm-2-ficha, A-5-1-espocrm-3-listado.
 
 **Twenty** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* Twenty no trae un objeto de reclamos o casos: se definió como objeto propio, con estado, plazo de resolución, asegurado y responsable.
+- *Cómo lo hace.* Twenty no trae un objeto de reclamos o casos: se define como objeto propio, con estado, plazo de resolución, asegurado y responsable.
 - *Características.* Así tiene listado y ficha propios, y se crea desde el campo de reclamos de la ficha del asegurado, ya ligado a él. Pero no tiene número: ningún tipo de campo se numera solo, y el identificador interno no sirve para dictárselo a un asegurado.
 - *Justificación.* El número hay que asignarlo a mano en cada alta, o desarrollarlo.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-5-1-twenty-1-ficha-del-reclamo, A-5-1-twenty-2-listado, A-5-1-twenty-3-tipos-de-campo.
 
 **Bitrix24** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* El reclamo se lleva entonces como una negociación con el asegurado como cliente: recibe un número propio, abre su propia ficha y queda asociada al contacto (reclamo n.º 226).
+- *Cómo lo hace.* El reclamo se lleva entonces como una negociación con el asegurado como cliente: recibe un número propio, abre su propia ficha y queda asociada al contacto.
 - *Características.* No tiene listado propio: comparte el de las demás negociaciones —pólizas y oportunidades—, y hay que distinguirlo por el nombre o con un filtro en cada uso. reclamo n.º 226.
 - *Justificación.* La edición gratuita no permite crear una entidad Reclamo ni vincular tareas al asegurado: «Tareas en CRM» requiere al menos el plan Basic. El reclamo se lleva igual como una negociación con número y ficha propios, pero mezclado con pólizas y oportunidades, y hay que separarlo en cada consulta.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-5-1-bitrix24-1-formulario, A-5-1-bitrix24-2-ficha, A-5-1-bitrix24-3-listado, A-5-1-bitrix24-4-tarea-en-crm.
 
 ### A.5.2 Estado y seguimiento del reclamo
 
@@ -727,21 +813,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* El reclamo se pasó de nuevo a asignado, a pendiente y a cerrado, y la ficha conserva la secuencia completa en su historia: cada cambio de estado queda registrado con el valor anterior, el nuevo, quién lo hizo y cuándo.
+- *Cómo lo hace.* El reclamo pasa por los estados de asignado, pendiente y cerrado, y la ficha conserva la secuencia completa en su historia: cada cambio de estado queda registrado con el valor anterior, el nuevo, quién lo hizo y cuándo.
 - *Características.* El estado del caso viene auditado de fábrica, sin configurar nada. Secuencia conservada: Assigned → Pending → Closed.
 - *Justificación.* Es lo que permite reconstruir cuánto estuvo un reclamo en cada instancia cuando el asegurado pregunta o cuando hay que responder ante un organismo de control.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-5-2-espocrm-1-secuencia-de-estados.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se lo cambió tres veces desde la ficha y el historial del reclamo conserva la secuencia En curso → Resuelto → Cerrado, con quién hizo cada cambio y cuándo.
+- *Cómo lo hace.* El estado se cambia desde la ficha y el historial del reclamo conserva la secuencia de estados, con quién hizo cada cambio y cuándo.
 - *Características.* El estado del reclamo es un campo de lista del objeto propio, con los estados que define la compañía. Los cambios que la misma persona hace sobre el mismo reclamo dentro de los diez minutos se funden en una sola entrada, que muestra el estado de partida y el último: un estado intermedio que dura menos que eso no queda registrado. 3 cambios de estado en el historial.
 - *Justificación.* Con el ritmo de un reclamo, que cambia de estado en días, cada paso queda por separado. Definir el estado es trabajo de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-5-2-twenty-1-historial-de-estados.
 
 **Bitrix24** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* Se pasó el reclamo por tres etapas y el sistema conservó las cuatro posiciones en orden, sin configurar nada.
+- *Cómo lo hace.* El reclamo pasa por las etapas del embudo y el sistema conserva la posición de cada una en orden, sin configurar nada.
 - *Características.* Cada cambio de etapa de la negociación —que hace de reclamo— queda anotado en la línea de tiempo de su ficha como «Etapa cambiada», con la etapa anterior y la nueva, la hora y el usuario. secuencia: NEW > PREPARATION > PREPAYMENT_INVOICE > EXECUTING.
 - *Justificación.* El reparo es que los estados no son propios del reclamo: son las etapas del embudo de ventas (En desarrollo, Crear documentos, Factura…), compartidas con las pólizas y las oportunidades, y la pestaña «Historial» de la ficha, que concentra el seguimiento, no se abre en la edición gratuita.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-5-2-bitrix24-2-linea-de-tiempo.
 
 ### A.5.3 Responsable asignado a cada reclamo
 
@@ -749,21 +838,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Se asignó el reclamo a un productor desde la ficha y, al ingresar con la cuenta de ese productor, el reclamo figura en su listado de casos.
+- *Cómo lo hace.* El reclamo se asigna a un productor desde la ficha y, al ingresar con la cuenta de ese productor, figura en su listado de casos.
 - *Características.* El caso trae un responsable asignado de fábrica.
 - *Justificación.* Cada reclamo tiene un dueño visible, que es lo que evita que un caso quede sin atender porque nadie sabía que era suyo.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-5-3-espocrm-1-asignacion, A-5-3-espocrm-2-pendientes-del-productor.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se lo asignó al productor desde la ficha; al ingresar con su cuenta y filtrar los reclamos por los que tiene a su cargo, figura entre sus pendientes.
+- *Cómo lo hace.* El reclamo se asigna al productor desde la ficha; al ingresar con su cuenta y filtrar los reclamos por los que tiene a su cargo, figura entre sus pendientes.
 - *Características.* El reclamo tiene un responsable, que es una relación con los usuarios del objeto propio. Ese filtro se guarda como una vista para no rehacerlo.
 - *Justificación.* Definir el responsable es trabajo de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-5-3-twenty-1-reclamo-asignado, A-5-3-twenty-2-reclamos-del-productor.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **1**
 
 - *Cómo lo hace.* El responsable de un reclamo —la negociación del asegurado— se cambia en el listado, marcando el registro y eligiendo «Cambiar a la persona responsable».
 - *Características.* Con la sesión del productor, el reclamo asignado aparece en su listado de negociaciones, sin buscarlo.
 - *Justificación.* Los reclamos comparten ese listado con las pólizas y las oportunidades, y el usuario los distingue por el nombre: es una convención que se fija una vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-5-3-bitrix24-1-asignado, A-5-3-bitrix24-2-lista-del-productor.
 
 ### A.5.4 Base de conocimiento para la atención
 
@@ -771,21 +863,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Se escribió un artículo con una condición de cobertura —qué cubre la póliza de automotor ante granizo y qué excluye—, se lo publicó y se lo recuperó buscando "granizo" desde su listado.
+- *Cómo lo hace.* Un artículo con una condición de cobertura —por ejemplo, qué cubre la póliza de automotor ante granizo y qué excluye— se escribe, se publica y se recupera buscando una palabra desde el listado de la base de conocimiento.
 - *Características.* El producto trae una base de conocimiento propia.
-- *Justificación.* Viene lista: no hubo que crear ni configurar nada. Es lo que permite que quien atiende responda igual que su compañero de al lado, sin depender de la memoria.
+- *Justificación.* Viene lista: no requiere crear ni configurar nada. Es lo que permite que quien atiende responda igual que su compañero de al lado, sin depender de la memoria.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-5-4-espocrm-1-busqueda.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Twenty no trae una base de conocimiento: el artículo se definió como un objeto propio, con su título y la condición de cobertura. Se cargó uno sobre el granizo en automotor y la búsqueda general lo encontró por su título.
+- *Cómo lo hace.* Twenty no trae una base de conocimiento: el artículo se define como un objeto propio, con su título y la condición de cobertura. Al cargar un artículo, la búsqueda general lo encuentra por su título.
 - *Características.* También lo encontró por una palabra del texto de la condición.
 - *Justificación.* Definir el objeto es trabajo de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-5-4-twenty-1-articulo, A-5-4-twenty-2-busqueda.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se creó el artículo desde «Empleados › Base de conocimientos».
+- *Cómo lo hace.* El artículo se crea desde «Empleados › Base de conocimientos».
 - *Características.* Una página en blanco con un bloque de texto, cuyo texto de ejemplo se reemplazó por la condición de cobertura de granizo, y se la buscó por «granizo» en la base publicada, que la devolvió.
 - *Justificación.* La base se arma una vez con una plantilla (la edición gratuita admite una sola).
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-5-4-bitrix24-1-articulo-en-el-editor, A-5-4-bitrix24-2-articulo-publicado, A-5-4-bitrix24-3-base-publicada, A-5-4-bitrix24-4-busqueda.
 
 ### A.5.5 Tareas asignables con responsable y vencimiento
 
@@ -793,21 +888,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Se creó una tarea con vencimiento en tres días y se la asignó a un productor.
+- *Cómo lo hace.* La tarea se crea con vencimiento y se asigna a un productor.
 - *Características.* Al ingresar con la cuenta de ese productor, la tarea figura en su listado con su fecha.
 - *Justificación.* Responsable y vencimiento son campos que la tarea trae de fábrica, sin configurar nada, y es lo que permite repartir el trabajo y saber qué se atrasa.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-5-5-espocrm-1-alta, A-5-5-espocrm-2-desde-la-cuenta-del-productor.
 
 **Twenty** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Se creó una desde el listado, se la asignó al productor y se le puso fecha y hora de vencimiento desde su ficha. Al ingresar con la cuenta del productor, figura en la vista de las tareas asignadas a él, con su vencimiento.
+- *Cómo lo hace.* La tarea se crea desde el listado, se asigna al productor y se le pone fecha y hora de vencimiento desde su ficha. Al ingresar con la cuenta del productor, figura en la vista de las tareas asignadas a él, con su vencimiento.
 - *Características.* Las tareas vienen de fábrica con responsable y vencimiento.
 - *Justificación.* Viene listo.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-5-5-twenty-1-tarea-asignada, A-5-5-twenty-2-desde-la-cuenta-del-productor.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* «Tareas › Crear» abre un formulario con título, responsable y fecha límite: se eligió al productor en el selector de responsable y el formulario ya propone un vencimiento.
+- *Cómo lo hace.* «Tareas › Crear» abre un formulario con título, responsable y fecha límite: el productor se elige en el selector de responsable y el formulario ya propone un vencimiento.
 - *Características.* Con la sesión del productor, la tarea figura en «Mis tareas» con su fecha límite.
 - *Justificación.* Viene de fábrica en la edición gratuita, sin configurar nada.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-5-5-bitrix24-1-tarea-creada, A-5-5-bitrix24-2-tareas-del-productor.
 
 ### A.5.6 Aviso al usuario al que se le asigna una tarea
 
@@ -815,21 +913,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Al asignarle la tarea y el reclamo, el productor recibió el aviso en el propio sistema: al ingresar, el indicador de notificaciones lo muestra sin que tenga que abrir ningún listado, y cada aviso lleva al registro que le asignaron.
+- *Cómo lo hace.* Al asignarle una tarea o un reclamo, el productor recibe el aviso en el propio sistema: al ingresar, el indicador de notificaciones lo muestra sin que tenga que abrir ningún listado, y cada aviso lleva al registro asignado.
 - *Características.* Viene activado de fábrica.
 - *Justificación.* Es lo que asegura que el responsable se entere en el momento, y no cuando se le ocurre revisar.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-5-6-espocrm-1-notificaciones-del-productor.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* El aviso se armó con un flujo de trabajo, sin escribir código: cuando a una tarea se le pone responsable, lo busca y le envía un correo desde la casilla de la compañía. Se creó una tarea desde el listado, se la asignó al productor en su ficha, y le llegó el correo «Tarea nueva: Llamar al perito por el siniestro» sin que tuviera que abrir el listado.
+- *Cómo lo hace.* El aviso se arma con un flujo de trabajo, sin escribir código: cuando a una tarea se le pone responsable, lo busca y le envía un correo desde la casilla de la compañía. Se crea la tarea desde el listado, se la asigna al productor en su ficha, y el correo le llega sin que tenga que abrir el listado.
 - *Características.* Twenty no avisa por su cuenta: la interfaz no tiene un centro de notificaciones y asignar una tarea no le manda nada al responsable.
 - *Justificación.* Armar el flujo es trabajo de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-5-6-twenty-1-sin-centro-de-avisos, A-5-6-twenty-2-flujo-del-aviso, A-5-6-twenty-3-tarea-asignada.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **0**
 
 - *Cómo lo hace.* Al asignarle una tarea, el productor la recibe como notificación en la campana de la barra superior del portal.
 - *Características.* La notificación lleva el título de la tarea y quién se la asignó, sin que tenga que abrir el listado de tareas.
 - *Justificación.* Viene activado de fábrica en la edición gratuita.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-5-6-bitrix24-1-notificaciones.
 
 ## A.6 Ficha única del asegurado
 
@@ -842,18 +943,21 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* El Administrador de Relaciones liga la póliza con el contacto que es su titular, sin programar: se define una vez que cada póliza tiene un titular y que un asegurado puede tener muchas pólizas. A partir de ahí, al cargar una póliza se elige el titular buscándolo por nombre; la póliza lo muestra en su ficha, y la del asegurado lista todas sus pólizas.
 - *Características.* Las dos puntas del vínculo quedan a la vista sin buscar en otro menú.
 - *Justificación.* Para que la ficha del asegurado muestre sus pólizas hay que agregar ese panel entre los inferiores, en el Gestor de Diseños.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-6-1-espocrm-1-poliza-con-titular, A-6-1-espocrm-2-ficha-del-titular.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se cargó una póliza, se eligió al titular buscándolo por nombre, y las dos puntas del vínculo quedaron a la vista: la póliza muestra al titular y la ficha del asegurado lista la póliza junto con las demás suyas.
+- *Cómo lo hace.* Al cargar una póliza se elige al titular buscándolo por nombre, y las dos puntas del vínculo quedan a la vista: la póliza muestra al titular y la ficha del asegurado lista la póliza junto con las demás suyas.
 - *Características.* La póliza se liga con la persona que es su titular mediante un campo de relación, que se define una vez desde el modelo de datos, sin programar: cada póliza tiene un titular y una persona puede tener muchas pólizas.
 - *Justificación.* Al definirlo, la ficha de la persona suma sola el campo con sus pólizas.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-6-1-twenty-1-poliza-con-titular, A-6-1-twenty-2-ficha-del-titular.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **0**
 
 - *Cómo lo hace.* Una vez guardada, la póliza figura en la pestaña «Negociaciones» de la ficha del contacto y su propia ficha muestra al titular, sin configurar nada.
 - *Características.* La negociación —que hace de póliza en la edición gratuita— trae de fábrica el campo «Cliente», donde se elige el contacto por su nombre.
 - *Justificación.* La relación se ve desde los dos lados.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-6-1-bitrix24-1-ficha-del-contacto, A-6-1-bitrix24-2-ficha-de-la-poliza.
 
 ### A.6.2 Vista única del asegurado
 
@@ -864,18 +968,21 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* Desde ahí se llega a cada registro sin pasar por otro menú.
 - *Características.* La ficha del asegurado reúne en paneles todo lo suyo: sus pólizas, sus reclamos, sus actividades pendientes y el historial de llamadas, reuniones y correos, además de la línea de tiempo de cambios. 12 paneles en la ficha del asegurado.
 - *Justificación.* Los reclamos y la actividad vienen de fábrica; el panel de pólizas aparece al definir la relación con el titular, que es configuración de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-6-2-espocrm-1-ficha-completa.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Desde la ficha de un asegurado se llegó a su póliza, a su reclamo y a la tarea hecha con él sin pasar por otro menú.
+- *Cómo lo hace.* Desde la ficha de un asegurado se llega a su póliza, a su reclamo y a las tareas hechas con él, sin pasar por otro menú.
 - *Características.* La ficha de la persona reúne lo suyo: a la izquierda, sus campos, entre ellos sus pólizas y sus reclamos, que se abren desde ahí; a la derecha, pestañas con la línea de tiempo de cambios, las tareas, las notas, los archivos, los correos y el calendario. Pestañas de la ficha: .
 - *Justificación.* La actividad viene de fábrica; las pólizas y los reclamos aparecen al definir sus relaciones con la persona, que es configuración de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-6-2-twenty-1-ficha-completa, A-6-2-twenty-2-reclamos-desde-la-ficha, A-6-2-twenty-3-actividad-desde-la-ficha.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **1**
 
 - *Cómo lo hace.* La ficha del contacto reúne en una sola pantalla lo del asegurado: la línea de tiempo con sus actividades registradas y, en la pestaña «Negociaciones», tanto la póliza como el reclamo, que en la edición gratuita son negociaciones con el contacto como cliente.
 - *Características.* No hace falta salir a otro menú ni buscarlo de nuevo.
 - *Justificación.* Como póliza y reclamo comparten esa pestaña, el usuario los distingue por el nombre que se les da al cargarlos: es una convención que hay que fijar una vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-6-2-bitrix24-1-actividad, A-6-2-bitrix24-2-negociaciones.
 
 ### A.6.3 Campos propios del rubro en la ficha
 
@@ -883,21 +990,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se agregó a la ficha del asegurado un campo que el producto no trae —la valoración que dejó sobre la atención recibida, con cuatro valores— desde el Administrador de Campos.
+- *Cómo lo hace.* El Administrador de Campos agrega a la ficha del asegurado un campo que el producto no trae —por ejemplo, la valoración que dejó sobre la atención recibida, con una lista de valores—.
 - *Características.* Quedó en el formulario, se cargó en un asegurado y se lo pudo usar como condición de búsqueda para listar a los que valoraron la atención como muy buena.
 - *Justificación.* Es configuración de una sola vez: se define el campo y se lo ubica en el formulario y entre los filtros, sin programar.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-6-3-espocrm-1-en-el-formulario, A-6-3-espocrm-2-en-la-busqueda.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se agregó a la persona un campo que el producto no trae —la valoración que dejó sobre la atención recibida, con cuatro valores— desde el modelo de datos.
+- *Cómo lo hace.* Desde Configuración › Modelo de datos se agrega a la persona un campo que el producto no trae, como la valoración que dejó sobre la atención recibida, con sus valores.
 - *Características.* Apareció solo en la ficha, sin ubicarlo en ningún diseño; se cargó en un asegurado y se lo pudo usar enseguida como condición de filtro del listado para ver a los que valoraron la atención como muy buena.
 - *Justificación.* Es configuración de una sola vez, sin programar.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-6-3-twenty-1-en-la-ficha, A-6-3-twenty-2-en-la-busqueda.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Desde el mismo formulario del contacto, «Crear campo» agrega un campo de tipo lista —aquí, la valoración de la atención, con sus cuatro opciones— sin programar. El campo queda en el formulario de alta: se eligió el valor «Buena» al cargar un asegurado y quedó guardado.
+- *Cómo lo hace.* Desde el mismo formulario del contacto, «Crear campo» agrega un campo de tipo lista —por ejemplo, la valoración de la atención, con sus opciones— sin programar. El campo queda en el formulario de alta: su valor se elige al cargar un asegurado y queda guardado.
 - *Características.* En el listado, el filtro de búsqueda ofrece el campo nuevo para agregarlo como condición.
 - *Justificación.* Definir el campo es una configuración de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-6-3-bitrix24-1-campo-creado, A-6-3-bitrix24-2-filtro.
 
 ### A.6.4 Unicidad de la ficha del asegurado
 
@@ -905,24 +1015,36 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **2**
 
-- *Cómo lo hace.* De fábrica el producto busca duplicados por nombre y correo, pero no por documento: se cargó dos veces el mismo documento con el apellido escrito distinto y el sistema aceptó las dos fichas sin advertir nada.
+- *Cómo lo hace.* De fábrica el producto busca duplicados por nombre y correo, pero no por documento: dos fichas con el mismo documento y el apellido escrito distinto se aceptan sin advertencia.
 - *Características.* La pantalla de fórmula de cada entidad trae un guion que se ejecuta antes de guardar, pensado para validaciones y comprobación de duplicados; con tres líneas que buscan el documento, la segunda carga mostró el aviso de posible duplicado y remitió a la ficha existente. Sin la comprobación: 2 fichas con el mismo documento; con ella: 1.
 - *Justificación.* La necesidad queda resuelta desde el sistema, pero exige escribir el guion de la fórmula de la entidad: es desarrollo, breve, que alguien tiene que saber leer y mantener.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-6-4-espocrm-1-sin-configurar, A-6-4-espocrm-2-comprobacion-por-documento, A-6-4-espocrm-3-duplicado-advertido.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se agregó el documento como campo de texto y, al crearlo, se lo marcó como único con un interruptor de la misma pantalla. Se cargó un asegurado con su documento y, al cargar otro con el mismo documento y el apellido escrito distinto, el sistema rechazó el valor y avisó: «This record already exists. Please check your data and try again.».
+- *Cómo lo hace.* Desde Configuración › Modelo de datos se agrega el documento como campo de texto y, al crearlo, se lo marca como único con un interruptor de la misma pantalla. Al cargar un asegurado con un documento ya registrado, aunque el apellido esté escrito distinto, el sistema rechaza el valor y avisa que el registro ya existe.
 - *Características.* De fábrica la persona se compara por nombre, correo y perfil de LinkedIn para sugerir duplicados, pero no trae documento. 1 ficha con el documento repetido.
 - *Justificación.* La necesidad queda resuelta con configuración de una sola vez, sin programar.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-6-4-twenty-1-campo-unico, A-6-4-twenty-2-duplicado-advertido.
 
 **Bitrix24** · **0** (no cumple)
 
 - *Cómo lo hace.* En la edición gratuita, cargar dos veces al mismo asegurado con el mismo correo no dispara ninguna advertencia: el segundo contacto se guarda igual y quedan dos fichas. La herramienta «Buscar y fusionar duplicados» del listado de contactos no se abre y responde que está disponible en los planes de nivel superior.
 - *Justificación.* La edición gratuita no advierte la duplicación al cargar un asegurado ni permite buscarla después: el alta repetida queda guardada como una segunda ficha y la única herramienta de duplicados exige un plan superior. El fabricante documenta la fusión automática de duplicados para prospectos, contactos y compañías, pero la condiciona al plan contratado.
+- *Comentario — con Bitrix24 Standard* (US$ 144 por mes, hasta 50 usuarios, abono recurrente) sería **1** (cumple con reparo, costo 2). El plan Standard, el primero que incluye el control de duplicados del CRM, permite buscar y fusionar las fichas repetidas del mismo asegurado. El alta repetida se guarda igual: la duplicación se detecta después, con una revisión que hay que repetir en cada uso.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-6-4-bitrix24-1-segunda-alta, A-6-4-bitrix24-2-buscar-duplicados.
 
 > «Automatic duplicate merging is available for leads, contacts, and companies. Check if this option is available on your Bitrix24 plan.»
 >
 > — https://helpdesk.bitrix24.com/open/18346126/, consultado el 8 de noviembre de 2026
+
+> «Control de duplicados en CRM (búsqueda de duplicados)»
+>
+> — https://www.bitrix24.es/prices/compare_cloud_plans.php, consultado el 8 de noviembre de 2026
+
+> «US$ 144»
+>
+> — https://www.bitrix24.es/prices/, consultado el 8 de noviembre de 2026
 
 ## A.7 Intercambio de datos y correo
 
@@ -932,9 +1054,10 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* Guardada así, la planilla ingresó completa: los cinco asegurados, cada columna en su campo, con tildes y eñes intactas. Guardada con la codificación predeterminada de las planillas en Windows, ingresaron todas las filas pero solo 0 de 5 conservaron nombres y domicilios sin alterar: las letras acentuadas llegaron corrompidas, sin que el sistema lo advirtiera. En los dos casos el asistente no reconoció los encabezados en español: dejó las 5 columnas sin asignar y hubo que indicar a mano a qué campo va cada una.
+- *Cómo lo hace.* El asistente de importación incorpora la planilla completa, cada columna en su campo y con tildes y eñes intactas, siempre que se guarde en CSV con codificación UTF-8. Si se guarda con la codificación predeterminada de las planillas en Windows, ingresan todas las filas pero las letras acentuadas llegan corrompidas, sin que el sistema lo advierta. En ambos casos el asistente no reconoce los encabezados en español: deja las columnas sin asignar y hay que indicar a mano a qué campo va cada una.
 - *Características.* El asistente de importación admite archivos de texto separados por comas y la propia pantalla advierte que "debe ser codificado en UTF-8". UTF-8: 5/5 intactos · codificación de Windows: 0/5 intactos.
 - *Justificación.* La necesidad queda resuelta con un procedimiento que se repite en cada importación: guardar la planilla en el formato que pide el sistema y asignar sus columnas.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-7-1-espocrm-1-pide-utf8, A-7-1-espocrm-2-planilla-de-windows, A-7-1-espocrm-3-planilla-utf8.
 
 > «Select what type of records you need to import (Entity Type field). Select a CSV file. A file should be formatted in UTF-8. Select What to do?. Available options: Create Only, Create & Update, Update Only.»
 >
@@ -942,15 +1065,17 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Twenty** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* Guardada en UTF-8, la planilla ingresó completa: los cinco asegurados, cada columna en su campo, con tildes y eñes intactas.
+- *Cómo lo hace.* Guardada en UTF-8, la planilla ingresa completa: cada columna en su campo, con tildes y eñes intactas.
 - *Características.* El listado de personas tiene un asistente de importación que acepta planillas de cálculo y archivos de texto separados por comas. Guardada con la codificación predeterminada de las planillas en Windows, el asistente leyó mal el archivo: las letras acentuadas llegaron corrompidas y en varias filas las columnas quedaron corridas o con la fila entera en el nombre; marcó algunas como erróneas y, al confirmar, las descartó. De las 5 filas ingresaron 4, 0 con nombres y domicilios intactos, y el sistema no advirtió la corrupción de las que aceptó. El asistente no reconoció los encabezados en español: dejó las 5 columnas sin asignar y hubo que indicar a mano a qué campo va cada una, abriendo las partes del nombre, del correo, del teléfono y del domicilio. UTF-8: 5/5 intactos · codificación de Windows: 4/5 ingresadas, 0/5 intactas, 3 con la fila entera en el nombre · 5 columnas sin reconocer.
 - *Justificación.* La necesidad queda resuelta con un procedimiento que se repite en cada importación: guardar la planilla con la codificación correcta y asignar sus columnas.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-7-1-twenty-1-planilla-de-windows, A-7-1-twenty-2-planilla-utf8.
 
-**Bitrix24** · **2** (cumple) · costo de implementación **0**
+**Bitrix24** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* Se sube el archivo con el botón «Subir archivo», se elige la codificación y el delimitador, se relacionan las columnas con los campos y se importa. La columna del correo, con otro rótulo, se relacionó a mano con «E-mail del trabajo» en el paso de mapeo.
-- *Características.* El listado de contactos trae un asistente de importación de planillas CSV, sin configurar nada. Se cargó una planilla de diez asegurados con tildes y eñes en los apellidos y ingresaron los diez con sus correos y la acentuación intacta. 10 de 10 contactos importados.
-- *Justificación.* La cartera entró completa con el asistente que trae el producto. Reconoció solo nombre y apellido, y la columna del correo se relacionó a mano en el mismo paso.
+- *Cómo lo hace.* Se sube el archivo con el botón «Subir archivo», se elige la codificación y el delimitador, se relacionan las columnas con los campos y se importa. La columna del correo, con otro rótulo, se relaciona a mano con «E-mail del trabajo» en el paso de mapeo.
+- *Características.* El listado de contactos trae un asistente de importación de planillas CSV, sin configurar nada. Guardada en UTF-8, la planilla de asegurados ingresó completa con sus correos y la acentuación intacta; guardada con la codificación predeterminada de Windows, ingresaron 0 de 5 filas con los apellidos intactos. UTF-8: 5/5 intactos · codificación de Windows: 0/5 intactos · 10 de 10 ingresados.
+- *Justificación.* La necesidad queda resuelta con un procedimiento que se repite en cada importación: guardar la planilla con la codificación correcta y relacionar la columna del correo.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-7-1-bitrix24-1-planilla-de-windows, A-7-1-bitrix24-2-planilla-utf8.
 
 ### A.7.2 Importación de contactos desde las agendas de correo
 
@@ -961,6 +1086,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* Las extensiones del fabricante para Google y Outlook sincronizan calendario y correo, y para los contactos hacen el camino inverso: envían los del sistema a la agenda, no los incorporan.
 - *Características.* El sistema no se conecta con la agenda de ningún correo para traer contactos.
 - *Justificación.* La vía que queda es exportar la agenda del correo web o del gestor de escritorio a un archivo y pasarlo por el asistente de importación, que es un procedimiento que se repite cada vez que la agenda cambia.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-7-2-espocrm-1-integraciones.
 
 > «The ability to push your EspoCRM contacts and leads to Google Contacts;»
 >
@@ -975,6 +1101,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* Lo que ofrece es crear personas a partir del correo sincronizado —cada dirección externa con la que se intercambian mensajes o reuniones pasa a ser un contacto—, que alcanza a quien ya escribió, no a la agenda entera.
 - *Características.* El sistema se conecta con las cuentas de Google y de Microsoft —en la instalación propia, después de registrar sus credenciales; la evaluada ofrece solo IMAP— y con cualquier casilla por IMAP, pero para sincronizar correo y calendario: no trae la agenda de contactos de ninguna.
 - *Justificación.* Para incorporar la agenda del correo web o del gestor de escritorio hay que exportarla a un archivo y pasarlo por el asistente de importación, un procedimiento que se repite cada vez que la agenda cambia.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-7-2-twenty-1-cuentas-que-se-conectan.
 
 > «Connect an additional Google or Microsoft account, or any other mail provider supporting IMAP/SMTP protocols»
 >
@@ -993,6 +1120,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* Incorporar los contactos de la compañía exige, en cada carga, exportar el archivo desde el correo web o el gestor de escritorio e importarlo después con el asistente.
 - *Características.* El listado de contactos ofrece una importación para cada agenda de correo —Gmail, Outlook y Yahoo!—, pero todas parten de un archivo CSV que el usuario exporta antes desde su correo.
 - *Justificación.* No hay una conexión que lea la agenda directamente.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-7-2-bitrix24-1-menu-de-importacion.
 
 ### A.7.3 Sincronización del correo de varios usuarios
 
@@ -1000,21 +1128,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se configuraron dos casillas personales, de dos usuarios distintos, contra el mismo servidor de correo, y el sistema trajo el mensaje de cada una a la bandeja de su dueño y solo a la suya.
+- *Cómo lo hace.* Cada usuario configura su casilla personal contra el servidor de correo, y el sistema trae el mensaje de cada una a la bandeja de su dueño y solo a la suya.
 - *Características.* Cada usuario puede tener su propia casilla sincronizada: la administración tiene una sección de cuentas de correo personales, y también de cuentas grupales para casillas compartidas.
 - *Justificación.* Configurar cada casilla es trabajo de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-7-3-espocrm-1-casillas-personales, A-7-3-espocrm-2-bandeja.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* El administrador tiene conectada la casilla comercial y el productor, desde su cuenta, conectó la suya contra el mismo servidor de correo: cada uno ve solo la propia en su lista de cuentas, y el mensaje que un asegurado le mandó al productor apareció en la ficha del asegurado.
+- *Cómo lo hace.* Cada usuario conecta su casilla: el administrador la comercial y el productor, desde su cuenta, la suya contra el mismo servidor de correo; cada uno ve solo la propia en su lista de cuentas, y el mensaje que un asegurado le manda al productor aparece en la ficha del asegurado.
 - *Características.* Cada usuario conecta su propia casilla desde su configuración personal, por IMAP y SMTP o con una cuenta de Google o Microsoft.
 - *Justificación.* Configurar cada casilla es trabajo de una sola vez, y lo hace cada usuario.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-7-3-twenty-1-casilla-del-productor, A-7-3-twenty-2-correo-sincronizado, A-7-3-twenty-3-casilla-del-administrador.
 
 **Bitrix24** · **0** (no cumple)
 
 - *Cómo lo hace.* En la edición gratuita no se puede conectar ninguna casilla, ni la del administrador ni la de un productor. Webmail ofrece Gmail, Outlook, iCloud, Office365, Exchange, Yahoo!, Aol y «Buzón personalizado» (IMAP+SMTP), pero al elegir cualquiera de ellos, con el administrador y con la sesión del productor, el sistema no abre el formulario de conexión y responde «No disponible en su plan». «Conectar varios buzones» también pide otro plan: «para conectar y gestionar múltiples buzones de correo corporativos, actualiza a cualquier plan a partir del Professional».
 - *Justificación.* La comparación de planes del fabricante marca Webmail y la integración con servicios de correo de terceros como no incluidos en la edición gratuita, y la ayuda confirma que Webmail solo está en planes comerciales. Sin una casilla conectada no hay sincronización de ningún usuario.
 - *Comentario — con Bitrix24 Basic* (US$ 69 por mes, hasta 5 usuarios, abono recurrente) sería **2** (cumple, costo 1). Según la comparación de planes y la ayuda del fabricante, desde el plan Basic Webmail admite una casilla por usuario —cada usuario conecta la suya, una sola vez— y los planes superiores suben ese número (5 en Standard, 10 en Professional y Enterprise) sin cambiar lo que cada usuario puede hacer. No se contrató el plan, así que la conexión no se ejercitó.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-7-3-bitrix24-1-integracion-del-buzon, A-7-3-bitrix24-2-buzon-personalizado-del-administrador, A-7-3-bitrix24-3-conectar-varios-buzones, A-7-3-bitrix24-4-buzon-personalizado-del-productor.
 
 > «Número de bandejas de entrada de correo electrónico por usuario»
 >
@@ -1038,22 +1169,25 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Con la casilla de atención de la compañía sincronizada, un asegurado escribió desde su propia dirección y el mensaje apareció en el historial de su ficha sin que nadie lo moviera.
+- *Cómo lo hace.* Con la casilla de atención de la compañía sincronizada, el mensaje que un asegurado escribe desde su propia dirección aparece en el historial de su ficha sin que nadie lo mueva.
 - *Características.* El sistema reconoció la dirección del remitente y lo vinculó con el asegurado que la tiene cargada.
 - *Justificación.* Configurar la casilla compartida es trabajo de una sola vez; la vinculación ocurre sola en cada mensaje.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-7-4-espocrm-1-correo-en-la-ficha.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Con la casilla comercial de la compañía conectada, un asegurado escribió desde su propia dirección y el mensaje apareció en la pestaña de correos de su ficha sin que nadie lo moviera.
+- *Cómo lo hace.* Con la casilla comercial de la compañía conectada, el mensaje que un asegurado escribe desde su propia dirección aparece en la pestaña de correos de su ficha sin que nadie lo mueva.
 - *Características.* El sistema reconoció la dirección del remitente y lo vinculó con la persona que la tiene cargada.
 - *Justificación.* Conectar la casilla es trabajo de una sola vez; la vinculación ocurre sola en cada mensaje.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-7-4-twenty-1-correo-en-la-ficha.
 
 **Bitrix24** · **0** (no cumple)
 
-- *Cómo lo hace.* Con el asegurado cargado —ACT-Lucia Correo, lucia.correo@example.com— se mandó un mensaje desde esa dirección a la casilla de atención, que lo recibió, y después de esperar dos minutos la ficha no registra ninguna actividad de correo.
+- *Cómo lo hace.* En la edición gratuita el correo que un asegurado envía a la casilla de atención de la compañía no queda registrado en su ficha: la ficha no muestra ninguna actividad de correo.
 - *Características.* La ayuda del fabricante describe que, con la opción «Integración de CRM» activada en el buzón, los correos entrantes aparecen en la ficha correspondiente; esa opción forma parte de la conexión del buzón, que la edición gratuita no permite. correo recibido en la casilla de atención: sí · en la ficha tras 2 min: no.
 - *Justificación.* En la edición gratuita el correo de un asegurado no llega a su ficha porque no se puede conectar la casilla de la compañía: «Buzón personalizado» responde «No disponible en su plan» y no abre el formulario.
 - *Comentario — con Bitrix24 Basic* (US$ 69 por mes, hasta 5 usuarios, abono recurrente) sería **2** (cumple, costo 1). Con una casilla conectada desde el plan Basic, el fabricante documenta que activar «Integración de CRM» en la configuración del buzón hace que cada correo entrante quede como actividad en la ficha del CRM correspondiente, sin intervención. Activar la opción es configuración de una sola vez por casilla. No se contrató el plan, así que la vinculación no se ejercitó.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-7-4-bitrix24-1-conexion-de-la-casilla, A-7-4-bitrix24-2-ficha-del-asegurado.
 
 > «Si habilitas la opción Integración de CRM en la configuración de tu buzón, los correos electrónicos entrantes aparecerán en la ficha del elemento de CRM correspondiente.»
 >
@@ -1067,66 +1201,30 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 >
 > — https://www.bitrix24.es/prices/, consultado el 30 de septiembre de 2026
 
-### A.7.5 Formatos de intercambio aceptados
-
-**Qué resuelve.** Pasar datos entre el sistema y los otros que usa la compañía sin convertirlos a mano.
-
-**EspoCRM** · **1** (cumple con reparo) · costo de implementación **2**
-
-- *Cómo lo hace.* Los datos salen en XLSX · Spreadsheet y CSV —los formatos de planilla que la compañía usa— y por la interfaz de programación en JSON, que es el formato de intercambio entre sistemas.
-- *Características.* Pero solo entran por archivo de texto separado por comas: el asistente de importación no acepta planillas de cálculo ni agendas en su formato propio. Entrada: .csv · salida: XLSX · Spreadsheet, CSV · interfaz de programación: JSON.
-- *Justificación.* Cada vez que la compañía quiera cargar una planilla, tiene que guardarla antes como archivo de texto, con la codificación correcta.
-
-> «Most of API functions return JSON. POST and PUT requests usually need some data passed in the payload in JSON format. Whenever you send a JSON payload, add the header: Content-Type: application/json.»
->
-> — https://docs.espocrm.com/development/api/, consultado el 28 de septiembre de 2026
-
-**Twenty** · **2** (cumple) · costo de implementación **0**
-
-- *Cómo lo hace.* Los datos entran por el asistente de importación de cada listado, que acepta .xls, .xlsx, .csv: la planilla de cálculo se sube tal cual, sin pasarla antes a texto.
-- *Características.* Salen exportando la vista del listado a un archivo CSV, que la planilla abre directamente, y por las interfaces de programación REST y GraphQL en JSON, que es el formato de intercambio entre sistemas. Entrada: .xls, .xlsx, .csv · salida: .csv · interfaz de programación: JSON.
-- *Justificación.* Los formatos que la compañía usa están cubiertos de fábrica.
-
-> «REST and GraphQL APIs generated from your workspace schema.»
->
-> — https://docs.twenty.com/developers/extend/api, consultado el 28 de septiembre de 2026
-
-**Bitrix24** · **1** (cumple con reparo) · costo de implementación **2**
-
-- *Cómo lo hace.* «Exportar a CSV» no se abre y el sistema responde que hay que actualizar a un plan superior.
-- *Características.* En la edición gratuita los datos entran por vCard y por CSV —con asistentes para las agendas de Gmail, Outlook y Yahoo! y una migración desde otro CRM— pero no salen.
-- *Justificación.* Los datos entran por planilla y por vCard, pero no salen: la exportación a CSV, Excel y Outlook está en los planes pagos, desde el Basic. La compañía solo puede compartir datos con sus otros sistemas en un sentido.
-- *Comentario — con Bitrix24 Basic* (US$ 69 por mes, hasta 5 usuarios, abono recurrente) sería **2** (cumple, costo 0). Con el plan Basic se habilita la exportación de contactos a CSV, Excel y Outlook, que sumada a la importación por vCard y CSV cubre la entrada y la salida en los formatos que usan los demás sistemas.
-
-> «Opción para exportar contactos a CSV, Excel y Outlook»
->
-> — https://www.bitrix24.es/prices/compare_cloud_plans.php, consultado el 30 de septiembre de 2026
-
-> «Basic Ideal para emprendedores individuales y equipos pequeños que están empezando US$ 69 US$ 69 US$ 49 / compañía / mes / facturado mensualmente / compañía / mes / facturación anual Un pago de US$ 588 / año Ahorra US$ 240 al año incluye 5 usuarios Comprar Comprar Todo lo incluido en Free, más: Almacenamiento de 24 GB IA para el trabajo diario en Bitrix24 Embudos de ventas Negociaciones recurrentes Pagos en línea Integración de correo electrónico Integración de WhatsApp Integración de telefonía»
->
-> — https://www.bitrix24.es/prices/, consultado el 30 de septiembre de 2026
-
-### A.7.6 Exportación de la cartera sin pérdida de datos
+### A.7.5 Exportación de la cartera sin pérdida de datos
 
 **Qué resuelve.** Que la cartera se pueda sacar del sistema completa y legible.
 
 **EspoCRM** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Se exportaron desde el listado los asegurados importados y se comparó el archivo con la planilla original.
+- *Cómo lo hace.* Desde el listado se exportan los asegurados seleccionados a un archivo que conserva los datos tal como están en el sistema, con tildes y eñes intactas.
 - *Características.* Salieron las 5 filas, cada una con nombre, apellido, correo y ciudad, y con las tildes y eñes intactas. 5 de 5 filas idénticas al original.
 - *Justificación.* La exportación viene de fábrica en todos los listados y toma los registros seleccionados o el resultado de un filtro.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-7-5-espocrm-1-exportacion.
 
 **Twenty** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Se exportó la vista del listado de personas y se comparó el archivo con la planilla original: salieron las 5 filas importadas, cada una con nombre, apellido, correo y ciudad, y con las tildes y eñes intactas.
+- *Cómo lo hace.* La vista del listado de personas se exporta a un archivo con todas sus filas, cada una con nombre, apellido, correo y ciudad, y con las tildes y eñes intactas.
 - *Características.* El archivo trae todas las columnas de la vista, con los campos compuestos separados en sus partes, y la marca de codificación que la planilla necesita para abrirlo sin alterar los acentos. 5 de 5 filas idénticas al original.
 - *Justificación.* La exportación viene de fábrica en todos los listados.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-7-5-twenty-1-exportacion.
 
 **Bitrix24** · **0** (no cumple)
 
 - *Cómo lo hace.* En la edición gratuita no se puede exportar la cartera: «Exportar a CSV» no genera ningún archivo y el sistema responde que la función requiere actualizar a un plan superior.
 - *Justificación.* La comparación de planes del fabricante confirma que la opción de exportar contactos a CSV, Excel y Outlook no forma parte de la edición gratuita. Sin archivo no hay nada que comparar con la planilla original.
 - *Comentario — con Bitrix24 Basic* (US$ 69 por mes, hasta 5 usuarios, abono recurrente) sería **2** (cumple, costo 0). El plan Basic incluye la opción de exportar contactos a CSV, Excel y Outlook, de modo que la cartera se puede sacar del sistema. No se contrató el plan, así que no se comparó el contenido del archivo con la planilla original.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-7-5-bitrix24-2-exportacion.
 
 > «Opción para exportar contactos a CSV, Excel y Outlook»
 >
@@ -1144,22 +1242,25 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* El Administrador de Entidades crea una entidad desde un formulario de la administración: se creó el Endoso —la modificación de una póliza vigente— indicando el nombre, las etiquetas en singular y plural y el tipo, entre 5 que ofrece (Base, Base Plus, Evento, Persona, Empresa).
+- *Cómo lo hace.* El Administrador de Entidades crea una entidad desde un formulario de la administración: se indican el nombre, las etiquetas en singular y plural y el tipo, entre los 5 que ofrece (Base, Base Plus, Evento, Persona, Empresa).
 - *Características.* No hizo falta escribir código, tocar archivos del servidor ni reiniciar nada: la entidad quedó disponible en el acto y admitió su primer registro. Entidad creada y operativa en 19 segundos.
 - *Justificación.* Es trabajo de configuración que se hace una vez, y es lo que permite que el modelo de datos siga al negocio asegurador en lugar de obligar al negocio a acomodarse a un modelo genérico.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-8-1-espocrm-1-formulario, A-8-1-espocrm-2-primer-registro.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Desde Configuración › Modelo de datos se creó una entidad que el producto no trae —la inspección del riesgo antes de emitir— con su nombre en singular y plural y una descripción, y se le agregó un campo de fecha.
+- *Cómo lo hace.* Desde Configuración › Modelo de datos se crea una entidad que el producto no trae —por ejemplo, la inspección del riesgo antes de emitir— con su nombre en singular y plural y una descripción, y se le agregan campos, como uno de fecha.
 - *Características.* Apareció en el menú con su listado y su ficha, y admitió registros enseguida. Entidad creada, con un campo y un registro cargado, en 107 segundos.
-- *Justificación.* No hizo falta escribir código en ningún paso: es configuración.
+- *Justificación.* No hace falta escribir código en ningún paso: es configuración.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-8-1-twenty-1-entidad-y-campo, A-8-1-twenty-2-registro-cargado.
 
 **Bitrix24** · **0** (no cumple)
 
-- *Cómo lo hace.* En la edición gratuita el formulario se completa, pero al guardar el sistema no crea la entidad y avisa que los procesos inteligentes requieren el plan Professional o el Enterprise; la tabla comparativa del fabricante los lista entre las funciones que ese plan agrega.
+- *Cómo lo hace.* La edición gratuita no crea entidades propias: al guardar, avisa que los procesos inteligentes requieren el plan Professional o el Enterprise; la tabla comparativa del fabricante los lista entre las funciones que ese plan agrega.
 - *Características.* Las entidades nuevas de Bitrix24 son los procesos inteligentes: se crean desde la barra del CRM, con su nombre, sus etapas y sus campos, sin escribir código. Con el plan Professional la entidad se crea igual que se hace con cualquier otra configuración del sistema, sin programar.
 - *Justificación.* Sin él, lo más cercano es forzar el concepto dentro de una negociación con campos propios, que no es una entidad nueva.
 - *Comentario — con Bitrix24 Professional* (US$ 289 por mes, hasta 100 usuarios, abono recurrente) sería **2** (cumple, costo 1). Con el plan Professional los procesos inteligentes vienen incluidos: se crea la entidad desde la barra del CRM con su nombre, sus etapas y sus campos propios, sin escribir código. Es configuración de una vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-8-1-bitrix24-1-formulario, A-8-1-bitrix24-2-al-guardar.
 
 > «Cree sus propios procesos inteligentes y personalícelos según las necesidades de su empresa.»
 >
@@ -1179,21 +1280,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se definió la prima anual como doce veces la mensual con una sola expresión, del tipo de una fórmula de planilla, y al guardar una póliza con prima de 15.250,50 el sistema calculó 183006 sin intervención.
+- *Cómo lo hace.* El cálculo se define con una sola expresión, del tipo de una fórmula de planilla —por ejemplo, la prima anual como doce veces la mensual—, y al guardar una póliza el sistema lo calcula sin intervención.
 - *Características.* La administración de cada entidad trae una fórmula que, según la propia pantalla, "se ejecuta cada vez que se guarda una entidad" y "se utiliza para configurar campos calculados". Prima anual calculada al guardar: 183006.
 - *Justificación.* El cálculo se escribe una vez desde la administración, sin instalar nada ni programar la aplicación: es configuración.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-8-2-espocrm-1-formula, A-8-2-espocrm-2-calculado-al-guardar.
 
 **Twenty** · **2** (cumple) · costo de implementación **2**
 
-- *Cómo lo hace.* El cálculo se armó con un flujo de trabajo que corre cada vez que se guarda la prima de una póliza, con un paso de código que multiplica la prima mensual por doce y un paso que escribe el resultado en el campo de la prima anual. Al cargar desde la ficha una póliza con prima de 15.250,50 el sistema completó 183006 sin intervención.
+- *Cómo lo hace.* El cálculo se arma con un flujo de trabajo que corre cada vez que se guarda la prima de una póliza, con un paso de código que multiplica la prima mensual por doce y un paso que escribe el resultado en el campo de la prima anual: al cargar la prima desde la ficha, el sistema completa la anual sin intervención.
 - *Características.* Twenty no tiene campos calculados: ningún tipo de campo deriva su valor de otro. La necesidad queda resuelta desde el sistema, pero exige escribir una función en TypeScript —con la prima guardada en millonésimas— y, en la instalación propia, habilitar la ejecución de funciones, que viene deshabilitada. Prima anual calculada al guardar: 183006, 10 segundos después.
 - *Justificación.* Es desarrollo, breve, que alguien tiene que saber leer y mantener.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-8-2-twenty-1-tipos-de-campo, A-8-2-twenty-2-codigo-del-calculo, A-8-2-twenty-3-flujo-del-calculo, A-8-2-twenty-4-calculado-al-guardar.
 
 **Bitrix24** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* El cálculo se armó con dos reglas de automatización de la etapa «En progreso»: «Ejecutar operaciones matemáticas» multiplica la prima neta por 1,21 y deja el resultado en una variable, y «Modificar elemento» lo escribe en el campo «Prima total». Se cargó una póliza con prima neta de 1.000 y se la pasó a esa etapa desde su ficha: sin intervención, la prima total quedó en 1210.
+- *Cómo lo hace.* El cálculo se arma con dos reglas de automatización de la etapa «En progreso»: «Ejecutar operaciones matemáticas» multiplica la prima neta por el factor del recargo y deja el resultado en una variable, y «Modificar elemento» lo escribe en el campo «Prima total». Al pasar una póliza a esa etapa desde su ficha, sin intervención, la prima total queda calculada.
 - *Características.* Bitrix24 no tiene campos calculados: entre los tipos de campo que ofrece el formulario —cadena, lista, fecha, dinero, número y los adicionales— ninguno deriva su valor de otro. El cálculo se configura sin código, pero las reglas corren cuando la negociación llega a la etapa y la regla matemática solo toma campos numéricos, no los de dinero como la prima de la póliza. Al corregir después la prima neta a 2.000 por la interfaz de programación, la prima total siguió en 1210. Prima neta 1000 → prima total 1210; tras corregir la neta a 2000, total 1210.
 - *Justificación.* El valor derivado se calcula una vez y no acompaña a la prima corregida después: la compañía tiene que volver a pasar la póliza por la etapa cada vez que cambia el dato de partida.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-8-2-bitrix24-1-tipos-de-campo, A-8-2-bitrix24-3-regla-matematica, A-8-2-bitrix24-4-modificar-elemento, A-8-2-bitrix24-5-valor-calculado.
 
 > «This automation rule updates a variable with the result of a math operation. Four operations are available: addition, subtraction, multiplication, and division.»
 >
@@ -1209,11 +1313,12 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **2**
 
-- *Cómo lo hace.* Se definió una acción automática sobre un evento: cuando la cobranza de una póliza pasa a vencida, el sistema le crea una tarea de gestión a su productor. Se provocó el evento cambiando el estado desde la ficha, y la tarea "Gestionar cobranza de POL-VENCE-AUTOMATIZACION" apareció sola, asignada al productor y vinculada a la póliza.
+- *Cómo lo hace.* Se define una acción automática sobre un evento: cuando la cobranza de una póliza pasa a vencida, el sistema crea una tarea de gestión a su productor. Al cambiar el estado desde la ficha, la tarea aparece sola, asignada al productor y vinculada a la póliza.
 - *Características.* La edición gratuita lo resuelve, pero con la fórmula de la entidad, que para esto exige escribir un script con condiciones y funciones del sistema: es desarrollo, aunque sea breve, y lo tiene que mantener alguien que sepa leerlo. Tarea creada automáticamente al cambiar el estado de cobranza.
 - *Justificación.* El fabricante vende un motor de flujos de trabajo que define la misma regla desde pantallas, sin escribir código.
 - *Comentario — con Advanced Pack* (US$ 395 por año y por instalación, abono recurrente) sería **2** (cumple, costo 1). Con los flujos de trabajo de la extensión, la condición y la acción se eligen desde la administración sin escribir código: la misma regla pasa de desarrollo a configuración.
 - *Comentario — con EspoCRM Cloud Basic* (US$ 15 por usuario por mes, mínimo 3 usuarios, abono recurrente) sería **2** (cumple, costo 1). El servicio en la nube incluye los flujos de trabajo entre todas las extensiones del fabricante: la regla se define desde pantallas, igual que con la extensión comprada aparte.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-8-3-espocrm-1-regla, A-8-3-espocrm-2-tarea-creada-sola.
 
 > «Workflows»
 >
@@ -1233,15 +1338,17 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se definió uno que escucha las actualizaciones de las pólizas, con la condición de que el estado de pago quede en vencida, y que crea una tarea de gestión a nombre del productor de la póliza. Se provocó el evento cambiando el estado desde la ficha y la tarea «Gestionar cobranza de POL-CART-01» apareció sola, asignada a Pablo Gómez.
+- *Cómo lo hace.* Un flujo de trabajo escucha las actualizaciones de las pólizas, con la condición de que el estado de pago quede en vencida, y crea una tarea de gestión a nombre del productor de la póliza: al cambiar el estado desde la ficha, la tarea aparece sola, asignada al productor.
 - *Características.* Los flujos de trabajo vienen en la edición evaluada y se arman desde un editor visual, sin escribir código. Tarea creada automáticamente al cambiar el estado de pago.
 - *Justificación.* Definir el flujo es configuración de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-8-3-twenty-1-evento-y-condicion, A-8-3-twenty-2-accion, A-8-3-twenty-3-tarea-creada-sola.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se definió una que deja un comentario en el historial al llegar a «En progreso». Para provocar el evento se abrió una póliza desde el listado y se la pasó a esa etapa con un clic en la barra de etapas de su ficha: sin que nadie hiciera nada más, el comentario «Póliza en emisión: verificar la documentación del asegurado» apareció en el historial de la póliza.
+- *Cómo lo hace.* Se define una regla que deja un comentario en el historial al llegar a «En progreso». Al pasar una póliza a esa etapa con un clic en la barra de etapas de su ficha, sin que nadie haga nada más, el comentario aparece en el historial de la póliza.
 - *Características.* Las reglas de automatización de la negociación se arman desde la pantalla, sin código: se elige la etapa, la acción —comunicar, crear tareas, modificar campos, dejar comentarios— y el momento. La edición gratuita admite hasta 5 reglas y disparadores en total: con las de muestra del portal dejadas en 2, la regla entra. Comentarios en la póliza tras el cambio de etapa: 1.
 - *Justificación.* Definir cada regla es configuración de una vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-8-3-bitrix24-1-regla, A-8-3-bitrix24-2-al-guardar, A-8-3-bitrix24-3-comentario-en-el-historial.
 
 > «When a CRM entity reaches a certain stage, the automation rule modifies the field values in that entity. For example, when a new deal appears in CRM, the rule changes its name and assigns another responsible user.»
 >
@@ -1253,9 +1360,10 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Se aplicó el procedimiento oficial para Docker sobre una copia de la instalación: la versión 10.0.4 se actualizó a la 10.0.11 cambiando la imagen y volviendo a crear el contenedor con la misma configuración y las mismas carpetas de datos. Después se ingresó con el administrador: las entidades Póliza, Endoso y Cuota seguían en el administrador de entidades, la fórmula de la póliza estaba guardada, la póliza POL-CART-1-1 cargada antes mostraba sus campos propios con sus valores (tipo, estado de pago y prima mensual de 30000), las 42 pólizas y los 10 endosos seguían en su lugar, y una póliza dada de alta de nuevo calculó su prima anual (12000 sobre una prima mensual de 1000) y generó la tarea de cobranza al pasar a vencida.
+- *Cómo lo hace.* Se aplica el procedimiento oficial para Docker: se cambia la imagen y se vuelve a crear el contenedor con la misma configuración y las mismas carpetas de datos. Tras ingresar con el administrador, las entidades creadas, las fórmulas, los campos propios con sus valores y los registros siguen en su lugar, y las automatizaciones siguen funcionando.
 - *Características.* El procedimiento no pide exportar ni volver a cargar la parametrización: entidades, campos, diseños y fórmula viven en las carpetas de datos y en la base, que la actualización conserva. El fabricante declara que las personalizaciones hechas desde la interfaz no deberían romperse con una actualización.
-- *Justificación.* Tras pasar de la versión 10.0.4 a la 10.0.11 no hubo que rehacer ni reconfigurar nada de lo parametrizado, de modo que la conservación no suma trabajo.
+- *Justificación.* Al pasar de una versión a otra no hay que rehacer ni reconfigurar nada de lo parametrizado, de modo que la conservación no suma trabajo.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-8-4-espocrm-3-entidades-propias, A-8-4-espocrm-4-formula-conservada, A-8-4-espocrm-5-poliza-anterior, A-8-4-espocrm-6-alta-nueva, A-8-4-espocrm-7-calculo-al-guardar, A-8-4-espocrm-8-tarea-creada-sola.
 
 > «Within a few minutes the container will be upgraded to the latest version.»
 >
@@ -1267,9 +1375,10 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Twenty** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Se aplicó el procedimiento oficial sobre una copia de la instalación: la versión v2.37.4 se actualizó a la v2.56.1 cambiando la imagen y volviendo a levantar los contenedores, y el servidor corrió solo sus migraciones al arrancar. Después se ingresó al espacio de trabajo: los objetos Pólizas, Reclamos y Cuotas seguían en el modelo de datos con sus campos propios, los 10 flujos de trabajo seguían definidos, la póliza POL-CART-01 cargada antes mostraba su ramo y sus demás valores, las 36 pólizas y los 6 reclamos seguían en su lugar, una póliza dada de alta de nuevo admitió sus campos propios y el flujo «Gestión de cobranza vencida», activado en la versión nueva, creó la tarea de cobranza al pasar una póliza a vencida.
+- *Cómo lo hace.* Con el procedimiento oficial, la versión se actualiza cambiando la imagen y volviendo a levantar los contenedores, y el servidor corre solo sus migraciones al arrancar. Después de actualizar, los objetos propios y sus campos siguen en el modelo de datos, los flujos de trabajo siguen definidos, los registros cargados siguen en su lugar con todos sus valores, una póliza dada de alta de nuevo admite sus campos propios y un flujo activado en la versión nueva sigue operando, como el que crea la tarea de cobranza al pasar una póliza a vencida.
 - *Características.* Lo que la compañía parametriza —objetos, campos, relaciones, vistas y flujos— es parte del modelo de datos del espacio de trabajo, no del código del producto: la actualización lo migra con los registros, sin pasos manuales.
-- *Justificación.* Tras pasar de la versión v2.37.4 a la v2.56.1 no hubo que rehacer ni reconfigurar nada de lo parametrizado, de modo que la conservación no suma trabajo.
+- *Justificación.* Al pasar de una versión a la siguiente no hay que rehacer ni reconfigurar nada de lo parametrizado, de modo que la conservación no suma trabajo.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-8-4-twenty-3-objetos-propios, A-8-4-twenty-4-campos-de-la-poliza, A-8-4-twenty-5-flujos, A-8-4-twenty-6-poliza-anterior, A-8-4-twenty-7-alta-nueva, A-8-4-twenty-8-tarea-creada-sola.
 
 > «The server runs all required upgrade migrations automatically on startup. No manual command is needed.»
 >
@@ -1284,6 +1393,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* El fabricante actualiza el servicio por su cuenta, sin que la compañía aplique ningún procedimiento ni elija el momento. El registro de cambios oficial fecha el 22 de octubre de 2026 una versión nueva del módulo CRM, con métodos para trabajar con sus formularios, que llega a todas las cuentas en la nube.
 - *Características.* Los campos propios creados por pantalla (Ramo, Estado de cobranza, Prima, Motivo de pérdida, Competidor, Plazo de resolución, Vigencia desde, Vigencia hasta, Forma de pago, Vencimiento de la cuota, Estado de la cuota, Plazo de resolución del reclamo, Vencimiento de la póliza) siguen en el formulario después de esa versión, y las 41 pólizas cargadas antes con esos campos conservan sus valores: la más antigua, del 29/09/2026, se abrió y muestra su ramo. Pólizas con campos propios anteriores a la actualización: 41.
 - *Justificación.* Lo que la compañía parametrizó atravesó una versión nueva del CRM sin perderse ni tener que rehacerse, y no exige ningún trabajo de su parte.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-8-4-bitrix24-3-poliza-anterior-a-la-actualizacion.
 
 > «Automatic updates. There's no need to track or manage version updates. Bitrix24 accounts automatically receive updates and new tools.»
 >
@@ -1301,15 +1411,17 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Con un rol de productor restringido a lo propio, su listado de pólizas muestra solo la que tiene a cargo; al pegar en el navegador la dirección de una póliza ajena el sistema niega el acceso, y la interfaz de programación, consultada con sus credenciales, responde que no tiene permiso.
+- *Cómo lo hace.* Con un rol de productor restringido a lo propio, su listado de pólizas muestra solo las que tiene a cargo; la dirección de una póliza ajena abierta en el navegador niega el acceso, y la interfaz de programación, consultada con sus credenciales, responde que no tiene permiso.
 - *Características.* Los roles de la administración definen, entidad por entidad, si el usuario ve todo, lo de su equipo o solo lo suyo. La restricción se aplica en el servidor y no solo en la pantalla. Acceso a una póliza ajena por la interfaz de programación: respuesta 403.
 - *Justificación.* Definir el rol es configuración de una vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-9-1-espocrm-1-rol-del-productor, A-9-1-espocrm-2-solo-lo-suyo, A-9-1-espocrm-3-direccion-directa.
 
 **Twenty** · **0** (no cumple)
 
-- *Cómo lo hace.* En la edición evaluada los roles restringen por objeto —ver, editar, borrar— y por campo, pero no por registro: el productor, con el rol de miembro, abrió por dirección directa una póliza de otro productor y la vio completa.
+- *Cómo lo hace.* En la edición evaluada los roles restringen por objeto —ver, editar, borrar— y por campo, pero no por registro: un productor, con el rol de miembro, puede abrir la póliza de otro productor y verla completa.
 - *Justificación.* La pantalla del rol muestra el nivel de registro como función del plan Organization, y el fabricante lo confirma: los permisos por registro, que limitan a cada vendedor a lo suyo, son una función premium de ese plan. Sin él, la cartera de un productor queda a la vista de todos.
 - *Comentario — con Twenty Organization* (US$ 39 por usuario por mes, con pago anual, abono recurrente) sería **2** (cumple, costo 1). Con el plan Organization, en la nube o en la instalación propia, el rol filtra los registros con una condición —el productor de la póliza es el usuario que entra—, que se define una vez desde la pantalla del rol.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-9-1-twenty-1-permisos-del-rol, A-9-1-twenty-2-poliza-ajena-abierta.
 
 > «Row-level permissions are a Premium feature available on the Organization plan (Cloud and Self-Hosted).»
 >
@@ -1328,6 +1440,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* En la edición gratuita no se puede crear la restricción por productor: desde CRM › Más › Configuraciones › «Permisos de acceso al CRM» el editor deja armar el rol «Productor» con leer, agregar, editar y eliminar limitados a «Solo sus propios elementos» en contactos y negociaciones y asignárselo al productor, pero al guardar el sistema abre una pantalla de oferta —«En su plan actual, todos los empleados tienen los mismos permisos de acceso. Actualice a uno de los planes de nivel superior para asignar roles a los empleados»— y el rol no queda creado. Con la sesión del productor, sin rol propio, el asegurado ajeno figura en su listado y se abre al escribir la dirección de su ficha: todos los empleados comparten el mismo permiso, y no se puede distinguir a un productor de un supervisor ni ajustar el acceso de ninguno.
 - *Justificación.* El fabricante confirma que los permisos por rol del CRM no están en todos los planes, y su comparación de planes los publica desde el plan Basic.
 - *Comentario — con Bitrix24 Basic* (US$ 69 por mes, hasta 5 usuarios, abono recurrente) sería **2** (cumple, costo 1). Los permisos de acceso del CRM por rol se incluyen desde el plan Basic, y el editor de roles permite limitar a cada productor a sus propios elementos con una configuración de una sola vez. No se contrató el plan: el editor es el mismo que se recorrió en la edición gratuita, que solo frena al guardar.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-9-1-bitrix24-1-rol-productor-contactos, A-9-1-bitrix24-2-rol-productor-negociaciones, A-9-1-bitrix24-3-rol-asignado, A-9-1-bitrix24-4-al-guardar, A-9-1-bitrix24-5-rol-tras-guardar, A-9-1-bitrix24-6-lista-del-productor, A-9-1-bitrix24-7-direccion-directa.
 
 > «Role-based access permissions in CRM are not available on all plans. Bitrix24 plans and pricing»
 >
@@ -1350,12 +1463,14 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* La pantalla de autenticación de la administración reúne las tres cosas: la política de contraseñas —longitud mínima y exigencia de letras, números y caracteres especiales—, el segundo factor para los usuarios, y el ingreso contra el directorio de la compañía entre 3 métodos (Espo, LDAP, OIDC).
 - *Características.* La compañía decide cómo se valida la identidad de cada usuario sin depender del fabricante.
 - *Justificación.* Viene en el producto y se activa desde esa pantalla: es configuración.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-9-2-espocrm-1-autenticacion, A-9-2-espocrm-2-metodos, A-9-2-espocrm-3-politica-de-contrasenas.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
 - *Cómo lo hace.* La seguridad del espacio de trabajo permite imponer el segundo factor a todos los usuarios en cada ingreso y apagar el ingreso con correo y contraseña, de modo que solo se entre con la cuenta de la compañía.
 - *Características.* La instalación propia admite el ingreso con cuentas de Google y de Microsoft registrando sus credenciales, que es como se unifica el acceso con el directorio de una compañía que usa esos servicios; la conexión por SAML u OIDC con cualquier otro directorio es del plan Organization. No hay una política de contraseñas que se configure —largo, vencimiento—, que deja de importar si el ingreso es con la cuenta de la compañía y segundo factor.
 - *Justificación.* Es configuración de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-9-2-twenty-1-seguridad-del-espacio.
 
 > «Authentication - Google/Microsoft OAuth, password settings»
 >
@@ -1370,6 +1485,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* La pantalla no ofrece ninguna política de contraseñas configurable —longitud, complejidad, vencimiento—.
 - *Características.* Los ajustes de seguridad del portal ofrecen la autenticación de dos factores, que el administrador puede volver obligatoria para todos los empleados con un plazo para habilitarla, y una confirmación adicional del inicio de sesión en el dispositivo de confianza.
 - *Justificación.* El acceso unificado con el directorio de la compañía existe como inicio de sesión único (SSO) con Microsoft Azure Active Directory, pero el fabricante lo limita a los planes Enterprise: en la edición gratuita no está.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-9-2-bitrix24-1-seguridad.
 
 > «Single Sign-On (SSO) is available on Bitrix24 Enterprise plans. It lets employees sign in with their Microsoft Azure Active Directory account without entering a password.»
 >
@@ -1381,21 +1497,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Un productor cambió el ramo de una póliza de automotor a hogar, y al abrirla con otro usuario la historia de la ficha muestra la constancia completa: el valor anterior, el nuevo, quién lo cambió y en qué momento.
+- *Cómo lo hace.* Cuando un productor cambia el ramo de una póliza, al abrirla otro usuario la historia de la ficha muestra la constancia completa: el valor anterior, el nuevo, quién lo cambió y en qué momento.
 - *Características.* Para que un campo deje esa constancia se lo marca como auditado desde el Administrador de Campos, una sola vez y sin programar. Constancia: Automotor → Hogar, el 2026-10-30 05:07:08.
 - *Justificación.* Es lo que permite responder quién tocó un dato cuando un asegurado lo discute.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-9-3-espocrm-1-constancia-en-la-ficha.
 
 **Twenty** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* El productor cambió el ramo de una póliza de Automotor a Hogar desde la ficha, y el administrador, con su cuenta, encontró la constancia en la línea de tiempo de la póliza: quién lo cambió, cuándo, y el valor anterior junto al nuevo.
+- *Cómo lo hace.* Cuando el productor cambia el ramo de una póliza desde la ficha, el administrador, con su cuenta, encuentra la constancia en la línea de tiempo de la póliza: quién lo cambió, cuándo, y el valor anterior junto al nuevo.
 - *Características.* Cada registro trae de fábrica una línea de tiempo con sus cambios. Los cambios seguidos de la misma persona sobre un registro, dentro de los diez minutos, se funden en una entrada con el primer valor y el último. Automotor → Hogar, por Pablo Gómez, 2026-09-29T03:29:17.691Z.
 - *Justificación.* Viene listo, sin configurar nada. El registro de auditoría de todo el espacio de trabajo es aparte, y es del plan Organization.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-9-3-twenty-1-constancia-del-cambio.
 
 **Bitrix24** · **0** (no cumple)
 
-- *Cómo lo hace.* Se cambió el ramo de una póliza de Hogar a Vida desde su ficha y el cambio quedó guardado, pero no dejó ninguna constancia: la línea de tiempo de la edición gratuita solo muestra la creación de la negociación —y los cambios de etapa—, sin el valor anterior, el autor ni el momento del cambio de un campo.
+- *Cómo lo hace.* Al cambiar un campo de una póliza desde su ficha, por ejemplo el ramo, el cambio se guarda pero no deja ninguna constancia: la línea de tiempo de la edición gratuita solo muestra la creación de la negociación —y los cambios de etapa—, sin el valor anterior, el autor ni el momento del cambio de un campo.
 - *Justificación.* La pestaña «Historial», que sí registra quién hizo cada acción y cuándo, no se abre: el sistema informa que el historial en CRM está disponible solo en los planes Standard, Professional y Enterprise.
 - *Comentario — con Bitrix24 Standard* (US$ 144 por mes, hasta 50 usuarios, abono recurrente) sería **2** (cumple, costo 0). El historial en CRM, que el fabricante describe como un registro detallado de cada actividad de los usuarios con quién la realizó y en qué momento, se habilita desde el plan Standard. No se contrató el plan, así que no se comprobó que el cambio de ramo muestre el valor anterior.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-9-3-bitrix24-1-linea-de-tiempo, A-9-3-bitrix24-2-historial.
 
 > «The CRM history logs key changes to CRM items, such as exporting contacts or updating field values. Use it to track activity related to clients and deals.»
 >
@@ -1418,6 +1537,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Justificación.* Los totales y promedios sobre pólizas y reclamos se obtienen exportando el listado y calculándolos en una planilla cada vez, porque el tablero de la edición gratuita ofrece listas y ninguna suma ni promedia. El módulo de informes que vende el fabricante agrupa y resume con sumas y promedios, y lo muestra en el tablero.
 - *Comentario — con Advanced Pack* (US$ 395 por año y por instalación, abono recurrente) sería **2** (cumple, costo 1). Un informe agrupado suma las primas por estado de cobranza y promedia la resolución de reclamos, y se lo lleva al tablero.
 - *Comentario — con EspoCRM Cloud Basic* (US$ 15 por usuario por mes, mínimo 3 usuarios, abono recurrente) sería **2** (cumple, costo 1). El servicio en la nube incluye el módulo de informes.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-10-1-espocrm-1-cajas-del-tablero, A-10-1-espocrm-2-exportar-para-calcular-afuera.
 
 > «The Reports feature is available in Advanced Pack. It provides the analytic capabilities and two additional functionalities: report panels and custom list view filters.»
 >
@@ -1441,16 +1561,18 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Twenty** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* Los tableros vienen de fábrica: se armó un gráfico con el total de primas por estado de cobranza eligiendo el objeto, el campo del eje y la suma de la prima, sin programar, y quedó guardado para consultarlo cuando se quiera.
+- *Cómo lo hace.* Los tableros vienen de fábrica: se arma un gráfico con el total de primas por estado de cobranza eligiendo el objeto, el campo del eje y la suma de la prima, sin programar, y queda guardado para consultarlo cuando se quiera.
 - *Características.* El tiempo promedio de resolución de los reclamos, en cambio, no se puede mostrar: el gráfico promedia campos numéricos, y el producto no calcula la duración de cada reclamo ni tiene campos que la deriven de sus fechas. Primas por estado: Cancelada 201000 · Al día 354000 · En gestión 177000 · Vencida 402000 · (sin estado) 60501.
 - *Justificación.* Para mostrar el tiempo promedio de resolución hay que agregar la duración de cada reclamo con un flujo con código que la escriba al cerrarse cada reclamo, que es desarrollo.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-10-1-twenty-1-primas-por-estado, A-10-1-twenty-2-medidas-sobre-reclamos.
 
 **Bitrix24** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* El asistente de informes del CRM, que viene en la edición gratuita, arma sin programar el total de primas por estado de cobranza: agrupando por el campo de lista y sumando el importe de la negociación mostró Al día 900, Vencida 600, En gestión 900, las mismas cifras que suman las negociaciones cargadas.
+- *Cómo lo hace.* El asistente de informes del CRM, que viene en la edición gratuita, arma sin programar el total de primas por estado de cobranza: se agrupa por el campo de lista y se suma el importe de la negociación, y el informe muestra por cada estado la suma de las negociaciones.
 - *Características.* La suma va sobre el importe nativo: el campo propio de tipo dinero solo admite contarse. El tiempo promedio de resolución, en cambio, no se puede mostrar: sobre las fechas de la negociación el asistente ofrece solo Mínimo, Máximo, Único, sin promedio ni diferencia entre dos fechas. Primas por estado: Vencida 600 · Al día 900 · En gestión 900.
 - *Justificación.* Los paneles de analítica que sí podrían medirlo piden un plan: el sistema informa que BI Builder se desbloquea a partir del Standard.
 - *Comentario — con Bitrix24 Standard* (US$ 144 por mes, hasta 50 usuarios, abono recurrente) sería **2** (cumple, costo 2). Con el plan Standard se habilita BI Builder, donde cada conjunto de datos de negociaciones trae las fechas de creación y de cierre y admite columnas calculadas con fórmulas, según el fabricante: el tiempo de resolución se obtiene definiendo esa columna y promediándola. Hay que escribir la fórmula, y por eso el costo es el de desarrollo.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-10-1-bitrix24-1-armado-del-informe, A-10-1-bitrix24-2-primas-por-estado, A-10-1-bitrix24-3-calculos-sobre-fechas, A-10-1-bitrix24-4-paneles-de-analitica.
 
 > «BI Builder Crea informes de analíticas a partir de la información del CRM.»
 >
@@ -1475,6 +1597,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Justificación.* El total de primas por productor se arma a mano en la planilla exportada cada vez que se pide, porque el listado de pólizas de la edición gratuita filtra por productor y período pero no suma. El módulo de informes del fabricante agrupa por productor, suma las primas del período elegido y exporta el resultado ya calculado.
 - *Comentario — con Advanced Pack* (US$ 395 por año y por instalación, abono recurrente) sería **2** (cumple, costo 1). El informe agrupado por productor suma las primas del período y se exporta a planilla.
 - *Comentario — con EspoCRM Cloud Basic* (US$ 15 por usuario por mes, mínimo 3 usuarios, abono recurrente) sería **2** (cumple, costo 1). El servicio en la nube incluye el módulo de informes.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-10-2-espocrm-1-listado-y-exportacion.
 
 > «The Reports feature is available in Advanced Pack. It provides the analytic capabilities and two additional functionalities: report panels and custom list view filters.»
 >
@@ -1502,15 +1625,17 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Twenty** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* El informe se armó desde un tablero, eligiendo los criterios sin programar: un gráfico con la suma de la prima de las pólizas agrupada por productor, filtrado por las que empezaron su vigencia en los últimos seis meses.
+- *Cómo lo hace.* El informe se arma desde un tablero, eligiendo los criterios sin programar: un gráfico con la suma de la prima de las pólizas agrupada por productor, filtrado por las que empezaron su vigencia en un período dado.
 - *Características.* Muestra el total de cada productor y queda guardado. Pero el gráfico no se exporta: el widget no ofrece descargarlo. Totales esperados: TP TP 207000 · Pablo Gómez 207000 · (sin productor) 0 · 34 pólizas exportadas.
 - *Justificación.* Lo que se puede sacar es el listado de pólizas, a un archivo que la planilla abre, y los totales por productor hay que rehacerlos ahí cada vez que se necesita el informe fuera del sistema.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-10-2-twenty-1-primas-por-productor, A-10-2-twenty-2-acciones-del-widget.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* El asistente de informes del CRM, incluido en la edición gratuita, armó sin programar el total de primas por productor en un período: se agrupó por la persona responsable, se sumó el importe de la negociación y se eligió el rango de fechas por la fecha de inicio de la póliza. Del 1 al 20 de septiembre el informe mostró Gómez Productor 900 y Nahuel Mosse 300, las mismas cifras que suman las negociaciones cargadas, y el menú del informe lo exportó a un archivo de Microsoft Excel con esos totales.
+- *Cómo lo hace.* El asistente de informes del CRM, incluido en la edición gratuita, arma sin programar el total de primas por productor en un período: se agrupa por la persona responsable, se suma el importe de la negociación y se elige el rango de fechas por la fecha de inicio de la póliza. El menú del informe lo exporta a un archivo de Microsoft Excel con esos totales.
 - *Características.* La suma se hace sobre el importe nativo de la negociación, no sobre un campo propio de tipo dinero. Totales por productor: Gómez Productor 900 · Nahuel Mosse 300 · exportado a report.xls.
 - *Justificación.* Armar el informe es configuración: se elige una vez y se vuelve a abrir cuando se lo necesita.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-10-2-bitrix24-1-armado-del-informe, A-10-2-bitrix24-2-primas-por-productor, A-10-2-bitrix24-3-archivo-listo.
 
 ### A.10.3 Informe paramétrico reutilizable
 
@@ -1523,6 +1648,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Justificación.* La búsqueda guardada con período relativo no es un informe con parámetro: para verlo sobre otro período hay que cambiar la condición, y el resultado sigue siendo un listado que hay que exportar y totalizar afuera. Los filtros al ejecutar del módulo de informes del fabricante piden el período cada vez que se corre el informe, sin editarlo.
 - *Comentario — con Advanced Pack* (US$ 395 por año y por instalación, abono recurrente) sería **2** (cumple, costo 1). El informe guardado pide el período al ejecutarse y se reutiliza sin editarlo.
 - *Comentario — con EspoCRM Cloud Basic* (US$ 15 por usuario por mes, mínimo 3 usuarios, abono recurrente) sería **2** (cumple, costo 1). El servicio en la nube incluye el módulo de informes.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-10-3-espocrm-1-periodos-del-filtro.
 
 > «Runtime Filters lets you narrow down the results each time you run the report, without needing to edit the report itself. It's useful when the report structure stays the same, but you want to change the criteria dynamically – like choosing a specific date range, customer, or status before generating the results.»
 >
@@ -1542,15 +1668,17 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* El informe de primas por productor quedó guardado en su tablero con el período como condición del filtro. Para otro período se abrió el mismo gráfico y se cambió solo la fecha del filtro: los totales se recalcularon sin rehacer el informe, que conserva su fuente, su agrupación y su medida.
+- *Cómo lo hace.* El informe de primas por productor se guarda en su tablero con el período como condición del filtro. Para otro período se cambia solo la fecha del filtro del mismo gráfico: los totales se recalculan sin rehacer el informe, que conserva su fuente, su agrupación y su medida.
 - *Características.* El período no se pide al abrirlo: cambiarlo modifica el informe guardado para todos los que lo miran, o hay que duplicarlo. Seis meses: Not Set Pablo Gómez TP TP 0 50k 100k 150k 200k 250k · un año: Not Set Pablo Gómez TP TP 0 200k 400k 600k 800k.
 - *Justificación.* Armarlo es configuración de una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-10-3-twenty-1-seis-meses, A-10-3-twenty-2-un-anio.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* El informe de primas por productor se guardó una sola vez, sin período fijo, y la pantalla del informe trae el período como parámetro: se ejecutó del 1 al 20 de septiembre y, sin volver a armarlo, se lo volvió a ejecutar del 1 de enero al 31 de marzo.
+- *Cómo lo hace.* El informe de primas por productor se guarda una sola vez, sin período fijo, y la pantalla del informe trae el período como parámetro: se lo ejecuta para un rango de fechas y, sin volver a armarlo, se lo vuelve a ejecutar para otro.
 - *Características.* Cada ejecución recalculó los totales por productor —Gómez Productor 900 y Nahuel Mosse 300 en septiembre; Nahuel Mosse 900 en el primer trimestre—, iguales a los que suman las negociaciones. Septiembre: {"Gómez Productor":900,"Nahuel Mosse":300} · Primer trimestre: {"Nahuel Mosse":900}.
 - *Justificación.* Armarlo es configuración de una vez; el período se pide cada vez que se abre.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-10-3-bitrix24-1-septiembre, A-10-3-bitrix24-2-primer-trimestre, A-10-3-bitrix24-3-informe-guardado.
 
 ### A.10.4 Intercambio de datos con otros sistemas de la compañía
 
@@ -1558,9 +1686,10 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Con esa clave, desde fuera del sistema, se creó un asegurado y se lo volvió a consultar.
+- *Cómo lo hace.* Desde fuera del sistema, un usuario de integración con su propia clave puede crear registros —por ejemplo un asegurado— y volver a consultarlos por la interfaz de programación.
 - *Características.* El producto trae una interfaz de programación completa y un tipo de usuario pensado para otros sistemas: se dio de alta un usuario de integración con su propia clave y los permisos de un rol, sin contraseña de ninguna persona. El sistema de emisión o el de cobranza de la compañía pueden cargar y leer datos por esa vía.
 - *Justificación.* Crear el usuario de integración es configuración; lo que el otro sistema haga con la interfaz es trabajo de ese sistema, no de este.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-10-4-espocrm-1-usuario-de-integracion.
 
 > «Authentication by API Key»
 >
@@ -1568,9 +1697,10 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Desde Configuración se creó una clave para el otro sistema, que lleva un rol que define lo que puede hacer, sin la contraseña de ninguna persona; con esa clave, desde fuera del sistema, se dio de alta un asegurado y se lo volvió a consultar.
+- *Cómo lo hace.* Desde Configuración se crea una clave para el otro sistema, que lleva un rol que define lo que puede hacer, sin la contraseña de ninguna persona; con esa clave, desde fuera del sistema, el otro sistema da de alta y consulta registros.
 - *Características.* El producto trae interfaces de programación REST y GraphQL que se generan solas a partir del modelo de datos, incluidos los objetos propios como la póliza.
 - *Justificación.* Crear la clave del otro sistema es configuración; lo que el otro sistema haga con la interfaz es trabajo de ese sistema, no de este.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-10-4-twenty-1-clave-de-integracion.
 
 > «There is no static API reference for Twenty. Each workspace has its own schema — when you add a custom object (say Invoice), it immediately gets REST and GraphQL endpoints identical to built-in objects like Company or Person. The API is generated from the schema, so endpoints use your object and field names directly — no opaque IDs.»
 >
@@ -1582,6 +1712,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Características.* El webhook entrante es una dirección secreta que el otro sistema llama para ejecutar métodos de la API, con los permisos del usuario que lo crea.
 - *Justificación.* El comparativo del fabricante lo confirma: la API REST no figura en la edición gratuita ni en las demás ediciones sin Vibe+, y se habilita sin tope desde el plan Basic Vibe+.
 - *Comentario — con Bitrix24 Basic Vibe+* (US$ 89 por mes, hasta 5 usuarios, abono recurrente) sería **2** (cumple, costo 1). Con el plan Basic en su edición Vibe+ la API REST no tiene tope y el webhook entrante se crea desde Recursos para desarrolladores, sin programar: el otro sistema llama a su dirección para crear y consultar negociaciones y contactos. Crear el webhook y elegir sus permisos es configuración de una vez; lo que el otro sistema haga con él es trabajo de ese sistema.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-10-4-bitrix24-1-webhook-entrante.
 
 > «REST API Available on Vibe+ plans.»
 >
@@ -1603,9 +1734,15 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Qué resuelve.** Que ese intercambio aguante el movimiento real de la compañía.
 
+**Cifra de referencia: 500 operaciones diarias.** Son las altas, los cambios de estado y los cierres de reclamo de una jornada sobre la cartera de la compañía.
+
+| 2 | 1 | 0 |
+|---|---|---|
+| El límite publicado deja holgura sobre las 500 operaciones diarias | Las admite, pero se agota en una jornada intensa y obliga a espaciar los envíos | Queda por debajo de 500, o no está publicado |
+
 **EspoCRM** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Se mandó el movimiento de un día entero —500 altas— dos veces: en ráfaga, de a diez simultáneas, y de a una. Las dos veces el sistema aceptó las quinientas: en ráfaga llevó alrededor de un minuto, y de a una unos cinco.
+- *Cómo lo hace.* La interfaz de programación acepta el movimiento de un día entero de altas, tanto en ráfaga —varias operaciones simultáneas— como de a una, en minutos.
 - *Características.* En la instalación propia la interfaz de programación no tiene un tope publicado: no lo impone el fabricante sino el equipo donde corre. En una corrida anterior, con el equipo ocupado por otros procesos, tres de quinientas altas en ráfaga fueron rechazadas y pasaron al repetirlas: el límite es el del equipo, no una cuota del producto. ráfaga de 10 simultáneas: {"200":500} en 78 s · de a una: {"200":500} en 692 s.
 - *Justificación.* El movimiento de un día entra con holgura en minutos, y la sincronización con otros sistemas no tiene que espaciarse más allá de reintentar lo que falle.
 
@@ -1615,7 +1752,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Twenty** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Se mandó el movimiento de un día entero —500 altas— en ráfagas de diez simultáneas, de a un registro por pedido: entraron las 500 en 0.9 minutos, sin rechazos.
+- *Cómo lo hace.* La interfaz de programación admite el movimiento de un día entero de altas, enviadas en ráfagas de diez simultáneas, de a un registro por pedido, sin rechazos.
 - *Características.* El fabricante publica el límite de la interfaz de programación: cien pedidos por minuto, y hasta sesenta registros por pedido en las operaciones por lotes. 500 de 500 aceptadas en 0.9 min y 1 ronda(s); 0 rechazos por límite · {"201":500}.
 - *Justificación.* El límite deja holgura sobre el movimiento de un día: lo que exige es que el otro sistema espacie sus pedidos o los agrupe, como hace cualquier sincronización.
 
@@ -1628,6 +1765,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* Donde la API existe, el fabricante publica su límite: a dos pedidos por segundo se pueden hacer 172.800 por día, que deja holgura de sobra sobre las 500 operaciones diarias de la cartera.
 - *Justificación.* En la edición gratuita el intercambio no está disponible —el webhook entrante responde «No disponible en tu plan actual»—, así que no hay operaciones que sincronizar ni límite que medir: la cartera no se puede sincronizar con otro sistema.
 - *Comentario — con Bitrix24 Basic Vibe+* (US$ 89 por mes, hasta 5 usuarios, abono recurrente) sería **2** (cumple, costo 0). Con el plan Basic en su edición Vibe+ la API REST está habilitada. El fabricante publica que el límite se sostiene a dos pedidos por segundo, 172.800 por día, y admite ráfagas por encima: las 500 operaciones de un día son el 0,3 % de ese tope y no se acercan a él en una jornada intensa. No hay nada que configurar para el volumen.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-10-5-bitrix24-1-webhook-entrante.
 
 > «REST API Available on Vibe+ plans.»
 >
@@ -1653,10 +1791,11 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **1** (cumple con reparo)
 
-- *Cómo lo hace.* No exige un servidor dedicado: la instalación evaluada corre en un equipo de escritorio común, con la imagen oficial de contenedores, y ocupa 471 MB de memoria con la cartera de prueba cargada.
+- *Cómo lo hace.* No exige un servidor dedicado: corre en un equipo de escritorio común, con la imagen oficial de contenedores, con un consumo de memoria que ese equipo sostiene aun con una cartera cargada.
 - *Características.* La edición gratuita se instala en infraestructura de la compañía: pide un servidor web, PHP y una base de datos. 471 MB de memoria entre la aplicación y su base de datos.
 - *Justificación.* La condición se satisface con una limitación que la compañía asume de forma permanente: alguien tiene que mantener ese equipo encendido, respaldado y actualizado. El servicio en la nube del fabricante elimina esa carga.
 - *Comentario — con EspoCRM Cloud Basic* (US$ 15 por usuario por mes, mínimo 3 usuarios, abono recurrente) sería **2** (cumple). En la nube del fabricante la compañía no dispone ninguna infraestructura propia.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-1-espocrm-3-requisitos-del-sistema.
 
 > «Web server: NGINX, Apache, or IIS;»
 >
@@ -1676,6 +1815,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Características.* No exige un servidor dedicado: el fabricante pide al menos 2 GB de memoria, y la instalación evaluada corre en un equipo de escritorio común, donde ocupa 2421 MB con la cartera de prueba cargada. 2421 MB de memoria entre los cuatro contenedores.
 - *Justificación.* La condición se satisface con una limitación que la compañía asume de forma permanente: alguien tiene que mantener ese equipo encendido, respaldado y actualizado.
 - *Comentario — con Twenty Cloud Pro* (US$ 9 por usuario por mes, con pago anual, abono recurrente) sería **2** (cumple). En la nube del fabricante la compañía no dispone ninguna infraestructura propia.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-1-twenty-2-estado-del-servidor.
 
 > «RAM: Ensure your environment has at least 2GB of RAM. Insufficient memory can cause processes to crash.»
 >
@@ -1690,6 +1830,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* La edición evaluada es un servicio en la nube: se opera entera desde el navegador, sin ningún componente que la compañía instale, actualice o respalde.
 - *Características.* El fabricante aloja los datos en su propia infraestructura —en Amazon Web Services— y sostiene los servidores, las copias y la disponibilidad.
 - *Justificación.* La compañía no dispone ningún equipo propio para el sistema: solo necesita una conexión a internet y un navegador, que ya tiene para cualquier otra tarea.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-1-bitrix24-2-portal-en-el-navegador.
 
 > «Bitrix24 uses Amazon Web Services to host your data in US (Virginia) or European Union (Frankfurt, Germany). You can purchase on premise editions of Bitrix24 to host it in your country or on your server. AWS also maintains the following certifications: HIPAA, GDPR, ISO 27001, SOC 1/2/3, Directive 95/46/EC and PCI DSS Level 1.»
 >
@@ -1737,6 +1878,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* Es un servicio en la nube que se abre con un navegador de uso común, en cualquier equipo con el que la compañía ya trabaje —Windows, macOS o Linux—.
 - *Características.* La edición evaluada no corre sobre un sistema operativo ni un motor de base de datos que la compañía administre. Portal abierto con: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36.
 - *Justificación.* No hay versión que instalar ni versión que elegir según la plataforma propia, porque no hay plataforma propia de por medio.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-2-bitrix24-2-portal-abierto.
 
 > «To ensure Bitrix24 runs smoothly, always use the latest version of your browser—Chrome, Edge, Firefox, Safari, or any other browser that supports Green Baseline technologies.»
 >
@@ -1748,10 +1890,11 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **1** (cumple con reparo)
 
-- *Cómo lo hace.* La instalación evaluada se llevó de cero a operativa por esa vía. Pero no la completa alguien sin perfil técnico: hay que instalar el motor de contenedores, escribir el archivo que los describe y resolver cómo se conservan los datos entre reinicios, y en esta instalación montar la carpeta equivocada dejó al sistema sin arrancar hasta corregirlo.
+- *Cómo lo hace.* La instalación con la imagen oficial de contenedores lleva el sistema de cero a operativo. Pero no la completa alguien sin perfil técnico: hay que instalar el motor de contenedores, escribir el archivo que los describe y resolver cómo se conservan los datos entre reinicios, y montar la carpeta equivocada deja al sistema sin arrancar hasta corregirlo.
 - *Características.* El fabricante ofrece una imagen oficial de contenedores que deja el sistema, el servidor web y la base de datos funcionando juntos, y un asistente que completa la configuración inicial.
 - *Justificación.* Instalar con la imagen oficial exige conocimientos puntuales —el motor de contenedores, el archivo que los describe y la conservación de los datos—, guiados por la documentación, que la compañía necesita tener a mano cada vez que instala o reinstala.
 - *Comentario — con EspoCRM Cloud Basic* (US$ 15 por usuario por mes, mínimo 3 usuarios, abono recurrente) sería **2** (cumple). En la nube el fabricante entrega el sistema funcionando: no hay nada que instalar.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-3-espocrm-3-operativo.
 
 > «Get EspoCRM running in minutes. The official Docker image sets up EspoCRM, NGINX, and MySQL automatically. No manual server configuration required.»
 >
@@ -1763,10 +1906,11 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Twenty** · **1** (cumple con reparo)
 
-- *Cómo lo hace.* La instalación evaluada se llevó de cero a operativa por esa vía. Pero no la completa alguien sin perfil técnico: hay que instalar el motor de contenedores, completar las variables del archivo —claves, dirección pública— y, para usar funciones del producto, cambiar variables de configuración que vienen apagadas: en esta instalación, 2, para conectar casillas de correo de la red propia y para ejecutar el código de los flujos.
+- *Cómo lo hace.* La instalación se lleva de cero a operativa por esa vía, pero no la completa alguien sin perfil técnico: hay que instalar el motor de contenedores, completar las variables del archivo —claves, dirección pública— y, para usar funciones del producto, cambiar variables de configuración que vienen apagadas, como las que permiten conectar casillas de correo de la red propia y ejecutar el código de los flujos.
 - *Características.* El fabricante ofrece un archivo de contenedores que deja la aplicación, las tareas en segundo plano, la base de datos y la memoria intermedia funcionando juntas, y el primer ingreso guía la creación del espacio de trabajo. Variables de configuración cambiadas: LOGIC_FUNCTION_TYPE, OUTBOUND_HTTP_SAFE_MODE_ENABLED.
 - *Justificación.* Instalar con el archivo de contenedores exige conocimientos puntuales —el motor de contenedores, las variables del archivo y las variables de configuración apagadas—, guiados por la documentación, que la compañía necesita tener a mano cada vez que instala o actualiza.
 - *Comentario — con Twenty Cloud Pro* (US$ 9 por usuario por mes, con pago anual, abono recurrente) sería **2** (cumple). En la nube el fabricante entrega el sistema funcionando: no hay nada que instalar ni configurar.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-3-twenty-2-variables-de-configuracion.
 
 > «Set the Postgres Password Update the PG_DATABASE_PASSWORD value in the .env file with a strong password without special characters. The password is inserted unencoded into the Postgres connection URL, so characters such as @, /, # or % break the connection string. Generate one with: openssl rand -hex 32 PG_DATABASE_PASSWORD=my_strong_password»
 >
@@ -1781,6 +1925,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* El alta del portal se completa con un correo y una contraseña, sin instalar nada ni preparar un servidor: el fabricante entrega el sistema funcionando de inmediato, con datos de ejemplo y un asistente inicial.
 - *Características.* Lo que sigue —crear los campos propios, cargar la cartera— es configuración desde la pantalla, guiada por el propio producto, sin conocimientos de instalación ni de administración de servidores.
 - *Justificación.* Lo completa cualquiera que sepa operar un sistema de oficina.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-3-bitrix24-2-portal-operativo.
 
 > «¡Sí, lo es! El plan Free es un estado de cuenta predeterminado, en el que se puede agregar un número ilimitado de usuarios y disfrutar de las herramientas disponibles de forma totalmente gratuita durante el tiempo ilimitado. Tenga en cuenta que algunas herramientas como Telefonía y aplicaciones de Bitrix24 Market están disponibles solo en los planes pagos.»
 >
@@ -1795,40 +1940,52 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* Desde el ingreso, el menú lleva directo a asegurados, y de ahí al alta. Guardado el asegurado, la póliza se carga desde su propia ficha, en el panel de sus pólizas, sin salir de ella y ya ligada a él.
 - *Características.* El recorrido completo pasó por 4 pantallas sin volver sobre ninguna y llevó 28 segundos. 4 pantallas, ninguna revisitada, 28 s.
 - *Justificación.* La póliza, que es una entidad creada por la compañía, figura en el menú dentro del grupo desplegable; el orden del menú se ajusta desde la administración.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-4-espocrm-1-asegurado-con-su-poliza.
 
 **Twenty** · **2** (cumple)
 
 - *Cómo lo hace.* Desde el ingreso, el menú lateral lleva directo a las personas, y el alta se hace en el mismo listado, escribiendo nombre y apellido en una fila nueva. Guardado el asegurado, la póliza se carga desde su propia ficha, en el campo de sus pólizas, escribiendo su número y agregándola: queda creada y ligada a él sin salir de la ficha.
 - *Características.* El recorrido completo pasó por 2 pantallas sin volver sobre ninguna y llevó 49 segundos. 2 pantallas, ninguna revisitada, 49 s.
 - *Justificación.* Los objetos propios, como la póliza, aparecen en el mismo menú lateral que los de fábrica.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-4-twenty-1-asegurado-con-su-poliza.
 
 **Bitrix24** · **2** (cumple)
 
 - *Cómo lo hace.* Desde el ingreso, el menú lateral lleva directo al CRM, sobre el listado de negociaciones.
 - *Características.* —que en la edición gratuita, sin entidades propias, hace de cartera de pólizas—, y el botón «Crear» del propio listado abre el formulario de alta en el mismo lugar, sin cambiar de pantalla. 3 pantallas, 0 revisitadas, 69 s.
-- *Justificación.* El alta se completó en 69 segundos, a través de 3 pantallas, sin volver sobre ninguna.
+- *Justificación.* El alta se completa en pocas pantallas, sin volver sobre ninguna.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-4-bitrix24-1-formulario, A-11-4-bitrix24-2-poliza-creada.
 
 ### A.11.5 Aprendizaje sin capacitación previa
 
 **Qué resuelve.** Que un empleado nuevo pueda usarlo sin un curso previo.
 
+**Cifra de referencia: 5 tareas, 3 agentes.** Son las cinco operaciones que un productor repite a diario, y las hacen tres agentes independientes para que un recorrido individual no defina el resultado.
+
+| 2 | 1 | 0 |
+|---|---|---|
+| Los tres completan las cinco tareas | Cada tarea la completa al menos uno, aunque no todos completan todas | Hay tareas que ninguno de los tres logra completar |
+
 **EspoCRM** · **2** (cumple)
 
-- *Cómo lo hace.* Tres agentes independientes, sin conocimiento previo de la plataforma, intentaron sin instrucción las cinco operaciones que un productor repite a diario —dar de alta un asegurado, cargarle una póliza, averiguar qué pólizas de su cartera vencen en los próximos 30 días, registrar un reclamo y agendar un llamado—, operando la pantalla como lo haría una persona.
+- *Cómo lo hace.* Las cinco operaciones que un productor repite a diario —dar de alta un asegurado, cargarle una póliza, averiguar qué pólizas de su cartera vencen en los próximos 30 días, registrar un reclamo y agendar un llamado— se resuelven desde la pantalla, sin instrucción ni conocimiento previo de la plataforma.
 - *Características.* Completaron 15 de las quince, según lo que quedó guardado en el sistema. 15 de 15 tareas completadas.
-- *Justificación.* Los tres completaron las cinco tareas.
+- *Justificación.* Quien opera la pantalla sin instrucción previa completa las cinco tareas del productor.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-5-espocrm-p1-t1, A-11-5-espocrm-p1-t2, A-11-5-espocrm-p1-t3, A-11-5-espocrm-p1-t4, A-11-5-espocrm-p1-t5, A-11-5-espocrm-p2-t1, A-11-5-espocrm-p2-t2, A-11-5-espocrm-p2-t3, A-11-5-espocrm-p2-t4, A-11-5-espocrm-p2-t5, A-11-5-espocrm-p3-t1, A-11-5-espocrm-p3-t2, A-11-5-espocrm-p3-t3, A-11-5-espocrm-p3-t4, A-11-5-espocrm-p3-t5.
 
 **Twenty** · **1** (cumple con reparo)
 
-- *Cómo lo hace.* Tres agentes independientes, sin conocimiento previo de la plataforma, intentaron sin instrucción las cinco operaciones que un productor repite a diario —dar de alta un asegurado, cargarle una póliza, averiguar qué pólizas de su cartera vencen en los próximos 30 días, registrar un reclamo y agendar un llamado—, operando la pantalla como lo haría una persona.
+- *Cómo lo hace.* Sin instrucción previa, quien no conoce la plataforma opera la pantalla, como lo haría una persona, para resolver las cinco operaciones que un productor repite a diario —dar de alta un asegurado, cargarle una póliza, averiguar qué pólizas de su cartera vencen en los próximos 30 días, registrar un reclamo y agendar un llamado—.
 - *Características.* Completaron 14 de las quince, según lo que quedó guardado en el sistema. La tarea 3 quedó sin completar para el agente 1 (respondió 18; la respuesta correcta es 3), que no supo decir qué le faltó. 14 de 15 tareas completadas.
-- *Justificación.* Cada tarea la completó al menos uno de los tres, aunque no todos completaron todas: el sistema se deja aprender, con un tropiezo que la compañía asume en cada incorporación.
+- *Justificación.* Cada tarea la completa al menos uno de cada tres productores, aunque no todos completan todas: el sistema se deja aprender, con un tropiezo que la compañía asume en cada incorporación.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-5-twenty-p1-t1, A-11-5-twenty-p1-t2, A-11-5-twenty-p1-t3, A-11-5-twenty-p1-t4, A-11-5-twenty-p1-t5, A-11-5-twenty-p2-t1, A-11-5-twenty-p2-t2, A-11-5-twenty-p2-t3, A-11-5-twenty-p2-t4, A-11-5-twenty-p2-t5, A-11-5-twenty-p3-t1, A-11-5-twenty-p3-t2, A-11-5-twenty-p3-t3, A-11-5-twenty-p3-t4, A-11-5-twenty-p3-t5.
 
 **Bitrix24** · **1** (cumple con reparo)
 
-- *Cómo lo hace.* Tres agentes independientes, sin conocimiento previo de la plataforma, intentaron sin instrucción las cinco operaciones que un productor repite a diario —dar de alta un asegurado, cargarle una póliza, averiguar qué pólizas de su cartera vencen en los próximos 30 días, registrar un reclamo y agendar un llamado—, operando la pantalla como lo haría una persona.
+- *Cómo lo hace.* Las cinco operaciones que un productor repite a diario —dar de alta un asegurado, cargarle una póliza, averiguar qué pólizas de su cartera vencen en los próximos 30 días, registrar un reclamo y agendar un llamado— se operan desde la pantalla sin instrucción previa, con algún tropiezo en el aprendizaje.
 - *Características.* Completaron 12 de las quince, según lo que quedó guardado en el sistema. La tarea 3 quedó sin completar para el agente 1 (respondió 10; la respuesta correcta es 3), que no supo decir qué le faltó; la tarea 4 quedó sin completar para el agente 3 (ningún registro del reclamo del asegurado (distinto de la póliza, que hable del choque)), que dijo que le faltó «No encontré dónde registrar un reclamo: no hay menú, pipeline ni tipo de actividad de reclamos en el CRM, ni en la ficha del contacto ni en la de la póliza.»; la tarea 5 quedó sin completar para el agente 3 (actividades o tareas guardadas, ninguna vinculada al asegurado para mañana a las 10 (2026-10-01 10:00)), que no supo decir qué le faltó. 12 de 15 tareas completadas.
 - *Justificación.* Cada tarea la completó al menos uno de los tres, aunque no todos completaron todas: el sistema se deja aprender, con un tropiezo que la compañía asume en cada incorporación.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-5-bitrix24-p1-t1, A-11-5-bitrix24-p1-t2, A-11-5-bitrix24-p1-t3, A-11-5-bitrix24-p1-t4, A-11-5-bitrix24-p1-t5, A-11-5-bitrix24-p2-t1, A-11-5-bitrix24-p2-t2, A-11-5-bitrix24-p2-t3, A-11-5-bitrix24-p2-t4, A-11-5-bitrix24-p2-t5, A-11-5-bitrix24-p3-t1, A-11-5-bitrix24-p3-t2, A-11-5-bitrix24-p3-t3, A-11-5-bitrix24-p3-t4, A-11-5-bitrix24-p3-t5.
 
 ### A.11.6 Localización completa al español, modelo incluido
 
@@ -1836,21 +1993,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **1** (cumple con reparo)
 
-- *Cómo lo hace.* Se recorrieron el menú principal y la ficha del asegurado, con los campos del modelo y los que agregó la compañía.
+- *Cómo lo hace.* El menú principal y la ficha del asegurado se presentan en español, con los campos del modelo y los que agrega la compañía.
 - *Características.* El menú principal y la ficha del asegurado están en español, incluidos los campos del modelo y los que agregó la compañía. Queda en inglés la palabra "Ticket" para el caso de atención, que se entiende pero no es la que usa una aseguradora, y algunas traducciones son literales —"Posibles clientes", "Historia" para el registro de actividad—. Fuera del recorrido pedido, en los filtros de fecha la opción que significa "con algún valor" quedó traducida como "Nunca", que dice lo contrario. Palabras en inglés en el recorrido: tickets, ticket.
 - *Justificación.* Se entiende en conjunto, con salvedades que la compañía puede corregir renombrando las etiquetas.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-6-espocrm-1-menu, A-11-6-espocrm-2-ficha.
 
 **Twenty** · **1** (cumple con reparo)
 
 - *Cómo lo hace.* Con el idioma de la interfaz en español, los menús de configuración, los botones y los mensajes están traducidos, pero los objetos y campos que trae el producto quedan con su nombre en inglés: en el menú y en la ficha del asegurado se leen Fields, General, Emails, Phones, Work, Company, Job Title, Social, entre otros.
 - *Características.* Lo que agregó la compañía, como la póliza y sus campos, queda con el nombre que ella le puso. Nombres en inglés en el recorrido: Fields, General, Emails, Phones, Work, Company, Job Title, Social, Linkedin, System, Creation date, Created by.
 - *Justificación.* Son nombres que igual se entienden —personas, correos, teléfonos, empresa, cargo— y cada uno se puede renombrar desde el modelo de datos, que admite cambiar el nombre en singular y en plural.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-6-twenty-1-idioma-elegido, A-11-6-twenty-2-ficha.
 
 **Bitrix24** · **2** (cumple)
 
-- *Cómo lo hace.* Se recorrieron el menú principal y la ficha del contacto con el portal configurado en español.
+- *Cómo lo hace.* Con el portal configurado en español, el menú principal y la ficha del contacto se muestran en ese idioma.
 - *Características.* El menú principal y la ficha del contacto están enteramente en español, incluidos los objetos que trae el producto de fábrica. Menú: Bitrix, Messenger, CoPilot, Feed, Calendario, Documentos, Tableros, Drive, Webmail, Proyectos, Tareas, CRM, Reserva, Gestión del inventario, Marketing, Sitios web y tiendas, Firma electrónica para RR.HH., Firma electrónica, BI Builder, Empleados, Automatización, Market, Recursos para desarrolladores, Base de conocimientos 2., Suscripción · en inglés: ninguno.
 - *Justificación.* Todo lo que el personal ve en la operación diaria está en su idioma, sin nada que corregir.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-6-bitrix24-1-menu-principal, A-11-6-bitrix24-2-listado-de-negociaciones.
 
 ### A.11.7 Cantidad de usuarios sin límite que condicione la operación
 
@@ -1861,6 +2021,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* La edición evaluada se distribuye bajo una licencia libre que no limita la cantidad de usuarios, y la instalación no impone ningún tope: se dan de alta los que la compañía necesite, sea cual fuere su plantel de productores y de personal administrativo.
 - *Características.* El único límite es el del equipo donde corre.
 - *Justificación.* Los topes que publica el fabricante corresponden a los planes de la nube, que se cobran por usuario.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-7-espocrm-2-usuarios.
 
 > «EspoCRM is an open-source project licensed under GNU AGPLv3.»
 >
@@ -1871,6 +2032,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* La edición autoalojada es gratuita y se distribuye bajo una licencia libre que no limita la cantidad de usuarios, y la instalación no impone ningún tope: se invitan los que la compañía necesite, sea cual fuere su plantel de productores y de personal administrativo.
 - *Características.* En la nube se paga por usuario, sin tope de cantidad.
 - *Justificación.* El único límite es el del equipo donde corre.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-7-twenty-3-usuarios.
 
 > «The #1 Open-Source CRM»
 >
@@ -1882,9 +2044,10 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Bitrix24** · **2** (cumple)
 
-- *Cómo lo hace.* Se consultó en la oferta del fabricante cuántos usuarios admite la edición gratuita.
+- *Cómo lo hace.* El fabricante publica en su oferta cuántos usuarios admite la edición gratuita.
 - *Características.* El fabricante publica que la edición gratuita admite un número ilimitado de usuarios, sin costo.
 - *Justificación.* La compañía puede dar de alta a todo su plantel de productores y personal administrativo sin que la cantidad de usuarios sea una condición que limite la operación.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-7-bitrix24-2-portal.
 
 > «¡Sí, lo es! El plan Free es un estado de cuenta predeterminado, en el que se puede agregar un número ilimitado de usuarios y disfrutar de las herramientas disponibles de forma totalmente gratuita durante el tiempo ilimitado. Tenga en cuenta que algunas herramientas como Telefonía y aplicaciones de Bitrix24 Market están disponibles solo en los planes pagos.»
 >
@@ -1896,21 +2059,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple)
 
-- *Cómo lo hace.* Tres usuarios abrieron a la vez la misma póliza y guardaron un cambio cada uno. Tal como viene la entidad creada por la compañía, el sistema aceptó los tres guardados sin advertir el conflicto: quedó "cambio de la sesión 3" y los cambios anteriores se perdieron sin aviso. Activado, los guardados posteriores recibieron el aviso de que otro usuario había modificado el registro (2 avisos) y nadie pisó el trabajo de otro sin saberlo.
+- *Cómo lo hace.* La entidad creada por la compañía no advierte por sí sola el conflicto cuando varios usuarios abren a la vez la misma póliza: el último guardado se impone y los cambios anteriores se pierden sin aviso. Con el control de concurrencia activado en la entidad, quien guarda después de otro recibe el aviso de que otro usuario modificó el registro, y nadie pisa el trabajo ajeno sin saberlo.
 - *Características.* El producto trae un control de concurrencia que las entidades de atención, ventas y cuentas tienen activado de fábrica, y que en las entidades propias se activa con una casilla de su configuración. Sin control: quedó «cambio de la sesión 3» sin aviso · con control: 2 avisos.
 - *Justificación.* La condición se satisface, con la precaución de activar el control en cada entidad propia.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-8-espocrm-pol-concurrencia-sin-control, A-11-8-espocrm-pol-concurrencia-con-control.
 
 **Twenty** · **2** (cumple)
 
-- *Cómo lo hace.* Tres sesiones abrieron a la vez la misma póliza y cambiaron su ramo una detrás de otra, desde la ficha.
+- *Cómo lo hace.* Varias sesiones pueden abrir a la vez la misma póliza y cambiar su ramo una detrás de otra, desde la ficha.
 - *Características.* Quedó el último cambio, Salud. Final: Salud · actualización en vivo en las otras sesiones: sí.
-- *Justificación.* Cada sesión vio aparecer el cambio de la anterior en su pantalla, sin recargar, antes de hacer el suyo: el sistema actualiza en vivo lo que otros modifican, así que nadie pisa el trabajo de otro sin verlo.
+- *Justificación.* Cada sesión ve aparecer el cambio de la anterior en su pantalla, sin recargar, antes de hacer el suyo: el sistema actualiza en vivo lo que otros modifican, así que nadie pisa el trabajo de otro sin verlo.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-8-twenty-1-primera-sesion-despues.
 
-**Bitrix24** · **2** (cumple)
+**Bitrix24** · **0** (no cumple)
 
-- *Cómo lo hace.* Tres sesiones con la misma cuenta abrieron, una detrás de otra, la misma negociación desde el listado del CRM y cada una cambió su título.
-- *Características.* Quedó el último cambio, «DOC-CONCURRENCIA-S3». Título final: DOC-CONCURRENCIA-S3 · cada sesión vio el cambio anterior al abrir: sí.
-- *Justificación.* Cada sesión, al abrir el formulario, ya veía el cambio que había dejado la anterior: el listado no guarda una versión vieja del registro entre una apertura y otra.
+- *Cómo lo hace.* Tres usuarios con su propia sesión abren a la vez la misma negociación desde el listado del CRM, la editan desde el formulario y guardan uno detrás de otro.
+- *Características.* Quedó el último cambio, «DOC-CONCURRENCIA-CTOLEDO». Ningún usuario recibió aviso de que otro había modificado el registro. Título final: DOC-CONCURRENCIA-CTOLEDO · aviso de conflicto: no.
+- *Justificación.* Cada guardado reemplaza al anterior sin advertencia, aunque el formulario se haya abierto antes del cambio de otro usuario. Como la edición gratuita tampoco guarda quién cambió cada dato, los cambios de los demás se pierden sin aviso ni constancia: cuando dos personas trabajan la misma negociación, gana la última que guarda.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-8-bitrix24-1-primera-sesion-tras-los-tres-cambios.
 
 ### A.11.9 Ecosistema de integraciones disponible
 
@@ -1921,6 +2087,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* La condición se satisface: los conectores que la compañía necesita existen y se consiguen directo del fabricante.
 - *Características.* El catálogo oficial es corto y concentrado en lo que una oficina usa: correo de Outlook y de Google, telefonía, videollamadas, cobros y campañas por correo, más una interfaz de programación y ganchos para conectar lo que falte. Casi todos los conectores se venden aparte, con licencia anual que hay que renovar para seguir usándolos.
 - *Justificación.* La limitación es que cada conector suma una licencia renovable, y que fuera del catálogo la integración pasa a ser trabajo propio sobre la interfaz de programación.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-9-espocrm-3-integraciones-incluidas.
 
 > «Outlook Integration»
 >
@@ -1935,6 +2102,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* Lo que sí trae es la vía para integrar lo que falte —interfaces de programación, avisos a otros sistemas ante cada cambio y un servidor para asistentes de inteligencia artificial—, todo sin costo.
 - *Características.* El producto se conecta de fábrica con el correo y el calendario de Google y de Microsoft, y con cualquier casilla por IMAP. Más allá de eso no hay un catálogo de conectores: la sección de aplicaciones ofrece muy pocas, y las aplicaciones son paquetes de código que se desarrollan con el kit del fabricante.
 - *Justificación.* La condición se satisface con una limitación: fuera del correo y el calendario, cada integración es trabajo propio.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-9-twenty-1-aplicaciones, A-11-9-twenty-2-mcp-y-api.
 
 > «How Twenty apps work — entity model, sandboxing, and the install lifecycle.»
 >
@@ -1950,6 +2118,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Características.* El fabricante publica un catálogo de más de 810 aplicaciones e integraciones —telefonía, firma electrónica, mensajería, conectores con otros sistemas—, accesible desde Market en el propio portal.
 - *Justificación.* La instalación de aplicaciones del catálogo es una función de los planes pagos, según la misma página que anuncia la edición gratuita; por eso el catálogo se puede evaluar sin costo, pero usarlo exige pagar.
 - *Comentario — con Bitrix24 Basic* (US$ 69 por mes, hasta 5 usuarios, abono recurrente) sería **2** (cumple). Con el plan de entrada, la instalación de aplicaciones del catálogo queda habilitada.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-9-bitrix24-3-portal.
 
 > «Ver más de 810+ aplicaciones e integraciones»
 >
@@ -1972,6 +2141,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* Quien la consulte lo hace en inglés o con traducción automática del navegador, que es un procedimiento que se repite en cada consulta y que en la terminología técnica puede inducir a error.
 - *Características.* La interfaz del sistema está en español, pero la documentación oficial está publicada solo en inglés: el sitio de documentación no ofrece selector de idioma ni versión en español.
 - *Justificación.* La documentación oficial está solo en inglés: se consulta con traducción automática, un paso que se repite en cada consulta y que puede confundir la terminología técnica.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-10-espocrm-2-portada-de-la-documentacion.
 
 > «It's recommended to upgrade whenever the new version is out. If you skip a few minor or major versions before deciding to upgrade, it's more likely that the upgrade will run unsmoothly. For minor or major releases it may be reasonable to wait for a few days before upgrading, as a very fresh release is likely to have yet undiscovered bugs.»
 >
@@ -1982,6 +2152,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* La documentación oficial se publica también en español.
 - *Características.* La guía de usuario y las páginas de configuración tienen su versión traducida, con el mismo contenido y la misma estructura que la original en inglés.
 - *Justificación.* Quien consulte cómo se usa o se configura el sistema lo hace en su idioma.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-11-10-twenty-2-guia-de-usuario-en-espanol.
 
 > «Controla el acceso a objetos, campos y ajustes con permisos basados en roles.»
 >
@@ -2047,9 +2218,15 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Qué resuelve.** Tener a quién consultar cuando algo no sale.
 
+**Cifra de referencia: una semana de espera.** Una consulta de configuración no puede detener la operación más de un ciclo semanal de trabajo. Cada una de las 21 consultas más recientes del canal público de la comunidad se clasifica con la tabla, y el criterio toma el valor de la del medio, con las 21 ordenadas.
+
+| 2 | 1 | 0 |
+|---|---|---|
+| Llega una respuesta que resuelve la consulta dentro de la semana | Llega después de la semana, o antes pero sin resolver | No llega respuesta |
+
 **EspoCRM** · **1** (cumple con reparo)
 
-- *Cómo lo hace.* Se tomaron las 21 consultas más recientes de la sección de uso general del foro oficial que ya tenían más de una semana de publicadas.
+- *Cómo lo hace.* La comunidad responde en la sección de uso general del foro oficial, donde los usuarios publican sus consultas y otros usuarios las contestan.
 - *Características.* En 7 otro usuario respondió dentro de la semana y quien consultó confirmó después que la respuesta le había servido; en 13 hubo respuesta, pero llegó más tarde o sin que el autor confirmara que lo resolvía; 1 no recibieron respuesta. La primera respuesta llegó, en el caso típico, a las 2 horas. 7 resueltas en la semana · 13 con respuesta tardía o sin confirmar · 1 sin respuesta · primera respuesta típica a las 2 horas.
 - *Justificación.* La consulta típica recibe respuesta, pero no queda constancia de que se resuelva dentro de la semana: la compañía puede contar con que alguien conteste, no con que la conteste a tiempo y a su medida.
 
@@ -2139,7 +2316,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Twenty** · **1** (cumple con reparo)
 
-- *Cómo lo hace.* El canal de la comunidad que ofrece el fabricante es un servidor de chat que solo se lee con cuenta, así que la medición se hizo sobre lo que la comunidad publica abierto: las discusiones del repositorio oficial. Se tomaron las 21 consultas más recientes con más de una semana, que alcanzan hasta 2026-01-27.
+- *Cómo lo hace.* El canal de la comunidad que ofrece el fabricante es un servidor de chat que solo se lee con cuenta; lo que la comunidad publica abierto son las discusiones del repositorio oficial.
 - *Características.* En 2 otro usuario respondió dentro de la semana y quien consultó confirmó después que la respuesta le había servido; en 17 hubo respuesta, pero llegó más tarde o sin que el autor confirmara que lo resolvía; 2 no recibieron respuesta. La primera respuesta llegó, en el caso típico, a las 24 horas. 2 resueltas en la semana · 17 con respuesta tardía o sin confirmar · 2 sin respuesta · primera respuesta típica a las 24 horas.
 - *Justificación.* La consulta típica recibe respuesta, pero no queda constancia de que se resuelva dentro de la semana: la compañía puede contar con que alguien conteste, no con que la conteste a tiempo y a su medida.
 
@@ -2233,7 +2410,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Bitrix24** · **0** (no cumple)
 
-- *Cómo lo hace.* El foro oficial público del fabricante está en ruso (dev.1c-bitrix.ru, subforo de Bitrix24), y la comunidad de la nube conversa en un espacio que exige cuenta para leer, así que la medición se hizo sobre el foro ruso; su muestra mezcla consultas de la instalación propia con las de la nube. Se tomaron las 21 consultas más recientes, sin los temas fijados, con más de una semana, que alcanzan hasta 2026-04-22.
+- *Cómo lo hace.* El foro oficial público del fabricante está en ruso (dev.1c-bitrix.ru, subforo de Bitrix24), y la comunidad de la nube conversa en un espacio que exige cuenta para leer: lo que se puede consultar públicamente es el foro ruso, cuya actividad mezcla consultas de la instalación propia con las de la nube.
 - *Características.* En 0 otro usuario respondió dentro de la semana y quien consultó confirmó después que la respuesta le había servido; en 5 hubo respuesta, pero llegó más tarde o sin que el autor confirmara que lo resolvía; 16 no recibieron respuesta. La primera respuesta llegó, en el caso típico, a las 44 horas. 0 resueltas en la semana · 5 con respuesta tardía o sin confirmar · 16 sin respuesta · primera respuesta típica a las 44 horas.
 - *Justificación.* La consulta típica queda sin respuesta: la compañía no puede contar con la comunidad para resolver un problema de configuración.
 
@@ -2381,6 +2558,12 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Qué resuelve.** Planificar las actualizaciones sin quedar con una versión sin correcciones.
 
+**Cifra de referencia: 12 meses.** La compañía planifica sus cambios de sistema por ejercicio anual.
+
+| 2 | 1 | 0 |
+|---|---|---|
+| El fabricante sostiene cada versión doce meses o más, de modo que la actualización entra en el plan del ejercicio | Publica un plazo menor, que obliga a adelantar la actualización | No publica ningún compromiso |
+
 **EspoCRM** · **0** (no cumple)
 
 - *Cómo lo hace.* El fabricante no publica por cuánto tiempo corrige una versión: no hay política de soporte por versión ni versiones de soporte extendido. Lo que la documentación oficial indica es actualizar apenas sale una versión nueva, lo que equivale a sostener solo la última.
@@ -2417,11 +2600,12 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **2**
 
-- *Cómo lo hace.* Ganar la oportunidad no emite nada por sí solo: el producto trae la conversión del solicitante en asegurado y oportunidad, y de ahí en adelante la póliza se carga aparte. La emisión se resuelve con un guion en la fórmula de la entidad Oportunidad (Administración › Entidades › Oportunidad › Fórmula) que, cuando la etapa pasa a «Cerrada ganada», crea la póliza con el nombre, el importe como prima, la fecha de cierre como inicio de vigencia y el responsable de la oportunidad, y la liga al asegurado y a la oportunidad de origen. Se marcó ganada desde la ficha y la póliza apareció sola en el panel de pólizas de la oportunidad y en la ficha del asegurado.
+- *Cómo lo hace.* Ganar la oportunidad no emite nada por sí solo: el producto trae la conversión del solicitante en asegurado y oportunidad, y de ahí en adelante la póliza se carga aparte. La emisión se resuelve con un guion en la fórmula de la entidad Oportunidad (Administración › Entidades › Oportunidad › Fórmula) que, cuando la etapa pasa a «Cerrada ganada», crea la póliza con el nombre, el importe como prima, la fecha de cierre como inicio de vigencia y el responsable de la oportunidad, y la liga al asegurado y a la oportunidad de origen. Al marcar ganada la oportunidad desde la ficha, la póliza aparece sola en el panel de pólizas de la oportunidad y en la ficha del asegurado.
 - *Características.* La póliza nace vinculada al asegurado y a la oportunidad que la originó, con la prima tomada del importe negociado y sin volver a escribir ningún dato. El guion corre solo cuando la etapa cambia a ganada: guardar otra vez la oportunidad no emite una segunda póliza. Necesita definir antes la relación entre póliza y oportunidad y ubicarla en las pantallas. El ramo y el número definitivo no figuran en la oportunidad: la póliza nace con el ramo que la lista propone por defecto y con el nombre de la venta como número, hasta que se completen o los traiga el sistema central. Póliza POL-Seguro de hogar — Sandoval con prima 132500 ARS, titular y oportunidad de origen.
-- *Justificación.* La necesidad queda resuelta desde el sistema, sin reescribir lo negociado. El costo es 2 porque exige escribir un guion con funciones del sistema —crear un registro, buscar el asegurado relacionado— que alguien tiene que mantener cuando cambie el modelo de la póliza; sin él, marcar ganada una oportunidad no dejó ninguna póliza.
+- *Justificación.* La necesidad queda resuelta desde el sistema, sin reescribir lo negociado. El costo es 2 porque exige escribir un guion con funciones del sistema —crear un registro, buscar el asegurado relacionado— que alguien tiene que mantener cuando cambie el modelo de la póliza; sin él, marcar ganada una oportunidad no deja ninguna póliza.
 - *Comentario — con Advanced Pack* (US$ 395 por año y por instalación, abono recurrente) sería **2** (cumple, costo 1). Los flujos de trabajo de la extensión incluyen la acción «Crear registro» de cualquier entidad al cambiar un campo, de modo que la misma regla se arma desde pantallas, sin escribir el guion.
 - *Comentario — con EspoCRM Cloud Basic* (US$ 15 por usuario por mes, mínimo 3 usuarios, abono recurrente) sería **2** (cumple, costo 1). El servicio en la nube trae las extensiones del fabricante, con los mismos flujos de trabajo.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-12-1-espocrm-1-guion, A-12-1-espocrm-2-oportunidad-con-su-poliza, A-12-1-espocrm-3-poliza-emitida, A-12-1-espocrm-4-ficha-del-asegurado.
 
 > «The system will create a new record of any entity type. If there is a relationship between the target entity type and the entity type of records being created, it's possible to relate them.»
 >
@@ -2444,12 +2628,14 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* Un flujo de trabajo se dispara al actualizarse una oportunidad, filtra por la etapa «Customer» y crea un registro de Pólizas con el nombre de la oportunidad, el asegurado como titular y el monto como prima, tomados con el selector de variables. Al pasar la oportunidad a esa etapa desde su ficha, la póliza aparece vinculada al asegurado y se ve en su ficha, con la prima de la oportunidad.
 - *Características.* Disparador por actualización de registro con condición sobre la etapa; paso «Crear registro» sobre el objeto propio de pólizas; variables del registro disparador para no recargar datos —el importe de la prima se arma con dos variables, el monto en micros y el código de moneda de la oportunidad—; la póliza queda en la ficha del asegurado.
 - *Justificación.* El flujo se arma una sola vez y cada venta ganada emite la póliza con sus datos sin intervención. Configurar el flujo y el objeto de pólizas es trabajo de configuración, sin desarrollo.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-12-1-twenty-1-evento-y-condicion, A-12-1-twenty-2-datos-que-pasan-a-la-poliza, A-12-1-twenty-3-poliza-emitida, A-12-1-twenty-4-poliza-en-la-ficha-del-asegurado.
 
 **Bitrix24** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* Una regla de automatización de la etapa «Cerrado Ganado» del embudo —«Crear un elemento CRM» de tipo negociación— crea la póliza con el nombre y el importe de la venta como variables del documento. El campo «Contacto» de la regla solo ofrece elegir contactos concretos, no una variable. Al marcar ganada la venta desde su ficha apareció la negociación «POL-OPO-EMI-Quiroga-Hogar» con el importe de la venta, sin el asegurado: se vincula a mano en cada venta.
+- *Cómo lo hace.* Una regla de automatización de la etapa «Cerrado Ganado» del embudo —«Crear un elemento CRM» de tipo negociación— crea la póliza con el nombre y el importe de la venta como variables del documento. El campo «Contacto» de la regla solo ofrece elegir contactos concretos, no una variable. Al marcar ganada la venta desde su ficha, la regla crea la negociación con el importe de la venta, sin el asegurado: se vincula a mano en cada venta.
 - *Características.* La regla corre sola al llegar la negociación a la etapa; toma el título y el importe de la venta con variables del documento, sin volver a escribirlos, y la póliza queda en el listado de negociaciones.
 - *Justificación.* La póliza se emite sola con el nombre y el importe de la venta, pero el asegurado no pasa: la regla no admite una variable en el campo del cliente y se vincula a mano en cada venta. La vinculación al asegurado es trabajo permanente en cada venta, además de definir la regla; la edición gratuita admite cinco reglas en total.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-12-1-bitrix24-1-regla-de-emision, A-12-1-bitrix24-2-listado-con-la-poliza, A-12-1-bitrix24-3-poliza-emitida.
 
 ### A.12.2 Plan de pago de la prima
 
@@ -2460,19 +2646,22 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* El producto no trae cuotas: se crea la entidad Cuota con el Administrador de Entidades, con importe, vencimiento y estado (pendiente o pagada) y una relación de muchas cuotas a una póliza, y se agrega a la póliza un campo de lista «Forma de pago». Desde la ficha de la póliza se elige la forma de pago y su panel de cuotas da de alta cada cuota con su vencimiento y su estado. El listado de cuotas, filtrado por estado pendiente, devuelve las impagas junto a su póliza.
 - *Características.* Cada cuota es un registro con importe y moneda, vencimiento y estado, de modo que se filtra, se ordena por vencimiento y se llega desde ella a la póliza. La forma de pago es una lista de valores fijos. Las cuotas se cargan una por una o llegan del sistema central por la interfaz de programación: el producto no arma el cronograma a partir de la prima y la cantidad de cuotas, ni cambia solo el estado de una cuota vencida. Cuotas impagas devueltas: Cuota 3 de 3, Cuota 2 de 3.
 - *Justificación.* Se resuelve configurando una vez, sin programar: la entidad, tres campos, la relación y su ubicación en las pantallas. Cada póliza nueva usa el mismo modelo, sin trabajo extra por póliza.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-12-2-espocrm-1-poliza-con-forma-de-pago-y-cuotas, A-12-2-espocrm-2-cuotas-impagas.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
 - *Cómo lo hace.* Twenty no trae cuotas: se crea un objeto propio «Cuotas» con vencimiento, importe y estado, ligado a la póliza, y a la póliza se le agrega un campo de lista «Forma de pago». Cada cuota se carga desde el listado de cuotas y queda en la ficha de la póliza. El listado de impagas es el listado de cuotas filtrado por el estado «Impaga», que trae las dos vencidas y ninguna de las otras.
 - *Características.* Objeto propio con campos de fecha, moneda y lista; relación con la póliza que muestra las cuotas en su ficha; filtro por estado en el listado, sin desarrollo.
 - *Justificación.* La forma de pago y las cuotas se registran y el listado de impagas sale con un filtro, en cada uso, sin trabajo extra. Definir el objeto de cuotas y sus campos es configuración que se hace una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-12-2-twenty-1-forma-de-pago-y-cuotas-en-la-poliza, A-12-2-twenty-2-cuotas-impagas.
 
 **Bitrix24** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* La póliza se lleva como una negociación a la que se agregó un campo de lista «Forma de pago». Sin entidades propias, cada cuota es una negociación con su vencimiento y su estado —pendiente, pagada o impaga— y el número de la póliza en el título. El listado de impagas es el listado de negociaciones filtrado por el estado de la cuota: trae las dos vencidas y ninguna de las otras.
+- *Cómo lo hace.* La póliza se lleva como una negociación con un campo de lista «Forma de pago». Sin entidades propias, cada cuota es una negociación con su vencimiento y su estado —pendiente, pagada o impaga— y el número de la póliza en el título. El listado de impagas es el listado de negociaciones filtrado por el estado de la cuota.
 - *Características.* Campos propios de lista y de fecha en el formulario de la negociación, filtro por estado en el listado, sin programar.
 - *Justificación.* Las cuotas no cuelgan de la póliza: se identifican por el título y comparten el listado con las pólizas y las ventas, de modo que hay que filtrarlas en cada uso. Hay que filtrar y distinguir las cuotas en cada uso, además de definir los campos.
 - *Comentario — con Bitrix24 Professional* (US$ 289 por mes, hasta 100 usuarios, abono recurrente) sería **2** (cumple, costo 1). El plan Professional trae procesos inteligentes: la cuota pasa a ser una entidad propia, con su listado, sus campos y su vínculo a la póliza, y el listado de impagas deja de mezclarse con las pólizas. Crear la entidad y sus campos es configuración de una vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-12-2-bitrix24-1-forma-de-pago-en-la-poliza, A-12-2-bitrix24-2-cuota, A-12-2-bitrix24-3-cuotas-impagas.
 
 > «SPA (smart process automation)»
 >
@@ -2488,9 +2677,10 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* El sistema central usa un usuario de integración propio (Administración › Usuarios de API), con su clave y un rol con permiso de edición sobre la póliza. Busca la póliza por su número —una consulta con condición sobre el nombre— y la actualiza por el identificador que recibe: se actualizaron prima, estado de cobranza y vigencia, dos veces, y siguió habiendo una sola póliza con ese número. Para los usuarios del CRM, un rol con seguridad por campo deja número, prima, estado de cobranza y vigencia en solo lectura: el operador abre la edición de la póliza, ve los valores que mandó el central y el formulario solo ofrece editar los campos propios del CRM, como el ramo.
+- *Cómo lo hace.* El sistema central usa un usuario de integración propio (Administración › Usuarios de API), con su clave y un rol con permiso de edición sobre la póliza. Busca la póliza por su número —una consulta con condición sobre el nombre— y la actualiza por el identificador que recibe: actualiza prima, estado de cobranza y vigencia, y si repite el envío sigue habiendo una sola póliza con ese número. Para los usuarios del CRM, un rol con seguridad por campo deja número, prima, estado de cobranza y vigencia en solo lectura: el operador, al abrir la edición de la póliza, ve los valores que mandó el central y el formulario solo ofrece editar los campos propios del CRM, como el ramo.
 - *Características.* La seguridad por campo es del rol, de modo que el mismo campo se edita para el usuario de integración y se bloquea para el operador; el bloqueo se mantuvo también ante un intento de cambio del operador por la interfaz de programación. La actualización no es una operación única por clave: quien envía busca por número y decide, y un alta repetida del mismo número crea una segunda póliza, porque el producto no exige unicidad. La importación desde planilla sí ofrece «Crear y actualizar» con coincidencia por un campo, como el número. Pólizas con el número POL-A12-0003 tras dos actualizaciones: 1; tras un alta repetida: 2.
 - *Justificación.* El central actualiza sin duplicar y el operador no puede modificar lo que el central administra. Configurar un usuario de integración, dos roles y marcar los campos en el rol se hace todo desde la administración y sin programar. Buscar antes de actualizar es parte del cliente de integración, como en cualquier interfaz que no ofrezca alta-o-actualización por clave.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-12-3-espocrm-1-rol-con-campos-de-solo-lectura, A-12-3-espocrm-2-edicion-del-operador.
 
 > «By default, a User can read all fields if they can read the record. A User can edit any field if one can edit the record. You can restrict access to specific fields using the Field Level Security.»
 >
@@ -2502,15 +2692,17 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* El sistema central trabaja por la interfaz de programación: busca la póliza por su número con una condición sobre el nombre y la actualiza por el identificador que recibe; se actualizaron estado de pago, prima y vigencia dos veces y siguió habiendo una sola póliza con ese número. Para el productor, una regla del rol sobre Pólizas deja en solo lectura número, prima, estado de pago y vigencia: al hacer clic en cada uno no se abre la edición, mientras que el ramo, que es del CRM, se edita con normalidad.
+- *Cómo lo hace.* El sistema central trabaja por la interfaz de programación: busca la póliza por su número con una condición sobre el nombre y la actualiza por el identificador que recibe, de modo que actualizar estado de pago, prima y vigencia varias veces deja una sola póliza con ese número. Para el productor, una regla del rol sobre Pólizas deja en solo lectura número, prima, estado de pago y vigencia: esos campos no se abren a la edición, mientras que el ramo, que es del CRM, se edita con normalidad.
 - *Características.* El permiso por campo es del rol —ver y editar por separado para cada campo de cada objeto—, así que el mismo dato lo escribe quien integra y el productor lo ve sin poder tocarlo. La actualización no es una operación única por clave: quien envía busca por número y decide, y un alta repetida con el mismo número, incluso pidiendo «upsert», crea una segunda póliza.
 - *Justificación.* El central actualiza sin duplicar y el productor no puede modificar lo que el central administra, en cada uso y sin trabajo extra. Hace falta una regla en el rol del productor con cinco campos marcados, desde la pantalla de roles y sin programar; buscar antes de actualizar es parte del cliente de integración.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-12-3-twenty-1-rol-con-campos-de-solo-lectura, A-12-3-twenty-2-el-productor-no-puede-editar.
 
 **Bitrix24** · **0** (no cumple)
 
 - *Cómo lo hace.* En la edición gratuita el sistema central no tiene por dónde actualizar una póliza: en Recursos para desarrolladores se ofrece «Webhook entrante» y, al abrirlo, el sistema responde «No disponible en tu plan actual» y remite al plan Basic Vibe+.
 - *Justificación.* Sin interfaz de programación habilitada no hay forma de actualizar desde afuera una póliza por su número, así que el primer tramo del procedimiento no se puede ejecutar. El comparativo del fabricante lo confirma: la API REST no figura en la edición gratuita.
 - *Comentario — con Bitrix24 Basic Vibe+* (US$ 89 por mes, hasta 5 usuarios, abono recurrente) sería **1** (cumple con reparo, costo 2). Con el plan Basic en su edición Vibe+ la API REST no tiene tope y el sistema central puede buscar la póliza por su número y actualizarla sin duplicarla; ese cliente de integración lo desarrolla la compañía. La protección de los campos del central en el CRM no se evaluó en ese plan, por eso se computa con reparo.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-12-3-bitrix24-1-webhook-entrante.
 
 > «REST API Available on Vibe+ plans.»
 >
@@ -2530,15 +2722,17 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* La llamada se registra desde el panel Historial de la ficha del solicitante. Al convertir al solicitante en asegurado, el sistema crea la ficha del asegurado; después se le emitió la póliza desde su formulario. La ficha del asegurado muestra, en su Historial, la llamada hecha antes de que fuera cliente, y en su panel de pólizas la póliza emitida.
+- *Cómo lo hace.* La llamada se registra desde el panel Historial de la ficha del solicitante. Al convertir al solicitante en asegurado, el sistema crea la ficha del asegurado, y la póliza se emite desde su formulario. La ficha del asegurado muestra, en su Historial, la llamada hecha antes de que fuera cliente, y en su panel de pólizas la póliza emitida.
 - *Características.* El historial reúne llamadas, reuniones y correos en orden cronológico. La llamada es un único registro, que sigue ligado al solicitante y figura además entre los contactos del asegurado: no hay que copiar nada a mano. La ficha del solicitante queda marcada como convertida y conserva el vínculo con el asegurado creado.
-- *Justificación.* Viene de fábrica: registrar la llamada, convertir y consultar el historial no requirieron configurar nada. La póliza aparece en la ficha porque su relación con el titular ya está definida para el resto del catálogo (A.6.1).
+- *Justificación.* Viene de fábrica: registrar la llamada, convertir y consultar el historial no requieren configurar nada. La póliza aparece en la ficha porque su relación con el titular ya está definida para el resto del catálogo (A.6.1).
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-12-4-espocrm-1-llamada-al-solicitante, A-12-4-espocrm-2-ficha-del-asegurado.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
 - *Cómo lo hace.* La llamada se registra como nota en la ficha de la persona que consulta. Al convertirla, la misma persona queda como contacto de una oportunidad que pasa a la etapa de venta ganada, y el flujo de emisión crea la póliza a su nombre. En la ficha del asegurado la llamada sigue estando, junto a la póliza.
 - *Características.* Notas vinculadas a la persona; la misma persona pasa de solicitante a asegurado sin duplicarse; la ficha reúne notas, oportunidades y pólizas.
 - *Justificación.* No hay una conversión que mueva o duplique datos: la persona es la misma desde la primera llamada y todo lo que se le registró queda en su ficha. La emisión depende del flujo configurado en A.12.1.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-12-4-twenty-1-ficha-del-asegurado, A-12-4-twenty-2-la-llamada-en-la-ficha.
 
 **Bitrix24** · **1** (cumple con reparo) · costo de implementación **2**
 
@@ -2546,6 +2740,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Características.* El mismo contacto es solicitante y asegurado, sin conversión que lo mueva ni lo duplique; su ficha reúne actividades y negociaciones.
 - *Justificación.* Sin el módulo de prospectos, no hay una etapa de solicitante que se convierta, y la llamada se registra como un pendiente con el tipo escrito en el texto, no como una llamada. Ese tipo se escribe a mano en cada registro.
 - *Comentario — con Bitrix24 Standard* (US$ 144 por mes, hasta 50 usuarios, abono recurrente) sería **2** (cumple, costo 1). El plan Standard incluye prospectos ilimitados: el solicitante se registra como prospecto con sus llamadas y, al convertirlo, el historial pasa al contacto y a la negociación. Usarlo no requiere más configuración que la de las etapas.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-12-4-bitrix24-1-llamada-registrada, A-12-4-bitrix24-2-ficha-del-asegurado.
 
 > «Todo lo incluido en Basic, más: Almacenamiento de 100 GB Prospectos ilimitados Facturas y cotizaciones Diseñador de formularios CRM Firma electrónica Marketing por WhatsApp Eficiencia de tareas (KPI) Proyectos ilimitados Tableros ilimitados»
 >
@@ -2561,21 +2756,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* El producto no trae encuestas: entre sus entidades no figura ninguna. Se agregó al reclamo un campo de lista «Satisfacción con la atención» con el Administrador de Campos y se lo ubicó en el formulario y en el panel de reclamos de la ficha del asegurado. Al cerrar el reclamo se registra la respuesta que dio el asegurado; la ficha del asegurado muestra su reclamo cerrado con la satisfacción registrada.
+- *Cómo lo hace.* El producto no trae encuestas: entre sus entidades no figura ninguna. Se agrega al reclamo un campo de lista «Satisfacción con la atención» con el Administrador de Campos y se lo ubica en el formulario y en el panel de reclamos de la ficha del asegurado. Al cerrar el reclamo se registra la respuesta del asegurado, y la ficha del asegurado muestra su reclamo cerrado con la satisfacción registrada.
 - *Características.* La respuesta es un valor de una lista cerrada —muy satisfecho, satisfecho, insatisfecho—, de modo que se puede filtrar y contar por reclamo. Se registra a mano al cerrar: el producto no envía la encuesta ni recibe la respuesta por un formulario o un enlace. Reclamo cerrado con satisfacción «Muy satisfecho» visible en la ficha del asegurado.
 - *Justificación.* Registrar la respuesta queda resuelto con un campo, configurado una vez y sin programar. El envío automático al cerrar el reclamo no existe en la edición evaluada y no se necesita para registrar.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-12-5-espocrm-1-entidades-del-producto, A-12-5-espocrm-2-cierre-con-encuesta, A-12-5-espocrm-3-ficha-del-asegurado.
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
 - *Cómo lo hace.* La encuesta es un objeto propio con puntaje, comentario y vínculos al asegurado y al reclamo. Al cerrar el reclamo desde su ficha, la respuesta que el asegurado dio por teléfono se registra desde su ficha como una encuesta nueva, ligada al reclamo, y queda listada en la ficha del asegurado.
 - *Características.* Objeto propio con campo de lista para el puntaje, texto para el comentario y relaciones con persona y reclamo; la ficha del asegurado lista sus encuestas.
 - *Justificación.* Cada respuesta se registra una vez y queda en la ficha del asegurado. No hay encuestas incorporadas ni envío automático al cerrar el reclamo; el objeto y sus campos se configuran una sola vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-12-5-twenty-1-encuesta-registrada, A-12-5-twenty-2-encuesta-en-la-ficha-del-asegurado.
 
 **Bitrix24** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* Se cerró el reclamo —una negociación— pasándolo a «Cerrado Ganado» y la respuesta del asegurado se registró en un campo de lista «Satisfacción con la atención», agregado a la ficha del contacto; quedó guardada en esa ficha.
+- *Cómo lo hace.* El reclamo —una negociación— se cierra pasándolo a «Cerrado Ganado», y la respuesta del asegurado se registra en un campo de lista «Satisfacción con la atención», agregado a la ficha del contacto, donde queda guardada.
 - *Características.* Campo de lista con cinco puntajes en el formulario del contacto, creado desde la propia pantalla, sin programar.
 - *Justificación.* El puntaje queda en la ficha del asegurado pero la encuesta no se envía al cerrar el reclamo ni queda ligada a él: se carga a mano y cada respuesta nueva reemplaza a la anterior. La carga manual se repite con cada reclamo cerrado.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-12-5-bitrix24-1-satisfaccion-en-la-ficha.
 
 ## B.1 Condiciones que impone el negocio asegurador
 
@@ -2607,10 +2805,19 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 - *Cómo lo hace.* Las condiciones de servicio del fabricante habilitan la baja de la cuenta, con sus datos, después de cincuenta días corridos sin uso.
 - *Justificación.* Una póliza vigente puede pasar mucho más que cincuenta días sin que nadie la consulte —está vigente, pero no requiere actividad—, y ese silencio pone en riesgo toda la cartera, no solo el registro inactivo. La compañía tiene que sostener un ingreso periódico solo para conservar datos que de otro modo no necesitarían ninguna atención.
+- *Comentario — con Bitrix24 Basic* (US$ 69 por mes, hasta 5 usuarios, abono recurrente) sería **2** (cumple). La baja por falta de uso solo rige mientras la cuenta sigue en la edición gratuita: las condiciones la condicionan a que, vencido el plazo, la cuenta «remains under the Free Plan». Con el plan Basic, el más barato de los pagos, esa baja deja de aplicar y los datos se conservan aunque nadie ingrese.
 
 > «21.3.1. Alaio reserves the right to suspend your Bitrix24 Customer Account (temporary limit access to User Accounts and Administrator Accounts) in the following instances: (1) if you fail to comply with terms of these Terms of Service or other requirements described herein; (2) non-use of the Bitrix24 Customer Account for fifty (50) consecutive calendar days, provided that upon expiration of said period the Bitrix24 Customer Account remains under the Free Plan. Upon "non-use" we consider the absence of data in the Bitrix24 archive system about any activity in the Services and the Products within your Bitrix24 Customer Account; (3) non-deletion of User Content incompatible with a Free or cheaper Service Plan in accordance with Section 7.7. of these Terms of Service.»
 >
-> — https://www.bitrix24.com/terms/, consultado el 30 de octubre de 2026
+> — https://www.bitrix24.com/terms/, consultado el 8 de noviembre de 2026
+
+> «21.3.1. Alaio reserves the right to suspend your Bitrix24 Customer Account (temporary limit access to User Accounts and Administrator Accounts) in the following instances: (1) if you fail to comply with terms of these Terms of Service or other requirements described herein; (2) non-use of the Bitrix24 Customer Account for fifty (50) consecutive calendar days, provided that upon expiration of said period the Bitrix24 Customer Account remains under the Free Plan. Upon "non-use" we consider the absence of data in the Bitrix24 archive system about any activity in the Services and the Products within your Bitrix24 Customer Account; (3) non-deletion of User Content incompatible with a Free or cheaper Service Plan in accordance with Section 7.7. of these Terms of Service.»
+>
+> — https://www.bitrix24.com/terms/, consultado el 8 de noviembre de 2026
+
+> «Basic desde US$ 69 desde US$ 49 incluye 5 usuarios Empezar Empezar»
+>
+> — https://www.bitrix24.es/prices/, consultado el 8 de noviembre de 2026
 
 ### B.1.2 Copia propia y completa de la cartera
 
@@ -2618,7 +2825,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple)
 
-- *Cómo lo hace.* La copia se restituyó en una base de datos aparte y la cartera volvió entera: 12 asegurados y 45 pólizas, los mismos que en el sistema en uso.
+- *Cómo lo hace.* La copia se restituye en una base de datos aparte y la cartera vuelve entera, con los mismos asegurados y pólizas que en el sistema en uso.
 - *Características.* Se obtuvo una copia completa con el procedimiento oficial: el volcado de la base de datos y el archivo de la carpeta de datos, que es donde el sistema guarda los adjuntos. Base de 28019 KB y 80 archivos de datos en 400 KB; restituida sin diferencias.
 - *Justificación.* La compañía tiene en su poder toda la información en formatos abiertos y no depende de nadie para recuperarla.
 
@@ -2628,7 +2835,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Twenty** · **2** (cumple)
 
-- *Cómo lo hace.* Se obtuvo una copia completa con el procedimiento que indica el fabricante: el volcado de la base de datos, y el archivo de la carpeta donde el servidor guarda los adjuntos.
+- *Cómo lo hace.* Se obtiene una copia completa con el procedimiento que indica el fabricante: el volcado de la base de datos, y el archivo de la carpeta donde el servidor guarda los adjuntos.
 - *Características.* La copia se restituyó en una base de datos aparte y la cartera volvió entera: 29 personas, 35 pólizas y 6 reclamos, los mismos que en el sistema en uso. Base de 2231 KB y 127 archivos adjuntos en 28519 KB; restituida sin diferencias.
 - *Justificación.* La compañía tiene en su poder toda la información, en el formato abierto de la base, y no depende de nadie para recuperarla.
 
@@ -2636,11 +2843,20 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 >
 > — https://docs.twenty.com/developers/self-host/capabilities/docker-compose, consultado el 30 de octubre de 2026
 
-**Bitrix24** · **1** (cumple con reparo)
+**Bitrix24** · **0** (no cumple)
 
-- *Cómo lo hace.* El listado de negociaciones —que en la edición gratuita hace de cartera de pólizas— ofrece la acción «Exportar», pero no aparece habilitada en el listado de la edición gratuita. La compañía igual obtiene una copia completa de sus datos, registro por registro, con la interfaz de programación de la misma cuenta: se leyeron 9 negociaciones y 10 contactos con todos sus campos, incluidos los propios.
-- *Características.* Lo que no se resuelve por pantalla en un solo paso es la copia de los archivos adjuntos de Drive, que el fabricante no ofrece como descarga masiva en la edición gratuita: hay que bajarlos uno por uno o contratar una aplicación de respaldo del catálogo. 9 negociaciones y 10 contactos leídos por la interfaz de programación.
-- *Justificación.* La compañía obtiene una copia completa de sus datos, pero no con la acción «Exportar», que no está habilitada en la edición gratuita: la copia se arma registro por registro con la interfaz de programación y los adjuntos se bajan uno por uno. El reparo es que no se resuelve en un solo paso, aunque el procedimiento se repite igual en cada copia.
+- *Cómo lo hace.* El listado de negociaciones, que en la edición gratuita hace de cartera de pólizas, no ofrece una acción «Exportar» habilitada. La exportación de contactos pide actualizar a un plan superior y el webhook entrante, que es el camino para que otro sistema lea los datos, no está disponible en el plan actual. El respaldo diario del fabricante no se descarga: solo se restituye pidiéndolo a soporte.
+- *Justificación.* Para la compañía no hay función del producto que entregue una copia de su cartera: la exportación y el acceso desde otros sistemas son de planes pagos, y el respaldo es del fabricante y no se puede bajar. Lo único que devuelve los datos completos es la llamada interna que usan las pantallas del portal, que solo un programador puede invocar desde la consola del navegador: no es una función ofrecida al usuario, así que no cuenta como medio.
+- *Comentario — con Bitrix24 Basic* (US$ 69 por mes, hasta 5 usuarios, abono recurrente) sería **1** (cumple con reparo). El plan Basic incluye la exportación de contactos a CSV, Excel y Outlook, con lo que una parte de la cartera se puede sacar del sistema. El reparo es que el fabricante solo publica esa opción para contactos, y los archivos adjuntos se siguen bajando uno por uno. La interfaz de programación completa llega recién con el plan Basic Vibe+.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-1-2-bitrix24-1-listado, B-1-2-bitrix24-2-opcion-de-exportar.
+
+> «Opción para exportar contactos a CSV, Excel y Outlook»
+>
+> — https://www.bitrix24.es/prices/compare_cloud_plans.php, consultado el 8 de noviembre de 2026
+
+> «Basic desde US$ 69 desde US$ 49 incluye 5 usuarios Empezar Empezar»
+>
+> — https://www.bitrix24.es/prices/, consultado el 8 de noviembre de 2026
 
 ### B.1.3 Copia periódica sin intervención manual
 
@@ -2651,6 +2867,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* La documentación oficial resuelve la repetición afuera, con el programador de tareas del servidor, que ejecuta todas las noches el mismo procedimiento de copia.
 - *Características.* El producto no trae una copia programada: sus tareas programadas son de mantenimiento propio y ninguna genera un respaldo.
 - *Justificación.* La condición se satisface con una limitación que la compañía asume: la copia se repite sola, pero la programa, la vigila y la guarda fuera del equipo alguien con acceso al servidor, porque el sistema no avisa si una noche falló.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-1-3-espocrm-2-tareas-programadas.
 
 > «Backups can be scheduled on the host by adding the following entry to the crontab:»
 >
@@ -2661,6 +2878,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* La documentación del fabricante resuelve la repetición afuera, con el programador de tareas del servidor, que ejecuta todas las noches el volcado de la base.
 - *Características.* El producto no trae una copia programada: su panel de administración muestra el estado del servidor y sus variables, y ninguna opción genera un respaldo.
 - *Justificación.* La condición se satisface con una limitación que la compañía asume: la copia se repite sola, pero la programa, la vigila y la guarda fuera del equipo alguien con acceso al servidor, porque el sistema no avisa si una noche falló.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-1-3-twenty-2-panel-de-administracion.
 
 > «Automate Daily Backups»
 >
@@ -2680,23 +2898,32 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Qué resuelve.** Una cartera de cinco mil asegurados con dos pólizas y media en promedio y sus reclamos suma veinticinco mil registros.
 
+**Cifra de referencia: 25.000 registros.** En los ramos patrimoniales del mercado argentino se paga por año un siniestro cada nueve pólizas vigentes, según la Superintendencia de Seguros de la Nación, y las aseguradoras tienen entre 1,2 y 1,7 pólizas por cliente, según relevamientos de McKinsey & Company y del mercado español. Con unos quinientos clientes, la compañía suma unas setecientas cincuenta pólizas y ochenta reclamos por año: poco más de mil seiscientos registros con cinco años de reclamos. La cartera de referencia es unas quince veces esa cifra, para cubrir el crecimiento: cinco mil asegurados con dos pólizas y media cada uno y sus reclamos.
+
+| 2 | 1 | 0 |
+|---|---|---|
+| Con la cartera cargada, la búsqueda responde sin espera perceptible | Responde con una demora que el usuario nota y tolera | La operación se vuelve impracticable, o falla |
+
 **EspoCRM** · **2** (cumple)
 
-- *Cómo lo hace.* Se cargó la cartera de referencia —cinco mil asegurados, doce mil quinientas pólizas y siete mil quinientos reclamos, veinticinco mil registros— y con ella se repitieron las operaciones de todos los días: buscar un asegurado por texto y filtrar las pólizas por ramo, tres veces cada una.
+- *Cómo lo hace.* Con una cartera de referencia de veinticinco mil registros —cinco mil asegurados, doce mil quinientas pólizas y siete mil quinientos reclamos— el sistema resuelve las operaciones de todos los días: buscar un asegurado por texto y filtrar las pólizas por ramo.
 - *Características.* Buscar un asegurado entre cinco mil respondió en menos de medio segundo las tres veces, y filtrar las doce mil quinientas pólizas por ramo, en alrededor de medio segundo: no hay espera que el usuario perciba. texto 0.3 / 0.1 / 0.1 s · filtro 0.1 / 0.1 / 0.2 s · carga 0 min.
 - *Justificación.* Con la cartera de referencia cargada, el sistema responde como con una cartera chica.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-1-4-espocrm-1-busqueda-por-texto, B-1-4-espocrm-2-filtrado-por-ramo.
 
 **Twenty** · **2** (cumple)
 
-- *Cómo lo hace.* Se cargó la cartera de referencia —cinco mil asegurados, doce mil quinientas pólizas y siete mil quinientos reclamos, veinticinco mil registros— y con ella se repitieron las operaciones de todos los días: buscar un asegurado por texto desde la búsqueda general y filtrar las pólizas por ramo, tres veces cada una.
+- *Cómo lo hace.* Las operaciones de todos los días —buscar un asegurado por texto desde la búsqueda general y filtrar las pólizas por ramo— se hacen sobre una cartera de veinticinco mil registros: cinco mil asegurados, doce mil quinientas pólizas y siete mil quinientos reclamos.
 - *Características.* Buscar un asegurado entre cinco mil respondió en un cuarto de segundo o menos las tres veces, y filtrar las doce mil quinientas pólizas por ramo, en menos de dos décimas: no hay espera que el usuario perciba. texto 0.12 / 0.17 / 0.25 s · filtro 0.04 / 0.03 / 0.04 s · carga 0 min.
 - *Justificación.* Con la cartera de referencia cargada, el sistema responde como con una cartera chica.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-1-4-twenty-1-busqueda-por-texto, B-1-4-twenty-2-filtrado-por-ramo.
 
 **Bitrix24** · **0** (no cumple)
 
 - *Cómo lo hace.* Se cargó la cartera de referencia —cinco mil asegurados, doce mil quinientas pólizas y siete mil quinientos reclamos, veinticinco mil registros— y con ella se repitieron las operaciones de todos los días: buscar un asegurado por texto y filtrar las pólizas por ramo.
-- *Características.* Con la cartera cargada, buscar un asegurado por texto respondió en 0,56, 0,67 y 0,49 segundos. El listado de negociaciones, donde la edición gratuita lleva las pólizas y los reclamos, bloqueó la búsqueda y el filtro con el aviso «Alcanzó el límite de búsqueda de negociaciones (1000)», y en una corrida posterior el listado de contactos mostró el mismo bloqueo: «Alcanzó el límite de búsqueda de contactos (1000)». texto 0.56 / 0.67 / 0.49 s (VOL-00777 sí, VOL-04321 sí, VOL-02468 sí) · filtro sin medir · carga {"contactos":5000,"polizas":12500,"reclamos":7500} en 40 min · aviso del sistema (negociaciones, antes de filtrar por ramo): Alcanzó el límite de búsqueda de negociaciones (1000). Nos esforzamos por mejorar la calidad y el rendimiento del servicio para adaptarnos a la escala de su empresa. La cantidad de datos aumenta a medida que su empresa crece: cada día se crean nuevas tareas, negociaciones y otras entidades..
-- *Justificación.* Con más de mil registros, la edición gratuita deja de buscar y filtrar en el listado. La compañía, con unas setecientas cincuenta pólizas por año y los reclamos de cinco años, supera ese número en las negociaciones, y lo superaría en los asegurados al crecer: la operación diaria sobre la cartera se vuelve impracticable.
+- *Características.* Con la cartera cargada, buscar un asegurado por texto respondió en 0,77, 0,76 y 0,62 segundos. En el listado de negociaciones, donde la edición gratuita lleva las pólizas y los reclamos, mostró el aviso «Alcanzó el límite de búsqueda de negociaciones (1000)» 36 minutos después de empezar a cargar las negociaciones, con las mil superadas desde los primeros minutos: la búsqueda por texto dejó de filtrar y el aviso tapa los campos del filtro, de modo que solo quedan los filtros predeterminados, como las negociaciones en progreso o las cerradas. texto 0.77 / 0.76 / 0.62 s (VOL-00777 sí, VOL-04321 sí, VOL-02468 sí) · filtro sin medir · carga {"contactos":5000,"polizas":12500,"reclamos":7500} en 39 min · bloqueo a los 36 min de empezar la carga de negociaciones · aviso del sistema (negociaciones): Alcanzó el límite de búsqueda de negociaciones (1000). Nos esforzamos por mejorar la calidad y el rendimiento del servicio para adaptarnos a la escala de su empresa. La cantidad de datos aumenta a medida que su empresa crece: cada día se crean nuevas tareas, negociaciones y otras entidades..
+- *Justificación.* Con más de mil registros, la edición gratuita deja de buscar por texto y de filtrar por campo en el listado; solo quedan los filtros predeterminados, que no ubican una póliza ni un asegurado puntual. La compañía, con unas setecientas cincuenta pólizas por año y los reclamos de cinco años, supera ese número en las negociaciones, y lo superaría en los asegurados al crecer: la operación diaria sobre la cartera se vuelve impracticable.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-1-4-bitrix24-limite-negociaciones, B-1-4-bitrix24-3-busqueda-por-texto-de-una-poliza, B-1-4-bitrix24-4-filtro-por-campo-tapado-por-el-aviso, B-1-4-bitrix24-5-filtro-predeterminado-negociaciones-en-progreso, B-1-4-bitrix24-1-busqueda-por-texto.
 
 ### B.1.5 Previsibilidad de los cambios del sistema
 
@@ -2787,21 +3014,24 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **2** (cumple)
 
-- *Cómo lo hace.* Con la salida a internet cortada —el navegador solo alcanzaba el servidor de la red propia— se ingresó al sistema, se buscó un asegurado y se registró un reclamo, que es la atención de todos los días.
+- *Cómo lo hace.* Con la salida a internet cortada y solo la red propia alcanzable, el sistema permite ingresar, buscar un asegurado y registrar un reclamo, que es la atención de todos los días.
 - *Características.* La instalación propia no necesita nada de afuera para operar: lo que se pierde durante el corte es lo que por naturaleza viaja por internet, como el envío y la recepción de correo. 0 pedidos a direcciones externas bloqueados durante la prueba.
 - *Justificación.* Con el sistema en la red de la compañía, una caída del enlace no detiene la atención.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-1-7-espocrm-1-operando-sin-enlace.
 
 **Twenty** · **2** (cumple)
 
-- *Cómo lo hace.* Con la salida a internet cortada —el navegador solo alcanzaba el servidor de la red propia— se ingresó al sistema, se buscó un asegurado y se registró un reclamo, que es la atención de todos los días.
+- *Cómo lo hace.* Con la salida a internet cortada, el sistema sigue operando desde la red propia: se ingresa, se busca un asegurado y se registra un reclamo, que es la atención de todos los días.
 - *Características.* La instalación propia no necesita nada de afuera para operar: lo que se pierde durante el corte es lo que por naturaleza viaja por internet, como el correo y los logotipos de las empresas que la interfaz trae de un servicio externo. 18 pedidos a direcciones externas bloqueados durante la prueba (twenty-icons.com).
 - *Justificación.* Con el sistema en la red de la compañía, una caída del enlace no detiene la atención.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-1-7-twenty-1-operando-sin-enlace.
 
 **Bitrix24** · **1** (cumple con reparo)
 
 - *Cómo lo hace.* Con la conexión externa cortada, el portal abierto en el navegador dejó de responder.
 - *Características.* El fabricante documenta, en cambio, un modo sin conexión en su aplicación de escritorio para enviar mensajes y trabajar con documentos, que se sincronizan al volver el enlace: una parte de la operación diaria sigue siendo posible, pero no la que depende del CRM. Portal operable sin enlace externo: no.
 - *Justificación.* Con el enlace cortado el portal del CRM deja de responder: consultar un asegurado o registrar un reclamo no es posible mientras dura el corte, porque la edición evaluada vive entera en la nube del fabricante. Sigue siendo posible, con el modo sin conexión de la aplicación de escritorio que documenta el fabricante, enviar mensajes y trabajar con documentos, que se sincronizan al volver el enlace.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-1-7-bitrix24-1-sin-enlace.
 
 > «Offline mode. Send messages and work with documents without an internet connection. The data syncs later.»
 >
@@ -2818,6 +3048,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* La edición gratuita no incluye un asistente de inteligencia artificial: la administración no ofrece ninguna función de ese tipo y el fabricante la vende como extensión aparte.
 - *Justificación.* Con ella el sistema resume registros, redacta correos y clasifica o extrae datos con fórmulas, usando el proveedor de inteligencia artificial que la compañía elija y contrate.
 - *Comentario — con Intelligence* (US$ 129 por año y por instalación, abono recurrente) sería **2** (cumple, costo 1). La extensión agrega el resumen de registros y la redacción asistida. Requiere configurar la cuenta de un proveedor de inteligencia artificial, que se contrata y se paga aparte.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-2-1-espocrm-1-administracion.
 
 > «Summary»
 >
@@ -2831,13 +3062,23 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 >
 > — https://www.espocrm.com/extension-license-agreement/, consultado el 30 de octubre de 2026
 
-**Twenty** — *no se pudo verificar.* El asistente se abre desde el menú, pero solo responde con un proveedor de modelos habilitado (Anthropic, Google, Mistral, OpenAI o xAI), con credenciales que contrata la compañía. Sin un proveedor habilitado no produjo el resumen pedido y la capacidad no se pudo observar.
+**Twenty** · **2** (cumple) · costo de implementación **1**
+
+- *Cómo lo hace.* El asistente se abre desde el menú, con la ficha a la vista. En la instalación propia hay que cargarle las credenciales de un proveedor de modelos —Anthropic, Google, Mistral, OpenAI o xAI—, que la compañía elige y contrata; con un proveedor habilitado, el fabricante documenta que consulta los registros y resume su información.
+- *Características.* El producto trae un asistente de inteligencia artificial que se abre desde el menú, con un chat que consulta los registros con los permisos del usuario y resume la información del sistema en lenguaje natural. Conectar un proveedor propio, como un modelo instalado en la red de la compañía, es del plan Organization. Sin proveedor habilitado: capacidad según la documentación oficial.
+- *Justificación.* Habilitarlo es configuración de una sola vez, más el costo del proveedor.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-2-1-twenty-1-pedido-de-resumen, B-2-1-twenty-2-proveedores-de-modelos.
+
+> «Ask questions about your data in natural language. The AI chatbot can query your CRM records, summarize information, and help you find what you’re looking for without building complex filters.»
+>
+> — https://docs.twenty.com/getting-started/core-concepts/ai, consultado el 8 de noviembre de 2026
 
 **Bitrix24** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* Se le pidió el resumen de una negociación desde su chat; el asistente recibió la consulta pero no devolvió respuesta en el minuto y medio de espera de la instalación evaluada, posiblemente por la cuota gratuita del portal.
+- *Cómo lo hace.* Desde el chat de la negociación se le pide a CoPilot el resumen del registro: el asistente recibe la consulta, pero su respuesta puede depender de la cuota gratuita del portal.
 - *Características.* El producto trae CoPilot, un asistente de inteligencia artificial disponible desde el propio registro, en la edición gratuita, con una cuota de usos gratuitos por mes.
 - *Justificación.* Queda disponible de fábrica, sin instalar nada: lo único que puede requerir una configuración de una vez es elegir o ampliar la cuota de uso cuando la gratuita se agota.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-2-1-bitrix24-1-negociacion, B-2-1-bitrix24-2-copilot.
 
 > «Su asistente potenciado por IA en Bitrix24»
 >
@@ -2849,8 +3090,9 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **EspoCRM** · **0** (no cumple)
 
-- *Cómo lo hace.* En la tienda de aplicaciones, la búsqueda del producto devuelve 4 aplicaciones hechas para este producto, y todas son de desarrolladores independientes, sin respaldo del fabricante; ni su catálogo de extensiones ni su página de descarga ofrecen una. Lo que sí ofrece es la misma interfaz adaptada a la pantalla del teléfono, que se usa desde el navegador con conexión: el productor puede consultar y cargar durante una visita, pero no es una aplicación instalada.
+- *Cómo lo hace.* En la tienda de aplicaciones, la búsqueda del producto devuelve solo aplicaciones de desarrolladores independientes, sin respaldo del fabricante; ni su catálogo de extensiones ni su página de descarga ofrecen una. Lo que sí ofrece es la misma interfaz adaptada a la pantalla del teléfono, que se usa desde el navegador con conexión: el productor puede consultar y cargar durante una visita, pero no es una aplicación instalada.
 - *Justificación.* El fabricante no publica una aplicación móvil.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-2-2-espocrm-1-tienda, B-2-2-espocrm-2-en-el-navegador-del-telefono.
 
 > «Call Sync to Espocrm HAIT GmbH $ 8.715,85»
 >
@@ -2859,7 +3101,8 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 **Twenty** · **0** (no cumple)
 
 - *Cómo lo hace.* Lo que ofrece es la misma interfaz en el navegador del teléfono, que se adapta a la pantalla: el productor puede consultar y cargar durante una visita, con conexión, pero no es una aplicación instalada.
-- *Justificación.* El fabricante no publica una aplicación móvil: en la tienda de aplicaciones, la búsqueda del producto devuelve 2 aplicaciones con su nombre y ninguna es del fabricante.
+- *Justificación.* El fabricante no publica una aplicación móvil: en la tienda de aplicaciones, la búsqueda del producto devuelve aplicaciones con su nombre y ninguna es del fabricante.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-2-2-twenty-1-tienda, B-2-2-twenty-2-en-el-navegador-del-telefono.
 
 > «Acceder con Google»
 >
@@ -2867,9 +3110,10 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Bitrix24** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* Se buscó la aplicación oficial del fabricante en las tiendas de aplicaciones.
+- *Cómo lo hace.* La aplicación oficial del fabricante se encuentra en las tiendas de aplicaciones.
 - *Características.* El fabricante publica una aplicación móvil oficial, para Android en Google Play y para iOS en el App Store, con el CRM, las tareas, el chat y las notificaciones de la cuenta.
 - *Justificación.* El productor puede registrar la operación durante la visita al asegurado, desde su teléfono, sin instalar ni configurar nada además de bajar la aplicación e iniciar sesión.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-2-2-bitrix24-1-google-play, B-2-2-bitrix24-2-portal-en-el-navegador.
 
 > «El único software empresarial que necesitarás»
 >
@@ -2884,18 +3128,34 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* Además del CRM, el producto incluye correo, calendario, documentos, plantillas PDF y una línea de publicaciones internas en cada registro, y todas operan sobre los mismos datos: un correo queda en la ficha del asegurado, una reunión en su historial, un documento vinculado a su póliza.
 - *Características.* Faltan la mensajería instantánea entre usuarios, la edición colaborativa de documentos y la firma electrónica.
 - *Justificación.* Para la mensajería instantánea entre usuarios, la edición colaborativa de documentos y la firma electrónica la compañía sigue necesitando otras herramientas, y pasar la información de una a otra es trabajo en cada uso.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-2-3-espocrm-1-herramientas.
 
 **Twenty** · **1** (cumple con reparo) · costo de implementación **2**
 
 - *Cómo lo hace.* Además del CRM, el producto incluye correo, calendario, notas, tareas, archivos, tableros, flujos de trabajo, asistente de IA, y todas operan sobre los mismos datos.
 - *Características.* La ficha del asegurado reúne en pestañas su línea de tiempo, sus tareas, sus notas, sus archivos, sus correos y sus reuniones, y los tableros y los flujos leen y escriben los mismos registros. Pestañas de la ficha: Timeline, Tasks, Notes, Files, Emails, Calendar.
 - *Justificación.* Faltan la mensajería instantánea entre usuarios, la edición colaborativa de documentos y la firma electrónica: para eso la compañía sigue necesitando otras herramientas, y pasar la información de una a otra es trabajo en cada uso.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-2-3-twenty-1-herramientas-en-la-ficha, B-2-3-twenty-2-tableros.
 
 **Bitrix24** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* Desde la ficha de una negociación se abre un chat, una tarea, una reunión o un comentario (Tarea, Comentario) sin salir del registro.
-- *Características.* Además del CRM, el producto incluye mensajería, tareas y proyectos, calendario, Drive (documentos), base de conocimientos, sitios web, todo en la misma cuenta y sobre los mismos contactos. Acciones disponibles desde la ficha: Tarea, Comentario.
+- *Cómo lo hace.* Desde la ficha de una negociación se abre un chat, una tarea, una reunión o un comentario (Chat, Tarea, Comentario) sin salir del registro.
+- *Características.* Además del CRM, el producto incluye mensajería, tareas y proyectos, calendario, Drive (documentos), base de conocimientos, sitios web, todo en la misma cuenta y sobre los mismos contactos. Acciones disponibles desde la ficha: Chat, Tarea, Comentario.
 - *Justificación.* Falta la edición colaborativa de documentos de oficina y la firma electrónica en la edición gratuita —quedan en planes pagos o en aplicaciones del catálogo—, así que la compañía sigue necesitando otra herramienta para esa parte, con el trabajo de pasar la información de una a otra.
+- *Comentario — con Bitrix24 Standard* (US$ 144 por mes, hasta 50 usuarios, abono recurrente) sería **2** (cumple, costo 1). El plan Standard es el primero que suma la edición colaborativa de documentos y la firma electrónica de la empresa, además de lo que ya trae la edición gratuita: la compañía deja de necesitar otra herramienta para esa parte. Requiere configurar una vez los documentos y la firma.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-2-3-bitrix24-1-herramientas-en-la-negociacion, B-2-3-bitrix24-2-drive.
+
+> «Edición colaborativa de documentos Cree y edite documentos, hojas de cálculo y presentaciones en su cuenta de Bitrix24, sin necesidad de instalar aplicaciones/extensiones adicionales.»
+>
+> — https://www.bitrix24.es/prices/compare_cloud_plans.php, consultado el 8 de noviembre de 2026
+
+> «Envía documentos para que los firmen varios empleados a la vez.»
+>
+> — https://www.bitrix24.es/prices/compare_cloud_plans.php, consultado el 8 de noviembre de 2026
+
+> «US$ 144»
+>
+> — https://www.bitrix24.es/prices/, consultado el 8 de noviembre de 2026
 
 ### B.2.4 Telefonía y videollamada integradas
 
@@ -2907,6 +3167,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Justificación.* El fabricante vende las dos funciones como extensiones separadas: una conecta la central telefónica —3CX, Asterisk, Twilio, entre otras— y la otra agrega las videollamadas.
 - *Comentario — con VoIP Integration + Zoom Integration* (US$ 498 por año y por instalación (US$ 388 + US$ 110), abono recurrente) sería **2** (cumple, costo 1). Con las dos extensiones, las llamadas se atienden y se registran desde la ficha y las reuniones generan su enlace de videollamada. Requiere la central telefónica y la cuenta de videollamadas de la compañía.
 - *Comentario — con EspoCRM Cloud Basic* (US$ 15 por usuario por mes, mínimo 3 usuarios, abono recurrente) sería **2** (cumple, costo 1). El servicio en la nube incluye las dos extensiones entre todas las del fabricante.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-2-4-espocrm-1-integraciones.
 
 > «VoIP Integration extension is an official add-on for EspoCRM. It allows EspoCRM to integrate with the following IP telephony servers and services:»
 >
@@ -2937,6 +3198,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* La videollamada está integrada a medias: desde la ficha de un asegurado se crea una reunión en el calendario conectado de Google o Microsoft, con el enlace de videollamada de ese servicio, y la reunión queda en la línea de tiempo del registro.
 - *Características.* La telefonía no está.
 - *Justificación.* El número de una ficha no se marca desde el sistema, las llamadas ocurren afuera y se registran a mano, o hay que desarrollar la conexión con la central telefónica sobre la interfaz de programación.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-2-4-twenty-1-acciones-de-la-ficha.
 
 > «Toggle Invitations to email guests, and Video call to add a meeting link»
 >
@@ -2947,29 +3209,17 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Cómo lo hace.* Desde la ficha de una negociación se inicia una reunión con video, sin salir del sistema.
 - *Características.* La videollamada está integrada de fábrica. Videollamada en la ficha: no detectada · acción de llamar: no.
 - *Justificación.* La telefonía no: el fabricante reserva la línea propia y la numeración de Bitrix24 Telephony a los planes pagos, así que en la edición gratuita llamar desde el sistema requiere contratar ese módulo o desarrollar la conexión con una central externa por la interfaz de programación.
+- *Comentario — con Bitrix24 Basic* (US$ 69 por mes, hasta 5 usuarios, abono recurrente) sería **2** (cumple, costo 1). Desde el plan Basic, el primero que incluye la telefonía integrada, se llama desde la ficha del cliente y se puede conectar una central propia por el conector SIP, sin desarrollo. Requiere dar de alta la línea o la central una vez.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-2-4-bitrix24-1-acciones-de-la-negociacion.
 
 > «¡Sí, lo es! El plan Free es un estado de cuenta predeterminado, en el que se puede agregar un número ilimitado de usuarios y disfrutar de las herramientas disponibles de forma totalmente gratuita durante el tiempo ilimitado. Tenga en cuenta que algunas herramientas como Telefonía y aplicaciones de Bitrix24 Market están disponibles solo en los planes pagos.»
 >
-> — https://www.bitrix24.es/prices/, consultado el 29 de septiembre de 2026
+> — https://www.bitrix24.es/prices/, consultado el 8 de noviembre de 2026
 
-### B.2.5 Uso sin restricciones comerciales en la interfaz
+> «Bitrix24 cuenta con telefonía incorporada que no necesita configuración ni integración»
+>
+> — https://www.bitrix24.es/prices/compare_cloud_plans.php, consultado el 8 de noviembre de 2026
 
-**Qué resuelve.** Operación sin interrupciones comerciales.
-
-**EspoCRM** · **2** (cumple) · costo de implementación **0**
-
-- *Cómo lo hace.* Se recorrieron las pantallas de uso diario —inicio, asegurados, pólizas, reclamos, oportunidades y calendario— y ninguna muestra avisos de venta, invitaciones a mejorar el plan ni funciones bloqueadas a la vista.
-- *Características.* Lo que no está en la edición gratuita simplemente no aparece.
-- *Justificación.* El usuario trabaja sin interrupciones comerciales.
-
-**Twenty** · **2** (cumple) · costo de implementación **0**
-
-- *Cómo lo hace.* Se recorrieron las pantallas de uso diario —asegurados, pólizas, reclamos, oportunidades, tareas y tableros— y ninguna muestra avisos de venta ni invitaciones a mejorar el plan.
-- *Características.* Las funciones del plan pago aparecen marcadas solo dentro de la configuración, donde las ve quien administra.
-- *Justificación.* El usuario trabaja sin interrupciones comerciales.
-
-**Bitrix24** · **1** (cumple con reparo) · costo de implementación **2**
-
-- *Cómo lo hace.* Se recorrieron las pantallas de uso diario.
-- *Características.* —CRM, tareas, mensajería y calendario— y en todas hay avisos de venta permanentes en la propia interfaz (crm: Mejore su plan, Comprar ahora; tareas: Mejore su plan, Comprar ahora; mensajes: Mejore su plan, Comprar ahora; calendario: Mejore su plan, Comprar ahora), sin importar la tarea en curso. Avisos de venta en el contenido: 4.
-- *Justificación.* No impiden operar, pero el usuario trabaja con la oferta comercial siempre a la vista y la edición gratuita no ofrece ocultarla.
+> «Basic desde US$ 69 desde US$ 49 incluye 5 usuarios Empezar Empezar»
+>
+> — https://www.bitrix24.es/prices/, consultado el 8 de noviembre de 2026

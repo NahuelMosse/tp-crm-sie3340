@@ -2,7 +2,8 @@
   "criterio": "A.11.12",
   "plataforma": "bitrix24",
   "cumple": 0,
-  "comoLoHace": "El foro oficial público del fabricante está en ruso (dev.1c-bitrix.ru, subforo de Bitrix24), y la comunidad de la nube conversa en un espacio que exige cuenta para leer, así que la medición se hizo sobre el foro ruso; su muestra mezcla consultas de la instalación propia con las de la nube. Se tomaron las 21 consultas más recientes, sin los temas fijados, con más de una semana, que alcanzan hasta 2026-04-22.",
+  "resumen": "El foro público está en ruso y la comunidad de la nube exige cuenta para leerla; la consulta típica queda sin respuesta.",
+  "comoLoHace": "El foro oficial público del fabricante está en ruso (dev.1c-bitrix.ru, subforo de Bitrix24), y la comunidad de la nube conversa en un espacio que exige cuenta para leer: lo que se puede consultar públicamente es el foro ruso, cuya actividad mezcla consultas de la instalación propia con las de la nube.",
   "caracteristicas": "En 0 otro usuario respondió dentro de la semana y quien consultó confirmó después que la respuesta le había servido; en 5 hubo respuesta, pero llegó más tarde o sin que el autor confirmara que lo resolvía; 16 no recibieron respuesta. La primera respuesta llegó, en el caso típico, a las 44 horas.",
   "justificacion": "La consulta típica queda sin respuesta: la compañía no puede contar con la comunidad para resolver un problema de configuración.",
   "documentacion": [

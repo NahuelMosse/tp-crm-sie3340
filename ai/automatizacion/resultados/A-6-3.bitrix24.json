@@ -3,7 +3,8 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Desde el mismo formulario del contacto, «Crear campo» agrega un campo de tipo lista —aquí, la valoración de la atención, con sus cuatro opciones— sin programar. El campo queda en el formulario de alta: se eligió el valor «Buena» al cargar un asegurado y quedó guardado.",
+  "resumen": "Agrega campos de lista propios del rubro a la ficha del contacto sin programar; el campo queda en el alta y disponible en el filtro.",
+  "comoLoHace": "Desde el mismo formulario del contacto, «Crear campo» agrega un campo de tipo lista —por ejemplo, la valoración de la atención, con sus opciones— sin programar. El campo queda en el formulario de alta: su valor se elige al cargar un asegurado y queda guardado.",
   "caracteristicas": "En el listado, el filtro de búsqueda ofrece el campo nuevo para agregarlo como condición.",
   "justificacion": "Definir el campo es una configuración de una sola vez.",
   "evidencia": [

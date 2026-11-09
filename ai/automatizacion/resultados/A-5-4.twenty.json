@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Twenty no trae una base de conocimiento: el artículo se definió como un objeto propio, con su título y la condición de cobertura. Se cargó uno sobre el granizo en automotor y la búsqueda general lo encontró por su título.",
+  "resumen": "No trae base de conocimiento: se define un objeto propio, que la búsqueda general encuentra por título y por palabras del texto.",
+  "comoLoHace": "Twenty no trae una base de conocimiento: el artículo se define como un objeto propio, con su título y la condición de cobertura. Al cargar un artículo, la búsqueda general lo encuentra por su título.",
   "caracteristicas": "También lo encontró por una palabra del texto de la condición.",
   "justificacion": "Definir el objeto es trabajo de una sola vez.",
   "evidencia": [

@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Se agregó a la persona un campo que el producto no trae —la valoración que dejó sobre la atención recibida, con cuatro valores— desde el modelo de datos.",
+  "resumen": "Agrega a la persona campos propios, con sus valores; aparecen solos en la ficha y sirven de condición de filtro del listado.",
+  "comoLoHace": "Desde Configuración › Modelo de datos se agrega a la persona un campo que el producto no trae, como la valoración que dejó sobre la atención recibida, con sus valores.",
   "caracteristicas": "Apareció solo en la ficha, sin ubicarlo en ningún diseño; se cargó en un asegurado y se lo pudo usar enseguida como condición de filtro del listado para ver a los que valoraron la atención como muy buena.",
   "justificacion": "Es configuración de una sola vez, sin programar.",
   "evidencia": [

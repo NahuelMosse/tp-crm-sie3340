@@ -3,7 +3,8 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Se agregó a la ficha del asegurado un campo que el producto no trae —la valoración que dejó sobre la atención recibida, con cuatro valores— desde el Administrador de Campos.",
+  "resumen": "Agrega campos propios a la ficha del asegurado, como una valoración con lista de valores, disponibles en el formulario y como condición de búsqueda.",
+  "comoLoHace": "El Administrador de Campos agrega a la ficha del asegurado un campo que el producto no trae —por ejemplo, la valoración que dejó sobre la atención recibida, con una lista de valores—.",
   "caracteristicas": "Quedó en el formulario, se cargó en un asegurado y se lo pudo usar como condición de búsqueda para listar a los que valoraron la atención como muy buena.",
   "justificacion": "Es configuración de una sola vez: se define el campo y se lo ubica en el formulario y entre los filtros, sin programar.",
   "evidencia": [

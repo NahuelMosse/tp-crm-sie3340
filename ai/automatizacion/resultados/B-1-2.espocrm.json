@@ -2,7 +2,8 @@
   "criterio": "B.1.2",
   "plataforma": "espocrm",
   "cumple": 2,
-  "comoLoHace": "La copia se restituyó en una base de datos aparte y la cartera volvió entera: 12 asegurados y 45 pólizas, los mismos que en el sistema en uso.",
+  "resumen": "Permite una copia completa —base de datos y carpeta de adjuntos— con el procedimiento oficial, y la cartera se restituye entera en formatos abiertos, sin depender del fabricante.",
+  "comoLoHace": "La copia se restituye en una base de datos aparte y la cartera vuelve entera, con los mismos asegurados y pólizas que en el sistema en uso.",
   "caracteristicas": "Se obtuvo una copia completa con el procedimiento oficial: el volcado de la base de datos y el archivo de la carpeta de datos, que es donde el sistema guarda los adjuntos.",
   "justificacion": "La compañía tiene en su poder toda la información en formatos abiertos y no depende de nadie para recuperarla.",
   "documentacion": [

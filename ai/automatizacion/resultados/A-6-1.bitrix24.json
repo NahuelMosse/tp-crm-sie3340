@@ -3,6 +3,7 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 0,
+  "resumen": "Vincula la póliza con su titular mediante el campo Cliente; la relación se ve desde la ficha de ambos lados.",
   "comoLoHace": "Una vez guardada, la póliza figura en la pestaña «Negociaciones» de la ficha del contacto y su propia ficha muestra al titular, sin configurar nada.",
   "caracteristicas": "La negociación —que hace de póliza en la edición gratuita— trae de fábrica el campo «Cliente», donde se elige el contacto por su nombre.",
   "justificacion": "La relación se ve desde los dos lados.",

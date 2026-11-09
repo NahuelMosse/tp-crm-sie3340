@@ -79,9 +79,13 @@ test('A.4.1 — Segmentación reutilizable de la cartera', async ({ page, browse
     plataforma,
     cumple: 2,
     costo: 0,
+    resumen:
+      'Un segmento se define con filtros y se guarda con nombre como vista; como se guarda el ' +
+      'filtro y no la lista, quien cumpla el criterio después entra solo.',
     comoLoHace:
-      'Desde el listado de asegurados se definió un conjunto por un criterio —los que están a cargo de ' +
-      'un productor— y se lo guardó con nombre como una vista, desde el propio filtro.',
+      'Desde el listado de asegurados se define un conjunto por un criterio —por ejemplo, los que ' +
+      'están a cargo de un productor— y se lo guarda con nombre como una vista, desde el propio ' +
+      'filtro.',
     caracteristicas:
       'Al volver al listado, el segmento figura en el selector de vistas; al abrirlo trajo de nuevo ' +
       'los mismos asegurados, y como el filtro se guarda y no la lista, un asegurado que cumpla el ' +
@@ -172,12 +176,15 @@ test('A.4.2 — Diseño de campañas sobre un segmento', async ({ page, browser 
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen:
+      'No trae campañas en la edición evaluada: cada una es un flujo que envía correos ' +
+      'personalizados a los registros marcados, sin programación, baja de destinatarios ni ' +
+      'resultados.',
     comoLoHace:
-      'Se armó una con un flujo de trabajo que se lanza sobre los registros marcados y le envía a cada ' +
-      'uno un correo desde la casilla comercial, con su nombre en el asunto. Se abrió el segmento ' +
-      'guardado, se ' +
-      `marcaron sus ${destinatarios.length} asegurados, se lanzó la campaña y cada uno recibió su ` +
-      `mensaje, personalizado —«${llegaron[0]?.asunto}»—.`,
+      'Una campaña se arma con un flujo de trabajo que se lanza sobre los registros marcados y le ' +
+      'envía a cada uno un correo desde la casilla comercial, con su nombre en el asunto: se abre el ' +
+      'segmento guardado, se marcan sus asegurados, se lanza la campaña y cada uno recibe su mensaje ' +
+      'personalizado.',
     caracteristicas:
       'La edición evaluada no trae campañas: el fabricante las tiene en beta y las habilita a pedido.',
     justificacion:
@@ -235,10 +242,13 @@ test('A.4.3 — Medición de los resultados de la campaña', async ({ page, brow
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen:
+      'Cada envío queda como una corrida con el resultado de cada paso; no registra aperturas ' +
+      'ni reúne cuántos recibieron o contestaron.',
     comoLoHace:
       conRespuesta
-        ? 'Las respuestas llegan: el asegurado contestó y la casilla sincronizada trajo su respuesta a su ficha.'
-        : 'La respuesta de un asegurado no llegó a su ficha en los diez minutos de espera.',
+        ? 'Las respuestas llegan: la casilla sincronizada trae la respuesta del asegurado a su ficha.'
+        : 'La respuesta de un asegurado no llega a su ficha.',
     caracteristicas:
       'De la campaña armada con un flujo de trabajo queda el registro del envío: cada lanzamiento es una ' +
       'corrida con el resultado de cada paso. ' +
@@ -314,10 +324,13 @@ test('A.4.4 — Captación de interesados desde redes sociales', async ({ page, 
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen:
+      'No se conecta con redes sociales; un flujo con webhook da de alta a la persona con los ' +
+      'datos que envíe un intermediario, que la compañía contrata y mantiene.',
     comoLoHace:
-      'Lo que sí trae es un disparador de flujos por webhook: se armó un flujo que recibe nombre, ' +
-      'apellido y correo y da de alta a la persona, y un pedido con esos datos —lo que enviaría un ' +
-      'intermediario al llegar un interesado desde un formulario de anuncios— la incorporó a la base.',
+      'Lo que sí trae es un disparador de flujos por webhook: un flujo recibe nombre, apellido y ' +
+      'correo y da de alta a la persona, de modo que un pedido con esos datos —lo que enviaría un ' +
+      'intermediario al llegar un interesado desde un formulario de anuncios— la incorpora a la base.',
     caracteristicas:
       'El producto no se conecta con ninguna red social: las cuentas que se pueden conectar son de ' +
       'correo y calendario, y el catálogo de aplicaciones no ofrece ninguna.',
@@ -354,6 +367,9 @@ test('A.4.5 — Escucha de menciones en canales públicos', async ({ page, brows
     criterio: 'A.4.5',
     plataforma,
     cumple: 0,
+    resumen:
+      'No ofrece escucha de menciones en redes ni medios en ninguna edición; habría que ' +
+      'desarrollarla como aplicación propia.',
     comoLoHace:
       'El producto no ofrece el seguimiento de lo que se dice de la compañía y de la competencia en ' +
       'redes y medios, en ninguna edición: la configuración no tiene ninguna función de redes sociales ' +
@@ -393,6 +409,9 @@ test('A.4.6 — Publicación en redes desde el sistema', async ({ page, browser 
     criterio: 'A.4.6',
     plataforma,
     cumple: 0,
+    resumen:
+      'No permite publicar en redes sociales: solo conecta cuentas de correo y calendario, y ' +
+      'publicar exigiría desarrollar una aplicación propia.',
     comoLoHace:
       'El producto no permite publicar en redes sociales desde el propio sistema, en ninguna edición: ' +
       'las cuentas que se pueden conectar son de correo y de calendario —IMAP, SMTP, CalDAV—, ninguna ' +
@@ -449,10 +468,13 @@ test('A.4.7 — Registro de la competencia y del motivo de pérdida', async ({ p
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'La etapa «Perdida», el motivo y el competidor se agregan como campos y se registran en ' +
+      'la ficha de la oportunidad; el embudo de fábrica no los trae.',
     comoLoHace:
-      'Se agregó la etapa «Perdida» a la lista de etapas y dos campos: el motivo, como lista, y el ' +
-      'competidor que se quedó con la venta. Se marcó una oportunidad como perdida y se le registraron ' +
-      'el motivo y el competidor desde su ficha.',
+      'Desde Configuración › Modelo de datos se agrega la etapa «Perdida» a la lista de etapas y dos ' +
+      'campos: el motivo, como lista, y el competidor que se quedó con la venta. Al marcar una ' +
+      'oportunidad como perdida, se registran el motivo y el competidor desde su ficha.',
     caracteristicas:
       'El embudo de fábrica termina en la etapa de cliente ganado: no trae una etapa de oportunidad ' +
       'perdida ni dónde anotar por qué se perdió.',

@@ -2,6 +2,7 @@
   "criterio": "A.11.1",
   "plataforma": "bitrix24",
   "cumple": 2,
+  "resumen": "Es un servicio en la nube que se opera desde el navegador: el fabricante sostiene servidores, copias y disponibilidad, y la compañía no instala ni respalda nada.",
   "comoLoHace": "La edición evaluada es un servicio en la nube: se opera entera desde el navegador, sin ningún componente que la compañía instale, actualice o respalde.",
   "caracteristicas": "El fabricante aloja los datos en su propia infraestructura —en Amazon Web Services— y sostiene los servidores, las copias y la disponibilidad.",
   "justificacion": "La compañía no dispone ningún equipo propio para el sistema: solo necesita una conexión a internet y un navegador, que ya tiene para cualquier otra tarea.",

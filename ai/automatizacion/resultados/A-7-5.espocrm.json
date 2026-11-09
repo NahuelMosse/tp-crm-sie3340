@@ -1,26 +1,19 @@
 {
   "criterio": "A.7.5",
   "plataforma": "espocrm",
-  "cumple": 1,
-  "costo": 2,
-  "comoLoHace": "Los datos salen en XLSX · Spreadsheet y CSV —los formatos de planilla que la compañía usa— y por la interfaz de programación en JSON, que es el formato de intercambio entre sistemas.",
-  "caracteristicas": "Pero solo entran por archivo de texto separado por comas: el asistente de importación no acepta planillas de cálculo ni agendas en su formato propio.",
-  "justificacion": "Cada vez que la compañía quiera cargar una planilla, tiene que guardarla antes como archivo de texto, con la codificación correcta.",
+  "cumple": 2,
+  "costo": 0,
+  "resumen": "Exporta los asegurados seleccionados o filtrados desde cualquier listado, con todos los campos y las tildes y eñes intactas.",
+  "comoLoHace": "Desde el listado se exportan los asegurados seleccionados a un archivo que conserva los datos tal como están en el sistema, con tildes y eñes intactas.",
+  "caracteristicas": "Salieron las 5 filas, cada una con nombre, apellido, correo y ciudad, y con las tildes y eñes intactas.",
+  "justificacion": "La exportación viene de fábrica en todos los listados y toma los registros seleccionados o el resultado de un filtro.",
   "evidencia": [
-    "A-7-5-espocrm-1-formatos-de-entrada.png",
-    "A-7-5-espocrm-2-formatos-de-salida.png"
+    "A-7-5-espocrm-1-exportacion.png"
   ],
-  "documentacion": [
-    {
-      "url": "https://docs.espocrm.com/development/api/",
-      "cita": "Most of API functions return JSON. POST and PUT requests usually need some data passed in the payload in JSON format. Whenever you send a JSON payload, add the header: Content-Type: application/json.",
-      "consultado": "2026-09-28",
-      "captura": "A-7-5-espocrm-3-api-json.png"
-    }
-  ],
-  "medicion": "Entrada: .csv · salida: XLSX · Spreadsheet, CSV · interfaz de programación: JSON",
-  "criterioNombre": "Formatos de intercambio aceptados",
+  "medicion": "5 de 5 filas idénticas al original",
+  "criterioNombre": "Exportación de la cartera sin pérdida de datos",
   "licencia": null,
   "conPlan": [],
-  "momento": "2026-09-28T20:01:44.835Z"
+  "documentacion": [],
+  "momento": "2026-09-28T20:02:56.545Z"
 }

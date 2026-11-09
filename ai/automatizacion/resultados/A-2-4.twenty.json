@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "Desde la ficha del asegurado, su sección de oportunidades crea una nueva ya ligada a él como contacto. La oportunidad se hizo avanzar etapa por etapa desde su ficha hasta la última, y el historial registró el avance —los cambios hechos seguidos por la misma persona se agrupan en una sola entrada—.",
+  "resumen": "El embudo de oportunidades viene definido, con tablero por etapa y registro del avance en el historial; las etapas vienen en inglés y de venta genérica.",
+  "comoLoHace": "Desde la ficha del asegurado, su sección de oportunidades crea una nueva ya ligada a él como contacto. La oportunidad avanza etapa por etapa desde su ficha hasta la última, y el historial registra el avance —los cambios hechos seguidos por la misma persona se agrupan en una sola entrada—.",
   "caracteristicas": "El embudo viene definido de fábrica con 6 etapas —New, Screening, Meeting, Proposal, Customer, Perdida— y una vista de tablero por etapa.",
   "justificacion": "Viene listo, aunque las etapas vienen con nombres en inglés y de una venta genérica: adaptarlas al seguro es configuración.",
   "evidencia": [

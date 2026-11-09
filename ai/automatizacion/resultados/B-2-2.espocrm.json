@@ -2,7 +2,8 @@
   "criterio": "B.2.2",
   "plataforma": "espocrm",
   "cumple": 0,
-  "comoLoHace": "En la tienda de aplicaciones, la búsqueda del producto devuelve 4 aplicaciones hechas para este producto, y todas son de desarrolladores independientes, sin respaldo del fabricante; ni su catálogo de extensiones ni su página de descarga ofrecen una. Lo que sí ofrece es la misma interfaz adaptada a la pantalla del teléfono, que se usa desde el navegador con conexión: el productor puede consultar y cargar durante una visita, pero no es una aplicación instalada.",
+  "resumen": "El fabricante no publica aplicación móvil nativa; la misma interfaz se adapta a la pantalla del teléfono y se usa desde el navegador con conexión.",
+  "comoLoHace": "En la tienda de aplicaciones, la búsqueda del producto devuelve solo aplicaciones de desarrolladores independientes, sin respaldo del fabricante; ni su catálogo de extensiones ni su página de descarga ofrecen una. Lo que sí ofrece es la misma interfaz adaptada a la pantalla del teléfono, que se usa desde el navegador con conexión: el productor puede consultar y cargar durante una visita, pero no es una aplicación instalada.",
   "justificacion": "El fabricante no publica una aplicación móvil.",
   "evidencia": [
     "B-2-2-espocrm-1-tienda.png",

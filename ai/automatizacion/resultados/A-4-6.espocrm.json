@@ -2,6 +2,7 @@
   "criterio": "A.4.6",
   "plataforma": "espocrm",
   "cumple": 0,
+  "resumen": "No ofrece la publicación en redes sociales desde el propio sistema, ni como función ni como extensión del catálogo oficial.",
   "comoLoHace": "El producto no ofrece la publicación en redes sociales desde el propio sistema, en ninguna edición: la administración no tiene ninguna función de redes sociales y el catálogo oficial de extensiones —informes y automatización, ventas, proyectos, inteligencia artificial, telefonía, agenda de reuniones, integraciones con Outlook, Google, Zoom, Stripe y MailChimp— no incluye ninguna.",
   "justificacion": "La compañía tendría que resolverlo con otra herramienta.",
   "evidencia": [

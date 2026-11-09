@@ -2,6 +2,7 @@
   "criterio": "A.11.10",
   "plataforma": "espocrm",
   "cumple": 1,
+  "resumen": "La interfaz está en español, pero la documentación oficial solo se publica en inglés y se consulta con traducción automática, que puede confundir la terminología técnica.",
   "comoLoHace": "Quien la consulte lo hace en inglés o con traducción automática del navegador, que es un procedimiento que se repite en cada consulta y que en la terminología técnica puede inducir a error.",
   "caracteristicas": "La interfaz del sistema está en español, pero la documentación oficial está publicada solo en inglés: el sitio de documentación no ofrece selector de idioma ni versión en español.",
   "justificacion": "La documentación oficial está solo en inglés: se consulta con traducción automática, un paso que se repite en cada consulta y que puede confundir la terminología técnica.",

@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 1,
   "costo": 2,
-  "comoLoHace": "Un segundo embudo se arma con un segundo campo de lista —para los seguros de personas: cotización, examen médico, emisión— y un tablero agrupado por él; se hizo así y la oportunidad quedó ubicada en el segundo embudo.",
+  "resumen": "Hay un solo embudo por objeto: un segundo se arma con otro campo de lista, pero conviven en todas las oportunidades y la separación por ramo la mantiene quien carga.",
+  "comoLoHace": "Un segundo embudo se arma con un segundo campo de lista —para los seguros de personas: cotización, examen médico, emisión— y un tablero agrupado por él, donde la oportunidad queda ubicada en el segundo embudo.",
   "caracteristicas": "Twenty tiene un solo embudo por objeto: las etapas de la oportunidad son un campo de lista, y el tablero agrupa por ese campo. Pero las dos listas conviven en todas las oportunidades: nada impide que una oportunidad de automotor tenga etapa de vida, ni separa qué embudo sigue cada una.",
   "justificacion": "Mantener esa separación queda a cargo de quien carga la oportunidad, en cada alta.",
   "evidencia": [

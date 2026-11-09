@@ -2,6 +2,7 @@
   "criterio": "A.11.10",
   "plataforma": "twenty",
   "cumple": 2,
+  "resumen": "La documentación oficial, con guía de usuario y páginas de configuración, se publica también en español, con el mismo contenido que la versión en inglés.",
   "comoLoHace": "La documentación oficial se publica también en español.",
   "caracteristicas": "La guía de usuario y las páginas de configuración tienen su versión traducida, con el mismo contenido y la misma estructura que la original en inglés.",
   "justificacion": "Quien consulte cómo se usa o se configura el sistema lo hace en su idioma.",

@@ -3,7 +3,8 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "Al asignarle la tarea y el reclamo, el productor recibió el aviso en el propio sistema: al ingresar, el indicador de notificaciones lo muestra sin que tenga que abrir ningún listado, y cada aviso lleva al registro que le asignaron.",
+  "resumen": "Avisa dentro del sistema al usuario al que se le asigna una tarea o un reclamo, sin que consulte un listado; viene activado de fábrica.",
+  "comoLoHace": "Al asignarle una tarea o un reclamo, el productor recibe el aviso en el propio sistema: al ingresar, el indicador de notificaciones lo muestra sin que tenga que abrir ningún listado, y cada aviso lleva al registro asignado.",
   "caracteristicas": "Viene activado de fábrica.",
   "justificacion": "Es lo que asegura que el responsable se entere en el momento, y no cuando se le ocurre revisar.",
   "evidencia": [

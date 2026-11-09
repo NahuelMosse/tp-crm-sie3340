@@ -79,9 +79,10 @@ test('A.5.1 — Reclamo como caso con identidad propia', async ({ page }, info) 
     criterio: 'A.5.1',
     plataforma,
     cumple: 1,
+    resumen: 'Lleva el reclamo como una negociación con número, ficha y vínculo con el asegurado, pero comparte listado con pólizas y oportunidades, y se separa a mano en cada consulta.',
     comoLoHace:
-      'El reclamo se lleva entonces como una negociación con el asegurado como cliente: recibe un número ' +
-      `propio, abre su propia ficha y queda asociada al contacto (reclamo n.º ${reclamo?.ID}).`,
+      'El reclamo se lleva entonces como una negociación con el asegurado como cliente: recibe un ' +
+      'número propio, abre su propia ficha y queda asociada al contacto.',
     caracteristicas:
       'No tiene listado propio: comparte el de las demás negociaciones —pólizas y oportunidades—, y hay ' +
       'que distinguirlo por el nombre o con un filtro en cada uso.',
@@ -140,9 +141,10 @@ const cambiosEnLinea = await panel(page).getByText('Etapa cambiada').count();
     criterio: 'A.5.2',
     plataforma,
     cumple: 1,
+    resumen: 'Conserva en la línea de tiempo cada cambio de etapa con hora y usuario, pero los estados son las etapas del embudo de ventas, compartidas con pólizas y oportunidades.',
     comoLoHace:
-      'Se pasó el reclamo por tres etapas y el sistema conservó las cuatro posiciones en orden, sin ' +
-      'configurar nada.',
+      'El reclamo pasa por las etapas del embudo y el sistema conserva la posición de cada una en ' +
+      'orden, sin configurar nada.',
     caracteristicas:
       'Cada cambio de etapa de la negociación —que hace de reclamo— queda anotado en la línea de tiempo de ' +
       'su ficha como «Etapa cambiada», con la etapa anterior y la nueva, la hora y el usuario.',
@@ -204,6 +206,7 @@ test('A.5.3 — Responsable asignado a cada reclamo', async ({ page, browser }, 
       plataforma,
       cumple: 2,
       costo: 1,
+      resumen: 'Asigna el reclamo a un productor desde el listado y le aparece en su propia vista. Los reclamos comparten listado con pólizas y oportunidades y se distinguen por el nombre.',
       comoLoHace:
         'El responsable de un reclamo —la negociación del asegurado— se cambia en el listado, marcando el ' +
         'registro y eligiendo «Cambiar a la persona responsable».',
@@ -390,8 +393,9 @@ test('A.5.4 — Base de conocimiento para la atención', async ({ page }, info) 
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen: 'Crea artículos en una base de conocimientos con bloques de texto y los encuentra por búsqueda.',
     comoLoHace:
-      'Se creó el artículo desde «Empleados › Base de conocimientos».',
+      'El artículo se crea desde «Empleados › Base de conocimientos».',
     caracteristicas:
       'Una página en blanco con un bloque de texto, cuyo texto de ejemplo se reemplazó por la condición de ' +
       'cobertura de granizo, y se la buscó por «granizo» en la base publicada, que la devolvió.',
@@ -433,9 +437,10 @@ test('A.5.5 — Tareas asignables con responsable y vencimiento', async ({ page,
       plataforma,
       cumple: 2,
       costo: 0,
+      resumen: 'Crea tareas con título, responsable y fecha límite, que el productor ve en su lista de tareas.',
       comoLoHace:
-        '«Tareas › Crear» abre un formulario con título, responsable y fecha límite: se eligió al ' +
-        'productor en el selector de responsable y el formulario ya propone un vencimiento.',
+        '«Tareas › Crear» abre un formulario con título, responsable y fecha límite: el productor se ' +
+        'elige en el selector de responsable y el formulario ya propone un vencimiento.',
       caracteristicas:
         'Con la sesión del productor, la tarea figura en «Mis tareas» con su fecha límite.',
       justificacion:
@@ -476,6 +481,7 @@ test('A.5.6 — Aviso al usuario al que se le asigna una tarea', async ({ page, 
       plataforma,
       cumple: 2,
       costo: 0,
+      resumen: 'Notifica al productor en la campana del portal al asignarle una tarea, con su título y quién se la asignó.',
       comoLoHace:
         'Al asignarle una tarea, el productor la recibe como notificación en la campana de la barra superior ' +
         'del portal.',

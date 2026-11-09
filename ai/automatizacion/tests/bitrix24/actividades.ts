@@ -207,7 +207,7 @@ export const asistenteDeImportacion = (page: Page) => page.frames().find(x => x.
  */
 export async function importarCsv(
   page: Page, archivo: string, duplicados?: 'Skip' | 'Merge' | 'Replace',
-  mapa: Record<string, string> = { 'E-mail del trabajo': 'Correo electrónico' },
+  mapa: Record<string, string | RegExp> = { 'E-mail del trabajo': 'Correo electrónico' },
 ) {
   await abrirMenuDelListado(page);
   await elegirEnMenuDelListado(page, /^Importar datos CSV personalizados$/);
@@ -226,7 +226,7 @@ export async function importarCsv(
   for (const [campo, columna] of Object.entries(mapa)) {
     await f.getByText(campo, { exact: true }).first().locator('xpath=following::*[normalize-space(text())="Seleccionar"][1]').click({ force: true });
     await page.waitForTimeout(1200);
-    await f.locator('.popup-window:visible').getByText(columna, { exact: true }).first().click({ force: true });
+    await f.locator('.popup-window:visible').getByText(columna, typeof columna === 'string' ? { exact: true } : undefined).first().click({ force: true });
     await page.waitForTimeout(1000);
   }
   await siguiente().click({ force: true });

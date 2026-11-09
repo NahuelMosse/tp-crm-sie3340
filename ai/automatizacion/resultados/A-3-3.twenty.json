@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "Al ingresar con la cuenta del productor, las tareas traen de fábrica una vista de las asignadas a él: ahí figuran sus pendientes con la fecha comprometida —la visita de mañana y la cotización de la semana—.",
+  "resumen": "Las tareas traen de fábrica una vista de las asignadas a cada usuario, con fecha comprometida, y una de calendario; las reuniones requieren conectar un calendario externo.",
+  "comoLoHace": "Al ingresar con la cuenta del productor, las tareas traen de fábrica una vista de las asignadas a él: ahí figuran sus pendientes con la fecha comprometida.",
   "caracteristicas": "Las tareas admiten además una vista de calendario por fecha de vencimiento. Las reuniones agendadas aparecen en la ficha solo si el productor conecta su calendario externo.",
   "justificacion": "Viene listo.",
   "evidencia": [

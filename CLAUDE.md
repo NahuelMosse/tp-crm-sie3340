@@ -56,7 +56,7 @@ No lo llevan los criterios no funcionales ni los que no cumplen.
 
 **Lo que un plan pago cambiaría se registra en `conPlan` como comentario, y no puntúa.** Lleva el precio del plan y cómo quedaría el valor. Cuando algo no está en la versión evaluada se recorren **todos** los planes hasta el primero que lo resuelve: no es lo mismo resolverlo con el de entrada que necesitar el más caro. Un plan que solo agrega volumen no genera comentario.
 
-**Cuando un procedimiento devuelve un número, el número es evidencia y no el veredicto.** El valor sale de la misma pregunta de la sección 3, anclada en lo que la compañía puede sostener; la sección 4.7 declara qué significa cada valor en esos criterios. **No inventes cortes numéricos** —"hasta ocho pasos vale 3"—: parecen objetivos, pero alguien eligió el ocho y esa elección decide el resultado sin que nadie pueda discutirla. Es justo lo que la escala de tres valores evita.
+**Cuando un procedimiento devuelve un número, el número es evidencia y no el veredicto.** El valor sale de la misma pregunta de la sección 3, anclada en lo que la compañía puede sostener; `humanos/informe/cifras-de-referencia.md` declara la cifra y qué significa cada valor en esos criterios, y `generar-matriz.mjs` la muestra en la sección 6 junto a su criterio. **No inventes cortes numéricos** —"hasta ocho pasos vale 3"—: parecen objetivos, pero alguien eligió el ocho y esa elección decide el resultado sin que nadie pueda discutirla. Es justo lo que la escala de tres valores evita.
 
 **Ponderación en tres niveles:** el criterio da su nota, el grupo promedia las de sus criterios, y la parte promedia las de sus grupos. **Todos los grupos pesan igual** —el pedido del cliente no jerarquiza sus necesidades y el análisis no las jerarquiza por él— y entre partes rige 85 % / 15 %. Que un grupo tenga más criterios no lo hace pesar más: así el catálogo se puede afinar sin mover ningún resultado.
 
@@ -118,7 +118,7 @@ Los tramos en que la prueba no hace nada —la preparación, las esperas al sist
 ## Al evaluar una plataforma
 
 - **Una prueba que falla no prueba que la plataforma falle.** Descartá primero el procedimiento, el instrumento y la configuración propia.
-- **El 0 se respalda igual que el 2**: con la captura de lo que ocurre al intentarlo en la versión evaluada —la función ausente, el aviso de que exige otro plan— o con la constancia del fabricante de que esa versión no la incluye. Lo que no se pudo comprobar queda como no verificado, nunca como 0 ni como 2.
+- **El 0 se respalda igual que el 2**: con la captura de lo que ocurre al intentarlo en la versión evaluada —la función ausente, el aviso de que exige otro plan— o con la constancia del fabricante de que esa versión no la incluye. Lo que no se pudo comprobar queda como no verificado, nunca como 0 ni como 2, salvo que la prueba no pueda completarse por una condición ajena a la plataforma —las credenciales de un servicio que contrata la compañía—: ahí el valor se sostiene en la documentación oficial citada textual y se declara en la sección 3.9.
 - **El muro de pago se determina completando la operación**, no buscando texto en la página: Bitrix24 tiene un botón fijo "Mejore su plan" en la barra lateral que da falso positivo siempre.
 - La evidencia de las tres plataformas no es simétrica. Las instalables se inspeccionan por dentro; el servicio en la nube se evalúa por su comportamiento. La sección 3 lo reconoce explícitamente.
 

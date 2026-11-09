@@ -3,9 +3,10 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Desde Configuración › Modelo de datos se creó una entidad que el producto no trae —la inspección del riesgo antes de emitir— con su nombre en singular y plural y una descripción, y se le agregó un campo de fecha.",
+  "resumen": "Crea entidades nuevas con descripción y campos propios, que aparecen enseguida en el menú con listado y ficha, sin escribir código.",
+  "comoLoHace": "Desde Configuración › Modelo de datos se crea una entidad que el producto no trae —por ejemplo, la inspección del riesgo antes de emitir— con su nombre en singular y plural y una descripción, y se le agregan campos, como uno de fecha.",
   "caracteristicas": "Apareció en el menú con su listado y su ficha, y admitió registros enseguida.",
-  "justificacion": "No hizo falta escribir código en ningún paso: es configuración.",
+  "justificacion": "No hace falta escribir código en ningún paso: es configuración.",
   "evidencia": [
     "A-8-1-twenty-1-entidad-y-campo.png",
     "A-8-1-twenty-2-registro-cargado.png"

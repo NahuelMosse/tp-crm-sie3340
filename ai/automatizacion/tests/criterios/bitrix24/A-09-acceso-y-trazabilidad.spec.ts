@@ -181,6 +181,7 @@ test('A.9.1 — Restricción de la cartera por productor', async ({ page, browse
         plataforma,
         cumple: 2,
         costo: 1,
+        resumen: 'Limita a cada productor a su propia cartera con un rol de acceso, configurado una sola vez; el productor no ve ni abre los asegurados ajenos.',
         comoLoHace:
           'En la edición gratuita, desde CRM › Más › Configuraciones › «Permisos de acceso al CRM», se creó el rol ' +
           '«Productor» con leer, agregar, editar y eliminar limitados a «Solo sus propios elementos» en contactos y ' +
@@ -211,6 +212,7 @@ test('A.9.1 — Restricción de la cartera por productor', async ({ page, browse
         criterio: 'A.9.1',
         plataforma,
         cumple: 0,
+        resumen: 'La edición gratuita no permite crear roles de acceso: todos los empleados comparten el mismo permiso. Los permisos por rol exigen desde el plan Basic.',
         comoLoHace:
           'En la edición gratuita no se puede crear la restricción por productor: desde CRM › Más › Configuraciones › ' +
           '«Permisos de acceso al CRM» el editor deja armar el rol «Productor» con leer, agregar, editar y eliminar ' +
@@ -242,6 +244,7 @@ test('A.9.1 — Restricción de la cartera por productor', async ({ page, browse
         criterio: 'A.9.1',
         plataforma,
         cumple: 0,
+        resumen: 'La restricción por productor no se aplica en la edición gratuita aunque el rol se guarde.',
         comoLoHace:
           'El rol «Productor», limitado a «Solo sus propios elementos» en contactos y negociaciones, se guardó en la edición ' +
           'gratuita, pero la restricción no se aplica.',
@@ -296,6 +299,7 @@ test('A.9.2 — Autenticación de los usuarios bajo control de la compañía', a
     criterio: 'A.9.2',
     plataforma,
     cumple: 1,
+    resumen: 'Ofrece autenticación de dos factores obligatoria, pero no una política de contraseñas configurable; el inicio de sesión único con el directorio de la compañía exige el plan Enterprise.',
     comoLoHace:
       'La pantalla no ofrece ninguna política de contraseñas configurable —longitud, complejidad, ' +
       'vencimiento—.',
@@ -371,11 +375,12 @@ test('A.9.3 — Registro de quién modificó cada dato', async ({ page, browser 
     criterio: 'A.9.3',
     plataforma,
     cumple: 0,
+    resumen: 'La edición gratuita no registra quién cambió cada campo ni cuándo: el historial de cambios exige el plan Standard, Professional o Enterprise.',
     comoLoHace:
-      'Se cambió el ramo de una póliza de Hogar a Vida desde su ficha y el cambio quedó guardado, pero no ' +
-      'dejó ninguna constancia: la línea de tiempo de la edición gratuita solo muestra la creación de la ' +
-      'negociación —y los cambios de etapa—, sin el valor anterior, el autor ni el momento del cambio de ' +
-      'un campo.',
+      'Al cambiar un campo de una póliza desde su ficha, por ejemplo el ramo, el cambio se guarda ' +
+      'pero no deja ninguna constancia: la línea de tiempo de la edición gratuita solo muestra la ' +
+      'creación de la negociación —y los cambios de etapa—, sin el valor anterior, el autor ni el ' +
+      'momento del cambio de un campo.',
     justificacion:
       'La pestaña «Historial», que sí registra quién hizo cada acción y cuándo, no se abre: el sistema ' +
       'informa que el historial en CRM está disponible solo en los planes Standard, Professional y ' +

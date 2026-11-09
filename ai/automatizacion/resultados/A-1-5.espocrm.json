@@ -2,6 +2,7 @@
   "criterio": "A.1.5",
   "plataforma": "espocrm",
   "cumple": 1,
+  "resumen": "No emite avisos solos: los vencimientos se consultan en un listado que alguien debe abrir cada día. El motor de flujos que los emitiría es una extensión.",
   "comoLoHace": "La necesidad se cubre con la consulta del listado —vence en los próximos 30 días, y su equivalente sobre el plazo de los reclamos—, que devuelve exactamente lo que hay que atender, pero que alguien tiene que abrir: el trabajo se repite cada día que la compañía quiere estar al tanto.",
   "caracteristicas": "La edición gratuita no incluye un motor de reglas: la administración ofrece tareas programadas del sistema, notificaciones y fórmulas, pero ninguna vía para que la compañía defina \"avisar de lo que vence en treinta días\" y el sistema lo emita solo.",
   "justificacion": "Queda resuelta con la consulta del listado de vencimientos, que alguien tiene que abrir cada día que la compañía quiere estar al tanto: un costo permanente. El fabricante vende el motor de flujos de trabajo como extensión, y con ella el aviso se define una vez y se emite solo.",

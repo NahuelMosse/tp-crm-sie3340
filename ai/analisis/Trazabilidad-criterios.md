@@ -51,7 +51,7 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | **4** | Interface con usuarios, facilidad de uso y aprendizaje para usuarios finales, etc. | A.11.5, A.11.6 |
 | **5** | Usuarios concurrentes. Limitaciones. | A.11.7, A.11.8 |
 | **6** | Parametrización, facilidad y posibilidades de cambios. | A.8.1, A.8.2, A.8.3 |
-| **7** | Importación / Exportación de datos. Flexibilidad | A.7.1, A.7.5, A.7.6 |
+| **7** | Importación / Exportación de datos. Flexibilidad | A.7.1, A.7.5 |
 | **8** | Seguridad de la información, autentificación de usuarios, esquema de roles y perfiles, pistas de auditoría, etc. | A.9.1, A.9.2, A.9.3 |
 | **9** | Herramientas de explotación de datos y medición de resultados. | A.10.1 |
 | **10** | Generación de reportes e informes. Paramétricos y Ad Hoc | A.10.2, A.10.3 |
@@ -101,8 +101,7 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | A.7.2 | Importación de contactos desde las agendas de correo | `REQ 18` |
 | A.7.3 | Sincronización del correo de varios usuarios | `REQ 19` |
 | A.7.4 | Vinculación automática del correo a la ficha | `REQ 19` |
-| A.7.5 | Formatos de intercambio aceptados | `CRIT 7` |
-| A.7.6 | Exportación de la cartera sin pérdida de datos | `CRIT 7` |
+| A.7.5 | Exportación de la cartera sin pérdida de datos | `CRIT 7` |
 | A.8.1 | Creación de entidades sin programar | `CRIT 6, RUBRO` |
 | A.8.2 | Campos calculados sobre datos propios | `CRIT 6` |
 | A.8.3 | Automatización de procesos | `CRIT 6, REQ 8` |
@@ -145,16 +144,15 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | B.2.2 | Aplicación móvil nativa | `OBS` |
 | B.2.3 | Suite de trabajo integrada | `OBS` |
 | B.2.4 | Telefonía y videollamada integradas | `OBS` |
-| B.2.5 | Uso sin restricciones comerciales en la interfaz | `OBS` |
 
 ## Sin fuente externa
 
 | Origen | Criterios |
 |---|---|
 | `RUBRO` | A.1.3, A.1.4, A.2.5, A.6.4, A.8.1, A.8.4, A.11.6, A.11.14, A.12.3, B.1.1, B.1.2, B.1.3, B.1.4, B.1.5, B.1.6, B.1.7 |
-| `OBS` | B.2.1, B.2.2, B.2.3, B.2.4, B.2.5 |
+| `OBS` | B.2.1, B.2.2, B.2.3, B.2.4 |
 
 ## Resultado
 
 - **33 fuentes**: todas cubiertas.
-- **83 criterios**, todos con origen declarado.
+- **81 criterios**, todos con origen declarado.

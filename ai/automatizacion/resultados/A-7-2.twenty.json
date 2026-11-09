@@ -3,6 +3,7 @@
   "plataforma": "twenty",
   "cumple": 1,
   "costo": 2,
+  "resumen": "Crea personas desde el correo sincronizado, pero no importa la agenda de contactos de ninguna cuenta: hay que exportarla a archivo e importarla cada vez.",
   "comoLoHace": "Lo que ofrece es crear personas a partir del correo sincronizado —cada dirección externa con la que se intercambian mensajes o reuniones pasa a ser un contacto—, que alcanza a quien ya escribió, no a la agenda entera.",
   "caracteristicas": "El sistema se conecta con las cuentas de Google y de Microsoft —en la instalación propia, después de registrar sus credenciales; la evaluada ofrece solo IMAP— y con cualquier casilla por IMAP, pero para sincronizar correo y calendario: no trae la agenda de contactos de ninguna.",
   "justificacion": "Para incorporar la agenda del correo web o del gestor de escritorio hay que exportarla a un archivo y pasarlo por el asistente de importación, un procedimiento que se repite cada vez que la agenda cambia.",

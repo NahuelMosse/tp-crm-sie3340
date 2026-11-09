@@ -2,6 +2,7 @@
   "criterio": "A.10.5",
   "plataforma": "bitrix24",
   "cumple": 0,
+  "resumen": "La edición gratuita no ofrece intercambio con otros sistemas, por lo que la cartera no se sincroniza.",
   "comoLoHace": "Donde la API existe, el fabricante publica su límite: a dos pedidos por segundo se pueden hacer 172.800 por día, que deja holgura de sobra sobre las 500 operaciones diarias de la cartera.",
   "justificacion": "En la edición gratuita el intercambio no está disponible —el webhook entrante responde «No disponible en tu plan actual»—, así que no hay operaciones que sincronizar ni límite que medir: la cartera no se puede sincronizar con otro sistema.",
   "evidencia": [

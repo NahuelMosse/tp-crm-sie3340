@@ -2,7 +2,8 @@
   "criterio": "B.1.4",
   "plataforma": "espocrm",
   "cumple": 2,
-  "comoLoHace": "Se cargó la cartera de referencia —cinco mil asegurados, doce mil quinientas pólizas y siete mil quinientos reclamos, veinticinco mil registros— y con ella se repitieron las operaciones de todos los días: buscar un asegurado por texto y filtrar las pólizas por ramo, tres veces cada una.",
+  "resumen": "Con 25.000 registros, buscar un asegurado entre cinco mil responde en menos de medio segundo y filtrar doce mil quinientas pólizas por ramo, en alrededor de medio segundo.",
+  "comoLoHace": "Con una cartera de referencia de veinticinco mil registros —cinco mil asegurados, doce mil quinientas pólizas y siete mil quinientos reclamos— el sistema resuelve las operaciones de todos los días: buscar un asegurado por texto y filtrar las pólizas por ramo.",
   "caracteristicas": "Buscar un asegurado entre cinco mil respondió en menos de medio segundo las tres veces, y filtrar las doce mil quinientas pólizas por ramo, en alrededor de medio segundo: no hay espera que el usuario perciba.",
   "justificacion": "Con la cartera de referencia cargada, el sistema responde como con una cartera chica.",
   "evidencia": [

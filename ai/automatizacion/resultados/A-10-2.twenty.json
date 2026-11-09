@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 1,
   "costo": 2,
-  "comoLoHace": "El informe se armó desde un tablero, eligiendo los criterios sin programar: un gráfico con la suma de la prima de las pólizas agrupada por productor, filtrado por las que empezaron su vigencia en los últimos seis meses.",
+  "resumen": "Arma informes con criterios elegidos, como primas por productor en un período, y los guarda; el gráfico no se exporta, solo el listado de pólizas a un archivo.",
+  "comoLoHace": "El informe se arma desde un tablero, eligiendo los criterios sin programar: un gráfico con la suma de la prima de las pólizas agrupada por productor, filtrado por las que empezaron su vigencia en un período dado.",
   "caracteristicas": "Muestra el total de cada productor y queda guardado. Pero el gráfico no se exporta: el widget no ofrece descargarlo.",
   "justificacion": "Lo que se puede sacar es el listado de pólizas, a un archivo que la planilla abre, y los totales por productor hay que rehacerlos ahí cada vez que se necesita el informe fuera del sistema.",
   "evidencia": [

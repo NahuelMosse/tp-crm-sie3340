@@ -3,7 +3,8 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Se definió una que deja un comentario en el historial al llegar a «En progreso». Para provocar el evento se abrió una póliza desde el listado y se la pasó a esa etapa con un clic en la barra de etapas de su ficha: sin que nadie hiciera nada más, el comentario «Póliza en emisión: verificar la documentación del asegurado» apareció en el historial de la póliza.",
+  "resumen": "Automatiza acciones por etapa con reglas armadas por pantalla, sin código: comunicar, crear tareas, modificar campos o comentar. Admite hasta cinco reglas en total.",
+  "comoLoHace": "Se define una regla que deja un comentario en el historial al llegar a «En progreso». Al pasar una póliza a esa etapa con un clic en la barra de etapas de su ficha, sin que nadie haga nada más, el comentario aparece en el historial de la póliza.",
   "caracteristicas": "Las reglas de automatización de la negociación se arman desde la pantalla, sin código: se elige la etapa, la acción —comunicar, crear tareas, modificar campos, dejar comentarios— y el momento. La edición gratuita admite hasta 5 reglas y disparadores en total: con las de muestra del portal dejadas en 2, la regla entra.",
   "justificacion": "Definir cada regla es configuración de una vez.",
   "evidencia": [

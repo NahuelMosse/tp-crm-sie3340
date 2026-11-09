@@ -3,7 +3,8 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Se seleccionaron las 20 pólizas de los ramos Automotor y Hogar desde el listado, y el menú de acciones sobre la selección ofrece 8 operaciones (Eliminar, Unir, Actualización masiva, Exportar, Seguir, Dejar de seguir, Convertir moneda, Recalcular fórmula). Con la actualización masiva se eligió el estado de cobranza, se le dio un valor y el sistema lo aplicó en una sola operación: las 20 quedaron con el nuevo estado sin recorrerlas una por una.",
+  "resumen": "Modifica un campo en todas las pólizas seleccionadas con una sola operación; para los campos propios hay que habilitarlos antes.",
+  "comoLoHace": "Seleccionadas las pólizas desde el listado, el menú de acciones sobre la selección ofrece, entre otras, la actualización masiva: se elige un campo, como el estado de cobranza, se le da un valor y el sistema lo aplica en una sola operación a todas las seleccionadas, sin recorrerlas una por una.",
   "caracteristicas": "De fábrica la actualización masiva solo alcanza al usuario y al equipo asignados; para que incluya un campo propio hay que habilitarlo una vez desde la administración.",
   "justificacion": "Es lo que vuelve manejable un cambio de estado por lote de cobranza o una renovación de cartera.",
   "evidencia": [

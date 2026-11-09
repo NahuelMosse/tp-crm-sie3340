@@ -158,10 +158,11 @@ test('A.10.1 — Indicadores sobre la operación', async ({ page, browser }, inf
     criterio: 'A.10.1',
     plataforma,
     cumple: 1,
+    resumen: 'Arma sin programar totales por estado de cobranza, pero solo sobre el importe nativo; no calcula el tiempo promedio de resolución. Los paneles de analítica exigen el plan Standard.',
     comoLoHace:
-      'El asistente de informes del CRM, que viene en la edición gratuita, arma sin programar el total de primas por ' +
-      `estado de cobranza: agrupando por el campo de lista y sumando el importe de la negociación mostró ${Object.entries(esperado).map(([k, v]) => `${k} ${v}`).join(', ')}, ` +
-      'las mismas cifras que suman las negociaciones cargadas.',
+      'El asistente de informes del CRM, que viene en la edición gratuita, arma sin programar el ' +
+      'total de primas por estado de cobranza: se agrupa por el campo de lista y se suma el importe ' +
+      'de la negociación, y el informe muestra por cada estado la suma de las negociaciones.',
     caracteristicas:
       'La suma va sobre el importe nativo: el campo propio de tipo ' +
       'dinero solo admite contarse. El tiempo promedio de resolución, en cambio, no se puede mostrar: sobre las fechas ' +
@@ -241,12 +242,12 @@ test('A.10.2 — Generación de informes definidos por el usuario', async ({ pag
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen: 'Arma sin programar el total de primas por productor en un período y lo exporta a Excel. La suma va sobre el importe nativo de la negociación.',
     comoLoHace:
-      'El asistente de informes del CRM, incluido en la edición gratuita, armó sin programar el total de primas por ' +
-      'productor en un período: se agrupó por la persona responsable, se sumó el importe de la negociación y se ' +
-      'eligió el rango de fechas por la fecha de inicio de la póliza. Del 1 al 20 de septiembre el informe mostró ' +
-      `${Object.entries(esperado).map(([k, v]) => `${k} ${v}`).join(' y ')}, las mismas cifras que suman las negociaciones cargadas, ` +
-      'y el menú del informe lo exportó a un archivo de Microsoft Excel con esos totales.',
+      'El asistente de informes del CRM, incluido en la edición gratuita, arma sin programar el ' +
+      'total de primas por productor en un período: se agrupa por la persona responsable, se suma ' +
+      'el importe de la negociación y se elige el rango de fechas por la fecha de inicio de la ' +
+      'póliza. El menú del informe lo exporta a un archivo de Microsoft Excel con esos totales.',
     caracteristicas:
       'La suma se hace sobre el importe ' +
       'nativo de la negociación, no sobre un campo propio de tipo dinero.',
@@ -309,10 +310,11 @@ test('A.10.3 — Informe paramétrico reutilizable', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen: 'Guarda el informe de primas por productor sin período fijo y pide el rango de fechas en cada ejecución, sin volver a armarlo.',
     comoLoHace:
-      'El informe de primas por productor se guardó una sola vez, sin período fijo, y la pantalla del informe trae ' +
-      'el período como parámetro: se ejecutó del 1 al 20 de septiembre y, sin volver a armarlo, se lo volvió a ' +
-      `ejecutar del 1 de enero al 31 de marzo.`,
+      'El informe de primas por productor se guarda una sola vez, sin período fijo, y la pantalla ' +
+      'del informe trae el período como parámetro: se lo ejecuta para un rango de fechas y, sin ' +
+      'volver a armarlo, se lo vuelve a ejecutar para otro.',
     caracteristicas:
       `Cada ejecución recalculó los totales por productor ` +
       `—${Object.entries(septiembre).map(([k, v]) => `${k} ${v}`).join(' y ')} en septiembre; ${Object.entries(primerTrimestre).map(([k, v]) => `${k} ${v}`).join(' y ')} en el primer trimestre—, ` +
@@ -365,6 +367,7 @@ test('A.10.4 — Intercambio de datos con otros sistemas de la compañía', asyn
     criterio: 'A.10.4',
     plataforma,
     cumple: 0,
+    resumen: 'La edición gratuita no permite crear ni consultar registros desde otros sistemas: el webhook entrante exige el plan Basic Vibe+.',
     comoLoHace:
       'En la edición gratuita no hay forma de crear ni consultar registros desde fuera: Recursos para ' +
       'desarrolladores ofrece «Webhook entrante», y al abrirlo el sistema responde «No disponible en tu ' +
@@ -420,6 +423,7 @@ test('A.10.5 — Intercambio sin límite de volumen que condicione la operación
     criterio: 'A.10.5',
     plataforma,
     cumple: 0,
+    resumen: 'La edición gratuita no ofrece intercambio con otros sistemas, por lo que la cartera no se sincroniza.',
     comoLoHace:
       'Donde la API existe, el fabricante publica su límite: a dos pedidos por segundo se pueden hacer ' +
       '172.800 por día, que deja holgura de sobra sobre las 500 operaciones diarias de la cartera.',

@@ -114,6 +114,9 @@ test('A.6.1 — Vinculación de la póliza con su titular', async ({ page }, inf
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Vincula cada póliza con su titular mediante una relación que se define una vez; la póliza muestra al ' +
+      'titular y la ficha del asegurado lista todas sus pólizas.',
     comoLoHace:
       'El Administrador de Relaciones liga la póliza con el contacto que es su titular, sin programar: se ' +
       'define una vez que cada póliza tiene un titular y que un asegurado puede tener muchas pólizas. A ' +
@@ -168,6 +171,9 @@ test('A.6.2 — Vista única del asegurado', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'La ficha del asegurado reúne en paneles sus pólizas, reclamos, actividades pendientes e historial de ' +
+      'llamadas, reuniones y correos, además de la línea de tiempo de cambios.',
     comoLoHace:
       'Desde ahí se llega a cada registro sin pasar por otro menú.',
     caracteristicas:
@@ -212,9 +218,12 @@ test('A.6.3 — Campos propios del rubro en la ficha', async ({ page }, info) =>
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Agrega campos propios a la ficha del asegurado, como una valoración con lista de valores, ' +
+      'disponibles en el formulario y como condición de búsqueda.',
     comoLoHace:
-      'Se agregó a la ficha del asegurado un campo que el producto no trae —la valoración que dejó sobre la ' +
-      'atención recibida, con cuatro valores— desde el Administrador de Campos.',
+      'El Administrador de Campos agrega a la ficha del asegurado un campo que el producto no trae —por ' +
+      'ejemplo, la valoración que dejó sobre la atención recibida, con una lista de valores—.',
     caracteristicas:
       'Quedó en el formulario, se cargó en un asegurado y se lo pudo usar como condición de búsqueda para ' +
       'listar a los que valoraron la atención como muy buena.',
@@ -295,10 +304,12 @@ test('A.6.4 — Unicidad de la ficha del asegurado', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 2,
+    resumen:
+      'De fábrica busca duplicados por nombre y correo, no por documento. Advertirlos exige escribir un ' +
+      'guion breve en la fórmula de la entidad.',
     comoLoHace:
-      'De fábrica el producto busca duplicados por nombre y correo, pero no por documento: se cargó dos ' +
-      'veces el mismo documento con el apellido escrito distinto y el sistema aceptó las dos fichas sin ' +
-      'advertir nada.',
+      'De fábrica el producto busca duplicados por nombre y correo, pero no por documento: dos fichas con ' +
+      'el mismo documento y el apellido escrito distinto se aceptan sin advertencia.',
     caracteristicas:
       'La pantalla de fórmula de cada entidad trae un guion que se ejecuta antes de guardar, pensado para ' +
       'validaciones y comprobación de duplicados; con tres líneas que buscan el documento, la segunda carga ' +

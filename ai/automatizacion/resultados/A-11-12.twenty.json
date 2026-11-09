@@ -2,7 +2,8 @@
   "criterio": "A.11.12",
   "plataforma": "twenty",
   "cumple": 1,
-  "comoLoHace": "El canal de la comunidad que ofrece el fabricante es un servidor de chat que solo se lee con cuenta, así que la medición se hizo sobre lo que la comunidad publica abierto: las discusiones del repositorio oficial. Se tomaron las 21 consultas más recientes con más de una semana, que alcanzan hasta 2026-01-27.",
+  "resumen": "La comunidad conversa en un chat que solo se lee con cuenta; en las discusiones la consulta típica recibe respuesta, pero sin constancia de resolverse dentro de la semana.",
+  "comoLoHace": "El canal de la comunidad que ofrece el fabricante es un servidor de chat que solo se lee con cuenta; lo que la comunidad publica abierto son las discusiones del repositorio oficial.",
   "caracteristicas": "En 2 otro usuario respondió dentro de la semana y quien consultó confirmó después que la respuesta le había servido; en 17 hubo respuesta, pero llegó más tarde o sin que el autor confirmara que lo resolvía; 2 no recibieron respuesta. La primera respuesta llegó, en el caso típico, a las 24 horas.",
   "justificacion": "La consulta típica recibe respuesta, pero no queda constancia de que se resuelva dentro de la semana: la compañía puede contar con que alguien conteste, no con que la conteste a tiempo y a su medida.",
   "documentacion": [

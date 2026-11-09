@@ -2,6 +2,7 @@
   "criterio": "A.11.2",
   "plataforma": "bitrix24",
   "cumple": 2,
+  "resumen": "Se usa desde cualquier navegador de uso común en Windows, macOS o Linux; no hay versión que instalar ni plataforma propia que elegir.",
   "comoLoHace": "Es un servicio en la nube que se abre con un navegador de uso común, en cualquier equipo con el que la compañía ya trabaje —Windows, macOS o Linux—.",
   "caracteristicas": "La edición evaluada no corre sobre un sistema operativo ni un motor de base de datos que la compañía administre.",
   "justificacion": "No hay versión que instalar ni versión que elegir según la plataforma propia, porque no hay plataforma propia de por medio.",

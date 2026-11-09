@@ -106,7 +106,15 @@ export async function pestana(page: Page, nombre: string | RegExp, opcion?: stri
     await page.waitForTimeout(1000);
     // Las entradas con submenú repiten su nombre como primera opción del submenú
     const sub = page.locator('.menu-popup-item-text').filter({ hasText: exacto(opcion ?? nombre) }).filter({ visible: true });
-    if (opcion || (await sub.count()) > 1) await sub.last().click();
+    if (opcion || (await sub.count()) > 1) {
+      // El submenú se cierra si el puntero tarda en llegar o se queda quieto fuera del menú: se cruza el hueco
+      // en pocos pasos y se aprieta en el acto, sin la pausa que el clic de `humano.ts` hace antes de apretar
+      const caja = await sub.last().boundingBox();
+      if (!caja) throw new Error(`El submenú «${opcion ?? nombre}» no se abrió`);
+      await page.mouse.move(caja.x + caja.width / 2, caja.y + caja.height / 2, { steps: 3 });
+      await page.mouse.down();
+      await page.mouse.up();
+    }
     else await item.click();
   }
   await page.waitForURL(u => u.href !== antes, { timeout: 30_000 }).catch(() => {});

@@ -2,7 +2,8 @@
   "criterio": "A.11.3",
   "plataforma": "espocrm",
   "cumple": 1,
-  "comoLoHace": "La instalación evaluada se llevó de cero a operativa por esa vía. Pero no la completa alguien sin perfil técnico: hay que instalar el motor de contenedores, escribir el archivo que los describe y resolver cómo se conservan los datos entre reinicios, y en esta instalación montar la carpeta equivocada dejó al sistema sin arrancar hasta corregirlo.",
+  "resumen": "Se instala con una imagen de contenedores y un asistente, pero exige conocimientos puntuales —contenedores, archivo de descripción, conservación de datos— que una persona sin perfil técnico no tiene.",
+  "comoLoHace": "La instalación con la imagen oficial de contenedores lleva el sistema de cero a operativo. Pero no la completa alguien sin perfil técnico: hay que instalar el motor de contenedores, escribir el archivo que los describe y resolver cómo se conservan los datos entre reinicios, y montar la carpeta equivocada deja al sistema sin arrancar hasta corregirlo.",
   "caracteristicas": "El fabricante ofrece una imagen oficial de contenedores que deja el sistema, el servidor web y la base de datos funcionando juntos, y un asistente que completa la configuración inicial.",
   "justificacion": "Instalar con la imagen oficial exige conocimientos puntuales —el motor de contenedores, el archivo que los describe y la conservación de los datos—, guiados por la documentación, que la compañía necesita tener a mano cada vez que instala o reinstala.",
   "evidencia": [

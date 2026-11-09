@@ -3,7 +3,8 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "Se registraron las dos, con un minuto de diferencia, y el historial las muestra ordenadas por fecha, la más reciente primero, cada una con su responsable y con quién la cargó.",
+  "resumen": "Registra llamadas y reuniones desde la ficha del asegurado; el historial las ordena por fecha, la más reciente primero, con su responsable y quien las cargó.",
+  "comoLoHace": "Cada actividad se registra en la ficha y el historial las muestra ordenadas por fecha, la más reciente primero, cada una con su responsable y con quién la cargó.",
   "caracteristicas": "La ficha del asegurado trae un historial de actividades con acciones para registrar una llamada o una reunión sin salir de ella.",
   "justificacion": "Viene de fábrica. Es lo que permite que cualquiera que atienda al asegurado sepa qué se habló antes.",
   "evidencia": [

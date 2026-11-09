@@ -2,7 +2,8 @@
   "criterio": "A.10.1",
   "plataforma": "bitrix24",
   "cumple": 1,
-  "comoLoHace": "El asistente de informes del CRM, que viene en la edición gratuita, arma sin programar el total de primas por estado de cobranza: agrupando por el campo de lista y sumando el importe de la negociación mostró Al día 900, Vencida 600, En gestión 900, las mismas cifras que suman las negociaciones cargadas.",
+  "resumen": "Arma sin programar totales por estado de cobranza, pero solo sobre el importe nativo; no calcula el tiempo promedio de resolución. Los paneles de analítica exigen el plan Standard.",
+  "comoLoHace": "El asistente de informes del CRM, que viene en la edición gratuita, arma sin programar el total de primas por estado de cobranza: se agrupa por el campo de lista y se suma el importe de la negociación, y el informe muestra por cada estado la suma de las negociaciones.",
   "caracteristicas": "La suma va sobre el importe nativo: el campo propio de tipo dinero solo admite contarse. El tiempo promedio de resolución, en cambio, no se puede mostrar: sobre las fechas de la negociación el asistente ofrece solo Mínimo, Máximo, Único, sin promedio ni diferencia entre dos fechas.",
   "justificacion": "Los paneles de analítica que sí podrían medirlo piden un plan: el sistema informa que BI Builder se desbloquea a partir del Standard.",
   "evidencia": [

@@ -3,7 +3,8 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "Se registró un solicitante con todos esos datos, que se guardaron completos, y se lo recuperó buscando su apellido desde el listado.",
+  "resumen": "Trae el posible cliente como entidad propia, con nombre, teléfono, correo y domicilio; se recupera por búsqueda.",
+  "comoLoHace": "El formulario del posible cliente guarda todos sus datos —nombre, teléfono, correo y domicilio— y permite recuperarlo buscando su apellido desde el listado.",
   "caracteristicas": "El producto trae una entidad para quien todavía no contrató —el posible cliente— con nombre, teléfono, correo y domicilio desglosado en calle, ciudad, provincia, código postal y país.",
   "justificacion": "Viene listo con la instalación, sin configurar nada.",
   "evidencia": [

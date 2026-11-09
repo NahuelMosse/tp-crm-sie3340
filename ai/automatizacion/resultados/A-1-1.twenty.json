@@ -3,6 +3,7 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
+  "resumen": "Permite crear objetos propios, como la póliza, con listado, menú y registros, sin programar.",
   "comoLoHace": "Desde Configuración › Modelo de datos se crea el objeto Póliza con su nombre en singular y plural, sin escribir código ni tocar el servidor.",
   "caracteristicas": "Queda con identidad propia: figura entre los objetos del modelo, aparece en el menú de la izquierda junto a los que trae el producto, tiene su listado y admite registros, que se cargan desde el mismo listado.",
   "justificacion": "Definirlo es trabajo de una sola vez.",

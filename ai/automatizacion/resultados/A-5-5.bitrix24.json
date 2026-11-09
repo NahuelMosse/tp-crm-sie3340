@@ -3,7 +3,8 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "«Tareas › Crear» abre un formulario con título, responsable y fecha límite: se eligió al productor en el selector de responsable y el formulario ya propone un vencimiento.",
+  "resumen": "Crea tareas con título, responsable y fecha límite, que el productor ve en su lista de tareas.",
+  "comoLoHace": "«Tareas › Crear» abre un formulario con título, responsable y fecha límite: el productor se elige en el selector de responsable y el formulario ya propone un vencimiento.",
   "caracteristicas": "Con la sesión del productor, la tarea figura en «Mis tareas» con su fecha límite.",
   "justificacion": "Viene de fábrica en la edición gratuita, sin configurar nada.",
   "evidencia": [

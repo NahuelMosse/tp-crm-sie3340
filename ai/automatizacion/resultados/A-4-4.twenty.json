@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 1,
   "costo": 2,
-  "comoLoHace": "Lo que sí trae es un disparador de flujos por webhook: se armó un flujo que recibe nombre, apellido y correo y da de alta a la persona, y un pedido con esos datos —lo que enviaría un intermediario al llegar un interesado desde un formulario de anuncios— la incorporó a la base.",
+  "resumen": "No se conecta con redes sociales; un flujo con webhook da de alta a la persona con los datos que envíe un intermediario, que la compañía contrata y mantiene.",
+  "comoLoHace": "Lo que sí trae es un disparador de flujos por webhook: un flujo recibe nombre, apellido y correo y da de alta a la persona, de modo que un pedido con esos datos —lo que enviaría un intermediario al llegar un interesado desde un formulario de anuncios— la incorpora a la base.",
   "caracteristicas": "El producto no se conecta con ninguna red social: las cuentas que se pueden conectar son de correo y calendario, y el catálogo de aplicaciones no ofrece ninguna.",
   "justificacion": "La conexión con cada red queda a cargo de ese intermediario, que hay que contratar y mantener aparte.",
   "evidencia": [

@@ -3,7 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Desde la ficha de un asegurado se llegó a su póliza, a su reclamo y a la tarea hecha con él sin pasar por otro menú.",
+  "resumen": "La ficha del asegurado reúne sus pólizas y reclamos, más línea de tiempo, tareas, notas, archivos, correos y calendario, todo accesible sin pasar por otro menú.",
+  "comoLoHace": "Desde la ficha de un asegurado se llega a su póliza, a su reclamo y a las tareas hechas con él, sin pasar por otro menú.",
   "caracteristicas": "La ficha de la persona reúne lo suyo: a la izquierda, sus campos, entre ellos sus pólizas y sus reclamos, que se abren desde ahí; a la derecha, pestañas con la línea de tiempo de cambios, las tareas, las notas, los archivos, los correos y el calendario.",
   "justificacion": "La actividad viene de fábrica; las pólizas y los reclamos aparecen al definir sus relaciones con la persona, que es configuración de una sola vez.",
   "evidencia": [

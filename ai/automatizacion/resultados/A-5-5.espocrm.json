@@ -3,7 +3,8 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "Se creó una tarea con vencimiento en tres días y se la asignó a un productor.",
+  "resumen": "Crea tareas con responsable y fecha de vencimiento, y cada usuario las ve en su listado con su fecha.",
+  "comoLoHace": "La tarea se crea con vencimiento y se asigna a un productor.",
   "caracteristicas": "Al ingresar con la cuenta de ese productor, la tarea figura en su listado con su fecha.",
   "justificacion": "Responsable y vencimiento son campos que la tarea trae de fábrica, sin configurar nada, y es lo que permite repartir el trabajo y saber qué se atrasa.",
   "evidencia": [

@@ -2,6 +2,7 @@
   "criterio": "A.11.9",
   "plataforma": "espocrm",
   "cumple": 1,
+  "resumen": "Los conectores existen —Outlook, Google, telefonía, videollamadas, cobros, campañas—, pero casi todos se venden aparte con licencia anual renovable; lo demás exige trabajo propio sobre la interfaz de programación.",
   "comoLoHace": "La condición se satisface: los conectores que la compañía necesita existen y se consiguen directo del fabricante.",
   "caracteristicas": "El catálogo oficial es corto y concentrado en lo que una oficina usa: correo de Outlook y de Google, telefonía, videollamadas, cobros y campañas por correo, más una interfaz de programación y ganchos para conectar lo que falte. Casi todos los conectores se venden aparte, con licencia anual que hay que renovar para seguir usándolos.",
   "justificacion": "La limitación es que cada conector suma una licencia renovable, y que fuera del catálogo la integración pasa a ser trabajo propio sobre la interfaz de programación.",

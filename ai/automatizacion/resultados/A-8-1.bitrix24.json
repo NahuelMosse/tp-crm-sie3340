@@ -2,7 +2,8 @@
   "criterio": "A.8.1",
   "plataforma": "bitrix24",
   "cumple": 0,
-  "comoLoHace": "En la edición gratuita el formulario se completa, pero al guardar el sistema no crea la entidad y avisa que los procesos inteligentes requieren el plan Professional o el Enterprise; la tabla comparativa del fabricante los lista entre las funciones que ese plan agrega.",
+  "resumen": "La edición gratuita no crea entidades propias; lo más cercano es forzar el concepto dentro de una negociación. Las entidades, llamadas procesos inteligentes, exigen el plan Professional.",
+  "comoLoHace": "La edición gratuita no crea entidades propias: al guardar, avisa que los procesos inteligentes requieren el plan Professional o el Enterprise; la tabla comparativa del fabricante los lista entre las funciones que ese plan agrega.",
   "caracteristicas": "Las entidades nuevas de Bitrix24 son los procesos inteligentes: se crean desde la barra del CRM, con su nombre, sus etapas y sus campos, sin escribir código. Con el plan Professional la entidad se crea igual que se hace con cualquier otra configuración del sistema, sin programar.",
   "justificacion": "Sin él, lo más cercano es forzar el concepto dentro de una negociación con campos propios, que no es una entidad nueva.",
   "evidencia": [

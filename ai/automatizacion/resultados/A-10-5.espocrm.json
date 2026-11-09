@@ -3,7 +3,8 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "Se mandó el movimiento de un día entero —500 altas— dos veces: en ráfaga, de a diez simultáneas, y de a una. Las dos veces el sistema aceptó las quinientas: en ráfaga llevó alrededor de un minuto, y de a una unos cinco.",
+  "resumen": "La interfaz de programación acepta el movimiento de un día entero de altas, en ráfaga y de a una; no tiene tope publicado, lo marca la capacidad del equipo.",
+  "comoLoHace": "La interfaz de programación acepta el movimiento de un día entero de altas, tanto en ráfaga —varias operaciones simultáneas— como de a una, en minutos.",
   "caracteristicas": "En la instalación propia la interfaz de programación no tiene un tope publicado: no lo impone el fabricante sino el equipo donde corre. En una corrida anterior, con el equipo ocupado por otros procesos, tres de quinientas altas en ráfaga fueron rechazadas y pasaron al repetirlas: el límite es el del equipo, no una cuota del producto.",
   "justificacion": "El movimiento de un día entra con holgura en minutos, y la sincronización con otros sistemas no tiene que espaciarse más allá de reintentar lo que falle.",
   "documentacion": [

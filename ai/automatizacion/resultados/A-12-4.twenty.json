@@ -3,6 +3,7 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
+  "resumen": "La persona es la misma desde la primera llamada hasta la póliza: sin conversión que duplique datos, su ficha reúne notas, oportunidades y pólizas.",
   "comoLoHace": "La llamada se registra como nota en la ficha de la persona que consulta. Al convertirla, la misma persona queda como contacto de una oportunidad que pasa a la etapa de venta ganada, y el flujo de emisión crea la póliza a su nombre. En la ficha del asegurado la llamada sigue estando, junto a la póliza.",
   "caracteristicas": "Notas vinculadas a la persona; la misma persona pasa de solicitante a asegurado sin duplicarse; la ficha reúne notas, oportunidades y pólizas.",
   "justificacion": "No hay una conversión que mueva o duplique datos: la persona es la misma desde la primera llamada y todo lo que se le registró queda en su ficha. La emisión depende del flujo configurado en A.12.1.",

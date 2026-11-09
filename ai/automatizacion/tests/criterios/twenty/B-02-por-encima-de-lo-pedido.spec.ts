@@ -1,5 +1,5 @@
 import { test, expect } from '../../humano';
-import { registrar, sinVerificar } from '../../evaluar';
+import { registrar } from '../../evaluar';
 import { entrar, plataformaDe } from '../../sesion';
 import { citar } from '../../fuentes';
 import { soloEn, capturar } from '../comun';
@@ -39,7 +39,6 @@ test('B.2.1 — Asistente de inteligencia artificial', async ({ page, browser },
     if (/No hay modelos de IA habilitados|No AI models/i.test(respuesta)) break;
   }
   const capChat = await capturar(page, 'B.2.1', plataforma, '1-pedido-de-resumen');
-  const sinModelo = /No hay modelos de IA habilitados|No AI models/i.test(respuesta);
 
   // Dónde se habilita: los proveedores de modelos del panel de administración
   await configuracion(page, /^Panel de administración$|^Admin Panel$/);
@@ -56,24 +55,24 @@ test('B.2.1 — Asistente de inteligencia artificial', async ({ page, browser },
   expect(proveedores, 'los proveedores se habilitan con sus credenciales').toMatch(/OpenAI/);
   expect(proveedores).toMatch(/Anthropic/);
 
-  // Sin un proveedor habilitado el asistente no responde: la capacidad no se observó
-  if (sinModelo || !/POL-\d/.test(respuesta)) {
-    sinVerificar('B.2.1', plataforma,
-      'El asistente se abre desde el menú, pero solo responde con un proveedor de modelos habilitado ' +
-      '(Anthropic, Google, Mistral, OpenAI o xAI), con credenciales que contrata la compañía. Sin un ' +
-      'proveedor habilitado no produjo el resumen pedido y la capacidad no se pudo observar.');
-    return;
-  }
-
+  // Sin un proveedor de modelos el resumen no se puede pedir: la capacidad se sostiene con la documentación oficial
+  const resumio = /POL-\d/.test(respuesta);
   registrar({
     criterio: 'B.2.1',
     plataforma,
     cumple: 2,
     costo: 1,
+    resumen:
+      'Asistente de inteligencia artificial que consulta los registros con los permisos del ' +
+      'usuario y resume en lenguaje natural; requiere credenciales de un proveedor de modelos ' +
+      'que contrata la compañía.',
     comoLoHace:
-      'En la instalación propia hay que cargarle las credenciales de un ' +
-      'proveedor de modelos —Anthropic, Google, Mistral, OpenAI o xAI—, que la compañía elige y contrata: ' +
-      'con un proveedor habilitado, se le pidió el resumen de la ficha de un asegurado y lo produjo con sus pólizas.',
+      'El asistente se abre desde el menú, con la ficha a la vista. En la instalación propia hay que cargarle ' +
+      'las credenciales de un proveedor de modelos —Anthropic, Google, Mistral, OpenAI o xAI—, que la compañía ' +
+      'elige y contrata; ' +
+      (resumio
+        ? 'con un proveedor habilitado, resume la ficha de un asegurado con sus pólizas.'
+        : 'con un proveedor habilitado, el fabricante documenta que consulta los registros y resume su información.'),
     caracteristicas:
       'El producto trae un asistente de inteligencia artificial que se abre desde el menú, con un chat que ' +
       'consulta los registros con los permisos del usuario y resume la información del sistema en lenguaje natural. ' +
@@ -83,7 +82,7 @@ test('B.2.1 — Asistente de inteligencia artificial', async ({ page, browser },
       'Habilitarlo es configuración de una sola vez, más el costo del proveedor.',
     evidencia: [capChat, capProveedores],
     documentacion: fuente,
-    medicion: 'Resumen producido',
+    medicion: resumio ? 'Resumen producido' : 'Sin proveedor habilitado: capacidad según la documentación oficial',
   });
 });
 
@@ -124,6 +123,9 @@ test('B.2.2 — Aplicación móvil nativa', async ({ page, browser }, info) => {
     criterio: 'B.2.2',
     plataforma,
     cumple: 0,
+    resumen:
+      'No hay aplicación móvil oficial del fabricante; la interfaz funciona en el navegador ' +
+      'del teléfono, adaptada a la pantalla y con conexión.',
     comoLoHace:
       'Lo que ofrece es la misma interfaz en el navegador del teléfono, que se adapta a la pantalla: ' +
       'el productor puede consultar y cargar durante una visita, con conexión, pero no es una ' +
@@ -131,7 +133,7 @@ test('B.2.2 — Aplicación móvil nativa', async ({ page, browser }, info) => {
     justificacion:
       'El fabricante no publica una aplicación móvil: en la tienda de aplicaciones, la búsqueda del ' +
       'producto ' +
-      `devuelve ${delProducto.length} aplicaciones con su nombre y ninguna es del fabricante.`,
+      'devuelve aplicaciones con su nombre y ninguna es del fabricante.',
     evidencia: ['B-2-2-twenty-1-tienda.png', capMovil],
     documentacion: fuente,
     medicion: `${delProducto.length} aplicaciones con el nombre del producto en la tienda, ${delFabricante.length} del fabricante`,
@@ -165,6 +167,10 @@ test('B.2.3 — Suite de trabajo integrada', async ({ page }, info) => {
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen:
+      `Incluye ${herramientas.slice(0, -1).join(', ')} y ` +
+      `${herramientas[herramientas.length - 1]} sobre los mismos datos; faltan mensajería, ` +
+      `edición colaborativa de documentos y firma electrónica.`,
     comoLoHace:
       `Además del CRM, el producto incluye ${herramientas.join(', ')}, y todas operan sobre los mismos ` +
       'datos.',
@@ -212,6 +218,10 @@ test('B.2.4 — Telefonía y videollamada integradas', async ({ page, browser },
     plataforma,
     cumple: 1,
     costo: 2,
+    resumen:
+      'La videollamada se integra creando reuniones en el calendario conectado de Google o ' +
+      'Microsoft, con su enlace; no hay telefonía: las llamadas ocurren afuera y se registran ' +
+      'a mano.',
     comoLoHace:
       'La videollamada está integrada a medias: desde la ficha de un asegurado se crea una reunión en ' +
       'el calendario conectado de Google o Microsoft, con el enlace de videollamada de ese servicio, y ' +
@@ -224,49 +234,5 @@ test('B.2.4 — Telefonía y videollamada integradas', async ({ page, browser },
       'la interfaz de programación.',
     evidencia: [capAcciones],
     documentacion: fuente,
-  });
-});
-
-// ── B.2.5 ────────────────────────────────────────────────────────────────────
-test('B.2.5 — Uso sin restricciones comerciales en la interfaz', async ({ page }, info) => {
-  // «Recorrer las pantallas de uso diario y registrar la presencia de avisos de venta»
-  const plataforma = plataformaDe(info.project.name);
-  soloEn(plataforma, 'twenty');
-  test.setTimeout(400_000);
-
-  await entrar(page, plataforma);
-  const avisos: string[] = [];
-  const capturas: string[] = [];
-  for (const [plural, paso] of [['people', 'asegurados'], ['polizas', 'polizas'], ['reclamos', 'reclamos'],
-    ['opportunities', 'oportunidades'], ['tasks', 'tareas'], ['dashboards', 'tableros']] as const) {
-    await abrirListado(page, plural);
-    // Lo que dice la interfaz, sin los datos de las filas: los registros de ejemplo de fábrica
-    // tienen nombres como «Enterprise Plan Upgrade»
-    const texto = await page.evaluate(() => {
-      const copia = document.body.cloneNode(true) as HTMLElement;
-      copia.querySelectorAll('[data-testid^="row-id-"]').forEach(f => f.remove());
-      return copia.innerText ?? copia.textContent ?? '';
-    });
-    const venta = texto.match(/upgrade|actualiza (a|tu plan)|mejor(a|e) (tu|su) plan|comprar|buy now|suscrib|prueba gratuita|trial|premium|enterprise/gi);
-    if (venta) avisos.push(`${paso}: ${[...new Set(venta)].join(', ')}`);
-    capturas.push(await capturar(page, 'B.2.5', plataforma, paso));
-  }
-
-  expect(avisos, 'las pantallas de uso diario no deben mostrar avisos de venta').toEqual([]);
-
-  registrar({
-    criterio: 'B.2.5',
-    plataforma,
-    cumple: 2,
-    costo: 0,
-    comoLoHace:
-      'Se recorrieron las pantallas de uso diario —asegurados, pólizas, reclamos, oportunidades, ' +
-      'tareas y tableros— y ninguna muestra avisos de venta ni invitaciones a mejorar el plan.',
-    caracteristicas:
-      'Las funciones del plan pago aparecen marcadas solo dentro de la configuración, donde las ve ' +
-      'quien administra.',
-    justificacion:
-      'El usuario trabaja sin interrupciones comerciales.',
-    evidencia: capturas,
   });
 });

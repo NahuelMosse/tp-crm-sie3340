@@ -23,12 +23,16 @@ test.describe.configure({ mode: 'default' });
 const CARPETA = join(__dirname, '..', '..', 'bitrix24', '_tmp');
 const APELLIDOS = ['Álvarez', 'Muñoz', 'Peña', 'Gómez', 'Núñez', 'Ibáñez', 'Pérez', 'Martínez', 'Ramírez', 'Suárez'];
 
-/** La planilla de prueba: diez asegurados con acentos y eñes, separada por punto y coma, en UTF-8. */
-function planilla() {
+/** La planilla de prueba: diez asegurados con acentos y eñes, separada por punto y coma. */
+function filas(desde: number, hasta: number) {
+  return APELLIDOS.slice(desde, hasta).map((a, i) => `ACT-IMP-${String(desde + i + 1).padStart(2, '0')};${a};act.imp${desde + i + 1}@aseguradora-test.com`);
+}
+const cabecera = 'Nombre;Apellido;Correo electrónico';
+/** La planilla guardada como se la guarda en el día a día: la codificación predeterminada de las planillas en Windows, y UTF-8. */
+function planilla(desde: number, hasta: number, codificacion: 'latin1' | 'utf8') {
   mkdirSync(CARPETA, { recursive: true });
-  const filas = APELLIDOS.map((a, i) => `ACT-IMP-${String(i + 1).padStart(2, '0')};${a};act.imp${i + 1}@aseguradora-test.com`);
-  const archivo = join(CARPETA, 'asegurados.csv');
-  writeFileSync(archivo, ['Nombre;Apellido;Correo electrónico', ...filas].join('\n') + '\n', 'utf8');
+  const archivo = join(CARPETA, `asegurados-${codificacion}.csv`);
+  writeFileSync(archivo, Buffer.from([cabecera, ...filas(desde, hasta)].join('\n') + '\n', codificacion));
   return archivo;
 }
 
@@ -43,40 +47,47 @@ test('A.7.1 — Importación de contactos desde planilla de cálculo', async ({ 
   await entrar(page, plataforma);
   await borrarContactos(page, /^ACT-IMP-/);
 
-  const resultado = await importarCsv(page, planilla());
-  const capResultado = await capturar(page, 'A.7.1', plataforma, '1-resultado');
-  console.log('    RESULTADO:', resultado.slice(resultado.indexOf('Resultado de importación'), resultado.indexOf('Resultado de importación') + 120));
+  const resWindows = await importarCsv(page, planilla(0, 5, 'latin1'), undefined, { 'E-mail del trabajo': /^Correo electr.{0,2}nico$/ });
+  const capWindows = await capturar(page, 'A.7.1', plataforma, '1-planilla-de-windows');
+  await cerrarPaneles(page);
+  const resUtf8 = await importarCsv(page, planilla(5, 10, 'utf8'));
+  const capUtf8 = await capturar(page, 'A.7.1', plataforma, '2-planilla-utf8');
+  for (const r of [resWindows, resUtf8]) console.log('    RESULTADO:', r.slice(r.indexOf('Resultado de importación'), r.indexOf('Resultado de importación') + 120));
   await cerrarPaneles(page);
 
   const importados = await contactos(page, /^ACT-IMP-/, ['ID', 'NAME', 'LAST_NAME', 'EMAIL']);
-  const apellidos = importados.map(c => c.LAST_NAME).sort();
-  console.log(`    importados: ${importados.length} · apellidos: ${apellidos.join(', ')}`);
-  console.log(`    correos: ${importados.filter(c => c.EMAIL?.length).length}`);
+  const intactos = (desde: number, hasta: number) => APELLIDOS.slice(desde, hasta).filter((a, i) =>
+    importados.some(c => c.NAME === `ACT-IMP-${String(desde + i + 1).padStart(2, '0')}` && c.LAST_NAME === a && c.EMAIL?.length)).length;
+  const deWindows = intactos(0, 5);
+  const deUtf8 = intactos(5, 10);
+  console.log(`    importados ${importados.length} de 10 · intactos: ${deWindows}/5 desde Windows, ${deUtf8}/5 en UTF-8 · apellidos: ${importados.map(c => c.LAST_NAME).sort().join(', ')}`);
 
   await borrarContactos(page, /^ACT-IMP-/);
 
-  expect(importados.length, 'deben ingresar los diez contactos').toBe(10);
-  expect(apellidos, 'la acentuación y las eñes deben conservarse').toEqual([...APELLIDOS].sort());
-  expect(importados.filter(c => c.EMAIL?.length).length, 'los diez correos deben ingresar').toBe(10);
+  expect(deUtf8, 'la planilla en UTF-8 debe ingresar completa y sin pérdida').toBe(5);
 
   registrar({
     criterio: 'A.7.1',
     plataforma,
-    cumple: 2,
-    costo: 0,
+    cumple: deWindows === 5 ? 2 : 1,
+    costo: deWindows === 5 ? 1 : 2,
+    resumen: deWindows === 5
+      ? 'Importa planillas CSV con tildes y eñes intactas, también en la codificación de Windows; reconoce nombre y apellido solos y la columna del correo se relaciona a mano en cada importación.'
+      : 'Importa planillas CSV con tildes y eñes intactas si están en UTF-8; con la codificación de Windows las letras acentuadas se pierden, y la columna del correo se relaciona a mano en cada importación.',
     comoLoHace:
-      'Se sube el archivo con el botón «Subir archivo», se elige la codificación y el delimitador, se ' +
-      'relacionan las columnas con los campos y se importa. La columna del correo, con otro rótulo, se ' +
-      'relacionó a mano con «E-mail del trabajo» en el paso de mapeo.',
+      'Se sube el archivo con el botón «Subir archivo», se elige la codificación y el delimitador, ' +
+      'se relacionan las columnas con los campos y se importa. La columna del correo, con otro ' +
+      'rótulo, se relaciona a mano con «E-mail del trabajo» en el paso de mapeo.',
     caracteristicas:
-      'El listado de contactos trae un asistente de importación de planillas CSV, sin configurar nada. Se ' +
-      'cargó una planilla de diez asegurados con tildes y eñes en los apellidos y ingresaron los diez con ' +
-      'sus correos y la acentuación intacta.',
-    justificacion:
-      'La cartera entró completa con el asistente que trae el producto. Reconoció solo nombre y apellido, y ' +
-      'la columna del correo se relacionó a mano en el mismo paso.',
-    evidencia: [capResultado],
-    medicion: `${importados.length} de 10 contactos importados`,
+      'El listado de contactos trae un asistente de importación de planillas CSV, sin configurar nada. ' +
+      (deWindows === 5
+        ? 'Una planilla de diez asegurados con tildes y eñes en los apellidos, guardada en UTF-8 o con la codificación predeterminada de Windows, ingresó completa con sus correos y la acentuación intacta.'
+        : `Guardada en UTF-8, la planilla de asegurados ingresó completa con sus correos y la acentuación intacta; guardada con la codificación predeterminada de Windows, ingresaron ${deWindows} de 5 filas con los apellidos intactos.`),
+    justificacion: deWindows === 5
+      ? 'La cartera entra completa con el asistente que trae el producto. Reconoce solo nombre y apellido, y relacionar la columna del correo es un paso breve que se repite en cada importación.'
+      : 'La necesidad queda resuelta con un procedimiento que se repite en cada importación: guardar la planilla con la codificación correcta y relacionar la columna del correo.',
+    evidencia: [capWindows, capUtf8],
+    medicion: `UTF-8: ${deUtf8}/5 intactos · codificación de Windows: ${deWindows}/5 intactos · ${importados.length} de 10 ingresados`,
   });
 });
 
@@ -104,6 +115,7 @@ test('A.7.2 — Importación de contactos desde las agendas de correo', async ({
     criterio: 'A.7.2',
     plataforma,
     cumple: 1,
+    resumen: 'Ofrece importar desde Gmail, Outlook y Yahoo!, pero siempre a partir de un CSV que el usuario exporta antes; no hay conexión que lea la agenda.',
     comoLoHace:
       'Incorporar los contactos de la compañía exige, en cada carga, exportar el archivo desde el correo web ' +
       'o el gestor de escritorio e importarlo después con el asistente.',
@@ -198,13 +210,17 @@ test('A.7.3 — Sincronización del correo de varios usuarios', async ({ page, b
     criterio: 'A.7.3',
     plataforma,
     cumple: 0,
+    resumen: 'La edición gratuita no permite conectar ninguna casilla de correo: Webmail y la conexión de varios buzones están reservados a los planes pagos.',
     comoLoHace:
       'En la edición gratuita no se puede conectar ninguna casilla, ni la del administrador ni la de un ' +
       'productor. Webmail ofrece Gmail, Outlook, iCloud, Office365, Exchange, Yahoo!, Aol y «Buzón ' +
       'personalizado» (IMAP+SMTP), pero al elegir cualquiera de ellos, con el administrador y con la ' +
       'sesión del productor, el sistema no abre el formulario de conexión y responde «No disponible en su ' +
-      'plan». «Conectar varios buzones» también pide otro plan: «para conectar y gestionar múltiples ' +
-      'buzones de correo corporativos, actualiza a cualquier plan a partir del Professional».',
+      'plan».' +
+      (variosPideOtroPlan
+        ? ' «Conectar varios buzones» también pide otro plan: «para conectar y gestionar múltiples ' +
+          'buzones de correo corporativos, actualiza a cualquier plan a partir del Professional».'
+        : ''),
     justificacion:
       'La comparación de planes del fabricante marca Webmail y la integración con servicios de correo de ' +
       'terceros como no incluidos en la edición gratuita, y la ayuda confirma que Webmail solo está en ' +
@@ -282,10 +298,10 @@ test('A.7.4 — Vinculación automática del correo a la ficha', async ({ page, 
       criterio: 'A.7.4',
       plataforma,
       cumple: 0,
+      resumen: 'El correo del asegurado no llega a su ficha porque la edición gratuita no permite conectar la casilla de la compañía.',
       comoLoHace:
-        'Con el asegurado cargado —ACT-Lucia Correo, lucia.correo@example.com— se mandó un mensaje desde ' +
-        'esa dirección a la casilla de atención, que lo recibió, y después de esperar dos minutos la ficha ' +
-        'no registra ninguna actividad de correo.',
+        'En la edición gratuita el correo que un asegurado envía a la casilla de atención de la ' +
+        'compañía no queda registrado en su ficha: la ficha no muestra ninguna actividad de correo.',
       caracteristicas:
         'La ayuda del fabricante describe que, con la opción «Integración de CRM» activada en el buzón, ' +
         'los correos entrantes aparecen en la ficha correspondiente; esa opción forma parte de la conexión ' +
@@ -329,53 +345,7 @@ async function exportacionDeContactos(page: any, prefijo: string, plataforma: an
 }
 
 // ── A.7.5 ────────────────────────────────────────────────────────────────────
-test('A.7.5 — Formatos de intercambio aceptados', async ({ page, browser }, info) => {
-  // «Enumerar los formatos en que el sistema admite entrar y sacar datos, y determinar si incluyen los que la
-  //  compañía usa con sus otros sistemas»
-  const plataforma = plataformaDe(info.project.name);
-  soloEn(plataforma, 'bitrix24');
-  test.setTimeout(600_000);
-
-  await entrar(page, plataforma);
-  const { menu, pideOtroPlan, capMenu, capLimite } = await exportacionDeContactos(page, 'A.7.5', plataforma);
-  const entrada = ['vCard', 'CSV'].filter(f => new RegExp(`Importar.*${f}`).test(menu));
-  const salida = ['CSV', 'Excel', 'Outlook'].filter(f => new RegExp(`Exportar a ${f}`).test(menu));
-  console.log(`    entrada: ${entrada.join(', ')} · salida: ${salida.join(', ')} · la exportación pide otro plan: ${pideOtroPlan}`);
-
-  const fila = await citar(browser, { url: COMPARACION, buscar: FILA_EXPORTAR, captura: 'A-7-5-bitrix24-3-comparacion-de-planes' });
-  const precio = await constanciaDe(browser, BITRIX24_BASIC, 'A-7-5-bitrix24-basic');
-
-  expect(entrada.length, 'el listado debe ofrecer importar vCard y CSV').toBe(2);
-  expect(salida.length, 'el listado debe ofrecer exportar a CSV, Excel y Outlook').toBe(3);
-  expect(pideOtroPlan, 'la exportación debe pedir un plan superior en la edición gratuita').toBeTruthy();
-
-  registrar({
-    criterio: 'A.7.5',
-    plataforma,
-    cumple: 1,
-    comoLoHace:
-      '«Exportar a CSV» no se abre y el sistema responde que hay que actualizar a un plan superior.',
-    caracteristicas:
-      'En la edición gratuita los datos entran por vCard y por CSV —con asistentes para las agendas de ' +
-      'Gmail, Outlook y Yahoo! y una migración desde otro CRM— pero no salen.',
-    justificacion:
-      'Los datos entran por planilla y por vCard, pero no salen: la exportación a CSV, Excel y Outlook está ' +
-      'en los planes pagos, desde el Basic. La compañía solo puede compartir datos con sus otros sistemas ' +
-      'en un sentido.',
-    conPlan: [conPlanDe(BITRIX24_BASIC, {
-      cumple: 2,
-      costo: 0,
-      justificacion:
-        'Con el plan Basic se habilita la exportación de contactos a CSV, Excel y Outlook, que sumada a la ' +
-        'importación por vCard y CSV cubre la entrada y la salida en los formatos que usan los demás sistemas.',
-    })],
-    evidencia: [capMenu, capLimite],
-    documentacion: [fila, ...precio],
-  });
-});
-
-// ── A.7.6 ────────────────────────────────────────────────────────────────────
-test('A.7.6 — Exportación de la cartera sin pérdida de datos', async ({ page, browser }, info) => {
+test('A.7.5 — Exportación de la cartera sin pérdida de datos', async ({ page, browser }, info) => {
   // «Exportar los registros importados y comparar el archivo con el original: si coincide, si pierde acentuación
   //  o campos, o si faltan filas»
   const plataforma = plataformaDe(info.project.name);
@@ -383,18 +353,19 @@ test('A.7.6 — Exportación de la cartera sin pérdida de datos', async ({ page
   test.setTimeout(600_000);
 
   await entrar(page, plataforma);
-  const { pideOtroPlan, capLimite } = await exportacionDeContactos(page, 'A.7.6', plataforma);
+  const { pideOtroPlan, capLimite } = await exportacionDeContactos(page, 'A.7.5', plataforma);
   console.log(`    la exportación pide otro plan: ${pideOtroPlan}`);
 
-  const fila = await citar(browser, { url: COMPARACION, buscar: FILA_EXPORTAR, captura: 'A-7-6-bitrix24-2-comparacion-de-planes' });
-  const precio = await constanciaDe(browser, BITRIX24_BASIC, 'A-7-6-bitrix24-basic');
+  const fila = await citar(browser, { url: COMPARACION, buscar: FILA_EXPORTAR, captura: 'A-7-5-bitrix24-2-comparacion-de-planes' });
+  const precio = await constanciaDe(browser, BITRIX24_BASIC, 'A-7-5-bitrix24-basic');
 
   expect(pideOtroPlan, 'la exportación debe pedir un plan superior en la edición gratuita').toBeTruthy();
 
   registrar({
-    criterio: 'A.7.6',
+    criterio: 'A.7.5',
     plataforma,
     cumple: 0,
+    resumen: 'La edición gratuita no exporta la cartera: la exportación a CSV, Excel y Outlook exige un plan superior.',
     comoLoHace:
       'En la edición gratuita no se puede exportar la cartera: «Exportar a CSV» no genera ningún archivo y ' +
       'el sistema responde que la función requiere actualizar a un plan superior.',

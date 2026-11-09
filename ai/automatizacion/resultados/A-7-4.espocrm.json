@@ -3,7 +3,8 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Con la casilla de atención de la compañía sincronizada, un asegurado escribió desde su propia dirección y el mensaje apareció en el historial de su ficha sin que nadie lo moviera.",
+  "resumen": "Vincula solo a la ficha del asegurado el correo que llega a la casilla de la compañía, reconociendo la dirección del remitente.",
+  "comoLoHace": "Con la casilla de atención de la compañía sincronizada, el mensaje que un asegurado escribe desde su propia dirección aparece en el historial de su ficha sin que nadie lo mueva.",
   "caracteristicas": "El sistema reconoció la dirección del remitente y lo vinculó con el asegurado que la tiene cargada.",
   "justificacion": "Configurar la casilla compartida es trabajo de una sola vez; la vinculación ocurre sola en cada mensaje.",
   "evidencia": [

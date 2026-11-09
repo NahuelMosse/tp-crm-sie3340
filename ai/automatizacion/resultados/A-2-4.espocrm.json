@@ -3,7 +3,8 @@
   "plataforma": "espocrm",
   "cumple": 2,
   "costo": 0,
-  "comoLoHace": "Desde la ficha del asegurado, su panel de oportunidades crea una nueva ya ligada a él. La oportunidad se hizo avanzar de calificación a propuesta, a negociación y a cerrada ganada: el sistema ajustó la probabilidad en cada paso, terminó en el cien por ciento, y la historia de la ficha conserva el recorrido completo.",
+  "resumen": "Trae un embudo de 6 etapas con una probabilidad de cierre cada una; la oportunidad se crea desde la ficha del asegurado y su recorrido queda en el historial.",
+  "comoLoHace": "Desde la ficha del asegurado, su panel de oportunidades crea una nueva ya ligada a él. La oportunidad avanza de calificación a propuesta, a negociación y a cerrada ganada: el sistema ajusta la probabilidad en cada paso, termina en el cien por ciento, y la historia de la ficha conserva el recorrido completo.",
   "caracteristicas": "El embudo viene definido de fábrica con 6 etapas y una probabilidad de cierre asociada a cada una.",
   "justificacion": "Las etapas se pueden renombrar para que sigan el proceso comercial de la compañía, pero tal como vienen ya lo resuelven.",
   "evidencia": [

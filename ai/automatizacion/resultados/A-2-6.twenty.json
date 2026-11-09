@@ -3,6 +3,7 @@
   "plataforma": "twenty",
   "cumple": 1,
   "costo": 2,
+  "resumen": "Lista las pólizas próximas a vencer con su titular; no puede preguntar «tiene automotor y no hogar», porque el filtro de asegurados no ve sus pólizas.",
   "comoLoHace": "El conjunto de los próximos a vencer sale directo: el listado de pólizas filtrado por vencimiento en los próximos treinta días muestra cada póliza con su titular.",
   "caracteristicas": "El otro conjunto no: el filtro del listado de asegurados solo ofrece sus propios campos, no las pólizas que tiene, así que «tiene automotor y no hogar» no se puede preguntar.",
   "justificacion": "Se obtiene filtrando las pólizas por cada ramo y comparando a mano las dos listas de titulares, cada vez que se quiere armar la oferta.",

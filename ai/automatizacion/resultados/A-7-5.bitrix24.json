@@ -1,10 +1,10 @@
 {
   "criterio": "A.7.5",
   "plataforma": "bitrix24",
-  "cumple": 1,
-  "comoLoHace": "«Exportar a CSV» no se abre y el sistema responde que hay que actualizar a un plan superior.",
-  "caracteristicas": "En la edición gratuita los datos entran por vCard y por CSV —con asistentes para las agendas de Gmail, Outlook y Yahoo! y una migración desde otro CRM— pero no salen.",
-  "justificacion": "Los datos entran por planilla y por vCard, pero no salen: la exportación a CSV, Excel y Outlook está en los planes pagos, desde el Basic. La compañía solo puede compartir datos con sus otros sistemas en un sentido.",
+  "cumple": 0,
+  "resumen": "La edición gratuita no exporta la cartera: la exportación a CSV, Excel y Outlook exige un plan superior.",
+  "comoLoHace": "En la edición gratuita no se puede exportar la cartera: «Exportar a CSV» no genera ningún archivo y el sistema responde que la función requiere actualizar a un plan superior.",
+  "justificacion": "La comparación de planes del fabricante confirma que la opción de exportar contactos a CSV, Excel y Outlook no forma parte de la edición gratuita. Sin archivo no hay nada que comparar con la planilla original.",
   "conPlan": [
     {
       "plan": "Bitrix24 Basic",
@@ -12,11 +12,10 @@
       "modalidad": "recurrente",
       "cumple": 2,
       "costo": 0,
-      "justificacion": "Con el plan Basic se habilita la exportación de contactos a CSV, Excel y Outlook, que sumada a la importación por vCard y CSV cubre la entrada y la salida en los formatos que usan los demás sistemas."
+      "justificacion": "El plan Basic incluye la opción de exportar contactos a CSV, Excel y Outlook, de modo que la cartera se puede sacar del sistema. No se contrató el plan, así que no se comparó el contenido del archivo con la planilla original."
     }
   ],
   "evidencia": [
-    "A-7-5-bitrix24-1-menu-de-formatos.png",
     "A-7-5-bitrix24-2-exportacion.png"
   ],
   "documentacion": [
@@ -24,7 +23,7 @@
       "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
       "cita": "Opción para exportar contactos a CSV, Excel y Outlook",
       "consultado": "2026-09-30",
-      "captura": "A-7-5-bitrix24-3-comparacion-de-planes.png"
+      "captura": "A-7-5-bitrix24-2-comparacion-de-planes.png"
     },
     {
       "url": "https://www.bitrix24.es/prices/",
@@ -33,8 +32,7 @@
       "captura": "A-7-5-bitrix24-basic-precio-1.png"
     }
   ],
-  "criterioNombre": "Formatos de intercambio aceptados",
-  "costo": 2,
+  "criterioNombre": "Exportación de la cartera sin pérdida de datos",
   "licencia": null,
-  "momento": "2026-09-30T13:40:30.039Z"
+  "momento": "2026-09-30T13:42:10.645Z"
 }

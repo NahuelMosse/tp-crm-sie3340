@@ -3,7 +3,8 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 1,
-  "comoLoHace": "Desde el listado de contactos se definió un conjunto por un criterio —los asegurados que llegaron por recomendación— y se lo guardó con nombre desde el propio filtro, sin programar.",
+  "resumen": "Guarda con nombre un segmento de contactos definido por criterio; al reabrirlo recalcula quiénes lo cumplen, de modo que entran solos los que lo cumplan después.",
+  "comoLoHace": "Desde el listado de contactos se define un conjunto por un criterio —por ejemplo, los asegurados que llegaron por recomendación— y se lo guarda con nombre desde el propio filtro, sin programar.",
   "caracteristicas": "Al salir del listado y volver, el segmento figura entre los filtros guardados; al abrirlo trajo de nuevo los mismos asegurados, y como se guarda el criterio y no la lista, uno que lo cumpla más adelante entra solo.",
   "justificacion": "El origen no viene entre los campos visibles del filtro: agregarlo es configuración de una vez.",
   "evidencia": [
