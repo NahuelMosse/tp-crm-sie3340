@@ -18,7 +18,7 @@
 
 ## A.11.12
 
-**Cifra de referencia: una semana de espera.** Una consulta de configuración no puede detener la operación más de un ciclo semanal de trabajo. Cada una de las 21 consultas más recientes del canal público de la comunidad se clasifica con la tabla, y se ordenan de la mejor atendida a la peor: el criterio toma el valor de la que queda en el medio, para reflejar la experiencia típica.
+**Cifra de referencia: una semana de espera.** Una consulta de configuración no puede detener la operación más de un ciclo semanal de trabajo. Las 21 consultas más recientes del canal público de la comunidad se clasifican con la tabla y se ordenan de la mejor atendida a la peor. El criterio toma el valor de la que queda en el medio, que refleja la experiencia típica.
 
 | 2 | 1 | 0 |
 |---|---|---|
@@ -34,7 +34,7 @@
 
 ## B.1.4
 
-**Cifra de referencia: 25.000 registros.** En los ramos patrimoniales del mercado argentino se paga por año un siniestro cada nueve pólizas vigentes, según la Superintendencia de Seguros de la Nación, y las aseguradoras tienen entre 1,2 y 1,7 pólizas por cliente, según relevamientos de McKinsey & Company y del mercado español. Con unos quinientos clientes, la compañía suma unas setecientas cincuenta pólizas y ochenta reclamos por año: poco más de mil seiscientos registros con cinco años de reclamos. La cartera de referencia es unas quince veces esa cifra, para cubrir el crecimiento: cinco mil asegurados con dos pólizas y media cada uno y sus reclamos.
+**Cifra de referencia: 25.000 registros.** En los ramos patrimoniales del mercado argentino se paga por año un siniestro cada nueve pólizas vigentes, según la Superintendencia de Seguros de la Nación. Las aseguradoras tienen entre 1,2 y 1,7 pólizas por cliente, según relevamientos de McKinsey & Company y del mercado español. Con unos quinientos clientes, la compañía suma unas setecientas cincuenta pólizas y ochenta reclamos por año: poco más de mil seiscientos registros con cinco años de reclamos. La cartera de referencia es unas quince veces esa cifra, para cubrir el crecimiento: cinco mil asegurados con dos pólizas y media cada uno, más sus reclamos.
 
 | 2 | 1 | 0 |
 |---|---|---|

@@ -4,25 +4,25 @@ Cada criterio se enuncia como una capacidad y se comprueba con un procedimiento 
 
 ## 4.1 De dónde provienen
 
-Los criterios tienen cuatro orígenes, y la distinción determina su peso en el resultado.
+Los criterios tienen cuatro orígenes, y el origen determina su peso en el resultado.
 
-El primero es el pedido del cliente: veinte requerimientos relevados, en lenguaje de negocio, que describen qué debe hacer el sistema. Entran todos, sin excepción.
+El primero es lo solicitado: veinte requerimientos relevados, en lenguaje de negocio, que describen qué debe hacer el sistema. Entran todos.
 
-El segundo es el marco técnico de evaluación de software. Son trece criterios que describen cómo debe comportarse una herramienta con independencia de su función: restricciones tecnológicas, instalación, navegabilidad, usabilidad, concurrencia, parametrización, intercambio de datos, seguridad, explotación de la información, reportes, interfaces, integración y soporte. Se incorporan completos, leídos en clave del rubro.
+El segundo es el marco técnico de evaluación de software. Son trece criterios que describen cómo debe comportarse una herramienta, cualquiera sea su función: restricciones tecnológicas, instalación, navegabilidad, usabilidad, concurrencia, parametrización, intercambio de datos, seguridad, explotación de la información, reportes, interfaces, integración y soporte. Se incorporan completos y se leen desde el rubro asegurador.
 
-El tercero es el negocio asegurador: condiciones que ninguna de las dos fuentes anteriores menciona pero que una compañía de seguros no puede ignorar. Se incorporan con su fundamento explícito.
+El tercero es el negocio asegurador. Reúne condiciones que ninguna de las dos fuentes anteriores menciona y que el negocio no puede ignorar. Cada una se incorpora con su fundamento explícito.
 
-El cuarto son capacidades que ninguna fuente pide pero que distinguen a las plataformas.
+El cuarto son capacidades que nadie pidió y que distinguen a las plataformas.
 
 ## 4.2 Del requerimiento al criterio verificable
 
-Los requerimientos del cliente están escritos en lenguaje de negocio y no son verificables tal como se enuncian: *"Mejora de la calidad del servicio y la atención al cliente"* no admite comprobación. El trabajo previo consistió en traducirlos a capacidades comprobables con una regla: si un requerimiento admite verificaciones independientes, se divide hasta que cada criterio tenga una sola respuesta posible.
+Los requerimientos están escritos en lenguaje de negocio y, tal como se enuncian, no se pueden verificar. *"Mejora de la calidad del servicio y la atención al cliente"* no admite comprobación. Por eso se los tradujo a capacidades comprobables con una regla: si un requerimiento admite verificaciones independientes, se divide hasta que cada criterio tenga una sola respuesta posible.
 
 ## 4.3 Cómo se evalúa cada criterio
 
-El pedido del cliente y el marco técnico, junto con cuatro condiciones del rubro que hacen a la cartera (la prima, la vigencia, la conservación de lo adaptado y la continuidad de las versiones), forman la **Parte A**, que pesa el 85 %; las condiciones del negocio y las capacidades por encima de lo pedido forman la **Parte B**, que pesa el 15 % (sección 3.6).
+La **Parte A** pesa el 85 % y reúne lo solicitado, el marco técnico y cuatro condiciones del rubro que hacen a la cartera: la prima, la vigencia, la conservación de lo adaptado y la continuidad de las versiones. La **Parte B** pesa el 15 % y reúne las condiciones del negocio y las capacidades por encima de lo pedido (sección 3.6).
 
-Cinco criterios necesitan, además de su procedimiento, una cifra de referencia para valorar lo observado, como cuántos registros son muchos o cuánta espera es tarde: esas cifras salen del tamaño de la compañía, se fijaron antes de medir y figuran en la sección 6 junto a su criterio.
+Cinco criterios necesitan, además de su procedimiento, una cifra de referencia para valorar lo observado, como cuántos registros son muchos o cuánta espera es tarde. Esas cifras salen del tamaño de la compañía, que atiende alrededor de quinientos clientes. Se fijaron antes de medir y figuran en la sección 6 junto a su criterio.
 
 ---
 
@@ -101,7 +101,7 @@ Cinco criterios necesitan, además de su procedimiento, una cifra de referencia 
 |---|---|---|---|
 | A.6.1 | Vinculación de la póliza con su titular | Saber de quién es cada póliza y qué pólizas tiene cada asegurado | Relacionar la póliza con un contacto, abrir la ficha del contacto y comprobar que la póliza figura allí; abrir la póliza y comprobar que muestra al titular |
 | A.6.2 | Vista única del asegurado | Ver todo lo del cliente en un solo lugar: la visión completa que sostiene la relación | Abrir la ficha de un asegurado y comprobar si desde allí se llega a todo lo suyo —pólizas, actividad y reclamos— sin buscarlo en otro menú |
-| A.6.3 | Campos propios del rubro en la ficha | Guardar del cliente lo que le importa a una aseguradora y el producto no trae | Agregar a la ficha del asegurado un campo que el producto no trae —la valoración que dejó sobre la atención recibida— y comprobar que queda disponible en el alta y en la búsqueda |
+| A.6.3 | Campos propios del rubro en la ficha | Guardar del cliente lo que importa en el negocio asegurador y el producto no trae | Agregar a la ficha del asegurado un campo que el producto no trae —la valoración que dejó sobre la atención recibida— y comprobar que queda disponible en el alta y en la búsqueda |
 | A.6.4 | Unicidad de la ficha del asegurado | Que un mismo cliente no tenga dos fichas con historias distintas | Cargar dos veces un asegurado con el mismo documento y comprobar si el sistema advierte la duplicación |
 
 ### A.7 Intercambio de datos y correo
@@ -240,6 +240,6 @@ Todos los grupos de una parte pesan lo mismo (sección 3.6): dentro de su parte,
 | **Total** | **81** |
 
 
-Ningún criterio repite el procedimiento de otro: evaluar dos veces lo mismo le daría a esa capacidad un peso que nadie decidió. La única excepción es la póliza como entidad propia (A.1.1), que se evalúa aparte de la creación de entidades (A.8.1) porque es el objeto central del negocio y el pedido del cliente la nombra.
+Ningún criterio repite el procedimiento de otro, porque evaluar dos veces lo mismo le daría a esa capacidad un peso que nadie decidió. La única excepción es la póliza como entidad propia (A.1.1), que se evalúa aparte de la creación de entidades (A.8.1) porque es el objeto central del negocio y lo solicitado la nombra.
 
 Cuando un procedimiento abarca dos objetos y el sistema resuelve solo uno, el criterio puntúa 1.

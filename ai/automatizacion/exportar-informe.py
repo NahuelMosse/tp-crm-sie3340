@@ -502,7 +502,7 @@ def render(doc, bs, size=11, matriz=False):
                 h.paragraph_format.space_before = Pt(0)
         elif tipo == "p":
             texto = b[1]
-            plataforma = re.match(r"^\*\*(EspoCRM|Twenty|Bitrix24)\*\* ", texto)
+            plataforma = re.match(r"^\*\*(EspoCRM|Twenty|Bitrix24)\*\* [·●◐○◍]", texto)
             par = parrafo(doc, texto, size=size, space_after=3 if plataforma else 6)
             # Cada veredicto breve dice en qué se apoya: la prueba sobre el sistema, la documentación
             # oficial por su número en la sección 9, o las dos
@@ -523,7 +523,7 @@ def render(doc, bs, size=11, matriz=False):
                 if entre:
                     _run(par, ")", size - 1, False, False, False, None)
             siguiente_es_veredicto = (i + 1 < len(bs) and bs[i + 1][0] == "p"
-                                      and re.match(r"^\*\*(EspoCRM|Twenty|Bitrix24)\*\* ", bs[i + 1][1]))
+                                      and re.match(r"^\*\*(EspoCRM|Twenty|Bitrix24)\*\* [·●◐○◍]", bs[i + 1][1]))
             if plataforma:
                 par.paragraph_format.space_before = Pt(6)
                 # En la versión completa el veredicto sigue con su lista

@@ -10,7 +10,7 @@ Cada grupo cierra con su **subtotal**: puntos obtenidos sobre el máximo posible
 
 *¿El usuario puede hacerlo desde el sistema?*
 
-### Originales — solicitados por el cliente
+### Originales — solicitados
 
 #### A.1 Cartera de pólizas
 
@@ -158,7 +158,7 @@ Cada grupo cierra con su **subtotal**: puntos obtenidos sobre el máximo posible
 
 *¿Qué exige el sistema para funcionar y sostenerse?*
 
-### Originales — solicitados por el cliente
+### Originales — solicitados
 
 #### A.11 Condiciones técnicas y operativas del producto — técnicos
 
@@ -195,7 +195,7 @@ Cada grupo cierra con su **subtotal**: puntos obtenidos sobre el máximo posible
 
 *¿Cómo se comporta en la operación diaria de la compañía?*
 
-### Originales — solicitados por el cliente
+### Originales — solicitados
 
 #### A.11 Condiciones técnicas y operativas del producto — operativos
 

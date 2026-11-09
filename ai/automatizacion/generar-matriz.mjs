@@ -32,7 +32,7 @@ const { GRUPOS } = catalogo;
 
 // Reparto ENTRE partes: lo que el cliente pidio pesa mas que lo que no pidio.
 const PARTE = { A: 0.85, B: 0.15 };
-const ORIGEN = { A: 'Originales — solicitados por el cliente', B: 'Opcionales — no solicitados' };
+const ORIGEN = { A: 'Originales — solicitados', B: 'Opcionales — no solicitados' };
 const TIPOS = [
   ['funcional', 'Requerimientos funcionales', '¿El usuario puede hacerlo desde el sistema?'],
   ['tecnica', 'Requerimientos técnicos', '¿Qué exige el sistema para funcionar y sostenerse?'],
