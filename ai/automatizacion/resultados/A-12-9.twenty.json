@@ -1,0 +1,31 @@
+{
+  "criterio": "A.12.9",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "resumen": "Se conecta de fábrica con correo y calendario de Google y Microsoft y con cualquier casilla IMAP; fuera de eso no hay conectores y cada integración es trabajo propio.",
+  "comoLoHace": "Lo que sí trae es la vía para integrar lo que falte —interfaces de programación, avisos a otros sistemas ante cada cambio y un servidor para asistentes de inteligencia artificial—, todo sin costo.",
+  "caracteristicas": "El producto se conecta de fábrica con el correo y el calendario de Google y de Microsoft, y con cualquier casilla por IMAP. Más allá de eso no hay un catálogo de conectores: la sección de aplicaciones ofrece muy pocas, y las aplicaciones son paquetes de código que se desarrollan con el kit del fabricante.",
+  "justificacion": "La condición se satisface con una limitación: fuera del correo y el calendario, cada integración es trabajo propio.",
+  "evidencia": [
+    "A-12-9-twenty-1-aplicaciones.png",
+    "A-12-9-twenty-2-mcp-y-api.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/developers/extend/apps/getting-started/concepts",
+      "cita": "How Twenty apps work — entity model, sandboxing, and the install lifecycle.",
+      "consultado": "2026-10-30",
+      "captura": "A-12-9-twenty-3-aplicaciones.png"
+    },
+    {
+      "url": "https://docs.twenty.com/developers/extend/webhooks",
+      "cita": "Get notified when records change — HTTP POST to your endpoint on every create, update, or delete.",
+      "consultado": "2026-10-30",
+      "captura": "A-12-9-twenty-4-webhooks.png"
+    }
+  ],
+  "criterioNombre": "Ecosistema de integraciones disponible",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-10-30T09:28:58.456Z"
+}

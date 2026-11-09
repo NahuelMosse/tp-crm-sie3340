@@ -79,7 +79,7 @@ test('A.5.1 — Reclamo como caso con identidad propia', async ({ page }, info) 
     criterio: 'A.5.1',
     plataforma,
     cumple: 1,
-    resumen: 'Lleva el reclamo como una negociación con número, ficha y vínculo con el asegurado, pero comparte listado con pólizas y oportunidades, y se separa a mano en cada consulta.',
+    resumen: 'Lleva el reclamo registrado como si fuera una venta, con número, ficha y vínculo con el asegurado, pero comparte listado con pólizas y oportunidades, y se separa a mano en cada consulta.',
     comoLoHace:
       'El reclamo se lleva entonces como una negociación con el asegurado como cliente: recibe un ' +
       'número propio, abre su propia ficha y queda asociada al contacto.',

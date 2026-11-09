@@ -243,7 +243,7 @@ test('A.2.3 — Conversión del solicitante en oportunidad de venta', async ({ p
     criterio: 'A.2.3',
     plataforma,
     cumple: 1,
-    resumen: 'Crea la negociación desde la ficha del solicitante, ligada a él, pero la cobertura que pidió se vuelve a cargar a mano en cada una.',
+    resumen: 'Crea la venta desde la ficha del solicitante, ligada a él, pero la cobertura que pidió se vuelve a cargar a mano en cada una.',
     comoLoHace:
       'Con el solicitante como contacto, lo más cercano es crear la negociación desde su ficha.',
     caracteristicas:

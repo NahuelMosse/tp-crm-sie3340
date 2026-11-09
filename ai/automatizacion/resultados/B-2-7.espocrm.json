@@ -1,0 +1,18 @@
+{
+  "criterio": "B.2.7",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "resumen": "Sin salida a internet, la atención diaria sigue —ingresar, buscar asegurados, registrar reclamos—; solo se pierde lo que viaja por internet, como el correo.",
+  "comoLoHace": "Con la salida a internet cortada y solo la red propia alcanzable, el sistema permite ingresar, buscar un asegurado y registrar un reclamo, que es la atención de todos los días.",
+  "caracteristicas": "La instalación propia no necesita nada de afuera para operar: lo que se pierde durante el corte es lo que por naturaleza viaja por internet, como el envío y la recepción de correo.",
+  "justificacion": "Con el sistema en la red de la compañía, una caída del enlace no detiene la atención.",
+  "evidencia": [
+    "B-2-7-espocrm-1-operando-sin-enlace.png"
+  ],
+  "medicion": "0 pedidos a direcciones externas bloqueados durante la prueba",
+  "criterioNombre": "Continuidad de la atención ante una caída del enlace",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-10-30T06:09:04.061Z"
+}

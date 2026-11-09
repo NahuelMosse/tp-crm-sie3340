@@ -10,5 +10,5 @@ CRM de código abierto que se instala en un servidor propio y exige una combinac
 
 ## 2.3 Bitrix24 plan Free — servicio en la nube
 
-Plataforma comercial en la nube, con un plan gratuito sin fecha de vencimiento. El fabricante puede, sin embargo, dar de baja una cuenta que pasa cincuenta días sin uso (B.1.1). Además del CRM reúne mensajería, videollamadas, calendario, documentos y proyectos. Cobra por organización y no por usuario.
+Plataforma comercial en la nube, con un plan gratuito sin fecha de vencimiento. El fabricante puede, sin embargo, dar de baja una cuenta que pasa cincuenta días sin uso (B.2.1). En el plan gratuito, que no permite crear entidades, la póliza y el reclamo se registran como si fueran ventas. Además del CRM reúne mensajería, videollamadas, calendario, documentos y proyectos. Cobra por organización y no por usuario.
 

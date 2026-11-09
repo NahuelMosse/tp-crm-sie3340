@@ -1,44 +1,24 @@
 {
   "criterio": "A.12.3",
   "plataforma": "bitrix24",
-  "cumple": 0,
-  "resumen": "La edición gratuita no permite que el sistema central actualice pólizas desde afuera: la conexión de entrada para otros sistemas exige el plan Basic Vibe+.",
-  "comoLoHace": "En la edición gratuita el sistema central no tiene por dónde actualizar una póliza: en Recursos para desarrolladores se ofrece «Webhook entrante» y, al abrirlo, el sistema responde «No disponible en tu plan actual» y remite al plan Basic Vibe+.",
-  "justificacion": "Sin interfaz de programación habilitada no hay forma de actualizar desde afuera una póliza por su número, así que el primer tramo del procedimiento no se puede ejecutar. El comparativo del fabricante lo confirma: la API REST no figura en la edición gratuita.",
+  "cumple": 2,
+  "resumen": "El portal se da de alta con un correo y una contraseña y queda funcionando de inmediato; el resto es configuración guiada, sin perfil técnico.",
+  "comoLoHace": "El alta del portal se completa con un correo y una contraseña, sin instalar nada ni preparar un servidor: el fabricante entrega el sistema funcionando de inmediato, con datos de ejemplo y un asistente inicial.",
+  "caracteristicas": "Lo que sigue —crear los campos propios, cargar la cartera— es configuración desde la pantalla, guiada por el propio producto, sin conocimientos de instalación ni de administración de servidores.",
+  "justificacion": "Lo completa cualquiera que sepa operar un sistema de oficina.",
   "evidencia": [
-    "A-12-3-bitrix24-1-webhook-entrante.png"
+    "A-12-3-bitrix24-2-portal-operativo.png"
   ],
   "documentacion": [
     {
-      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
-      "cita": "REST API Available on Vibe+ plans.",
-      "consultado": "2026-11-08",
-      "captura": "A-12-3-bitrix24-2-api-por-plan.png"
-    },
-    {
       "url": "https://www.bitrix24.es/prices/",
-      "cita": "Basic Vibe+ desde US$ 89 desde US$ 59 incluye 5 usuarios Empezar Empezar",
-      "consultado": "2026-11-08",
-      "captura": "A-12-3-bitrix24-basic-vibe-precio-1.png"
-    },
-    {
-      "url": "https://www.bitrix24.es/prices/",
-      "cita": "Aplicaciones de Market y REST API ilimitadas",
-      "consultado": "2026-11-08",
-      "captura": "A-12-3-bitrix24-basic-vibe-precio-2.png"
+      "cita": "¡Sí, lo es! El plan Free es un estado de cuenta predeterminado, en el que se puede agregar un número ilimitado de usuarios y disfrutar de las herramientas disponibles de forma totalmente gratuita durante el tiempo ilimitado. Tenga en cuenta que algunas herramientas como Telefonía y aplicaciones de Bitrix24 Market están disponibles solo en los planes pagos.",
+      "consultado": "2026-09-29",
+      "captura": "A-12-3-bitrix24-1-alta-gratuita.png"
     }
   ],
-  "conPlan": [
-    {
-      "plan": "Bitrix24 Basic Vibe+",
-      "monto": "US$ 89 por mes, hasta 5 usuarios",
-      "modalidad": "recurrente",
-      "cumple": 1,
-      "costo": 2,
-      "justificacion": "Con el plan Basic en su edición Vibe+ la API REST no tiene tope y el sistema central puede buscar la póliza por su número y actualizarla sin duplicarla; ese cliente de integración lo desarrolla la compañía. La protección de los campos del central en el CRM no se evaluó en ese plan, por eso se computa con reparo."
-    }
-  ],
-  "criterioNombre": "Datos que administra el sistema central",
+  "criterioNombre": "Puesta en marcha sin perfil técnico especializado",
   "licencia": null,
-  "momento": "2026-11-08T17:13:13.291Z"
+  "conPlan": [],
+  "momento": "2026-09-29T14:29:10.211Z"
 }

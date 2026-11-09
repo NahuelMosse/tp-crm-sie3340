@@ -1,0 +1,19 @@
+{
+  "criterio": "A.12.8",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "resumen": "Las entidades propias no advierten ediciones simultáneas hasta activar una casilla de control; con ella, quien guarda después recibe el aviso de que otro modificó el registro.",
+  "comoLoHace": "La entidad creada por la compañía no advierte por sí sola el conflicto cuando varios usuarios abren a la vez la misma póliza: el último guardado se impone y los cambios anteriores se pierden sin aviso. Con el control de concurrencia activado en la entidad, quien guarda después de otro recibe el aviso de que otro usuario modificó el registro, y nadie pisa el trabajo ajeno sin saberlo.",
+  "caracteristicas": "El producto trae un control de concurrencia que las entidades de atención, ventas y cuentas tienen activado de fábrica, y que en las entidades propias se activa con una casilla de su configuración.",
+  "justificacion": "La condición se satisface, con la precaución de activar el control en cada entidad propia.",
+  "evidencia": [
+    "A-12-8-espocrm-pol-concurrencia-sin-control.png",
+    "A-12-8-espocrm-pol-concurrencia-con-control.png"
+  ],
+  "medicion": "Sin control: quedó «cambio de la sesión 3» sin aviso · con control: 2 avisos",
+  "criterioNombre": "Operación concurrente sobre la misma cartera",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-10-30T05:40:44.899Z"
+}

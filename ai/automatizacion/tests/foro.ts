@@ -4,7 +4,7 @@ import { Fuente } from './evaluar';
 import { CAPTURAS } from './fuentes';
 
 /**
- * La comunidad de usuarios, medida sobre lo que ya está publicado (A.11.12).
+ * La comunidad de usuarios, medida sobre lo que ya está publicado (A.12.12).
  *
  * Se toman las consultas más recientes del foro oficial que ya tienen más de
  * una semana —la espera aceptable de la sección 4.7—, y cada una se clasifica

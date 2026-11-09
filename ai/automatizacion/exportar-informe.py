@@ -364,7 +364,7 @@ def tabla(doc, filas, size=9.5, grupos=None, matriz=False):
     if matriz:
         w = [ANCHO_UTIL - 3.0 * (ncol - 1)] + [3.0] * (ncol - 1)
     elif [c.replace("*", "") for c in filas[0]] == ["Versión", "Precio", "Criterios que cambia", "Cumplimiento total"]:
-        # Las tres tablas de planes de la sección 5.5 comparten columnas
+        # Las tres tablas de planes de la sección 5.4 comparten columnas
         w = [4.4, 4.4, 4.4, 2.8]
     else:
         w = anchos(filas)
@@ -406,11 +406,11 @@ def tabla(doc, filas, size=9.5, grupos=None, matriz=False):
         row.height = Cm(0.5)
     fila_propiedad(t.rows[0], 'tblHeader')
     # Las tablas cortas no se parten entre dos páginas
-    if total <= 18:
-        for row in t.rows[:-1]:
-            for cell in row.cells:
-                for par in cell.paragraphs:
-                    par.paragraph_format.keep_with_next = True
+    # y las largas no dejan solos al pie el encabezado y el primer rótulo
+    for row in (t.rows[:-1] if total <= 18 else t.rows[:3]):
+        for cell in row.cells:
+            for par in cell.paragraphs:
+                par.paragraph_format.keep_with_next = True
     doc.add_paragraph().paragraph_format.space_after = Pt(2)
 
 
@@ -609,7 +609,7 @@ def tramos(numeros):
     return out
 
 
-# Canales de la comunidad que mide A.11.12: sus consultas son el material de un solo criterio
+# Canales de la comunidad que mide A.12.12: sus consultas son el material de un solo criterio
 CANALES = (("forum.espocrm.com", "Foro oficial de EspoCRM"),
            ("github.com/twentyhq/twenty/discussions", "Discusiones del repositorio oficial de Twenty"),
            ("dev.1c-bitrix.ru", "Foro oficial de Bitrix24"))
@@ -642,7 +642,7 @@ def fuentes(doc, texto, completa=True):
                     fmt.space_after = Pt(2); fmt.line_spacing = 1.0
                     fmt.left_indent = Cm(1.7); fmt.first_line_indent = Cm(-1.7)
                     r0 = par.add_run("[%d]–[%d]\t" % (min(nums), max(nums))); r0.bold = True; r0.font.size = Pt(8.5)
-                    runs(par, "%s: las %d consultas medidas en A.11.12." % (it[0], len(nums)), 8.5)
+                    runs(par, "%s: las %d consultas medidas en A.12.12." % (it[0], len(nums)), 8.5)
                     for n in nums:
                         marcar_destino(par, ancla(n))
                 else:

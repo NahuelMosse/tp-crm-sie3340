@@ -1,20 +1,24 @@
 {
   "criterio": "A.12.1",
   "plataforma": "bitrix24",
-  "cumple": 1,
-  "costo": 2,
-  "resumen": "Emite la póliza al ganar la venta, pero sin el asegurado, que se vincula a mano cada vez.",
-  "comoLoHace": "Una regla de automatización de la etapa «Cerrado Ganado» del embudo —«Crear un elemento CRM» de tipo negociación— crea la póliza con el nombre y el importe de la venta como variables del documento. El campo «Contacto» de la regla solo ofrece elegir contactos concretos, no una variable. Al marcar ganada la venta desde su ficha, la regla crea la negociación con el importe de la venta, sin el asegurado: se vincula a mano en cada venta.",
-  "caracteristicas": "La regla corre sola al llegar la negociación a la etapa; toma el título y el importe de la venta con variables del documento, sin volver a escribirlos, y la póliza queda en el listado de negociaciones.",
-  "justificacion": "La póliza se emite sola con el nombre y el importe de la venta, pero el asegurado no pasa: la regla no admite una variable en el campo del cliente y se vincula a mano en cada venta. La vinculación al asegurado es trabajo permanente en cada venta, además de definir la regla; la edición gratuita admite cinco reglas en total.",
+  "cumple": 2,
+  "resumen": "Es un servicio en la nube que se opera desde el navegador: el fabricante sostiene servidores, copias y disponibilidad, y la compañía no instala ni respalda nada.",
+  "comoLoHace": "La edición evaluada es un servicio en la nube: se opera entera desde el navegador, sin ningún componente que la compañía instale, actualice o respalde.",
+  "caracteristicas": "El fabricante aloja los datos en su propia infraestructura —en Amazon Web Services— y sostiene los servidores, las copias y la disponibilidad.",
+  "justificacion": "La compañía no dispone ningún equipo propio para el sistema: solo necesita una conexión a internet y un navegador, que ya tiene para cualquier otra tarea.",
   "evidencia": [
-    "A-12-1-bitrix24-1-regla-de-emision.png",
-    "A-12-1-bitrix24-2-listado-con-la-poliza.png",
-    "A-12-1-bitrix24-3-poliza-emitida.png"
+    "A-12-1-bitrix24-2-portal-en-el-navegador.png"
   ],
-  "criterioNombre": "Emisión de la póliza al cerrar la venta",
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.com/security/",
+      "cita": "Bitrix24 uses Amazon Web Services to host your data in US (Virginia) or European Union (Frankfurt, Germany). You can purchase on premise editions of Bitrix24 to host it in your country or on your server. AWS also maintains the following certifications: HIPAA, GDPR, ISO 27001, SOC 1/2/3, Directive 95/46/EC and PCI DSS Level 1.",
+      "consultado": "2026-09-29",
+      "captura": "A-12-1-bitrix24-1-aws.png"
+    }
+  ],
+  "criterioNombre": "Recursos que la compañía debe disponer para sostenerlo",
   "licencia": null,
   "conPlan": [],
-  "documentacion": [],
-  "momento": "2026-11-08T16:58:21.391Z"
+  "momento": "2026-09-29T14:09:18.317Z"
 }

@@ -1,19 +1,13 @@
 # Resumen ejecutivo
 
-**Se recomienda EspoCRM**, en su versión gratuita instalada en un servidor propio. Tiene el mayor puntaje y es la única que, sin pagar nada, impide que un productor vea la cartera de otro. Twenty queda muy cerca y es la alternativa si esa restricción no es imprescindible. Bitrix24, en su plan gratuito, no es viable.
+Se compararon tres sistemas de gestión de clientes (CRM) para acompañar la relación con cada asegurado, desde el primer contacto hasta la venta, el cobro y la atención de reclamos: EspoCRM, Twenty y Bitrix24, cada uno en su versión gratuita.
 
-| Plataforma | Lo solicitado (85 %) | Lo agregado (15 %) | Resultado |
-|---|:---:|:---:|:---:|
-| **EspoCRM** Community | 87,5 % | 52,7 % | **82,3 %** |
-| **Twenty** autoalojado | 83,3 % | 71,4 % | **81,5 %** |
-| **Bitrix24** Free | 57,7 % | 48,2 % | **56,3 %** |
+**Se recomienda EspoCRM.** Es el que mejor resuelve lo solicitado y el único que, sin pagar, permite que cada vendedor vea solo sus propios clientes y pólizas. Así, la información comercial de cada uno queda fuera del alcance de los demás. Le faltan los avisos automáticos de pólizas por vencer y los informes con totales, que se agregan con una extensión paga del fabricante de US$ 395 por año, y sus manuales están solo en inglés.
 
-**EspoCRM** es la que mejor cubre lo solicitado. Además de restringir la cartera por productor, gestiona los reclamos como casos con número propio y arma campañas de correo con su medición. Le faltan los avisos automáticos de vencimiento y los informes con totales, que se resuelven con una extensión del fabricante, el Advanced Pack, de US$ 395 por año. Su documentación está solo en inglés.
+Twenty queda muy cerca y es la alternativa si no hace falta separar la información entre vendedores. Trae sin costo esos avisos automáticos, informes que se repiten cada mes con solo cambiar las fechas, manuales en español y un asistente de inteligencia artificial. En cambio, todos los usuarios ven todos los clientes, salvo que se pague un plan de US$ 39 por usuario por mes; no envía campañas de correo propias, y cada reclamo se numera a mano.
 
-**Twenty** trae sin costo lo que a EspoCRM le falta: avisos de vencimiento, informes que se reutilizan cambiando el período, documentación en español y un asistente de inteligencia artificial. En cambio, todos los usuarios ven toda la cartera, salvo que se contrate el plan Organization, de US$ 39 por usuario por mes. Tampoco trae campañas de correo propias, y el número de cada reclamo se asigna a mano.
+Bitrix24 no es viable en su versión gratuita, aunque es el único que no exige instalar nada ni tener personal técnico, y el único con aplicación para el celular. No permite registrar la póliza como tal ni limitar qué ve cada vendedor, no deja exportar los datos, y deja de buscar cuando se superan las mil ventas registradas. Además, el fabricante puede cerrar la cuenta, con todos los datos, si nadie la usa durante cincuenta días. Con su plan de US$ 289 por mes quedaría a la par de los otros dos.
 
-**Bitrix24** no exige servidor ni personal técnico y es la única con aplicación móvil oficial. Su plan gratuito, en cambio, deja afuera lo esencial: la póliza no puede tener entidad propia, la cartera no se restringe por productor ni se exporta, y la búsqueda se bloquea al pasar las mil negociaciones. Además, el fabricante puede dar de baja la cuenta, con sus datos, tras cincuenta días sin uso. Con el plan Professional, de US$ 289 por mes, llegaría a un puntaje parecido al de las otras dos.
+EspoCRM y Twenty se instalan en un servidor propio: hace falta alguien con conocimientos técnicos que los instale, los mantenga y haga las copias de resguardo. Sin esa persona, la opción es contratar la versión en la nube de EspoCRM o de Twenty, o un plan pago de Bitrix24.
 
-Con EspoCRM o con Twenty hace falta alguien que instale y mantenga el servidor y haga las copias de resguardo. Si no se cuenta con esa persona, quedan las versiones en la nube, todas pagas. Ninguna versión gratuita publica en redes sociales desde el sistema ni se compromete a corregir cada versión por un plazo determinado.
-
-Cada valor sale de operar los tres sistemas con una cartera de prueba. Para los compromisos del fabricante, sale de su documentación oficial, citada textual. La metodología está en la sección 3.
+Ninguno de los tres, en su versión gratuita, publica en redes sociales desde el sistema ni garantiza por cuánto tiempo corrige los errores de cada versión.

@@ -1,32 +1,19 @@
 {
   "criterio": "A.11.5",
   "plataforma": "twenty",
-  "cumple": 1,
-  "resumen": "Sin instrucción previa, los productores completan 14 de 15 tareas diarias: cada tarea la resuelve alguno, pero no todos las resuelven todas.",
-  "comoLoHace": "Sin instrucción previa, quien no conoce la plataforma opera la pantalla, como lo haría una persona, para resolver las cinco operaciones que un productor repite a diario —dar de alta un asegurado, cargarle una póliza, averiguar qué pólizas de su cartera vencen en los próximos 30 días, registrar un reclamo y agendar un llamado—.",
-  "caracteristicas": "Completaron 14 de las quince, según lo que quedó guardado en el sistema. La tarea 3 quedó sin completar para el agente 1 (respondió 18; la respuesta correcta es 3), que no supo decir qué le faltó.",
-  "justificacion": "Cada tarea la completa al menos uno de cada tres productores, aunque no todos completan todas: el sistema se deja aprender, con un tropiezo que la compañía asume en cada incorporación.",
+  "cumple": 2,
+  "costo": 1,
+  "resumen": "La encuesta es un objeto propio, con puntaje, comentario y vínculos al asegurado y al reclamo; no trae encuestas incorporadas ni envío automático al cerrar el reclamo.",
+  "comoLoHace": "La encuesta es un objeto propio con puntaje, comentario y vínculos al asegurado y al reclamo. Al cerrar el reclamo desde su ficha, la respuesta que el asegurado dio por teléfono se registra desde su ficha como una encuesta nueva, ligada al reclamo, y queda listada en la ficha del asegurado.",
+  "caracteristicas": "Objeto propio con campo de lista para el puntaje, texto para el comentario y relaciones con persona y reclamo; la ficha del asegurado lista sus encuestas.",
+  "justificacion": "Cada respuesta se registra una vez y queda en la ficha del asegurado. No hay encuestas incorporadas ni envío automático al cerrar el reclamo; el objeto y sus campos se configuran una sola vez.",
   "evidencia": [
-    "A-11-5-twenty-p1-t1.png",
-    "A-11-5-twenty-p1-t2.png",
-    "A-11-5-twenty-p1-t3.png",
-    "A-11-5-twenty-p1-t4.png",
-    "A-11-5-twenty-p1-t5.png",
-    "A-11-5-twenty-p2-t1.png",
-    "A-11-5-twenty-p2-t2.png",
-    "A-11-5-twenty-p2-t3.png",
-    "A-11-5-twenty-p2-t4.png",
-    "A-11-5-twenty-p2-t5.png",
-    "A-11-5-twenty-p3-t1.png",
-    "A-11-5-twenty-p3-t2.png",
-    "A-11-5-twenty-p3-t3.png",
-    "A-11-5-twenty-p3-t4.png",
-    "A-11-5-twenty-p3-t5.png"
+    "A-11-5-twenty-1-encuesta-registrada.png",
+    "A-11-5-twenty-2-encuesta-en-la-ficha-del-asegurado.png"
   ],
-  "medicion": "14 de 15 tareas completadas",
-  "criterioNombre": "Aprendizaje sin capacitación previa",
+  "criterioNombre": "Satisfacción después de la atención",
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-09-28T08:21:04.210Z"
+  "momento": "2026-10-30T03:30:39.022Z"
 }

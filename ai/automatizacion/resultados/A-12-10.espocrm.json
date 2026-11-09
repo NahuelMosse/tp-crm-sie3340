@@ -1,0 +1,24 @@
+{
+  "criterio": "A.12.10",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "resumen": "La interfaz está en español, pero la documentación oficial solo se publica en inglés y se consulta con traducción automática, que puede confundir la terminología técnica.",
+  "comoLoHace": "Quien la consulte lo hace en inglés o con traducción automática del navegador, que es un procedimiento que se repite en cada consulta y que en la terminología técnica puede inducir a error.",
+  "caracteristicas": "La interfaz del sistema está en español, pero la documentación oficial está publicada solo en inglés: el sitio de documentación no ofrece selector de idioma ni versión en español.",
+  "justificacion": "La documentación oficial está solo en inglés: se consulta con traducción automática, un paso que se repite en cada consulta y que puede confundir la terminología técnica.",
+  "evidencia": [
+    "A-12-10-espocrm-2-portada-de-la-documentacion.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://docs.espocrm.com/administration/upgrading/",
+      "cita": "It's recommended to upgrade whenever the new version is out. If you skip a few minor or major versions before deciding to upgrade, it's more likely that the upgrade will run unsmoothly. For minor or major releases it may be reasonable to wait for a few days before upgrading, as a very fresh release is likely to have yet undiscovered bugs.",
+      "consultado": "2026-10-30",
+      "captura": "A-12-10-espocrm-1-documentacion-en-ingles.png"
+    }
+  ],
+  "criterioNombre": "Documentación en español",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-10-30T05:31:01.394Z"
+}

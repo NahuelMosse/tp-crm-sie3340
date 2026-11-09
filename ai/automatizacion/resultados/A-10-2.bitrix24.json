@@ -3,7 +3,7 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 1,
-  "resumen": "Arma sin programar el total de primas por productor en un período y lo exporta a Excel. La suma va sobre el importe nativo de la negociación.",
+  "resumen": "Arma sin programar el total de primas por productor en un período y lo exporta a Excel. La suma va sobre el importe propio de cada venta, que es donde queda la prima.",
   "comoLoHace": "El asistente de informes del CRM, incluido en la edición gratuita, arma sin programar el total de primas por productor en un período: se agrupa por la persona responsable, se suma el importe de la negociación y se elige el rango de fechas por la fecha de inicio de la póliza. El menú del informe lo exporta a un archivo de Microsoft Excel con esos totales.",
   "caracteristicas": "La suma se hace sobre el importe nativo de la negociación, no sobre un campo propio de tipo dinero.",
   "justificacion": "Armar el informe es configuración: se elige una vez y se vuelve a abrir cuando se lo necesita.",

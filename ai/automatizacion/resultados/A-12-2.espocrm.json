@@ -2,19 +2,27 @@
   "criterio": "A.12.2",
   "plataforma": "espocrm",
   "cumple": 2,
-  "costo": 1,
-  "resumen": "Permite registrar las cuotas de la póliza con importe, vencimiento y estado, y su forma de pago, y lista las impagas; no calcula el cronograma.",
-  "comoLoHace": "El producto no trae cuotas: se crea la entidad Cuota con el Administrador de Entidades, con importe, vencimiento y estado (pendiente o pagada) y una relación de muchas cuotas a una póliza, y se agrega a la póliza un campo de lista «Forma de pago». Desde la ficha de la póliza se elige la forma de pago y su panel de cuotas da de alta cada cuota con su vencimiento y su estado. El listado de cuotas, filtrado por estado pendiente, devuelve las impagas junto a su póliza.",
-  "caracteristicas": "Cada cuota es un registro con importe y moneda, vencimiento y estado, de modo que se filtra, se ordena por vencimiento y se llega desde ella a la póliza. La forma de pago es una lista de valores fijos. Las cuotas se cargan una por una o llegan del sistema central por la interfaz de programación: el producto no arma el cronograma a partir de la prima y la cantidad de cuotas, ni cambia solo el estado de una cuota vencida.",
-  "justificacion": "Se resuelve configurando una vez, sin programar: la entidad, tres campos, la relación y su ubicación en las pantallas. Cada póliza nueva usa el mismo modelo, sin trabajo extra por póliza.",
-  "evidencia": [
-    "A-12-2-espocrm-1-poliza-con-forma-de-pago-y-cuotas.png",
-    "A-12-2-espocrm-2-cuotas-impagas.png"
+  "resumen": "Funciona con los tres servidores web más difundidos y con tres motores de base de datos, y el fabricante publica guías de instalación para Windows, macOS y Linux.",
+  "comoLoHace": "Corre sobre los tres servidores web más difundidos —NGINX, Apache e IIS— y sobre los tres motores de base de datos libres más usados —MySQL, MariaDB y PostgreSQL—, y el fabricante publica guías de instalación para Windows, macOS y Linux.",
+  "caracteristicas": "Cualquiera sea la plataforma que la compañía ya administra, alguna de esas combinaciones es la suya.",
+  "justificacion": "No la obliga a incorporar una tecnología nueva para sostenerlo.",
+  "documentacion": [
+    {
+      "url": "https://www.espocrm.com/download/",
+      "cita": "Database: MySQL 8.0+, MariaDB 10.3+, or PostgreSQL 15.0+.",
+      "consultado": "2026-10-30",
+      "captura": "A-12-2-espocrm-1-bases.png"
+    },
+    {
+      "url": "https://www.espocrm.com/download/",
+      "cita": "Install on Windows",
+      "consultado": "2026-10-30",
+      "captura": "A-12-2-espocrm-2-sistemas.png"
+    }
   ],
-  "medicion": "Cuotas impagas devueltas: Cuota 3 de 3, Cuota 2 de 3",
-  "criterioNombre": "Plan de pago de la prima",
+  "criterioNombre": "Compatibilidad con la plataforma que la compañía usa",
   "licencia": null,
   "conPlan": [],
-  "documentacion": [],
-  "momento": "2026-10-30T05:48:50.365Z"
+  "evidencia": [],
+  "momento": "2026-10-30T05:28:23.474Z"
 }

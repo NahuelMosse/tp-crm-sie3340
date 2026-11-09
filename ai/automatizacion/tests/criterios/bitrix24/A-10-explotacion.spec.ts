@@ -242,7 +242,7 @@ test('A.10.2 — Generación de informes definidos por el usuario', async ({ pag
     plataforma,
     cumple: 2,
     costo: 1,
-    resumen: 'Arma sin programar el total de primas por productor en un período y lo exporta a Excel. La suma va sobre el importe nativo de la negociación.',
+    resumen: 'Arma sin programar el total de primas por productor en un período y lo exporta a Excel. La suma va sobre el importe propio de cada venta, que es donde queda la prima.',
     comoLoHace:
       'El asistente de informes del CRM, incluido en la edición gratuita, arma sin programar el ' +
       'total de primas por productor en un período: se agrupa por la persona responsable, se suma ' +

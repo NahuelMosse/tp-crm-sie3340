@@ -1,19 +1,25 @@
 {
   "criterio": "B.1.4",
   "plataforma": "twenty",
-  "cumple": 2,
-  "resumen": "Con veinticinco mil registros, la búsqueda por texto y el filtro por ramo responden sin espera perceptible.",
-  "comoLoHace": "Las operaciones de todos los días —buscar un asegurado por texto desde la búsqueda general y filtrar las pólizas por ramo— se hacen sobre una cartera de veinticinco mil registros: cinco mil asegurados, doce mil quinientas pólizas y siete mil quinientos reclamos.",
-  "caracteristicas": "Buscar un asegurado entre cinco mil respondió en un cuarto de segundo o menos las tres veces, y filtrar las doce mil quinientas pólizas por ramo, en menos de dos décimas: no hay espera que el usuario perciba.",
-  "justificacion": "Con la cartera de referencia cargada, el sistema responde como con una cartera chica.",
+  "cumple": 1,
+  "costo": 2,
+  "resumen": "La videollamada se integra creando reuniones en el calendario conectado de Google o Microsoft, con su enlace; no hay telefonía: las llamadas ocurren afuera y se registran a mano.",
+  "comoLoHace": "La videollamada está integrada a medias: desde la ficha de un asegurado se crea una reunión en el calendario conectado de Google o Microsoft, con el enlace de videollamada de ese servicio, y la reunión queda en la línea de tiempo del registro.",
+  "caracteristicas": "La telefonía no está.",
+  "justificacion": "El número de una ficha no se marca desde el sistema, las llamadas ocurren afuera y se registran a mano, o hay que desarrollar la conexión con la central telefónica sobre la interfaz de programación.",
   "evidencia": [
-    "B-1-4-twenty-1-busqueda-por-texto.png",
-    "B-1-4-twenty-2-filtrado-por-ramo.png"
+    "B-1-4-twenty-1-acciones-de-la-ficha.png"
   ],
-  "medicion": "texto 0.12 / 0.17 / 0.25 s · filtro 0.04 / 0.03 / 0.04 s · carga 0 min",
-  "criterioNombre": "Búsqueda y operación con volumen productivo",
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/user-guide/calendar-emails/how-tos/can-i-book-meetings-from-twenty",
+      "cita": "Toggle Invitations to email guests, and Video call to add a meeting link",
+      "consultado": "2026-10-30",
+      "captura": "B-1-4-twenty-2-reunion-con-videollamada.png"
+    }
+  ],
+  "criterioNombre": "Telefonía y videollamada integradas",
   "licencia": null,
   "conPlan": [],
-  "documentacion": [],
-  "momento": "2026-10-30T08:21:51.883Z"
+  "momento": "2026-10-30T08:26:15.913Z"
 }

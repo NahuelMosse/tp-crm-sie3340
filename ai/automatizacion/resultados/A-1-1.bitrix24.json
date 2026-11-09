@@ -2,7 +2,7 @@
   "criterio": "A.1.1",
   "plataforma": "bitrix24",
   "cumple": 0,
-  "resumen": "La edición gratuita no crea entidades propias: la póliza queda como una negociación. Las entidades, llamadas procesos inteligentes, exigen el plan Professional.",
+  "resumen": "La edición gratuita no crea entidades propias: la póliza queda registrada como si fuera una venta. Las entidades, llamadas procesos inteligentes, exigen el plan Professional.",
   "comoLoHace": "La edición gratuita no crea entidades propias: al guardar, avisa que los procesos inteligentes requieren el plan Professional o el Enterprise.",
   "caracteristicas": "Las entidades propias de Bitrix24 son los procesos inteligentes, que se crean desde la barra del CRM sin programar: nombre, etapas, embudos y reglas de automatización.",
   "justificacion": "Sin ellos la póliza no tiene identidad propia: habría que forzarla dentro de otra entidad del producto.",

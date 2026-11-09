@@ -79,7 +79,7 @@ test('A.1.1 — Modelado de la póliza como objeto propio', async ({ page, brows
     criterio: 'A.1.1',
     plataforma,
     cumple: 0,
-    resumen: 'La edición gratuita no crea entidades propias: la póliza queda como una negociación. Las entidades, llamadas procesos inteligentes, exigen el plan Professional.',
+    resumen: 'La edición gratuita no crea entidades propias: la póliza queda registrada como si fuera una venta. Las entidades, llamadas procesos inteligentes, exigen el plan Professional.',
     comoLoHace:
       'La edición gratuita no crea entidades propias: al guardar, avisa que los procesos ' +
       'inteligentes requieren el plan Professional o el Enterprise.',

@@ -3,7 +3,7 @@ import { PERSONAS, Persona, Informe, Resultado, enDias, correoBitrix } from '../
 import { rest, camposDeNegociacion } from './ui';
 
 /**
- * La prueba de aprendizaje sin capacitación previa (A.11.5), sobre Bitrix24.
+ * La prueba de aprendizaje sin capacitación previa (A.12.5), sobre Bitrix24.
  *
  * Los mismos tres productores y las mismas cinco tareas que en las demás
  * plataformas. Cada productor es un usuario del portal. La edición gratuita no

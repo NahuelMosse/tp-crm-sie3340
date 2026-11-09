@@ -1,44 +1,22 @@
 {
   "criterio": "B.2.1",
   "plataforma": "espocrm",
-  "cumple": 0,
-  "resumen": "No incluye asistente de inteligencia artificial: el fabricante lo vende como extensión aparte.",
-  "comoLoHace": "La edición gratuita no incluye un asistente de inteligencia artificial: la administración no ofrece ninguna función de ese tipo y el fabricante la vende como extensión aparte.",
-  "justificacion": "Con ella el sistema resume registros, redacta correos y clasifica o extrae datos con fórmulas, usando el proveedor de inteligencia artificial que la compañía elija y contrate.",
-  "evidencia": [
-    "B-2-1-espocrm-1-administracion.png"
-  ],
+  "cumple": 2,
+  "resumen": "En la instalación propia los datos quedan en el servidor de la compañía; ningún plazo de inactividad los afecta, porque no hay servicio de por medio.",
+  "comoLoHace": "En la instalación propia los datos quedan en el servidor de la compañía y no dependen de ninguna cuenta del fabricante.",
+  "caracteristicas": "No hay condición de servicio que los afecte por falta de uso, porque no hay servicio de por medio.",
+  "justificacion": "Una póliza puede quedar años sin que nadie la abra y sigue ahí mientras el equipo donde corre el sistema se mantenga.",
   "documentacion": [
     {
-      "url": "https://www.espocrm.com/extensions/intelligence/",
-      "cita": "Summary",
+      "url": "https://www.espocrm.com/self-hosted-vs-cloud-crm/",
+      "cita": "Self-hosted (on-premise) — You install the software and have all the data stored on your own server. All the server maintenance, as well as data security, will be your responsibility.",
       "consultado": "2026-10-30",
-      "captura": "B-2-1-espocrm-2-intelligence.png"
-    },
-    {
-      "url": "https://www.espocrm.com/extensions/intelligence/",
-      "cita": "$129.00 1 Year License + Upgrades",
-      "consultado": "2026-10-30",
-      "captura": "B-2-1-espocrm-precio-1.png"
-    },
-    {
-      "url": "https://www.espocrm.com/extension-license-agreement/",
-      "cita": "1.1 Subject to your continuous compliance with the Agreement and payment of the applicable license fees, EspoCRM grants you a non-exclusive, non-transferable, worldwide, limited right to use the Software on a single EspoCRM Application instance on a single server for the Licensed Period. After the license period expires, you must renew or purchase a new license to continue using the Software. You may use or modify the Software only for your own internal business purposes or for non-commercial or personal use.",
-      "consultado": "2026-10-30",
-      "captura": "B-2-1-espocrm-precio-2.png"
+      "captura": "B-2-1-espocrm-1-datos-propios.png"
     }
   ],
-  "conPlan": [
-    {
-      "plan": "Intelligence",
-      "monto": "US$ 129 por año y por instalación",
-      "modalidad": "recurrente",
-      "cumple": 2,
-      "costo": 1,
-      "justificacion": "La extensión agrega el resumen de registros y la redacción asistida. Requiere configurar la cuenta de un proveedor de inteligencia artificial, que se contrata y se paga aparte."
-    }
-  ],
-  "criterioNombre": "Asistente de inteligencia artificial",
+  "criterioNombre": "Persistencia de los datos sin uso continuo",
   "licencia": null,
-  "momento": "2026-10-30T06:12:53.230Z"
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-10-30T05:56:03.594Z"
 }

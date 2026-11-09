@@ -3,7 +3,7 @@ import { menuLateral, panel, panelListo } from './navegar';
 import { altaDeNegociacion, guardarFormulario, negociaciones, borrarNegociaciones } from './ui';
 
 /**
- * Ayudantes propios de A.11, B.1 y B.2 sobre Bitrix24.
+ * Ayudantes propios de A.12, B.2 y B.1 sobre Bitrix24.
  *
  * Todo dato que estas pruebas crean en el portal lleva este prefijo, y se
  * borra al terminar cada test: el portal es compartido con otras pruebas.

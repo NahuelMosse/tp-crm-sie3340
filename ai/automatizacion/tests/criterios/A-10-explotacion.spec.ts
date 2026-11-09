@@ -152,7 +152,7 @@ test('A.10.5 — Intercambio sin límite de volumen que condicione la operación
       await Promise.all(ids.slice(i, i + 20).map(id => api.delete(`Case/${id}`)));
     }
     // Borrar por la interfaz solo marca el registro: quedan en la tabla y, corrida tras
-    // corrida, vuelven más lenta cualquier búsqueda sobre reclamos, incluida la de B.1.4
+    // corrida, vuelven más lenta cualquier búsqueda sobre reclamos, incluida la de B.2.4
     execFileSync('docker', ['exec', 'tp-espocrm-db', 'mariadb', '-uespocrm', '-pespocrm', 'espocrm', '-e',
       "DELETE FROM `case` WHERE deleted = 1 AND name LIKE 'VOL-intercambio-%'"]);
   }

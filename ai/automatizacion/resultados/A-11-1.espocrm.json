@@ -1,26 +1,36 @@
 {
   "criterio": "A.11.1",
   "plataforma": "espocrm",
-  "cumple": 1,
-  "resumen": "No exige servidor dedicado: corre en un equipo de escritorio con imagen de contenedores, pero la compañía debe mantenerlo encendido, respaldado y actualizado. La nube del fabricante evita esa carga.",
-  "comoLoHace": "No exige un servidor dedicado: corre en un equipo de escritorio común, con la imagen oficial de contenedores, con un consumo de memoria que ese equipo sostiene aun con una cartera cargada.",
-  "caracteristicas": "La edición gratuita se instala en infraestructura de la compañía: pide un servidor web, PHP y una base de datos.",
-  "justificacion": "La condición se satisface con una limitación que la compañía asume de forma permanente: alguien tiene que mantener ese equipo encendido, respaldado y actualizado. El servicio en la nube del fabricante elimina esa carga.",
+  "cumple": 2,
+  "costo": 2,
+  "resumen": "No emite la póliza al ganar una oportunidad: un guion breve escrito en el sistema la crea con los datos negociados, ligada al asegurado y a la oportunidad.",
+  "comoLoHace": "Ganar la oportunidad no emite nada por sí solo: el producto trae la conversión del solicitante en asegurado y oportunidad, y de ahí en adelante la póliza se carga aparte. La emisión se resuelve con un guion en la fórmula de la entidad Oportunidad (Administración › Entidades › Oportunidad › Fórmula) que, cuando la etapa pasa a «Cerrada ganada», crea la póliza con el nombre, el importe como prima, la fecha de cierre como inicio de vigencia y el responsable de la oportunidad, y la liga al asegurado y a la oportunidad de origen. Al marcar ganada la oportunidad desde la ficha, la póliza aparece sola en el panel de pólizas de la oportunidad y en la ficha del asegurado.",
+  "caracteristicas": "La póliza nace vinculada al asegurado y a la oportunidad que la originó, con la prima tomada del importe negociado y sin volver a escribir ningún dato. El guion corre solo cuando la etapa cambia a ganada: guardar otra vez la oportunidad no emite una segunda póliza. Necesita definir antes la relación entre póliza y oportunidad y ubicarla en las pantallas. El ramo y el número definitivo no figuran en la oportunidad: la póliza nace con el ramo que la lista propone por defecto y con el nombre de la venta como número, hasta que se completen o los traiga el sistema central.",
+  "justificacion": "La necesidad queda resuelta desde el sistema, sin reescribir lo negociado. El costo es 2 porque exige escribir un guion con funciones del sistema —crear un registro, buscar el asegurado relacionado— que alguien tiene que mantener cuando cambie el modelo de la póliza; sin él, marcar ganada una oportunidad no deja ninguna póliza.",
   "evidencia": [
-    "A-11-1-espocrm-3-requisitos-del-sistema.png"
+    "A-11-1-espocrm-1-guion.png",
+    "A-11-1-espocrm-2-oportunidad-con-su-poliza.png",
+    "A-11-1-espocrm-3-poliza-emitida.png",
+    "A-11-1-espocrm-4-ficha-del-asegurado.png"
   ],
   "documentacion": [
     {
-      "url": "https://www.espocrm.com/download/",
-      "cita": "Web server: NGINX, Apache, or IIS;",
+      "url": "https://docs.espocrm.com/administration/workflows/",
+      "cita": "The system will create a new record of any entity type. If there is a relationship between the target entity type and the entity type of records being created, it's possible to relate them.",
       "consultado": "2026-10-30",
-      "captura": "A-11-1-espocrm-1-requisitos.png"
+      "captura": "A-11-1-espocrm-5-flujos-crear-registro.png"
     },
     {
-      "url": "https://www.espocrm.com/download/",
-      "cita": "Get EspoCRM running in minutes. The official Docker image sets up EspoCRM, NGINX, and MySQL automatically. No manual server configuration required.",
+      "url": "https://www.espocrm.com/extensions/advanced-pack/",
+      "cita": "$395.00 1 Year License + Upgrades",
       "consultado": "2026-10-30",
-      "captura": "A-11-1-espocrm-2-docker.png"
+      "captura": "A-11-1-espocrm-precio-1.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extension-license-agreement/",
+      "cita": "1.1 Subject to your continuous compliance with the Agreement and payment of the applicable license fees, EspoCRM grants you a non-exclusive, non-transferable, worldwide, limited right to use the Software on a single EspoCRM Application instance on a single server for the Licensed Period. After the license period expires, you must renew or purchase a new license to continue using the Software. You may use or modify the Software only for your own internal business purposes or for non-commercial or personal use.",
+      "consultado": "2026-10-30",
+      "captura": "A-11-1-espocrm-precio-2.png"
     },
     {
       "url": "https://www.espocrm.com/cloud/",
@@ -29,17 +39,26 @@
       "captura": "A-11-1-espocrm-nube-precio-1.png"
     }
   ],
-  "medicion": "471 MB de memoria entre la aplicación y su base de datos",
+  "medicion": "Póliza POL-Seguro de hogar — Sandoval con prima 132500 ARS, titular y oportunidad de origen",
   "conPlan": [
+    {
+      "plan": "Advanced Pack",
+      "monto": "US$ 395 por año y por instalación",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "costo": 1,
+      "justificacion": "Los flujos de trabajo de la extensión incluyen la acción «Crear registro» de cualquier entidad al cambiar un campo, de modo que la misma regla se arma desde pantallas, sin escribir el guion."
+    },
     {
       "plan": "EspoCRM Cloud Basic",
       "monto": "US$ 15 por usuario por mes, mínimo 3 usuarios",
       "modalidad": "recurrente",
       "cumple": 2,
-      "justificacion": "En la nube del fabricante la compañía no dispone ninguna infraestructura propia."
+      "costo": 1,
+      "justificacion": "El servicio en la nube trae las extensiones del fabricante, con los mismos flujos de trabajo."
     }
   ],
-  "criterioNombre": "Recursos que la compañía debe disponer para sostenerlo",
+  "criterioNombre": "Emisión de la póliza al cerrar la venta",
   "licencia": null,
-  "momento": "2026-10-30T05:28:06.812Z"
+  "momento": "2026-10-30T05:44:52.320Z"
 }

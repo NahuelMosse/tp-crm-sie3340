@@ -1,0 +1,33 @@
+{
+  "criterio": "A.12.13",
+  "plataforma": "twenty",
+  "cumple": 0,
+  "resumen": "Ningún nivel de soporte compromete un plazo de respuesta: la edición gratuita se apoya en la comunidad y Organization suma soporte prioritario, sin declarar tiempos.",
+  "comoLoHace": "La oferta de soporte del fabricante tiene tres niveles y ninguno compromete un plazo: la edición gratuita se apoya en la comunidad, en su servidor de chat; el plan Organization en la nube agrega soporte prioritario, y en la instalación propia, soporte del equipo del fabricante, sin que ninguno declare en cuánto tiempo responde.",
+  "justificacion": "La condición que la compañía necesita —saber en cuánto tiempo le van a responder cuando el sistema falle— no la ofrece ninguna modalidad publicada.",
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/user-guide/billing/capabilities/pricing-plans",
+      "cita": "Community support via Discord",
+      "consultado": "2026-10-30",
+      "captura": "A-12-13-twenty-1-soporte-gratuito.png"
+    },
+    {
+      "url": "https://docs.twenty.com/user-guide/billing/capabilities/pricing-plans",
+      "cita": "Priority support",
+      "consultado": "2026-10-30",
+      "captura": "A-12-13-twenty-2-soporte-prioritario.png"
+    },
+    {
+      "url": "https://docs.twenty.com/user-guide/billing/capabilities/pricing-plans",
+      "cita": "Twenty team support",
+      "consultado": "2026-10-30",
+      "captura": "A-12-13-twenty-3-soporte-del-equipo.png"
+    }
+  ],
+  "criterioNombre": "Soporte técnico con compromiso de respuesta",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-10-30T08:11:49.661Z"
+}

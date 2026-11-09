@@ -384,7 +384,7 @@ test('A.4.4 — Captación de interesados desde redes sociales', async ({ page }
     plataforma,
     cumple: 2,
     costo: 1,
-    resumen: 'Conecta el bot de Telegram y crea solo un contacto y una negociación por cada interesado, con su origen y la conversación; cobertura y urgencia se completan a mano.',
+    resumen: 'Conecta el bot de Telegram y crea solo un contacto y una venta en curso por cada interesado, con su origen y la conversación; cobertura y urgencia se completan a mano.',
     comoLoHace:
       'En Clientes › Contact center se conecta una vez el bot de Telegram de la compañía al canal ' +
       'abierto, pegando su clave de acceso, sin planes de pago. Cuando un interesado le escribe al ' +
@@ -582,7 +582,7 @@ test('A.4.7 — Registro de la competencia y del motivo de pérdida', async ({ p
     plataforma,
     cumple: 2,
     costo: 1,
-    resumen: 'Registra el motivo de pérdida como lista y el competidor como texto en campos propios de la negociación; el cierre de fábrica solo pregunta el resultado.',
+    resumen: 'Registra el motivo de pérdida como lista y el competidor como texto en campos propios de la venta; el cierre de fábrica solo pregunta el resultado.',
     comoLoHace:
       'Se agregan dos campos propios a la negociación, el motivo, como lista, y el competidor, como ' +
       'texto; al marcar una oportunidad como perdida se registran el motivo y el competidor desde ' +

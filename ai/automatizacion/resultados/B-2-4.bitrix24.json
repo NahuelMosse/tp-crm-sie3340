@@ -1,47 +1,22 @@
 {
   "criterio": "B.2.4",
   "plataforma": "bitrix24",
-  "cumple": 1,
-  "costo": 2,
-  "resumen": "Incluye videollamada, pero no telefonía: la línea propia y la numeración son de los planes pagos, o se conecta una central externa por desarrollo.",
-  "comoLoHace": "Desde la ficha de una negociación se inicia una reunión con video, sin salir del sistema.",
-  "caracteristicas": "La videollamada está integrada de fábrica.",
-  "justificacion": "La telefonía no: el fabricante reserva la línea propia y la numeración de Bitrix24 Telephony a los planes pagos, así que en la edición gratuita llamar desde el sistema requiere contratar ese módulo o desarrollar la conexión con una central externa por la interfaz de programación.",
+  "cumple": 0,
+  "resumen": "Con más de mil ventas registradas, que en el plan gratuito incluyen las pólizas y los reclamos, deja de buscar por texto y de filtrar por campo; solo quedan los filtros predeterminados.",
+  "comoLoHace": "Se cargó la cartera de referencia —cinco mil asegurados, doce mil quinientas pólizas y siete mil quinientos reclamos, veinticinco mil registros— y con ella se repitieron las operaciones de todos los días: buscar un asegurado por texto y filtrar las pólizas por ramo.",
+  "caracteristicas": "Con la cartera cargada, buscar un asegurado por texto respondió en 0,77, 0,76 y 0,62 segundos. En el listado de negociaciones, donde la edición gratuita lleva las pólizas y los reclamos, mostró el aviso «Alcanzó el límite de búsqueda de negociaciones (1000)» 36 minutos después de empezar a cargar las negociaciones, con las mil superadas desde los primeros minutos: la búsqueda por texto dejó de filtrar y el aviso tapa los campos del filtro, de modo que solo quedan los filtros predeterminados, como las negociaciones en progreso o las cerradas.",
+  "justificacion": "Con más de mil registros, la edición gratuita deja de buscar por texto y de filtrar por campo en el listado; solo quedan los filtros predeterminados, que no ubican una póliza ni un asegurado puntual. La compañía, con unas setecientas cincuenta pólizas por año y los reclamos de cinco años, supera ese número en las negociaciones, y lo superaría en los asegurados al crecer: la operación diaria sobre la cartera se vuelve impracticable.",
   "evidencia": [
-    "B-2-4-bitrix24-1-acciones-de-la-negociacion.png"
+    "B-2-4-bitrix24-limite-negociaciones.png",
+    "B-2-4-bitrix24-3-busqueda-por-texto-de-una-poliza.png",
+    "B-2-4-bitrix24-4-filtro-por-campo-tapado-por-el-aviso.png",
+    "B-2-4-bitrix24-5-filtro-predeterminado-negociaciones-en-progreso.png",
+    "B-2-4-bitrix24-1-busqueda-por-texto.png"
   ],
-  "documentacion": [
-    {
-      "url": "https://www.bitrix24.es/prices/",
-      "cita": "¡Sí, lo es! El plan Free es un estado de cuenta predeterminado, en el que se puede agregar un número ilimitado de usuarios y disfrutar de las herramientas disponibles de forma totalmente gratuita durante el tiempo ilimitado. Tenga en cuenta que algunas herramientas como Telefonía y aplicaciones de Bitrix24 Market están disponibles solo en los planes pagos.",
-      "consultado": "2026-11-08",
-      "captura": "B-2-4-bitrix24-2-telefonia-solo-planes-pagos.png"
-    },
-    {
-      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
-      "cita": "Bitrix24 cuenta con telefonía incorporada que no necesita configuración ni integración",
-      "consultado": "2026-11-08",
-      "captura": "B-2-4-bitrix24-3-telefonia-por-plan.png"
-    },
-    {
-      "url": "https://www.bitrix24.es/prices/",
-      "cita": "Basic desde US$ 69 desde US$ 49 incluye 5 usuarios Empezar Empezar",
-      "consultado": "2026-11-08",
-      "captura": "B-2-4-bitrix24-basic-precio-1.png"
-    }
-  ],
-  "conPlan": [
-    {
-      "plan": "Bitrix24 Basic",
-      "monto": "US$ 69 por mes, hasta 5 usuarios",
-      "modalidad": "recurrente",
-      "cumple": 2,
-      "costo": 1,
-      "justificacion": "Desde el plan Basic, el primero que incluye la telefonía integrada, se llama desde la ficha del cliente y se puede conectar una central propia por el conector SIP, sin desarrollo. Requiere dar de alta la línea o la central una vez."
-    }
-  ],
-  "medicion": "Videollamada en la ficha: no detectada · acción de llamar: no",
-  "criterioNombre": "Telefonía y videollamada integradas",
+  "medicion": "texto 0.77 / 0.76 / 0.62 s (VOL-00777 sí, VOL-04321 sí, VOL-02468 sí) · filtro sin medir · carga {\"contactos\":5000,\"polizas\":12500,\"reclamos\":7500} en 39 min · bloqueo a los 36 min de empezar la carga de negociaciones · aviso del sistema (negociaciones): Alcanzó el límite de búsqueda de negociaciones (1000). Nos esforzamos por mejorar la calidad y el rendimiento del servicio para adaptarnos a la escala de su empresa. La cantidad de datos aumenta a medida que su empresa crece: cada día se crean nuevas tareas, negociaciones y otras entidades.",
+  "criterioNombre": "Búsqueda y operación con volumen productivo",
   "licencia": null,
-  "momento": "2026-11-09T00:35:58.433Z"
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-11-09T01:31:53.835Z"
 }

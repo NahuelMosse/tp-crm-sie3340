@@ -1,0 +1,18 @@
+{
+  "criterio": "B.2.7",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "resumen": "Con la instalación propia, si se corta la salida a internet el sistema sigue operando; solo deja de funcionar el correo.",
+  "comoLoHace": "Con la salida a internet cortada, el sistema sigue operando desde la red propia: se ingresa, se busca un asegurado y se registra un reclamo, que es la atención de todos los días.",
+  "caracteristicas": "La instalación propia no necesita nada de afuera para operar: lo que se pierde durante el corte es lo que por naturaleza viaja por internet, como el correo y los logotipos de las empresas que la interfaz trae de un servicio externo.",
+  "justificacion": "Con el sistema en la red de la compañía, una caída del enlace no detiene la atención.",
+  "evidencia": [
+    "B-2-7-twenty-1-operando-sin-enlace.png"
+  ],
+  "medicion": "18 pedidos a direcciones externas bloqueados durante la prueba (twenty-icons.com)",
+  "criterioNombre": "Continuidad de la atención ante una caída del enlace",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-10-30T08:19:52.513Z"
+}

@@ -2,47 +2,21 @@
   "criterio": "B.2.3",
   "plataforma": "bitrix24",
   "cumple": 1,
-  "costo": 2,
-  "resumen": "Integra mensajería, tareas, calendario, documentos y base de conocimientos sobre los mismos contactos, pero la edición colaborativa de documentos y la firma electrónica exigen planes pagos o aplicaciones.",
-  "comoLoHace": "Desde la ficha de una negociación se abre un chat, una tarea, una reunión o un comentario (Chat, Tarea, Comentario) sin salir del registro.",
-  "caracteristicas": "Además del CRM, el producto incluye mensajería, tareas y proyectos, calendario, Drive (documentos), base de conocimientos, sitios web, todo en la misma cuenta y sobre los mismos contactos.",
-  "justificacion": "Falta la edición colaborativa de documentos de oficina y la firma electrónica en la edición gratuita —quedan en planes pagos o en aplicaciones del catálogo—, así que la compañía sigue necesitando otra herramienta para esa parte, con el trabajo de pasar la información de una a otra.",
-  "evidencia": [
-    "B-2-3-bitrix24-1-herramientas-en-la-negociacion.png",
-    "B-2-3-bitrix24-2-drive.png"
-  ],
+  "comoLoHace": "El propio fabricante genera una copia diaria de toda la cuenta, sin que nadie la programe ni la ejecute: no es una tarea que la compañía tenga que sostener.",
+  "caracteristicas": "Esa copia la administra el fabricante y no la compañía, se conserva solo siete días, y restituir una fecha concreta depende de pedirlo a soporte y de que el plan contratado lo permita, así que la compañía no controla ni la retención ni la restitución de su propio resguardo.",
+  "justificacion": "La copia diaria la genera el fabricante sin intervención, pero la compañía no controla su retención, de siete días, ni su restitución, que depende de pedirla a soporte y del plan contratado: la condición se satisface con esa limitación.",
   "documentacion": [
     {
-      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
-      "cita": "Edición colaborativa de documentos Cree y edite documentos, hojas de cálculo y presentaciones en su cuenta de Bitrix24, sin necesidad de instalar aplicaciones/extensiones adicionales.",
-      "consultado": "2026-11-08",
-      "captura": "B-2-3-bitrix24-3-edicion-colaborativa.png"
-    },
-    {
-      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
-      "cita": "Envía documentos para que los firmen varios empleados a la vez.",
-      "consultado": "2026-11-08",
-      "captura": "B-2-3-bitrix24-4-firma-electronica.png"
-    },
-    {
-      "url": "https://www.bitrix24.es/prices/",
-      "cita": "US$ 144",
-      "consultado": "2026-11-08",
-      "captura": "B-2-3-bitrix24-standard-precio-1.png"
+      "url": "https://helpdesk.bitrix24.com/open/25110238/",
+      "cita": "If you accidentally delete important data like SPAs, deals, or tasks, don't worry. Bitrix24 automatically creates daily backups of all your data and keeps them safe for seven days, allowing you to restore your information with ease.",
+      "consultado": "2026-10-30",
+      "captura": "B-2-3-bitrix24-1-copias-diarias-automaticas.png"
     }
   ],
-  "conPlan": [
-    {
-      "plan": "Bitrix24 Standard",
-      "monto": "US$ 144 por mes, hasta 50 usuarios",
-      "modalidad": "recurrente",
-      "cumple": 2,
-      "costo": 1,
-      "justificacion": "El plan Standard es el primero que suma la edición colaborativa de documentos y la firma electrónica de la empresa, además de lo que ya trae la edición gratuita: la compañía deja de necesitar otra herramienta para esa parte. Requiere configurar una vez los documentos y la firma."
-    }
-  ],
-  "medicion": "Acciones disponibles desde la ficha: Chat, Tarea, Comentario",
-  "criterioNombre": "Suite de trabajo integrada",
+  "criterioNombre": "Copia periódica sin intervención manual",
   "licencia": null,
-  "momento": "2026-11-09T00:43:37.862Z"
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-10-30T08:53:40.872Z",
+  "resumen": "El fabricante genera una copia diaria de la cuenta sin intervención, pero la conserva siete días y la restitución depende de soporte y del plan."
 }

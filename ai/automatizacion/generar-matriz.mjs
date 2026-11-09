@@ -32,11 +32,11 @@ const { GRUPOS } = catalogo;
 
 // Reparto ENTRE partes: lo que el cliente pidio pesa mas que lo que no pidio.
 const PARTE = { A: 0.85, B: 0.15 };
-const ORIGEN = { A: 'Originales — solicitados', B: 'Opcionales — no solicitados' };
+const ORIGEN = { A: 'Requerimientos originales (solicitados)', B: 'Requerimientos deseables (no solicitados)' };
 const TIPOS = [
-  ['funcional', 'Requerimientos funcionales', '¿El usuario puede hacerlo desde el sistema?'],
-  ['tecnica', 'Requerimientos técnicos', '¿Qué exige el sistema para funcionar y sostenerse?'],
-  ['operativa', 'Requerimientos operativos', '¿Cómo se comporta en la operación diaria de la compañía?'],
+  ['funcional', 'Funcionales'],
+  ['tecnica', 'Técnicos'],
+  ['operativa', 'Operativos'],
 ];
 
 const TOTAL_BASE = GRUPOS.reduce((n, g) => n + g.criterios.length, 0) * PLATAFORMAS.length;
@@ -90,24 +90,29 @@ const subtotal = (criterios, k) => {
   return max ? `${obt}/${max} · ${pct(obt / max * 100)}` : '—';
 };
 
-// ── 5. matriz, por tipo → origen → grupo ─────────────────────────────────────
+// ── 5. matriz, por origen → tipo → grupo ─────────────────────────────────────
 const cabeza = `| Criterio | ${PLATAFORMAS.map(p => p[1]).join(' | ')} |\n|---|${PLATAFORMAS.map(() => ':---:').join('|')}|\n`;
+const cabezaSimple = `| | ${PLATAFORMAS.map(p => p[1]).join(' | ')} |\n|---|${PLATAFORMAS.map(() => ':---:').join('|')}|\n`;
 let matriz = '';
-let nTipo = 0;
-for (const [tipo, titulo, pregunta] of TIPOS) {
-  const delTipo = GRUPOS.map(g => ({ ...g, criterios: g.criterios.filter(c => c.tipo === tipo) }))
-    .filter(g => g.criterios.length);
-  if (!delTipo.length) continue;
-  nTipo++;
-  matriz += `\n## 5.${nTipo} ${titulo}\n\n*${pregunta}*\n`;
-  for (const parte of ['A', 'B']) {
-    const grupos = delTipo.filter(g => g.parte === parte);
+let nParte = 0;
+for (const parte of ['A', 'B']) {
+  const deLaParte = GRUPOS.filter(g => g.parte === parte);
+  if (!deLaParte.length) continue;
+  nParte++;
+  matriz += `\n## 5.${nParte} ${ORIGEN[parte]}\n`;
+  const porTipo = [];
+  for (const [tipo, titulo] of TIPOS) {
+    const grupos = deLaParte.map(g => ({ ...g, criterios: g.criterios.filter(c => c.tipo === tipo) }))
+      .filter(g => g.criterios.length);
     if (!grupos.length) continue;
-    matriz += `\n### ${ORIGEN[parte]}\n`;
+    porTipo.push([titulo, grupos.flatMap(g => g.criterios)]);
+    // Técnicos y operativos van en una sola tabla: cada tipo abre su franja con el rótulo del grupo
+    if (tipo === 'funcional') matriz += `\n### ${titulo}\n`;
+    else if (tipo === 'tecnica' || !porTipo.some(([t]) => t === 'Técnicos')) matriz += `\n### Técnicos y operativos\n`;
     for (const g of grupos) {
       // Un grupo que reparte sus criterios entre tipos lleva el tipo en el título
       const parcial = g.criterios.length < GRUPOS.find(x => x.id === g.id).criterios.length;
-      const sufijo = parcial ? ` — ${titulo.replace('Requerimientos ', '')}` : '';
+      const sufijo = parcial ? ` — ${titulo.toLowerCase()}` : '';
       matriz += `\n#### ${g.id} ${g.nombre}${sufijo}\n\n${cabeza}`;
       for (const c of g.criterios) {
         matriz += `| ${c.id} ${c.nombre} | ${PLATAFORMAS.map(([k]) => simbolo(res[c.id]?.[k])).join(' | ')} |\n`;
@@ -115,13 +120,11 @@ for (const [tipo, titulo, pregunta] of TIPOS) {
       matriz += `| **Subtotal ${g.id}${sufijo}** | ${PLATAFORMAS.map(([k]) => `**${subtotal(g.criterios, k)}**`).join(' | ')} |\n`;
     }
   }
-  // Subtotal del tipo: originales, opcionales y los dos juntos
-  const todos = (parte) => delTipo.filter(g => !parte || g.parte === parte).flatMap(g => g.criterios);
-  matriz += `\n#### Subtotal de los ${titulo.toLowerCase()}\n\n| | ${PLATAFORMAS.map(p => p[1]).join(' | ')} |\n|---|${PLATAFORMAS.map(() => ':---:').join('|')}|\n`;
-  for (const parte of ['A', 'B']) {
-    if (todos(parte).length) matriz += `| ${parte === 'A' ? 'Originales' : 'Opcionales'} | ${PLATAFORMAS.map(([k]) => subtotal(todos(parte), k)).join(' | ')} |\n`;
+  // Subtotal de la parte por tipo
+  matriz += `\n### Subtotal por tipo\n\n${cabezaSimple}`;
+  for (const [titulo, criterios] of porTipo) {
+    matriz += `| ${titulo} | ${PLATAFORMAS.map(([k]) => subtotal(criterios, k)).join(' | ')} |\n`;
   }
-  matriz += `| **Todos los ${titulo.toLowerCase()}** | ${PLATAFORMAS.map(([k]) => `**${subtotal(todos(), k)}**`).join(' | ')} |\n`;
 }
 
 // ── recuentos y resultado ────────────────────────────────────────────────────
@@ -166,7 +169,7 @@ function recuento(parte) {
 
 let resultado = `\n| | ${PLATAFORMAS.map(p => p[1]).join(' | ')} |\n|---|${PLATAFORMAS.map(() => ':---:').join('|')}|\n`;
 for (const parte of ['A', 'B']) {
-  resultado += `| ${parte === 'A' ? 'Originales' : 'Opcionales'} (${(PARTE[parte] * 100).toFixed(0)} %) | ${PLATAFORMAS.map(([k]) => {
+  resultado += `| ${parte === 'A' ? 'Originales' : 'Deseables'} (${(PARTE[parte] * 100).toFixed(0)} %) | ${PLATAFORMAS.map(([k]) => {
     const c = cumplimiento(parte, k);
     return c === null ? '—' : pct(c);
   }).join(' | ')} |\n`;
@@ -239,25 +242,25 @@ const salidaMatriz = `# 5. Matriz de veredictos
 
 **● 2 cumple  ◐ 1 cumple con reparo  ○ 0 no cumple${faltan ? '  ◍ no se pudo verificar' : ''}**
 
-La flecha **↑** marca los criterios que un plan pago o una extensión del fabricante mejorarían. Es un comentario y no cambia el valor: qué plan lo incluye y cuánto cuesta figura en la sección 5.${nTipo + 2}.
+La flecha **↑** marca los criterios que un plan pago o una extensión del fabricante mejorarían. Es un comentario y no cambia el valor: qué plan lo incluye y cuánto cuesta figura al final de esta sección.
 
 Cada grupo cierra con su **subtotal**: puntos obtenidos sobre el máximo posible y su porcentaje.
 ${faltan ? `
 Estado: **${evaluadas - sinVerificar} de ${TOTAL_BASE} evaluaciones completas.**
 ` : ''}${matriz}
-## 5.${nTipo + 1} Resultado
+## 5.${nParte + 1} Resultado
 
 ### Recuento de los originales
 ${recuento('A')}
-### Recuento de los opcionales
+### Recuento de los deseables
 ${recuento('B')}
 ### Cumplimiento total
 ${resultado}
 ### Cómo leer estos recuentos
 
-El resultado de cada plataforma es el cumplimiento total de esta sección, que pondera originales y opcionales 85/15. El porcentaje de cada parte promedia los de sus grupos (sección 3.6); por eso difiere de los subtotales por tipo de las secciones 5.1 a 5.3, que suman los puntos de todos sus criterios y solo sirven para comparar dentro de cada tipo.
+El resultado de cada plataforma es el cumplimiento total de esta sección, que pondera originales y deseables 85/15. El porcentaje de cada parte promedia los de sus grupos (sección 3.6); por eso difiere de los subtotales por tipo de las secciones 5.1 y 5.2, que suman los puntos de todos sus criterios y solo sirven para comparar dentro de cada tipo.
 ${mejoraConPlan ? `
-## 5.${nTipo + 2} Lo que agregarían las versiones pagas
+## 5.${nParte + 2} Lo que agregarían las versiones pagas
 
 Las versiones pagas no se operaron: lo que sigue surge de la documentación de cada fabricante. En Twenty y en Bitrix24 cada plan incluye lo de los más baratos; en EspoCRM cada extensión se compra por separado y agrega solo lo suyo.
 ${pagas}` : ''}`;
@@ -273,8 +276,8 @@ let detalle = '';
 for (const g of GRUPOS) {
   detalle += `\n## ${g.id} ${g.nombre}\n`;
   for (const c of g.criterios) {
-    // B.1 trae su fundamento, no una capacidad: se rotula como tal
-    const rotulo = c.id.startsWith('B.1.') ? 'Por qué importa' : 'Qué resuelve';
+    // B.2 trae su fundamento, no una capacidad: se rotula como tal
+    const rotulo = c.id.startsWith('B.2.') ? 'Por qué importa' : 'Qué resuelve';
     detalle += `\n### ${c.id} ${c.nombre}\n\n**${rotulo}.** ${c.necesidad}.\n`;
     if (CIFRAS[c.id]) detalle += `\n${CIFRAS[c.id]}\n`;
     for (const [k, nom] of PLATAFORMAS) {

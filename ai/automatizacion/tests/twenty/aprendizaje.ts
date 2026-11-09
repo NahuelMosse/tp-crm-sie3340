@@ -4,7 +4,7 @@ import { apiTwenty, objeto, registros, crearRegistro, borrarRegistro } from './u
 import { alistarMiembro, alistarCamposPoliza, alistarReclamo, campoDeTexto, miembros } from './escenario';
 
 /**
- * La prueba de aprendizaje sin capacitación previa (A.11.5), sobre Twenty.
+ * La prueba de aprendizaje sin capacitación previa (A.12.5), sobre Twenty.
  *
  * Los mismos tres productores y las mismas cinco tareas que en las demás
  * plataformas. Cada productor es un miembro del espacio de trabajo, con su

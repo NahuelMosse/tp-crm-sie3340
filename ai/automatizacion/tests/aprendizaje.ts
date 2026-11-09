@@ -4,7 +4,7 @@ import { apiEspo, crear, listar } from './api';
 import { rolProductor } from './datos';
 
 /**
- * La prueba de aprendizaje sin capacitación previa (A.11.5).
+ * La prueba de aprendizaje sin capacitación previa (A.12.5).
  *
  * Tres agentes independientes, que no conocen la plataforma, reciben la
  * consigna de `aprendizaje/consigna.md` y operan el sistema mirando la pantalla,

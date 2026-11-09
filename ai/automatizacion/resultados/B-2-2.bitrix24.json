@@ -1,26 +1,38 @@
 {
   "criterio": "B.2.2",
   "plataforma": "bitrix24",
-  "cumple": 2,
-  "costo": 0,
-  "resumen": "Tiene aplicación móvil oficial para Android e iOS, con CRM, tareas, chat y notificaciones, para operar durante la visita al asegurado.",
-  "comoLoHace": "La aplicación oficial del fabricante se encuentra en las tiendas de aplicaciones.",
-  "caracteristicas": "El fabricante publica una aplicación móvil oficial, para Android en Google Play y para iOS en el App Store, con el CRM, las tareas, el chat y las notificaciones de la cuenta.",
-  "justificacion": "El productor puede registrar la operación durante la visita al asegurado, desde su teléfono, sin instalar ni configurar nada además de bajar la aplicación e iniciar sesión.",
+  "cumple": 0,
+  "resumen": "La edición gratuita no ofrece ningún medio para sacar una copia de la cartera: la exportación y la interfaz de programación para otros sistemas exigen un plan pago.",
+  "comoLoHace": "El listado de negociaciones, que en la edición gratuita hace de cartera de pólizas, no ofrece una acción «Exportar» habilitada. La exportación de contactos pide actualizar a un plan superior y el webhook entrante, que es el camino para que otro sistema lea los datos, no está disponible en el plan actual. El respaldo diario del fabricante no se descarga: solo se restituye pidiéndolo a soporte.",
+  "justificacion": "Para la compañía no hay función del producto que entregue una copia de su cartera: la exportación y el acceso desde otros sistemas son de planes pagos, y el respaldo es del fabricante y no se puede bajar. Lo único que devuelve los datos completos es la llamada interna que usan las pantallas del portal, que solo un programador puede invocar desde la consola del navegador: no es una función ofrecida al usuario, así que no cuenta como medio.",
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Basic",
+      "monto": "US$ 69 por mes, hasta 5 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 1,
+      "justificacion": "El plan Basic incluye la exportación de contactos a CSV, Excel y Outlook, con lo que una parte de la cartera se puede sacar del sistema. El reparo es que el fabricante solo publica esa opción para contactos, y los archivos adjuntos se siguen bajando uno por uno. La interfaz de programación completa llega recién con el plan Basic Vibe+."
+    }
+  ],
   "evidencia": [
-    "B-2-2-bitrix24-1-google-play.png",
-    "B-2-2-bitrix24-2-portal-en-el-navegador.png"
+    "B-2-2-bitrix24-1-listado.png",
+    "B-2-2-bitrix24-2-opcion-de-exportar.png"
   ],
   "documentacion": [
     {
-      "url": "https://www.bitrix24.es/features/mobile-app.php",
-      "cita": "El único software empresarial que necesitarás",
-      "consultado": "2026-09-29",
-      "captura": "B-2-2-bitrix24-3-app-movil-oficial.png"
+      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
+      "cita": "Opción para exportar contactos a CSV, Excel y Outlook",
+      "consultado": "2026-11-08",
+      "captura": "B-2-2-bitrix24-3-comparacion-de-planes.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "Basic desde US$ 69 desde US$ 49 incluye 5 usuarios Empezar Empezar",
+      "consultado": "2026-11-08",
+      "captura": "B-2-2-bitrix24-basic-precio-1.png"
     }
   ],
-  "criterioNombre": "Aplicación móvil nativa",
+  "criterioNombre": "Copia propia y completa de la cartera",
   "licencia": null,
-  "conPlan": [],
-  "momento": "2026-09-30T00:18:38.270Z"
+  "momento": "2026-11-09T02:52:33.248Z"
 }

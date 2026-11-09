@@ -2,19 +2,23 @@
   "criterio": "B.2.3",
   "plataforma": "twenty",
   "cumple": 1,
-  "costo": 2,
-  "resumen": "Incluye correo, calendario, notas, tareas, archivos, tableros, flujos de trabajo y asistente de IA sobre los mismos datos; faltan mensajería, edición colaborativa de documentos y firma electrónica.",
-  "comoLoHace": "Además del CRM, el producto incluye correo, calendario, notas, tareas, archivos, tableros, flujos de trabajo, asistente de IA, y todas operan sobre los mismos datos.",
-  "caracteristicas": "La ficha del asegurado reúne en pestañas su línea de tiempo, sus tareas, sus notas, sus archivos, sus correos y sus reuniones, y los tableros y los flujos leen y escriben los mismos registros.",
-  "justificacion": "Faltan la mensajería instantánea entre usuarios, la edición colaborativa de documentos y la firma electrónica: para eso la compañía sigue necesitando otras herramientas, y pasar la información de una a otra es trabajo en cada uso.",
+  "resumen": "El sistema no trae copia programada: se repite con el programador de tareas del servidor, y no avisa si una noche falla; la vigila y guarda quien administra.",
+  "comoLoHace": "La documentación del fabricante resuelve la repetición afuera, con el programador de tareas del servidor, que ejecuta todas las noches el volcado de la base.",
+  "caracteristicas": "El producto no trae una copia programada: su panel de administración muestra el estado del servidor y sus variables, y ninguna opción genera un respaldo.",
+  "justificacion": "La condición se satisface con una limitación que la compañía asume: la copia se repite sola, pero la programa, la vigila y la guarda fuera del equipo alguien con acceso al servidor, porque el sistema no avisa si una noche falló.",
   "evidencia": [
-    "B-2-3-twenty-1-herramientas-en-la-ficha.png",
-    "B-2-3-twenty-2-tableros.png"
+    "B-2-3-twenty-2-panel-de-administracion.png"
   ],
-  "medicion": "Pestañas de la ficha: Timeline, Tasks, Notes, Files, Emails, Calendar",
-  "criterioNombre": "Suite de trabajo integrada",
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/developers/self-host/capabilities/docker-compose",
+      "cita": "Automate Daily Backups",
+      "consultado": "2026-10-30",
+      "captura": "B-2-3-twenty-1-programar-en-el-servidor.png"
+    }
+  ],
+  "criterioNombre": "Copia periódica sin intervención manual",
   "licencia": null,
   "conPlan": [],
-  "documentacion": [],
-  "momento": "2026-10-30T08:25:23.070Z"
+  "momento": "2026-10-30T08:18:13.960Z"
 }

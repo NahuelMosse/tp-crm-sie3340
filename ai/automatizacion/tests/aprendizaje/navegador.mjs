@@ -1,5 +1,5 @@
 /**
- * El navegador de un aprendiz en la prueba de aprendizaje (A.11.5).
+ * El navegador de un aprendiz en la prueba de aprendizaje (A.12.5).
  *
  * Mantiene abierta una página con la sesión del productor y la deja operar
  * como la operaría una persona: mirar la pantalla, hacer clic, escribir, usar

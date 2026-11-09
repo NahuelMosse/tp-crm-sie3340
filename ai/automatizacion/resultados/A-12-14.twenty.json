@@ -1,0 +1,23 @@
+{
+  "criterio": "A.12.14",
+  "plataforma": "twenty",
+  "cumple": 0,
+  "resumen": "El fabricante no publica por cuánto tiempo corrige una versión ni ofrece soporte extendido: para recibir correcciones hay que seguir su ritmo de versiones nuevas.",
+  "comoLoHace": "El fabricante no publica por cuánto tiempo corrige una versión: no hay política de soporte por versión ni versiones de soporte extendido.",
+  "caracteristicas": "Publica versiones nuevas a un ritmo de 14,5 por mes, y la guía de actualización lo que asegura es poder saltar desde cualquier versión soportada directo a la última.",
+  "justificacion": "La compañía no puede fijar la actualización en su plan anual: tiene que seguir el ritmo del fabricante para recibir correcciones.",
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/developers/self-host/capabilities/upgrade-guide",
+      "cita": "Starting from v1.23, Twenty supports cross-version upgrades. You can jump directly from any supported version to the latest release without stepping through each intermediate version.",
+      "consultado": "2026-10-30",
+      "captura": "A-12-14-twenty-1-saltar-a-la-ultima.png"
+    }
+  ],
+  "medicion": "30 versiones publicadas en 62 días",
+  "criterioNombre": "Continuidad de las versiones en uso",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-10-30T08:11:54.826Z"
+}

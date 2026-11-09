@@ -1,0 +1,143 @@
+{
+  "criterio": "A.12.12",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "resumen": "En el foro oficial, 7 de 21 consultas se resolvieron dentro de la semana; la consulta típica recibe respuesta, pero sin constancia de que la resuelva a tiempo.",
+  "comoLoHace": "La comunidad responde en la sección de uso general del foro oficial, donde los usuarios publican sus consultas y otros usuarios las contestan.",
+  "caracteristicas": "En 7 otro usuario respondió dentro de la semana y quien consultó confirmó después que la respuesta le había servido; en 13 hubo respuesta, pero llegó más tarde o sin que el autor confirmara que lo resolvía; 1 no recibieron respuesta. La primera respuesta llegó, en el caso típico, a las 2 horas.",
+  "justificacion": "La consulta típica recibe respuesta, pero no queda constancia de que se resuelva dentro de la semana: la compañía puede contar con que alguien conteste, no con que la conteste a tiempo y a su medida.",
+  "documentacion": [
+    {
+      "url": "https://forum.espocrm.com/forum/general/128297-cve-2026-109618-cve-2026-109619",
+      "cita": "Hi, While you are still on a not updated PHP, I'd suggest either shutting it down or applying mitigations described here https://www.php.net/archive/2026.php. Docker images are being built. The official Dockerhub not yet updated. Hope they will do it soon.",
+      "consultado": "2026-10-30",
+      "captura": "A-12-12-espocrm-01.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/128278-10-0-10-most-likely-problem-is-active-since-10-0-8-empty-float-error-on-save",
+      "cita": "Maybe some non-numeric value is set? E.g. empty string instead of null? Does it resolve if you set some field value, the save, then set it empty back and save.",
+      "consultado": "2026-10-30",
+      "captura": "A-12-12-espocrm-02.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/128265-calendar-problem",
+      "cita": "Hello David.D. have you tried shared calendars? Activities & calendar - EspoCRM Documentation",
+      "consultado": "2026-10-30",
+      "captura": "A-12-12-espocrm-03.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/128257-import-error-what-does-the-exclamation-field-mean",
+      "cita": "If it's the 'required' validation (mandatory field), one needs to add the Default Value for this field when importing.",
+      "consultado": "2026-10-30",
+      "captura": "A-12-12-espocrm-04.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/128242-need-help",
+      "cita": "Could you provide an example? A screenshot?",
+      "consultado": "2026-10-30",
+      "captura": "A-12-12-espocrm-05.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/128219-does-espocrm-support-sast-scanning-with-sonarqube",
+      "cita": "Hello. EspoCRM does not currently provide an official, built-in integration with SonarQube. However, SonarQube can still be used to perform SAST on an EspoCRM-based application, since EspoCRM is a PHP application with a JavaScript frontend and SonarQube supports static analysis for both languages.",
+      "consultado": "2026-10-30",
+      "captura": "A-12-12-espocrm-06.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/128212-help-with-the-from-name-of-a-personal-email-account-please",
+      "cita": "A similar topic has already been discussed here: https://forum.espocrm.com/forum/gene...name-from-mail.",
+      "consultado": "2026-10-30",
+      "captura": "A-12-12-espocrm-07.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/128200-reminder-for-meetings",
+      "cita": "It's old functionality: https://docs.espocrm.com/user-guide/...dar/#reminders. Here are some important points regarding the use of Reminders: 1. A user, an Assigned User, or an Attendee must be specified. That user's profile must contain a valid email address (since you are asking specifically…",
+      "consultado": "2026-10-30",
+      "captura": "A-12-12-espocrm-08.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/128196-best-practice-for-team-access-to-personal-inboxes",
+      "cita": "Hello, there are multiple approaches. The easiest one is to use roles and teams, which are already in the system. You can set permissions to the e-mails for whole teams. Alternative is to create custom ACL in code and set own approach based on your needs.",
+      "consultado": "2026-10-30",
+      "captura": "A-12-12-espocrm-09.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/128175-dot-calendar-feed-%E2%80%94-personal-ics-subscriptions-for-espocrm-9-10",
+      "cita": "Hi everyone, I’d like to introduce DOT Calendar Feed, an extension we built for a recurring need in our EspoCRM projects: seeing selected CRM events in the calendar app you already use, without manual exports or a custom calendar script. How it works • An administrator enables the relevant event…",
+      "consultado": "2026-10-30",
+      "captura": "A-12-12-espocrm-10.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/128161-qr-code-in-pdf-formular",
+      "cita": "{{barcodeImage qrcode type='QRcode' height=25 width=25}} I use it this way and you can put it anywhere in the templat, using it like an image. Which PDF engine do you use and what exactliy do you want to achieve?",
+      "consultado": "2026-10-30",
+      "captura": "A-12-12-espocrm-11.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/128127-selection-of-email-recipients-when-creating-email-in-activities-panel",
+      "cita": "Account and Contact have the Company and Person types, respectively. It makes more sense to create entities with precisely these types, rather than Base Plus.",
+      "consultado": "2026-10-30",
+      "captura": "A-12-12-espocrm-12.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/128099-better-error-reporting-for-formula-script-errors",
+      "cita": "The topic name should mention \"formula script\"? E.g. \"Better log reporting for Formula Script errors\". The current error log reporting is fine. It prints file and line number, as well as trace. Absolutely no problem to track down where an error occurred, if it's a PHP-level error. You might deal…",
+      "consultado": "2026-10-30",
+      "captura": "A-12-12-espocrm-13.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/128059-internal-server-error",
+      "cita": "- Enable Debug mode: https://docs.espocrm.com/administrat...ng/#debug-mode. - Reproduce the error. - Provide part of the log with this error. EspoCRM log files are located in {ESPO_ROOT}/data/logs/ directory. Most errors are logger there. Also, please let me know if the error occurs when you add…",
+      "consultado": "2026-10-30",
+      "captura": "A-12-12-espocrm-14.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/128039-type-array-list",
+      "cita": "If you only want the Array values to appear on separate lines instead of being comma-separated, EspoCRM already supports this natively. Go to: Administration > Entity Manager > [Your Entity] > Fields > [Your Array Field] Enable “Display as List” and save the field. Each Array item should then be…",
+      "consultado": "2026-10-30",
+      "captura": "A-12-12-espocrm-15.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/128032-multiple-addresses-for-one-contact",
+      "cita": "How many such contacts do you have? Are we likely talking about a main account with subsidiary accounts? - If there are few of them, you could enter the primary address in the main address field and use custom text fields within the same account for the other addresses. - If there are many, it…",
+      "consultado": "2026-10-30",
+      "captura": "A-12-12-espocrm-16.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/128009-change-billing-address-field",
+      "cita": "Without modifying the code, you can: - completely remove the Billing Address from the layout; - change the display order of the country, street, etc., under Administration > Settings > Address Format; - if you need to \"remove\" the State from the address field, simply leave it blank.",
+      "consultado": "2026-10-30",
+      "captura": "A-12-12-espocrm-17.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/128002-activities-history-tasks-disappeared-from-lead-side-panel",
+      "cita": "This topic has been discussed at least twice on this forum. You can find the solution to the current problem at this link: https://forum.espocrm.com/forum/gene...152#post117152. Although it refers to the Opportunity entity, the process is exactly the same for the Lead entity.",
+      "consultado": "2026-10-30",
+      "captura": "A-12-12-espocrm-18.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127998-create-a-field-like-person-name",
+      "cita": "Create an entity with Person type, and those fields will be there by default.",
+      "consultado": "2026-10-30",
+      "captura": "A-12-12-espocrm-19.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127989-name-of-documents-not-shown-in-accounts-and-opportunities",
+      "cita": "Have you tried the layout for the entity documents? Look for Liste and Liste (klein)",
+      "consultado": "2026-10-30",
+      "captura": "A-12-12-espocrm-20.png"
+    },
+    {
+      "url": "https://forum.espocrm.com/forum/general/127958-why-no-inline-edit-to-change-the-pipeline",
+      "cita": "For a reason. Because the inline edit will break field dependency logic.",
+      "consultado": "2026-10-30",
+      "captura": "A-12-12-espocrm-21.png"
+    }
+  ],
+  "medicion": "7 resueltas en la semana · 13 con respuesta tardía o sin confirmar · 1 sin respuesta · primera respuesta típica a las 2 horas",
+  "criterioNombre": "Comunidad activa de usuarios",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-10-30T05:33:43.547Z"
+}

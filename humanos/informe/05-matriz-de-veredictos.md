@@ -2,15 +2,13 @@
 
 **● 2 cumple  ◐ 1 cumple con reparo  ○ 0 no cumple**
 
-La flecha **↑** marca los criterios que un plan pago o una extensión del fabricante mejorarían. Es un comentario y no cambia el valor: qué plan lo incluye y cuánto cuesta figura en la sección 5.5.
+La flecha **↑** marca los criterios que un plan pago o una extensión del fabricante mejorarían. Es un comentario y no cambia el valor: qué plan lo incluye y cuánto cuesta figura al final de esta sección.
 
 Cada grupo cierra con su **subtotal**: puntos obtenidos sobre el máximo posible y su porcentaje.
 
-## 5.1 Requerimientos funcionales
+## 5.1 Requerimientos originales (solicitados)
 
-*¿El usuario puede hacerlo desde el sistema?*
-
-### Originales — solicitados
+### Funcionales
 
 #### A.1 Cartera de pólizas
 
@@ -123,115 +121,97 @@ Cada grupo cierra con su **subtotal**: puntos obtenidos sobre el máximo posible
 | A.10.5 Intercambio sin límite de volumen que condicione la operación | ● | ● | ○↑ |
 | **Subtotal A.10** | **7/10 · 70,0 %** | **8/10 · 80,0 %** | **5/10 · 50,0 %** |
 
-#### A.12 Emisión, cobranza y continuidad de la relación
+#### A.11 Emisión, cobranza y continuidad de la relación
 
 | Criterio | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
-| A.12.1 Emisión de la póliza al cerrar la venta | ●↑ | ● | ◐ |
-| A.12.2 Plan de pago de la prima | ● | ● | ◐↑ |
-| A.12.3 Datos que administra el sistema central | ● | ● | ○↑ |
-| A.12.4 Historia del cliente desde el primer contacto | ● | ● | ◐↑ |
-| A.12.5 Satisfacción después de la atención | ● | ● | ◐ |
-| **Subtotal A.12** | **10/10 · 100,0 %** | **10/10 · 100,0 %** | **4/10 · 40,0 %** |
+| A.11.1 Emisión de la póliza al cerrar la venta | ●↑ | ● | ◐ |
+| A.11.2 Plan de pago de la prima | ● | ● | ◐↑ |
+| A.11.3 Datos que administra el sistema central | ● | ● | ○↑ |
+| A.11.4 Historia del cliente desde el primer contacto | ● | ● | ◐↑ |
+| A.11.5 Satisfacción después de la atención | ● | ● | ◐ |
+| **Subtotal A.11** | **10/10 · 100,0 %** | **10/10 · 100,0 %** | **4/10 · 40,0 %** |
 
-### Opcionales — no solicitados
+### Técnicos y operativos
 
-#### B.2 Capacidades por encima de lo solicitado
+#### A.12 Condiciones técnicas y operativas del producto — técnicos
 
 | Criterio | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
-| B.2.1 Asistente de inteligencia artificial | ○↑ | ● | ● |
-| B.2.2 Aplicación móvil nativa | ○ | ○ | ● |
-| B.2.3 Suite de trabajo integrada | ◐ | ◐ | ◐↑ |
-| B.2.4 Telefonía y videollamada integradas | ○↑ | ◐ | ◐↑ |
-| **Subtotal B.2** | **1/8 · 12,5 %** | **4/8 · 50,0 %** | **6/8 · 75,0 %** |
+| A.12.1 Recursos que la compañía debe disponer para sostenerlo | ◐↑ | ◐↑ | ● |
+| A.12.2 Compatibilidad con la plataforma que la compañía usa | ● | ◐↑ | ● |
+| A.12.3 Puesta en marcha sin perfil técnico especializado | ◐↑ | ◐↑ | ● |
+| A.12.9 Ecosistema de integraciones disponible | ◐ | ◐ | ◐↑ |
+| A.12.14 Continuidad de las versiones en uso | ○ | ○ | ○ |
+| **Subtotal A.12 — técnicos** | **5/10 · 50,0 %** | **4/10 · 40,0 %** | **7/10 · 70,0 %** |
 
-#### Subtotal de los requerimientos funcionales
+#### A.12 Condiciones técnicas y operativas del producto — operativos
+
+| Criterio | EspoCRM | Twenty | Bitrix24 |
+|---|:---:|:---:|:---:|
+| A.12.4 Menú y navegabilidad para la operación diaria | ● | ● | ● |
+| A.12.5 Aprendizaje sin capacitación previa | ● | ◐ | ◐ |
+| A.12.6 Localización completa al español, modelo incluido | ◐ | ◐ | ● |
+| A.12.7 Cantidad de usuarios sin límite que condicione la operación | ● | ● | ● |
+| A.12.8 Operación concurrente sobre la misma cartera | ● | ● | ○ |
+| A.12.10 Documentación en español | ◐ | ● | ● |
+| A.12.11 Material de capacitación para el usuario final | ● | ● | ● |
+| A.12.12 Comunidad activa de usuarios | ◐ | ◐ | ○ |
+| A.12.13 Soporte técnico con compromiso de respuesta | ○ | ○ | ◐ |
+| **Subtotal A.12 — operativos** | **13/18 · 72,2 %** | **13/18 · 72,2 %** | **12/18 · 66,7 %** |
+
+### Subtotal por tipo
 
 | | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
-| Originales | 99/112 · 88,4 % | 95/112 · 84,8 % | 66/112 · 58,9 % |
-| Opcionales | 1/8 · 12,5 % | 4/8 · 50,0 % | 6/8 · 75,0 % |
-| **Todos los requerimientos funcionales** | **100/120 · 83,3 %** | **99/120 · 82,5 %** | **72/120 · 60,0 %** |
+| Funcionales | 99/112 · 88,4 % | 95/112 · 84,8 % | 66/112 · 58,9 % |
+| Técnicos | 5/10 · 50,0 % | 4/10 · 40,0 % | 7/10 · 70,0 % |
+| Operativos | 13/18 · 72,2 % | 13/18 · 72,2 % | 12/18 · 66,7 % |
 
-## 5.2 Requerimientos técnicos
+## 5.2 Requerimientos deseables (no solicitados)
 
-*¿Qué exige el sistema para funcionar y sostenerse?*
+### Funcionales
 
-### Originales — solicitados
-
-#### A.11 Condiciones técnicas y operativas del producto — técnicos
+#### B.1 Capacidades por encima de lo solicitado
 
 | Criterio | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
-| A.11.1 Recursos que la compañía debe disponer para sostenerlo | ◐↑ | ◐↑ | ● |
-| A.11.2 Compatibilidad con la plataforma que la compañía usa | ● | ◐↑ | ● |
-| A.11.3 Puesta en marcha sin perfil técnico especializado | ◐↑ | ◐↑ | ● |
-| A.11.9 Ecosistema de integraciones disponible | ◐ | ◐ | ◐↑ |
-| A.11.14 Continuidad de las versiones en uso | ○ | ○ | ○ |
-| **Subtotal A.11 — técnicos** | **5/10 · 50,0 %** | **4/10 · 40,0 %** | **7/10 · 70,0 %** |
+| B.1.1 Asistente de inteligencia artificial | ○↑ | ● | ● |
+| B.1.2 Aplicación móvil nativa | ○ | ○ | ● |
+| B.1.3 Suite de trabajo integrada | ◐ | ◐ | ◐↑ |
+| B.1.4 Telefonía y videollamada integradas | ○↑ | ◐ | ◐↑ |
+| **Subtotal B.1** | **1/8 · 12,5 %** | **4/8 · 50,0 %** | **6/8 · 75,0 %** |
 
-### Opcionales — no solicitados
+### Técnicos y operativos
 
-#### B.1 Condiciones que impone el negocio asegurador — técnicos
+#### B.2 Condiciones que impone el negocio asegurador — técnicos
 
 | Criterio | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
-| B.1.2 Copia propia y completa de la cartera | ● | ● | ○↑ |
-| B.1.3 Copia periódica sin intervención manual | ◐ | ◐ | ◐ |
-| B.1.6 Conocimiento y decisión sobre dónde residen los datos | ● | ● | ◐ |
-| B.1.7 Continuidad de la atención ante una caída del enlace | ● | ● | ◐ |
-| **Subtotal B.1 — técnicos** | **7/8 · 87,5 %** | **7/8 · 87,5 %** | **3/8 · 37,5 %** |
+| B.2.2 Copia propia y completa de la cartera | ● | ● | ○↑ |
+| B.2.3 Copia periódica sin intervención manual | ◐ | ◐ | ◐ |
+| B.2.6 Conocimiento y decisión sobre dónde residen los datos | ● | ● | ◐ |
+| B.2.7 Continuidad de la atención ante una caída del enlace | ● | ● | ◐ |
+| **Subtotal B.2 — técnicos** | **7/8 · 87,5 %** | **7/8 · 87,5 %** | **3/8 · 37,5 %** |
 
-#### Subtotal de los requerimientos técnicos
+#### B.2 Condiciones que impone el negocio asegurador — operativos
+
+| Criterio | EspoCRM | Twenty | Bitrix24 |
+|---|:---:|:---:|:---:|
+| B.2.1 Persistencia de los datos sin uso continuo | ● | ● | ○↑ |
+| B.2.4 Búsqueda y operación con volumen productivo | ● | ● | ○ |
+| B.2.5 Previsibilidad de los cambios del sistema | ● | ● | ○ |
+| **Subtotal B.2 — operativos** | **6/6 · 100,0 %** | **6/6 · 100,0 %** | **0/6 · 0,0 %** |
+
+### Subtotal por tipo
 
 | | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
-| Originales | 5/10 · 50,0 % | 4/10 · 40,0 % | 7/10 · 70,0 % |
-| Opcionales | 7/8 · 87,5 % | 7/8 · 87,5 % | 3/8 · 37,5 % |
-| **Todos los requerimientos técnicos** | **12/18 · 66,7 %** | **11/18 · 61,1 %** | **10/18 · 55,6 %** |
+| Funcionales | 1/8 · 12,5 % | 4/8 · 50,0 % | 6/8 · 75,0 % |
+| Técnicos | 7/8 · 87,5 % | 7/8 · 87,5 % | 3/8 · 37,5 % |
+| Operativos | 6/6 · 100,0 % | 6/6 · 100,0 % | 0/6 · 0,0 % |
 
-## 5.3 Requerimientos operativos
-
-*¿Cómo se comporta en la operación diaria de la compañía?*
-
-### Originales — solicitados
-
-#### A.11 Condiciones técnicas y operativas del producto — operativos
-
-| Criterio | EspoCRM | Twenty | Bitrix24 |
-|---|:---:|:---:|:---:|
-| A.11.4 Menú y navegabilidad para la operación diaria | ● | ● | ● |
-| A.11.5 Aprendizaje sin capacitación previa | ● | ◐ | ◐ |
-| A.11.6 Localización completa al español, modelo incluido | ◐ | ◐ | ● |
-| A.11.7 Cantidad de usuarios sin límite que condicione la operación | ● | ● | ● |
-| A.11.8 Operación concurrente sobre la misma cartera | ● | ● | ○ |
-| A.11.10 Documentación en español | ◐ | ● | ● |
-| A.11.11 Material de capacitación para el usuario final | ● | ● | ● |
-| A.11.12 Comunidad activa de usuarios | ◐ | ◐ | ○ |
-| A.11.13 Soporte técnico con compromiso de respuesta | ○ | ○ | ◐ |
-| **Subtotal A.11 — operativos** | **13/18 · 72,2 %** | **13/18 · 72,2 %** | **12/18 · 66,7 %** |
-
-### Opcionales — no solicitados
-
-#### B.1 Condiciones que impone el negocio asegurador — operativos
-
-| Criterio | EspoCRM | Twenty | Bitrix24 |
-|---|:---:|:---:|:---:|
-| B.1.1 Persistencia de los datos sin uso continuo | ● | ● | ○↑ |
-| B.1.4 Búsqueda y operación con volumen productivo | ● | ● | ○ |
-| B.1.5 Previsibilidad de los cambios del sistema | ● | ● | ○ |
-| **Subtotal B.1 — operativos** | **6/6 · 100,0 %** | **6/6 · 100,0 %** | **0/6 · 0,0 %** |
-
-#### Subtotal de los requerimientos operativos
-
-| | EspoCRM | Twenty | Bitrix24 |
-|---|:---:|:---:|:---:|
-| Originales | 13/18 · 72,2 % | 13/18 · 72,2 % | 12/18 · 66,7 % |
-| Opcionales | 6/6 · 100,0 % | 6/6 · 100,0 % | 0/6 · 0,0 % |
-| **Todos los requerimientos operativos** | **19/24 · 79,2 %** | **19/24 · 79,2 %** | **12/24 · 50,0 %** |
-
-## 5.4 Resultado
+## 5.3 Resultado
 
 ### Recuento de los originales
 
@@ -243,7 +223,7 @@ Cada grupo cierra con su **subtotal**: puntos obtenidos sobre el máximo posible
 | *— un plan pago lo mejoraría* | 10 | 4 | 20 |
 | **% de cumplimiento** | **87,5 %** | **83,3 %** | **57,7 %** |
 
-### Recuento de los opcionales
+### Recuento de los deseables
 
 | | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
@@ -258,16 +238,16 @@ Cada grupo cierra con su **subtotal**: puntos obtenidos sobre el máximo posible
 | | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
 | Originales (85 %) | 87,5 % | 83,3 % | 57,7 % |
-| Opcionales (15 %) | 52,7 % | 71,4 % | 48,2 % |
+| Deseables (15 %) | 52,7 % | 71,4 % | 48,2 % |
 | **Cumplimiento total** | **82,3 %** | **81,5 %** | **56,3 %** |
 | Esfuerzo de implementación *(conviene lo bajo)* | 46,4 % | 53,6 % | 60,0 % |
 | *Comentario: contratando los planes que mejoran algún criterio* | *90,7 %* | *84,7 %* | *83,3 %* |
 
 ### Cómo leer estos recuentos
 
-El resultado de cada plataforma es el cumplimiento total de esta sección, que pondera originales y opcionales 85/15. El porcentaje de cada parte promedia los de sus grupos (sección 3.6); por eso difiere de los subtotales por tipo de las secciones 5.1 a 5.3, que suman los puntos de todos sus criterios y solo sirven para comparar dentro de cada tipo.
+El resultado de cada plataforma es el cumplimiento total de esta sección, que pondera originales y deseables 85/15. El porcentaje de cada parte promedia los de sus grupos (sección 3.6); por eso difiere de los subtotales por tipo de las secciones 5.1 y 5.2, que suman los puntos de todos sus criterios y solo sirven para comparar dentro de cada tipo.
 
-## 5.5 Lo que agregarían las versiones pagas
+## 5.4 Lo que agregarían las versiones pagas
 
 Las versiones pagas no se operaron: lo que sigue surge de la documentación de cada fabricante. En Twenty y en Bitrix24 cada plan incluye lo de los más baratos; en EspoCRM cada extensión se compra por separado y agrega solo lo suyo.
 
@@ -276,17 +256,17 @@ Las versiones pagas no se operaron: lo que sigue surge de la documentación de c
 | Versión | Precio | Criterios que cambia | Cumplimiento total |
 |---|---|---|:---:|
 | **Community, instalación propia** *(evaluada)* | **Gratis** | — | **82,3 %** |
-| Intelligence | US$ 129 por año y por instalación | B.2.1 | *84,2 %* |
-| Advanced Pack | US$ 395 por año y por instalación | A.1.5, A.2.6, A.3.4, A.8.3, A.10.1, A.10.2, A.10.3, A.12.1 | *86,4 %* |
-| VoIP Integration + Zoom Integration | US$ 498 por año y por instalación (US$ 388 + US$ 110) | B.2.4 | *84,2 %* |
-| Cloud Basic | US$ 15 por usuario por mes, mínimo 3 usuarios | A.1.5, A.2.6, A.3.4, A.8.3, A.10.1, A.10.2, A.10.3, A.11.1, A.11.3, A.12.1, B.2.4 | *88,8 %* |
+| Intelligence | US$ 129 por año y por instalación | B.1.1 | *84,2 %* |
+| Advanced Pack | US$ 395 por año y por instalación | A.1.5, A.2.6, A.3.4, A.8.3, A.10.1, A.10.2, A.10.3, A.11.1 | *86,4 %* |
+| VoIP Integration + Zoom Integration | US$ 498 por año y por instalación (US$ 388 + US$ 110) | B.1.4 | *84,2 %* |
+| Cloud Basic | US$ 15 por usuario por mes, mínimo 3 usuarios | A.1.5, A.2.6, A.3.4, A.8.3, A.10.1, A.10.2, A.10.3, A.11.1, A.12.1, A.12.3, B.1.4 | *88,8 %* |
 
 ### Twenty
 
 | Versión | Precio | Criterios que cambia | Cumplimiento total |
 |---|---|---|:---:|
 | **Autoalojado** *(evaluada)* | **Gratis** | — | **81,5 %** |
-| Cloud Pro | US$ 9 por usuario por mes, con pago anual | A.11.1, A.11.2, A.11.3 | *82,3 %* |
+| Cloud Pro | US$ 9 por usuario por mes, con pago anual | A.12.1, A.12.2, A.12.3 | *82,3 %* |
 | Organization | US$ 39 por usuario por mes, con pago anual | A.9.1 | *84,7 %* |
 
 ### Bitrix24
@@ -294,8 +274,8 @@ Las versiones pagas no se operaron: lo que sigue surge de la documentación de c
 | Versión | Precio | Criterios que cambia | Cumplimiento total |
 |---|---|---|:---:|
 | **Free** *(evaluada)* | **Gratis** | — | **56,3 %** |
-| Basic | US$ 69 por mes, hasta 5 usuarios | A.2.5, A.7.3, A.7.4, A.7.5, A.9.1, A.11.9, B.1.1, B.1.2, B.2.4 | *66,9 %* |
-| Basic Vibe+ | US$ 89 por mes, hasta 5 usuarios | A.10.4, A.10.5, A.12.3 | *70,4 %* |
-| Standard | US$ 144 por mes, hasta 50 usuarios | A.2.3, A.4.2, A.4.3, A.6.4, A.9.3, A.10.1, A.12.4, B.2.3 | *78,6 %* |
-| Professional | US$ 289 por mes, hasta 100 usuarios | A.1.1, A.8.1, A.12.2 | *82,1 %* |
+| Basic | US$ 69 por mes, hasta 5 usuarios | A.2.5, A.7.3, A.7.4, A.7.5, A.9.1, A.12.9, B.1.4, B.2.1, B.2.2 | *66,9 %* |
+| Basic Vibe+ | US$ 89 por mes, hasta 5 usuarios | A.10.4, A.10.5, A.11.3 | *70,4 %* |
+| Standard | US$ 144 por mes, hasta 50 usuarios | A.2.3, A.4.2, A.4.3, A.6.4, A.9.3, A.10.1, A.11.4, B.1.3 | *78,6 %* |
+| Professional | US$ 289 por mes, hasta 100 usuarios | A.1.1, A.8.1, A.11.2 | *82,1 %* |
 | Enterprise | US$ 579 por mes, desde 250 usuarios | A.9.2 | *83,3 %* |

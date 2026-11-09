@@ -3,7 +3,7 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 1,
-  "resumen": "Conecta el bot de Telegram y crea solo un contacto y una negociación por cada interesado, con su origen y la conversación; cobertura y urgencia se completan a mano.",
+  "resumen": "Conecta el bot de Telegram y crea solo un contacto y una venta en curso por cada interesado, con su origen y la conversación; cobertura y urgencia se completan a mano.",
   "comoLoHace": "En Clientes › Contact center se conecta una vez el bot de Telegram de la compañía al canal abierto, pegando su clave de acceso, sin planes de pago. Cuando un interesado le escribe al bot, el sistema crea solo, sin intervención de nadie, un contacto y una negociación (la ficha la menciona como prospecto); desde la ficha del contacto, con «Abrir», se ve la conversación con el mensaje tal como llegó.",
   "caracteristicas": "El contacto queda con el origen «Telegram - Canal Abierto» y con el enlace al canal en la ficha; la negociación se llama «Nawi - Canal Abierto», se asigna al responsable de la cola del canal y la conversación completa queda en el historial del contacto. El texto del mensaje no se vuelca a campos (cobertura solicitada y urgencia quedan vacíos): se completan a mano desde la ficha. La edición gratuita incluye Telegram además de Facebook e Instagram.",
   "justificacion": "La necesidad queda resuelta: el interesado que escribe por la red entra a la base como cualquier otro, con su origen. Conectar el canal es configuración de una sola vez, por eso el costo es 1; completar los datos del seguro en cada contacto es tarea del agente, pero no impide que el interesado esté en la base.",

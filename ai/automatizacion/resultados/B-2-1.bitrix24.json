@@ -1,26 +1,41 @@
 {
   "criterio": "B.2.1",
   "plataforma": "bitrix24",
-  "cumple": 2,
-  "costo": 1,
-  "resumen": "Incluye CoPilot, un asistente de inteligencia artificial disponible desde el propio registro, con una cuota mensual de usos gratuitos que puede agotarse.",
-  "comoLoHace": "Desde el chat de la negociación se le pide a CoPilot el resumen del registro: el asistente recibe la consulta, pero su respuesta puede depender de la cuota gratuita del portal.",
-  "caracteristicas": "El producto trae CoPilot, un asistente de inteligencia artificial disponible desde el propio registro, en la edición gratuita, con una cuota de usos gratuitos por mes.",
-  "justificacion": "Queda disponible de fábrica, sin instalar nada: lo único que puede requerir una configuración de una vez es elegir o ampliar la cuota de uso cuando la gratuita se agota.",
-  "evidencia": [
-    "B-2-1-bitrix24-1-negociacion.png",
-    "B-2-1-bitrix24-2-copilot.png"
+  "cumple": 0,
+  "resumen": "Las condiciones de servicio permiten dar de baja la cuenta, con sus datos, tras cincuenta días corridos sin uso.",
+  "comoLoHace": "Las condiciones de servicio del fabricante habilitan la baja de la cuenta, con sus datos, después de cincuenta días corridos sin uso.",
+  "justificacion": "Una póliza vigente puede pasar mucho más que cincuenta días sin que nadie la consulte —está vigente, pero no requiere actividad—, y ese silencio pone en riesgo toda la cartera, no solo el registro inactivo. La compañía tiene que sostener un ingreso periódico solo para conservar datos que de otro modo no necesitarían ninguna atención.",
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Basic",
+      "monto": "US$ 69 por mes, hasta 5 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "justificacion": "La baja por falta de uso solo rige mientras la cuenta sigue en la edición gratuita: las condiciones la condicionan a que, vencido el plazo, la cuenta «remains under the Free Plan». Con el plan Basic, el más barato de los pagos, esa baja deja de aplicar y los datos se conservan aunque nadie ingrese."
+    }
   ],
   "documentacion": [
     {
-      "url": "https://www.bitrix24.es/features/copilot.php",
-      "cita": "Su asistente potenciado por IA en Bitrix24",
-      "consultado": "2026-09-29",
-      "captura": "B-2-1-bitrix24-3-copilot-fabricante.png"
+      "url": "https://www.bitrix24.com/terms/",
+      "cita": "21.3.1. Alaio reserves the right to suspend your Bitrix24 Customer Account (temporary limit access to User Accounts and Administrator Accounts) in the following instances: (1) if you fail to comply with terms of these Terms of Service or other requirements described herein; (2) non-use of the Bitrix24 Customer Account for fifty (50) consecutive calendar days, provided that upon expiration of said period the Bitrix24 Customer Account remains under the Free Plan. Upon \"non-use\" we consider the absence of data in the Bitrix24 archive system about any activity in the Services and the Products within your Bitrix24 Customer Account; (3) non-deletion of User Content incompatible with a Free or cheaper Service Plan in accordance with Section 7.7. of these Terms of Service.",
+      "consultado": "2026-11-08",
+      "captura": "B-2-1-bitrix24-1-cincuenta-dias.png"
+    },
+    {
+      "url": "https://www.bitrix24.com/terms/",
+      "cita": "21.3.1. Alaio reserves the right to suspend your Bitrix24 Customer Account (temporary limit access to User Accounts and Administrator Accounts) in the following instances: (1) if you fail to comply with terms of these Terms of Service or other requirements described herein; (2) non-use of the Bitrix24 Customer Account for fifty (50) consecutive calendar days, provided that upon expiration of said period the Bitrix24 Customer Account remains under the Free Plan. Upon \"non-use\" we consider the absence of data in the Bitrix24 archive system about any activity in the Services and the Products within your Bitrix24 Customer Account; (3) non-deletion of User Content incompatible with a Free or cheaper Service Plan in accordance with Section 7.7. of these Terms of Service.",
+      "consultado": "2026-11-08",
+      "captura": "B-2-1-bitrix24-2-solo-edicion-gratuita.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "Basic desde US$ 69 desde US$ 49 incluye 5 usuarios Empezar Empezar",
+      "consultado": "2026-11-08",
+      "captura": "B-2-1-bitrix24-basic-precio-1.png"
     }
   ],
-  "criterioNombre": "Asistente de inteligencia artificial",
+  "criterioNombre": "Persistencia de los datos sin uso continuo",
   "licencia": null,
-  "conPlan": [],
-  "momento": "2026-09-30T00:49:21.401Z"
+  "evidencia": [],
+  "momento": "2026-11-09T02:51:24.424Z"
 }

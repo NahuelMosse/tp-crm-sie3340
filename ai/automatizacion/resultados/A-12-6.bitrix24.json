@@ -1,0 +1,19 @@
+{
+  "criterio": "A.12.6",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "resumen": "El menú y las fichas, incluidos los objetos de fábrica, están enteramente en español.",
+  "comoLoHace": "Con el portal configurado en español, el menú principal y la ficha del contacto se muestran en ese idioma.",
+  "caracteristicas": "El menú principal y la ficha del contacto están enteramente en español, incluidos los objetos que trae el producto de fábrica.",
+  "justificacion": "Todo lo que el personal ve en la operación diaria está en su idioma, sin nada que corregir.",
+  "evidencia": [
+    "A-12-6-bitrix24-1-menu-principal.png",
+    "A-12-6-bitrix24-2-listado-de-negociaciones.png"
+  ],
+  "medicion": "Menú: Bitrix, Messenger, CoPilot, Feed, Calendario, Documentos, Tableros, Drive, Webmail, Proyectos, Tareas, CRM, Reserva, Gestión del inventario, Marketing, Sitios web y tiendas, Firma electrónica para RR.HH., Firma electrónica, BI Builder, Empleados, Automatización, Market, Recursos para desarrolladores, Base de conocimientos 2., Suscripción · en inglés: ninguno",
+  "criterioNombre": "Localización completa al español, modelo incluido",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-09-29T14:31:58.832Z"
+}

@@ -20,23 +20,23 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 
 | | Enunciado textual | La comprueban |
 |:---:|---|---|
-| **1** | Cuando un cliente quiere solicitar una póliza de seguro, queremos registrar todos los datos y calificar sus necesidades para concretar la venta según lo que nos está pidiendo. | A.2.1, A.2.2, A.2.3, A.12.1 |
-| **2** | Realizar un seguimiento de pólizas. Gestionando los datos de los clientes queremos saber qué tipo de póliza tiene, el estado de pago y si hay una posibilidad de cambio de póliza. | A.1.1, A.1.2, A.2.6, A.6.1, A.12.2 |
+| **1** | Cuando un cliente quiere solicitar una póliza de seguro, queremos registrar todos los datos y calificar sus necesidades para concretar la venta según lo que nos está pidiendo. | A.2.1, A.2.2, A.2.3, A.11.1 |
+| **2** | Realizar un seguimiento de pólizas. Gestionando los datos de los clientes queremos saber qué tipo de póliza tiene, el estado de pago y si hay una posibilidad de cambio de póliza. | A.1.1, A.1.2, A.2.6, A.6.1, A.11.2 |
 | **3** | Gestionar una amplia fuente de información sobre ventas y pólizas que podemos utilizar para captar nuevos clientes. | A.1.6, A.10.1 |
-| **4** | Gestión de los corredores y agentes de seguros y podremos conocer y evaluar las ventas de seguros por parte de los empleados y el seguimiento de los clientes potenciales. Ver todas las actividades que los agentes o corredores de seguros realizan en torno al cliente. | A.2.4, A.3.1, A.3.2, A.9.1, A.10.2, A.12.4 |
-| **5** | Analizar los factores de la competencia, para podemos ofrecer un mejor servicio que aumente nuestras ventas y fidelice nuevos clientes al ofrecer un servicio adecuado a sus necesidades. | A.4.7, A.12.5 |
+| **4** | Gestión de los corredores y agentes de seguros y podremos conocer y evaluar las ventas de seguros por parte de los empleados y el seguimiento de los clientes potenciales. Ver todas las actividades que los agentes o corredores de seguros realizan en torno al cliente. | A.2.4, A.3.1, A.3.2, A.9.1, A.10.2, A.11.4 |
+| **5** | Analizar los factores de la competencia, para podemos ofrecer un mejor servicio que aumente nuestras ventas y fidelice nuevos clientes al ofrecer un servicio adecuado a sus necesidades. | A.4.7, A.11.5 |
 | **6** | Conocer nuevas oportunidades de negocio, a partir de las necesidades de nuestros clientes y prospectos. | A.2.2, A.2.4, A.2.5, A.2.6 |
-| **7** | Conocer la información del cliente, centralizarla y centrar a la organización alrededor del cliente. | A.6.1, A.6.2, A.6.4, A.12.4 |
+| **7** | Conocer la información del cliente, centralizarla y centrar a la organización alrededor del cliente. | A.6.1, A.6.2, A.6.4, A.11.4 |
 | **8** | Optimizar las actividades de los vendedores. | A.3.3, A.8.3 |
 | **9** | Pronosticar todos los movimientos comerciales. | A.3.4 |
 | **10** | Diseñar campañas de marketing personalizables. Análisis de campañas realizadas. | A.4.2, A.4.3 |
 | **11** | Segmentación de clientes. | A.4.1 |
-| **12** | Manejar quejas y reclamaciones. | A.5.1, A.5.2, A.5.3, A.12.5 |
+| **12** | Manejar quejas y reclamaciones. | A.5.1, A.5.2, A.5.3, A.11.5 |
 | **13** | Información de los clientes y conseguir nuevos, así como conocer a la competencia que esté presente en las redes. | A.4.4, A.4.5 |
 | **14** | Conseguir cambiar la imagen y reputación, a partir de las opiniones y comentarios de los clientes y tener mayor repercusión en las redes. | A.4.5, A.4.6, A.6.3 |
-| **15** | Mejora de la calidad del servicio y la atención al cliente. | A.5.4, A.10.1, A.12.5 |
+| **15** | Mejora de la calidad del servicio y la atención al cliente. | A.5.4, A.10.1, A.11.5 |
 | **16** | Conocer y agrupar la información de los clientes. | A.4.1, A.6.3 |
-| **17** | Gestionar de manera eficaz todas las pólizas de los clientes y generar nuevas oportunidades e venta. | A.1.5, A.1.7, A.2.6, A.12.1 |
+| **17** | Gestionar de manera eficaz todas las pólizas de los clientes y generar nuevas oportunidades e venta. | A.1.5, A.1.7, A.2.6, A.11.1 |
 | **18** | Importar contactos desde Excel, Gmail y Outlook. | A.7.1, A.7.2 |
 | **19** | Sincronizar el email de todos en tu empresa para que se guarde automáticamente en las fichas de los clientes | A.7.3, A.7.4 |
 | **20** | Crear tareas y asignar a personas de la empresa | A.5.5, A.5.6 |
@@ -45,19 +45,19 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 
 | | Enunciado textual | La comprueban |
 |:---:|---|---|
-| **1** | Restricciones de tipo tecnológicas, como ser plataforma, Sistema Operativo, requerimientos de hardware, de almacenamiento, memoria de trabajo, etc. | A.11.1, A.11.2 |
-| **2** | Facilidad en su instalación y configuración. | A.11.3 |
-| **3** | Facilidades y menú de funcionalidades. Despliegue y navegabilidad. | A.11.4 |
-| **4** | Interface con usuarios, facilidad de uso y aprendizaje para usuarios finales, etc. | A.11.5, A.11.6 |
-| **5** | Usuarios concurrentes. Limitaciones. | A.11.7, A.11.8 |
+| **1** | Restricciones de tipo tecnológicas, como ser plataforma, Sistema Operativo, requerimientos de hardware, de almacenamiento, memoria de trabajo, etc. | A.12.1, A.12.2 |
+| **2** | Facilidad en su instalación y configuración. | A.12.3 |
+| **3** | Facilidades y menú de funcionalidades. Despliegue y navegabilidad. | A.12.4 |
+| **4** | Interface con usuarios, facilidad de uso y aprendizaje para usuarios finales, etc. | A.12.5, A.12.6 |
+| **5** | Usuarios concurrentes. Limitaciones. | A.12.7, A.12.8 |
 | **6** | Parametrización, facilidad y posibilidades de cambios. | A.8.1, A.8.2, A.8.3 |
 | **7** | Importación / Exportación de datos. Flexibilidad | A.7.1, A.7.5 |
 | **8** | Seguridad de la información, autentificación de usuarios, esquema de roles y perfiles, pistas de auditoría, etc. | A.9.1, A.9.2, A.9.3 |
 | **9** | Herramientas de explotación de datos y medición de resultados. | A.10.1 |
 | **10** | Generación de reportes e informes. Paramétricos y Ad Hoc | A.10.2, A.10.3 |
-| **11** | Factibilidad de interfaz con otras aplicaciones locales o remotas. | A.10.4, A.10.5, A.12.3 |
-| **12** | Posibilidades de integración: relacionado con la facilidad que posee para ser incorporada en un contexto más amplio. | A.11.9, A.12.3 |
-| **13** | Soporte técnico, capacitación, blog de usuarios, etc. | A.11.10, A.11.11, A.11.12, A.11.13 |
+| **11** | Factibilidad de interfaz con otras aplicaciones locales o remotas. | A.10.4, A.10.5, A.11.3 |
+| **12** | Posibilidades de integración: relacionado con la facilidad que posee para ser incorporada en un contexto más amplio. | A.11.3, A.12.9 |
+| **13** | Soporte técnico, capacitación, blog de usuarios, etc. | A.12.10, A.12.11, A.12.12, A.12.13 |
 
 ## Cada criterio y su fuente
 
@@ -114,43 +114,43 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | A.10.3 | Informe paramétrico reutilizable | `CRIT 10` |
 | A.10.4 | Intercambio de datos con otros sistemas de la compañía | `CRIT 11` |
 | A.10.5 | Intercambio sin límite de volumen que condicione la operación | `CRIT 11` |
-| A.11.1 | Recursos que la compañía debe disponer para sostenerlo | `CRIT 1` |
-| A.11.2 | Compatibilidad con la plataforma que la compañía usa | `CRIT 1` |
-| A.11.3 | Puesta en marcha sin perfil técnico especializado | `CRIT 2` |
-| A.11.4 | Menú y navegabilidad para la operación diaria | `CRIT 3` |
-| A.11.5 | Aprendizaje sin capacitación previa | `CRIT 4` |
-| A.11.6 | Localización completa al español, modelo incluido | `CRIT 4, RUBRO` |
-| A.11.7 | Cantidad de usuarios sin límite que condicione la operación | `CRIT 5` |
-| A.11.8 | Operación concurrente sobre la misma cartera | `CRIT 5` |
-| A.11.9 | Ecosistema de integraciones disponible | `CRIT 12` |
-| A.11.10 | Documentación en español | `CRIT 13` |
-| A.11.11 | Material de capacitación para el usuario final | `CRIT 13` |
-| A.11.12 | Comunidad activa de usuarios | `CRIT 13` |
-| A.11.13 | Soporte técnico con compromiso de respuesta | `CRIT 13` |
-| A.11.14 | Continuidad de las versiones en uso | `RUBRO` |
-| A.12.1 | Emisión de la póliza al cerrar la venta | `REQ 1, REQ 17` |
-| A.12.2 | Plan de pago de la prima | `REQ 2` |
-| A.12.3 | Datos que administra el sistema central | `CRIT 11, CRIT 12, RUBRO` |
-| A.12.4 | Historia del cliente desde el primer contacto | `REQ 7, REQ 4` |
-| A.12.5 | Satisfacción después de la atención | `REQ 15, REQ 12, REQ 5` |
-| B.1.1 | Persistencia de los datos sin uso continuo | `RUBRO` |
-| B.1.2 | Copia propia y completa de la cartera | `RUBRO` |
-| B.1.3 | Copia periódica sin intervención manual | `RUBRO` |
-| B.1.4 | Búsqueda y operación con volumen productivo | `RUBRO` |
-| B.1.5 | Previsibilidad de los cambios del sistema | `RUBRO` |
-| B.1.6 | Conocimiento y decisión sobre dónde residen los datos | `RUBRO` |
-| B.1.7 | Continuidad de la atención ante una caída del enlace | `RUBRO` |
-| B.2.1 | Asistente de inteligencia artificial | `OBS` |
-| B.2.2 | Aplicación móvil nativa | `OBS` |
-| B.2.3 | Suite de trabajo integrada | `OBS` |
-| B.2.4 | Telefonía y videollamada integradas | `OBS` |
+| A.11.1 | Emisión de la póliza al cerrar la venta | `REQ 1, REQ 17` |
+| A.11.2 | Plan de pago de la prima | `REQ 2` |
+| A.11.3 | Datos que administra el sistema central | `CRIT 11, CRIT 12, RUBRO` |
+| A.11.4 | Historia del cliente desde el primer contacto | `REQ 7, REQ 4` |
+| A.11.5 | Satisfacción después de la atención | `REQ 15, REQ 12, REQ 5` |
+| A.12.1 | Recursos que la compañía debe disponer para sostenerlo | `CRIT 1` |
+| A.12.2 | Compatibilidad con la plataforma que la compañía usa | `CRIT 1` |
+| A.12.3 | Puesta en marcha sin perfil técnico especializado | `CRIT 2` |
+| A.12.4 | Menú y navegabilidad para la operación diaria | `CRIT 3` |
+| A.12.5 | Aprendizaje sin capacitación previa | `CRIT 4` |
+| A.12.6 | Localización completa al español, modelo incluido | `CRIT 4, RUBRO` |
+| A.12.7 | Cantidad de usuarios sin límite que condicione la operación | `CRIT 5` |
+| A.12.8 | Operación concurrente sobre la misma cartera | `CRIT 5` |
+| A.12.9 | Ecosistema de integraciones disponible | `CRIT 12` |
+| A.12.10 | Documentación en español | `CRIT 13` |
+| A.12.11 | Material de capacitación para el usuario final | `CRIT 13` |
+| A.12.12 | Comunidad activa de usuarios | `CRIT 13` |
+| A.12.13 | Soporte técnico con compromiso de respuesta | `CRIT 13` |
+| A.12.14 | Continuidad de las versiones en uso | `RUBRO` |
+| B.1.1 | Asistente de inteligencia artificial | `OBS` |
+| B.1.2 | Aplicación móvil nativa | `OBS` |
+| B.1.3 | Suite de trabajo integrada | `OBS` |
+| B.1.4 | Telefonía y videollamada integradas | `OBS` |
+| B.2.1 | Persistencia de los datos sin uso continuo | `RUBRO` |
+| B.2.2 | Copia propia y completa de la cartera | `RUBRO` |
+| B.2.3 | Copia periódica sin intervención manual | `RUBRO` |
+| B.2.4 | Búsqueda y operación con volumen productivo | `RUBRO` |
+| B.2.5 | Previsibilidad de los cambios del sistema | `RUBRO` |
+| B.2.6 | Conocimiento y decisión sobre dónde residen los datos | `RUBRO` |
+| B.2.7 | Continuidad de la atención ante una caída del enlace | `RUBRO` |
 
 ## Sin fuente externa
 
 | Origen | Criterios |
 |---|---|
-| `RUBRO` | A.1.3, A.1.4, A.2.5, A.6.4, A.8.1, A.8.4, A.11.6, A.11.14, A.12.3, B.1.1, B.1.2, B.1.3, B.1.4, B.1.5, B.1.6, B.1.7 |
-| `OBS` | B.2.1, B.2.2, B.2.3, B.2.4 |
+| `RUBRO` | A.1.3, A.1.4, A.2.5, A.6.4, A.8.1, A.8.4, A.11.3, A.12.6, A.12.14, B.2.1, B.2.2, B.2.3, B.2.4, B.2.5, B.2.6, B.2.7 |
+| `OBS` | B.1.1, B.1.2, B.1.3, B.1.4 |
 
 ## Resultado
 

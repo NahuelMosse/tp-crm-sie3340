@@ -8,7 +8,7 @@
 |---|---|---|
 | El límite publicado deja holgura sobre las 500 operaciones diarias | Las admite, pero se agota en una jornada intensa y obliga a espaciar los envíos | Queda por debajo de 500, o no está publicado |
 
-## A.11.5
+## A.12.5
 
 **Cifra de referencia: 5 tareas, 3 agentes.** Son las cinco operaciones que un productor repite a diario, y las hacen tres agentes independientes para que un recorrido individual no defina el resultado.
 
@@ -16,7 +16,7 @@
 |---|---|---|
 | Los tres completan las cinco tareas | Cada tarea la completa al menos uno, aunque no todos completan todas | Hay tareas que ninguno de los tres logra completar |
 
-## A.11.12
+## A.12.12
 
 **Cifra de referencia: una semana de espera.** Una consulta de configuración no puede detener la operación más de un ciclo semanal de trabajo. Las 21 consultas más recientes del canal público de la comunidad se clasifican con la tabla y se ordenan de la mejor atendida a la peor. El criterio toma el valor de la que queda en el medio, que refleja la experiencia típica.
 
@@ -24,7 +24,7 @@
 |---|---|---|
 | Llega una respuesta que resuelve la consulta dentro de la semana | Llega después de la semana, o antes pero sin resolver | No llega respuesta |
 
-## A.11.14
+## A.12.14
 
 **Cifra de referencia: 12 meses.** La compañía planifica sus cambios de sistema por ejercicio anual.
 
@@ -32,7 +32,7 @@
 |---|---|---|
 | El fabricante sostiene cada versión doce meses o más, de modo que la actualización entra en el plan del ejercicio | Publica un plazo menor, que obliga a adelantar la actualización | No publica ningún compromiso |
 
-## B.1.4
+## B.2.4
 
 **Cifra de referencia: 25.000 registros.** En los ramos patrimoniales del mercado argentino se paga por año un siniestro cada nueve pólizas vigentes, según la Superintendencia de Seguros de la Nación. Las aseguradoras tienen entre 1,2 y 1,7 pólizas por cliente, según relevamientos de McKinsey & Company y del mercado español. Con unos quinientos clientes, la compañía suma unas setecientas cincuenta pólizas y ochenta reclamos por año: poco más de mil seiscientos registros con cinco años de reclamos. La cartera de referencia es unas quince veces esa cifra, para cubrir el crecimiento: cinco mil asegurados con dos pólizas y media cada uno, más sus reclamos.
 

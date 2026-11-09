@@ -30,7 +30,7 @@ export default defineConfig({
       testMatch: [/espocrm[\\/].*\.spec\.ts/, /criterios[\\/].*\.spec\.ts/, /descubrir\.spec\.ts/],
       use: { baseURL: 'http://localhost:8705' },
     },
-    // Deja listos los productores de la prueba de aprendizaje (A.11.5), antes de darles la consigna
+    // Deja listos los productores de la prueba de aprendizaje (A.12.5), antes de darles la consigna
     {
       name: 'aprendizaje-preparar',
       testMatch: /aprendizaje[\\/]preparar\.spec\.ts/,

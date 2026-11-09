@@ -1,39 +1,21 @@
 {
   "criterio": "A.11.1",
   "plataforma": "twenty",
-  "cumple": 1,
-  "resumen": "Se instala en infraestructura propia, con cuatro contenedores y 2 GB de memoria como mínimo; alguien debe mantener ese equipo encendido, respaldado y actualizado.",
-  "comoLoHace": "La edición gratuita se instala en infraestructura de la compañía, con cuatro contenedores: la aplicación, un proceso que ejecuta las tareas en segundo plano, la base de datos y una memoria intermedia. El servicio en la nube del fabricante elimina esa carga.",
-  "caracteristicas": "No exige un servidor dedicado: el fabricante pide al menos 2 GB de memoria, y la instalación evaluada corre en un equipo de escritorio común, donde ocupa 2421 MB con la cartera de prueba cargada.",
-  "justificacion": "La condición se satisface con una limitación que la compañía asume de forma permanente: alguien tiene que mantener ese equipo encendido, respaldado y actualizado.",
+  "cumple": 2,
+  "costo": 1,
+  "resumen": "Al pasar una oportunidad a la etapa de venta ganada, un flujo emite solo la póliza, ligada al asegurado y con la prima de la oportunidad.",
+  "comoLoHace": "Un flujo de trabajo se dispara al actualizarse una oportunidad, filtra por la etapa «Customer» y crea un registro de Pólizas con el nombre de la oportunidad, el asegurado como titular y el monto como prima, tomados con el selector de variables. Al pasar la oportunidad a esa etapa desde su ficha, la póliza aparece vinculada al asegurado y se ve en su ficha, con la prima de la oportunidad.",
+  "caracteristicas": "Disparador por actualización de registro con condición sobre la etapa; paso «Crear registro» sobre el objeto propio de pólizas; variables del registro disparador para no recargar datos —el importe de la prima se arma con dos variables, el monto en micros y el código de moneda de la oportunidad—; la póliza queda en la ficha del asegurado.",
+  "justificacion": "El flujo se arma una sola vez y cada venta ganada emite la póliza con sus datos sin intervención. Configurar el flujo y el objeto de pólizas es trabajo de configuración, sin desarrollo.",
   "evidencia": [
-    "A-11-1-twenty-2-estado-del-servidor.png"
+    "A-11-1-twenty-1-evento-y-condicion.png",
+    "A-11-1-twenty-2-datos-que-pasan-a-la-poliza.png",
+    "A-11-1-twenty-3-poliza-emitida.png",
+    "A-11-1-twenty-4-poliza-en-la-ficha-del-asegurado.png"
   ],
-  "documentacion": [
-    {
-      "url": "https://docs.twenty.com/developers/self-host/capabilities/docker-compose",
-      "cita": "RAM: Ensure your environment has at least 2GB of RAM. Insufficient memory can cause processes to crash.",
-      "consultado": "2026-10-30",
-      "captura": "A-11-1-twenty-1-requisitos.png"
-    },
-    {
-      "url": "https://twenty.com/pricing",
-      "cita": "Cloud Pro is $9/user/month and Organization is $39/user/month, billed yearly. Organization adds 5x more AI usage per member, custom roles with field and row-level permissions, and SSO. Self-hosting the open source core is free.",
-      "consultado": "2026-10-30",
-      "captura": "A-11-1-twenty-nube-precio-1.png"
-    }
-  ],
-  "medicion": "2421 MB de memoria entre los cuatro contenedores",
-  "conPlan": [
-    {
-      "plan": "Twenty Cloud Pro",
-      "monto": "US$ 9 por usuario por mes, con pago anual",
-      "modalidad": "recurrente",
-      "cumple": 2,
-      "justificacion": "En la nube del fabricante la compañía no dispone ninguna infraestructura propia."
-    }
-  ],
-  "criterioNombre": "Recursos que la compañía debe disponer para sostenerlo",
+  "criterioNombre": "Emisión de la póliza al cerrar la venta",
   "licencia": null,
-  "momento": "2026-10-30T08:03:58.903Z"
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-10-30T09:32:50.321Z"
 }

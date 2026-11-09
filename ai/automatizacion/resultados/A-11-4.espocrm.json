@@ -2,17 +2,18 @@
   "criterio": "A.11.4",
   "plataforma": "espocrm",
   "cumple": 2,
-  "resumen": "El menú lleva directo a asegurados y la póliza se carga desde su ficha: el alta completa recorre cuatro pantallas sin volver sobre ninguna.",
-  "comoLoHace": "Desde el ingreso, el menú lleva directo a asegurados, y de ahí al alta. Guardado el asegurado, la póliza se carga desde su propia ficha, en el panel de sus pólizas, sin salir de ella y ya ligada a él.",
-  "caracteristicas": "El recorrido completo pasó por cuatro pantallas sin volver sobre ninguna y llevó 28 segundos.",
-  "justificacion": "La póliza, que es una entidad creada por la compañía, figura en el menú dentro del grupo desplegable; el orden del menú se ajusta desde la administración.",
+  "costo": 0,
+  "resumen": "El historial reúne llamadas, reuniones y correos desde el primer contacto: la llamada al solicitante sigue en la ficha del asegurado tras convertirlo, sin copiarla a mano.",
+  "comoLoHace": "La llamada se registra desde el panel Historial de la ficha del solicitante. Al convertir al solicitante en asegurado, el sistema crea la ficha del asegurado, y la póliza se emite desde su formulario. La ficha del asegurado muestra, en su Historial, la llamada hecha antes de que fuera cliente, y en su panel de pólizas la póliza emitida.",
+  "caracteristicas": "El historial reúne llamadas, reuniones y correos en orden cronológico. La llamada es un único registro, que sigue ligado al solicitante y figura además entre los contactos del asegurado: no hay que copiar nada a mano. La ficha del solicitante queda marcada como convertida y conserva el vínculo con el asegurado creado.",
+  "justificacion": "Viene de fábrica: registrar la llamada, convertir y consultar el historial no requieren configurar nada. La póliza aparece en la ficha porque su relación con el titular ya está definida para el resto del catálogo (A.6.1).",
   "evidencia": [
-    "A-11-4-espocrm-1-asegurado-con-su-poliza.png"
+    "A-11-4-espocrm-1-llamada-al-solicitante.png",
+    "A-11-4-espocrm-2-ficha-del-asegurado.png"
   ],
-  "medicion": "4 pantallas, ninguna revisitada, 28 s",
-  "criterioNombre": "Menú y navegabilidad para la operación diaria",
+  "criterioNombre": "Historia del cliente desde el primer contacto",
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-10-30T05:35:21.659Z"
+  "momento": "2026-10-30T05:53:11.057Z"
 }

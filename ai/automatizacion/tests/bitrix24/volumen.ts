@@ -1,7 +1,7 @@
 import { Page } from '@playwright/test';
 
 /**
- * Carga y baja de la cartera de referencia de B.1.4 por la interfaz de
+ * Carga y baja de la cartera de referencia de B.2.4 por la interfaz de
  * programación, con `batch` de 50 comandos. Prepara el escenario: no decide
  * ningún veredicto. Todo lo cargado lleva el prefijo «VOL».
  */

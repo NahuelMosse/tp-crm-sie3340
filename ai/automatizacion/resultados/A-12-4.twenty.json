@@ -2,18 +2,17 @@
   "criterio": "A.12.4",
   "plataforma": "twenty",
   "cumple": 2,
-  "costo": 1,
-  "resumen": "La persona es la misma desde la primera llamada hasta la póliza: sin conversión que duplique datos, su ficha reúne notas, oportunidades y pólizas.",
-  "comoLoHace": "La llamada se registra como nota en la ficha de la persona que consulta. Al convertirla, la misma persona queda como contacto de una oportunidad que pasa a la etapa de venta ganada, y el flujo de emisión crea la póliza a su nombre. En la ficha del asegurado la llamada sigue estando, junto a la póliza.",
-  "caracteristicas": "Notas vinculadas a la persona; la misma persona pasa de solicitante a asegurado sin duplicarse; la ficha reúne notas, oportunidades y pólizas.",
-  "justificacion": "No hay una conversión que mueva o duplique datos: la persona es la misma desde la primera llamada y todo lo que se le registró queda en su ficha. La emisión depende del flujo configurado en A.12.1.",
+  "resumen": "El menú lateral lleva directo a las personas y la póliza se carga desde la ficha del asegurado; los objetos propios aparecen en el mismo menú que los de fábrica.",
+  "comoLoHace": "Desde el ingreso, el menú lateral lleva directo a las personas, y el alta se hace en el mismo listado, escribiendo nombre y apellido en una fila nueva. Guardado el asegurado, la póliza se carga desde su propia ficha, en el campo de sus pólizas, escribiendo su número y agregándola: queda creada y ligada a él sin salir de la ficha.",
+  "caracteristicas": "El recorrido completo pasó por 2 pantallas sin volver sobre ninguna y llevó 49 segundos.",
+  "justificacion": "Los objetos propios, como la póliza, aparecen en el mismo menú lateral que los de fábrica.",
   "evidencia": [
-    "A-12-4-twenty-1-ficha-del-asegurado.png",
-    "A-12-4-twenty-2-la-llamada-en-la-ficha.png"
+    "A-12-4-twenty-1-asegurado-con-su-poliza.png"
   ],
-  "criterioNombre": "Historia del cliente desde el primer contacto",
+  "medicion": "2 pantallas, ninguna revisitada, 49 s",
+  "criterioNombre": "Menú y navegabilidad para la operación diaria",
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-10-30T03:21:04.476Z"
+  "momento": "2026-10-30T08:06:01.117Z"
 }

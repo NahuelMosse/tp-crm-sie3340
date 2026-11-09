@@ -19,7 +19,7 @@ Cómo tenés que trabajar:
 - **Usá el sistema como lo usaría una persona**: mirando la pantalla y usando lo que ofrece —menús, botones, formularios, búsquedas—. No escribas direcciones en la barra del navegador, no ejecutes código en la página ni consultes la interfaz de programación, la documentación del producto o internet.
 - **Nadie te va a ayudar.** Si una tarea te traba, probá lo que se te ocurra. Si decidís que no podés terminarla, dejala y seguí con la siguiente, anotando con tus palabras qué te faltó para terminarla.
 - **No toques lo que no es tuyo**: no borres ni modifiques registros que ya estaban.
-- Al terminar cada tarea, terminada o no, **capturá la pantalla** con el nombre **A-11-5-{plataforma}-p{n}-t{tarea}.png** en la carpeta **{evidencia}**.
+- Al terminar cada tarea, terminada o no, **capturá la pantalla** con el nombre **A-12-5-{plataforma}-p{n}-t{tarea}.png** en la carpeta **{evidencia}**.
 
 Cuando termines las cinco, escribí tu informe en **{informe}** con este formato, y nada más:
 
@@ -30,7 +30,7 @@ Cuando termines las cinco, escribí tu informe en **{informe}** con este formato
   "fecha": "{fecha}",
   "respuestaTarea3": <el número que averiguaste, o null si no llegaste>,
   "tareas": [
-    { "tarea": 1, "termine": true, "falto": null, "captura": "A-11-5-{plataforma}-p{n}-t1.png" }
+    { "tarea": 1, "termine": true, "falto": null, "captura": "A-12-5-{plataforma}-p{n}-t1.png" }
   ]
 }
 ```

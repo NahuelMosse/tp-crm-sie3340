@@ -100,7 +100,7 @@ export const versionEspo = () =>
 /** Copia la instalación de EspoCRM en uso y la levanta, en la versión indicada, en contenedores aparte. */
 export async function copiarEspoCrm(puerto: number, version: string): Promise<Copia> {
   const dir = mkdtempSync(join(tmpdir(), 'a84-espocrm-'));
-  // La copia: volcado de la base y carpetas custom, data y client/custom, como en B.1.2
+  // La copia: volcado de la base y carpetas custom, data y client/custom, como en B.2.2
   await conEncendido('tp-espocrm-db', () => intentar('exec', 'tp-espocrm-db', 'mariadb-admin', '-uespocrm', '-pespocrm', 'ping') !== null, () => {
     writeFileSync(join(dir, 'base.sql'), docker('exec', 'tp-espocrm-db', 'mariadb-dump', '-uespocrm', '-pespocrm', 'espocrm'), 'utf8');
   });

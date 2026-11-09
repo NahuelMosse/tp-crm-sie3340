@@ -4,7 +4,7 @@ import { prepararAprendicesTwenty, correoDe } from '../twenty/aprendizaje';
 import { entrar } from '../sesion';
 
 /**
- * Deja listos los tres productores de la prueba de aprendizaje (A.11.5) en
+ * Deja listos los tres productores de la prueba de aprendizaje (A.12.5) en
  * Twenty, cada uno con su cartera y sin rastros de una corrida anterior. Se
  * corre antes de darles la consigna:
  *

@@ -2,7 +2,7 @@ import { test } from '../humano';
 import { prepararAprendices, PERSONAS, CLAVE } from '../aprendizaje';
 
 /**
- * Deja listos los tres productores de la prueba de aprendizaje (A.11.5), cada
+ * Deja listos los tres productores de la prueba de aprendizaje (A.12.5), cada
  * uno con su cartera y sin rastros de una corrida anterior. Se corre antes de
  * darles la consigna:
  *

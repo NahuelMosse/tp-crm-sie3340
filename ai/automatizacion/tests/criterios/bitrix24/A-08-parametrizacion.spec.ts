@@ -75,7 +75,7 @@ test('A.8.1 — Creación de entidades sin programar', async ({ page, browser },
     criterio: 'A.8.1',
     plataforma,
     cumple: 0,
-    resumen: 'La edición gratuita no crea entidades propias; lo más cercano es forzar el concepto dentro de una negociación. Las entidades, llamadas procesos inteligentes, exigen el plan Professional.',
+    resumen: 'La edición gratuita no crea entidades propias; lo más cercano es forzar el concepto dentro del registro de una venta. Las entidades, llamadas procesos inteligentes, exigen el plan Professional.',
     comoLoHace:
       'La edición gratuita no crea entidades propias: al guardar, avisa que los procesos ' +
       'inteligentes requieren el plan Professional o el Enterprise; la tabla comparativa del ' +
