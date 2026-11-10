@@ -88,12 +88,17 @@ test('B.1.1 — Asistente de inteligencia artificial', async ({ page, browser },
 });
 
 // ── B.1.2 ────────────────────────────────────────────────────────────────────
-test('B.1.2 — Aplicación móvil nativa', async ({ page, browser }, info) => {
-  // «Verificar la existencia de aplicación oficial en las tiendas de aplicaciones»
+test('B.1.2 — Uso desde el teléfono durante la visita', async ({ page, browser }, info) => {
+  // «Registrar una operación desde el teléfono y comprobar si al usuario le llegan al teléfono los
+  //  avisos de lo que se le asigna, aunque no tenga el sistema abierto»
   const plataforma = plataformaDe(info.project.name);
   soloEn(plataforma, 'bitrix24');
-  test.setTimeout(400_000);
+  test.setTimeout(600_000);
 
+  const operacion = 'B12-Visita: renovación del vehículo de María Belén Gutiérrez';
+  const patron = /^B12-Visita/;
+
+  // La tienda de aplicaciones, donde está la aplicación oficial que envía los avisos
   const contexto = await browser.newContext({ locale: 'es-AR' });
   const tienda = await contexto.newPage();
   await tienda.goto('https://play.google.com/store/apps/details?id=com.bitrix24.android', { waitUntil: 'domcontentloaded' });
@@ -103,34 +108,63 @@ test('B.1.2 — Aplicación móvil nativa', async ({ page, browser }, info) => {
   await contexto.close();
   const esDelFabricante = /Bitrix24|Bitrix, Inc/i.test(ficha);
 
+  // Con la pantalla de un teléfono: se entra y se registra una operación sobre un asegurado
+  // El portal reconoce la sesión con la pantalla de escritorio: se ingresa y luego se pasa a la del teléfono
   await entrar(page, plataforma);
-  await menuLateral(page, 'CRM');
-  const capPortal = await capturar(page, 'B.1.2', plataforma, '2-portal-en-el-navegador');
+  await borrarNegociaciones(page, patron);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.waitForTimeout(3000);
+  try {
+    // En la pantalla del teléfono el menú queda plegado detrás del botón de las tres rayas
+    await page.mouse.click(33, 29);
+    await page.waitForTimeout(1000);
+    await altaDeNegociacion(page);
+    await panel(page).locator('input[name="TITLE"]').fill(operacion);
+    const capAlta = await capturar(page, 'B.1.2', plataforma, '2-alta-en-pantalla-de-telefono');
+    await guardarFormulario(page);
+    const capGuardada = await capturar(page, 'B.1.2', plataforma, '3-operacion-guardada');
+    const guardadas = await negociaciones(page, patron, ['ID', 'TITLE']);
 
-  const fuente = await citar(browser, {
-    url: 'https://www.bitrix24.es/features/mobile-app.php',
-    buscar: /./,
-    captura: 'B-1-2-bitrix24-3-app-movil-oficial',
-  });
+    const avisos = await citar(browser, {
+      url: 'https://helpdesk.bitrix24.com/open/19423886/',
+      buscar: 'Mobile devices (push notifications)',
+      captura: 'B-1-2-bitrix24-4-avisos-push',
+    });
+    const gratuita = await citar(browser, {
+      url: 'https://helpdesk.bitrix24.com/open/21659550/',
+      buscar: 'The Bitrix24 mobile app is free',
+      captura: 'B-1-2-bitrix24-5-app-gratuita',
+    });
 
-  expect(esDelFabricante, 'la ficha de la tienda debe identificar al fabricante').toBe(true);
+    expect(esDelFabricante, 'la ficha de la tienda debe identificar al fabricante').toBe(true);
+    expect(guardadas.length, 'la operación debe quedar guardada').toBe(1);
 
-  registrar({
-    criterio: 'B.1.2',
-    plataforma,
-    cumple: 2,
-    costo: 0,
-    resumen: 'Tiene aplicación móvil oficial para Android e iOS, con CRM, tareas, chat y notificaciones, para operar durante la visita al asegurado.',
-    comoLoHace: 'La aplicación oficial del fabricante se encuentra en las tiendas de aplicaciones.',
-    caracteristicas:
-      'El fabricante publica una aplicación móvil oficial, para Android en Google Play y para iOS en el App ' +
-      'Store, con el CRM, las tareas, el chat y las notificaciones de la cuenta.',
-    justificacion:
-      'El productor puede registrar la operación durante la visita al asegurado, desde su teléfono, sin ' +
-      'instalar ni configurar nada además de bajar la aplicación e iniciar sesión.',
-    evidencia: ['B-1-2-bitrix24-1-google-play.png', capPortal],
-    documentacion: fuente,
-  });
+    registrar({
+      criterio: 'B.1.2',
+      plataforma,
+      cumple: 2,
+      costo: 0,
+      resumen:
+        'La aplicación oficial gratuita para Android e iOS permite registrar la operación en la visita ' +
+        'y envía avisos al teléfono aunque el sistema esté cerrado.',
+      comoLoHace:
+        'En la pantalla de un teléfono, el productor entra al portal y registra una operación, que queda ' +
+        'guardada. Los avisos al teléfono los envía la aplicación oficial del fabricante, publicada en ' +
+        'Google Play y en App Store: la documentación oficial indica que, para recibirlos, se activan ' +
+        'en la configuración de esa aplicación.',
+      caracteristicas:
+        'El fabricante publica una aplicación oficial y gratuita para Android e iOS, con el CRM, las tareas, ' +
+        'el chat y las notificaciones. Los avisos llegan al teléfono como notificaciones push y se ' +
+        'configuran por tipo de aviso.',
+      justificacion:
+        'Viene lista: alcanza con instalar la aplicación e iniciar sesión. Los avisos al teléfono se ' +
+        'sostienen con la documentación oficial; no se comprobó la llegada de un aviso a un teléfono real.',
+      evidencia: [capAlta, capGuardada, 'B-1-2-bitrix24-1-google-play.png'],
+      documentacion: [avisos, gratuita].flat(),
+    });
+  } finally {
+    await borrarNegociaciones(page, patron);
+  }
 });
 
 // ── B.1.3 ────────────────────────────────────────────────────────────────────

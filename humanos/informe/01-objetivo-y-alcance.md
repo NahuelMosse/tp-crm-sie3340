@@ -13,6 +13,7 @@ Algunos términos aparecen seguido:
 - **Productor:** el productor asesor de seguros, el vendedor matriculado que trabaja con la compañía y atiende su propia cartera de clientes.
 - **Automatización:** una secuencia de pasos que el sistema ejecuta solo, armada desde sus pantallas, sin escribir código.
 - **Código:** instrucciones que tiene que escribir y mantener alguien con conocimientos técnicos.
+- **Sistema central:** el sistema de la compañía donde se emiten las pólizas, se calculan las primas y se registran los cobros. El CRM no lo reemplaza: muestra lo que ese sistema decide.
 - **Interfaz de programación:** la vía por la que otro sistema de la compañía lee y carga datos sin intervención de un usuario.
 - **Contenedores:** la forma estándar de instalar estos sistemas en un servidor propio. Instalarlos y mantenerlos exige una persona con conocimientos técnicos.
 

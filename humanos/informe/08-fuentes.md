@@ -37,13 +37,18 @@
 - https://forum.espocrm.com/forum/general/128278-10-0-10-most-likely-problem-is-active-since-10-0-8-empty-float-error-on-save
 - https://forum.espocrm.com/forum/general/128297-cve-2026-109618-cve-2026-109619
 - https://github.com/espocrm/espocrm
-- https://play.google.com/store/search?q=espocrm&c=apps
+- https://github.com/espocrm/espocrm/releases/tag/9.3.0
+- https://github.com/espocrm/espocrm/releases/tag/10.0.0
+- https://github.com/espocrm/espocrm/releases/tag/10.1.0
+- https://www.espocrm.com/about-us/
 - https://www.espocrm.com/cloud/
 - https://www.espocrm.com/download/
 - https://www.espocrm.com/extension-license-agreement/
 - https://www.espocrm.com/extensions/
 - https://www.espocrm.com/extensions/advanced-pack/
+- https://www.espocrm.com/extensions/advanced-pack/release-notes
 - https://www.espocrm.com/extensions/intelligence/
+- https://www.espocrm.com/extensions/sales-pack/release-notes
 - https://www.espocrm.com/extensions/voip-integration/
 - https://www.espocrm.com/extensions/zoom-integration/
 - https://www.espocrm.com/features/web-to-lead/
@@ -95,9 +100,9 @@
 - https://github.com/twentyhq/twenty/discussions/28243
 - https://github.com/twentyhq/twenty/discussions/28492
 - https://github.com/twentyhq/twenty/issues/25870
-- https://play.google.com/store/search?q=twenty%20crm&c=apps
 - https://twenty.com/legal/privacy
 - https://twenty.com/pricing
+- https://twenty.com/releases
 
 ### Bitrix24
 
@@ -127,9 +132,12 @@
 - https://dev.1c-bitrix.ru/community/forums/forum23/topic164588/
 - https://helpdesk.bitrix24.com/open/14294110/
 - https://helpdesk.bitrix24.com/open/14954920/
+- https://helpdesk.bitrix24.com/open/18291948/
 - https://helpdesk.bitrix24.com/open/18346126/
+- https://helpdesk.bitrix24.com/open/19423886/
 - https://helpdesk.bitrix24.com/open/19542946/
 - https://helpdesk.bitrix24.com/open/21174186/
+- https://helpdesk.bitrix24.com/open/21659550/
 - https://helpdesk.bitrix24.com/open/22396442/
 - https://helpdesk.bitrix24.com/open/23247978/
 - https://helpdesk.bitrix24.com/open/23839416/
@@ -140,14 +148,20 @@
 - https://helpdesk.bitrix24.com/open/25753267/
 - https://helpdesk.bitrix24.com/open/25803275/
 - https://helpdesk.bitrix24.com/open/25860387/
+- https://helpdesk.bitrix24.com/open/25907955/
 - https://helpdesk.bitrix24.com/open/25911175/
+- https://helpdesk.bitrix24.com/open/25971891/
+- https://helpdesk.bitrix24.com/open/26062415/
+- https://helpdesk.bitrix24.com/open/26086059/
 - https://helpdesk.bitrix24.es/documentation.php
 - https://helpdesk.bitrix24.es/open/18295168/
 - https://helpdesk.bitrix24.es/open/20616588/
 - https://helpdesk.bitrix24.es/open/22084704/
 - https://www.argentina.gob.ar/normativa/nacional/267922/texto
+- https://www.bitrix24.com/about/
 - https://www.bitrix24.com/articles/don-t-let-one-tweet-ruin-everything-10-social-media-crisis-hacks-you-need-to-know.php
 - https://www.bitrix24.com/gdpr/
+- https://www.bitrix24.com/prices/
 - https://www.bitrix24.com/privacy/
 - https://www.bitrix24.com/privacy/sla.php
 - https://www.bitrix24.com/promo/professional/
@@ -155,7 +169,6 @@
 - https://www.bitrix24.com/terms/
 - https://www.bitrix24.es/apps/
 - https://www.bitrix24.es/features/copilot.php
-- https://www.bitrix24.es/features/mobile-app.php
 - https://www.bitrix24.es/prices/
 - https://www.bitrix24.es/prices/compare_cloud_plans.php
 

@@ -3,7 +3,7 @@ import { registrar } from '../../evaluar';
 import { entrar, plataformaDe } from '../../sesion';
 import { citar } from '../../fuentes';
 import { soloEn, capturar } from '../comun';
-import { apiTwenty, registros, abrirFicha, abrirListado, configuracion, pestana, clicReal, textoDe } from '../../twenty/ui';
+import { apiTwenty, registros, borrarRegistro, abrirFicha, abrirListado, configuracion, pestana, clicReal, textoDe } from '../../twenty/ui';
 
 /**
  * B.1 — Capacidades por encima de lo solicitado, sobre Twenty
@@ -63,16 +63,16 @@ test('B.1.1 — Asistente de inteligencia artificial', async ({ page, browser },
     cumple: 2,
     costo: 1,
     resumen:
-      'Asistente de inteligencia artificial que consulta los registros con los permisos del ' +
-      'usuario y resume en lenguaje natural; requiere credenciales de un proveedor de modelos ' +
-      'que contrata la compañía.',
+      'Asistente de inteligencia artificial que consulta los registros con los permisos del usuario y ' +
+      'los resume; funciona conectado a un servicio de inteligencia artificial que la compañía contrata ' +
+      'y paga aparte.',
     comoLoHace:
-      'El asistente se abre desde el menú, con la ficha a la vista. En la instalación propia hay que cargarle ' +
-      'las credenciales de un proveedor de modelos —Anthropic, Google, Mistral, OpenAI o xAI—, que la compañía ' +
-      'elige y contrata; ' +
+      'El asistente se abre desde el menú, con la ficha a la vista. En la instalación propia hay que ' +
+      'conectarlo a un servicio de inteligencia artificial (Anthropic, Google, Mistral, OpenAI o xAI), que ' +
+      'la compañía elige, contrata y paga por uso; ' +
       (resumio
-        ? 'con un proveedor habilitado, resume la ficha de un asegurado con sus pólizas.'
-        : 'con un proveedor habilitado, el fabricante documenta que consulta los registros y resume su información.'),
+        ? 'con el servicio conectado, resume la ficha de un asegurado con sus pólizas.'
+        : 'con el servicio conectado, el fabricante documenta que consulta los registros y resume su información.'),
     caracteristicas:
       'El producto trae un asistente de inteligencia artificial que se abre desde el menú, con un chat que ' +
       'consulta los registros con los permisos del usuario y resume la información del sistema en lenguaje natural. ' +
@@ -82,62 +82,80 @@ test('B.1.1 — Asistente de inteligencia artificial', async ({ page, browser },
       'Habilitarlo es configuración de una sola vez, más el costo del proveedor.',
     evidencia: [capChat, capProveedores],
     documentacion: fuente,
-    medicion: resumio ? 'Resumen producido' : 'Sin proveedor habilitado: capacidad según la documentación oficial',
+    medicion: resumio ? 'Resumen producido' : 'Sin un servicio de inteligencia artificial conectado: capacidad según la documentación oficial',
   });
 });
 
 // ── B.1.2 ────────────────────────────────────────────────────────────────────
-test('B.1.2 — Aplicación móvil nativa', async ({ page, browser }, info) => {
-  // «Verificar la existencia de aplicación oficial en las tiendas de aplicaciones»
+test('B.1.2 — Uso desde el teléfono durante la visita', async ({ page }, info) => {
+  // «Registrar una operación desde el teléfono y comprobar si al usuario le llegan al teléfono los
+  //  avisos de lo que se le asigna, aunque no tenga el sistema abierto»
   const plataforma = plataformaDe(info.project.name);
   soloEn(plataforma, 'twenty');
-  test.setTimeout(400_000);
+  test.setTimeout(500_000);
 
-  // La tienda, que es donde se verifica: quién publica cada aplicación
-  const contexto = await browser.newContext({ locale: 'es-AR' });
-  const tienda = await contexto.newPage();
-  await tienda.goto('https://play.google.com/store/search?q=twenty%20crm&c=apps', { waitUntil: 'domcontentloaded' });
-  await tienda.waitForTimeout(5000);
-  const fichas = await tienda.locator('a[href*="/store/apps/details"]').evaluateAll(as =>
-    as.map(a => (a.textContent ?? '').replace(/\s+/g, ' ').trim()).filter(Boolean));
-  await tienda.screenshot({ path: 'evidencia/B-1-2-twenty-1-tienda.png', fullPage: true });
-  await contexto.close();
-  const delProducto = fichas.filter(f => /twenty/i.test(f));
-  const delFabricante = delProducto.filter(f => /Twenty\.com|Twenty PBC|twentyhq/i.test(f));
+  const tarea = 'Visita: relevar la renovación del vehículo';
+  const borrar = async () => {
+    const api = await apiTwenty(page);
+    for (const t of (await registros(api, 'tasks')).filter(t => t.title === tarea || !t.title)) await borrarRegistro(api, 'tasks', t.id);
+  };
 
-  // Lo que sí ofrece: la misma interfaz en el navegador del teléfono
+  // Con la pantalla de un teléfono: se entra y se registra una tarea sobre un asegurado
   await page.setViewportSize({ width: 390, height: 844 });
   await entrar(page, plataforma);
-  await abrirListado(page, 'people');
-  const capMovil = await capturar(page, 'B.1.2', plataforma, '2-en-el-navegador-del-telefono');
+  await borrar();
+  const api = await apiTwenty(page);
+  const persona = (await registros(api, 'people')).find(p => p.emails?.primaryEmail === 'jpena@ejemplo.test')!;
+  const nombrePersona = `${persona.name.firstName} ${persona.name.lastName}`;
 
-  const fuente = await citar(browser, {
-    url: 'https://play.google.com/store/search?q=twenty%20crm&c=apps',
-    buscar: /./,
-    captura: 'B-1-2-twenty-3-busqueda-en-la-tienda',
-  });
+  try {
+    // El asegurado se busca por su nombre y, desde su ficha, se crea la tarea
+    await clicReal(page, page.getByRole('button', { name: /^Search$|^Buscar$/ }).first());
+    await page.waitForTimeout(800);
+    await page.keyboard.type(nombrePersona, { delay: 90 });
+    await page.waitForTimeout(2500);
+    await clicReal(page, page.getByText(nombrePersona).filter({ visible: true }).last());
+    await page.waitForTimeout(3500);
+    await clicReal(page, page.getByText(/^Tasks$|^Tareas$/).filter({ visible: true }).first());
+    await page.waitForTimeout(2500);
+    await clicReal(page, page.getByText(/New Task|Nueva tarea/i).filter({ visible: true }).first());
+    await page.waitForTimeout(3500);
+    await page.keyboard.type(tarea, { delay: 90 });
+    const capAlta = await capturar(page, 'B.1.2', plataforma, '2-alta-en-pantalla-de-telefono');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(3500);
+    const capGuardada = await capturar(page, 'B.1.2', plataforma, '3-tarea-guardada');
 
-  expect(delFabricante, 'ninguna aplicación de la tienda debe ser del fabricante').toEqual([]);
+    const lectura = await apiTwenty(page);
+    const guardada = (await registros(lectura, 'tasks')).find(t => t.title === tarea);
+    expect(guardada, 'la tarea debe quedar guardada').toBeTruthy();
+    const vinculos = (await registros(lectura, 'taskTargets')).filter(v => v.taskId === guardada.id);
+    expect(vinculos.map(v => v.targetPersonId), 'la tarea debe quedar vinculada al asegurado').toContain(persona.id);
 
-  registrar({
-    criterio: 'B.1.2',
-    plataforma,
-    cumple: 0,
-    resumen:
-      'No hay aplicación móvil oficial del fabricante; la interfaz funciona en el navegador ' +
-      'del teléfono, adaptada a la pantalla y con conexión.',
-    comoLoHace:
-      'Lo que ofrece es la misma interfaz en el navegador del teléfono, que se adapta a la pantalla: ' +
-      'el productor puede consultar y cargar durante una visita, con conexión, pero no es una ' +
-      'aplicación instalada.',
-    justificacion:
-      'El fabricante no publica una aplicación móvil: en la tienda de aplicaciones, la búsqueda del ' +
-      'producto ' +
-      'devuelve aplicaciones con su nombre y ninguna es del fabricante.',
-    evidencia: ['B-1-2-twenty-1-tienda.png', capMovil],
-    documentacion: fuente,
-    medicion: `${delProducto.length} aplicaciones con el nombre del producto en la tienda, ${delFabricante.length} del fabricante`,
-  });
+    registrar({
+      criterio: 'B.1.2',
+      plataforma,
+      cumple: 1,
+      reparo: 'parcial',
+      resumen:
+        'Se usa desde el navegador del teléfono y registra la operación; no ofrece avisos al teléfono ni ' +
+        'opciones para activarlos.',
+      comoLoHace:
+        'Con la pantalla de un teléfono, el productor busca al asegurado, abre su ficha y crea una tarea ' +
+        'vinculada a él, que queda guardada. La configuración no tiene opciones de notificaciones y la ' +
+        'interfaz no usa los avisos del navegador ni el envío de avisos al teléfono: no hay manera de ' +
+        'enterarse de lo asignado sin abrir el sistema.',
+      caracteristicas:
+        'La misma interfaz se adapta a la pantalla del teléfono, con barra inferior de acceso rápido, y ' +
+        'permite cargar y consultar durante la visita.',
+      justificacion:
+        'Se puede registrar la operación desde el teléfono sin configurar nada, pero ningún aviso de lo ' +
+        'asignado llega al teléfono: es el reparo.',
+      evidencia: [capAlta, capGuardada, 'B-1-2-twenty-4-avisos.png'],
+    });
+  } finally {
+    await borrar();
+  }
 });
 
 // ── B.1.3 ────────────────────────────────────────────────────────────────────

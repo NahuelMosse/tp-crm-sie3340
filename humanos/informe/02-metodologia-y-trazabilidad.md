@@ -65,6 +65,8 @@ El detalle de cada criterio funcional dice cuánto trabajo exige dejar resuelta 
 
 Las dos primeras valen lo mismo, y las tres últimas también. La aclaración no cambia el valor: sirve para saber qué trabajo hay que hacer, antes de empezar a usarla o cada vez que se usa.
 
+Los criterios no funcionales no llevan esta aclaración, porque describen cómo se comporta el sistema y no algo que haya que dejar funcionando. Tampoco la llevan los que no cumplen, porque no hay nada que dejar resuelto.
+
 Se puntúa solo lo que trae la versión elegida. Si un plan pago mejoraría un criterio, se anota como comentario el plan más barato que lo logra, con su precio; ese comentario no suma puntos. La matriz marca esos criterios con **↑**, y una tabla aparte muestra cuánto alcanzaría cada plataforma contratándolos.
 
 ## 2.3 Ponderación y cálculo del resultado
@@ -73,9 +75,9 @@ El resultado de cada plataforma se calcula en tres pasos:
 
 1. Cada grupo obtiene el porcentaje de los puntos posibles que sumaron sus criterios. Todos los criterios de un grupo valen lo mismo.
 2. Cada parte promedia los porcentajes de sus grupos. Todos los grupos valen lo mismo, aunque tengan distinta cantidad de criterios.
-3. El resultado combina las dos partes: lo solicitado (Parte A) pesa el 85 % y lo deseable (Parte B), el 15 %.
+3. El resultado combina las dos partes: lo solicitado (Parte A) pesa el 90 % y lo deseable (Parte B), el 10 %.
 
-Los grupos pesan igual porque lo solicitado no dice qué necesidad importa más, y la cantidad de criterios de un grupo solo refleja en cuántas comprobaciones hubo que dividirlo. Lo solicitado pesa más para que una capacidad extra no compense una necesidad sin resolver.
+Los grupos pesan igual porque lo solicitado no dice qué necesidad importa más, y la cantidad de criterios de un grupo solo refleja en cuántas comprobaciones hubo que dividirlo. Lo solicitado pesa más para que una capacidad extra no compense una necesidad sin resolver, y con ese reparto cada grupo solicitado pesa más que cada grupo deseable.
 
 En fórmulas:
 
@@ -84,7 +86,7 @@ En fórmulas:
 
 % de la parte    =  promedio de los % de sus grupos
 
-cumplimiento total   =  0,85 × % Parte A  +  0,15 × % Parte B
+cumplimiento total   =  0,90 × % Parte A  +  0,10 × % Parte B
 ```
 
 ## 2.4 Cómo se produjo la evidencia

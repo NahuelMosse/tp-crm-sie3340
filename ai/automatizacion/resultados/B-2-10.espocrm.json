@@ -1,0 +1,41 @@
+{
+  "criterio": "B.2.10",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "resumen": "Publica funciones nuevas varias veces al año y el fabricante sostiene el producto desde 2014, a lo largo de diez versiones mayores.",
+  "comoLoHace": "Las notas de versión oficiales listan, versión por versión, las funciones agregadas. En el último año 30 versiones publicadas, de las cuales 5 trajeron funciones o mejoras (10.1, 10.0, 9.3 y alguna corrección con mejoras menores). El fabricante publicó la primera versión en 2014.",
+  "caracteristicas": "Cada versión mayor o menor trae funciones propias —varios embudos, servidor de autorización, bloqueo de registros, especificación de la interfaz— y entre ellas se publican correcciones.",
+  "justificacion": "Las funciones llegan repartidas en el año, no concentradas en un solo lanzamiento, y el producto lleva más de once años mantenido por el mismo fabricante a través de diez versiones mayores: cubre las dos condiciones de la escala.",
+  "documentacion": [
+    {
+      "url": "https://github.com/espocrm/espocrm/releases/tag/10.1.0",
+      "cita": "OAuth 2.0 server #3782",
+      "consultado": "2026-11-10",
+      "captura": "B-2-10-espocrm-1-notas-10-1.png"
+    },
+    {
+      "url": "https://github.com/espocrm/espocrm/releases/tag/10.0.0",
+      "cita": "Multiple pipelines #3623",
+      "consultado": "2026-11-10",
+      "captura": "B-2-10-espocrm-2-notas-10-0.png"
+    },
+    {
+      "url": "https://github.com/espocrm/espocrm/releases/tag/9.3.0",
+      "cita": "OpenAPI specification generation #3535",
+      "consultado": "2026-11-10",
+      "captura": "B-2-10-espocrm-3-notas-9-3.png"
+    },
+    {
+      "url": "https://www.espocrm.com/about-us/",
+      "cita": "Since 2011, our company helps businesses to develop faster and succeed. In 2014, we released EspoCRM, a platform that solves simple and tough challenges a company faces at each stage of its lifecycle, from basic customer relationship management to complex business process automation. Now, EspoCRM is a technology that is focused on putting customers at the heart of your business and accelerating your company’s growth.",
+      "consultado": "2026-11-10",
+      "captura": "B-2-10-espocrm-4-desde-2014.png"
+    }
+  ],
+  "medicion": "30 versiones publicadas entre 11/11/2025 y 10/11/2026; 5 con funciones o mejoras (10.1.0, 10.0.8, 10.0.5, 10.0.0, 9.3.0); repositorio público creado el 2014-09-25",
+  "criterioNombre": "Evolución sostenida del producto",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-11-10T16:04:23.504Z"
+}

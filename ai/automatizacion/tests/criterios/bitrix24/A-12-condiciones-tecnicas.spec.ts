@@ -646,6 +646,7 @@ test('A.12.13 — Soporte técnico con compromiso de respuesta', async ({ browse
     await citar(browser, { url: 'https://www.bitrix24.com/privacy/sla.php', buscar: '1 hour', captura: 'A-12-13-bitrix24-1-sla-severidad-alta' }),
     await citar(browser, { url: 'https://www.bitrix24.com/privacy/sla.php', buscar: '24 hours', captura: 'A-12-13-bitrix24-2-sla-severidad-media' }),
     await citar(browser, { url: 'https://www.bitrix24.com/privacy/sla.php', buscar: '72 hours', captura: 'A-12-13-bitrix24-3-sla-severidad-baja' }),
+    await citar(browser, { url: 'https://helpdesk.bitrix24.com/open/18291948/', buscar: 'Only commercial plans allow the AI agent to transfer your chat to a support specialist', captura: 'A-12-13-bitrix24-4-chat-con-agente-de-ia' }),
   ];
 
   const precio = await constanciaDe(browser, BITRIX24_BASIC, 'A-12-13-bitrix24-basic');
@@ -654,15 +655,16 @@ test('A.12.13 — Soporte técnico con compromiso de respuesta', async ({ browse
     plataforma,
     cumple: 0,
     conPlan: [conPlanDe(BITRIX24_BASIC, { cumple: 2, justificacion: 'Con el plan Basic, el primero con licencia paga, rige el acuerdo de nivel de servicio del fabricante, con plazos de respuesta por severidad de la falla: una hora para las críticas y altas, veinticuatro horas para las medias y setenta y dos horas para las bajas.' })],
-    resumen: 'El compromiso de plazos de respuesta ante fallas rige para las cuentas con licencia paga; la edición gratuita no tiene un canal de soporte con plazo comprometido.',
+    resumen: 'La edición gratuita solo ofrece un chat de soporte atendido por inteligencia artificial, sin plazo comprometido: la atención de una persona y los plazos de respuesta son de los planes pagos.',
     comoLoHace:
       'El fabricante publica un acuerdo de nivel de servicio con plazos de respuesta por severidad del ' +
       'incidente —una hora, veinticuatro horas o setenta y dos horas—, pero ese compromiso cubre las caídas ' +
       'de la plataforma, no una consulta puntual de una compañía sobre su cuenta.',
     caracteristicas:
-      'El soporte personalizado, por chat o por ticket, queda reservado a los planes pagos, y la edición ' +
-      'gratuita se apoya en la documentación y en la comunidad.',
-    justificacion: 'El acuerdo de nivel de servicio cubre a los usuarios con licencia paga, y la edición gratuita se apoya en la documentación y en la comunidad: no hay un canal con plazo comprometido.',
+      'En cualquier plan, el administrador de la cuenta puede consultar por el chat de soporte a un agente de ' +
+      'inteligencia artificial; solo en los planes pagos ese chat se deriva a un especialista. Fuera de eso, la ' +
+      'edición gratuita se apoya en la documentación y en la comunidad.',
+    justificacion: 'El acuerdo de nivel de servicio cubre a los usuarios con licencia paga. El chat con el agente de inteligencia artificial no compromete un plazo ni llega a una persona: no hay un canal con plazo comprometido.',
     documentacion: [...fuentes, ...precio],
   });
 });

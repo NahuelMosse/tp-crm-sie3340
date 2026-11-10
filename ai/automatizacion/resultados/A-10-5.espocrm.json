@@ -5,7 +5,7 @@
   "costo": 0,
   "resumen": "La interfaz de programación acepta el movimiento de un día entero de altas, en ráfaga y de a una; no tiene tope publicado, lo marca la capacidad del equipo.",
   "comoLoHace": "La interfaz de programación acepta el movimiento de un día entero de altas, tanto en ráfaga —varias operaciones simultáneas— como de a una, en minutos.",
-  "caracteristicas": "En la instalación propia la interfaz de programación no tiene un tope publicado: no lo impone el fabricante sino el equipo donde corre. En una corrida anterior, con el equipo ocupado por otros procesos, tres de quinientas altas en ráfaga fueron rechazadas y pasaron al repetirlas: el límite es el del equipo, no una cuota del producto.",
+  "caracteristicas": "En la instalación propia la interfaz de programación no tiene un tope publicado: no lo impone el fabricante sino el equipo donde corre. En una corrida anterior, con el equipo ocupado por otros procesos, tres de quinientas altas en ráfaga fueron rechazadas y pasaron al repetirlas: el límite es la capacidad del servidor, no una cuota del producto.",
   "justificacion": "El movimiento de un día entra con holgura en minutos, y la sincronización con otros sistemas no tiene que espaciarse más allá de reintentar lo que falle.",
   "documentacion": [
     {

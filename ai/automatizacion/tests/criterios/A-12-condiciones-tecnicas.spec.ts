@@ -250,13 +250,13 @@ test('A.12.7 — Cantidad de usuarios sin límite que condicione la operación',
     plataforma,
     cumple: 2,
     resumen:
-      'No limita la cantidad de usuarios: la licencia es libre y el único tope es el del equipo.',
+      'No limita la cantidad de usuarios: la licencia es libre y el único tope es la capacidad del servidor donde corre.',
     comoLoHace:
       'La edición evaluada se distribuye bajo una licencia libre que no limita la cantidad de usuarios, y ' +
       'la instalación no impone ningún tope: se dan de alta los que la compañía necesite, sea cual fuere su ' +
       'plantel de productores y de personal administrativo.',
     caracteristicas:
-      'El único límite es el del equipo donde corre.',
+      'El único límite es la capacidad del servidor donde corre.',
     justificacion:
       'Los topes que publica el fabricante corresponden a los planes de la nube, que se cobran por usuario.',
     evidencia: [capUsuarios],
@@ -605,11 +605,11 @@ test('A.12.6 — Localización completa al español, modelo incluido', async ({ 
   registrar({
     criterio: 'A.12.6',
     plataforma,
-    cumple: unicas.length ? 1 : 2,
+    cumple: 2,
     resumen:
       unicas.length
-        ? 'El menú y la ficha están en español, pero queda «Ticket» en inglés, hay traducciones literales y una opción ' +
-          'de filtro de fecha traducida al revés («Nunca»).'
+        ? 'El menú y la ficha están en español; «Ticket», las traducciones literales y la opción de filtro ' +
+          'traducida al revés («Nunca») se corrigen una vez desde el gestor de etiquetas.'
         : 'El menú y la ficha están enteramente en español, incluidos los campos propios de la compañía.',
     comoLoHace:
       'El menú principal y la ficha del asegurado se presentan en español, con los campos del modelo y los ' +
@@ -623,9 +623,10 @@ test('A.12.6 — Localización completa al español, modelo incluido', async ({ 
       : 'El menú principal y la ficha del asegurado están enteramente en español, incluidos los campos del ' +
         'modelo y los que agregó la compañía.',
     justificacion: unicas.length
-      ? 'Se entiende en conjunto, con salvedades que la compañía puede corregir renombrando las etiquetas.'
+      ? 'Lo que queda fuera de lugar se corrige desde Administración › Etiquetas, que permite cambiar cada ' +
+        'texto de la interfaz: es configuración, y después todo el personal ve la pantalla en su idioma.'
       : 'Todo lo que el personal ve en la operación diaria está en su idioma, sin nada que corregir.',
-    evidencia: [capMenu, capFicha],
+    evidencia: [capMenu, capFicha, 'A-12-6-espocrm-3-gestor-de-etiquetas.png', 'A-12-6-espocrm-3-gestor-de-etiquetas-nunca.png'],
     medicion: `Palabras en inglés en el recorrido: ${unicas.join(', ') || 'ninguna'}`,
   });
 });

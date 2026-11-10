@@ -105,7 +105,7 @@ test('A.12.2 — Compatibilidad con la plataforma que la compañía usa', async 
       'datos.',
     comoLoHace:
       'La instalación propia corre sobre contenedores, que funcionan en Linux, en Windows y en macOS, ' +
-      'pero con una sola combinación de componentes: PostgreSQL como base de datos —de la versión 15 ' +
+      'pero con una sola combinación de tecnologías: PostgreSQL como base de datos —de la versión 15 ' +
       'en adelante— y Redis como memoria intermedia.',
     caracteristicas:
       'No hay variante para otro motor de base de datos.',
@@ -349,10 +349,10 @@ test('A.12.6 — Localización completa al español, modelo incluido', async ({ 
   registrar({
     criterio: 'A.12.6',
     plataforma,
-    cumple: enIngles.length ? 1 : 2,
+    cumple: 2,
     resumen: enIngles.length
-      ? 'Traduce al español menús, botones y mensajes, pero los objetos y campos de fábrica ' +
-        'conservan su nombre en inglés, aunque cada uno se puede renombrar.'
+      ? 'Traduce al español menús, botones y mensajes; los objetos y campos de fábrica que quedan en ' +
+        'inglés se renombran una vez desde el modelo de datos.'
       : 'Toda la interfaz, incluido el modelo de datos, se ve en español en el menú principal y ' +
         'la ficha del asegurado.',
     comoLoHace: enIngles.length
@@ -364,10 +364,11 @@ test('A.12.6 — Localización completa al español, modelo incluido', async ({ 
       ? 'Lo que agregó la compañía, como la póliza y sus campos, queda con el nombre que ella le puso.'
       : 'El menú y la ficha del asegurado están enteramente en español, incluidos los campos del modelo.',
     justificacion: enIngles.length
-      ? 'Son nombres que igual se entienden —personas, correos, teléfonos, empresa, cargo— y cada uno se puede ' +
-        'renombrar desde el modelo de datos, que admite cambiar el nombre en singular y en plural.'
+      ? 'Son nombres que igual se entienden, como personas, correos, teléfonos, empresa y cargo, y cada objeto ' +
+        'y cada campo de fábrica admite cambiar su nombre desde Configuración › Modelo de datos: es ' +
+        'configuración, y después todo el personal ve la pantalla en su idioma.'
       : 'Todo lo que el personal ve en la operación diaria está en su idioma, sin nada que corregir.',
-    evidencia: [capIdioma, capFicha],
+    evidencia: [capIdioma, capFicha, 'A-12-6-twenty-3-renombrar-objeto.png', 'A-12-6-twenty-4-renombrar-campo.png'],
     medicion: `Nombres en inglés en el recorrido: ${enIngles.join(', ') || 'ninguno'}`,
   });
 });
@@ -395,7 +396,7 @@ test('A.12.7 — Cantidad de usuarios sin límite que condicione la operación',
     cumple: 2,
     resumen:
       'La edición autoalojada es gratuita y con licencia libre: no limita la cantidad de ' +
-      'usuarios, y el único tope es el del equipo donde corre.',
+      'usuarios, y el único tope es la capacidad del servidor donde corre.',
     comoLoHace:
       'La edición autoalojada es gratuita y se distribuye bajo una licencia libre que no limita la ' +
       'cantidad de usuarios, y la instalación no impone ningún tope: se invitan los que la compañía ' +
@@ -403,7 +404,7 @@ test('A.12.7 — Cantidad de usuarios sin límite que condicione la operación',
     caracteristicas:
       'En la nube se paga por usuario, sin tope de cantidad.',
     justificacion:
-      'El único límite es el del equipo donde corre.',
+      'El único límite es la capacidad del servidor donde corre.',
     evidencia: [capUsuarios],
     documentacion: fuentes,
   });

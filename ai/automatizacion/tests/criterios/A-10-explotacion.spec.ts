@@ -110,7 +110,7 @@ const VEREDICTO_A105: null | { cumple: 2 | 1 | 0; lectura: { resumen: string; co
       'operaciones simultáneas— como de a una, en minutos.',
     caracteristicas:
       'En una corrida anterior, con el equipo ocupado por otros procesos, tres de quinientas altas en ' +
-      'ráfaga fueron rechazadas y pasaron al repetirlas: el límite es el del equipo, no una cuota del producto.',
+      'ráfaga fueron rechazadas y pasaron al repetirlas: el límite es la capacidad del servidor, no una cuota del producto.',
     justificacion:
       'El movimiento de un día entra con holgura en minutos, y la sincronización con otros sistemas no tiene ' +
       'que espaciarse más allá de reintentar lo que falle.',

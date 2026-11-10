@@ -31,7 +31,7 @@ const PLATAFORMAS = [
 const { GRUPOS } = catalogo;
 
 // Reparto ENTRE partes: lo que el cliente pidio pesa mas que lo que no pidio.
-const PARTE = { A: 0.85, B: 0.15 };
+const PARTE = { A: 0.90, B: 0.10 };
 const ORIGEN = { A: 'Requerimientos originales (solicitados)', B: 'Requerimientos deseables (no solicitados)' };
 const TIPOS = [
   ['funcional', 'Funcionales'],

@@ -5,8 +5,10 @@ import { citar } from '../fuentes';
 import {
   ESPOCRM_INTELLIGENCE, ESPOCRM_VOIP, ESPOCRM_ZOOM, ESPOCRM_CLOUD_BASIC, constanciaDe, conPlanDe,
 } from '../precios';
-import { soloEn, capturar, textoDe } from './comun';
-import { administracion, listado, pestana, inicio } from '../espocrm/navegar';
+import { soloEn, capturar, textoDe, elegirLista } from './comun';
+import { cargarCartera, ASEGURADOS } from '../datos';
+import { listar } from '../api';
+import { alta, administracion, listado, pestana, inicio } from '../espocrm/navegar';
 
 /**
  * B.1 — Capacidades por encima de lo solicitado
@@ -61,59 +63,69 @@ test('B.1.1 — Asistente de inteligencia artificial', async ({ page, browser },
 });
 
 // ── B.1.2 ────────────────────────────────────────────────────────────────────
-test('B.1.2 — Aplicación móvil nativa', async ({ page, browser }, info) => {
-  // «Verificar la existencia de aplicación oficial en las tiendas de aplicaciones»
+test('B.1.2 — Uso desde el teléfono durante la visita', async ({ page }, info) => {
+  // «Registrar una operación desde el teléfono y comprobar si al usuario le llegan al teléfono los
+  //  avisos de lo que se le asigna, aunque no tenga el sistema abierto»
   const plataforma = plataformaDe(info.project.name);
   soloEn(plataforma, 'espocrm');
-  test.setTimeout(400_000);
+  test.setTimeout(500_000);
 
-  // La tienda, que es donde se verifica: quién publica cada aplicación
-  const contexto = await browser.newContext({ locale: 'es-AR' });
-  const tienda = await contexto.newPage();
-  await tienda.goto('https://play.google.com/store/search?q=espocrm&c=apps', { waitUntil: 'domcontentloaded' });
-  await tienda.waitForTimeout(5000);
-  const fichas = await tienda.locator('a[href*="/store/apps/details"]').evaluateAll(as =>
-    as.map(a => (a.textContent ?? '').replace(/\s+/g, ' ').trim()).filter(Boolean));
-  await tienda.screenshot({ path: 'evidencia/B-1-2-espocrm-1-tienda.png', fullPage: true });
-  await contexto.close();
-  // La tienda devuelve también aplicaciones de otros productos: cuentan solo las que nombran a este
-  const delProducto = fichas.filter(f => /espo/i.test(f));
-  const delFabricante = delProducto.filter(f => /EspoCRM,? Inc|EspoCRM Ltd/i.test(f));
+  const tarea = 'Visita: relevar la renovación del vehículo';
+  const asegurado = ASEGURADOS[0];
+  const { api } = await cargarCartera();
+  const borrar = async () => {
+    const { list } = await listar(api, 'Task', { maxSize: 200 });
+    for (const t of list.filter((t: any) => t.name === tarea)) await api.delete(`Task/${t.id}`);
+  };
+  await borrar();
 
-  // Lo que sí ofrece: la misma interfaz, adaptada al teléfono en el navegador
-  await page.setViewportSize({ width: 390, height: 844 });
-  await entrar(page, plataforma);
-  await listado(page, 'Contact');
-  await page.waitForTimeout(5000);
-  const capMovil = await capturar(page, 'B.1.2', plataforma, '2-en-el-navegador-del-telefono');
+  try {
+    // Con la pantalla de un teléfono: se entra y se registra una tarea sobre un asegurado
+    await page.setViewportSize({ width: 390, height: 844 });
+    await entrar(page, plataforma);
+    await alta(page, 'Task');
+    const nombre = page.locator('.field[data-name="name"] input[data-name="name"]').first();
+    await nombre.waitFor({ state: 'visible', timeout: 40_000 });
+    await nombre.pressSequentially(tarea, { delay: 20 });
+    await elegirLista(page, 'parent', 'Contact');
+    const entrada = page.locator('.field[data-name="parent"] input[data-name="parentName"]').first();
+    await entrada.click();
+    await entrada.pressSequentially(asegurado.lastName, { delay: 50 });
+    await page.locator('.autocomplete-suggestion:visible').filter({ hasText: asegurado.lastName }).first().click({ timeout: 15_000 });
+    await page.waitForTimeout(500);
+    const capAlta = await capturar(page, 'B.1.2', plataforma, '2-alta-en-pantalla-de-telefono');
+    await page.getByRole('button', { name: /^Guardar$/ }).first().click();
+    await page.waitForTimeout(4000);
+    const capGuardada = await capturar(page, 'B.1.2', plataforma, '3-tarea-guardada');
 
-  const fuente = await citar(browser, {
-    url: 'https://play.google.com/store/search?q=espocrm&c=apps',
-    buscar: /espo/i,
-    captura: 'B-1-2-espocrm-3-busqueda-en-la-tienda',
-  });
+    const guardada = (await listar(api, 'Task', { maxSize: 200 })).list.find((t: any) => t.name === tarea);
+    expect(guardada, 'la tarea debe quedar guardada').toBeTruthy();
+    expect(guardada.parentType, 'la tarea debe quedar vinculada al asegurado').toBe('Contact');
 
-  expect(delFabricante, 'ninguna aplicación de la tienda debe ser del fabricante').toEqual([]);
-
-  registrar({
-    criterio: 'B.1.2',
-    plataforma,
-    cumple: 0,
-    resumen:
-      'El fabricante no publica aplicación móvil nativa; la misma interfaz se adapta a la pantalla del ' +
-      'teléfono y se usa desde el navegador con conexión.',
-    comoLoHace:
-      'En la tienda de aplicaciones, la búsqueda del producto devuelve solo aplicaciones de desarrolladores ' +
-      'independientes, sin respaldo del ' +
-      'fabricante; ni su catálogo de extensiones ni su página de descarga ofrecen una. Lo que sí ofrece es ' +
-      'la misma interfaz adaptada a la pantalla del teléfono, que se usa desde el navegador con conexión: ' +
-      'el productor puede consultar y cargar durante una visita, pero no es una aplicación instalada.',
-    justificacion:
-      'El fabricante no publica una aplicación móvil.',
-    evidencia: ['B-1-2-espocrm-1-tienda.png', capMovil],
-    documentacion: fuente,
-    medicion: `${delProducto.length} aplicaciones para el producto en la tienda, ${delFabricante.length} del fabricante`,
-  });
+    registrar({
+      criterio: 'B.1.2',
+      plataforma,
+      cumple: 1,
+      reparo: 'parcial',
+      resumen:
+        'Se usa desde el navegador del teléfono y registra la operación; los avisos de lo asignado solo ' +
+        'se ven con el sistema abierto, no llegan al teléfono.',
+      comoLoHace:
+        'Con la pantalla de un teléfono, el productor entra, crea una tarea vinculada a un asegurado y queda guardada. ' +
+        'Las notificaciones de Preferencias solo ofrecen avisos dentro del sistema (la campana, con la pestaña abierta, ' +
+        'y un sonido opcional); no hay avisos del navegador ni al teléfono: en el código de la instalación no hay ' +
+        'rastro de permisos de notificación, de procesos en segundo plano ni de envío de avisos al teléfono.',
+      caracteristicas:
+        'La misma interfaz se adapta a la pantalla del teléfono y permite cargar y consultar durante la visita. ' +
+        'Los avisos de lo que se asigna aparecen en la campana, con el sistema abierto.',
+      justificacion:
+        'Se puede registrar la operación desde el teléfono sin configurar nada, pero el aviso de lo asignado no ' +
+        'llega con el sistema cerrado: es el reparo.',
+      evidencia: [capAlta, capGuardada, 'B-1-2-espocrm-4-avisos.png'],
+    });
+  } finally {
+    await borrar();
+  }
 });
 
 // ── B.1.3 ────────────────────────────────────────────────────────────────────

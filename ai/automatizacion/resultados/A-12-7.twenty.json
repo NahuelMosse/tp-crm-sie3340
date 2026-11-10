@@ -2,10 +2,10 @@
   "criterio": "A.12.7",
   "plataforma": "twenty",
   "cumple": 2,
-  "resumen": "La edición autoalojada es gratuita y con licencia libre: no limita la cantidad de usuarios, y el único tope es el del equipo donde corre.",
+  "resumen": "La edición autoalojada es gratuita y con licencia libre: no limita la cantidad de usuarios, y el único tope es la capacidad del servidor donde corre.",
   "comoLoHace": "La edición autoalojada es gratuita y se distribuye bajo una licencia libre que no limita la cantidad de usuarios, y la instalación no impone ningún tope: se invitan los que la compañía necesite, sea cual fuere su plantel de productores y de personal administrativo.",
   "caracteristicas": "En la nube se paga por usuario, sin tope de cantidad.",
-  "justificacion": "El único límite es el del equipo donde corre.",
+  "justificacion": "El único límite es la capacidad del servidor donde corre.",
   "evidencia": [
     "A-12-7-twenty-3-usuarios.png"
   ],

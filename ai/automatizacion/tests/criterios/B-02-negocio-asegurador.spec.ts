@@ -7,6 +7,8 @@ import { tmpdir } from 'node:os';
 import { registrar } from '../evaluar';
 import { entrar, plataformaDe } from '../sesion';
 import { citar } from '../fuentes';
+import { publicaciones, creacionDelRepositorio, versionesDeExtension } from '../evolucion';
+import { ESPOCRM_CLOUD_BASIC, constanciaDe, conPlanDe } from '../precios';
 import { apiEspo, cuantos } from '../api';
 import { soloEn, capturar, listadoLimpio, filasDelListado, agregarFiltro, filtrarPorLista } from './comun';
 import { administracion, alta, ficha, edicion } from '../espocrm/navegar';
@@ -345,11 +347,11 @@ const VEREDICTO_B14: null | { cumple: 2 | 1 | 0; lectura: { resumen: string; car
   cumple: 2,
   lectura: {
     resumen:
-      'Con 25.000 registros, buscar un asegurado entre cinco mil responde en menos de medio segundo y filtrar ' +
-      'doce mil quinientas pólizas por ramo, en alrededor de medio segundo.',
+      'Con 25.000 registros, buscar un asegurado entre cinco mil y filtrar las doce mil quinientas pólizas ' +
+      'por ramo responde en menos de medio segundo, sin espera perceptible.',
     caracteristicas:
-      'Buscar un asegurado entre cinco mil respondió en menos de medio segundo las tres veces, y filtrar las ' +
-      'doce mil quinientas pólizas por ramo, en alrededor de medio segundo: no hay espera que el usuario perciba.',
+      'Buscar un asegurado entre cinco mil y filtrar las doce mil quinientas pólizas por ramo respondió en ' +
+      'menos de medio segundo las tres veces: no hay espera que el usuario perciba.',
     justificacion:
       'Con la cartera de referencia cargada, el sistema responde como con una cartera chica.',
   },
@@ -720,5 +722,141 @@ test('B.2.9 — Baja de las comunicaciones comerciales por medio', async ({ page
       'exige para cualquier medio de publicidad.',
     evidencia: [capBaja, capCampana],
     medicion: `GreenMail: ${alta.length} mensaje al asegurado vigente y ${baja.length} al dado de baja; enlace de baja: ${conEnlaceDeBaja ? 'sí' : 'no'}`,
+  });
+});
+
+// ── B.2.10 ───────────────────────────────────────────────────────────────────
+test('B.2.10 — Evolución sostenida del producto', async ({ browser }, info) => {
+  // «Contar en las notas de versión oficiales del último año las versiones que
+  //  agregaron funciones, y determinar desde cuándo el fabricante sostiene el producto»
+  const plataforma = plataformaDe(info.project.name);
+  soloEn(plataforma, 'espocrm');
+  test.setTimeout(300_000);
+
+  const versiones = await publicaciones('espocrm/espocrm');
+  const conFunciones = versiones.filter(v => /^(Enhancements|Improvements):/m.test(v.cuerpo));
+  const lineas = conFunciones.filter(v => /\.0$/.test(v.tag)).map(v => v.tag.replace(/\.0$/, ''));
+  const desde = await creacionDelRepositorio('espocrm/espocrm');
+  expect(conFunciones.length, 'el último año debe tener versiones con funciones').toBeGreaterThan(0);
+
+  const notas = await citar(browser, {
+    url: 'https://github.com/espocrm/espocrm/releases/tag/10.1.0',
+    buscar: 'OAuth 2.0 server',
+    captura: 'B-2-10-espocrm-1-notas-10-1',
+  });
+  const nota100 = await citar(browser, {
+    url: 'https://github.com/espocrm/espocrm/releases/tag/10.0.0',
+    buscar: 'Multiple pipelines',
+    captura: 'B-2-10-espocrm-2-notas-10-0',
+  });
+  const nota93 = await citar(browser, {
+    url: 'https://github.com/espocrm/espocrm/releases/tag/9.3.0',
+    buscar: 'OpenAPI specification generation',
+    captura: 'B-2-10-espocrm-3-notas-9-3',
+  });
+  const origen = await citar(browser, {
+    url: 'https://www.espocrm.com/about-us/',
+    buscar: 'In 2014, we released',
+    captura: 'B-2-10-espocrm-4-desde-2014',
+  });
+
+  registrar({
+    criterio: 'B.2.10',
+    plataforma,
+    cumple: 2,
+    resumen:
+      'Publica funciones nuevas varias veces al año y el fabricante sostiene el producto desde 2014, a lo largo de diez versiones mayores.',
+    comoLoHace:
+      'Las notas de versión oficiales listan, versión por versión, las funciones agregadas. En el último año ' +
+      `${versiones.length} versiones publicadas, de las cuales ${conFunciones.length} trajeron funciones o mejoras ` +
+      `(${lineas.join(', ')} y alguna corrección con mejoras menores). El fabricante publicó la primera versión en 2014.`,
+    caracteristicas:
+      'Cada versión mayor o menor trae funciones propias —varios embudos, servidor de autorización, bloqueo de ' +
+      'registros, especificación de la interfaz— y entre ellas se publican correcciones.',
+    justificacion:
+      'Las funciones llegan repartidas en el año, no concentradas en un solo lanzamiento, y el producto lleva más de once ' +
+      'años mantenido por el mismo fabricante a través de diez versiones mayores: cubre las dos condiciones de la escala.',
+    documentacion: [notas, nota100, nota93, origen],
+    medicion:
+      `${versiones.length} versiones publicadas entre 11/11/2025 y 10/11/2026; ${conFunciones.length} con funciones o mejoras ` +
+      `(${conFunciones.map(v => v.tag).join(', ')}); repositorio público creado el ${desde}`,
+  });
+});
+
+// ── B.2.11 ───────────────────────────────────────────────────────────────────
+test('B.2.11 — Mejoras incluidas en la versión gratuita', async ({ browser }, info) => {
+  // «Tomar las funciones nuevas de las notas de versión oficiales del último año y
+  //  determinar cuántas llegan a la versión evaluada y cuántas quedan en un plan o
+  //  una extensión paga»
+  const plataforma = plataformaDe(info.project.name);
+  soloEn(plataforma, 'espocrm');
+  test.setTimeout(300_000);
+
+  // Las notas del producto base son las de la versión evaluada: todo lo que listan está en ella
+  const versiones = await publicaciones('espocrm/espocrm');
+  let base = 0;
+  for (const v of versiones) {
+    for (const bloque of v.cuerpo.replace(/\r/g, '').matchAll(/^(?:Enhancements|Improvements):\n\n((?:[*-] .*\n?)+)/gm)) {
+      base += (bloque[1].match(/^[*-] /gm) ?? []).length;
+    }
+  }
+  // Las extensiones pagas publican sus propias notas
+  const extensiones = ['advanced-pack', 'sales-pack', 'intelligence', 'outlook-integration', 'zoom-integration', 'voip-integration', 'google-integration'];
+  const pagas: string[] = [];
+  let renglonesPagos = 0;
+  for (const e of extensiones) {
+    const v = await versionesDeExtension(e);
+    if (!v.length) continue;
+    renglonesPagos += v.reduce((s, x) => s + x.renglones, 0);
+    pagas.push(`${e}: ${v.length} versiones (${v.map(x => x.v).join(', ')})`);
+  }
+  expect(base, 'las notas del producto base deben listar funciones').toBeGreaterThan(0);
+  expect(pagas.length, 'las extensiones pagas deben tener notas en el período').toBeGreaterThan(0);
+
+  const advanced = await citar(browser, {
+    url: 'https://www.espocrm.com/extensions/advanced-pack/release-notes',
+    buscar: 'Non-aggregated columns in Grid report export',
+    captura: 'B-2-11-espocrm-1-notas-advanced-pack',
+  });
+  const sales = await citar(browser, {
+    url: 'https://www.espocrm.com/extensions/sales-pack/release-notes',
+    buscar: 'Tax-inclusive pricing',
+    captura: 'B-2-11-espocrm-2-notas-sales-pack',
+  });
+  const base101 = await citar(browser, {
+    url: 'https://github.com/espocrm/espocrm/releases/tag/10.1.0',
+    buscar: 'Job processing with workers',
+    captura: 'B-2-11-espocrm-3-notas-base',
+  });
+  const nube = await constanciaDe(browser, ESPOCRM_CLOUD_BASIC, 'B-2-11-espocrm-nube');
+
+  registrar({
+    criterio: 'B.2.11',
+    plataforma,
+    cumple: 1,
+    resumen:
+      'Las novedades del producto base llegan a la versión gratuita, pero buena parte de las funciones nuevas del año —reportes, procesos, facturación, inteligencia artificial— salen en extensiones pagas.',
+    comoLoHace:
+      `Las notas del producto base listan ${base} funciones y mejoras del último año, todas disponibles en la versión ` +
+      `evaluada. Las extensiones pagas publican sus propias notas, con unos ${renglonesPagos} renglones de novedades ` +
+      'en el mismo período: reportes y procesos (Advanced Pack), facturación y suscripciones (Sales Pack), asistente de ' +
+      'inteligencia artificial (Intelligence) e integraciones con el correo y las reuniones.',
+    caracteristicas:
+      'Del producto base llegan varios embudos por entidad, bloqueo de registros, servidor de autorización y agrupación de ' +
+      'notificaciones. Quedan en extensión paga las mejoras de reportes, procesos, facturación e inteligencia artificial.',
+    justificacion:
+      'Las funciones que la compañía más usa para cobrar y reportar mejoran en extensiones pagas, que la versión ' +
+      'evaluada no trae; el producto base también mejora, pero parte importante del avance del año queda fuera de él. ' +
+      'Por eso llegan algunas, no la mayoría.',
+    conPlan: [conPlanDe(ESPOCRM_CLOUD_BASIC, {
+      cumple: 2,
+      justificacion:
+        'El plan de entrada del servicio en la nube trae todas las extensiones del fabricante, de modo que las ' +
+        'funciones nuevas de ambos lados llegan juntas. Las licencias sueltas de cada extensión cubren solo una parte.',
+    })],
+    documentacion: [base101, advanced, sales, ...nube],
+    medicion:
+      `Producto base: ${base} funciones y mejoras en las notas. Extensiones pagas con versiones en el período: ${pagas.join('; ')}; ` +
+      `unos ${renglonesPagos} renglones de novedades (cuenta aproximada de líneas de las notas)`,
   });
 });

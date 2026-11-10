@@ -543,7 +543,7 @@ test('A.11.3 — Datos que administra el sistema central', async ({ page, browse
 });
 
 // ── A.11.4 ───────────────────────────────────────────────────────────────────
-test('A.11.4 — Historia del cliente desde el primer contacto', async ({ page }, info) => {
+test('A.11.4 — Continuidad del historial del solicitante al asegurado', async ({ page }, info) => {
   // «Registrar una llamada sobre un solicitante, convertirlo y emitirle la
   //  póliza, y comprobar que la llamada figura en la ficha del asegurado»
   const plataforma = plataformaDe(info.project.name);

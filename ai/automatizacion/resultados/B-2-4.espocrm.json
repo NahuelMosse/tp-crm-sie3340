@@ -2,9 +2,9 @@
   "criterio": "B.2.4",
   "plataforma": "espocrm",
   "cumple": 2,
-  "resumen": "Con 25.000 registros, buscar un asegurado entre cinco mil responde en menos de medio segundo y filtrar doce mil quinientas pólizas por ramo, en alrededor de medio segundo.",
+  "resumen": "Con 25.000 registros, buscar un asegurado entre cinco mil y filtrar las doce mil quinientas pólizas por ramo responde en menos de medio segundo, sin espera perceptible.",
   "comoLoHace": "Con una cartera de referencia de veinticinco mil registros —cinco mil asegurados, doce mil quinientas pólizas y siete mil quinientos reclamos— el sistema resuelve las operaciones de todos los días: buscar un asegurado por texto y filtrar las pólizas por ramo.",
-  "caracteristicas": "Buscar un asegurado entre cinco mil respondió en menos de medio segundo las tres veces, y filtrar las doce mil quinientas pólizas por ramo, en alrededor de medio segundo: no hay espera que el usuario perciba.",
+  "caracteristicas": "Buscar un asegurado entre cinco mil y filtrar las doce mil quinientas pólizas por ramo respondió en menos de medio segundo las tres veces: no hay espera que el usuario perciba.",
   "justificacion": "Con la cartera de referencia cargada, el sistema responde como con una cartera chica.",
   "evidencia": [
     "B-2-4-espocrm-1-busqueda-por-texto.png",

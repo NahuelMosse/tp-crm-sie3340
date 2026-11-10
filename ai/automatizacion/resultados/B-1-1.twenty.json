@@ -3,8 +3,8 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "resumen": "Asistente de inteligencia artificial que consulta los registros con los permisos del usuario y resume en lenguaje natural; requiere credenciales de un proveedor de modelos que contrata la compañía.",
-  "comoLoHace": "El asistente se abre desde el menú, con la ficha a la vista. En la instalación propia hay que cargarle las credenciales de un proveedor de modelos —Anthropic, Google, Mistral, OpenAI o xAI—, que la compañía elige y contrata; con un proveedor habilitado, el fabricante documenta que consulta los registros y resume su información.",
+  "resumen": "Asistente de inteligencia artificial que consulta los registros con los permisos del usuario y los resume; funciona conectado a un servicio de inteligencia artificial que la compañía contrata y paga aparte.",
+  "comoLoHace": "El asistente se abre desde el menú, con la ficha a la vista. En la instalación propia hay que conectarlo a un servicio de inteligencia artificial (Anthropic, Google, Mistral, OpenAI o xAI), que la compañía elige, contrata y paga por uso; con el servicio conectado, el fabricante documenta que consulta los registros y resume su información.",
   "caracteristicas": "El producto trae un asistente de inteligencia artificial que se abre desde el menú, con un chat que consulta los registros con los permisos del usuario y resume la información del sistema en lenguaje natural. Conectar un proveedor propio, como un modelo instalado en la red de la compañía, es del plan Organization.",
   "justificacion": "Habilitarlo es configuración de una sola vez, más el costo del proveedor.",
   "evidencia": [
@@ -19,7 +19,7 @@
       "captura": "B-1-1-twenty-3-asistente.png"
     }
   ],
-  "medicion": "Sin proveedor habilitado: capacidad según la documentación oficial",
+  "medicion": "Sin un servicio de inteligencia artificial conectado: capacidad según la documentación oficial",
   "criterioNombre": "Asistente de inteligencia artificial",
   "licencia": null,
   "conPlan": [],

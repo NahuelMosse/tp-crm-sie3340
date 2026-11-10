@@ -5,7 +5,7 @@ import { registrar } from '../../evaluar';
 import type { Fuente } from '../../evaluar';
 import { entrar, plataformaDe } from '../../sesion';
 import { citar } from '../../fuentes';
-import { BITRIX24_BASIC, BITRIX24_STANDARD, constanciaDe, conPlanDe } from '../../precios';
+import { BITRIX24_BASIC, BITRIX24_STANDARD, BITRIX24_PROFESSIONAL, constanciaDe, conPlanDe } from '../../precios';
 import { soloEn, capturar } from '../comun';
 import { menuLateral, pestana, panel, cerrarPaneles } from '../../bitrix24/navegar';
 import { textoDe, campoDeNegociacion, rest, altaDeNegociacion, guardarFormulario, negociaciones, borrarNegociaciones, BASE } from '../../bitrix24/ui';
@@ -574,21 +574,20 @@ test('B.2.7 — Continuidad de la atención ante una caída del enlace', async (
   registrar({
     criterio: 'B.2.7',
     plataforma,
-    cumple: 1,
+    cumple: 0,
     resumen:
-      'Sin conexión el portal del CRM deja de responder; solo la aplicación de escritorio permite enviar mensajes y trabajar con documentos sin enlace.',
+      'Sin conexión el CRM deja de responder: no se puede consultar un asegurado ni registrar un reclamo. ' +
+      'La aplicación de escritorio solo deja redactar mensajes y editar documentos, que se envían al volver ' +
+      'el enlace.',
     comoLoHace:
       'Con la conexión externa cortada, el portal abierto en el navegador dejó de responder.',
     caracteristicas:
-      'El fabricante documenta, en cambio, un modo sin conexión en su aplicación de escritorio para enviar ' +
-      'mensajes y trabajar con documentos, que se sincronizan al volver el enlace: una parte de la operación ' +
-      'diaria sigue siendo posible, pero no la que depende del CRM.',
+      'El fabricante documenta un modo sin conexión en su aplicación de escritorio para escribir mensajes y ' +
+      'trabajar con documentos, que se sincronizan al volver el enlace. No alcanza al CRM.',
     justificacion:
-      'Con el enlace cortado el portal del CRM deja de responder: consultar un asegurado o registrar un ' +
-      'reclamo no es posible mientras dura el corte, porque la edición evaluada vive entera en la nube ' +
-      'del fabricante. Sigue siendo posible, con el modo sin conexión de la aplicación de escritorio que ' +
-      'documenta el fabricante, enviar mensajes y trabajar con documentos, que se sincronizan al volver ' +
-      'el enlace.',
+      'La atención al asegurado depende del CRM, que en la edición evaluada vive entero en la nube del ' +
+      'fabricante: mientras dura el corte no se puede atender. Lo que permite el modo sin conexión se envía ' +
+      'recién al volver el enlace, así que no sostiene la atención.',
     evidencia: capSinEnlace ? [capSinEnlace] : [],
     documentacion: fuente,
     medicion: `Portal operable sin enlace externo: ${siguioFuncionando ? 'sí' : 'no'}`,
@@ -803,4 +802,178 @@ test('B.2.9 — Baja de las comunicaciones comerciales por medio', async ({ page
     await cerrarPaneles(page).catch(() => {});
     await borrarContactos(page, /^BAJ-/);
   }
+});
+
+// ── B.2.10 ───────────────────────────────────────────────────────────────────
+const AYUDA = 'https://helpdesk.bitrix24.com';
+/** Las notas mensuales de novedades que el fabricante conserva en su ayuda, con las funciones que anuncia cada una. */
+async function notasDeBitrix24() {
+  const html = await (await fetch(`${AYUDA}/open/26062415/`, { headers: { 'User-Agent': 'Mozilla/5.0' } })).text();
+  const notas = [...html.matchAll(/<a href="(\/open\/\d+\/)"[^>]*title="((?:What's new\? [A-Za-z]+ 20\d\d)|Bitrix24 Vibe)"/g)]
+    .map(m => ({ url: AYUDA + m[1], titulo: m[2] }));
+  const SIN_FUNCION = /^(Other updates|New articles|Article updates|Plans|Migration to Bitrix24)$/;
+  const funciones: { nota: string; titulo: string }[] = [];
+  for (const n of notas) {
+    const pagina = await (await fetch(n.url, { headers: { 'User-Agent': 'Mozilla/5.0' } })).text();
+    const cuerpo = pagina.match(/"articleBody":"(.*?)","/s)?.[1];
+    if (!cuerpo) continue;
+    const texto: string = JSON.parse(`"${cuerpo}"`);
+    for (const h of texto.matchAll(/<h[23]>(.*?)<\/h[23]>/gs)) {
+      const titulo = h[1].replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&#039;|&#39;/g, "'").trim();
+      if (!SIN_FUNCION.test(titulo)) funciones.push({ nota: n.titulo, titulo });
+    }
+  }
+  return { notas, funciones };
+}
+
+test('B.2.10 — Evolución sostenida del producto', async ({ browser }, info) => {
+  // «Contar en las notas de versión oficiales del último año las versiones que
+  //  agregaron funciones, y determinar desde cuándo el fabricante sostiene el producto»
+  const plataforma = plataformaDe(info.project.name);
+  soloEn(plataforma, 'bitrix24');
+  test.setTimeout(300_000);
+
+  const { notas, funciones } = await notasDeBitrix24();
+  expect(notas.length, 'la ayuda debe conservar notas de novedades').toBeGreaterThan(0);
+
+  const archivo = await citar(browser, {
+    url: `${AYUDA}/open/25907955/`,
+    buscar: 'A brief overview of the most important updates from the past month',
+    captura: 'B-2-10-bitrix24-1-notas-conservadas',
+  });
+  const vibe = await citar(browser, {
+    url: `${AYUDA}/open/25971891/`,
+    buscar: 'We are pleased to present the new features of Bitrix24 Vibe release',
+    captura: 'B-2-10-bitrix24-2-lanzamiento-vibe',
+  });
+  const reciente = await citar(browser, {
+    url: `${AYUDA}/open/26062415/`,
+    buscar: 'Alaio Vibecode is a platform for building AI-powered solutions for Bitrix24',
+    captura: 'B-2-10-bitrix24-3-novedad-reciente',
+  });
+  const origen = await citar(browser, {
+    url: 'https://www.bitrix24.com/about/',
+    buscar: 'release it to the public in April of 2012',
+    captura: 'B-2-10-bitrix24-4-desde-2012',
+  });
+
+  registrar({
+    criterio: 'B.2.10',
+    plataforma,
+    cumple: 2,
+    resumen:
+      'Publica novedades todos los meses con funciones nuevas —unas ocho notas conservadas en el año— y el fabricante sostiene el producto desde abril de 2012.',
+    comoLoHace:
+      `La ayuda oficial conserva ${notas.length} notas de novedades de 2026 (${notas.map(n => n.titulo.replace("What's new? ", '')).join(', ')}), ` +
+      `con ${funciones.length} funciones o mejoras anunciadas, incluido el lanzamiento mayor «Bitrix24 Vibe». El producto salió al público en abril de 2012.`,
+    caracteristicas:
+      'Las notas describen cada función con lenguaje de usuario y una guía. El fabricante no numera sus versiones: ' +
+      'publica novedades por mes y lanzamientos estacionales.',
+    justificacion:
+      'Agrega funciones casi todos los meses y lleva catorce años en el mercado. El archivo de notas que conserva la ayuda arranca en ' +
+      'febrero de 2026, así que el conteo no cubre noviembre a enero; la trayectoria sí cumple la segunda condición de la escala.',
+    documentacion: [archivo, vibe, reciente, origen],
+    medicion:
+      `${notas.length} notas de novedades (${notas.map(n => n.titulo).join('; ')}); ${funciones.length} funciones anunciadas; producto público desde abril de 2012`,
+  });
+});
+
+// ── B.2.11 ───────────────────────────────────────────────────────────────────
+test('B.2.11 — Mejoras incluidas en la versión gratuita', async ({ browser }, info) => {
+  // «Tomar las funciones nuevas de las notas de versión oficiales del último año y
+  //  determinar cuántas llegan a la versión evaluada y cuántas quedan en un plan o
+  //  una extensión paga»
+  const plataforma = plataformaDe(info.project.name);
+  soloEn(plataforma, 'bitrix24');
+  test.setTimeout(300_000);
+
+  const { notas, funciones } = await notasDeBitrix24();
+
+  // Qué incluye la edición gratuita lo dice la tabla de planes del fabricante: primera columna
+  const contexto = await browser.newContext({ locale: 'en-US', viewport: { width: 1440, height: 1600 } });
+  const hoja = await contexto.newPage();
+  let tabla: Record<string, string[]>;
+  try {
+    await hoja.goto('https://www.bitrix24.com/prices/', { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    await hoja.waitForTimeout(2500);
+    tabla = await hoja.evaluate(() => {
+      const out: Record<string, string[]> = {};
+      for (const fila of document.querySelectorAll('.bxw-block-price-comparison-table__row')) {
+        const titulo = fila.querySelector('.bxw-block-price-comparison-table__row-title')?.textContent?.trim();
+        if (!titulo || out[titulo]) continue;
+        out[titulo] = [...fila.querySelectorAll('.bxw-block-price-comparison-table__cell')].slice(0, 9).map(c => {
+          const marca = c.querySelector('svg[aria-label]')?.getAttribute('aria-label');
+          return marca ?? (c.textContent ?? '').replace(/\s+/g, ' ').trim();
+        });
+      }
+      return out;
+    });
+  } finally {
+    await contexto.close();
+  }
+  // La primera columna es la edición gratuita
+  const gratis = (fila: string) => tabla[fila]?.[0];
+  const FILAS: [RegExp, string][] = [
+    [/BI Builder/i, 'BI Analytics'],
+    [/e-Signature/i, 'E-signature'],
+    [/Vibecode/i, 'Vibecode app builder'],
+    [/CoPilot/i, 'AI call analysis & scripts'],
+    [/Messenger|chat/i, 'Messenger'],
+  ];
+  const clasificadas = funciones.map(f => {
+    const fila = FILAS.find(([re]) => re.test(f.titulo))?.[1];
+    const estado = fila ? gratis(fila) : undefined;
+    return { ...f, fila, estado, paga: estado === 'Not included' };
+  });
+  const pagas = clasificadas.filter(f => f.paga);
+  const libres = clasificadas.filter(f => f.estado === 'Included');
+  const sinFila = clasificadas.filter(f => !f.fila);
+  expect(Object.keys(tabla).length, 'la tabla de planes debe tener filas').toBeGreaterThan(20);
+  expect(pagas.length, 'debe haber funciones nuevas que la gratuita no incluye').toBeGreaterThan(0);
+
+  const vibecode = await citar(browser, {
+    url: 'https://www.bitrix24.com/prices/',
+    buscar: 'Vibe+ exclusive features',
+    captura: 'B-2-11-bitrix24-1-exclusivas-de-vibe',
+  });
+  const hint = await citar(browser, {
+    url: 'https://www.bitrix24.com/prices/',
+    buscar: 'Create custom apps for your Bitrix24 by simply asking AI',
+    captura: 'B-2-11-bitrix24-2-constructor-de-apps',
+  });
+  const bi = await citar(browser, {
+    url: `${AYUDA}/open/26086059/`,
+    buscar: 'Set the report period in BI Builder using a filter',
+    captura: 'B-2-11-bitrix24-3-novedad-bi-builder',
+  });
+  const precio = await constanciaDe(browser, BITRIX24_PROFESSIONAL, 'B-2-11-bitrix24-professional');
+
+  registrar({
+    criterio: 'B.2.11',
+    plataforma,
+    cumple: 1,
+    resumen:
+      'Las mejoras de mensajería llegan a la edición gratuita, pero las principales del año —análisis con BI Builder, inteligencia artificial, firma electrónica y Vibecode— exigen un plan pago.',
+    comoLoHace:
+      `De las ${funciones.length} funciones anunciadas en las ${notas.length} notas del año, ${pagas.length} corresponden a capacidades que la tabla de planes ` +
+      `del fabricante marca como no incluidas en la gratuita (${[...new Set(pagas.map(p => p.fila))].join(', ')}), ${libres.length} a capacidades incluidas ` +
+      `(mensajería) y ${sinFila.length} no tienen fila propia en esa tabla.`,
+    caracteristicas:
+      'Quedan en planes pagos el análisis con BI Builder (anunciado en cinco notas), la inteligencia artificial de llamadas, la firma electrónica y el ' +
+      'constructor Vibecode, exclusivo de la familia Vibe+. Llegan a la gratuita las mejoras de mensajería: invitados al chat, carpetas personales y filtros de no leídos.',
+    justificacion:
+      'Las novedades que el fabricante destaca como las del año —inteligencia artificial, análisis y construcción de aplicaciones— quedan en planes ' +
+      'pagos, mientras que las de mensajería llegan a la gratuita. La clasificación toma solo las funciones que la tabla de planes permite ubicar; ' +
+      'las demás se cuentan aparte y no se asumen gratuitas ni pagas.',
+    conPlan: [conPlanDe(BITRIX24_PROFESSIONAL, {
+      cumple: 2,
+      justificacion:
+        'El plan Standard suma el análisis con BI Builder y la inteligencia artificial de llamadas, pero no la firma electrónica; ' +
+        'con Professional llegan también la firma electrónica y el diseñador de flujos con inteligencia artificial. Vibecode exige además un plan de la familia Vibe+.',
+    })],
+    documentacion: [vibecode, hint, bi, ...precio],
+    medicion:
+      `${funciones.length} funciones anunciadas: ${pagas.length} no incluidas en la gratuita (${pagas.map(p => `${p.titulo} [${p.nota}]`).join('; ')}); ` +
+      `${libres.length} incluidas; ${sinFila.length} sin fila en la tabla de planes`,
+  });
 });

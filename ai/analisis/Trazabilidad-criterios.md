@@ -118,7 +118,7 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | A.11.1 | Emisión de la póliza al cerrar la venta | `REQ 1, REQ 17` |
 | A.11.2 | Plan de pago de la prima | `REQ 2` |
 | A.11.3 | Datos que administra el sistema central | `CRIT 11, CRIT 12, RUBRO` |
-| A.11.4 | Historia del cliente desde el primer contacto | `REQ 7, REQ 4` |
+| A.11.4 | Continuidad del historial del solicitante al asegurado | `REQ 7, REQ 4` |
 | A.11.5 | Satisfacción después de la atención | `REQ 15, REQ 12, REQ 5` |
 | A.12.1 | Recursos que la compañía debe disponer para sostenerlo | `CRIT 1` |
 | A.12.2 | Compatibilidad con la plataforma que la compañía usa | `CRIT 1` |
@@ -135,7 +135,7 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | A.12.13 | Soporte técnico con compromiso de respuesta | `CRIT 13` |
 | A.12.14 | Continuidad de las versiones en uso | `RUBRO` |
 | B.1.1 | Asistente de inteligencia artificial | `OBS` |
-| B.1.2 | Aplicación móvil nativa | `OBS` |
+| B.1.2 | Uso desde el teléfono durante la visita | `OBS` |
 | B.1.3 | Suite de trabajo integrada | `OBS` |
 | B.1.4 | Telefonía y videollamada integradas | `OBS` |
 | B.2.1 | Persistencia de los datos sin uso continuo | `RUBRO` |
@@ -147,15 +147,17 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | B.2.7 | Continuidad de la atención ante una caída del enlace | `RUBRO` |
 | B.2.8 | Atención de los derechos del titular de los datos | `RUBRO` |
 | B.2.9 | Baja de las comunicaciones comerciales por medio | `RUBRO, REQ 10` |
+| B.2.10 | Evolución sostenida del producto | `RUBRO` |
+| B.2.11 | Mejoras incluidas en la versión gratuita | `RUBRO` |
 
 ## Sin fuente externa
 
 | Origen | Criterios |
 |---|---|
-| `RUBRO` | A.1.3, A.1.4, A.2.5, A.5.7, A.6.4, A.8.1, A.8.4, A.11.3, A.12.6, A.12.14, B.2.1, B.2.2, B.2.3, B.2.4, B.2.5, B.2.6, B.2.7, B.2.8, B.2.9 |
+| `RUBRO` | A.1.3, A.1.4, A.2.5, A.5.7, A.6.4, A.8.1, A.8.4, A.11.3, A.12.6, A.12.14, B.2.1, B.2.2, B.2.3, B.2.4, B.2.5, B.2.6, B.2.7, B.2.8, B.2.9, B.2.10, B.2.11 |
 | `OBS` | B.1.1, B.1.2, B.1.3, B.1.4 |
 
 ## Resultado
 
 - **33 fuentes**: todas cubiertas.
-- **84 criterios**, todos con origen declarado.
+- **86 criterios**, todos con origen declarado.

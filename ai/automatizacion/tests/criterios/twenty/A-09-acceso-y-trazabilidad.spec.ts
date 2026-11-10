@@ -124,10 +124,11 @@ test('A.9.2 — Autenticación de los usuarios bajo control de la compañía', a
   registrar({
     criterio: 'A.9.2',
     plataforma,
-    cumple: 1,
-    reparo: 'parcial',
-    costo: 2,
-    resumen: 'Permite exigir segundo factor a todos y entrar solo con cuenta de Google o Microsoft, pero no ofrece una política de contraseñas que se configure.',
+    cumple: 2,
+    costo: 1,
+    resumen:
+      'Permite exigir segundo factor a todos y entrar solo con la cuenta de Google o Microsoft de la ' +
+      'compañía, cuyo directorio aplica su propia política de contraseñas.',
     comoLoHace:
       'La seguridad del espacio de trabajo permite imponer el segundo factor a todos los usuarios en ' +
       'cada ingreso y apagar el ingreso con correo y contraseña, de modo que solo se entre con la ' +
@@ -136,9 +137,12 @@ test('A.9.2 — Autenticación de los usuarios bajo control de la compañía', a
       'La instalación propia admite el ingreso con cuentas de Google y de Microsoft registrando sus ' +
       'credenciales, que es como se unifica el acceso con el directorio de una compañía que usa esos ' +
       'servicios; la conexión por SAML u OIDC con cualquier otro directorio es del plan Organization. ' +
-      'No hay una política de contraseñas que se configure —largo, vencimiento—, que deja de importar ' +
-      'si el ingreso es con la cuenta de la compañía y segundo factor.',
-    justificacion: 'El procedimiento pide política de contraseñas, segundo factor y acceso unificado con el directorio: resuelve los dos últimos, pero no la política de contraseñas, que solo deja de importar si la compañía usa Google o Microsoft.',
+      'Twenty no tiene una política de contraseñas propia: con el ingreso por la cuenta de la compañía, ' +
+      'la que rige es la de su directorio.',
+    justificacion:
+      'Las reglas de acceso quedan en manos de la compañía: segundo factor obligatorio, ingreso solo con ' +
+      'su cuenta y la política de contraseñas de su directorio. Se configura una vez desde la seguridad ' +
+      'del espacio de trabajo.',
     evidencia: [capSeguridad],
     documentacion: fuentes,
   });

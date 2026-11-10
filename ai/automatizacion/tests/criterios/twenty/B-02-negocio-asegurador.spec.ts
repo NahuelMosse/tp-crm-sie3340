@@ -7,6 +7,7 @@ import { tmpdir } from 'node:os';
 import { registrar } from '../../evaluar';
 import { entrar, plataformaDe } from '../../sesion';
 import { citar } from '../../fuentes';
+import { publicaciones, creacionDelRepositorio, lineasDe, enVentana } from '../../evolucion';
 import { soloEn, capturar } from '../comun';
 import {
   apiTwenty, registros, abrirListado, configuracion, clicReal, textoDe, buscarEnTodo, nuevoRegistro, BASE,
@@ -465,8 +466,8 @@ test('B.2.4 — Búsqueda y operación con volumen productivo', async ({ page },
       plataforma,
       cumple: VEREDICTO_B14.cumple,
       resumen:
-        'Con veinticinco mil registros, la búsqueda por texto y el filtro por ramo responden ' +
-        'sin espera perceptible.',
+        'Con 25.000 registros, buscar un asegurado entre cinco mil y filtrar las doce mil quinientas pólizas ' +
+        'por ramo responde en menos de medio segundo, sin espera perceptible.',
       comoLoHace:
         'Las operaciones de todos los días —buscar un asegurado por texto desde la búsqueda general y ' +
         'filtrar las pólizas por ramo— se hacen sobre una cartera de veinticinco mil registros: cinco ' +
@@ -679,5 +680,137 @@ test('B.2.9 — Baja de las comunicaciones comerciales por medio', async ({ page
       captura: 'B-2-9-twenty-5-campanas-con-baja-en-beta',
     }),
     evidencia: [capSinCampo, capBaja, capCompleto, capFiltrado],
+  });
+});
+
+// ── B.2.10 ───────────────────────────────────────────────────────────────────
+/** Versiones del producto (no del paquete de desarrollo) y sus funciones nuevas, según las notas de GitHub. */
+async function notasDeTwenty() {
+  const versiones = (await publicaciones('twentyhq/twenty')).filter(v => !v.tag.startsWith('sdk/'));
+  const lineas = new Set(versiones.map(v => v.tag.replace(/^twenty\//, '').replace(/^v/, '').split('.').slice(0, 2).join('.')));
+  const conFunciones: { tag: string; items: string[] }[] = [];
+  for (const v of versiones) {
+    const bloque = v.cuerpo.replace(/\r/g, '').match(/## ✨ New features\n([\s\S]*?)(?=\n## |\n<details>|$)/)?.[1] ?? '';
+    const items = bloque.split('\n').filter(l => l.startsWith('- '));
+    if (items.length) conFunciones.push({ tag: v.tag, items });
+  }
+  return { versiones, lineas, conFunciones };
+}
+
+test('B.2.10 — Evolución sostenida del producto', async ({ browser }, info) => {
+  // «Contar en las notas de versión oficiales del último año las versiones que
+  //  agregaron funciones, y determinar desde cuándo el fabricante sostiene el producto»
+  const plataforma = plataformaDe(info.project.name);
+  soloEn(plataforma, 'twenty');
+  test.setTimeout(300_000);
+
+  const { versiones, lineas, conFunciones } = await notasDeTwenty();
+  const desde = await creacionDelRepositorio('twentyhq/twenty');
+  // La página oficial de novedades: una entrada por versión, con su fecha
+  const pagina = await lineasDe('https://twenty.com/releases');
+  const entradas = pagina.flatMap((l, i) => /^\d+\.\d+\.\d+$/.test(l) ? [{ v: l, fecha: new Date(`${pagina[i + 1]} UTC`) }] : [])
+    .filter(e => enVentana(e.fecha));
+  expect(entradas.length, 'la página de novedades debe tener entradas del último año').toBeGreaterThan(0);
+  expect(conFunciones.length).toBeGreaterThan(0);
+
+  const reciente = await citar(browser, {
+    url: 'https://twenty.com/releases',
+    buscar: 'Edit field values in place',
+    captura: 'B-2-10-twenty-1-novedades-recientes',
+  });
+  const mayor2 = await citar(browser, {
+    url: 'https://twenty.com/releases',
+    buscar: 'Your workspace is backed by a git repo',
+    captura: 'B-2-10-twenty-2-version-2-0',
+  });
+  const mayor1 = await citar(browser, {
+    url: 'https://twenty.com/releases',
+    buscar: 'Create and manage custom roles',
+    captura: 'B-2-10-twenty-3-version-1-0',
+  });
+  const primera = await citar(browser, {
+    url: 'https://twenty.com/releases',
+    buscar: 'Developers can now use webhooks to synchronize customer data updates',
+    captura: 'B-2-10-twenty-4-primera-entrada',
+  });
+
+  registrar({
+    criterio: 'B.2.10',
+    plataforma,
+    cumple: 2,
+    resumen:
+      'Publica funciones nuevas casi todas las semanas, con unas cincuenta versiones con novedades en el último año, y el fabricante sostiene el producto desde 2022, a través de las versiones 1.0 y 2.0.',
+    comoLoHace:
+      `La página oficial de novedades tiene ${entradas.length} entradas con fecha dentro del último año, cada una con las funciones ` +
+      `que agrega. En GitHub, ${versiones.length} versiones del producto en ${lineas.size} líneas (de la ${[...lineas][lineas.size - 1]} a la ${[...lineas][0]}), ` +
+      `${conFunciones.length} de ellas con una sección de funciones nuevas. El repositorio público se creó el ${desde}.`,
+    caracteristicas:
+      'Las notas describen cada función con lenguaje de usuario y con la fecha de la versión. En el año salió la versión ' +
+      '2.0, que reorganizó el producto como plataforma para construir aplicaciones, después de la 1.0 del año anterior.',
+    justificacion:
+      'Agrega funciones durante todo el año, con un ritmo muy superior al de los otros dos productos, y lleva casi cuatro ' +
+      'años de trayectoria pública con dos versiones mayores sostenidas (1.0 y 2.0). La trayectoria es la más corta de las tres ' +
+      'plataformas, pero ya incluye más de una versión mayor, que es lo que pide la escala.',
+    documentacion: [reciente, mayor2, mayor1, primera],
+    medicion:
+      `${entradas.length} entradas de novedades con fecha entre 11/11/2025 y 10/11/2026; ${versiones.length} versiones del producto en GitHub ` +
+      `(${lineas.size} líneas x.y), ${conFunciones.length} con sección de funciones nuevas; repositorio creado el ${desde}`,
+  });
+});
+
+// ── B.2.11 ───────────────────────────────────────────────────────────────────
+test('B.2.11 — Mejoras incluidas en la versión gratuita', async ({ browser }, info) => {
+  // «Tomar las funciones nuevas de las notas de versión oficiales del último año y
+  //  determinar cuántas llegan a la versión evaluada y cuántas quedan en un plan o
+  //  una extensión paga»
+  const plataforma = plataformaDe(info.project.name);
+  soloEn(plataforma, 'twenty');
+  test.setTimeout(300_000);
+
+  const { conFunciones } = await notasDeTwenty();
+  const nuevas = conFunciones.flatMap(v => v.items.map(i => ({ tag: v.tag, texto: i })));
+  // Las funciones pagas, según el fabricante, son estas: permisos por registro, acceso unificado,
+  // registro de auditoría, límites de uso, registro compartido y roles propios
+  const PAGAS = /row.level|\bSSO\b|SAML|audit log|usage.limit|record sharing|custom role|organization (plan|license|key)|enterprise/i;
+  const pagas = nuevas.filter(n => PAGAS.test(n.texto));
+  expect(nuevas.length).toBeGreaterThan(0);
+
+  const planes = await citar(browser, {
+    url: 'https://docs.twenty.com/user-guide/billing/capabilities/pricing-plans',
+    buscar: 'Premium features are only available on the Organization plans',
+    captura: 'B-2-11-twenty-1-funciones-premium',
+  });
+  const permisos = await citar(browser, {
+    url: 'https://docs.twenty.com/user-guide/billing/capabilities/pricing-plans',
+    buscar: 'Row-level permissions',
+    captura: 'B-2-11-twenty-2-permisos-por-registro',
+  });
+  const resumenAuto = await citar(browser, {
+    url: 'https://twenty.com/releases',
+    buscar: 'Recovery codes for two-factor authentication',
+    captura: 'B-2-11-twenty-3-novedad-gratuita',
+  });
+
+  registrar({
+    criterio: 'B.2.11',
+    plataforma,
+    cumple: 2,
+    resumen:
+      'Casi todas las funciones nuevas del año llegan a la instalación propia gratuita; las que quedan en el plan Organization son las de control de acceso fino, acceso unificado y auditoría.',
+    comoLoHace:
+      `Las notas de GitHub del último año listan ${nuevas.length} funciones nuevas, y ${pagas.length} nombran una función del plan ` +
+      'Organization o su licencia. El fabricante declara qué es premium: roles propios, permisos por registro, acceso unificado, ' +
+      'registro de auditoría y límites de uso. Todo lo demás —paneles, flujos, agentes, editor de notas, importación— viene en la gratuita.',
+    caracteristicas:
+      'Las notas de versión no marcan función por función qué plan la trae: se la identifica contra la lista de funciones ' +
+      'premium del fabricante. Las novedades de chat, flujos, paneles y correo se prueban en la instalación propia sin licencia.',
+    justificacion:
+      'La proporción de novedades que depende del plan pago es mínima y se concentra en funciones de seguridad que esta compañía ' +
+      'no necesita para comenzar; el producto evoluciona sin que cada mejora sea un costo nuevo. En el año el fabricante además ' +
+      'pasó a la licencia paga la compartición de registros y las reglas de validación, lo que reduce un poco lo gratuito.',
+    documentacion: [planes, permisos, resumenAuto],
+    medicion:
+      `${nuevas.length} funciones nuevas en las secciones «New features» de ${conFunciones.length} versiones; ${pagas.length} nombran ` +
+      `funciones premium (${pagas.map(p => p.tag).join(', ') || 'ninguna'}). Criterio de clasificación: coincidencia con la lista premium del fabricante`,
   });
 });

@@ -1,25 +1,21 @@
 {
   "criterio": "B.1.2",
   "plataforma": "espocrm",
-  "cumple": 0,
-  "resumen": "El fabricante no publica aplicación móvil nativa; la misma interfaz se adapta a la pantalla del teléfono y se usa desde el navegador con conexión.",
-  "comoLoHace": "En la tienda de aplicaciones, la búsqueda del producto devuelve solo aplicaciones de desarrolladores independientes, sin respaldo del fabricante; ni su catálogo de extensiones ni su página de descarga ofrecen una. Lo que sí ofrece es la misma interfaz adaptada a la pantalla del teléfono, que se usa desde el navegador con conexión: el productor puede consultar y cargar durante una visita, pero no es una aplicación instalada.",
-  "justificacion": "El fabricante no publica una aplicación móvil.",
+  "cumple": 1,
+  "reparo": "parcial",
+  "resumen": "Se usa desde el navegador del teléfono y registra la operación; los avisos de lo asignado solo se ven con el sistema abierto, no llegan al teléfono.",
+  "comoLoHace": "Con la pantalla de un teléfono, el productor entra, crea una tarea vinculada a un asegurado y queda guardada. Las notificaciones de Preferencias solo ofrecen avisos dentro del sistema (la campana, con la pestaña abierta, y un sonido opcional); no hay avisos del navegador ni al teléfono: en el código de la instalación no hay rastro de permisos de notificación, de procesos en segundo plano ni de envío de avisos al teléfono.",
+  "caracteristicas": "La misma interfaz se adapta a la pantalla del teléfono y permite cargar y consultar durante la visita. Los avisos de lo que se asigna aparecen en la campana, con el sistema abierto.",
+  "justificacion": "Se puede registrar la operación desde el teléfono sin configurar nada, pero el aviso de lo asignado no llega con el sistema cerrado: es el reparo.",
   "evidencia": [
-    "B-1-2-espocrm-1-tienda.png",
-    "B-1-2-espocrm-2-en-el-navegador-del-telefono.png"
+    "B-1-2-espocrm-2-alta-en-pantalla-de-telefono.png",
+    "B-1-2-espocrm-3-tarea-guardada.png",
+    "B-1-2-espocrm-4-avisos.png"
   ],
-  "documentacion": [
-    {
-      "url": "https://play.google.com/store/search?q=espocrm&c=apps",
-      "cita": "Call Sync to Espocrm HAIT GmbH $ 8.715,85",
-      "consultado": "2026-10-30",
-      "captura": "B-1-2-espocrm-3-busqueda-en-la-tienda.png"
-    }
-  ],
-  "medicion": "4 aplicaciones para el producto en la tienda, 0 del fabricante",
-  "criterioNombre": "Aplicación móvil nativa",
+  "criterioNombre": "Uso desde el teléfono durante la visita",
+  "costo": 2,
   "licencia": null,
   "conPlan": [],
-  "momento": "2026-10-30T06:13:40.835Z"
+  "documentacion": [],
+  "momento": "2026-11-10T15:41:48.868Z"
 }

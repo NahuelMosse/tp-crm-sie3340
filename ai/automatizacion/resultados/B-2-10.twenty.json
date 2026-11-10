@@ -1,0 +1,41 @@
+{
+  "criterio": "B.2.10",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "resumen": "Publica funciones nuevas casi todas las semanas, con unas cincuenta versiones con novedades en el último año, y el fabricante sostiene el producto desde 2022, a través de las versiones 1.0 y 2.0.",
+  "comoLoHace": "La página oficial de novedades tiene 48 entradas con fecha dentro del último año, cada una con las funciones que agrega. En GitHub, 69 versiones del producto en 67 líneas (de la 1.11 a la 2.57), 28 de ellas con una sección de funciones nuevas. El repositorio público se creó el 2022-12-01.",
+  "caracteristicas": "Las notas describen cada función con lenguaje de usuario y con la fecha de la versión. En el año salió la versión 2.0, que reorganizó el producto como plataforma para construir aplicaciones, después de la 1.0 del año anterior.",
+  "justificacion": "Agrega funciones durante todo el año, con un ritmo muy superior al de los otros dos productos, y lleva casi cuatro años de trayectoria pública con dos versiones mayores sostenidas (1.0 y 2.0). La trayectoria es la más corta de las tres plataformas, pero ya incluye más de una versión mayor, que es lo que pide la escala.",
+  "documentacion": [
+    {
+      "url": "https://twenty.com/releases",
+      "cita": "Edit field values in place",
+      "consultado": "2026-11-10",
+      "captura": "B-2-10-twenty-1-novedades-recientes.png"
+    },
+    {
+      "url": "https://twenty.com/releases",
+      "cita": "Your workspace is backed by a git repo, so you can branch, review in pull requests, and roll back changes the same way you ship code.",
+      "consultado": "2026-11-10",
+      "captura": "B-2-10-twenty-2-version-2-0.png"
+    },
+    {
+      "url": "https://twenty.com/releases",
+      "cita": "Create and manage custom roles. Grant or revoke access for each object to Read/Create/Edit/Delete records. Give granular access to settings like the ability to manage users, data models or APIs.",
+      "consultado": "2026-11-10",
+      "captura": "B-2-10-twenty-3-version-1-0.png"
+    },
+    {
+      "url": "https://twenty.com/releases",
+      "cita": "Developers can now use webhooks to synchronize customer data updates in real-time across applications.",
+      "consultado": "2026-11-10",
+      "captura": "B-2-10-twenty-4-primera-entrada.png"
+    }
+  ],
+  "medicion": "48 entradas de novedades con fecha entre 11/11/2025 y 10/11/2026; 69 versiones del producto en GitHub (67 líneas x.y), 28 con sección de funciones nuevas; repositorio creado el 2022-12-01",
+  "criterioNombre": "Evolución sostenida del producto",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-11-10T16:06:12.670Z"
+}

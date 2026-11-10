@@ -105,9 +105,9 @@
 | Criterio | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
 | A.9.1 Restricción de la cartera por productor | ● | ○↑ | ○↑ |
-| A.9.2 Autenticación de los usuarios bajo control de la compañía | ● | ◐ | ◐↑ |
+| A.9.2 Autenticación de los usuarios bajo control de la compañía | ● | ● | ◐↑ |
 | A.9.3 Registro de quién modificó cada dato | ● | ● | ○↑ |
-| **Subtotal A.9** | **6/6 · 100,0 %** | **3/6 · 50,0 %** | **1/6 · 16,7 %** |
+| **Subtotal A.9** | **6/6 · 100,0 %** | **4/6 · 66,7 %** | **1/6 · 16,7 %** |
 
 #### A.10 Explotación de la información
 
@@ -127,7 +127,7 @@
 | A.11.1 Emisión de la póliza al cerrar la venta | ◐↑ | ● | ◐ |
 | A.11.2 Plan de pago de la prima | ● | ● | ◐↑ |
 | A.11.3 Datos que administra el sistema central | ● | ● | ○↑ |
-| A.11.4 Historia del cliente desde el primer contacto | ● | ● | ● |
+| A.11.4 Continuidad del historial del solicitante al asegurado | ● | ● | ● |
 | A.11.5 Satisfacción después de la atención | ● | ● | ● |
 | **Subtotal A.11** | **9/10 · 90,0 %** | **10/10 · 100,0 %** | **6/10 · 60,0 %** |
 
@@ -150,22 +150,22 @@
 |---|:---:|:---:|:---:|
 | A.12.4 Menú y navegabilidad para la operación diaria | ● | ● | ● |
 | A.12.5 Aprendizaje sin capacitación previa | ● | ◐ | ◐ |
-| A.12.6 Localización completa al español, modelo incluido | ◐ | ◐ | ● |
+| A.12.6 Localización completa al español, modelo incluido | ● | ● | ● |
 | A.12.7 Cantidad de usuarios sin límite que condicione la operación | ● | ● | ● |
 | A.12.8 Operación concurrente sobre la misma cartera | ● | ◐ | ○ |
 | A.12.10 Documentación en español | ◐ | ● | ● |
 | A.12.11 Material de capacitación para el usuario final | ● | ● | ● |
 | A.12.12 Comunidad activa de usuarios | ◐ | ◐ | ○ |
 | A.12.13 Soporte técnico con compromiso de respuesta | ○ | ○ | ○↑ |
-| **Subtotal A.12 — operativos** | **13/18 · 72,2 %** | **12/18 · 66,7 %** | **11/18 · 61,1 %** |
+| **Subtotal A.12 — operativos** | **14/18 · 77,8 %** | **13/18 · 72,2 %** | **11/18 · 61,1 %** |
 
 ### Subtotal por tipo
 
 | | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
-| Funcionales | 98/114 · 86,0 % | 98/114 · 86,0 % | 72/114 · 63,2 % |
+| Funcionales | 98/114 · 86,0 % | 99/114 · 86,8 % | 72/114 · 63,2 % |
 | Técnicos | 5/10 · 50,0 % | 4/10 · 40,0 % | 7/10 · 70,0 % |
-| Operativos | 13/18 · 72,2 % | 12/18 · 66,7 % | 11/18 · 61,1 % |
+| Operativos | 14/18 · 77,8 % | 13/18 · 72,2 % | 11/18 · 61,1 % |
 
 ## 4.2 Requerimientos deseables (no solicitados)
 
@@ -176,10 +176,10 @@
 | Criterio | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
 | B.1.1 Asistente de inteligencia artificial | ○↑ | ● | ● |
-| B.1.2 Aplicación móvil nativa | ○ | ○ | ● |
+| B.1.2 Uso desde el teléfono durante la visita | ◐ | ◐ | ● |
 | B.1.3 Suite de trabajo integrada | ◐ | ◐ | ◐↑ |
 | B.1.4 Telefonía y videollamada integradas | ○↑ | ○ | ◐↑ |
-| **Subtotal B.1** | **1/8 · 12,5 %** | **3/8 · 37,5 %** | **6/8 · 75,0 %** |
+| **Subtotal B.1** | **2/8 · 25,0 %** | **4/8 · 50,0 %** | **6/8 · 75,0 %** |
 
 ### No funcionales
 
@@ -190,8 +190,8 @@
 | B.2.2 Copia propia y completa de la cartera | ● | ● | ○↑ |
 | B.2.3 Copia periódica sin intervención manual | ◐ | ◐ | ○ |
 | B.2.6 Alojamiento de los datos en un país con protección adecuada | ● | ● | ○↑ |
-| B.2.7 Continuidad de la atención ante una caída del enlace | ● | ● | ◐ |
-| **Subtotal B.2 — técnicos** | **7/8 · 87,5 %** | **7/8 · 87,5 %** | **1/8 · 12,5 %** |
+| B.2.7 Continuidad de la atención ante una caída del enlace | ● | ● | ○ |
+| **Subtotal B.2 — técnicos** | **7/8 · 87,5 %** | **7/8 · 87,5 %** | **0/8 · 0,0 %** |
 
 #### B.2 Condiciones que impone el negocio asegurador — operativos
 
@@ -202,15 +202,17 @@
 | B.2.5 Previsibilidad de los cambios del sistema | ● | ● | ○ |
 | B.2.8 Atención de los derechos del titular de los datos | ◐ | ◐ | ◐↑ |
 | B.2.9 Baja de las comunicaciones comerciales por medio | ● | ◐ | ○↑ |
-| **Subtotal B.2 — operativos** | **9/10 · 90,0 %** | **8/10 · 80,0 %** | **1/10 · 10,0 %** |
+| B.2.10 Evolución sostenida del producto | ● | ● | ● |
+| B.2.11 Mejoras incluidas en la versión gratuita | ◐↑ | ● | ◐↑ |
+| **Subtotal B.2 — operativos** | **12/14 · 85,7 %** | **12/14 · 85,7 %** | **4/14 · 28,6 %** |
 
 ### Subtotal por tipo
 
 | | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
-| Funcionales | 1/8 · 12,5 % | 3/8 · 37,5 % | 6/8 · 75,0 % |
-| Técnicos | 7/8 · 87,5 % | 7/8 · 87,5 % | 1/8 · 12,5 % |
-| Operativos | 9/10 · 90,0 % | 8/10 · 80,0 % | 1/10 · 10,0 % |
+| Funcionales | 2/8 · 25,0 % | 4/8 · 50,0 % | 6/8 · 75,0 % |
+| Técnicos | 7/8 · 87,5 % | 7/8 · 87,5 % | 0/8 · 0,0 % |
+| Operativos | 12/14 · 85,7 % | 12/14 · 85,7 % | 4/14 · 28,6 % |
 
 ## 4.3 Resultado
 
@@ -218,30 +220,30 @@
 
 | | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
-| Cumple ● | 49 | 48 | 38 |
-| Cumple con reparo ◐ | 18 | 18 | 14 |
+| Cumple ● | 50 | 50 | 38 |
+| Cumple con reparo ◐ | 17 | 16 | 14 |
 | No cumple ○ | 4 | 5 | 19 |
 | *— un plan pago lo mejoraría* | 10 | 4 | 20 |
-| **% de cumplimiento** | **84,9 %** | **82,8 %** | **61,2 %** |
+| **% de cumplimiento** | **85,2 %** | **84,5 %** | **61,2 %** |
 
 ### Recuento de los deseables
 
 | | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
-| Cumple ● | 7 | 7 | 2 |
-| Cumple con reparo ◐ | 3 | 4 | 4 |
-| No cumple ○ | 3 | 2 | 7 |
-| *— un plan pago lo mejoraría* | 2 | 0 | 7 |
-| **% de cumplimiento** | **50,7 %** | **60,4 %** | **43,1 %** |
+| Cumple ● | 8 | 9 | 3 |
+| Cumple con reparo ◐ | 5 | 5 | 4 |
+| No cumple ○ | 2 | 1 | 8 |
+| *— un plan pago lo mejoraría* | 3 | 0 | 8 |
+| **% de cumplimiento** | **55,7 %** | **68,2 %** | **46,6 %** |
 
 ### Cumplimiento total
 
 | | EspoCRM | Twenty | Bitrix24 |
 |---|:---:|:---:|:---:|
-| Originales (85 %) | 84,9 % | 82,8 % | 61,2 % |
-| Deseables (15 %) | 50,7 % | 60,4 % | 43,1 % |
-| **Cumplimiento total** | **79,7 %** | **79,5 %** | **58,5 %** |
-| *Comentario: contratando los planes que mejoran algún criterio* | *89,7 %* | *82,6 %* | *86,6 %* |
+| Originales (90 %) | 85,2 % | 84,5 % | 61,2 % |
+| Deseables (10 %) | 55,7 % | 68,2 % | 46,6 % |
+| **Cumplimiento total** | **82,2 %** | **82,9 %** | **59,7 %** |
+| *Comentario: contratando los planes que mejoran algún criterio* | *91,5 %* | *86,2 %* | *87,5 %* |
 
 
 ## 4.4 Lo que agregarían las versiones pagas
@@ -252,27 +254,27 @@ Cada tabla compara las versiones pagas de una plataforma con su versión gratuit
 
 | Versión | Precio | Criterios que mejora respecto de la gratuita | Cumplimiento total |
 |---|---|---|:---:|
-| **Community, instalación propia** *(evaluada)* | **Gratis** | — | **79,7 %** |
-| Intelligence | US$ 129 por año y por instalación | B.1.1 | *81,6 %* |
-| Advanced Pack | US$ 395 por año y por instalación | A.1.5, A.2.6, A.3.4, A.8.3, A.10.1, A.10.2, A.10.3, A.11.1 | *85,4 %* |
-| VoIP Integration + Zoom Integration | US$ 498 por año y por instalación (US$ 388 + US$ 110) | B.1.4 | *81,6 %* |
-| Cloud Basic | US$ 15 por usuario por mes, mínimo 3 usuarios | A.1.5, A.2.6, A.3.4, A.8.3, A.10.1, A.10.2, A.10.3, A.11.1, A.12.1, A.12.3, B.1.4 | *87,8 %* |
+| **Community, instalación propia** *(evaluada)* | **Gratis** | — | **82,2 %** |
+| Intelligence | US$ 129 por año y por instalación | B.1.1 | *83,5 %* |
+| Advanced Pack | US$ 395 por año y por instalación | A.1.5, A.2.6, A.3.4, A.8.3, A.10.1, A.10.2, A.10.3, A.11.1 | *88,3 %* |
+| VoIP Integration + Zoom Integration | US$ 498 por año y por instalación (US$ 388 + US$ 110) | B.1.4 | *83,5 %* |
+| Cloud Basic | US$ 15 por usuario por mes, mínimo 3 usuarios | A.1.5, A.2.6, A.3.4, A.8.3, A.10.1, A.10.2, A.10.3, A.11.1, A.12.1, A.12.3, B.1.4, B.2.11 | *90,3 %* |
 
 ### Twenty
 
 | Versión | Precio | Criterios que mejora respecto de la gratuita | Cumplimiento total |
 |---|---|---|:---:|
-| **Autoalojado** *(evaluada)* | **Gratis** | — | **79,5 %** |
-| Cloud Pro | US$ 9 por usuario por mes, con pago anual | A.12.1, A.12.2, A.12.3 | *80,2 %* |
-| Organization | US$ 39 por usuario por mes, con pago anual | A.9.1, A.12.1, A.12.2, A.12.3 | *82,6 %* |
+| **Autoalojado** *(evaluada)* | **Gratis** | — | **82,9 %** |
+| Cloud Pro | US$ 9 por usuario por mes, con pago anual | A.12.1, A.12.2, A.12.3 | *83,7 %* |
+| Organization | US$ 39 por usuario por mes, con pago anual | A.9.1, A.12.1, A.12.2, A.12.3 | *86,2 %* |
 
 ### Bitrix24
 
 | Versión | Precio | Criterios que mejora respecto de la gratuita | Cumplimiento total |
 |---|---|---|:---:|
-| **Free** *(evaluada)* | **Gratis** | — | **58,5 %** |
-| Basic | US$ 69 por mes, hasta 5 usuarios | A.2.5, A.7.3, A.7.4, A.7.5, A.9.1, A.12.9, A.12.13, B.1.4, B.2.1, B.2.2, B.2.6 | *70,0 %* |
-| Basic Vibe+ | US$ 89 por mes, hasta 5 usuarios | A.2.5, A.7.3, A.7.4, A.7.5, A.9.1, A.10.4, A.10.5, A.11.3, A.12.9, A.12.13, B.1.4, B.2.1, B.2.2, B.2.6 | *73,6 %* |
-| Standard | US$ 144 por mes, hasta 50 usuarios | A.2.3, A.2.5, A.4.2, A.4.3, A.6.4, A.7.3, A.7.4, A.7.5, A.9.1, A.9.3, A.10.1, A.10.4, A.10.5, A.11.3, A.12.9, A.12.13, B.1.3, B.1.4, B.2.1, B.2.2, B.2.6, B.2.8, B.2.9 | *81,9 %* |
-| Professional | US$ 289 por mes, hasta 100 usuarios | A.1.1, A.2.3, A.2.5, A.4.2, A.4.3, A.6.4, A.7.3, A.7.4, A.7.5, A.8.1, A.9.1, A.9.3, A.10.1, A.10.4, A.10.5, A.11.2, A.11.3, A.12.9, A.12.13, B.1.3, B.1.4, B.2.1, B.2.2, B.2.6, B.2.8, B.2.9 | *85,4 %* |
-| Enterprise | US$ 579 por mes, desde 250 usuarios | A.1.1, A.2.3, A.2.5, A.4.2, A.4.3, A.6.4, A.7.3, A.7.4, A.7.5, A.8.1, A.9.1, A.9.2, A.9.3, A.10.1, A.10.4, A.10.5, A.11.2, A.11.3, A.12.9, A.12.13, B.1.3, B.1.4, B.2.1, B.2.2, B.2.6, B.2.8, B.2.9 | *86,6 %* |
+| **Free** *(evaluada)* | **Gratis** | — | **59,7 %** |
+| Basic | US$ 69 por mes, hasta 5 usuarios | A.2.5, A.7.3, A.7.4, A.7.5, A.9.1, A.12.9, A.12.13, B.1.4, B.2.1, B.2.2, B.2.6 | *70,5 %* |
+| Basic Vibe+ | US$ 89 por mes, hasta 5 usuarios | A.2.5, A.7.3, A.7.4, A.7.5, A.9.1, A.10.4, A.10.5, A.11.3, A.12.9, A.12.13, B.1.4, B.2.1, B.2.2, B.2.6 | *74,3 %* |
+| Standard | US$ 144 por mes, hasta 50 usuarios | A.2.3, A.2.5, A.4.2, A.4.3, A.6.4, A.7.3, A.7.4, A.7.5, A.9.1, A.9.3, A.10.1, A.10.4, A.10.5, A.11.3, A.12.9, A.12.13, B.1.3, B.1.4, B.2.1, B.2.2, B.2.6, B.2.8, B.2.9 | *82,3 %* |
+| Professional | US$ 289 por mes, hasta 100 usuarios | A.1.1, A.2.3, A.2.5, A.4.2, A.4.3, A.6.4, A.7.3, A.7.4, A.7.5, A.8.1, A.9.1, A.9.3, A.10.1, A.10.4, A.10.5, A.11.2, A.11.3, A.12.9, A.12.13, B.1.3, B.1.4, B.2.1, B.2.2, B.2.6, B.2.8, B.2.9, B.2.11 | *86,2 %* |
+| Enterprise | US$ 579 por mes, desde 250 usuarios | A.1.1, A.2.3, A.2.5, A.4.2, A.4.3, A.6.4, A.7.3, A.7.4, A.7.5, A.8.1, A.9.1, A.9.2, A.9.3, A.10.1, A.10.4, A.10.5, A.11.2, A.11.3, A.12.9, A.12.13, B.1.3, B.1.4, B.2.1, B.2.2, B.2.6, B.2.8, B.2.9, B.2.11 | *87,5 %* |

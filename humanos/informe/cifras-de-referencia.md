@@ -34,8 +34,20 @@
 
 ## B.2.4
 
-**Cifra de referencia: 25.000 registros.** En los ramos patrimoniales del mercado argentino se paga por año un siniestro cada nueve pólizas vigentes, según la Superintendencia de Seguros de la Nación {{https://www.argentina.gob.ar/superintendencia-de-seguros/estadisticas/polizas-siniestros-y-primas}}. Las aseguradoras tienen entre 1,2 y 1,7 pólizas por cliente, según relevamientos de McKinsey & Company {{https://karriere.mckinsey.de/industries/financial-services/our-insights/unlocking-the-potential-of-deeper-customer-agent-insurer-relationships}} y del mercado español {{https://www.muysegura.com/reflexiones-sobre-la-venta-cruzada-de-seguros/}}. Con unos quinientos clientes, una compañía promedio suma unas setecientas cincuenta pólizas y ochenta reclamos por año: poco más de mil seiscientos registros con cinco años de reclamos. La cartera de referencia es unas quince veces esa cifra, para cubrir el crecimiento: cinco mil asegurados con dos pólizas y media cada uno, más sus reclamos.
+**Cifra de referencia: 25.000 registros.** Una compañía promedio, con quinientos clientes, tiene unas setecientas cincuenta pólizas {{https://karriere.mckinsey.de/industries/financial-services/our-insights/unlocking-the-potential-of-deeper-customer-agent-insurer-relationships}} {{https://www.muysegura.com/reflexiones-sobre-la-venta-cruzada-de-seguros/}} y ochenta reclamos por año {{https://www.argentina.gob.ar/superintendencia-de-seguros/estadisticas/polizas-siniestros-y-primas}}. La cartera de prueba es unas quince veces más grande, para cubrir el crecimiento.
 
 | 2 | 1 | 0 |
 |---|---|---|
 | Con la cartera cargada, la búsqueda responde sin espera perceptible | Responde con una demora que el usuario nota y tolera | La operación se vuelve impracticable, o falla |
+
+## B.2.10
+
+| 2 | 1 | 0 |
+|---|---|---|
+| Agrega funciones a lo largo de todo el año, y el fabricante ya sostuvo el producto a través de varias versiones mayores | Cumple solo una de las dos: agrega funciones pero el producto todavía no tiene trayectoria, o tiene trayectoria pero casi no agrega funciones | No agrega funciones y no tiene trayectoria que lo respalde |
+
+## B.2.11
+
+| 2 | 1 | 0 |
+|---|---|---|
+| La mayoría de las funciones nuevas llega a la versión gratuita | Llegan algunas, pero las principales quedan en un plan o una extensión paga | Casi todas las funciones nuevas quedan en un plan o una extensión paga |

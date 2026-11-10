@@ -1,0 +1,41 @@
+{
+  "criterio": "B.2.10",
+  "plataforma": "bitrix24",
+  "cumple": 2,
+  "resumen": "Publica novedades todos los meses con funciones nuevas —unas ocho notas conservadas en el año— y el fabricante sostiene el producto desde abril de 2012.",
+  "comoLoHace": "La ayuda oficial conserva 8 notas de novedades de 2026 (October 2026, September 2026, August 2026, June 2026, Bitrix24 Vibe, April 2026, March 2026, February 2026), con 29 funciones o mejoras anunciadas, incluido el lanzamiento mayor «Bitrix24 Vibe». El producto salió al público en abril de 2012.",
+  "caracteristicas": "Las notas describen cada función con lenguaje de usuario y una guía. El fabricante no numera sus versiones: publica novedades por mes y lanzamientos estacionales.",
+  "justificacion": "Agrega funciones casi todos los meses y lleva catorce años en el mercado. El archivo de notas que conserva la ayuda arranca en febrero de 2026, así que el conteo no cubre noviembre a enero; la trayectoria sí cumple la segunda condición de la escala.",
+  "documentacion": [
+    {
+      "url": "https://helpdesk.bitrix24.com/open/25907955/",
+      "cita": "A brief overview of the most important updates from the past month.",
+      "consultado": "2026-11-10",
+      "captura": "B-2-10-bitrix24-1-notas-conservadas.png"
+    },
+    {
+      "url": "https://helpdesk.bitrix24.com/open/25971891/",
+      "cita": "We are pleased to present the new features of Bitrix24 Vibe release.",
+      "consultado": "2026-11-10",
+      "captura": "B-2-10-bitrix24-2-lanzamiento-vibe.png"
+    },
+    {
+      "url": "https://helpdesk.bitrix24.com/open/26062415/",
+      "cita": "Alaio Vibecode is a platform for building AI-powered solutions for Bitrix24.",
+      "consultado": "2026-11-10",
+      "captura": "B-2-10-bitrix24-3-novedad-reciente.png"
+    },
+    {
+      "url": "https://www.bitrix24.com/about/",
+      "cita": "A year or so later, we thought “Hey, we have this really great CRM we’re offering to our clients - why not marry it with the online collaboration platform we’re using inside the company?”. The idea took off and the initial beta-testing showed very promising results, which inspired us to commit to the product full-time and finally release it to the public in April of 2012.",
+      "consultado": "2026-11-10",
+      "captura": "B-2-10-bitrix24-4-desde-2012.png"
+    }
+  ],
+  "medicion": "8 notas de novedades (What's new? October 2026; What's new? September 2026; What's new? August 2026; What's new? June 2026; Bitrix24 Vibe; What's new? April 2026; What's new? March 2026; What's new? February 2026); 29 funciones anunciadas; producto público desde abril de 2012",
+  "criterioNombre": "Evolución sostenida del producto",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-11-10T16:10:57.950Z"
+}

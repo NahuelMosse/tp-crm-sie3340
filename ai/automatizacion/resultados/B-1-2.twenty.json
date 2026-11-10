@@ -1,25 +1,21 @@
 {
   "criterio": "B.1.2",
   "plataforma": "twenty",
-  "cumple": 0,
-  "resumen": "No hay aplicación móvil oficial del fabricante; la interfaz funciona en el navegador del teléfono, adaptada a la pantalla y con conexión.",
-  "comoLoHace": "Lo que ofrece es la misma interfaz en el navegador del teléfono, que se adapta a la pantalla: el productor puede consultar y cargar durante una visita, con conexión, pero no es una aplicación instalada.",
-  "justificacion": "El fabricante no publica una aplicación móvil: en la tienda de aplicaciones, la búsqueda del producto devuelve aplicaciones con su nombre y ninguna es del fabricante.",
+  "cumple": 1,
+  "reparo": "parcial",
+  "resumen": "Se usa desde el navegador del teléfono y registra la operación; no ofrece avisos al teléfono ni opciones para activarlos.",
+  "comoLoHace": "Con la pantalla de un teléfono, el productor busca al asegurado, abre su ficha y crea una tarea vinculada a él, que queda guardada. La configuración no tiene opciones de notificaciones y la interfaz no usa los avisos del navegador ni el envío de avisos al teléfono: no hay manera de enterarse de lo asignado sin abrir el sistema.",
+  "caracteristicas": "La misma interfaz se adapta a la pantalla del teléfono, con barra inferior de acceso rápido, y permite cargar y consultar durante la visita.",
+  "justificacion": "Se puede registrar la operación desde el teléfono sin configurar nada, pero ningún aviso de lo asignado llega al teléfono: es el reparo.",
   "evidencia": [
-    "B-1-2-twenty-1-tienda.png",
-    "B-1-2-twenty-2-en-el-navegador-del-telefono.png"
+    "B-1-2-twenty-2-alta-en-pantalla-de-telefono.png",
+    "B-1-2-twenty-3-tarea-guardada.png",
+    "B-1-2-twenty-4-avisos.png"
   ],
-  "documentacion": [
-    {
-      "url": "https://play.google.com/store/search?q=twenty%20crm&c=apps",
-      "cita": "Acceder con Google",
-      "consultado": "2026-10-30",
-      "captura": "B-1-2-twenty-3-busqueda-en-la-tienda.png"
-    }
-  ],
-  "medicion": "2 aplicaciones con el nombre del producto en la tienda, 0 del fabricante",
-  "criterioNombre": "Aplicación móvil nativa",
+  "criterioNombre": "Uso desde el teléfono durante la visita",
+  "costo": 2,
   "licencia": null,
   "conPlan": [],
-  "momento": "2026-10-30T08:24:33.782Z"
+  "documentacion": [],
+  "momento": "2026-11-10T15:51:24.906Z"
 }

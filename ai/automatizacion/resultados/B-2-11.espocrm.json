@@ -1,0 +1,49 @@
+{
+  "criterio": "B.2.11",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "resumen": "Las novedades del producto base llegan a la versión gratuita, pero buena parte de las funciones nuevas del año —reportes, procesos, facturación, inteligencia artificial— salen en extensiones pagas.",
+  "comoLoHace": "Las notas del producto base listan 48 funciones y mejoras del último año, todas disponibles en la versión evaluada. Las extensiones pagas publican sus propias notas, con unos 74 renglones de novedades en el mismo período: reportes y procesos (Advanced Pack), facturación y suscripciones (Sales Pack), asistente de inteligencia artificial (Intelligence) e integraciones con el correo y las reuniones.",
+  "caracteristicas": "Del producto base llegan varios embudos por entidad, bloqueo de registros, servidor de autorización y agrupación de notificaciones. Quedan en extensión paga las mejoras de reportes, procesos, facturación e inteligencia artificial.",
+  "justificacion": "Las funciones que la compañía más usa para cobrar y reportar mejoran en extensiones pagas, que la versión evaluada no trae; el producto base también mejora, pero parte importante del avance del año queda fuera de él. Por eso llegan algunas, no la mayoría.",
+  "conPlan": [
+    {
+      "plan": "EspoCRM Cloud Basic",
+      "monto": "US$ 15 por usuario por mes, mínimo 3 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "justificacion": "El plan de entrada del servicio en la nube trae todas las extensiones del fabricante, de modo que las funciones nuevas de ambos lados llegan juntas. Las licencias sueltas de cada extensión cubren solo una parte."
+    }
+  ],
+  "documentacion": [
+    {
+      "url": "https://github.com/espocrm/espocrm/releases/tag/10.1.0",
+      "cita": "Job processing with workers, RabbitMQ implementation #3724",
+      "consultado": "2026-11-10",
+      "captura": "B-2-11-espocrm-3-notas-base.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extensions/advanced-pack/release-notes",
+      "cita": "Non-aggregated columns in Grid report export.",
+      "consultado": "2026-11-10",
+      "captura": "B-2-11-espocrm-1-notas-advanced-pack.png"
+    },
+    {
+      "url": "https://www.espocrm.com/extensions/sales-pack/release-notes",
+      "cita": "Tax-inclusive pricing.",
+      "consultado": "2026-11-10",
+      "captura": "B-2-11-espocrm-2-notas-sales-pack.png"
+    },
+    {
+      "url": "https://www.espocrm.com/cloud/",
+      "cita": "Basic $15.00 per user/month minimum 3 users 3GB file storage per user 100,000 records SSL Encryption (256 bit keys, TLS 1.3) Full feature set All extensions included External access API 2000+ integrations * 12x5 (hours/days) support Sign Up Free Trial Free Trial is provided for 30 days",
+      "consultado": "2026-11-10",
+      "captura": "B-2-11-espocrm-nube-precio-1.png"
+    }
+  ],
+  "medicion": "Producto base: 48 funciones y mejoras en las notas. Extensiones pagas con versiones en el período: advanced-pack: 3 versiones (3.14.0, 3.13.0, 3.12.0); sales-pack: 5 versiones (4.4.0, 4.3.0, 4.2.0, 4.1.0, 4.0.0); intelligence: 3 versiones (1.2.0, 1.1.0, 1.0.0); outlook-integration: 2 versiones (1.8.0, 1.7.0); zoom-integration: 1 versiones (1.1.0); unos 74 renglones de novedades (cuenta aproximada de líneas de las notas)",
+  "criterioNombre": "Mejoras incluidas en la versión gratuita",
+  "licencia": null,
+  "evidencia": [],
+  "momento": "2026-11-10T16:04:59.121Z"
+}

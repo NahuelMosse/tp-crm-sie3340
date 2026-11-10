@@ -1,10 +1,10 @@
 {
   "criterio": "B.2.7",
   "plataforma": "bitrix24",
-  "cumple": 1,
+  "cumple": 0,
   "comoLoHace": "Con la conexión externa cortada, el portal abierto en el navegador dejó de responder.",
-  "caracteristicas": "El fabricante documenta, en cambio, un modo sin conexión en su aplicación de escritorio para enviar mensajes y trabajar con documentos, que se sincronizan al volver el enlace: una parte de la operación diaria sigue siendo posible, pero no la que depende del CRM.",
-  "justificacion": "Con el enlace cortado el portal del CRM deja de responder: consultar un asegurado o registrar un reclamo no es posible mientras dura el corte, porque la edición evaluada vive entera en la nube del fabricante. Sigue siendo posible, con el modo sin conexión de la aplicación de escritorio que documenta el fabricante, enviar mensajes y trabajar con documentos, que se sincronizan al volver el enlace.",
+  "caracteristicas": "El fabricante documenta un modo sin conexión en su aplicación de escritorio para escribir mensajes y trabajar con documentos, que se sincronizan al volver el enlace. No alcanza al CRM.",
+  "justificacion": "La atención al asegurado depende del CRM, que en la edición evaluada vive entero en la nube del fabricante: mientras dura el corte no se puede atender. Lo que permite el modo sin conexión se envía recién al volver el enlace, así que no sostiene la atención.",
   "evidencia": [
     "B-2-7-bitrix24-1-sin-enlace.png"
   ],
@@ -21,5 +21,5 @@
   "licencia": null,
   "conPlan": [],
   "momento": "2026-09-29T23:59:04.233Z",
-  "resumen": "Sin conexión el portal del CRM deja de responder; solo la aplicación de escritorio permite enviar mensajes y trabajar con documentos sin enlace."
+  "resumen": "Sin conexión el CRM deja de responder: no se puede consultar un asegurado ni registrar un reclamo. La aplicación de escritorio solo deja redactar mensajes y editar documentos, que se envían al volver el enlace."
 }

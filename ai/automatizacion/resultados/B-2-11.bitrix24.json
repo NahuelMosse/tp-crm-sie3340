@@ -1,0 +1,49 @@
+{
+  "criterio": "B.2.11",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "resumen": "Las mejoras de mensajería llegan a la edición gratuita, pero las principales del año —análisis con BI Builder, inteligencia artificial, firma electrónica y Vibecode— exigen un plan pago.",
+  "comoLoHace": "De las 29 funciones anunciadas en las 8 notas del año, 8 corresponden a capacidades que la tabla de planes del fabricante marca como no incluidas en la gratuita (BI Analytics, Vibecode app builder, E-signature, AI call analysis & scripts), 4 a capacidades incluidas (mensajería) y 17 no tienen fila propia en esa tabla.",
+  "caracteristicas": "Quedan en planes pagos el análisis con BI Builder (anunciado en cinco notas), la inteligencia artificial de llamadas, la firma electrónica y el constructor Vibecode, exclusivo de la familia Vibe+. Llegan a la gratuita las mejoras de mensajería: invitados al chat, carpetas personales y filtros de no leídos.",
+  "justificacion": "Las novedades que el fabricante destaca como las del año —inteligencia artificial, análisis y construcción de aplicaciones— quedan en planes pagos, mientras que las de mensajería llegan a la gratuita. La clasificación toma solo las funciones que la tabla de planes permite ubicar; las demás se cuentan aparte y no se asumen gratuitas ni pagas.",
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Professional",
+      "monto": "US$ 289 por mes, hasta 100 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "justificacion": "El plan Standard suma el análisis con BI Builder y la inteligencia artificial de llamadas, pero no la firma electrónica; con Professional llegan también la firma electrónica y el diseñador de flujos con inteligencia artificial. Vibecode exige además un plan de la familia Vibe+."
+    }
+  ],
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.com/prices/",
+      "cita": "Vibe+ exclusive features Vibecode app builder Create custom apps for your Bitrix24 by simply asking AI what you want to achieve. No coding skills required AI in CRM, tasks, etc. AI-powered deal autocompletion, call transcription, voice-to-task automation, and more. Limited Limited Limited Limited Limited Limited Unlimited Unlimited Unlimited REST API Connect your Bitrix24 securely to external tools that your business relies on Unlimited Unlimited Unlimited Unlimited MCP server Integrate your Bitrix24 with external AI tools for more versatility Bitrix24 Market Get access to 750+ apps, extensions, and integrations developed by our Partners 2 apps 4 apps 7 apps 10 apps Unlimited apps Unlimited apps Unlimited apps Unlimited apps",
+      "consultado": "2026-11-10",
+      "captura": "B-2-11-bitrix24-1-exclusivas-de-vibe.png"
+    },
+    {
+      "url": "https://www.bitrix24.com/prices/",
+      "cita": "Create custom apps for your Bitrix24 by simply asking AI what you want to achieve. No coding skills required",
+      "consultado": "2026-11-10",
+      "captura": "B-2-11-bitrix24-2-constructor-de-apps.png"
+    },
+    {
+      "url": "https://helpdesk.bitrix24.com/open/26086059/",
+      "cita": "Set the report period in BI Builder using a filter: Open the dashboard for the period you need without additional setup.",
+      "consultado": "2026-11-10",
+      "captura": "B-2-11-bitrix24-3-novedad-bi-builder.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "Professional desde US$ 289 desde US$ 199 incluye 100 usuarios Empezar Empezar",
+      "consultado": "2026-11-10",
+      "captura": "B-2-11-bitrix24-professional-precio-1.png"
+    }
+  ],
+  "medicion": "29 funciones anunciadas: 8 no incluidas en la gratuita (BI Builder: dashboard period from a filter [What's new? October 2026]; Alaio Vibecode [What's new? September 2026]; BI Builder: Use external MySQL and PostgreSQL databases [What's new? June 2026]; Document editor in e-Signature for HR [Bitrix24 Vibe]; BI Builder [Bitrix24 Vibe]; CoPilot in CRM [Bitrix24 Vibe]; BI Builder: time zone and report language [What's new? April 2026]; BI Builder datasets: inventory management [What's new? February 2026]); 4 incluidas; 17 sin fila en la tabla de planes",
+  "criterioNombre": "Mejoras incluidas en la versión gratuita",
+  "licencia": null,
+  "evidencia": [],
+  "momento": "2026-11-10T16:11:41.124Z"
+}

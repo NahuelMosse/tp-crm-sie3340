@@ -1,0 +1,35 @@
+{
+  "criterio": "B.2.11",
+  "plataforma": "twenty",
+  "cumple": 2,
+  "resumen": "Casi todas las funciones nuevas del año llegan a la instalación propia gratuita; las que quedan en el plan Organization son las de control de acceso fino, acceso unificado y auditoría.",
+  "comoLoHace": "Las notas de GitHub del último año listan 358 funciones nuevas, y 18 nombran una función del plan Organization o su licencia. El fabricante declara qué es premium: roles propios, permisos por registro, acceso unificado, registro de auditoría y límites de uso. Todo lo demás —paneles, flujos, agentes, editor de notas, importación— viene en la gratuita.",
+  "caracteristicas": "Las notas de versión no marcan función por función qué plan la trae: se la identifica contra la lista de funciones premium del fabricante. Las novedades de chat, flujos, paneles y correo se prueban en la instalación propia sin licencia.",
+  "justificacion": "La proporción de novedades que depende del plan pago es mínima y se concentra en funciones de seguridad que esta compañía no necesita para comenzar; el producto evoluciona sin que cada mejora sea un costo nuevo. En el año el fabricante además pasó a la licencia paga la compartición de registros y las reglas de validación, lo que reduce un poco lo gratuito.",
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/user-guide/billing/capabilities/pricing-plans",
+      "cita": "Premium features are only available on the Organization plans (Cloud or Self-Hosted):",
+      "consultado": "2026-11-10",
+      "captura": "B-2-11-twenty-1-funciones-premium.png"
+    },
+    {
+      "url": "https://docs.twenty.com/user-guide/billing/capabilities/pricing-plans",
+      "cita": "Premium features: custom roles, row-level permissions, SSO and more",
+      "consultado": "2026-11-10",
+      "captura": "B-2-11-twenty-2-permisos-por-registro.png"
+    },
+    {
+      "url": "https://twenty.com/releases",
+      "cita": "Recovery codes for two-factor authentication",
+      "consultado": "2026-11-10",
+      "captura": "B-2-11-twenty-3-novedad-gratuita.png"
+    }
+  ],
+  "medicion": "358 funciones nuevas en las secciones «New features» de 28 versiones; 18 nombran funciones premium (twenty/v2.53.1, twenty/v2.48.0, twenty/v2.47.0, twenty/v2.46.0, twenty/v2.43.0, twenty/v2.43.0, twenty/v2.43.0, twenty/v2.43.0, twenty/v2.43.0, twenty/v2.43.0, twenty/v2.43.0, twenty/v2.41.0, twenty/v2.41.0, twenty/v2.41.0, twenty/v2.40.0, twenty/v2.40.0, twenty/v2.40.0, twenty/v2.39.0). Criterio de clasificación: coincidencia con la lista premium del fabricante",
+  "criterioNombre": "Mejoras incluidas en la versión gratuita",
+  "licencia": null,
+  "conPlan": [],
+  "evidencia": [],
+  "momento": "2026-11-10T16:06:45.231Z"
+}

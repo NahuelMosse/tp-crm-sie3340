@@ -3,24 +3,31 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 0,
-  "resumen": "Tiene aplicación móvil oficial para Android e iOS, con CRM, tareas, chat y notificaciones, para operar durante la visita al asegurado.",
-  "comoLoHace": "La aplicación oficial del fabricante se encuentra en las tiendas de aplicaciones.",
-  "caracteristicas": "El fabricante publica una aplicación móvil oficial, para Android en Google Play y para iOS en el App Store, con el CRM, las tareas, el chat y las notificaciones de la cuenta.",
-  "justificacion": "El productor puede registrar la operación durante la visita al asegurado, desde su teléfono, sin instalar ni configurar nada además de bajar la aplicación e iniciar sesión.",
+  "resumen": "La aplicación oficial gratuita para Android e iOS permite registrar la operación en la visita y envía avisos al teléfono aunque el sistema esté cerrado.",
+  "comoLoHace": "En la pantalla de un teléfono, el productor entra al portal y registra una operación, que queda guardada. Los avisos al teléfono los envía la aplicación oficial del fabricante, publicada en Google Play y en App Store: la documentación oficial indica que, para recibirlos, se activan en la configuración de esa aplicación.",
+  "caracteristicas": "El fabricante publica una aplicación oficial y gratuita para Android e iOS, con el CRM, las tareas, el chat y las notificaciones. Los avisos llegan al teléfono como notificaciones push y se configuran por tipo de aviso.",
+  "justificacion": "Viene lista: alcanza con instalar la aplicación e iniciar sesión. Los avisos al teléfono se sostienen con la documentación oficial; no se comprobó la llegada de un aviso a un teléfono real.",
   "evidencia": [
-    "B-1-2-bitrix24-1-google-play.png",
-    "B-1-2-bitrix24-2-portal-en-el-navegador.png"
+    "B-1-2-bitrix24-2-alta-en-pantalla-de-telefono.png",
+    "B-1-2-bitrix24-3-operacion-guardada.png",
+    "B-1-2-bitrix24-1-google-play.png"
   ],
   "documentacion": [
     {
-      "url": "https://www.bitrix24.es/features/mobile-app.php",
-      "cita": "El único software empresarial que necesitarás",
-      "consultado": "2026-09-29",
-      "captura": "B-1-2-bitrix24-3-app-movil-oficial.png"
+      "url": "https://helpdesk.bitrix24.com/open/19423886/",
+      "cita": "Mobile devices (push notifications) — to display notifications on your mobile device, enable them in the mobile app settings. Bitrix24 mobile app",
+      "consultado": "2026-11-10",
+      "captura": "B-1-2-bitrix24-4-avisos-push.png"
+    },
+    {
+      "url": "https://helpdesk.bitrix24.com/open/21659550/",
+      "cita": "The Bitrix24 mobile app is free and available on the App Store, Google Play, Huawei AppGallery. Download the mobile app",
+      "consultado": "2026-11-10",
+      "captura": "B-1-2-bitrix24-5-app-gratuita.png"
     }
   ],
-  "criterioNombre": "Aplicación móvil nativa",
+  "criterioNombre": "Uso desde el teléfono durante la visita",
   "licencia": null,
   "conPlan": [],
-  "momento": "2026-09-30T00:18:38.270Z"
+  "momento": "2026-11-10T15:58:09.996Z"
 }

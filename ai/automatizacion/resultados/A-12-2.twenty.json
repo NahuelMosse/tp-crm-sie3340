@@ -3,7 +3,7 @@
   "plataforma": "twenty",
   "cumple": 1,
   "resumen": "La instalación propia corre en contenedores sobre Linux, Windows o macOS, con una única combinación: PostgreSQL 15 o superior y Redis; no hay otro motor de base de datos.",
-  "comoLoHace": "La instalación propia corre sobre contenedores, que funcionan en Linux, en Windows y en macOS, pero con una sola combinación de componentes: PostgreSQL como base de datos —de la versión 15 en adelante— y Redis como memoria intermedia.",
+  "comoLoHace": "La instalación propia corre sobre contenedores, que funcionan en Linux, en Windows y en macOS, pero con una sola combinación de tecnologías: PostgreSQL como base de datos —de la versión 15 en adelante— y Redis como memoria intermedia.",
   "caracteristicas": "No hay variante para otro motor de base de datos.",
   "justificacion": "Si la compañía ya administra contenedores y PostgreSQL, es su plataforma; si no, tiene que incorporar y sostener esas tecnologías para operar el sistema.",
   "documentacion": [

@@ -934,7 +934,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 ### A.5.7 Registro de reclamos con los datos que exige la Superintendencia
 
-**Qué resuelve.** Llevar el registro de reclamos que pide la normativa y no dejar ninguno sin respuesta en plazo [150].
+**Qué resuelve.** Llevar el registro de reclamos que pide la normativa y no dejar ninguno sin respuesta en plazo [163].
 
 **EspoCRM** · **1** (cumple con reparo) · costo de implementación **2**
 
@@ -1313,7 +1313,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 **Twenty** · **1** (cumple con reparo) · costo de implementación **2**
 
 - *Cómo lo hace.* El cálculo se arma con un flujo de trabajo que corre cada vez que se guarda la prima de una póliza, con un paso de código que multiplica la prima mensual por doce y un paso que escribe el resultado en el campo de la prima anual: al cargar la prima desde la ficha, el sistema completa la anual sin intervención.
-- *Características.* Twenty no tiene campos calculados: ningún tipo de campo deriva su valor de otro. La necesidad queda resuelta desde el sistema, pero exige escribir una función en TypeScript —con la prima guardada en millonésimas— y, en la instalación propia, habilitar la ejecución de funciones, que viene deshabilitada. Prima anual calculada al guardar: 183006, 10 segundos después.
+- *Características.* Twenty no tiene campos calculados: ningún tipo de campo deriva su valor de otro, y ninguna acción de las automatizaciones hace cuentas sin código. La necesidad queda resuelta desde el sistema, pero exige escribir unas líneas de código, con la prima guardada en millonésimas, y, en la instalación propia, habilitar la ejecución de código, que viene deshabilitada. Prima anual calculada al guardar: 183006, 10 segundos después.
 - *Justificación.* El cálculo solo se consigue con un paso de código dentro del flujo: es desarrollo, breve, que alguien tiene que saber leer y mantener.
 - *Evidencia.* Prueba sobre el sistema, con video y las capturas A-8-2-twenty-1-tipos-de-campo, A-8-2-twenty-2-codigo-del-calculo, A-8-2-twenty-3-flujo-del-calculo, A-8-2-twenty-4-calculado-al-guardar.
 
@@ -1490,11 +1490,11 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Justificación.* Viene en el producto y se activa desde esa pantalla: es configuración.
 - *Evidencia.* Prueba sobre el sistema, con video y las capturas A-9-2-espocrm-1-autenticacion, A-9-2-espocrm-2-metodos, A-9-2-espocrm-3-politica-de-contrasenas.
 
-**Twenty** · **1** (cumple con reparo) · costo de implementación **2**
+**Twenty** · **2** (cumple) · costo de implementación **1**
 
 - *Cómo lo hace.* La seguridad del espacio de trabajo permite imponer el segundo factor a todos los usuarios en cada ingreso y apagar el ingreso con correo y contraseña, de modo que solo se entre con la cuenta de la compañía.
-- *Características.* La instalación propia admite el ingreso con cuentas de Google y de Microsoft registrando sus credenciales, que es como se unifica el acceso con el directorio de una compañía que usa esos servicios; la conexión por SAML u OIDC con cualquier otro directorio es del plan Organization. No hay una política de contraseñas que se configure —largo, vencimiento—, que deja de importar si el ingreso es con la cuenta de la compañía y segundo factor.
-- *Justificación.* El procedimiento pide política de contraseñas, segundo factor y acceso unificado con el directorio: resuelve los dos últimos, pero no la política de contraseñas, que solo deja de importar si la compañía usa Google o Microsoft.
+- *Características.* La instalación propia admite el ingreso con cuentas de Google y de Microsoft registrando sus credenciales, que es como se unifica el acceso con el directorio de una compañía que usa esos servicios; la conexión por SAML u OIDC con cualquier otro directorio es del plan Organization. Twenty no tiene una política de contraseñas propia: con el ingreso por la cuenta de la compañía, la que rige es la de su directorio.
+- *Justificación.* Las reglas de acceso quedan en manos de la compañía: segundo factor obligatorio, ingreso solo con su cuenta y la política de contraseñas de su directorio. Se configura una vez desde la seguridad del espacio de trabajo.
 - *Evidencia.* Prueba sobre el sistema, con video y las capturas A-9-2-twenty-1-seguridad-del-espacio.
 
 > «Authentication - Google/Microsoft OAuth, password settings»
@@ -1773,7 +1773,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 **EspoCRM** · **2** (cumple) · costo de implementación **0**
 
 - *Cómo lo hace.* La interfaz de programación acepta el movimiento de un día entero de altas, tanto en ráfaga —varias operaciones simultáneas— como de a una, en minutos.
-- *Características.* En la instalación propia la interfaz de programación no tiene un tope publicado: no lo impone el fabricante sino el equipo donde corre. En una corrida anterior, con el equipo ocupado por otros procesos, tres de quinientas altas en ráfaga fueron rechazadas y pasaron al repetirlas: el límite es el del equipo, no una cuota del producto. ráfaga de 10 simultáneas: {"200":500} en 78 s · de a una: {"200":500} en 692 s.
+- *Características.* En la instalación propia la interfaz de programación no tiene un tope publicado: no lo impone el fabricante sino el equipo donde corre. En una corrida anterior, con el equipo ocupado por otros procesos, tres de quinientas altas en ráfaga fueron rechazadas y pasaron al repetirlas: el límite es la capacidad del servidor, no una cuota del producto. ráfaga de 10 simultáneas: {"200":500} en 78 s · de a una: {"200":500} en 692 s.
 - *Justificación.* El movimiento de un día entra con holgura en minutos, y la sincronización con otros sistemas no tiene que espaciarse más allá de reintentar lo que falle.
 
 > «Authentication by API Key»
@@ -1937,9 +1937,9 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 >
 > — https://www.bitrix24.es/prices/, consultado el 8 de noviembre de 2026
 
-### A.11.4 Historia del cliente desde el primer contacto
+### A.11.4 Continuidad del historial del solicitante al asegurado
 
-**Qué resuelve.** Conocer toda la relación, desde la primera consulta hasta hoy, en la ficha del cliente.
+**Qué resuelve.** Que lo hablado con el solicitante antes de la venta siga en la ficha cuando pasa a ser asegurado.
 
 **EspoCRM** · **2** (cumple) · costo de implementación **0**
 
@@ -2068,7 +2068,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Twenty** · **1** (cumple con reparo)
 
-- *Cómo lo hace.* La instalación propia corre sobre contenedores, que funcionan en Linux, en Windows y en macOS, pero con una sola combinación de componentes: PostgreSQL como base de datos —de la versión 15 en adelante— y Redis como memoria intermedia.
+- *Cómo lo hace.* La instalación propia corre sobre contenedores, que funcionan en Linux, en Windows y en macOS, pero con una sola combinación de tecnologías: PostgreSQL como base de datos —de la versión 15 en adelante— y Redis como memoria intermedia.
 - *Características.* No hay variante para otro motor de base de datos.
 - *Justificación.* Si la compañía ya administra contenedores y PostgreSQL, es su plataforma; si no, tiene que incorporar y sostener esas tecnologías para operar el sistema.
 - *Comentario — con Twenty Cloud Pro* (US$ 9 por usuario por mes, con pago anual, abono recurrente) sería **2** (cumple). En la nube no hay plataforma que administrar: se usa desde el navegador.
@@ -2145,7 +2145,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 ### A.12.4 Menú y navegabilidad para la operación diaria
 
-**Qué resuelve.** Que el trabajo diario se haga sin rodeos ni pantallas de más.
+**Qué resuelve.** Que el trabajo diario se haga sin vueltas ni pantallas de más.
 
 **EspoCRM** · **2** (cumple)
 
@@ -2203,19 +2203,19 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Qué resuelve.** Que todo el personal entienda cada pantalla y cada dato.
 
-**EspoCRM** · **1** (cumple con reparo)
+**EspoCRM** · **2** (cumple)
 
 - *Cómo lo hace.* El menú principal y la ficha del asegurado se presentan en español, con los campos del modelo y los que agrega la compañía.
 - *Características.* El menú principal y la ficha del asegurado están en español, incluidos los campos del modelo y los que agregó la compañía. Queda en inglés la palabra "Ticket" para el caso de atención, que se entiende pero no es la que usa una aseguradora, y algunas traducciones son literales —"Posibles clientes", "Historia" para el registro de actividad—. Fuera del recorrido pedido, en los filtros de fecha la opción que significa "con algún valor" quedó traducida como "Nunca", que dice lo contrario. Palabras en inglés en el recorrido: tickets, ticket.
-- *Justificación.* Se entiende en conjunto, con salvedades que la compañía puede corregir renombrando las etiquetas.
-- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-12-6-espocrm-1-menu, A-12-6-espocrm-2-ficha.
+- *Justificación.* Lo que queda fuera de lugar se corrige desde Administración › Etiquetas, que permite cambiar cada texto de la interfaz: es configuración, y después todo el personal ve la pantalla en su idioma.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-12-6-espocrm-1-menu, A-12-6-espocrm-2-ficha, A-12-6-espocrm-3-gestor-de-etiquetas, A-12-6-espocrm-3-gestor-de-etiquetas-nunca.
 
-**Twenty** · **1** (cumple con reparo)
+**Twenty** · **2** (cumple)
 
 - *Cómo lo hace.* Con el idioma de la interfaz en español, los menús de configuración, los botones y los mensajes están traducidos, pero los objetos y campos que trae el producto quedan con su nombre en inglés: en el menú y en la ficha del asegurado se leen Fields, General, Emails, Phones, Work, Company, Job Title, Social, entre otros.
 - *Características.* Lo que agregó la compañía, como la póliza y sus campos, queda con el nombre que ella le puso. Nombres en inglés en el recorrido: Fields, General, Emails, Phones, Work, Company, Job Title, Social, Linkedin, System, Creation date, Created by.
-- *Justificación.* Son nombres que igual se entienden —personas, correos, teléfonos, empresa, cargo— y cada uno se puede renombrar desde el modelo de datos, que admite cambiar el nombre en singular y en plural.
-- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-12-6-twenty-1-idioma-elegido, A-12-6-twenty-2-ficha.
+- *Justificación.* Son nombres que igual se entienden, como personas, correos, teléfonos, empresa y cargo, y cada objeto y cada campo de fábrica admite cambiar su nombre desde Configuración › Modelo de datos: es configuración, y después todo el personal ve la pantalla en su idioma.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas A-12-6-twenty-1-idioma-elegido, A-12-6-twenty-2-ficha, A-12-6-twenty-3-renombrar-objeto, A-12-6-twenty-4-renombrar-campo.
 
 **Bitrix24** · **2** (cumple)
 
@@ -2231,7 +2231,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 **EspoCRM** · **2** (cumple)
 
 - *Cómo lo hace.* La edición evaluada se distribuye bajo una licencia libre que no limita la cantidad de usuarios, y la instalación no impone ningún tope: se dan de alta los que la compañía necesite, sea cual fuere su plantel de productores y de personal administrativo.
-- *Características.* El único límite es el del equipo donde corre.
+- *Características.* El único límite es la capacidad del servidor donde corre.
 - *Justificación.* Los topes que publica el fabricante corresponden a los planes de la nube, que se cobran por usuario.
 - *Evidencia.* Prueba sobre el sistema, con video y las capturas A-12-7-espocrm-2-usuarios.
 
@@ -2243,7 +2243,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 - *Cómo lo hace.* La edición autoalojada es gratuita y se distribuye bajo una licencia libre que no limita la cantidad de usuarios, y la instalación no impone ningún tope: se invitan los que la compañía necesite, sea cual fuere su plantel de productores y de personal administrativo.
 - *Características.* En la nube se paga por usuario, sin tope de cantidad.
-- *Justificación.* El único límite es el del equipo donde corre.
+- *Justificación.* El único límite es la capacidad del servidor donde corre.
 - *Evidencia.* Prueba sobre el sistema, con video y las capturas A-12-7-twenty-3-usuarios.
 
 > «The #1 Open-Source CRM»
@@ -2751,25 +2751,29 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 **Bitrix24** · **0** (no cumple)
 
 - *Cómo lo hace.* El fabricante publica un acuerdo de nivel de servicio con plazos de respuesta por severidad del incidente —una hora, veinticuatro horas o setenta y dos horas—, pero ese compromiso cubre las caídas de la plataforma, no una consulta puntual de una compañía sobre su cuenta.
-- *Características.* El soporte personalizado, por chat o por ticket, queda reservado a los planes pagos, y la edición gratuita se apoya en la documentación y en la comunidad.
-- *Justificación.* El acuerdo de nivel de servicio cubre a los usuarios con licencia paga, y la edición gratuita se apoya en la documentación y en la comunidad: no hay un canal con plazo comprometido.
+- *Características.* En cualquier plan, el administrador de la cuenta puede consultar por el chat de soporte a un agente de inteligencia artificial; solo en los planes pagos ese chat se deriva a un especialista. Fuera de eso, la edición gratuita se apoya en la documentación y en la comunidad.
+- *Justificación.* El acuerdo de nivel de servicio cubre a los usuarios con licencia paga. El chat con el agente de inteligencia artificial no compromete un plazo ni llega a una persona: no hay un canal con plazo comprometido.
 - *Comentario — con Bitrix24 Basic* (US$ 69 por mes, hasta 5 usuarios, abono recurrente) sería **2** (cumple). Con el plan Basic, el primero con licencia paga, rige el acuerdo de nivel de servicio del fabricante, con plazos de respuesta por severidad de la falla: una hora para las críticas y altas, veinticuatro horas para las medias y setenta y dos horas para las bajas.
 
 > «1 hour»
 >
-> — https://www.bitrix24.com/privacy/sla.php, consultado el 30 de octubre de 2026
+> — https://www.bitrix24.com/privacy/sla.php, consultado el 10 de noviembre de 2026
 
 > «2.1. Bitrix24 Helpdesk provides 99.5% uptime commitment for support services. Bitrix24 support channels are available 24 hours per day, 7 days a week, 365 days a year. Tier 2 specialists are available between 6 a.m and 4 p.m UTC on business days. Issues should be reported to Bitrix24 through any of the support channels. Support team will respond according to the response time set forth in the table below:»
 >
-> — https://www.bitrix24.com/privacy/sla.php, consultado el 30 de octubre de 2026
+> — https://www.bitrix24.com/privacy/sla.php, consultado el 10 de noviembre de 2026
 
 > «72 hours»
 >
-> — https://www.bitrix24.com/privacy/sla.php, consultado el 30 de octubre de 2026
+> — https://www.bitrix24.com/privacy/sla.php, consultado el 10 de noviembre de 2026
 
-> «Basic Ideal para emprendedores individuales y equipos pequeños que están empezando US$ 69 US$ 69 US$ 49 / compañía / mes / facturado mensualmente / compañía / mes / facturación anual Un pago de US$ 588 / año Ahorra US$ 240 al año incluye 5 usuarios Comprar Comprar Todo lo incluido en Free, más: Almacenamiento de 24 GB IA para el trabajo diario en Bitrix24 Embudos de ventas Negociaciones recurrentes Pagos en línea Integración de correo electrónico Integración de WhatsApp Integración de telefonía»
+> «Chat with the AI support agent is available on any plan. Only commercial plans allow the AI agent to transfer your chat to a support specialist. Bitrix24 plans and pricing»
 >
-> — https://www.bitrix24.es/prices/, consultado el 30 de septiembre de 2026
+> — https://helpdesk.bitrix24.com/open/18291948/, consultado el 10 de noviembre de 2026
+
+> «Basic desde US$ 69 desde US$ 49 incluye 5 usuarios Empezar Empezar»
+>
+> — https://www.bitrix24.es/prices/, consultado el 10 de noviembre de 2026
 
 ### A.12.14 Continuidad de las versiones en uso
 
@@ -2836,8 +2840,8 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Twenty** · **2** (cumple) · costo de implementación **1**
 
-- *Cómo lo hace.* El asistente se abre desde el menú, con la ficha a la vista. En la instalación propia hay que cargarle las credenciales de un proveedor de modelos —Anthropic, Google, Mistral, OpenAI o xAI—, que la compañía elige y contrata; con un proveedor habilitado, el fabricante documenta que consulta los registros y resume su información.
-- *Características.* El producto trae un asistente de inteligencia artificial que se abre desde el menú, con un chat que consulta los registros con los permisos del usuario y resume la información del sistema en lenguaje natural. Conectar un proveedor propio, como un modelo instalado en la red de la compañía, es del plan Organization. Sin proveedor habilitado: capacidad según la documentación oficial.
+- *Cómo lo hace.* El asistente se abre desde el menú, con la ficha a la vista. En la instalación propia hay que conectarlo a un servicio de inteligencia artificial (Anthropic, Google, Mistral, OpenAI o xAI), que la compañía elige, contrata y paga por uso; con el servicio conectado, el fabricante documenta que consulta los registros y resume su información.
+- *Características.* El producto trae un asistente de inteligencia artificial que se abre desde el menú, con un chat que consulta los registros con los permisos del usuario y resume la información del sistema en lenguaje natural. Conectar un proveedor propio, como un modelo instalado en la red de la compañía, es del plan Organization. Sin un servicio de inteligencia artificial conectado: capacidad según la documentación oficial.
 - *Justificación.* Habilitarlo es configuración de una sola vez, más el costo del proveedor.
 - *Evidencia.* Prueba sobre el sistema, con video y las capturas B-1-1-twenty-1-pedido-de-resumen, B-1-1-twenty-2-proveedores-de-modelos.
 
@@ -2856,40 +2860,38 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 >
 > — https://www.bitrix24.es/features/copilot.php, consultado el 29 de septiembre de 2026
 
-### B.1.2 Aplicación móvil nativa
+### B.1.2 Uso desde el teléfono durante la visita
 
-**Qué resuelve.** El productor registra la operación durante la visita.
+**Qué resuelve.** El productor registra la operación durante la visita y se entera en el momento de lo que le asignan.
 
-**EspoCRM** · **0** (no cumple)
+**EspoCRM** · **1** (cumple con reparo) · costo de implementación **2**
 
-- *Cómo lo hace.* En la tienda de aplicaciones, la búsqueda del producto devuelve solo aplicaciones de desarrolladores independientes, sin respaldo del fabricante; ni su catálogo de extensiones ni su página de descarga ofrecen una. Lo que sí ofrece es la misma interfaz adaptada a la pantalla del teléfono, que se usa desde el navegador con conexión: el productor puede consultar y cargar durante una visita, pero no es una aplicación instalada.
-- *Justificación.* El fabricante no publica una aplicación móvil.
-- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-1-2-espocrm-1-tienda, B-1-2-espocrm-2-en-el-navegador-del-telefono.
+- *Cómo lo hace.* Con la pantalla de un teléfono, el productor entra, crea una tarea vinculada a un asegurado y queda guardada. Las notificaciones de Preferencias solo ofrecen avisos dentro del sistema (la campana, con la pestaña abierta, y un sonido opcional); no hay avisos del navegador ni al teléfono: en el código de la instalación no hay rastro de permisos de notificación, de procesos en segundo plano ni de envío de avisos al teléfono.
+- *Características.* La misma interfaz se adapta a la pantalla del teléfono y permite cargar y consultar durante la visita. Los avisos de lo que se asigna aparecen en la campana, con el sistema abierto.
+- *Justificación.* Se puede registrar la operación desde el teléfono sin configurar nada, pero el aviso de lo asignado no llega con el sistema cerrado: es el reparo.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-1-2-espocrm-2-alta-en-pantalla-de-telefono, B-1-2-espocrm-3-tarea-guardada, B-1-2-espocrm-4-avisos.
 
-> «Call Sync to Espocrm HAIT GmbH $ 8.715,85»
->
-> — https://play.google.com/store/search?q=espocrm&c=apps, consultado el 30 de octubre de 2026
+**Twenty** · **1** (cumple con reparo) · costo de implementación **2**
 
-**Twenty** · **0** (no cumple)
-
-- *Cómo lo hace.* Lo que ofrece es la misma interfaz en el navegador del teléfono, que se adapta a la pantalla: el productor puede consultar y cargar durante una visita, con conexión, pero no es una aplicación instalada.
-- *Justificación.* El fabricante no publica una aplicación móvil: en la tienda de aplicaciones, la búsqueda del producto devuelve aplicaciones con su nombre y ninguna es del fabricante.
-- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-1-2-twenty-1-tienda, B-1-2-twenty-2-en-el-navegador-del-telefono.
-
-> «Acceder con Google»
->
-> — https://play.google.com/store/search?q=twenty%20crm&c=apps, consultado el 30 de octubre de 2026
+- *Cómo lo hace.* Con la pantalla de un teléfono, el productor busca al asegurado, abre su ficha y crea una tarea vinculada a él, que queda guardada. La configuración no tiene opciones de notificaciones y la interfaz no usa los avisos del navegador ni el envío de avisos al teléfono: no hay manera de enterarse de lo asignado sin abrir el sistema.
+- *Características.* La misma interfaz se adapta a la pantalla del teléfono, con barra inferior de acceso rápido, y permite cargar y consultar durante la visita.
+- *Justificación.* Se puede registrar la operación desde el teléfono sin configurar nada, pero ningún aviso de lo asignado llega al teléfono: es el reparo.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-1-2-twenty-2-alta-en-pantalla-de-telefono, B-1-2-twenty-3-tarea-guardada, B-1-2-twenty-4-avisos.
 
 **Bitrix24** · **2** (cumple) · costo de implementación **0**
 
-- *Cómo lo hace.* La aplicación oficial del fabricante se encuentra en las tiendas de aplicaciones.
-- *Características.* El fabricante publica una aplicación móvil oficial, para Android en Google Play y para iOS en el App Store, con el CRM, las tareas, el chat y las notificaciones de la cuenta.
-- *Justificación.* El productor puede registrar la operación durante la visita al asegurado, desde su teléfono, sin instalar ni configurar nada además de bajar la aplicación e iniciar sesión.
-- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-1-2-bitrix24-1-google-play, B-1-2-bitrix24-2-portal-en-el-navegador.
+- *Cómo lo hace.* En la pantalla de un teléfono, el productor entra al portal y registra una operación, que queda guardada. Los avisos al teléfono los envía la aplicación oficial del fabricante, publicada en Google Play y en App Store: la documentación oficial indica que, para recibirlos, se activan en la configuración de esa aplicación.
+- *Características.* El fabricante publica una aplicación oficial y gratuita para Android e iOS, con el CRM, las tareas, el chat y las notificaciones. Los avisos llegan al teléfono como notificaciones push y se configuran por tipo de aviso.
+- *Justificación.* Viene lista: alcanza con instalar la aplicación e iniciar sesión. Los avisos al teléfono se sostienen con la documentación oficial; no se comprobó la llegada de un aviso a un teléfono real.
+- *Evidencia.* Prueba sobre el sistema, con video y las capturas B-1-2-bitrix24-2-alta-en-pantalla-de-telefono, B-1-2-bitrix24-3-operacion-guardada, B-1-2-bitrix24-1-google-play.
 
-> «El único software empresarial que necesitarás»
+> «Mobile devices (push notifications) — to display notifications on your mobile device, enable them in the mobile app settings. Bitrix24 mobile app»
 >
-> — https://www.bitrix24.es/features/mobile-app.php, consultado el 29 de septiembre de 2026
+> — https://helpdesk.bitrix24.com/open/19423886/, consultado el 10 de noviembre de 2026
+
+> «The Bitrix24 mobile app is free and available on the App Store, Google Play, Huawei AppGallery. Download the mobile app»
+>
+> — https://helpdesk.bitrix24.com/open/21659550/, consultado el 10 de noviembre de 2026
 
 ### B.1.3 Suite de trabajo integrada
 
@@ -3000,7 +3002,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 ### B.2.1 Persistencia de los datos sin uso continuo
 
-**Por qué importa.** La normativa de la Superintendencia exige conservar los registros de la actividad, sin alterarlos, por al menos diez años [149].
+**Por qué importa.** La normativa de la Superintendencia exige conservar los registros de la actividad, sin alterarlos, por al menos diez años [162].
 
 **EspoCRM** · **2** (cumple)
 
@@ -3042,7 +3044,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 ### B.2.2 Copia propia y completa de la cartera
 
-**Por qué importa.** La compañía tiene que poder respaldar y recuperar sus datos por sí misma, como piden las medidas de seguridad recomendadas por la autoridad de protección de datos [154].
+**Por qué importa.** La compañía tiene que poder respaldar y recuperar sus datos por sí misma, como piden las medidas de seguridad recomendadas por la autoridad de protección de datos [167].
 
 **EspoCRM** · **2** (cumple)
 
@@ -3081,7 +3083,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 ### B.2.3 Copia periódica sin intervención manual
 
-**Por qué importa.** El respaldo necesita una periodicidad definida y pruebas de recuperación; que se ejecute solo evita depender de que alguien lo haga [154].
+**Por qué importa.** El respaldo necesita una periodicidad definida y pruebas de recuperación; que se ejecute solo evita depender de que alguien lo haga [167].
 
 **EspoCRM** · **1** (cumple con reparo)
 
@@ -3119,7 +3121,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 **Por qué importa.** La cartera de prueba suma veinticinco mil registros, unas quince veces la de una compañía promedio, como margen para el crecimiento.
 
-**Cifra de referencia: 25.000 registros.** En los ramos patrimoniales del mercado argentino se paga por año un siniestro cada nueve pólizas vigentes, según la Superintendencia de Seguros de la Nación [156]. Las aseguradoras tienen entre 1,2 y 1,7 pólizas por cliente, según relevamientos de McKinsey & Company [157] y del mercado español [158]. Con unos quinientos clientes, una compañía promedio suma unas setecientas cincuenta pólizas y ochenta reclamos por año: poco más de mil seiscientos registros con cinco años de reclamos. La cartera de referencia es unas quince veces esa cifra, para cubrir el crecimiento: cinco mil asegurados con dos pólizas y media cada uno, más sus reclamos.
+**Cifra de referencia: 25.000 registros.** Una compañía promedio, con quinientos clientes, tiene unas setecientas cincuenta pólizas [170] [171] y ochenta reclamos por año [169]. La cartera de prueba es unas quince veces más grande, para cubrir el crecimiento.
 
 | 2 | 1 | 0 |
 |---|---|---|
@@ -3128,7 +3130,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 **EspoCRM** · **2** (cumple)
 
 - *Cómo lo hace.* Con una cartera de referencia de veinticinco mil registros —cinco mil asegurados, doce mil quinientas pólizas y siete mil quinientos reclamos— el sistema resuelve las operaciones de todos los días: buscar un asegurado por texto y filtrar las pólizas por ramo.
-- *Características.* Buscar un asegurado entre cinco mil respondió en menos de medio segundo las tres veces, y filtrar las doce mil quinientas pólizas por ramo, en alrededor de medio segundo: no hay espera que el usuario perciba. texto 0.3 / 0.1 / 0.1 s · filtro 0.1 / 0.1 / 0.2 s · carga 0 min.
+- *Características.* Buscar un asegurado entre cinco mil y filtrar las doce mil quinientas pólizas por ramo respondió en menos de medio segundo las tres veces: no hay espera que el usuario perciba. texto 0.3 / 0.1 / 0.1 s · filtro 0.1 / 0.1 / 0.2 s · carga 0 min.
 - *Justificación.* Con la cartera de referencia cargada, el sistema responde como con una cartera chica.
 - *Evidencia.* Prueba sobre el sistema, con video y las capturas B-2-4-espocrm-1-busqueda-por-texto, B-2-4-espocrm-2-filtrado-por-ramo.
 
@@ -3148,7 +3150,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 ### B.2.5 Previsibilidad de los cambios del sistema
 
-**Por qué importa.** Los cambios en producción tienen que poder planificarse y comunicarse antes de aplicarse, como recomiendan las pautas oficiales de seguridad de la información [154] [155].
+**Por qué importa.** Los cambios en producción tienen que poder planificarse y comunicarse antes de aplicarse, como recomiendan las pautas oficiales de seguridad de la información [167] [168].
 
 **EspoCRM** · **2** (cumple)
 
@@ -3189,7 +3191,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 ### B.2.6 Alojamiento de los datos en un país con protección adecuada
 
-**Por qué importa.** La Ley 25.326 prohíbe transferir datos personales a países sin protección adecuada, y los datos de salud de los seguros de personas son datos sensibles [151] [135] [153].
+**Por qué importa.** La Ley 25.326 prohíbe transferir datos personales a países sin protección adecuada, y los datos de salud de los seguros de personas son datos sensibles [164] [147] [166].
 
 **EspoCRM** · **2** (cumple)
 
@@ -3243,7 +3245,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 ### B.2.7 Continuidad de la atención ante una caída del enlace
 
-**Por qué importa.** Las pautas oficiales de continuidad piden poder seguir operando mientras se restablece un servicio caído [155].
+**Por qué importa.** Las pautas oficiales de continuidad piden poder seguir operando mientras se restablece un servicio caído [168].
 
 **EspoCRM** · **2** (cumple)
 
@@ -3259,11 +3261,11 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 - *Justificación.* Con el sistema en la red de la compañía, una caída del enlace no detiene la atención.
 - *Evidencia.* Prueba sobre el sistema, con video y las capturas B-2-7-twenty-1-operando-sin-enlace.
 
-**Bitrix24** · **1** (cumple con reparo)
+**Bitrix24** · **0** (no cumple)
 
 - *Cómo lo hace.* Con la conexión externa cortada, el portal abierto en el navegador dejó de responder.
-- *Características.* El fabricante documenta, en cambio, un modo sin conexión en su aplicación de escritorio para enviar mensajes y trabajar con documentos, que se sincronizan al volver el enlace: una parte de la operación diaria sigue siendo posible, pero no la que depende del CRM. Portal operable sin enlace externo: no.
-- *Justificación.* Con el enlace cortado el portal del CRM deja de responder: consultar un asegurado o registrar un reclamo no es posible mientras dura el corte, porque la edición evaluada vive entera en la nube del fabricante. Sigue siendo posible, con el modo sin conexión de la aplicación de escritorio que documenta el fabricante, enviar mensajes y trabajar con documentos, que se sincronizan al volver el enlace.
+- *Características.* El fabricante documenta un modo sin conexión en su aplicación de escritorio para escribir mensajes y trabajar con documentos, que se sincronizan al volver el enlace. No alcanza al CRM. Portal operable sin enlace externo: no.
+- *Justificación.* La atención al asegurado depende del CRM, que en la edición evaluada vive entero en la nube del fabricante: mientras dura el corte no se puede atender. Lo que permite el modo sin conexión se envía recién al volver el enlace, así que no sostiene la atención.
 - *Evidencia.* Prueba sobre el sistema, con video y las capturas B-2-7-bitrix24-1-sin-enlace.
 
 > «Offline mode. Send messages and work with documents without an internet connection. The data syncs later.»
@@ -3272,7 +3274,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 ### B.2.8 Atención de los derechos del titular de los datos
 
-**Por qué importa.** La Ley 25.326 da al titular derecho de acceso, rectificación y supresión de sus datos, con plazos de respuesta [151].
+**Por qué importa.** La Ley 25.326 da al titular derecho de acceso, rectificación y supresión de sus datos, con plazos de respuesta [164].
 
 **EspoCRM** · **1** (cumple con reparo)
 
@@ -3310,7 +3312,7 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 
 ### B.2.9 Baja de las comunicaciones comerciales por medio
 
-**Por qué importa.** La Ley 25.326 permite al titular pedir en cualquier momento que no se le envíe publicidad, por todos los medios o por uno solo [151] [152].
+**Por qué importa.** La Ley 25.326 permite al titular pedir en cualquier momento que no se le envíe publicidad, por todos los medios o por uno solo [164] [165].
 
 **EspoCRM** · **2** (cumple)
 
@@ -3344,3 +3346,149 @@ Cada requerimiento indica qué resuelve para la compañía y, para cada platafor
 > «US$ 144»
 >
 > — https://www.bitrix24.es/prices/, consultado el 9 de noviembre de 2026
+
+### B.2.10 Evolución sostenida del producto
+
+**Por qué importa.** La cartera de pólizas se administra durante años: el sistema tiene que seguir mejorando y tener un fabricante que lo sostenga en ese plazo.
+
+| 2 | 1 | 0 |
+|---|---|---|
+| Agrega funciones a lo largo de todo el año, y el fabricante ya sostuvo el producto a través de varias versiones mayores | Cumple solo una de las dos: agrega funciones pero el producto todavía no tiene trayectoria, o tiene trayectoria pero casi no agrega funciones | No agrega funciones y no tiene trayectoria que lo respalde |
+
+**EspoCRM** · **2** (cumple)
+
+- *Cómo lo hace.* Las notas de versión oficiales listan, versión por versión, las funciones agregadas. En el último año 30 versiones publicadas, de las cuales 5 trajeron funciones o mejoras (10.1, 10.0, 9.3 y alguna corrección con mejoras menores). El fabricante publicó la primera versión en 2014.
+- *Características.* Cada versión mayor o menor trae funciones propias —varios embudos, servidor de autorización, bloqueo de registros, especificación de la interfaz— y entre ellas se publican correcciones. 30 versiones publicadas entre 11/11/2025 y 10/11/2026; 5 con funciones o mejoras (10.1.0, 10.0.8, 10.0.5, 10.0.0, 9.3.0); repositorio público creado el 2014-09-25.
+- *Justificación.* Las funciones llegan repartidas en el año, no concentradas en un solo lanzamiento, y el producto lleva más de once años mantenido por el mismo fabricante a través de diez versiones mayores: cubre las dos condiciones de la escala.
+
+> «OAuth 2.0 server #3782»
+>
+> — https://github.com/espocrm/espocrm/releases/tag/10.1.0, consultado el 10 de noviembre de 2026
+
+> «Multiple pipelines #3623»
+>
+> — https://github.com/espocrm/espocrm/releases/tag/10.0.0, consultado el 10 de noviembre de 2026
+
+> «OpenAPI specification generation #3535»
+>
+> — https://github.com/espocrm/espocrm/releases/tag/9.3.0, consultado el 10 de noviembre de 2026
+
+> «Since 2011, our company helps businesses to develop faster and succeed. In 2014, we released EspoCRM, a platform that solves simple and tough challenges a company faces at each stage of its lifecycle, from basic customer relationship management to complex business process automation. Now, EspoCRM is a technology that is focused on putting customers at the heart of your business and accelerating your company’s growth.»
+>
+> — https://www.espocrm.com/about-us/, consultado el 10 de noviembre de 2026
+
+**Twenty** · **2** (cumple)
+
+- *Cómo lo hace.* La página oficial de novedades tiene 48 entradas con fecha dentro del último año, cada una con las funciones que agrega. En GitHub, 69 versiones del producto en 67 líneas (de la 1.11 a la 2.57), 28 de ellas con una sección de funciones nuevas. El repositorio público se creó el 2022-12-01.
+- *Características.* Las notas describen cada función con lenguaje de usuario y con la fecha de la versión. En el año salió la versión 2.0, que reorganizó el producto como plataforma para construir aplicaciones, después de la 1.0 del año anterior. 48 entradas de novedades con fecha entre 11/11/2025 y 10/11/2026; 69 versiones del producto en GitHub (67 líneas x.y), 28 con sección de funciones nuevas; repositorio creado el 2022-12-01.
+- *Justificación.* Agrega funciones durante todo el año, con un ritmo muy superior al de los otros dos productos, y lleva casi cuatro años de trayectoria pública con dos versiones mayores sostenidas (1.0 y 2.0). La trayectoria es la más corta de las tres plataformas, pero ya incluye más de una versión mayor, que es lo que pide la escala.
+
+> «Edit field values in place»
+>
+> — https://twenty.com/releases, consultado el 10 de noviembre de 2026
+
+> «Your workspace is backed by a git repo, so you can branch, review in pull requests, and roll back changes the same way you ship code.»
+>
+> — https://twenty.com/releases, consultado el 10 de noviembre de 2026
+
+> «Create and manage custom roles. Grant or revoke access for each object to Read/Create/Edit/Delete records. Give granular access to settings like the ability to manage users, data models or APIs.»
+>
+> — https://twenty.com/releases, consultado el 10 de noviembre de 2026
+
+> «Developers can now use webhooks to synchronize customer data updates in real-time across applications.»
+>
+> — https://twenty.com/releases, consultado el 10 de noviembre de 2026
+
+**Bitrix24** · **2** (cumple)
+
+- *Cómo lo hace.* La ayuda oficial conserva 8 notas de novedades de 2026 (October 2026, September 2026, August 2026, June 2026, Bitrix24 Vibe, April 2026, March 2026, February 2026), con 29 funciones o mejoras anunciadas, incluido el lanzamiento mayor «Bitrix24 Vibe». El producto salió al público en abril de 2012.
+- *Características.* Las notas describen cada función con lenguaje de usuario y una guía. El fabricante no numera sus versiones: publica novedades por mes y lanzamientos estacionales. 8 notas de novedades (What's new? October 2026; What's new? September 2026; What's new? August 2026; What's new? June 2026; Bitrix24 Vibe; What's new? April 2026; What's new? March 2026; What's new? February 2026); 29 funciones anunciadas; producto público desde abril de 2012.
+- *Justificación.* Agrega funciones casi todos los meses y lleva catorce años en el mercado. El archivo de notas que conserva la ayuda arranca en febrero de 2026, así que el conteo no cubre noviembre a enero; la trayectoria sí cumple la segunda condición de la escala.
+
+> «A brief overview of the most important updates from the past month.»
+>
+> — https://helpdesk.bitrix24.com/open/25907955/, consultado el 10 de noviembre de 2026
+
+> «We are pleased to present the new features of Bitrix24 Vibe release.»
+>
+> — https://helpdesk.bitrix24.com/open/25971891/, consultado el 10 de noviembre de 2026
+
+> «Alaio Vibecode is a platform for building AI-powered solutions for Bitrix24.»
+>
+> — https://helpdesk.bitrix24.com/open/26062415/, consultado el 10 de noviembre de 2026
+
+> «A year or so later, we thought “Hey, we have this really great CRM we’re offering to our clients - why not marry it with the online collaboration platform we’re using inside the company?”. The idea took off and the initial beta-testing showed very promising results, which inspired us to commit to the product full-time and finally release it to the public in April of 2012.»
+>
+> — https://www.bitrix24.com/about/, consultado el 10 de noviembre de 2026
+
+### B.2.11 Mejoras incluidas en la versión gratuita
+
+**Por qué importa.** Que el sistema mejore sin que cada mejora se convierta en un costo nuevo para la compañía.
+
+| 2 | 1 | 0 |
+|---|---|---|
+| La mayoría de las funciones nuevas llega a la versión gratuita | Llegan algunas, pero las principales quedan en un plan o una extensión paga | Casi todas las funciones nuevas quedan en un plan o una extensión paga |
+
+**EspoCRM** · **1** (cumple con reparo)
+
+- *Cómo lo hace.* Las notas del producto base listan 48 funciones y mejoras del último año, todas disponibles en la versión evaluada. Las extensiones pagas publican sus propias notas, con unos 74 renglones de novedades en el mismo período: reportes y procesos (Advanced Pack), facturación y suscripciones (Sales Pack), asistente de inteligencia artificial (Intelligence) e integraciones con el correo y las reuniones.
+- *Características.* Del producto base llegan varios embudos por entidad, bloqueo de registros, servidor de autorización y agrupación de notificaciones. Quedan en extensión paga las mejoras de reportes, procesos, facturación e inteligencia artificial. Producto base: 48 funciones y mejoras en las notas. Extensiones pagas con versiones en el período: advanced-pack: 3 versiones (3.14.0, 3.13.0, 3.12.0); sales-pack: 5 versiones (4.4.0, 4.3.0, 4.2.0, 4.1.0, 4.0.0); intelligence: 3 versiones (1.2.0, 1.1.0, 1.0.0); outlook-integration: 2 versiones (1.8.0, 1.7.0); zoom-integration: 1 versiones (1.1.0); unos 74 renglones de novedades (cuenta aproximada de líneas de las notas).
+- *Justificación.* Las funciones que la compañía más usa para cobrar y reportar mejoran en extensiones pagas, que la versión evaluada no trae; el producto base también mejora, pero parte importante del avance del año queda fuera de él. Por eso llegan algunas, no la mayoría.
+- *Comentario — con EspoCRM Cloud Basic* (US$ 15 por usuario por mes, mínimo 3 usuarios, abono recurrente) sería **2** (cumple). El plan de entrada del servicio en la nube trae todas las extensiones del fabricante, de modo que las funciones nuevas de ambos lados llegan juntas. Las licencias sueltas de cada extensión cubren solo una parte.
+
+> «Job processing with workers, RabbitMQ implementation #3724»
+>
+> — https://github.com/espocrm/espocrm/releases/tag/10.1.0, consultado el 10 de noviembre de 2026
+
+> «Non-aggregated columns in Grid report export.»
+>
+> — https://www.espocrm.com/extensions/advanced-pack/release-notes, consultado el 10 de noviembre de 2026
+
+> «Tax-inclusive pricing.»
+>
+> — https://www.espocrm.com/extensions/sales-pack/release-notes, consultado el 10 de noviembre de 2026
+
+> «Basic $15.00 per user/month minimum 3 users 3GB file storage per user 100,000 records SSL Encryption (256 bit keys, TLS 1.3) Full feature set All extensions included External access API 2000+ integrations * 12x5 (hours/days) support Sign Up Free Trial Free Trial is provided for 30 days»
+>
+> — https://www.espocrm.com/cloud/, consultado el 10 de noviembre de 2026
+
+**Twenty** · **2** (cumple)
+
+- *Cómo lo hace.* Las notas de GitHub del último año listan 358 funciones nuevas, y 18 nombran una función del plan Organization o su licencia. El fabricante declara qué es premium: roles propios, permisos por registro, acceso unificado, registro de auditoría y límites de uso. Todo lo demás —paneles, flujos, agentes, editor de notas, importación— viene en la gratuita.
+- *Características.* Las notas de versión no marcan función por función qué plan la trae: se la identifica contra la lista de funciones premium del fabricante. Las novedades de chat, flujos, paneles y correo se prueban en la instalación propia sin licencia. 358 funciones nuevas en las secciones «New features» de 28 versiones; 18 nombran funciones premium (twenty/v2.53.1, twenty/v2.48.0, twenty/v2.47.0, twenty/v2.46.0, twenty/v2.43.0, twenty/v2.43.0, twenty/v2.43.0, twenty/v2.43.0, twenty/v2.43.0, twenty/v2.43.0, twenty/v2.43.0, twenty/v2.41.0, twenty/v2.41.0, twenty/v2.41.0, twenty/v2.40.0, twenty/v2.40.0, twenty/v2.40.0, twenty/v2.39.0). Criterio de clasificación: coincidencia con la lista premium del fabricante.
+- *Justificación.* La proporción de novedades que depende del plan pago es mínima y se concentra en funciones de seguridad que esta compañía no necesita para comenzar; el producto evoluciona sin que cada mejora sea un costo nuevo. En el año el fabricante además pasó a la licencia paga la compartición de registros y las reglas de validación, lo que reduce un poco lo gratuito.
+
+> «Premium features are only available on the Organization plans (Cloud or Self-Hosted):»
+>
+> — https://docs.twenty.com/user-guide/billing/capabilities/pricing-plans, consultado el 10 de noviembre de 2026
+
+> «Premium features: custom roles, row-level permissions, SSO and more»
+>
+> — https://docs.twenty.com/user-guide/billing/capabilities/pricing-plans, consultado el 10 de noviembre de 2026
+
+> «Recovery codes for two-factor authentication»
+>
+> — https://twenty.com/releases, consultado el 10 de noviembre de 2026
+
+**Bitrix24** · **1** (cumple con reparo)
+
+- *Cómo lo hace.* De las 29 funciones anunciadas en las 8 notas del año, 8 corresponden a capacidades que la tabla de planes del fabricante marca como no incluidas en la gratuita (BI Analytics, Vibecode app builder, E-signature, AI call analysis & scripts), 4 a capacidades incluidas (mensajería) y 17 no tienen fila propia en esa tabla.
+- *Características.* Quedan en planes pagos el análisis con BI Builder (anunciado en cinco notas), la inteligencia artificial de llamadas, la firma electrónica y el constructor Vibecode, exclusivo de la familia Vibe+. Llegan a la gratuita las mejoras de mensajería: invitados al chat, carpetas personales y filtros de no leídos. 29 funciones anunciadas: 8 no incluidas en la gratuita (BI Builder: dashboard period from a filter [What's new? October 2026]; Alaio Vibecode [What's new? September 2026]; BI Builder: Use external MySQL and PostgreSQL databases [What's new? June 2026]; Document editor in e-Signature for HR [Bitrix24 Vibe]; BI Builder [Bitrix24 Vibe]; CoPilot in CRM [Bitrix24 Vibe]; BI Builder: time zone and report language [What's new? April 2026]; BI Builder datasets: inventory management [What's new? February 2026]); 4 incluidas; 17 sin fila en la tabla de planes.
+- *Justificación.* Las novedades que el fabricante destaca como las del año —inteligencia artificial, análisis y construcción de aplicaciones— quedan en planes pagos, mientras que las de mensajería llegan a la gratuita. La clasificación toma solo las funciones que la tabla de planes permite ubicar; las demás se cuentan aparte y no se asumen gratuitas ni pagas.
+- *Comentario — con Bitrix24 Professional* (US$ 289 por mes, hasta 100 usuarios, abono recurrente) sería **2** (cumple). El plan Standard suma el análisis con BI Builder y la inteligencia artificial de llamadas, pero no la firma electrónica; con Professional llegan también la firma electrónica y el diseñador de flujos con inteligencia artificial. Vibecode exige además un plan de la familia Vibe+.
+
+> «Vibe+ exclusive features Vibecode app builder Create custom apps for your Bitrix24 by simply asking AI what you want to achieve. No coding skills required AI in CRM, tasks, etc. AI-powered deal autocompletion, call transcription, voice-to-task automation, and more. Limited Limited Limited Limited Limited Limited Unlimited Unlimited Unlimited REST API Connect your Bitrix24 securely to external tools that your business relies on Unlimited Unlimited Unlimited Unlimited MCP server Integrate your Bitrix24 with external AI tools for more versatility Bitrix24 Market Get access to 750+ apps, extensions, and integrations developed by our Partners 2 apps 4 apps 7 apps 10 apps Unlimited apps Unlimited apps Unlimited apps Unlimited apps»
+>
+> — https://www.bitrix24.com/prices/, consultado el 10 de noviembre de 2026
+
+> «Create custom apps for your Bitrix24 by simply asking AI what you want to achieve. No coding skills required»
+>
+> — https://www.bitrix24.com/prices/, consultado el 10 de noviembre de 2026
+
+> «Set the report period in BI Builder using a filter: Open the dashboard for the period you need without additional setup.»
+>
+> — https://helpdesk.bitrix24.com/open/26086059/, consultado el 10 de noviembre de 2026
+
+> «Professional desde US$ 289 desde US$ 199 incluye 100 usuarios Empezar Empezar»
+>
+> — https://www.bitrix24.es/prices/, consultado el 10 de noviembre de 2026
