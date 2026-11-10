@@ -1,12 +1,12 @@
 {
   "criterio": "A.4.3",
   "plataforma": "twenty",
-  "cumple": 1,
-  "costo": 2,
-  "resumen": "Cada envío queda como una corrida con el resultado de cada paso; no registra aperturas ni reúne cuántos recibieron o contestaron.",
+  "cumple": 2,
+  "costo": 1,
+  "resumen": "Registra cada envío como una corrida con el resultado de cada paso, y las respuestas llegan a la ficha del asegurado; no registra aperturas ni reúne los resultados.",
   "comoLoHace": "Las respuestas llegan: la casilla sincronizada trae la respuesta del asegurado a su ficha.",
   "caracteristicas": "De la campaña armada con un flujo de trabajo queda el registro del envío: cada lanzamiento es una corrida con el resultado de cada paso. Las aperturas no se registran, y nada reúne los resultados de la campaña: cuántos la recibieron, cuántos contestaron.",
-  "justificacion": "Saberlo exige revisar las corridas y las fichas, una por una, después de cada envío.",
+  "justificacion": "El procedimiento pide registrar envíos, aperturas o respuestas: registra los envíos y las respuestas, con la automatización configurada una vez.",
   "evidencia": [
     "A-4-3-twenty-1-envios.png",
     "A-4-3-twenty-2-respuesta-en-la-ficha.png"

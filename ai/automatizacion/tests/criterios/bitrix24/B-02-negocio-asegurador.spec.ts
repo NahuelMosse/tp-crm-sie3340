@@ -2,14 +2,16 @@ import { test, expect } from '../../humano';
 import { chromium } from '@playwright/test';
 import type { Browser, Locator, Response } from '@playwright/test';
 import { registrar } from '../../evaluar';
+import type { Fuente } from '../../evaluar';
 import { entrar, plataformaDe } from '../../sesion';
 import { citar } from '../../fuentes';
-import { BITRIX24_BASIC, constanciaDe, conPlanDe } from '../../precios';
+import { BITRIX24_BASIC, BITRIX24_STANDARD, constanciaDe, conPlanDe } from '../../precios';
 import { soloEn, capturar } from '../comun';
 import { menuLateral, pestana, panel, cerrarPaneles } from '../../bitrix24/navegar';
 import { textoDe, campoDeNegociacion, rest, altaDeNegociacion, guardarFormulario, negociaciones, borrarNegociaciones, BASE } from '../../bitrix24/ui';
 import { PREFIJO } from '../../bitrix24/documental';
-import { irAContactos } from '../../bitrix24/actividades';
+import { irAContactos, borrarContactos, contactos } from '../../bitrix24/actividades';
+import { panelListo as esperarPanel } from '../../bitrix24/navegar';
 import { asegurarCampos, abrirListado, abrirFiltro, reiniciarFiltro, filtrarLista, buscarConFiltro, filasDelListado } from '../../bitrix24/negociaciones';
 import { cargar, borrarVol, cuantosVol } from '../../bitrix24/volumen';
 
@@ -143,9 +145,8 @@ test('B.2.3 — Copia periódica sin intervención manual', async ({ browser }, 
   registrar({
     criterio: 'B.2.3',
     plataforma,
-    cumple: 1,
-    resumen:
-      'El fabricante genera una copia diaria de la cuenta sin intervención, pero la conserva siete días y la restitución depende de soporte y del plan.',
+    cumple: 0,
+    resumen: 'La compañía no puede programar una copia propia de la cartera: la única copia periódica la genera el fabricante, la conserva siete días y no se puede descargar.',
     comoLoHace:
       'El propio fabricante genera una copia diaria de toda la cuenta, sin que nadie la programe ni la ' +
       'ejecute: no es una tarea que la compañía tenga que sostener.',
@@ -153,10 +154,7 @@ test('B.2.3 — Copia periódica sin intervención manual', async ({ browser }, 
       'Esa copia la administra el fabricante y no la compañía, se conserva solo siete días, y restituir una ' +
       'fecha concreta depende de pedirlo a soporte y de que el plan contratado lo permita, así que la ' +
       'compañía no controla ni la retención ni la restitución de su propio resguardo.',
-    justificacion:
-      'La copia diaria la genera el fabricante sin intervención, pero la compañía no controla su ' +
-      'retención, de siete días, ni su restitución, que depende de pedirla a soporte y del plan ' +
-      'contratado: la condición se satisface con esa limitación.',
+    justificacion: 'El procedimiento pide programar la copia propia de B.2.2, y en la edición gratuita esa copia no existe: la copia diaria del fabricante no la controla ni la conserva la compañía.',
     documentacion: fuente,
   });
 });
@@ -477,37 +475,65 @@ test('B.2.5 — Previsibilidad de los cambios del sistema', async ({ browser }, 
 });
 
 // ── B.2.6 ────────────────────────────────────────────────────────────────────
-test('B.2.6 — Conocimiento y decisión sobre dónde residen los datos', async ({ browser }, info) => {
-  // «Determinar dónde se alojan los datos y en qué medida la compañía puede elegirlo»
+test('B.2.6 — Alojamiento de los datos en un país con protección adecuada', async ({ browser }, info) => {
+  // «Determinar en qué país quedan los datos de la compañía y si ese país tiene protección adecuada según la
+  //  autoridad argentina, o si el fabricante ofrece las cláusulas contractuales aprobadas para transferirlos»
   const plataforma = plataformaDe(info.project.name);
   soloEn(plataforma, 'bitrix24');
   test.setTimeout(300_000);
 
-  const fuente = await citar(browser, {
-    url: 'https://www.bitrix24.com/security/',
-    buscar: 'Bitrix24 uses Amazon Web Services to host your data in US (Virginia) or European Union (Frankfurt, Germany)',
-    captura: 'B-2-6-bitrix24-1-dos-regiones',
+  const alojamiento = await citar(browser, {
+    url: 'https://www.bitrix24.com/gdpr/',
+    buscar: /Bitrix24\.es, .*accounts are hosted in the United States/,
+    captura: 'B-2-6-bitrix24-1-alojamiento-en-estados-unidos',
   });
+  const clausulas = await citar(browser, {
+    url: 'https://www.bitrix24.com/privacy/',
+    buscar: 'standard data protection clauses adopted by the European Commission',
+    captura: 'B-2-6-bitrix24-2-clausulas-de-la-comision-europea',
+  });
+  // La página de la autoridad rearma su texto en el navegador y le pierde letras (la «s» queda en blanco): la cita
+  // se toma del texto publicado que el servidor entrega, y la captura muestra la página tal como se ve
+  const URL_ADECUADOS = 'https://www.argentina.gob.ar/normativa/nacional/267922/texto';
+  const html = await (await fetch(URL_ADECUADOS, { headers: { 'user-agent': 'Mozilla/5.0' } })).text();
+  const textoPublicado = html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ');
+  const articulo = textoPublicado.match(/ARTÍCULO 3° — A los fines de la aplicación de la presente disposición se consideran países con legislación adecuada a los siguientes:.*?(?=Esta enumeración)/)?.[0].trim();
+  if (!articulo) throw new Error('La disposición de la autoridad argentina no publica la lista de países adecuados donde se esperaba');
+  const contextoAr = await browser.newContext({ locale: 'es-AR', viewport: { width: 1440, height: 1600 } });
+  const paginaAr = await contextoAr.newPage();
+  await paginaAr.goto(URL_ADECUADOS, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+  await paginaAr.waitForTimeout(3000);
+  await paginaAr.screenshot({ path: 'evidencia/B-2-6-bitrix24-3-paises-adecuados-segun-argentina.png', fullPage: true });
+  await contextoAr.close();
+  const adecuados: Fuente = { url: URL_ADECUADOS, cita: articulo, consultado: new Date().toLocaleDateString('sv-SE'), captura: 'B-2-6-bitrix24-3-paises-adecuados-segun-argentina.png' };
+  const precio = await constanciaDe(browser, BITRIX24_BASIC, 'B-2-6-bitrix24-basic');
+
+  expect(alojamiento.cita, 'el fabricante debe declarar el alojamiento en Estados Unidos para la zona .es').toMatch(/Bitrix24\.es/);
+  expect(adecuados.cita, 'Estados Unidos no debe figurar entre los países adecuados').not.toMatch(/ESTADOS UNIDOS/i);
 
   registrar({
     criterio: 'B.2.6',
     plataforma,
-    cumple: 1,
+    cumple: 0,
     resumen:
-      'Los datos se alojan en Virginia o en Fráncfort, a elección al crear el portal; cambiar de región exige migrar a un portal nuevo.',
+      'Los datos del portal quedan en Estados Unidos, que la autoridad argentina no reconoce como país adecuado, y la edición gratuita no ofrece mudarlos a la Unión Europea ni las cláusulas aprobadas en Argentina.',
     comoLoHace:
-      'El fabricante declara dónde aloja los datos —en la infraestructura de Amazon Web Services, en ' +
-      'Virginia o en Fráncfort— y la compañía elige entre esas dos regiones al dar de alta el portal, según ' +
-      'el dominio con el que se registra.',
-    caracteristicas:
-      'La elección es binaria, se fija una sola vez al crear la cuenta y no se puede cambiar después sin ' +
-      'migrar a un portal nuevo, así que la compañía conoce dónde están sus datos sensibles pero no controla ' +
-      'ese destino en el tiempo, como exige el tratamiento de datos de los seguros de personas.',
+      'El fabricante declara que las cuentas de la zona Bitrix24.es se alojan en Estados Unidos. Ofrece un acuerdo de ' +
+      'tratamiento de datos y, para las transferencias fuera de Europa, las cláusulas tipo de la Comisión Europea; ' +
+      'no publica las cláusulas contractuales tipo que aprobó la autoridad argentina.',
     justificacion:
-      'La compañía sabe dónde están sus datos y elige entre Virginia y Fráncfort, pero esa elección se ' +
-      'fija una sola vez al crear la cuenta y solo se cambia migrando a un portal nuevo: la condición se ' +
-      'satisface con esa limitación.',
-    documentacion: fuente,
+      'La disposición de la autoridad argentina reconoce como países adecuados a la Unión Europea y a un grupo ' +
+      'de países, y Estados Unidos no figura. Los datos de la compañía, entre ellos los datos de salud de los seguros ' +
+      'de personas, quedarían en un país sin protección adecuada y sin las cláusulas aprobadas para transferirlos. ' +
+      'El fabricante reserva el traslado a los centros de datos de la Unión Europea a las cuentas comerciales.',
+    conPlan: [conPlanDe(BITRIX24_BASIC, {
+      cumple: 2,
+      justificacion:
+        'Con el plan Basic, el más barato de los comerciales, la compañía puede pedir al soporte del fabricante que ' +
+        'traslade sus datos a los centros de datos de la Unión Europea, que la autoridad argentina reconoce como ' +
+        'país adecuado.',
+    })],
+    documentacion: [alojamiento, clausulas, adecuados, ...precio],
   });
 });
 
@@ -567,4 +593,214 @@ test('B.2.7 — Continuidad de la atención ante una caída del enlace', async (
     documentacion: fuente,
     medicion: `Portal operable sin enlace externo: ${siguioFuncionando ? 'sí' : 'no'}`,
   });
+});
+
+// ── B.2.8 ────────────────────────────────────────────────────────────────────
+test('B.2.8 — Atención de los derechos del titular de los datos', async ({ page, browser }, info) => {
+  // «Sobre un asegurado con póliza, obtener de una vez todos sus datos, corregir uno y suprimir o bloquear la
+  //  ficha, y comprobar qué constancia queda de cada pedido»
+  const plataforma = plataformaDe(info.project.name);
+  soloEn(plataforma, 'bitrix24');
+  test.setTimeout(900_000);
+
+  await entrar(page, plataforma);
+  await borrarContactos(page, /^TIT-/);
+  const id = await rest<number>(page, 'crm.contact.add', { fields: {
+    NAME: 'TIT-Lucía', LAST_NAME: 'Fernández', PHONE: [{ VALUE: '+541155550000', VALUE_TYPE: 'WORK' }], EMAIL: [{ VALUE: 'tit@ejemplo.test', VALUE_TYPE: 'WORK' }] } });
+  const poliza = await rest<number>(page, 'crm.deal.add', { fields: { TITLE: 'TIT-POL-1 Automotor', CONTACT_ID: id } });
+  const abrirFicha = async () => {
+    await irAContactos(page);
+    await page.locator('a').filter({ hasText: /TIT-Lucía/ }).filter({ visible: true }).first().click();
+    await esperarPanel(page, panel(page).getByText(/sobre el contacto/i).first());
+  };
+
+  try {
+    // Acceso: la ficha muestra los datos en pantalla; sacarlos de una vez es exportar
+    await abrirFicha();
+    const capFicha = await capturar(page, 'B.2.8', plataforma, '1-ficha-del-asegurado');
+    await cerrarPaneles(page);
+    await irAContactos(page);
+    await page.locator('tr').filter({ hasText: /TIT-Lucía/ }).locator('input[type="checkbox"]').first().click({ force: true });
+    await page.mouse.click(1353, 97);
+    await page.waitForTimeout(1500);
+    await page.locator('.menu-popup-item-text').filter({ hasText: /^Exportar a CSV$/ }).filter({ visible: true }).first().click();
+    await page.waitForTimeout(8000);
+    const exportaPidePlan = page.frames().some(x => /limit_crm_free_export_contacts/.test(x.url()));
+    const capExportar = await capturar(page, 'B.2.8', plataforma, '2-exportar-pide-plan');
+    console.log(`    exportar contactos pide otro plan: ${exportaPidePlan}`);
+    await page.reload();
+    await page.waitForTimeout(4000);
+
+    // Rectificación: se corrige el apellido en la ficha
+    await abrirFicha();
+    const f = panel(page);
+    await f.getByText(/^editar$/i).filter({ visible: true }).first().click({ force: true });
+    await page.waitForTimeout(1500);
+    const apellido = f.locator('input[name="LAST_NAME"]').filter({ visible: true }).first();
+    await apellido.click();
+    await apellido.press('Control+a');
+    await apellido.pressSequentially('Fernández Paz', { delay: 60 });
+    await guardarFormulario(page);
+    const corregido = await rest<any>(page, 'crm.contact.get', { id });
+    console.log(`    apellido tras corregir: ${corregido.LAST_NAME} · modificado ${corregido.DATE_MODIFY} por ${corregido.MODIFY_BY_ID}`);
+
+    // Constancia: la pestaña «Historial» de la ficha
+    await f.getByText('Historial', { exact: true }).filter({ visible: true }).first().click({ force: true });
+    await page.waitForTimeout(7000);
+    const textoHistorial = await textoDe(page);
+    const historialPidePlan = /historial\s+en\s+CRM\s+est\S+\s+disponible\s+solo\s+en\s+los\s+planes\s+Standard/i.test(textoHistorial);
+    const capHistorial = await capturar(page, 'B.2.8', plataforma, '3-historial-pide-plan');
+    console.log(`    historial pide otro plan: ${historialPidePlan}`);
+    // El aviso se cierra con Escape, sin elegir ninguna de sus opciones
+    await page.keyboard.press('Escape');
+    await page.waitForTimeout(1500);
+
+    // Supresión: «Eliminar» en el menú de la ficha
+    await f.locator('.ui-btn-icon-setting, [class*="setting"]').filter({ visible: true }).first().click({ force: true });
+    await page.waitForTimeout(1500);
+    // El menú y la confirmación se dibujan en el marco de la ficha o en el de la página, según el caso
+    const enMarcos = async (selector: string, texto: RegExp) => {
+      for (let i = 0; i < 30; i++) {
+        for (const m of page.frames()) {
+          const l = m.locator(selector).filter({ hasText: texto }).filter({ visible: true });
+          if (await l.count().catch(() => 0)) return l.first();
+        }
+        await page.waitForTimeout(500);
+      }
+      throw new Error(`No apareció ${selector} con ${texto}`);
+    };
+    await (await enMarcos('.menu-popup-item-text', /^\s*Eliminar\s*$/)).click();
+    await page.waitForTimeout(2000);
+    const capConfirmacion = await capturar(page, 'B.2.8', plataforma, '4-confirmar-supresion');
+    await (await enMarcos('.popup-window .popup-window-button, .popup-window .ui-btn, .popup-window button', /^\s*(Continuar|Eliminar|Sí|Aceptar|OK)\s*$/i)).click();
+    await page.waitForTimeout(5000);
+    const quedan = await contactos(page, /^TIT-/, ['ID', 'NAME', 'LAST_NAME']);
+    const poliza2 = await rest<any>(page, 'crm.deal.get', { id: poliza });
+    console.log(`    contactos que quedan tras suprimir: ${quedan.length} · la póliza sigue con contacto ${poliza2.CONTACT_ID}`);
+    const capSuprimido = await capturar(page, 'B.2.8', plataforma, '5-tras-suprimir');
+
+    expect(exportaPidePlan, 'la exportación del contacto debe pedir otro plan').toBeTruthy();
+    expect(corregido.LAST_NAME, 'el apellido debe quedar corregido').toBe('Fernández Paz');
+    expect(historialPidePlan, 'el historial debe pedir otro plan').toBeTruthy();
+    expect(quedan.length, 'la ficha debe quedar suprimida').toBe(0);
+
+    const precio = await constanciaDe(browser, BITRIX24_STANDARD, 'B-2-8-bitrix24-standard');
+    const historial = await citar(browser, {
+      url: 'https://helpdesk.bitrix24.com/open/25803275/',
+      buscar: /The CRM history logs key changes to CRM items, such as exporting contacts or updating field values/,
+      captura: 'B-2-8-bitrix24-1-historial-en-crm',
+    });
+    const exportacion = await citar(browser, {
+      url: 'https://www.bitrix24.es/prices/compare_cloud_plans.php',
+      buscar: 'Opción para exportar contactos a CSV, Excel y Outlook',
+      captura: 'B-2-8-bitrix24-2-comparacion-de-planes',
+    });
+
+    registrar({
+      criterio: 'B.2.8',
+      plataforma,
+      cumple: 1,
+      resumen:
+        'Permite corregir y suprimir la ficha de un asegurado, pero no sacar todos sus datos de una vez ni dejar constancia de cada pedido: la exportación y el historial exigen un plan pago.',
+      comoLoHace:
+        'La ficha del contacto muestra sus datos en pantalla; el apellido se corrige con «editar» y la ficha se suprime ' +
+        'con «Eliminar» en su menú. Exportar el contacto a un archivo pide actualizar el plan, y la pestaña «Historial» ' +
+        'de la ficha también.',
+      caracteristicas:
+        'No hay un bloqueo de la ficha, solo la supresión. Del cambio queda únicamente la fecha de la última ' +
+        'modificación y su autor, y de la supresión no queda nada en el sistema.',
+      justificacion:
+        'La compañía puede rectificar y suprimir, pero tiene que armar a mano la respuesta de acceso —leer la ficha y ' +
+        'las negociaciones una por una— y llevar por su cuenta el registro de cada pedido y de su fecha, porque el ' +
+        'sistema no deja constancia ni de la corrección ni de la baja. Es una limitación que la compañía debe asumir.',
+      conPlan: [conPlanDe(BITRIX24_STANDARD, {
+        cumple: 2,
+        justificacion:
+          'El plan Standard suma el historial de CRM, que registra los cambios de campos y las exportaciones, y la exportación ' +
+          'de contactos a CSV o Excel que el plan Basic ya incluye: la compañía obtiene los datos de una vez y conserva ' +
+          'constancia de cada corrección. Es el primer plan que resuelve las dos cosas.',
+      })],
+      evidencia: [capFicha, capExportar, capHistorial, capConfirmacion, capSuprimido],
+      documentacion: [historial, exportacion, ...precio],
+    });
+  } finally {
+    await cerrarPaneles(page).catch(() => {});
+    await borrarContactos(page, /^TIT-/);
+    for (const d of await rest<any[]>(page, 'crm.deal.list', { filter: { '%TITLE': 'TIT-POL' }, select: ['ID'] })) await rest(page, 'crm.deal.delete', { id: d.ID });
+  }
+});
+
+// ── B.2.9 ────────────────────────────────────────────────────────────────────
+test('B.2.9 — Baja de las comunicaciones comerciales por medio', async ({ page, browser }, info) => {
+  // «Marcar a un asegurado para que no reciba correos comerciales, armar una campaña de correo que lo incluya en su
+  //  segmento y comprobar que el envío lo excluye»
+  const plataforma = plataformaDe(info.project.name);
+  soloEn(plataforma, 'bitrix24');
+  test.setTimeout(900_000);
+
+  await entrar(page, plataforma);
+  await borrarContactos(page, /^BAJ-/);
+  await rest<number>(page, 'crm.contact.add', { fields: { NAME: 'BAJ-Lucía', LAST_NAME: 'Fernández', EMAIL: [{ VALUE: 'baj@ejemplo.test', VALUE_TYPE: 'WORK' }] } });
+
+  try {
+    // La marca en la ficha: los campos que se pueden agregar al contacto
+    await irAContactos(page);
+    await page.locator('a').filter({ hasText: /BAJ-Lucía/ }).filter({ visible: true }).first().click();
+    await esperarPanel(page, panel(page).getByText(/sobre el contacto/i).first());
+    const f = panel(page);
+    await f.getByText(/^Seleccionar campo/).first().click({ force: true });
+    await page.waitForTimeout(1500);
+    const opciones = (await f.locator('.ui-entity-editor-popup-item, label').allInnerTexts()).map(t => t.trim()).filter(Boolean);
+    const capCampos = await capturar(page, 'B.2.9', plataforma, '1-campos-del-contacto');
+    const marca = opciones.filter(o => /no (recib|enviar|molest)|baja|suscrip|unsubscri|bolet[ií]n|publicidad|comercial/i.test(o));
+    console.log(`    campos del contacto que sirven de baja: ${marca.join(' | ') || 'ninguno'} (de ${opciones.length})`);
+    await page.keyboard.press('Escape');
+    await cerrarPaneles(page);
+
+    // La campaña de correo, desde Marketing
+    await menuLateral(page, 'Marketing');
+    await page.getByText('Campaña de correo electrónico').first().click();
+    await page.waitForTimeout(6000);
+    const aviso = await textoDe(page);
+    const capCampana = await capturar(page, 'B.2.9', plataforma, '2-campana-de-correo');
+    const campanaPidePlan = /Standard|Professional/.test(aviso) && /plan/i.test(aviso);
+    console.log(`    la campaña de correo pide otro plan: ${campanaPidePlan}`);
+    await cerrarPaneles(page);
+
+    expect(marca, 'no debería haber un campo de baja de correos en el contacto').toHaveLength(0);
+    expect(campanaPidePlan, 'la campaña de correo debe pedir otro plan').toBeTruthy();
+
+    const baja = await citar(browser, {
+      url: 'https://helpdesk.bitrix24.com/open/14294110/',
+      buscar: 'Every email campaign must include a clear unsubscribe option',
+      captura: 'B-2-9-bitrix24-1-baja-en-cada-campana',
+    });
+    const precio = await constanciaDe(browser, BITRIX24_STANDARD, 'B-2-9-bitrix24-standard');
+
+    registrar({
+      criterio: 'B.2.9',
+      plataforma,
+      cumple: 0,
+      resumen:
+        'El contacto no tiene una marca para no recibir correos comerciales y la edición gratuita no permite armar campañas de correo: no hay envío cuya exclusión comprobar.',
+      comoLoHace:
+        'La ficha del contacto no ofrece ningún campo para registrar que no quiere recibir correos comerciales. La ' +
+        'campaña de correo electrónico, desde Marketing, pide el plan Standard o el Professional.',
+      justificacion:
+        'La compañía no puede registrar la baja de un asegurado en el sistema ni enviar una campaña que la respete: ' +
+        'tendría que llevar la lista de bajas fuera del sistema y excluir a esas personas a mano de cualquier envío.',
+      conPlan: [conPlanDe(BITRIX24_STANDARD, {
+        cumple: 1,
+        justificacion:
+          'Con el plan Standard, el de entrada para el correo masivo, cada campaña lleva obligatoriamente un enlace de ' +
+          'baja. Esa baja la hace el destinatario desde el correo recibido; el fabricante no publica una marca en la ' +
+          'ficha del contacto para decidir por medio, y no se comprobó el envío porque exige el plan.',
+      })],
+      evidencia: [capCampos, capCampana],
+      documentacion: [baja, ...precio],
+    });
+  } finally {
+    await cerrarPaneles(page).catch(() => {});
+    await borrarContactos(page, /^BAJ-/);
+  }
 });

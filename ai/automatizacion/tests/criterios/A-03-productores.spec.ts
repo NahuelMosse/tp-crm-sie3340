@@ -122,7 +122,7 @@ test('A.3.1 — Registro de productores y asignación de cartera', async ({ page
 });
 
 // ── A.3.2 ────────────────────────────────────────────────────────────────────
-test('A.3.2 — Bitácora de la actividad con el cliente', async ({ page }, info) => {
+test('A.3.2 — Historial de la actividad con el cliente', async ({ page }, info) => {
   // «Registrar una llamada y una reunión sobre un asegurado, y comprobar que
   //  ambas quedan visibles en orden cronológico con su autor»
   const plataforma = plataformaDe(info.project.name);
@@ -309,10 +309,11 @@ test('A.3.4 — Proyección de los movimientos comerciales', async ({ page, brow
     criterio: 'A.3.4',
     plataforma,
     cumple: 1,
+    reparo: 'manual',
     costo: 2,
     resumen:
       'Totaliza por etapa los montos del período, pero no el monto ponderado por probabilidad: la ' +
-      'proyección se obtiene exportando y sumando afuera. Los informes del fabricante la calculan.',
+      'proyección se obtiene exportando y sumando afuera. La calcula la extensión paga Advanced Pack.',
     comoLoHace:
       'Cada oportunidad se carga con monto y etapa, y el sistema le asigna la probabilidad de la etapa.',
     caracteristicas:

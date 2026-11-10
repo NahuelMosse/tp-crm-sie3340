@@ -217,7 +217,7 @@ test('A.2.3 — Conversión del solicitante en oportunidad de venta', async ({ p
     cumple: 2,
     costo: 1,
     resumen:
-      'Un flujo lanzado a mano sobre el solicitante crea la oportunidad con la cobertura ' +
+      'Una automatización lanzada a mano sobre el solicitante crea la oportunidad con la cobertura ' +
       'pedida y lo deja como contacto, sin reescribir datos; no hay conversión de fábrica.',
     comoLoHace:
       'Con un flujo de trabajo que se lanza a mano sobre la persona se arma esa acción, sin escribir ' +
@@ -383,11 +383,9 @@ test('A.2.5 — Embudos diferenciados por ramo', async ({ page, browser }, info)
   registrar({
     criterio: 'A.2.5',
     plataforma,
-    cumple: 1,
-    costo: 2,
-    resumen:
-      'Hay un solo embudo por objeto: un segundo se arma con otro campo de lista, pero ' +
-      'conviven en todas las oportunidades y la separación por ramo la mantiene quien carga.',
+    cumple: 2,
+    costo: 1,
+    resumen: 'Se arma un segundo embudo con su propio campo de etapas y su tablero, configurado una vez, y la oportunidad queda asignada a él.',
     comoLoHace:
       'Un segundo embudo se arma con un segundo campo de lista —para los seguros de personas: ' +
       'cotización, examen médico, emisión— y un tablero agrupado por él, donde la oportunidad queda ' +
@@ -397,8 +395,7 @@ test('A.2.5 — Embudos diferenciados por ramo', async ({ page, browser }, info)
       'el tablero agrupa por ese campo. Pero las dos listas conviven en todas las oportunidades: nada ' +
       'impide que una oportunidad de automotor tenga etapa de vida, ni separa qué embudo sigue cada ' +
       'una.',
-    justificacion:
-      'Mantener esa separación queda a cargo de quien carga la oportunidad, en cada alta.',
+    justificacion: 'El procedimiento pide crear un segundo embudo con etapas distintas y asignarle una oportunidad, y se logra con configuración de una vez. Que las listas de etapas convivan en todas las oportunidades no impide asignar cada una a su embudo, como en EspoCRM, donde también se elige el embudo en cada alta.',
     evidencia: [capTablero],
   });
 });
@@ -468,6 +465,7 @@ test('A.2.6 — Oportunidades de cambio y ampliación sobre la cartera', async (
     criterio: 'A.2.6',
     plataforma,
     cumple: 1,
+    reparo: 'manual',
     costo: 2,
     resumen:
       'Lista las pólizas próximas a vencer con su titular; no puede preguntar «tiene ' +

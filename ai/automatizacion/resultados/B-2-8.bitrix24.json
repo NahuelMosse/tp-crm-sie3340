@@ -1,0 +1,48 @@
+{
+  "criterio": "B.2.8",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "resumen": "Permite corregir y suprimir la ficha de un asegurado, pero no sacar todos sus datos de una vez ni dejar constancia de cada pedido: la exportación y el historial exigen un plan pago.",
+  "comoLoHace": "La ficha del contacto muestra sus datos en pantalla; el apellido se corrige con «editar» y la ficha se suprime con «Eliminar» en su menú. Exportar el contacto a un archivo pide actualizar el plan, y la pestaña «Historial» de la ficha también.",
+  "caracteristicas": "No hay un bloqueo de la ficha, solo la supresión. Del cambio queda únicamente la fecha de la última modificación y su autor, y de la supresión no queda nada en el sistema.",
+  "justificacion": "La compañía puede rectificar y suprimir, pero tiene que armar a mano la respuesta de acceso —leer la ficha y las negociaciones una por una— y llevar por su cuenta el registro de cada pedido y de su fecha, porque el sistema no deja constancia ni de la corrección ni de la baja. Es una limitación que la compañía debe asumir.",
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Standard",
+      "monto": "US$ 144 por mes, hasta 50 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "justificacion": "El plan Standard suma el historial de CRM, que registra los cambios de campos y las exportaciones, y la exportación de contactos a CSV o Excel que el plan Basic ya incluye: la compañía obtiene los datos de una vez y conserva constancia de cada corrección. Es el primer plan que resuelve las dos cosas."
+    }
+  ],
+  "evidencia": [
+    "B-2-8-bitrix24-1-ficha-del-asegurado.png",
+    "B-2-8-bitrix24-2-exportar-pide-plan.png",
+    "B-2-8-bitrix24-3-historial-pide-plan.png",
+    "B-2-8-bitrix24-4-confirmar-supresion.png",
+    "B-2-8-bitrix24-5-tras-suprimir.png"
+  ],
+  "documentacion": [
+    {
+      "url": "https://helpdesk.bitrix24.com/open/25803275/",
+      "cita": "The CRM history logs key changes to CRM items, such as exporting contacts or updating field values. Use it to track activity related to clients and deals.",
+      "consultado": "2026-11-09",
+      "captura": "B-2-8-bitrix24-1-historial-en-crm.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/compare_cloud_plans.php",
+      "cita": "Opción para exportar contactos a CSV, Excel y Outlook",
+      "consultado": "2026-11-09",
+      "captura": "B-2-8-bitrix24-2-comparacion-de-planes.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "US$ 144",
+      "consultado": "2026-11-09",
+      "captura": "B-2-8-bitrix24-standard-precio-1.png"
+    }
+  ],
+  "criterioNombre": "Atención de los derechos del titular de los datos",
+  "licencia": null,
+  "momento": "2026-11-10T02:22:36.565Z"
+}

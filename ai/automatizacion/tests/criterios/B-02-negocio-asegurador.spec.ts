@@ -9,7 +9,10 @@ import { entrar, plataformaDe } from '../sesion';
 import { citar } from '../fuentes';
 import { apiEspo, cuantos } from '../api';
 import { soloEn, capturar, listadoLimpio, filasDelListado, agregarFiltro, filtrarPorLista } from './comun';
-import { administracion, alta } from '../espocrm/navegar';
+import { administracion, alta, ficha, edicion } from '../espocrm/navegar';
+import { montarPoliza, aseguradoConPoliza } from '../espocrm/escenario';
+import { ASEGURADOS } from '../datos';
+import { clicEnAccion, textoDe, elegirLista } from './comun';
 
 /**
  * B.2 — Condiciones que impone el negocio asegurador
@@ -222,8 +225,10 @@ test('B.2.5 — Previsibilidad de los cambios del sistema', async ({ browser }, 
 });
 
 // ── B.2.6 ────────────────────────────────────────────────────────────────────
-test('B.2.6 — Conocimiento y decisión sobre dónde residen los datos', async ({ browser }, info) => {
-  // «Determinar dónde se alojan los datos y en qué medida la compañía puede elegirlo»
+test('B.2.6 — Alojamiento de los datos en un país con protección adecuada', async ({ browser }, info) => {
+  // «Determinar en qué país quedan los datos de la compañía y si ese país tiene protección adecuada
+  //  según la autoridad argentina, o si el fabricante ofrece las cláusulas contractuales aprobadas
+  //  para transferirlos»
   const plataforma = plataformaDe(info.project.name);
   soloEn(plataforma, 'espocrm');
   test.setTimeout(300_000);
@@ -231,8 +236,8 @@ test('B.2.6 — Conocimiento y decisión sobre dónde residen los datos', async 
   const fuentes = [
     await citar(browser, {
       url: 'https://www.espocrm.com/self-hosted-vs-cloud-crm/',
-      buscar: 'CRM database is stored locally',
-      captura: 'B-2-6-espocrm-1-base-local',
+      buscar: 'You install the software and have all the data stored on your own server',
+      captura: 'B-2-6-espocrm-1-datos-en-servidor-propio',
     }),
     await citar(browser, {
       url: 'https://www.espocrm.com/self-hosted-vs-cloud-crm/',
@@ -241,23 +246,30 @@ test('B.2.6 — Conocimiento y decisión sobre dónde residen los datos', async 
     }),
   ];
 
+  // Dónde corre la instalación evaluada: el servidor y la base de datos son contenedores de este equipo
+  const corre = docker('ps', '--filter', 'name=tp-espocrm', '--format', '{{.Names}} ({{.Image}})').trim().split('\n');
+  const equipo = docker('info', '--format', '{{.Name}}').trim();
+  expect(corre.length, 'el sistema y su base de datos deben correr en el servidor propio').toBeGreaterThanOrEqual(2);
+
   registrar({
     criterio: 'B.2.6',
     plataforma,
     cumple: 2,
     resumen:
-      'Los datos residen donde la compañía instala el sistema, en el servidor, proveedor y país que elija; ' +
-      'su seguridad queda también a cargo de ella.',
+      'En la instalación propia los datos quedan en el servidor que elige la compañía, por ejemplo uno en la ' +
+      'Argentina, sin transferirse al fabricante; la seguridad de ese servidor queda a su cargo.',
     comoLoHace:
-      'En la instalación propia la base de datos reside donde la compañía instala el sistema: en su propio ' +
-      'servidor o en el proveedor que ella elija, en el país que ella elija.',
+      'El sistema y su base de datos corren donde la compañía los instala. En la prueba corren como dos contenedores ' +
+      'de un equipo propio, sin que el fabricante intervenga ni reciba los datos; la compañía decide en qué ' +
+      'servidor y en qué país los aloja.',
     caracteristicas:
-      'La contracara, que el fabricante declara, es que la seguridad de esos datos queda también a su ' +
-      'cargo.',
+      'El fabricante declara que los datos quedan en el servidor de quien instala el sistema y que su seguridad es ' +
+      'responsabilidad de esa compañía. Alojar en un servidor dentro del país elimina la transferencia internacional.',
     justificacion:
-      'Sabe en todo momento dónde están los datos de sus asegurados y lo decide ella, que es lo que exige ' +
-      'el tratamiento de datos sensibles de los seguros de personas.',
+      'No hay transferencia de datos a otro país que justificar: el país es el que la compañía elige, y uno ' +
+      'argentino cumple la condición de la ley de protección de datos personales.',
     documentacion: fuentes,
+    medicion: `Instalación en contenedores ${corre.join(', ')} sobre el equipo «${equipo}»`,
   });
 });
 
@@ -449,4 +461,264 @@ test('B.2.4 — Búsqueda y operación con volumen productivo', async ({ page },
     // La carga se quita siempre: con ella, los demás criterios leerían otra cartera
     borrarCarga();
   }
+});
+
+// ── B.2.8 ────────────────────────────────────────────────────────────────────
+test('B.2.8 — Atención de los derechos del titular de los datos', async ({ page }, info) => {
+  // «Sobre un asegurado con póliza, obtener de una vez todos sus datos, corregir uno y suprimir o bloquear
+  //  la ficha, y comprobar qué constancia queda de cada pedido»
+  const plataforma = plataformaDe(info.project.name);
+  soloEn(plataforma, 'espocrm');
+  test.setTimeout(900_000);
+
+  const titular = { ...ASEGURADOS[3], emailAddress: 'rdominguez.b28@ejemplo.test' };
+  const api = await apiEspo();
+  await montarPoliza(api);
+  for (const c of (await (await api.get('Contact', { params: { maxSize: 200 } })).json()).list
+    .filter((c: any) => c.lastName === titular.lastName && c.firstName === titular.firstName)) await api.delete(`Contact/${c.id}`);
+  const { contactoId, polizaId } = await aseguradoConPoliza(api, titular, 'POL-B28-HOGAR');
+
+  await entrar(page, plataforma);
+  await ficha(page, 'Contact', contactoId);
+
+  // 1. Todos sus datos. La ventana de datos personales de la ficha ofrece ver y borrar, no exportar:
+  //    la salida es el «Exportar» de los listados, una vez para el asegurado y otra para sus pólizas
+  await clicEnAccion(page, page.locator('#main [data-action="viewPersonalData"]').first());
+  const ventana = page.locator('.modal-dialog:visible').first();
+  await ventana.waitFor({ state: 'visible', timeout: 30_000 });
+  await page.waitForTimeout(2500);
+  const datos = await ventana.innerText();
+  const botones = await ventana.locator('button').evaluateAll(bs => bs.map(b => `${b.getAttribute('data-name')}:${b.textContent?.trim()}`));
+  const capDatos = await capturar(page, 'B.2.8', plataforma, '1-datos-personales');
+  console.log(`    ventana de datos personales: ${datos.replace(/\s+/g, ' ').slice(0, 300)} · botones ${botones.join(' | ')}`);
+  await ventana.locator('button[data-name="cancel"]').first().click();
+  await page.waitForTimeout(800);
+
+  const exportarDelListado = async (entidad: string, buscar: string) => {
+    await listadoLimpio(page, entidad);
+    await page.locator('.search-container input.text-filter').first().fill(buscar);
+    const respuesta = page.waitForResponse(r => r.url().includes(`/api/v1/${entidad}?`) && r.url().includes('where'), { timeout: 30_000 }).catch(() => null);
+    await page.locator('.search-container [data-action="search"]').first().click();
+    await respuesta;
+    await page.waitForTimeout(2500);
+    await page.locator('tbody tr .record-checkbox').first().check({ force: true });
+    await page.locator('.list-buttons-container .actions-button').first().click();
+    await page.locator('.list-buttons-container [data-action="export"]').first().click();
+    const dialogo = page.locator('.modal-dialog:visible').first();
+    await dialogo.waitFor({ state: 'visible', timeout: 20_000 });
+    console.log(`    exportar ${entidad}: ${(await dialogo.innerText()).replace(/\s+/g, ' ').slice(0, 250)}`);
+    await elegirLista(page, 'format', 'csv', '.modal-dialog:visible');
+    await dialogo.locator('.field[data-name="exportAllFields"] input[type="checkbox"]').first().check({ force: true }).catch(() => {});
+    await page.waitForTimeout(800);
+    const descarga = page.waitForEvent('download', { timeout: 60_000 }).catch(() => null);
+    await dialogo.locator('button[data-name="export"]').first().click();
+    const d = await descarga;
+    const ruta = d ? await d.path() : null;
+    return ruta ? (await import('node:fs')).readFileSync(ruta, 'utf8') : '';
+  };
+  const csvAsegurado = await exportarDelListado('Contact', titular.lastName);
+  const capExport = await capturar(page, 'B.2.8', plataforma, '2-exportacion-del-asegurado');
+  const csvPoliza = await exportarDelListado('CPoliza', 'POL-B28');
+  console.log(`    export asegurado: ${csvAsegurado.replace(/\s+/g, ' ').slice(0, 300)}`);
+  console.log(`    export póliza: ${csvPoliza.replace(/\s+/g, ' ').slice(0, 300)}`);
+  expect(csvAsegurado, 'la exportación debe traer los datos del asegurado').toContain(titular.emailAddress);
+  expect(csvPoliza, 'la exportación de pólizas debe traer la póliza del asegurado').toContain('POL-B28-HOGAR');
+  const unaSolaVez = csvAsegurado.includes('POL-B28');
+
+  // 2. Corregir un dato
+  await edicion(page, 'Contact', contactoId);
+  const tel = page.locator('.field[data-name="phoneNumber"] input.phone-number').first();
+  await tel.click();
+  await tel.press('Control+a');
+  await tel.pressSequentially('+54 11 4555-9999', { delay: 30 });
+  await tel.press('Tab');
+  await expect(tel).toHaveValue(/9999/);
+  await page.waitForTimeout(800);
+  await page.getByRole('button', { name: /^Guardar$/ }).first().click();
+  await page.getByText(/^(Guardando|Saving)/).filter({ visible: true }).first().waitFor({ state: 'hidden', timeout: 30_000 }).catch(() => {});
+  await expect.poll(async () => (await (await api.get(`Contact/${contactoId}`)).json()).phoneNumber ?? '',
+    { message: 'el dato corregido debe quedar guardado', timeout: 30_000 }).toContain('9999');
+
+  // 3. Suprimir: borrar los datos personales desde la misma ventana
+  await ficha(page, 'Contact', contactoId);
+  await clicEnAccion(page, page.locator('#main [data-action="viewPersonalData"]').first());
+  await ventana.waitFor({ state: 'visible', timeout: 30_000 });
+  await page.waitForTimeout(2500);
+  const todos = ventana.locator('input[type="checkbox"]');
+  const n = await todos.count();
+  for (let i = 0; i < n; i++) await todos.nth(i).check({ force: true }).catch(() => {});
+  const capBorrado = await capturar(page, 'B.2.8', plataforma, '2-borrar-datos');
+  await ventana.locator('button[data-name="erase"], [data-action="erase"]').first().click();
+  const confirma = page.locator('.modal-dialog:visible button[data-name="confirm"], .modal-dialog:visible [data-action="confirm"]').first();
+  if (await confirma.waitFor({ state: 'visible', timeout: 5000 }).then(() => true, () => false)) await confirma.click();
+  await page.waitForTimeout(4000);
+  const tras = await (await api.get(`Contact/${contactoId}`)).json();
+  console.log(`    tras borrar: ${JSON.stringify({ n: tras.name, e: tras.emailAddress, t: tras.phoneNumber, d: tras.deleted })}`);
+
+  // 4. La constancia: el historial de la ficha y el registro de acciones
+  await ficha(page, 'Contact', contactoId);
+  await page.waitForTimeout(4000);
+  const capHistorial = await capturar(page, 'B.2.8', plataforma, '4-historial-de-la-ficha');
+  const notas = (await (await api.get(`Contact/${contactoId}/stream`, { params: { maxSize: 50 } })).json()).list ?? [];
+  const cambiosEnHistorial = notas.filter((x: any) => x.type === 'Update').length;
+  const acciones = ((await (await api.get('ActionHistoryRecord', { params: { maxSize: 200, orderBy: 'createdAt', order: 'desc',
+    'where[0][type]': 'equals', 'where[0][attribute]': 'targetId', 'where[0][value]': contactoId } })).json()).list ?? []) as any[];
+  const modificaciones = acciones.filter(a => a.action === 'update');
+  console.log(`    historial de la ficha: ${cambiosEnHistorial} cambios · registro de acciones: ${acciones.map(a => `${a.action}:${a.userName}`).join(', ')}`);
+  expect(modificaciones.length, 'el registro de acciones debe anotar al menos la corrección').toBeGreaterThanOrEqual(1);
+  const borradoRegistrado = modificaciones.length >= 2;
+  expect(modificaciones[0].userName, 'cada acción debe llevar a quien la hizo').toBeTruthy();
+  expect(tras.emailAddress, 'el borrado debe reemplazar el correo').toMatch(/^ERASED:/);
+  expect(tras.deleted, 'la ficha sigue existiendo, con sus datos personales borrados').toBe(false);
+
+  registrar({
+    criterio: 'B.2.8',
+    plataforma,
+    cumple: 1,
+    resumen:
+      'Exporta al asegurado y sus pólizas, corrige un dato y borra sus datos personales, pero exige una exportación ' +
+      'por tipo de registro y las correcciones no quedan en el historial.',
+    comoLoHace:
+      'Los datos del asegurado se exportan a una planilla desde el listado de contactos, y los de su póliza desde el ' +
+      'de pólizas. El dato se corrige en la ficha. La ventana de datos personales de la ficha permite borrar ' +
+      'los campos personales, que quedan reemplazados por una marca de borrado y la ficha subsiste. Cada ' +
+      'corrección queda en un registro de acciones —quién, cuándo y qué registro—, que no tiene pantalla propia en ' +
+      'la administración; el borrado de datos personales no deja en él una entrada propia.',
+    caracteristicas:
+      'La exportación admite todos los campos y formato CSV o planilla. El borrado deja la ficha y sus pólizas, con ' +
+      'nombre, correo y teléfono reemplazados. El registro de acciones anota quién modificó la ficha y cuándo, sin el ' +
+      'valor anterior, y no anota el borrado; el historial de la ficha solo conserva la creación, porque el teléfono no se audita de fábrica.',
+    justificacion:
+      `El pedido se atiende, con una limitación que la compañía asume: no hay una descarga única con todo lo del ` +
+      `titular, sino una exportación por cada tipo de registro (${unaSolaVez ? 'aquí el contacto trajo también la póliza' : 'el contacto no trae sus pólizas'}), ` +
+      'y la constancia de qué valor cambió, y del borrado, exige marcar los campos como auditados o llevarla aparte.',
+    evidencia: [capDatos, capExport, capBorrado, capHistorial],
+    medicion: `${modificaciones.length} modificación anotada en el registro de acciones (borrado ${borradoRegistrado ? 'anotado' : 'sin anotar'}); ${cambiosEnHistorial} cambios en el historial de la ficha`,
+  });
+});
+
+// ── B.2.9 ────────────────────────────────────────────────────────────────────
+test('B.2.9 — Baja de las comunicaciones comerciales por medio', async ({ page }, info) => {
+  // «Marcar a un asegurado para que no reciba correos comerciales, armar una campaña de correo que lo
+  //  incluya en su segmento y comprobar que el envío lo excluye»
+  const plataforma = plataformaDe(info.project.name);
+  soloEn(plataforma, 'espocrm');
+  test.setTimeout(2_400_000);
+
+  const { CORREO, vaciarCasillas, recibidos, correrTareas, habilitarServidorDePrueba } = await import('../correo');
+  const { crear, listar } = await import('../api');
+  const api = await apiEspo();
+  await habilitarServidorDePrueba(api);
+  await vaciarCasillas();
+
+  // Escenario: dos asegurados, su lista de destinatarios, la plantilla y el correo saliente de la compañía
+  const BAJA = { firstName: 'Natalia', lastName: 'Ferrer', emailAddress: 'nferrer.b29@ejemplo.test' };
+  const ALTA = { firstName: 'Tomás', lastName: 'Quiroga', emailAddress: 'tquiroga.b29@ejemplo.test' };
+  const borrar = async (entidad: string, quien: (r: any) => boolean) => {
+    for (const r of (await listar(api, entidad, { maxSize: 200 })).list.filter(quien)) await api.delete(`${entidad}/${r.id}`);
+  };
+  await borrar('Campaign', c => c.name === 'Promoción hogar B29');
+  await borrar('TargetList', t => t.name === 'Asegurados de hogar B29');
+  await borrar('EmailTemplate', t => t.name === 'Promoción hogar B29');
+  await borrar('Contact', c => /\.b29@/.test(c.emailAddress ?? ''));
+  const idBaja = await crear(api, 'Contact', BAJA);
+  const idAlta = await crear(api, 'Contact', ALTA);
+  const lista = await crear(api, 'TargetList', { name: 'Asegurados de hogar B29' });
+  for (const id of [idBaja, idAlta]) await api.post(`TargetList/${lista}/contacts`, { data: { id } });
+  await crear(api, 'EmailTemplate', { name: 'Promoción hogar B29', subject: '{Person.firstName}, una promoción para su hogar',
+    body: 'Hola {Person.firstName}: le acercamos una promoción en su seguro de hogar.', isHtml: false });
+  const campana = await crear(api, 'Campaign', { name: 'Promoción hogar B29', type: 'Email', targetListsIds: [lista] });
+  const REMITENTE = 'comercial@aseguradora.test';
+  await borrar('InboundEmail', c => c.emailAddress === REMITENTE);
+  await crear(api, 'InboundEmail', {
+    name: 'Comercial', emailAddress: REMITENTE, status: 'Active', useImap: false,
+    useSmtp: true, smtpIsShared: true, smtpIsForMassEmail: true,
+    smtpHost: CORREO.host, smtpPort: CORREO.smtp, smtpAuth: false, smtpSecurity: '', fromName: 'Aseguradora — Comercial',
+  });
+  await api.put('Settings', { data: { outboundEmailFromAddress: REMITENTE, outboundEmailFromName: 'Aseguradora — Comercial' } });
+  // El envío masivo corre a los minutos 10, 30 y 50: se lo pone cada minuto para no esperar la ventana
+  for (const t of (await listar(api, 'ScheduledJob', { maxSize: 100 })).list.filter((t: any) => t.job === 'ProcessMassEmail')) {
+    await api.put(`ScheduledJob/${t.id}`, { data: { scheduling: '* * * * *' } });
+  }
+
+  // 1. Se marca al asegurado: en el correo de su ficha, como dado de baja de las comunicaciones
+  await entrar(page, plataforma);
+  await edicion(page, 'Contact', idBaja);
+  const bloque = page.locator('.field[data-name="emailAddress"] .email-address-block').first();
+  // Los botones del correo —principal, baja, inválido— aparecen al pasar el ratón por la fila
+  await bloque.hover();
+  const botonBaja = bloque.locator('button[data-property-type="optOut"]').first();
+  await botonBaja.click();
+  await page.waitForTimeout(800);
+  await page.getByRole('button', { name: /^Guardar$/ }).first().click();
+  await page.waitForTimeout(4000);
+  const capBaja = await capturar(page, 'B.2.9', plataforma, '1-asegurado-dado-de-baja');
+  const marcado = (await (await api.get(`Contact/${idBaja}`)).json()).emailAddressIsOptedOut;
+  expect(marcado, 'el correo del asegurado debe quedar marcado como dado de baja').toBeTruthy();
+
+  // 2. La campaña sobre su lista, programada desde la ficha de la campaña
+  await ficha(page, 'Campaign', campana);
+  await page.locator('.panel[data-name="massEmails"] [data-action="createRelated"]').first().click();
+  const modal = page.locator('.modal-dialog:visible');
+  await modal.locator('.field[data-name="name"] input').first().fill('Promoción hogar — envío');
+  await elegirLista(page, 'status', 'Pending', '.modal-dialog:visible');
+  const hoy = new Date();
+  const dia = `${String(hoy.getDate()).padStart(2, '0')}.${String(hoy.getMonth() + 1).padStart(2, '0')}.${hoy.getFullYear()}`;
+  const fecha = modal.locator('.field[data-name="startAt"] input[data-name="startAt"]');
+  await fecha.click();
+  await fecha.pressSequentially(dia);
+  await modal.locator('.field[data-name="startAt"] input[data-name="startAt-time"]').click();
+  await page.locator('.ui-timepicker-wrapper:visible li').filter({ hasText: /^00:00$/ }).first().click();
+  const entrada = modal.locator('.field[data-name="emailTemplate"] input[type="text"]').first();
+  await entrada.click();
+  await entrada.pressSequentially('Promoción hog');
+  await page.locator('.autocomplete-suggestion:visible').filter({ hasText: 'Promoción hogar B29' }).first().click({ timeout: 15_000 });
+  await modal.locator('.field[data-name="fromAddress"] input').first().fill(REMITENTE);
+  await modal.locator('.field[data-name="fromName"] input').first().fill('Aseguradora — Comercial');
+  await modal.locator('button[data-name="save"]').first().click();
+  await expect(modal).toBeHidden({ timeout: 15_000 });
+
+  // 3. El programador despacha el envío; se corre cada minuto, como el servidor
+  const logDe = async () => (await (await api.get('CampaignLogRecord', { params: {
+    maxSize: 200, 'where[0][type]': 'equals', 'where[0][attribute]': 'campaignId', 'where[0][value]': campana,
+  } })).json()).list ?? [];
+  for (let minuto = 0; minuto < 12 && !(await logDe()).some((x: any) => x.action === 'Sent'); minuto++) {
+    await correrTareas(1);
+    await page.waitForTimeout(56_000);
+  }
+  await correrTareas(2);
+
+  const alta = await recibidos(ALTA.emailAddress);
+  const baja = await recibidos(BAJA.emailAddress);
+  const crudo = alta[0]?.mimeMessage ?? '';
+  const texto = crudo.replace(/=\r?\n/g, '').replace(/=3D/g, '=');
+  const conEnlaceDeBaja = /unsubscribe/i.test(texto);
+  console.log(`    llegaron: alta ${alta.length}, baja ${baja.length}; enlace de baja: ${conEnlaceDeBaja}`);
+
+  await ficha(page, 'Campaign', campana);
+  await page.waitForTimeout(5000);
+  const capCampana = await capturar(page, 'B.2.9', plataforma, '2-resultado-de-la-campana');
+
+  expect(alta.length, 'el asegurado que no se dio de baja debe recibir el correo').toBe(1);
+  expect(baja.length, 'el asegurado dado de baja no debe recibir el correo').toBe(0);
+
+  registrar({
+    criterio: 'B.2.9',
+    plataforma,
+    cumple: 2,
+    resumen:
+      'El correo del asegurado se marca como dado de baja desde su ficha y las campañas lo excluyen solas; ' +
+      'cada mensaje trae el enlace para que el asegurado se dé de baja.',
+    comoLoHace:
+      'Se marca el correo del asegurado como dado de baja en su ficha. Al enviar una campaña a una lista que lo ' +
+      'incluye, el sistema no le manda el mensaje y sí lo manda al otro asegurado de la lista.',
+    caracteristicas:
+      'La exclusión rige para todas las campañas y listas. Los mensajes de campaña llevan un enlace de baja ' +
+      'que, al usarlo el asegurado, marca su correo como dado de baja sin intervención de nadie.',
+    justificacion:
+      'Viene de fábrica: no requiere configurar nada para que la baja se respete, que es lo que la ley ' +
+      'exige para cualquier medio de publicidad.',
+    evidencia: [capBaja, capCampana],
+    medicion: `GreenMail: ${alta.length} mensaje al asegurado vigente y ${baja.length} al dado de baja; enlace de baja: ${conEnlaceDeBaja ? 'sí' : 'no'}`,
+  });
 });

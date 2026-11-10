@@ -86,7 +86,7 @@ test('A.2.1 — Registro del solicitante con sus datos de contacto', async ({ pa
     plataforma,
     cumple: 2,
     costo: 0,
-    resumen: 'Registra al solicitante como contacto, con nombre, teléfono, correo y dirección desglosada. El módulo de prospectos no está en la edición gratuita.',
+    resumen: 'Registra al solicitante como contacto, con nombre, teléfono, correo y dirección desglosada.',
     comoLoHace:
       'La edición gratuita no incluye el módulo de prospectos: el solicitante se registra como un ' +
       'contacto, igual que el asegurado, con todos sus datos desde el formulario, y la búsqueda del ' +
@@ -243,6 +243,7 @@ test('A.2.3 — Conversión del solicitante en oportunidad de venta', async ({ p
     criterio: 'A.2.3',
     plataforma,
     cumple: 1,
+    reparo: 'manual',
     resumen: 'Crea la venta desde la ficha del solicitante, ligada a él, pero la cobertura que pidió se vuelve a cargar a mano en cada una.',
     comoLoHace:
       'Con el solicitante como contacto, lo más cercano es crear la negociación desde su ficha.',
@@ -480,6 +481,7 @@ test('A.2.6 — Oportunidades de cambio y ampliación sobre la cartera', async (
       criterio: 'A.2.6',
       plataforma,
       cumple: 1,
+      reparo: 'manual',
       resumen: 'Obtiene las pólizas próximas a vencer filtrando por fecha de fin, pero no puede preguntar qué clientes tienen un ramo y no otro: se comparan a mano dos listas.',
       comoLoHace:
         'El conjunto de los próximos a vencer sale directo: el filtro del listado de negociaciones ' +

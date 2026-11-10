@@ -1,10 +1,10 @@
 {
   "criterio": "B.2.3",
   "plataforma": "bitrix24",
-  "cumple": 1,
+  "cumple": 0,
   "comoLoHace": "El propio fabricante genera una copia diaria de toda la cuenta, sin que nadie la programe ni la ejecute: no es una tarea que la compañía tenga que sostener.",
   "caracteristicas": "Esa copia la administra el fabricante y no la compañía, se conserva solo siete días, y restituir una fecha concreta depende de pedirlo a soporte y de que el plan contratado lo permita, así que la compañía no controla ni la retención ni la restitución de su propio resguardo.",
-  "justificacion": "La copia diaria la genera el fabricante sin intervención, pero la compañía no controla su retención, de siete días, ni su restitución, que depende de pedirla a soporte y del plan contratado: la condición se satisface con esa limitación.",
+  "justificacion": "El procedimiento pide programar la copia propia de B.2.2, y en la edición gratuita esa copia no existe: la copia diaria del fabricante no la controla ni la conserva la compañía.",
   "documentacion": [
     {
       "url": "https://helpdesk.bitrix24.com/open/25110238/",
@@ -18,5 +18,5 @@
   "conPlan": [],
   "evidencia": [],
   "momento": "2026-10-30T08:53:40.872Z",
-  "resumen": "El fabricante genera una copia diaria de la cuenta sin intervención, pero la conserva siete días y la restitución depende de soporte y del plan."
+  "resumen": "La compañía no puede programar una copia propia de la cartera: la única copia periódica la genera el fabricante, la conserva siete días y no se puede descargar."
 }

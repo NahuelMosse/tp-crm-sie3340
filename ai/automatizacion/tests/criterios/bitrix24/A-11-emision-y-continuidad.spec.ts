@@ -129,6 +129,7 @@ test('A.11.1 — Emisión de la póliza al cerrar la venta', async ({ page, brow
     criterio: 'A.11.1',
     plataforma,
     cumple: conCliente && conImporte ? 2 : 1,
+    reparo: (conCliente && conImporte ? 2 : 1) === 1 ? 'manual' : undefined,
     costo: conCliente && conImporte ? 1 : 2,
     resumen: conCliente && conImporte
       ? 'Emite la póliza al ganar la venta, con el nombre, el importe y el asegurado vinculados.'
@@ -226,8 +227,9 @@ test('A.11.2 — Plan de pago de la prima', async ({ page, browser }, info) => {
     criterio: 'A.11.2',
     plataforma,
     cumple: 1,
+    reparo: 'parcial',
     costo: 2,
-    resumen: 'Lleva cada cuota registrada como si fuera una venta, con vencimiento y estado, identificada por el título; las cuotas no cuelgan de la póliza y se filtran a mano en cada uso.',
+    resumen: 'Lleva cada cuota registrada como si fuera una venta, con vencimiento y estado, y lista las impagas con un filtro, pero las cuotas no cuelgan de la póliza: se relacionan solo por el título.',
     comoLoHace:
       'La póliza se lleva como una negociación con un campo de lista «Forma de pago». Sin entidades ' +
       'propias, cada cuota es una negociación con su vencimiento y su estado —pendiente, pagada o ' +
@@ -235,9 +237,7 @@ test('A.11.2 — Plan de pago de la prima', async ({ page, browser }, info) => {
       'negociaciones filtrado por el estado de la cuota.',
     caracteristicas:
       'Campos propios de lista y de fecha en el formulario de la negociación, filtro por estado en el listado, sin programar.',
-    justificacion:
-      'Las cuotas no cuelgan de la póliza: se identifican por el título y comparten el listado con las pólizas y las ventas, ' +
-      'de modo que hay que filtrarlas en cada uso. Hay que filtrar y distinguir las cuotas en cada uso, además de definir los campos.',
+    justificacion: 'El procedimiento pide registrar las cuotas de una póliza: se registran con vencimiento y estado y las impagas salen con un filtro, pero las cuotas no quedan vinculadas a la póliza, solo identificadas por su número en el título.',
     evidencia: [capPoliza, capCuota, capImpagas],
     documentacion: profesional,
     conPlan: [conPlanDe(BITRIX24_PROFESSIONAL, {
@@ -362,26 +362,17 @@ test('A.11.4 — Historia del cliente desde el primer contacto', async ({ page, 
   registrar({
     criterio: 'A.11.4',
     plataforma,
-    cumple: 1,
-    costo: 2,
-    resumen: 'Un mismo contacto es solicitante y asegurado, con su historia en una ficha; sin prospectos, la llamada se registra como pendiente con el tipo escrito a mano.',
+    cumple: 2,
+    costo: 0,
+    resumen: 'Un mismo contacto es solicitante y asegurado: la llamada que se registró al principio sigue en su ficha junto a la póliza, sin conversión que lo duplique.',
     comoLoHace:
       'El solicitante se registra como contacto y la llamada se anota en la pestaña «Actividad» de su ficha, como un pendiente de texto libre. ' +
       'Para emitirle la póliza se crea la negociación desde esa misma ficha, que queda a su nombre. En la ficha del asegurado la llamada sigue estando, junto a la póliza.',
     caracteristicas:
       'El mismo contacto es solicitante y asegurado, sin conversión que lo mueva ni lo duplique; su ficha reúne actividades y negociaciones.',
-    justificacion:
-      'Sin el módulo de prospectos, no hay una etapa de solicitante que se convierta, y la llamada se registra como ' +
-      'un pendiente con el tipo escrito en el texto, no como una llamada. Ese tipo se escribe a mano en cada registro.',
+    justificacion: 'El procedimiento pide que la llamada figure en la ficha del asegurado, y figura sin configurar nada. Que no haya una etapa de solicitante ni un tipo propio de llamada no impide seguir la historia.',
     evidencia: [capLlamada, capFicha],
     documentacion: fuentes,
-    conPlan: [conPlanDe(BITRIX24_STANDARD, {
-      cumple: 2,
-      costo: 1,
-      justificacion:
-        'El plan Standard incluye prospectos ilimitados: el solicitante se registra como prospecto con sus llamadas y, al convertirlo, el historial pasa al ' +
-        'contacto y a la negociación. Usarlo no requiere más configuración que la de las etapas.',
-    })],
   });
 });
 
@@ -433,18 +424,16 @@ test('A.11.5 — Satisfacción después de la atención', async ({ page }, info)
   registrar({
     criterio: 'A.11.5',
     plataforma,
-    cumple: 1,
-    costo: 2,
-    resumen: 'Guarda el puntaje de satisfacción en la ficha del asegurado, pero la encuesta no se envía al cerrar el reclamo: se carga a mano y cada respuesta reemplaza la anterior.',
+    cumple: 2,
+    costo: 1,
+    resumen: 'Registra el puntaje de satisfacción en la ficha del asegurado al cerrar el reclamo, en un campo de lista propio; cada respuesta nueva reemplaza a la anterior.',
     comoLoHace:
       'El reclamo —una negociación— se cierra pasándolo a «Cerrado Ganado», y la respuesta del ' +
       'asegurado se registra en un campo de lista «Satisfacción con la atención», agregado a la ' +
       'ficha del contacto, donde queda guardada.',
     caracteristicas:
       'Campo de lista con cinco puntajes en el formulario del contacto, creado desde la propia pantalla, sin programar.',
-    justificacion:
-      'El puntaje queda en la ficha del asegurado pero la encuesta no se envía al cerrar el reclamo ni queda ligada a él: ' +
-      'se carga a mano y cada respuesta nueva reemplaza a la anterior. La carga manual se repite con cada reclamo cerrado.',
+    justificacion: 'El procedimiento pide enviar o registrar la encuesta y que la respuesta quede en la ficha del asegurado: se registra en un campo configurado una vez, sin programar. Que cada respuesta reemplace a la anterior no lo exige el procedimiento.',
     evidencia: [capFicha],
   });
 });

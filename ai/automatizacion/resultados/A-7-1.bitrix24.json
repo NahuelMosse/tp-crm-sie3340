@@ -1,20 +1,20 @@
 {
   "criterio": "A.7.1",
   "plataforma": "bitrix24",
-  "cumple": 1,
-  "costo": 2,
-  "resumen": "Importa planillas CSV; las guardadas con la codificación de Windows pierden tildes y eñes, y la columna del correo se relaciona a mano en cada importación.",
-  "comoLoHace": "Se sube el archivo con el botón «Subir archivo», se elige la codificación y el delimitador, se relacionan las columnas con los campos y se importa. La columna del correo, con otro rótulo, se relaciona a mano con «E-mail del trabajo» en el paso de mapeo.",
-  "caracteristicas": "El listado de contactos trae un asistente de importación de planillas CSV, sin configurar nada. Guardada en UTF-8, la planilla de asegurados ingresó completa con sus correos y la acentuación intacta; guardada con la codificación predeterminada de Windows, ingresaron 0 de 5 filas con los apellidos intactos.",
-  "justificacion": "La necesidad queda resuelta con un procedimiento que se repite en cada importación: guardar la planilla con la codificación correcta y relacionar la columna del correo.",
+  "cumple": 2,
+  "costo": 1,
+  "resumen": "Importa planillas CSV con tildes y eñes intactas, en UTF-8 o con la codificación de Windows elegida en el asistente; la columna del correo se relaciona en el paso de mapeo.",
+  "comoLoHace": "Se sube el archivo con el botón «Subir archivo»; en el mismo paso se elige la codificación del archivo (ofrece ASCII, UTF-8, UTF-16, Windows-1251 y 1252, ISO-8859-1 a 15 y KOI8-R; propone Windows-1251) y el delimitador. Luego se relacionan las columnas con los campos —la del correo, con otro rótulo, se relaciona con «E-mail del trabajo»— y se importa.",
+  "caracteristicas": "El listado de contactos trae un asistente de importación de planillas CSV, sin configurar nada. Una planilla de diez asegurados con tildes y eñes en los apellidos ingresó completa con sus correos y la acentuación intacta: la guardada en UTF-8 con la codificación UTF-8, y la guardada con la codificación predeterminada de Windows eligiendo Windows-1252 en el primer paso del asistente.",
+  "justificacion": "La cartera entra completa con el asistente que trae el producto. Elegir la codificación y relacionar la columna del correo son opciones del propio asistente, parte de usar la pantalla y no una tarea aparte.",
   "evidencia": [
     "A-7-1-bitrix24-1-planilla-de-windows.png",
     "A-7-1-bitrix24-2-planilla-utf8.png"
   ],
-  "medicion": "UTF-8: 5/5 intactos · codificación de Windows: 0/5 intactos · 10 de 10 ingresados",
+  "medicion": "UTF-8: 5/5 intactos · codificación de Windows: 5/5 intactos · 10 de 10 ingresados",
   "criterioNombre": "Importación de contactos desde planilla de cálculo",
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-11-09T02:17:17.673Z"
+  "momento": "2026-11-10T04:33:16.050Z"
 }

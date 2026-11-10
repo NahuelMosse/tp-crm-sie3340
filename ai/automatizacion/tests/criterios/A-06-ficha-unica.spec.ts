@@ -302,11 +302,11 @@ test('A.6.4 — Unicidad de la ficha del asegurado', async ({ page }, info) => {
   registrar({
     criterio: 'A.6.4',
     plataforma,
-    cumple: 2,
+    cumple: 1,
+    reparo: 'codigo',
     costo: 2,
     resumen:
-      'De fábrica busca duplicados por nombre y correo, no por documento. Advertirlos exige escribir un ' +
-      'guion breve en la fórmula de la entidad.',
+      'De fábrica busca duplicados por nombre y correo, no por documento. Advertirlos exige escribir código en la fórmula de la entidad.',
     comoLoHace:
       'De fábrica el producto busca duplicados por nombre y correo, pero no por documento: dos fichas con ' +
       'el mismo documento y el apellido escrito distinto se aceptan sin advertencia.',
@@ -315,8 +315,8 @@ test('A.6.4 — Unicidad de la ficha del asegurado', async ({ page }, info) => {
       'validaciones y comprobación de duplicados; con tres líneas que buscan el documento, la segunda carga ' +
       'mostró el aviso de posible duplicado y remitió a la ficha existente.',
     justificacion:
-      'La necesidad queda resuelta desde el sistema, pero exige escribir el guion de la fórmula de la entidad: es desarrollo, breve, ' +
-      'que alguien tiene que saber leer y mantener.',
+      'El aviso de duplicado por documento solo se consigue escribiendo código en la fórmula de la entidad: es ' +
+      'desarrollo, breve, que alguien tiene que saber leer y mantener.',
     evidencia: [capSinRegla, capRegla, capConRegla],
     medicion: `Sin la comprobación: ${duplicadosSinRegla} fichas con el mismo documento; con ella: ${duplicadosConRegla}`,
   });

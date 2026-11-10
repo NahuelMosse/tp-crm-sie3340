@@ -648,11 +648,13 @@ test('A.12.13 — Soporte técnico con compromiso de respuesta', async ({ browse
     await citar(browser, { url: 'https://www.bitrix24.com/privacy/sla.php', buscar: '72 hours', captura: 'A-12-13-bitrix24-3-sla-severidad-baja' }),
   ];
 
+  const precio = await constanciaDe(browser, BITRIX24_BASIC, 'A-12-13-bitrix24-basic');
   registrar({
     criterio: 'A.12.13',
     plataforma,
-    cumple: 1,
-    resumen: 'Publica un compromiso de plazos de respuesta por severidad, pero cubre caídas de la plataforma y no consultas puntuales; el soporte por chat o ticket es de los planes pagos.',
+    cumple: 0,
+    conPlan: [conPlanDe(BITRIX24_BASIC, { cumple: 2, justificacion: 'Con el plan Basic, el primero con licencia paga, rige el acuerdo de nivel de servicio del fabricante, con plazos de respuesta por severidad de la falla: una hora para las críticas y altas, veinticuatro horas para las medias y setenta y dos horas para las bajas.' })],
+    resumen: 'El compromiso de plazos de respuesta ante fallas rige para las cuentas con licencia paga; la edición gratuita no tiene un canal de soporte con plazo comprometido.',
     comoLoHace:
       'El fabricante publica un acuerdo de nivel de servicio con plazos de respuesta por severidad del ' +
       'incidente —una hora, veinticuatro horas o setenta y dos horas—, pero ese compromiso cubre las caídas ' +
@@ -660,10 +662,8 @@ test('A.12.13 — Soporte técnico con compromiso de respuesta', async ({ browse
     caracteristicas:
       'El soporte personalizado, por chat o por ticket, queda reservado a los planes pagos, y la edición ' +
       'gratuita se apoya en la documentación y en la comunidad.',
-    justificacion:
-      'La condición se satisface parcialmente: existe un compromiso público de plazo, pero no alcanza el ' +
-      'tipo de consulta que un productor o un administrador hace en el día a día.',
-    documentacion: fuentes,
+    justificacion: 'El acuerdo de nivel de servicio cubre a los usuarios con licencia paga, y la edición gratuita se apoya en la documentación y en la comunidad: no hay un canal con plazo comprometido.',
+    documentacion: [...fuentes, ...precio],
   });
 });
 

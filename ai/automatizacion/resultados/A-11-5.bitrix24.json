@@ -1,12 +1,12 @@
 {
   "criterio": "A.11.5",
   "plataforma": "bitrix24",
-  "cumple": 1,
-  "costo": 2,
-  "resumen": "Guarda el puntaje de satisfacción en la ficha del asegurado, pero la encuesta no se envía al cerrar el reclamo: se carga a mano y cada respuesta reemplaza la anterior.",
+  "cumple": 2,
+  "costo": 1,
+  "resumen": "Registra el puntaje de satisfacción en la ficha del asegurado al cerrar el reclamo, en un campo de lista propio; cada respuesta nueva reemplaza a la anterior.",
   "comoLoHace": "El reclamo —una negociación— se cierra pasándolo a «Cerrado Ganado», y la respuesta del asegurado se registra en un campo de lista «Satisfacción con la atención», agregado a la ficha del contacto, donde queda guardada.",
   "caracteristicas": "Campo de lista con cinco puntajes en el formulario del contacto, creado desde la propia pantalla, sin programar.",
-  "justificacion": "El puntaje queda en la ficha del asegurado pero la encuesta no se envía al cerrar el reclamo ni queda ligada a él: se carga a mano y cada respuesta nueva reemplaza a la anterior. La carga manual se repite con cada reclamo cerrado.",
+  "justificacion": "El procedimiento pide enviar o registrar la encuesta y que la respuesta quede en la ficha del asegurado: se registra en un campo configurado una vez, sin programar. Que cada respuesta reemplace a la anterior no lo exige el procedimiento.",
   "evidencia": [
     "A-11-5-bitrix24-1-satisfaccion-en-la-ficha.png"
   ],

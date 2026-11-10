@@ -5,7 +5,7 @@
  *   node generar-doc.mjs [raiz-del-repo]
  *
  * Arma humanos/documentacion/index.html con cada criterio del catálogo de la
- * sección 4 y, por plataforma, lo que registró su prueba: el valor, la
+ * sección 3 y, por plataforma, lo que registró su prueba: el valor, la
  * justificación, la medición, el video de la ejecución, las capturas y las
  * fuentes citadas con su texto textual.
  *
@@ -121,7 +121,7 @@ for (const parte of ['A', 'B']) {
         `<span class="dots">${Object.keys(PLATAFORMAS).map(p => punto(r[p], p)).join('')}</span></a>`;
       cuerpo += `<article class="caso" id="${ancla(c.id)}">
         <header><div class="badge">${esc(c.id)}</div><h3>${esc(c.nombre)}</h3></header>
-        <p class="preg"><b>Qué resuelve:</b> ${esc(c.necesidad)}</p>
+        <p class="preg"><b>Qué resuelve:</b> ${esc(c.necesidad.replace(/ ?\{\{[^}]+\}\}/g, ''))}</p>
         <p class="preg"><b>Procedimiento:</b> ${esc(c.procedimiento)}</p>
         ${Object.keys(PLATAFORMAS).map(p => bloque(c, p, r[p])).join('')}
       </article>`;

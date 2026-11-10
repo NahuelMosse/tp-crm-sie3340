@@ -99,16 +99,16 @@ for (const parte of ['A', 'B']) {
   const deLaParte = GRUPOS.filter(g => g.parte === parte);
   if (!deLaParte.length) continue;
   nParte++;
-  matriz += `\n## 5.${nParte} ${ORIGEN[parte]}\n`;
+  matriz += `\n## 4.${nParte} ${ORIGEN[parte]}\n`;
   const porTipo = [];
   for (const [tipo, titulo] of TIPOS) {
     const grupos = deLaParte.map(g => ({ ...g, criterios: g.criterios.filter(c => c.tipo === tipo) }))
       .filter(g => g.criterios.length);
     if (!grupos.length) continue;
     porTipo.push([titulo, grupos.flatMap(g => g.criterios)]);
-    // Técnicos y operativos van en una sola tabla: cada tipo abre su franja con el rótulo del grupo
+    // Los no funcionales van en una sola tabla: técnicos y operativos abren cada uno su franja
     if (tipo === 'funcional') matriz += `\n### ${titulo}\n`;
-    else if (tipo === 'tecnica' || !porTipo.some(([t]) => t === 'Técnicos')) matriz += `\n### Técnicos y operativos\n`;
+    else if (tipo === 'tecnica' || !porTipo.some(([t]) => t === 'Técnicos')) matriz += `\n### No funcionales\n`;
     for (const g of grupos) {
       // Un grupo que reparte sus criterios entre tipos lleva el tipo en el título
       const parcial = g.criterios.length < GRUPOS.find(x => x.id === g.id).criterios.length;
@@ -178,16 +178,6 @@ resultado += `| **Cumplimiento total** | ${PLATAFORMAS.map(([k]) => {
   const o = oferta(k);
   return o === null ? '—' : `**${pct(o)}**`;
 }).join(' | ')} |\n`;
-// La segunda escala: se publica al lado, sin sumarse; acá conviene lo bajo
-const esfuerzo = (k) => {
-  const ds = Object.values(res).map(x => x[k]).filter(d => puntua(d) && d.cumple > 0 && d.costo != null);
-  return ds.length ? ds.reduce((s, d) => s + d.costo, 0) / (MAXIMO * ds.length) * 100 : null;
-};
-resultado += `| Esfuerzo de implementación *(conviene lo bajo)* | ${PLATAFORMAS.map(([k]) => {
-  const e = esfuerzo(k);
-  return e === null ? '—' : pct(e);
-}).join(' | ')} |
-`;
 if (mejoraConPlan) {
   resultado += `| *Comentario: contratando los planes que mejoran algún criterio* | ${PLATAFORMAS.map(([k]) => {
     const o = oferta(k, (d) => conPlanPago(d).cumple);
@@ -221,7 +211,10 @@ function versiones(k) {
     // conPlan guarda el nombre completo; la tabla, sin la plataforma
     const incluye = (p) => incluidos.has(p.plan.replace(new RegExp(`^${PLATAFORMAS.find(x => x[0] === k)[1]} `), ''));
     const valor = (d) => Math.max(d.cumple, ...(d.conPlan ?? []).filter(incluye).map(p => p.cumple));
-    return { ...v, oferta: oferta(k, valor) };
+    // Cada fila se compara contra la versión gratuita: en los planes que acumulan, lista también lo que
+    // ya traían los más baratos
+    const criterios = [...new Set(lista.filter(x => incluidos.has(x.plan)).flatMap(x => x.criterios))];
+    return { ...v, criterios, oferta: oferta(k, valor) };
   });
 }
 
@@ -231,24 +224,22 @@ let pagas = '';
 for (const [k, nom] of PLATAFORMAS) {
   const lista = versiones(k);
   if (!lista.length) continue;
-  pagas += `\n### ${nom}\n\n| Versión | Precio | Criterios que cambia | Cumplimiento total |\n|---|---|---|:---:|\n`;
+  pagas += `\n### ${nom}\n\n| Versión | Precio | Criterios que mejora respecto de la gratuita | Cumplimiento total |\n|---|---|---|:---:|\n`;
   pagas += `| **${VERSION_EVALUADA[k]}** *(evaluada)* | **Gratis** | — | **${pct(oferta(k))}** |\n`;
   for (const v of lista) {
     pagas += `| ${v.plan} | ${v.monto} | ${v.criterios.sort(orden).join(', ')} | *${pct(v.oferta)}* |\n`;
   }
 }
 
-const salidaMatriz = `# 5. Matriz de veredictos
+const salidaMatriz = `# 4. Matriz de veredictos
 
-**● 2 cumple  ◐ 1 cumple con reparo  ○ 0 no cumple${faltan ? '  ◍ no se pudo verificar' : ''}**
+**● 2 cumple  ◐ 1 cumple con reparo  ○ 0 no cumple${faltan ? '  ◍ sin verificar' : ''}  ↑ un plan pago lo mejoraría**
 
-La flecha **↑** marca los criterios que un plan pago o una extensión del fabricante mejorarían. Es un comentario y no cambia el valor: qué plan lo incluye y cuánto cuesta figura al final de esta sección.
-
-Cada grupo cierra con su **subtotal**: puntos obtenidos sobre el máximo posible y su porcentaje.
+**Subtotal: puntos obtenidos / máximo · %**
 ${faltan ? `
 Estado: **${evaluadas - sinVerificar} de ${TOTAL_BASE} evaluaciones completas.**
 ` : ''}${matriz}
-## 5.${nParte + 1} Resultado
+## 4.${nParte + 1} Resultado
 
 ### Recuento de los originales
 ${recuento('A')}
@@ -256,13 +247,10 @@ ${recuento('A')}
 ${recuento('B')}
 ### Cumplimiento total
 ${resultado}
-### Cómo leer estos recuentos
-
-El resultado de cada plataforma es el cumplimiento total de esta sección, que pondera originales y deseables 85/15. El porcentaje de cada parte promedia los de sus grupos (sección 3.6); por eso difiere de los subtotales por tipo de las secciones 5.1 y 5.2, que suman los puntos de todos sus criterios y solo sirven para comparar dentro de cada tipo.
 ${mejoraConPlan ? `
-## 5.${nParte + 2} Lo que agregarían las versiones pagas
+## 4.${nParte + 2} Lo que agregarían las versiones pagas
 
-Las versiones pagas no se operaron: lo que sigue surge de la documentación de cada fabricante. En Twenty y en Bitrix24 cada plan incluye lo de los más baratos; en EspoCRM cada extensión se compra por separado y agrega solo lo suyo.
+Cada tabla compara las versiones pagas de una plataforma con su versión gratuita, la evaluada. Cada fila muestra el precio, todos los criterios que esa versión mejora respecto de la gratuita y el cumplimiento total que alcanzaría la plataforma con ella. En Twenty y en Bitrix24 cada plan incluye todo lo de los más baratos, así que su fila repite los criterios de los planes anteriores. En EspoCRM, en cambio, cada extensión se compra por separado y su fila muestra solo lo que agrega esa extensión. Las versiones pagas no se operaron: lo que sigue surge de la documentación de cada fabricante.
 ${pagas}` : ''}`;
 
 
@@ -282,8 +270,8 @@ for (const g of GRUPOS) {
     if (CIFRAS[c.id]) detalle += `\n${CIFRAS[c.id]}\n`;
     for (const [k, nom] of PLATAFORMAS) {
       const d = res[c.id]?.[k];
-      if (!d) { detalle += `\n**${nom}** — *pendiente de evaluación.*\n`; continue; }
-      if (!puntua(d)) { detalle += `\n**${nom}** — *no se pudo verificar.* ${d.motivo}\n`; continue; }
+      if (!d) { detalle += `\n**${nom}** — *sin verificar.*\n`; continue; }
+      if (!puntua(d)) { detalle += `\n**${nom}** — *sin verificar.* ${d.motivo}\n`; continue; }
       const costo = d.costo !== undefined && d.costo !== null ? ` · costo de implementación **${d.costo}**` : '';
       detalle += `\n**${nom}** · **${d.cumple}** (${ETIQUETA[d.cumple]})${costo}\n\n`;
       if (d.comoLoHace) detalle += `- *Cómo lo hace.* ${d.comoLoHace}\n`;
@@ -333,28 +321,46 @@ for (const nom of [...PLATAFORMAS.map(p => p[1]), 'Varias']) {
 }
 
 mkdirSync(SALIDA, { recursive: true });
-writeFileSync(join(SALIDA, '05-matriz-de-veredictos.md'), salidaMatriz, 'utf8');
+writeFileSync(join(SALIDA, '04-matriz-de-veredictos.md'), salidaMatriz, 'utf8');
 rmSync(join(SALIDA, '06-analisis-por-categoria.md'), { force: true });
-writeFileSync(join(SALIDA, '06-detalle-por-requerimiento.md'),
-  `# 6. Detalle por requerimiento
+// Las cifras de referencia citan sus fuentes como {{dirección}}: llevan el número que esa fuente
+// tiene en la sección 8, en el mismo orden en que el exportador las numera
+const salidaFuentes = `# 8. Fuentes
 
-Cada requerimiento indica qué resuelve para la compañía y, para cada plataforma, el valor obtenido, cómo lo resuelve, las características de esa solución y la justificación del valor. Cuando un plan pago lo cambiaría, se agrega como comentario: no modifica el valor. Las escalas están definidas en la sección 3 y los procedimientos, en la sección 4.
-${detalle}`, 'utf8');
-writeFileSync(join(SALIDA, '09-fuentes.md'), `# 9. Fuentes
-
-## 9.1 Documentación oficial de las plataformas
+## 8.1 Documentación oficial de las plataformas
 
 ${fuentes}
-## 9.2 Marco normativo
+## 8.2 Marco normativo
 
-- Ley 25.326 de Protección de Datos Personales, República Argentina.
+- https://www.argentina.gob.ar/normativa/nacional/39520/texto — Ley 17.418 de Seguros, República Argentina.
+- https://www.argentina.gob.ar/normativa/nacional/238219/texto — Superintendencia de Seguros de la Nación, *Reglamento General de la Actividad Aseguradora* (Resolución SSN 38.708/2014).
+- https://www.argentina.gob.ar/sites/default/files/ssn_reso225_2022.pdf — Superintendencia de Seguros de la Nación, Resolución 225/2022, *Manual Operativo y de Procedimientos para la Tramitación de Consultas y Denuncias*.
+- https://servicios.infoleg.gob.ar/infolegInternet/anexos/60000-64999/64790/texact.htm — Ley 25.326 de Protección de los Datos Personales, República Argentina, texto actualizado en InfoLEG.
+- https://www.argentina.gob.ar/normativa/nacional/decreto-1558-2001-70368/texto — Decreto 1558/2001, reglamentario de la Ley 25.326.
+- https://www.argentina.gob.ar/normativa/nacional/267922/texto — Dirección Nacional de Protección de Datos Personales, Disposición 60-E/2016, países con protección adecuada y cláusulas contractuales tipo.
+- https://www.boletinoficial.gob.ar/detalleAviso/primera/202373/20190226 — Agencia de Acceso a la Información Pública, Resolución 34/2019, actualización de la lista de países con protección adecuada.
+- https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-47-2018-312662/texto — Agencia de Acceso a la Información Pública, Resolución 47/2018, *Medidas de seguridad recomendadas para el tratamiento y conservación de los datos personales*.
+- https://www.bcra.gob.ar/archivos/Pdfs/Texord/t-rmgcti.pdf — Banco Central de la República Argentina, *Requisitos mínimos para la gestión y control de los riesgos de tecnología y seguridad de la información*, texto ordenado. Rige para entidades financieras; se cita como referencia de buenas prácticas.
 
-## 9.3 Datos del mercado asegurador
+## 8.3 Datos del mercado asegurador
 
 - https://www.argentina.gob.ar/superintendencia-de-seguros/estadisticas/polizas-siniestros-y-primas — Superintendencia de Seguros de la Nación, *Pólizas y Cantidad de Siniestros, 1er trimestre de 2026* (IF-2026-59950848-APN-GEYE#SSN).
 - https://karriere.mckinsey.de/industries/financial-services/our-insights/unlocking-the-potential-of-deeper-customer-agent-insurer-relationships — McKinsey & Company, *Unlocking the potential of deeper customer-agent-insurer relationships*.
 - https://www.muysegura.com/reflexiones-sobre-la-venta-cruzada-de-seguros/ — Isidre Martínez Ivars, *Reflexiones sobre la venta cruzada de seguros*, Muy Segura, 25 de mayo de 2021.
-`, 'utf8');
+`;
+const NUMERO = {};
+for (const m of salidaFuentes.matchAll(/^- (https?:\/\/\S+)/gm)) NUMERO[m[1]] ??= Object.keys(NUMERO).length + 1;
+const citar = (t) => t.replace(/ ?\{\{(https?:\/\/[^}]+)\}\}/g, (_, u) => {
+  if (!NUMERO[u]) throw new Error(`Una cifra de referencia cita una fuente que no está en la sección 8: ${u}`);
+  return ` [${NUMERO[u]}]`;
+});
+
+writeFileSync(join(SALIDA, '05-detalle-por-requerimiento.md'),
+  `# 5. Detalle por requerimiento
+
+Cada requerimiento indica qué resuelve para la compañía y, para cada plataforma, el valor obtenido, cómo lo resuelve, las características de esa solución y la justificación del valor. Cuando un plan pago lo cambiaría, se agrega como comentario: no modifica el valor. Las escalas están definidas en la sección 2 y los procedimientos, en la sección 3.
+${citar(detalle)}`, 'utf8');
+writeFileSync(join(SALIDA, '08-fuentes.md'), salidaFuentes, 'utf8');
 
 console.log(`Matriz, detalle y fuentes generados en ${SALIDA}`);
 console.log(`  ${evaluadas - sinVerificar} evaluaciones completas de ${TOTAL_BASE} posibles · ${porUrl.size} fuentes`);

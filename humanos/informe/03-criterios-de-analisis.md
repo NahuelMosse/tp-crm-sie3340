@@ -1,32 +1,26 @@
-# 4. Criterios de análisis
+# 3. Criterios de análisis
 
 Cada criterio se enuncia como una capacidad y se comprueba con un procedimiento concreto, idéntico en las tres plataformas.
 
-## 4.1 De dónde provienen
+## 3.1 De dónde provienen
 
 Los criterios tienen cuatro orígenes, y el origen determina su peso en el resultado.
 
-El primero es lo solicitado: veinte requerimientos relevados, en lenguaje de negocio, que describen qué debe hacer el sistema. Entran todos.
+El primero es lo solicitado: veinte requerimientos, en lenguaje de negocio, que describen qué debe hacer el sistema.
 
-El segundo es el marco técnico de evaluación de software. Son trece criterios que describen cómo debe comportarse una herramienta, cualquiera sea su función: restricciones tecnológicas, instalación, navegabilidad, usabilidad, concurrencia, parametrización, intercambio de datos, seguridad, explotación de la información, reportes, interfaces, integración y soporte. Se incorporan completos y se leen desde el rubro asegurador.
+El segundo son los aspectos técnicos y operativos que se evalúan en cualquier software, sea cual sea su función: la instalación y lo que exige, la navegación y el uso, el trabajo de varios usuarios a la vez, la parametrización, el intercambio de datos, la seguridad, los informes, la integración con otros sistemas y el soporte. Se aplican leídos desde el negocio asegurador.
 
 El tercero es el negocio asegurador. Reúne condiciones que ninguna de las dos fuentes anteriores menciona y que el negocio no puede ignorar. Cada una se incorpora con su fundamento explícito.
 
-El cuarto son capacidades que nadie pidió y que distinguen a las plataformas.
+El cuarto son aspectos destacables de las plataformas que no se solicitaron.
 
-## 4.2 Del requerimiento al criterio verificable
+Con esos orígenes se arman las dos partes. La Parte A reúne lo solicitado y los aspectos técnicos y operativos. Incluye también cuatro condiciones del negocio asegurador, porque sin ellas lo solicitado no se cumple. La prima y la vigencia son datos que la ley de seguros {{https://www.argentina.gob.ar/normativa/nacional/39520/texto}} y la normativa de la Superintendencia {{https://www.argentina.gob.ar/normativa/nacional/238219/texto}} exigen en toda póliza, y sin ellos no se puede hacer el seguimiento de pólizas. La conservación de lo adaptado y la continuidad de las versiones sostienen la parametrización a lo largo del tiempo, como recomiendan las pautas oficiales de seguridad de la información {{https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-47-2018-312662/texto}} {{https://www.bcra.gob.ar/archivos/Pdfs/Texord/t-rmgcti.pdf}}. A esas se suma el registro de reclamos que exige la Superintendencia {{https://www.argentina.gob.ar/sites/default/files/ssn_reso225_2022.pdf}}, dentro de la atención de reclamos que ya se pidió.
 
-Los requerimientos están escritos en lenguaje de negocio y, tal como se enuncian, no se pueden verificar. *"Mejora de la calidad del servicio y la atención al cliente"* no admite comprobación. Por eso se los tradujo a capacidades comprobables con una regla: si un requerimiento admite verificaciones independientes, se divide hasta que cada criterio tenga una sola respuesta posible.
-
-## 4.3 Cómo se evalúa cada criterio
-
-La **Parte A** pesa el 85 % y reúne lo solicitado, el marco técnico y cuatro condiciones del rubro que hacen a la cartera: la prima, la vigencia, la conservación de lo adaptado y la continuidad de las versiones. La **Parte B** pesa el 15 % y reúne las condiciones del negocio y las capacidades por encima de lo pedido (sección 3.6).
-
-Cinco criterios necesitan, además de su procedimiento, una cifra de referencia para valorar lo observado, como cuántos registros son muchos o cuánta espera es tarde. Esas cifras salen del tamaño de la compañía, que atiende alrededor de quinientos clientes. Se fijaron antes de medir y figuran junto al detalle de su criterio.
+La Parte B reúne las demás condiciones del negocio asegurador, como la conservación de los datos, las copias de resguardo o el lugar donde residen. Son riesgos del negocio que lo solicitado no menciona ni implica. Se suman los aspectos destacables de las plataformas que no se solicitaron.
 
 ---
 
-## 4.4 Parte A — Criterios solicitados
+## 3.2 Parte A — Criterios solicitados
 
 ### A.1 Cartera de pólizas
 
@@ -62,7 +56,7 @@ Cinco criterios necesitan, además de su procedimiento, una cifra de referencia 
 | ID | Criterio | Qué resuelve | Procedimiento de verificación |
 |---|---|---|---|
 | A.3.1 | Registro de productores y asignación de cartera | Que cada asegurado tenga un productor responsable y se sepa quién atiende a quién | Crear un usuario productor y asignarle un conjunto de asegurados como responsable |
-| A.3.2 | Bitácora de la actividad con el cliente | Que cualquiera que atienda al cliente sepa qué se habló antes, sin preguntarle de nuevo | Registrar una llamada y una reunión sobre un asegurado, y comprobar que ambas quedan visibles en orden cronológico con su autor |
+| A.3.2 | Historial de la actividad con el cliente | Que cualquiera que atienda al cliente sepa qué se habló antes, sin preguntarle de nuevo | Registrar una llamada y una reunión sobre un asegurado, y comprobar que ambas quedan visibles en orden cronológico con su autor |
 | A.3.3 | Agenda y carga de trabajo del productor | Que el productor organice su día con lo que tiene pendiente a la vista | Ingresar con un usuario productor y comprobar que dispone de una vista de sus pendientes y compromisos |
 | A.3.4 | Proyección de los movimientos comerciales | Anticipar cuánto se va a vender en el período con las oportunidades abiertas | Cargar oportunidades con monto y probabilidad, y comprobar si el sistema calcula un total proyectado por período |
 
@@ -92,6 +86,7 @@ Cinco criterios necesitan, además de su procedimiento, una cifra de referencia 
 | A.5.4 | Base de conocimiento para la atención | Responder igual y bien las consultas frecuentes, sin depender de quién atienda | Crear un artículo con una condición de cobertura y recuperarlo mediante búsqueda |
 | A.5.5 | Tareas asignables con responsable y vencimiento | Repartir el trabajo con plazo y saber quién lo tiene | Crear una tarea, asignarla a otro usuario con fecha de vencimiento y verificarla desde la cuenta de ese usuario |
 | A.5.6 | Aviso al usuario al que se le asigna una tarea | Que el responsable se entere de lo que le toca sin tener que ir a buscarlo | Comprobar si el usuario asignado recibe una notificación sin tener que consultar el listado |
+| A.5.7 | Registro de reclamos con los datos que exige la Superintendencia | Llevar el registro de reclamos que pide la normativa y no dejar ninguno sin respuesta en plazo {{https://www.argentina.gob.ar/sites/default/files/ssn_reso225_2022.pdf}} | Cargar un reclamo y comprobar que recibe un número de orden correlativo y que registra fecha, datos del reclamante, carácter del reclamante, ramo, póliza, motivo y resolución final; después, obtener los reclamos que llevan más de diez días hábiles sin resolver |
 
 ### A.6 Ficha única del asegurado
 
@@ -186,7 +181,7 @@ La venta no termina cuando el cliente dice que sí: hay que emitir la póliza, c
 
 ---
 
-## 4.5 Parte B — Criterios no solicitados
+## 3.3 Parte B — Criterios no solicitados
 
 ### B.1 Capacidades por encima de lo solicitado
 
@@ -205,41 +200,12 @@ La venta no termina cuando el cliente dice que sí: hay que emitir la póliza, c
 
 | ID | Tipo | Criterio | Procedimiento de verificación | Fundamento |
 |---|---|---|---|---|
-| B.2.1 | Operativa | Persistencia de los datos sin uso continuo | Verificar en las condiciones del servicio si existe un plazo de inactividad que afecte la cuenta o los datos | Una póliza permanece vigente años aunque nadie la consulte |
-| B.2.2 | Técnica | Copia propia y completa de la cartera | Obtener una copia de toda la información, incluidos los archivos adjuntos, y comprobar que puede restituirse | La cartera es el activo principal de la compañía |
-| B.2.3 | Técnica | Copia periódica sin intervención manual | Determinar si esa copia puede programarse para repetirse sola, sin que alguien la ejecute cada vez | Una copia que depende de que alguien se acuerde no es un resguardo |
-| B.2.4 | Operativa | Búsqueda y operación con volumen productivo | Cargar la cartera de referencia, buscar un registro por texto y repetir el filtrado por campo: determinar si responde sin espera perceptible, con una demora que el usuario nota y tolera, o de forma impracticable | Una cartera de cinco mil asegurados con dos pólizas y media en promedio y sus reclamos suma veinticinco mil registros |
-| B.2.5 | Operativa | Previsibilidad de los cambios del sistema | Determinar quién decide cuándo se aplica una actualización y con cuánta anticipación se anuncia | Un cambio inesperado durante la operación interrumpe la atención |
-| B.2.6 | Técnica | Conocimiento y decisión sobre dónde residen los datos | Determinar dónde se alojan los datos y en qué medida la compañía puede elegirlo | Los seguros de personas involucran datos sensibles (Ley 25.326) |
-| B.2.7 | Técnica | Continuidad de la atención ante una caída del enlace | Interrumpir la conexión externa y determinar qué parte de la operación diaria sigue siendo posible | La atención no debería detenerse por una falla de conectividad |
-
----
-
-## 4.6 Resumen
-
-Todos los grupos de una parte pesan lo mismo (sección 3.6): dentro de su parte, 8,3 % cada uno en la Parte A y 50 % en la Parte B; sobre el resultado total, 7,1 % y 7,5 %.
-
-| Categoría | Criterios |
-|---|:---:|
-| A.1 Cartera de pólizas | 7 |
-| A.2 Captación y proceso de venta | 6 |
-| A.3 Productores y actividad comercial | 4 |
-| A.4 Marketing, segmentación y reputación | 7 |
-| A.5 Atención al asegurado y reclamos | 6 |
-| A.6 Ficha única del asegurado | 4 |
-| A.7 Intercambio de datos y correo | 5 |
-| A.8 Parametrización del modelo de negocio | 4 |
-| A.9 Control de acceso y trazabilidad | 3 |
-| A.10 Explotación de la información | 5 |
-| A.11 Emisión, cobranza y continuidad de la relación | 5 |
-| A.12 Condiciones técnicas y operativas del producto | 14 |
-| **Subtotal Parte A** | **70** |
-| B.1 Capacidades por encima de lo solicitado | 4 |
-| B.2 Condiciones que impone el negocio asegurador | 7 |
-| **Subtotal Parte B** | **11** |
-| **Total** | **81** |
-
-
-Ningún criterio repite el procedimiento de otro, porque evaluar dos veces lo mismo le daría a esa capacidad un peso que nadie decidió. La única excepción es la póliza como entidad propia (A.1.1), que se evalúa aparte de la creación de entidades (A.8.1) porque es el objeto central del negocio y lo solicitado la nombra.
-
-Cuando un procedimiento abarca dos objetos y el sistema resuelve solo uno, el criterio puntúa 1.
+| B.2.1 | Operativa | Persistencia de los datos sin uso continuo | Verificar en las condiciones del servicio si existe un plazo de inactividad que afecte la cuenta o los datos | La normativa de la Superintendencia exige conservar los registros de la actividad, sin alterarlos, por al menos diez años {{https://www.argentina.gob.ar/normativa/nacional/238219/texto}} |
+| B.2.2 | Técnica | Copia propia y completa de la cartera | Obtener una copia de toda la información, incluidos los archivos adjuntos, y comprobar que puede restituirse | La compañía tiene que poder respaldar y recuperar sus datos por sí misma, como piden las medidas de seguridad recomendadas por la autoridad de protección de datos {{https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-47-2018-312662/texto}} |
+| B.2.3 | Técnica | Copia periódica sin intervención manual | Determinar si esa copia puede programarse para repetirse sola, sin que alguien la ejecute cada vez | El respaldo necesita una periodicidad definida y pruebas de recuperación; que se ejecute solo evita depender de que alguien lo haga {{https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-47-2018-312662/texto}} |
+| B.2.4 | Operativa | Búsqueda y operación con volumen productivo | Cargar la cartera de referencia, buscar un registro por texto y repetir el filtrado por campo: determinar si responde sin espera perceptible, con una demora que el usuario nota y tolera, o de forma impracticable | La cartera de prueba suma veinticinco mil registros, unas quince veces la de una compañía promedio, como margen para el crecimiento |
+| B.2.5 | Operativa | Previsibilidad de los cambios del sistema | Determinar quién decide cuándo se aplica una actualización y con cuánta anticipación se anuncia | Los cambios en producción tienen que poder planificarse y comunicarse antes de aplicarse, como recomiendan las pautas oficiales de seguridad de la información {{https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-47-2018-312662/texto}} {{https://www.bcra.gob.ar/archivos/Pdfs/Texord/t-rmgcti.pdf}} |
+| B.2.6 | Técnica | Alojamiento de los datos en un país con protección adecuada | Determinar en qué país quedan los datos de la compañía y si ese país tiene protección adecuada según la autoridad argentina, o si el fabricante ofrece las cláusulas contractuales aprobadas para transferirlos | La Ley 25.326 prohíbe transferir datos personales a países sin protección adecuada, y los datos de salud de los seguros de personas son datos sensibles {{https://servicios.infoleg.gob.ar/infolegInternet/anexos/60000-64999/64790/texact.htm}} {{https://www.argentina.gob.ar/normativa/nacional/267922/texto}} {{https://www.boletinoficial.gob.ar/detalleAviso/primera/202373/20190226}} |
+| B.2.7 | Técnica | Continuidad de la atención ante una caída del enlace | Interrumpir la conexión externa y determinar qué parte de la operación diaria sigue siendo posible | Las pautas oficiales de continuidad piden poder seguir operando mientras se restablece un servicio caído {{https://www.bcra.gob.ar/archivos/Pdfs/Texord/t-rmgcti.pdf}} |
+| B.2.8 | Operativa | Atención de los derechos del titular de los datos | Sobre un asegurado con póliza, obtener de una vez todos sus datos, corregir uno y suprimir o bloquear la ficha, y comprobar qué constancia queda de cada pedido | La Ley 25.326 da al titular derecho de acceso, rectificación y supresión de sus datos, con plazos de respuesta {{https://servicios.infoleg.gob.ar/infolegInternet/anexos/60000-64999/64790/texact.htm}} |
+| B.2.9 | Operativa | Baja de las comunicaciones comerciales por medio | Marcar a un asegurado para que no reciba correos comerciales, armar una campaña de correo que lo incluya en su segmento y comprobar que el envío lo excluye | La Ley 25.326 permite al titular pedir en cualquier momento que no se le envíe publicidad, por todos los medios o por uno solo {{https://servicios.infoleg.gob.ar/infolegInternet/anexos/60000-64999/64790/texact.htm}} {{https://www.argentina.gob.ar/normativa/nacional/decreto-1558-2001-70368/texto}} |

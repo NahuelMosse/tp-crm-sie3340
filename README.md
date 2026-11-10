@@ -28,7 +28,7 @@ ai/          ← acá trabaja Claude
 
 `humanos/documentacion/index.html` — se abre con doble click y muestra:
 
-- Índice lateral con los 78 criterios del catálogo, agrupados como en la sección 4, con un punto por plataforma según su valor
+- Índice lateral con los 78 criterios del catálogo, agrupados como en la sección 3, con un punto por plataforma según su valor
 - Cada criterio con su procedimiento y, por plataforma, el valor, la justificación y la medición
 - El **video** de la última ejecución de la prueba, las capturas del sistema y las fuentes del fabricante con su texto textual
 
@@ -42,14 +42,13 @@ Se regenera con `node generar-doc.mjs ../..` desde `ai/automatizacion/`. Lee los
 |---|---|---|
 | `00-portada.md` | Portada e índice | — |
 | `01-objetivo-y-alcance.md` | Objetivo, qué queda fuera, origen de los criterios | ✅ |
-| `02-plataformas.md` | Las tres plataformas evaluadas | ✅ |
-| `03-metodologia-y-trazabilidad.md` | Las dos escalas, la ponderación y cómo se verificó cada punto | ✅ |
-| `04-criterios-de-analisis.md` | El catálogo de criterios con su procedimiento de verificación | ✅ |
-| `05-matriz-de-veredictos.md` | Cada criterio × 3 plataformas | 🔄 generado |
-| `06-detalle-por-requerimiento.md` | Cada criterio: qué resuelve, cómo lo hace, características y justificación | 🔄 generado |
-| `07-analisis.md` | Lectura de la tabla y fortalezas y debilidades de cada plataforma | ✏️ borrador |
-| `08-conclusiones.md` | Conclusión, una carilla como máximo | ✏️ borrador |
-| `09-fuentes.md` | Documentación consultada | 🔄 generado |
+| `02-metodologia-y-trazabilidad.md` | Las dos escalas, la ponderación y cómo se verificó cada punto | ✅ |
+| `03-criterios-de-analisis.md` | El catálogo de criterios con su procedimiento de verificación | ✅ |
+| `04-matriz-de-veredictos.md` | Cada criterio × 3 plataformas | 🔄 generado |
+| `05-detalle-por-requerimiento.md` | Cada criterio: qué resuelve, cómo lo hace, características y justificación | 🔄 generado |
+| `06-analisis.md` | Lectura de la tabla y fortalezas y debilidades de cada plataforma | ✏️ borrador |
+| `07-conclusiones.md` | Conclusión, una carilla como máximo | ✏️ borrador |
+| `08-fuentes.md` | Documentación consultada | 🔄 generado |
 
 > Las dos marcadas 🔄 las produce `ai/automatizacion/generar-matriz.mjs` desde los resultados de las pruebas. Editarlas a mano se pierde en la próxima corrida.
 
@@ -75,7 +74,7 @@ docker compose up -d                          # EspoCRM y su base
 npx playwright test --project=espocrm         # evalúa los criterios sobre una plataforma
 $env:NARRAR="1"; npx playwright test          # video didáctico con carteles
 node verificar-resultados.mjs                 # controla los veredictos y muestra el avance
-node generar-matriz.mjs ../..                 # secciones 5, 6 y 9 del informe
+node generar-matriz.mjs ../..                 # secciones 5, 5 y 8 del informe
 node generar-trazabilidad.mjs ../..           # de dónde salió cada criterio
 node generar-doc.mjs ../..                    # rearma la documentación HTML
 python exportar-informe.py ../..             # arma el entregable en humanos/entregas/
@@ -83,7 +82,7 @@ python exportar-informe.py ../..             # arma el entregable en humanos/ent
 
 Un archivo de prueba por grupo de criterios, en `tests/criterios/`. Cada veredicto
 queda en `resultados/` con su justificación y su respaldo —captura del sistema o cita
-textual del fabricante—, y de ahí salen las secciones 5 y 6: ningún número del informe
+textual del fabricante—, y de ahí salen las secciones 4 y 5: ningún número del informe
 se escribe a mano.
 
 Lo consultable si les sirve:
@@ -162,7 +161,7 @@ python exportar-informe.py ../..
 
 Arma el informe con el formato de los informes de análisis del equipo: carátula, índice con
 páginas, resumen ejecutivo, tablas con encabezado oscuro, la matriz con un rótulo por grupo y
-las fuentes numeradas, a las que remiten las citas de la sección 6. Word rellena el índice y
+las fuentes numeradas, a las que remiten las citas de la sección 5. Word rellena el índice y
 exporta el PDF a `humanos/entregas/`, que se versiona: es lo que se entrega. El `.docx` queda en
 la raíz y no se versiona.
 

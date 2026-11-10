@@ -2,6 +2,7 @@
   "criterio": "A.10.2",
   "plataforma": "espocrm",
   "cumple": 1,
+  "reparo": "manual",
   "costo": 2,
   "resumen": "Filtra el listado de pólizas por productor y período y lo exporta a XLSX o CSV, pero no suma: el total de primas se arma en una planilla cada vez.",
   "comoLoHace": "El total de primas por productor se arma en la planilla exportada, a mano, cada vez que se pide el informe.",

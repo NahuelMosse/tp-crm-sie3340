@@ -16,9 +16,9 @@ export const CORREO = {
   /** Cómo lo ve EspoCRM, desde su contenedor */
   host: 'host.docker.internal',
   smtp: 8706,
-  imap: 8707,
+  imap: 8703,
   /** Cómo lo ven las pruebas, desde el anfitrión */
-  api: 'http://localhost:8708/api/',
+  api: 'http://localhost:8709/api/',
 };
 
 /** La casilla de atención de la compañía, que se comparte entre usuarios. */

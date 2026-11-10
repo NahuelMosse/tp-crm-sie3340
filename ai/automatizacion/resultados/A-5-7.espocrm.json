@@ -1,0 +1,23 @@
+{
+  "criterio": "A.5.7",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "reparo": "codigo",
+  "costo": 2,
+  "resumen": "El caso trae número correlativo, fecha, reclamante, póliza y estado, y los demás datos se agregan como campos; listar los vencidos a diez días hábiles exige escribir código en la fórmula.",
+  "comoLoHace": "El reclamo se carga como caso: el sistema le asigna un número de orden correlativo y registra cuándo se cargó. Se le agregaron como campos la fecha del reclamo, el carácter del reclamante, el ramo, el motivo y la resolución final, y la relación con la póliza; el reclamante es el contacto vinculado. Una expresión en la fórmula del caso calcula la fecha límite sumando diez días hábiles según el calendario laboral, y el listado filtra los casos con plazo vencido y estado abierto.",
+  "caracteristicas": "Número de orden, fecha de carga, contacto, estado y listado propios del caso; los demás datos exigidos se definen una vez como campos y se ubican en el formulario. El plazo usa el calendario laboral del sistema, que admite cargar feriados, de modo que los días hábiles no se cuentan a mano.",
+  "justificacion": "Registrar los datos exigidos es configuración, pero contar los diez días hábiles exige código en la fórmula del caso, con condiciones y funciones del sistema, de la misma clase que el que se valora como código en A.6.4 y A.8.3.",
+  "evidencia": [
+    "A-5-7-espocrm-1-plazo-en-dias-habiles.png",
+    "A-5-7-espocrm-2-alta-del-reclamo.png",
+    "A-5-7-espocrm-3-ficha-con-sus-datos.png",
+    "A-5-7-espocrm-4-reclamos-vencidos-sin-resolver.png"
+  ],
+  "medicion": "Reclamos 18, 19, 20 y 21: correlativos; fecha límite del último 2026-11-18",
+  "criterioNombre": "Registro de reclamos con los datos que exige la Superintendencia",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-11-10T02:14:54.695Z"
+}

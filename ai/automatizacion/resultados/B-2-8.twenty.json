@@ -1,0 +1,22 @@
+{
+  "criterio": "B.2.8",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "resumen": "Exporta, corrige y suprime la ficha, y la corrección queda en el historial; pero la exportación no incluye pólizas ni reclamos y la supresión no deja constancia.",
+  "comoLoHace": "Desde el listado de personas se marca al asegurado y se exporta: el archivo trae sus datos propios. La corrección se hace en la ficha y el historial guarda el valor anterior, el nuevo y quién lo cambió. La supresión se pide desde el listado: la ficha pasa a eliminados y desde ahí se destruye definitivamente. No hay forma de bloquearla en lugar de suprimirla.",
+  "caracteristicas": "La exportación trae los datos del asegurado, no los de sus pólizas y reclamos, que se exportan por separado desde sus propios listados. Al destruir la ficha desaparece también su historial, y las pólizas y reclamos quedan sin titular. No queda ningún registro de que el pedido se atendió.",
+  "justificacion": "Los tres pedidos se pueden atender, pero la compañía tiene que asumir que reunir todos los datos del titular lleva una exportación por cada tipo de registro, y que la constancia de haber respondido en plazo debe llevarla por fuera del sistema.",
+  "evidencia": [
+    "B-2-8-twenty-1-ficha-del-asegurado.png",
+    "B-2-8-twenty-2-menu-con-la-fila-marcada.png",
+    "B-2-8-twenty-3-dato-corregido.png",
+    "B-2-8-twenty-4-ficha-borrada.png",
+    "B-2-8-twenty-6-menu-de-eliminados.png",
+    "B-2-8-twenty-7-destruido.png"
+  ],
+  "criterioNombre": "Atención de los derechos del titular de los datos",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-11-10T04:01:58.098Z"
+}

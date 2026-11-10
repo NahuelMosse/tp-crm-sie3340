@@ -231,11 +231,12 @@ test('A.8.3 — Automatización de procesos', async ({ page, browser }, info) =>
   registrar({
     criterio: 'A.8.3',
     plataforma,
-    cumple: 2,
+    cumple: 1,
+    reparo: 'codigo',
     costo: 2,
     resumen:
-      'Ejecuta una acción automática ante un evento mediante un guion escrito en el sistema, que ' +
-      'exige desarrollo. El motor de flujos del fabricante lo haría desde pantallas.',
+      'Ejecuta una acción automática ante un evento mediante código escrito en el sistema, que ' +
+      'exige desarrollo. La extensión paga Advanced Pack lo hace desde pantallas.',
     comoLoHace:
       'Se define una acción automática sobre un evento: cuando la cobranza de una póliza pasa a vencida, el ' +
       'sistema crea una tarea de gestión a su productor. Al cambiar el estado desde la ficha, la tarea ' +
@@ -245,8 +246,9 @@ test('A.8.3 — Automatización de procesos', async ({ page, browser }, info) =>
       'script con condiciones y funciones del sistema: es desarrollo, aunque sea breve, y lo tiene que ' +
       'mantener alguien que sepa leerlo.',
     justificacion:
-      'El fabricante vende un motor de flujos de trabajo que define la misma regla desde pantallas, sin ' +
-      'escribir código.',
+      'La acción automática solo se consigue escribiendo código: en la edición gratuita no hay forma de ' +
+      'definirla sin programar. El fabricante vende un motor de flujos de trabajo que define la misma regla ' +
+      'desde pantallas.',
     evidencia: [capRegla, capTarea],
     documentacion: fuentes,
     conPlan: [conPlanDe(ESPOCRM_ADVANCED_PACK, {

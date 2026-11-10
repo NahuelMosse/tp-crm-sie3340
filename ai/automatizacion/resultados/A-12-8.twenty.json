@@ -1,18 +1,19 @@
 {
   "criterio": "A.12.8",
   "plataforma": "twenty",
-  "cumple": 2,
-  "resumen": "Varias sesiones editan a la vez la misma póliza y cada una ve en vivo, sin recargar, el cambio de las otras: nadie pisa trabajo ajeno sin verlo.",
-  "comoLoHace": "Varias sesiones pueden abrir a la vez la misma póliza y cambiar su ramo una detrás de otra, desde la ficha.",
-  "caracteristicas": "Quedó el último cambio, Salud.",
-  "justificacion": "Cada sesión ve aparecer el cambio de la anterior en su pantalla, sin recargar, antes de hacer el suyo: el sistema actualiza en vivo lo que otros modifican, así que nadie pisa el trabajo de otro sin verlo.",
+  "cumple": 1,
+  "resumen": "Varias sesiones editan a la vez la misma póliza y ven en vivo los cambios ajenos, pero si dos guardan el mismo campo a la vez gana el último sin aviso.",
+  "comoLoHace": "Varias sesiones pueden abrir a la vez la misma póliza y cambiar su ramo, desde la ficha; las demás sesiones reciben el cambio en la pantalla sin recargar.",
+  "caracteristicas": "Una detrás de otra, las tres sesiones vieron el cambio anterior antes de hacer el suyo y quedó el último, Salud. Con las tres sesiones eligiendo un valor distinto del mismo campo (Automotor, Hogar, Vida) con 729 ms entre el primero y el último guardado, quedó «Automotor» (orden de guardado: Vida, Hogar, Automotor) y ninguna sesión recibió aviso de que otra había modificado el campo.",
+  "justificacion": "La actualización en vivo evita pisar trabajo ajeno cuando la pantalla alcanza a refrescarse, pero no protege el caso en que dos personas guardan el mismo campo con el valor anterior aún en pantalla: el sistema acepta ambos guardados sin advertir y el último reemplaza al otro. La condición se satisface con esa limitación.",
   "evidencia": [
-    "A-12-8-twenty-1-primera-sesion-despues.png"
+    "A-12-8-twenty-1-primera-sesion-despues.png",
+    "A-12-8-twenty-2-edicion-simultanea.png"
   ],
-  "medicion": "Final: Salud · actualización en vivo en las otras sesiones: sí",
+  "medicion": "Secuencial: Salud, actualización en vivo: no · simultáneo (729 ms): Automotor, avisos: ninguno",
   "criterioNombre": "Operación concurrente sobre la misma cartera",
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-10-30T08:09:03.506Z"
+  "momento": "2026-11-10T05:06:58.103Z"
 }

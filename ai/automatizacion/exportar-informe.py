@@ -150,8 +150,8 @@ def enlace(par, texto, size, destino, externo, color=None, negrita=False):
 
 
 # --------------------------------------------------------------- fuentes numeradas
-# Cada fuente de la sección 9 lleva un número en el orden en que se lista; las citas de la
-# sección 6 remiten a ese número, como en una bibliografía.
+# Cada fuente de la sección 8 lleva un número en el orden en que se lista; las citas de la
+# sección 5 remiten a ese número, como en una bibliografía.
 NUMERO_DE_URL = {}
 
 
@@ -160,6 +160,15 @@ def numerar_fuentes(texto):
         m = re.match(r"^- (https?://\S+)", linea)
         if m and m.group(1) not in NUMERO_DE_URL:
             NUMERO_DE_URL[m.group(1)] = len(NUMERO_DE_URL) + 1
+
+
+def citas(texto):
+    """Las citas escritas como {{dirección}} llevan el número que esa fuente tiene en la sección de fuentes."""
+    def numero(m):
+        if m.group(1) not in NUMERO_DE_URL:
+            raise SystemExit("Una cita apunta a una fuente que no está en la sección de fuentes: " + m.group(1))
+        return " [%d]" % NUMERO_DE_URL[m.group(1)]
+    return re.sub(r" ?\{\{(https?://[^}]+)\}\}", numero, texto)
 
 
 def ancla(n):
@@ -363,9 +372,9 @@ def tabla(doc, filas, size=9.5, grupos=None, matriz=False):
     t.alignment = WD_TABLE_ALIGNMENT.CENTER
     if matriz:
         w = [ANCHO_UTIL - 3.0 * (ncol - 1)] + [3.0] * (ncol - 1)
-    elif [c.replace("*", "") for c in filas[0]] == ["Versión", "Precio", "Criterios que cambia", "Cumplimiento total"]:
-        # Las tres tablas de planes de la sección 5.4 comparten columnas
-        w = [4.4, 4.4, 4.4, 2.8]
+    elif [c.replace("*", "") for c in filas[0]] == ["Versión", "Precio", "Criterios que mejora respecto de la gratuita", "Cumplimiento total"]:
+        # Las tres tablas de planes de la sección 4.4 comparten columnas
+        w = [3.0, 3.6, 7.0, 2.4]
     else:
         w = anchos(filas)
     # El encabezado se alinea como su columna: centrado solo sobre columnas de valores
@@ -505,7 +514,7 @@ def render(doc, bs, size=11, matriz=False):
             plataforma = re.match(r"^\*\*(EspoCRM|Twenty|Bitrix24)\*\* [·●◐○◍]", texto)
             par = parrafo(doc, texto, size=size, space_after=3 if plataforma else 6)
             # Cada veredicto breve dice en qué se apoya: la prueba sobre el sistema, la documentación
-            # oficial por su número en la sección 9, o las dos
+            # oficial por su número en la sección 8, o las dos
             if len(b) > 2 and b[2]:
                 respaldo = b[2]
                 numeros = sorted({NUMERO_DE_URL[u] for u in respaldo["fuentes"] if u in NUMERO_DE_URL})
@@ -610,44 +619,9 @@ def tramos(numeros):
 
 
 # Canales de la comunidad que mide A.12.12: sus consultas son el material de un solo criterio
-CANALES = (("forum.espocrm.com", "Foro oficial de EspoCRM"),
-           ("github.com/twentyhq/twenty/discussions", "Discusiones del repositorio oficial de Twenty"),
-           ("dev.1c-bitrix.ru", "Foro oficial de Bitrix24"))
-
-
-def canal(url):
-    return next((nombre for clave, nombre in CANALES if clave in url), None)
-
-
-def fuentes(doc, texto, completa=True):
-    """Sección 9: cada fuente con su número y su enlace. En la entrega, las consultas de un mismo
-    canal de la comunidad se agrupan en una entrada con su rango de números."""
+def fuentes(doc, texto):
+    """Sección de fuentes: cada fuente con su número y su enlace."""
     for b in bloques(texto):
-        if b[0] == "lista" and not completa:
-            items, grupo = [], None
-            for item in b[2]:
-                m = re.match(r"^(https?://\S+)", item)
-                nombre = canal(m.group(1)) if m else None
-                if nombre and grupo and grupo[0] == nombre:
-                    grupo[1].append(m.group(1))
-                    continue
-                grupo = [nombre, [m.group(1)]] if nombre else None
-                items.append(grupo if nombre else item)
-            for it in items:
-                if isinstance(it, list):
-                    nums = [NUMERO_DE_URL[u] for u in it[1] if u in NUMERO_DE_URL]
-                    par = doc.add_paragraph()
-                    par.alignment = WD_ALIGN_PARAGRAPH.LEFT
-                    fmt = par.paragraph_format
-                    fmt.space_after = Pt(2); fmt.line_spacing = 1.0
-                    fmt.left_indent = Cm(1.7); fmt.first_line_indent = Cm(-1.7)
-                    r0 = par.add_run("[%d]–[%d]\t" % (min(nums), max(nums))); r0.bold = True; r0.font.size = Pt(8.5)
-                    runs(par, "%s: las %d consultas medidas en A.12.12." % (it[0], len(nums)), 8.5)
-                    for n in nums:
-                        marcar_destino(par, ancla(n))
-                else:
-                    fuentes(doc, "- " + it, completa=True)
-            continue
         if b[0] == "lista":
             for item in b[2]:
                 par = doc.add_paragraph()
@@ -669,10 +643,10 @@ def fuentes(doc, texto, completa=True):
             render(doc, [b], 10)
 
 
-# La entrega reduce la sección 6 al veredicto breve de cada plataforma.
+# La entrega reduce la sección 5 al veredicto breve de cada plataforma.
 REMISION_DETALLE = (
-    "Cada veredicto cierra con su respaldo: «(prueba)» si se comprobó operando el sistema, "
-    "con video y capturas, y entre corchetes el número de la fuente oficial de la sección 9 si se apoya en documentación.")
+    "Cada veredicto cierra con su respaldo: «(prueba)» si se comprobó usando el sistema, y entre "
+    "corchetes el número de la fuente oficial de la sección 8 si se apoya en documentación.")
 
 SIMBOLO = {2: "●", 1: "◐", 0: "○"}
 PLATAFORMAS = (("espocrm", "EspoCRM"), ("twenty", "Twenty"), ("bitrix24", "Bitrix24"))
@@ -680,16 +654,17 @@ RESULTADOS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "resultado
 
 
 def costo_en_palabras(d):
-    """El costo de implementación dicho como trabajo, no como número."""
-    if d.get("costo") is None or d["cumple"] == 0:
-        return ""
+    """Cuánto trabajo exige dejarlo resuelto, dicho en palabras: en un «cumple», si viene listo o se
+    configura una vez; en un «cumple con reparo», por qué no lo resuelve el sistema solo."""
     if d["cumple"] == 1:
-        return "trabajo en cada uso"
-    return ("viene listo", "se configura una vez", "requiere programar")[d["costo"]]
+        return {"codigo": "exige código", "manual": "exige una tarea manual", "parcial": "resuelve una parte"}.get(d.get("reparo"), "")
+    if d.get("costo") is None or d["cumple"] != 2:
+        return ""
+    return ("viene listo", "se configura una vez")[d["costo"]]
 
 
 def detalle_breve(bs):
-    """La sección 6 de la entrega: por criterio, qué resuelve y, por plataforma, el símbolo, el costo
+    """La sección 5 de la entrega: por criterio, qué resuelve y, por plataforma, el símbolo, el costo
     en palabras, el resumen del veredicto y su respaldo."""
     res = {}
     for f in os.listdir(RESULTADOS):
@@ -710,6 +685,7 @@ def detalle_breve(bs):
             for k, nombre in PLATAFORMAS:
                 d = res.get((criterio, k))
                 if not d:
+                    pendientes.append(("p", f"**{nombre}** ◍ sin verificar."))
                     continue
                 if d.get("puntua") is False:
                     motivo = re.match(r".+?\.(?=\s|$)", d["motivo"]).group(0)
@@ -725,24 +701,19 @@ def detalle_breve(bs):
     return out
 
 
-REMISION_CATALOGO = {
-    "4.4": "Los criterios de la Parte A se presentan con su valor en cada plataforma en la matriz de "
-           "la sección 5, y con lo que resuelve para la compañía en la sección 6.",
-    "4.5": "Los criterios de la Parte B se presentan del mismo modo en las secciones 5 y 6.",
-}
+# En la entrega, la sección 3 no lleva el catálogo: los criterios de cada parte ya figuran con su
+# valor en la matriz y con lo que resuelven en el detalle. Sin esas tablas, las subsecciones quedan
+# vacías, así que la sección corre sin subtítulos.
+PARTES_DEL_CATALOGO = ("3.2", "3.3")
 
 def sin_catalogo(bs):
-    """La sección 4 sin las tablas de criterios: cada parte queda con su remisión a la matriz."""
+    """La sección 3 de la entrega: los orígenes de los criterios y su reparto por grupo, sin subtítulos."""
     out, saltar = [], False
     for b in bs:
         if b[0] == "h" and b[1] == 2:
-            clave = b[2].split(" ")[0]
-            saltar = clave in REMISION_CATALOGO
-            out.append(b)
-            if saltar:
-                out.append(("p", REMISION_CATALOGO[clave]))
+            saltar = b[2].split(" ")[0] in PARTES_DEL_CATALOGO
             continue
-        if not saltar:
+        if not saltar and b[0] != "hr":
             out.append(b)
     return out
 
@@ -755,7 +726,7 @@ def main():
 def generar(completa):
     nombre = NOMBRE + (" - versión completa" if completa else "")
     archivos = sorted(f for f in os.listdir(INFORME) if re.match(r"^\d\d-.*\.md$", f))
-    leer = lambda f: open(os.path.join(INFORME, f), encoding="utf-8").read()
+    leer = lambda f: citas(open(os.path.join(INFORME, f), encoding="utf-8").read())
     portada = next(f for f in archivos if "portada" in f)
     resumen = next((f for f in archivos if "resumen" in f), None)
     cuerpo = [f for f in archivos if f not in (portada, resumen)]
@@ -786,18 +757,18 @@ def generar(completa):
         if "fuentes" in f:
             bs = bloques(texto)
             render(doc, bs[:1])
-            fuentes(doc, "\n".join(texto.splitlines()[1:]), completa)
-        elif f.startswith("06-") and completa:
+            fuentes(doc, "\n".join(texto.splitlines()[1:]))
+        elif f.startswith("05-") and completa:
             render(doc, bloques(texto), 10)
-        elif f.startswith("06-"):
+        elif f.startswith("05-"):
             bs = bloques(texto)
             render(doc, bs[:1])
             parrafo(doc, REMISION_DETALLE)
             render(doc, detalle_breve(bs[1:]), 10)
-        elif f.startswith("04-") and not completa:
+        elif f.startswith("03-") and not completa:
             render(doc, sin_catalogo(bloques(texto)), 11)
         else:
-            render(doc, bloques(texto), 11, matriz=f.startswith("05-"))
+            render(doc, bloques(texto), 11, matriz=f.startswith("04-"))
 
     os.makedirs(ENTREGAS, exist_ok=True)
     docx = os.path.join(RAIZ, nombre + ".docx")

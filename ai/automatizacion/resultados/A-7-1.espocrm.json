@@ -1,12 +1,12 @@
 {
   "criterio": "A.7.1",
   "plataforma": "espocrm",
-  "cumple": 1,
-  "costo": 2,
-  "resumen": "Importa planillas CSV; las guardadas con la codificación de Windows corrompen tildes y eñes, y las columnas se asignan a mano.",
+  "cumple": 2,
+  "costo": 1,
+  "resumen": "Importa la planilla completa, con tildes y eñes intactas, si se guarda en CSV con UTF-8; guardada con la codificación de Windows, las tildes entran alteradas sin aviso.",
   "comoLoHace": "El asistente de importación incorpora la planilla completa, cada columna en su campo y con tildes y eñes intactas, siempre que se guarde en CSV con codificación UTF-8. Si se guarda con la codificación predeterminada de las planillas en Windows, ingresan todas las filas pero las letras acentuadas llegan corrompidas, sin que el sistema lo advierta. En ambos casos el asistente no reconoce los encabezados en español: deja las columnas sin asignar y hay que indicar a mano a qué campo va cada una.",
   "caracteristicas": "El asistente de importación admite archivos de texto separados por comas y la propia pantalla advierte que \"debe ser codificado en UTF-8\".",
-  "justificacion": "La necesidad queda resuelta con un procedimiento que se repite en cada importación: guardar la planilla en el formato que pide el sistema y asignar sus columnas.",
+  "justificacion": "La planilla entra completa y sin pérdida desde la pantalla de importación, que indica que el archivo debe estar en UTF-8. Guardarla en ese formato es un paso de la exportación desde la planilla, y asignar las columnas es parte del asistente.",
   "evidencia": [
     "A-7-1-espocrm-1-pide-utf8.png",
     "A-7-1-espocrm-2-planilla-de-windows.png",

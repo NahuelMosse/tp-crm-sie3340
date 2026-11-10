@@ -159,13 +159,14 @@ test('B.1.3 — Suite de trabajo integrada', async ({ page }, info) => {
   await abrirListado(page, 'dashboards');
   const capTableros = await capturar(page, 'B.1.3', plataforma, '2-tableros');
 
-  const herramientas = ['correo', 'calendario', 'notas', 'tareas', 'archivos', 'tableros', 'flujos de trabajo', 'asistente de IA'];
+  const herramientas = ['correo', 'calendario', 'notas', 'tareas', 'archivos', 'tableros', 'automatizaciones', 'asistente de IA'];
   expect(pestanas.join(' '), 'la ficha debe reunir las herramientas').toMatch(/Emails|Correos/);
 
   registrar({
     criterio: 'B.1.3',
     plataforma,
     cumple: 1,
+    reparo: 'parcial',
     costo: 2,
     resumen:
       `Incluye ${herramientas.slice(0, -1).join(', ')} y ` +
@@ -176,7 +177,7 @@ test('B.1.3 — Suite de trabajo integrada', async ({ page }, info) => {
       'datos.',
     caracteristicas:
       'La ficha del asegurado reúne en pestañas su línea de tiempo, sus tareas, sus notas, sus ' +
-      'archivos, sus correos y sus reuniones, y los tableros y los flujos leen y escriben los mismos ' +
+      'archivos, sus correos y sus reuniones, y los tableros y las automatizaciones leen y escriben los mismos ' +
       'registros.',
     justificacion:
       'Faltan la mensajería instantánea entre usuarios, la edición colaborativa de documentos y la ' +
@@ -216,22 +217,15 @@ test('B.1.4 — Telefonía y videollamada integradas', async ({ page, browser },
   registrar({
     criterio: 'B.1.4',
     plataforma,
-    cumple: 1,
-    costo: 2,
-    resumen:
-      'La videollamada se integra creando reuniones en el calendario conectado de Google o ' +
-      'Microsoft, con su enlace; no hay telefonía: las llamadas ocurren afuera y se registran ' +
-      'a mano.',
+    cumple: 0,
+    resumen: 'No trae telefonía ni videollamada propias: la videollamada ocurre en Meet o Teams, a partir de una reunión del calendario conectado, y las llamadas ocurren fuera del sistema.',
     comoLoHace:
       'La videollamada está integrada a medias: desde la ficha de un asegurado se crea una reunión en ' +
       'el calendario conectado de Google o Microsoft, con el enlace de videollamada de ese servicio, y ' +
       'la reunión queda en la línea de tiempo del registro.',
     caracteristicas:
       'La telefonía no está.',
-    justificacion:
-      'El número de una ficha no se marca desde el sistema, las llamadas ocurren ' +
-      'afuera y se registran a mano, o hay que desarrollar la conexión con la central telefónica sobre ' +
-      'la interfaz de programación.',
+    justificacion: 'El procedimiento pide la función dentro del sistema, y la videollamada y la llamada ocurren en herramientas externas. Que la reunión quede en la línea de tiempo con su enlace no la vuelve una función propia, como tampoco en EspoCRM.',
     evidencia: [capAcciones],
     documentacion: fuente,
   });

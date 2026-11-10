@@ -86,10 +86,11 @@ test('A.10.1 — Indicadores sobre la operación', async ({ page, browser }, inf
     criterio: 'A.10.1',
     plataforma,
     cumple: 1,
+    reparo: 'codigo',
     costo: 2,
     resumen:
       'Arma gráficos guardados, como el total de primas por estado de cobranza; no muestra el ' +
-      'tiempo promedio de resolución de reclamos, que exige desarrollar un flujo con código.',
+      'tiempo promedio de resolución de reclamos, que exige desarrollar una automatización con código.',
     comoLoHace:
       'Los tableros vienen de fábrica: se arma un gráfico con el total de primas por estado de ' +
       'cobranza eligiendo el objeto, el campo del eje y la suma de la prima, sin programar, y queda ' +
@@ -165,6 +166,7 @@ test('A.10.2 — Generación de informes definidos por el usuario', async ({ pag
     criterio: 'A.10.2',
     plataforma,
     cumple: 1,
+    reparo: 'manual',
     costo: 2,
     resumen:
       'Arma informes con criterios elegidos, como primas por productor en un período, y los ' +

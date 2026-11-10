@@ -1,5 +1,5 @@
 /**
- * Las reglas de la sección 3 del informe, en un solo lugar.
+ * Las reglas de la sección 2 del informe, en un solo lugar.
  *
  * Las aplican los tests al registrar un veredicto y el verificador sobre los
  * archivos ya escritos. Estar en un único módulo es lo que garantiza que un
@@ -11,14 +11,14 @@ const { criterio: delCatalogo } = require('./catalogo.cjs');
 const fuentes = (d) => (d === undefined || d === null ? [] : Array.isArray(d) ? d : [d]);
 
 /**
- * Comprueba una evaluación contra la sección 3.
+ * Comprueba una evaluación contra la sección 2.
  * Devuelve la lista de incumplimientos; vacía si está bien.
  */
 function reparos(e) {
   const mal = [];
   const cat = delCatalogo(e.criterio);
 
-  if (!cat) mal.push('el criterio no figura en el catálogo de la sección 4');
+  if (!cat) mal.push('el criterio no figura en el catálogo de la sección 3');
 
   // Sin verificar es el único estado sin valor: no se le exige nada más que el motivo.
   if (e.puntua === false) {
@@ -51,6 +51,19 @@ function reparos(e) {
   // Sección 3.3: cuando no lo resuelve, no hay implementación que costear.
   if (e.cumple === 0 && e.costo !== undefined && e.costo !== null) {
     mal.push('con cumple 0 el costo no se puntúa: no hay nada que implementar');
+  }
+
+  // Sección 2.1: un funcional que cumple con reparo dice por qué; ningún otro valor lleva reparo.
+  if (cat?.funcional && e.cumple === 1 && !['codigo', 'manual', 'parcial'].includes(e.reparo)) {
+    mal.push(`con cumple 1, un criterio funcional declara su reparo: codigo, manual o parcial — llegó ${e.reparo}`);
+  }
+  if (e.reparo !== undefined && (e.cumple !== 1 || !cat?.funcional)) {
+    mal.push('el reparo solo corresponde a un criterio funcional que cumple con reparo');
+  }
+
+  // Sección 2.1: escribir código o repetir trabajo en cada uso es cumplir con reparo.
+  if (e.cumple === 2 && e.costo === 2) {
+    mal.push('con cumple 2 el costo es 0 o 1: si exige código o trabajo en cada uso, cumple con reparo');
   }
 
   // Sección 3.3: repetir un procedimiento en cada uso es la forma más cara.

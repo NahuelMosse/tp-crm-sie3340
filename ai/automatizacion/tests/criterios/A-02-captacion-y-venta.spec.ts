@@ -329,10 +329,11 @@ test('A.2.6 — Oportunidades de cambio y ampliación sobre la cartera', async (
     criterio: 'A.2.6',
     plataforma,
     cumple: 1,
+    reparo: 'manual',
     costo: 2,
     resumen:
       'Las pólizas por vencer salen de un listado filtrado; los asegurados con un ramo y sin otro exigen ' +
-      'cruzar dos listados afuera, cada vez. Lo resuelve una extensión.',
+      'cruzar dos listados afuera, cada vez. Lo resuelve la extensión paga Advanced Pack.',
     comoLoHace:
       'El conjunto de los próximos a vencer sale directo: el listado de pólizas filtrado por vencimiento en ' +
       'treinta días muestra cada póliza con su titular. Para obtener a los que tienen automotor y no hogar ' +

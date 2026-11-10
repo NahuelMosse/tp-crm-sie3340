@@ -5,14 +5,16 @@ import { soloEn, capturar } from '../comun';
 import {
   objeto, registros, crearRegistro, borrarRegistro, abrirFicha, abrirListado, modeloDe, elegirEnFicha, clicReal, esperarCarga,
   textoDe, entrarComo, buscarEnTodo, nuevoRegistro, escribirEnFicha, valorEnFicha, fechaHoraEnFicha,
+  nuevoCampo, conOpciones, quitarCampo, fechaEnFicha,
 } from '../../twenty/ui';
 import {
   nuevoFlujo, ponerDisparador, elegirObjeto, agregarPaso, abrirVariables, elegirVariable, botonDelFlujo,
   filtroIgualA, ETIQUETA_OBJETO,
 } from '../../twenty/flujos';
-import { cargarCartera, alistarReclamo, PRODUCTOR, ESTADOS_RECLAMO, campoDeTexto } from '../../twenty/escenario';
+import { cargarCartera, alistarReclamo, relacion, PRODUCTOR, ESTADOS_RECLAMO, campoDeTexto } from '../../twenty/escenario';
 import { recibidos, vaciarCasillas } from '../../correo';
 import { EMAIL, PASS } from '../../twenty/helper';
+import { ASEGURADOS } from '../../datos';
 
 /**
  * A.5 — Atención al asegurado y reclamos, sobre Twenty
@@ -24,6 +26,7 @@ import { EMAIL, PASS } from '../../twenty/helper';
 test.describe.configure({ mode: 'serial' });
 
 const RECLAMO = 'Choque en estacionamiento';
+const ASEGURADO_NOMBRE = ASEGURADOS[0].firstName;
 
 /** El historial de un registro: cuántas entradas registran un cambio del campo. */
 async function cambiosEnHistorial(api: any, objeto: string, id: string, campo: string) {
@@ -78,10 +81,11 @@ test('A.5.1 — Reclamo como caso con identidad propia', async ({ page, browser 
     criterio: 'A.5.1',
     plataforma,
     cumple: 1,
+    reparo: 'manual',
     costo: 2,
     resumen:
-      'El reclamo se define como objeto propio, con estado, plazo, asegurado y responsable; ' +
-      'no tiene número automático, así que se asigna a mano en cada alta.',
+      'El reclamo tiene listado y ficha propios, con estado, plazo, asegurado y responsable, pero no ' +
+      'recibe número automático: quien lo carga tiene que asignarlo a mano en cada alta.',
     comoLoHace:
       'Twenty no trae un objeto de reclamos o casos: se define como objeto propio, con estado, plazo ' +
       'de resolución, asegurado y responsable.',
@@ -396,7 +400,7 @@ test('A.5.6 — Aviso al usuario al que se le asigna una tarea', async ({ page, 
     costo: 1,
     resumen:
       'No avisa por sí mismo al asignar una tarea, porque no tiene centro de notificaciones; ' +
-      'un flujo de trabajo envía al responsable un correo desde la casilla de la compañía.',
+      'una automatización envía al responsable un correo desde la casilla de la compañía.',
     comoLoHace:
       'El aviso se arma con un flujo de trabajo, sin escribir código: cuando a una tarea se le pone ' +
       'responsable, lo busca y le envía un correo desde la casilla de la compañía. Se crea la tarea ' +
@@ -408,5 +412,158 @@ test('A.5.6 — Aviso al usuario al que se le asigna una tarea', async ({ page, 
     justificacion:
       'Armar el flujo es trabajo de una sola vez.',
     evidencia: [capSinAviso, capFlujo, capAsignada],
+  });
+});
+
+// ── A.5.7 ────────────────────────────────────────────────────────────────────
+test('A.5.7 — Registro de reclamos con los datos que exige la Superintendencia', async ({ page, browser }, info) => {
+  // «Cargar un reclamo y comprobar que recibe un número de orden correlativo y que registra fecha,
+  //  datos del reclamante, carácter del reclamante, ramo, póliza, motivo y resolución final;
+  //  después, obtener los reclamos que llevan más de diez días hábiles sin resolver»
+  const plataforma = plataformaDe(info.project.name);
+  soloEn(plataforma, 'twenty');
+  test.setTimeout(1_800_000);
+
+  const PREFIJO = 'A57 ';
+  const hoy = new Date();
+  const hace = (d: number) => new Date(hoy.getTime() - d * 86_400_000);
+  const iso = (f: Date) => f.toLocaleDateString('sv-SE');
+  const dmy = (f: Date) => f.toLocaleDateString('es-AR', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  const sumarHabiles = (f: Date, n: number) => {
+    const d = new Date(f);
+    for (let i = 0; i < n;) { d.setDate(d.getDate() + 1); if (![0, 6].includes(d.getDay())) i++; }
+    return d;
+  };
+
+  await entrar(page, plataforma);
+  const e = await cargarCartera(page, browser);
+  await alistarReclamo(e.api);
+  for (const r of (await registros(e.api, 'reclamos')).filter(r => r.name?.startsWith(PREFIJO))) await borrarRegistro(e.api, 'reclamos', r.id);
+
+  // Los datos que la normativa pide y el reclamo no trae se agregan como campos: configuración de una vez
+  const CAMPOS: [string, string, (p: Page) => Promise<void>][] = [
+    ['Number', 'Número de orden', async () => {}],
+    ['Date', 'Fecha del reclamo', async () => {}],
+    ['Select', 'Carácter del reclamante', conOpciones(['Asegurado', 'Tomador', 'Beneficiario', 'Tercero damnificado'])],
+    ['Select', 'Ramo del reclamo', conOpciones(['Automotor', 'Hogar', 'Vida', 'Salud'])],
+    ['Select', 'Motivo del reclamo', conOpciones(['Demora en el pago de un siniestro', 'Rechazo de cobertura', 'Cobro indebido de prima'])],
+    ['Text', 'Resolución final', async () => {}],
+  ];
+  for (const [tipo, nombre, cfg] of CAMPOS) {
+    if (!process.env.A57_RAPIDO) await quitarCampo(e.api, 'reclamo', nombre);
+    if (!(await objeto(e.api, 'reclamo')).fields.some((c: any) => c.label === nombre)) await nuevoCampo(page, 'reclamos', tipo, nombre, cfg);
+  }
+  await relacion(e.api, 'reclamo', 'poliza', 'Póliza', 'poliza', 'Reclamos');
+  const campos = (await objeto(e.api, 'reclamo')).fields;
+  const nombreDe = (etiqueta: string) => campos.find((c: any) => c.label === etiqueta).name;
+  const valorDe = (etiqueta: string, opcion: string) => campos.find((c: any) => c.label === etiqueta).options.find((o: any) => o.label === opcion).value;
+  const F = { orden: nombreDe('Número de orden'), fecha: nombreDe('Fecha del reclamo'), caracter: nombreDe('Carácter del reclamante'),
+    ramo: nombreDe('Ramo del reclamo'), motivo: nombreDe('Motivo del reclamo'), resolucion: nombreDe('Resolución final') };
+
+  // Reclamos ya cargados: uno vencido sin resolver, uno vencido ya resuelto y uno reciente
+  const asegurado = e.asegurados[0];
+  const sembrar = (nombre: string, dias: number, estado: string, orden: number) => crearRegistro(e.api, 'reclamos', {
+    name: PREFIJO + nombre, [F.orden]: orden, [F.fecha]: iso(hace(dias)), plazoDeResolucion: iso(sumarHabiles(hace(dias), 10)),
+    estado: valorDe('Estado', estado), aseguradoId: asegurado, polizaId: e.polizas[0].id,
+  });
+  await sembrar('vencido sin resolver', 30, 'En curso', 1);
+  await sembrar('vencido resuelto', 30, 'Resuelto', 2);
+  await sembrar('reciente sin resolver', 3, 'Nuevo', 3);
+
+  // El reclamo nuevo, cargado en la pantalla
+  const NUEVO = `${PREFIJO}granizo sobre vehículo asegurado`;
+  const id = await nuevoRegistro(page, 'reclamos', 'Reclamo', NUEVO);
+  const sinNumero = (await registros(e.api, 'reclamos')).find(r => r.id === id)[F.orden];
+  await abrirFicha(page, 'reclamo', id);
+  await escribirEnFicha(page, F.orden, '4');
+  await fechaEnFicha(page, F.fecha, dmy(hace(5)));
+  await elegirEnFicha(page, F.caracter, 'Asegurado');
+  await elegirEnFicha(page, F.ramo, 'Hogar');
+  await elegirEnFicha(page, F.motivo, 'Demora en el pago de un siniestro');
+  await elegirEnFicha(page, 'estado', 'En curso');
+  await fechaEnFicha(page, 'plazoDeResolucion', dmy(sumarHabiles(hace(5), 10)));
+  await clicReal(page, valorEnFicha(page, 'asegurado'));
+  await page.getByPlaceholder(/^Buscar|^Search/).last().pressSequentially(ASEGURADO_NOMBRE, { delay: 60 });
+  await clicReal(page, page.getByText(ASEGURADO_NOMBRE).last());
+  await page.waitForTimeout(1200);
+  await clicReal(page, valorEnFicha(page, 'poliza'));
+  await page.getByPlaceholder(/^Buscar|^Search/).last().pressSequentially('POL-CART-01', { delay: 60 });
+  await clicReal(page, page.getByText('POL-CART-01', { exact: true }).last());
+  await page.waitForTimeout(1200);
+  const capAlta = await capturar(page, 'A.5.7', plataforma, '1-alta-del-reclamo');
+
+  // La resolución final se registra al cerrar el reclamo
+  await elegirEnFicha(page, 'estado', 'Resuelto');
+  await escribirEnFicha(page, F.resolucion, 'Se abonó el siniestro y se informó al asegurado.');
+  const capFicha = await capturar(page, 'A.5.7', plataforma, '2-ficha-con-sus-datos');
+
+  const guardado = (await registros(e.api, 'reclamos')).find(r => r.id === id);
+  console.log('    reclamo guardado', JSON.stringify(guardado));
+  expect(sinNumero, 'el reclamo nuevo no debe recibir número de orden del sistema').toBeFalsy();
+  expect(guardado[F.orden]).toBe(4);
+  expect(guardado[F.fecha]).toContain(iso(hace(5)));
+  expect(guardado.aseguradoId).toBe(asegurado);
+  expect(guardado[F.caracter]).toBe(valorDe('Carácter del reclamante', 'Asegurado'));
+  expect(guardado[F.ramo]).toBe(valorDe('Ramo del reclamo', 'Hogar'));
+  expect(guardado.polizaId).toBe(e.polizas[0].id);
+  expect(guardado[F.motivo]).toBe(valorDe('Motivo del reclamo', 'Demora en el pago de un siniestro'));
+  expect(guardado[F.resolucion]).toContain('Se abonó el siniestro');
+
+  // El número: ningún tipo de campo se numera solo
+  await modeloDe(page, 'reclamos');
+  await clicReal(page, page.getByRole('button', { name: /Nuevo Campo|New Field/ }).first());
+  await esperarCarga(page, 3000);
+  expect(await textoDe(page), 'si hubiera un campo que se numera solo, este veredicto no corresponde')
+    .not.toMatch(/Auto.?number|Autoincrement|Secuencia|Sequence|Numeración/i);
+
+  // Los reclamos con más de diez días hábiles sin resolver: plazo vencido y estado abierto
+  await abrirListado(page, 'reclamos');
+  await clicReal(page, page.getByRole('button', { name: /^Filtro$|^Filter$/ }).first());
+  await clicReal(page, page.getByText('Plazo de resolución', { exact: true }).last());
+  await page.waitForTimeout(1500);
+  await clicReal(page, page.getByText('Es', { exact: true }).filter({ visible: true }).first());
+  await clicReal(page, page.getByText(/^Está en el pasado$|^Is in past$/).filter({ visible: true }).first());
+  await page.waitForTimeout(1500);
+  await page.keyboard.press('Escape');
+  await clicReal(page, page.getByText(/^Agregar filtro$|^Add filter$/).filter({ visible: true }).first());
+  await clicReal(page, page.getByText('Estado', { exact: true }).filter({ visible: true }).last());
+  for (const abierto of ['Nuevo', 'En curso']) {
+    await clicReal(page, page.getByText(abierto, { exact: true }).filter({ visible: true }).last());
+    await page.waitForTimeout(800);
+  }
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(3000);
+  const vencidos = await textoDe(page);
+  const capVencidos = await capturar(page, 'A.5.7', plataforma, '3-reclamos-vencidos-sin-resolver');
+  console.log('    vencidos:', vencidos.replace(/\s+/g, ' ').slice(0, 700));
+
+  expect(vencidos, 'debe traer el reclamo vencido sin resolver').toContain(PREFIJO + 'vencido sin resolver');
+  expect(vencidos, 'no debe traer el vencido ya resuelto').not.toContain(PREFIJO + 'vencido resuelto');
+  expect(vencidos, 'no debe traer el reciente').not.toContain(PREFIJO + 'reciente sin resolver');
+  expect(vencidos, 'no debe traer el reclamo cerrado').not.toContain(NUEVO);
+
+  registrar({
+    criterio: 'A.5.7',
+    plataforma,
+    cumple: 1,
+    reparo: 'manual',
+    costo: 2,
+    resumen:
+      'El reclamo no trae número de orden ni plazo en días hábiles: ambos se cargan a mano en cada alta. ' +
+      'Los demás datos se agregan como campos y el listado filtra los vencidos sin resolver.',
+    comoLoHace:
+      'El reclamo se carga como registro del objeto propio. Se le agregaron como campos el número de ' +
+      'orden, la fecha del reclamo, el carácter del reclamante, el ramo, el motivo y la resolución final, ' +
+      'y la relación con la póliza; el reclamante es el asegurado vinculado. Un reclamo nuevo nace sin número: ' +
+      'quien lo carga lo escribe, y también calcula y escribe el plazo de diez días hábiles. El listado filtra ' +
+      'los reclamos con plazo en el pasado y estado abierto.',
+    caracteristicas:
+      'Los datos exigidos se definen una vez como campos del reclamo y se completan en su ficha. Ningún tipo de ' +
+      'campo se numera solo: el número es un campo numérico común.',
+    justificacion:
+      'Con campos y filtros se registra y se consulta, pero el número correlativo y el vencimiento hábil dependen de ' +
+      'que cada persona los calcule y los escriba en cada reclamo: un error de tipeo rompe la correlatividad. ' +
+      'Resolverlos solos exigiría desarrollar código.',
+    evidencia: [capAlta, capFicha, capVencidos],
   });
 });

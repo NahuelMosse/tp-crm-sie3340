@@ -148,13 +148,11 @@ test('A.7.1 — Importación de contactos desde planilla de cálculo', async ({ 
   registrar({
     criterio: 'A.7.1',
     plataforma,
-    cumple: 1,
-    costo: 2,
-    resumen: corrompe
-      ? 'Importa planillas CSV; las guardadas con la codificación de Windows corrompen tildes y eñes, y ' +
-        'las columnas se asignan a mano.'
-      : 'Importa planillas en CSV con tildes y eñes intactas, en UTF-8 y con la codificación de Windows; ' +
-        'las columnas se asignan a mano.',
+    cumple: 2,
+    costo: 1,
+    resumen:
+      'Importa la planilla completa, con tildes y eñes intactas, si se guarda en CSV con UTF-8; guardada ' +
+      'con la codificación de Windows, las tildes entran alteradas sin aviso.',
     comoLoHace: corrompe
       ? 'El asistente de importación incorpora la planilla completa, cada columna en su campo y con tildes y ' +
         'eñes intactas, siempre que se guarde en CSV con codificación UTF-8. Si se guarda con la codificación ' +
@@ -169,11 +167,10 @@ test('A.7.1 — Importación de contactos desde planilla de cálculo', async ({ 
     caracteristicas:
       'El asistente de importación admite archivos de texto separados por comas y la propia pantalla advierte ' +
       'que "debe ser codificado en UTF-8".',
-    justificacion: corrompe
-      ? 'La necesidad queda resuelta con un procedimiento que se repite en cada importación: guardar la planilla ' +
-        'en el formato que pide el sistema y asignar sus columnas.'
-      : 'La necesidad queda resuelta con un procedimiento que se repite en cada importación: asignar las ' +
-        'columnas de la planilla.',
+    justificacion:
+      'La planilla entra completa y sin pérdida desde la pantalla de importación, que indica que el archivo ' +
+      'debe estar en UTF-8. Guardarla en ese formato es un paso de la exportación desde la planilla, y ' +
+      'asignar las columnas es parte del asistente.',
     evidencia: [capPedido, capWindows, capUtf8],
     documentacion: fuente,
     medicion: `UTF-8: ${deUtf8}/5 intactos · codificación de Windows: ${deWindows}/5 intactos`,
@@ -211,6 +208,7 @@ test('A.7.2 — Importación de contactos desde las agendas de correo', async ({
     criterio: 'A.7.2',
     plataforma,
     cumple: 1,
+    reparo: 'manual',
     costo: 2,
     resumen:
       'No trae contactos desde la agenda de ningún correo: las extensiones para Google y Outlook solo ' +

@@ -1,22 +1,47 @@
 {
   "criterio": "B.2.6",
   "plataforma": "bitrix24",
-  "cumple": 1,
-  "comoLoHace": "El fabricante declara dónde aloja los datos —en la infraestructura de Amazon Web Services, en Virginia o en Fráncfort— y la compañía elige entre esas dos regiones al dar de alta el portal, según el dominio con el que se registra.",
-  "caracteristicas": "La elección es binaria, se fija una sola vez al crear la cuenta y no se puede cambiar después sin migrar a un portal nuevo, así que la compañía conoce dónde están sus datos sensibles pero no controla ese destino en el tiempo, como exige el tratamiento de datos de los seguros de personas.",
-  "justificacion": "La compañía sabe dónde están sus datos y elige entre Virginia y Fráncfort, pero esa elección se fija una sola vez al crear la cuenta y solo se cambia migrando a un portal nuevo: la condición se satisface con esa limitación.",
-  "documentacion": [
+  "cumple": 0,
+  "resumen": "Los datos del portal quedan en Estados Unidos, que la autoridad argentina no reconoce como país adecuado, y la edición gratuita no ofrece mudarlos a la Unión Europea ni las cláusulas aprobadas en Argentina.",
+  "comoLoHace": "El fabricante declara que las cuentas de la zona Bitrix24.es se alojan en Estados Unidos. Ofrece un acuerdo de tratamiento de datos y, para las transferencias fuera de Europa, las cláusulas tipo de la Comisión Europea; no publica las cláusulas contractuales tipo que aprobó la autoridad argentina.",
+  "justificacion": "La disposición de la autoridad argentina reconoce como países adecuados a la Unión Europea y a un grupo de países, y Estados Unidos no figura. Los datos de la compañía, entre ellos los datos de salud de los seguros de personas, quedarían en un país sin protección adecuada y sin las cláusulas aprobadas para transferirlos. El fabricante reserva el traslado a los centros de datos de la Unión Europea a las cuentas comerciales.",
+  "conPlan": [
     {
-      "url": "https://www.bitrix24.com/security/",
-      "cita": "Bitrix24 uses Amazon Web Services to host your data in US (Virginia) or European Union (Frankfurt, Germany). You can purchase on premise editions of Bitrix24 to host it in your country or on your server. AWS also maintains the following certifications: HIPAA, GDPR, ISO 27001, SOC 1/2/3, Directive 95/46/EC and PCI DSS Level 1.",
-      "consultado": "2026-10-30",
-      "captura": "B-2-6-bitrix24-1-dos-regiones.png"
+      "plan": "Bitrix24 Basic",
+      "monto": "US$ 69 por mes, hasta 5 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "justificacion": "Con el plan Basic, el más barato de los comerciales, la compañía puede pedir al soporte del fabricante que traslade sus datos a los centros de datos de la Unión Europea, que la autoridad argentina reconoce como país adecuado."
     }
   ],
-  "criterioNombre": "Conocimiento y decisión sobre dónde residen los datos",
+  "documentacion": [
+    {
+      "url": "https://www.bitrix24.com/gdpr/",
+      "cita": "Bitrix24.com, Bitrix24.co, Bitrix24.in, Bitrix24.es, Bitrix24.in, Bitrix24.id, Bitrix24.jp, Bitrix24.mx, Bitrix24.vn Bitrix24.com.br, and Bitrix24.cn accounts are hosted in the United States subject to EU-U.S. Data Privacy Framework self-certification.Please note that commercial Bitrix24 account users can request their data to be transferred to the EU data centers via helpdesk - https://helpdesk.bitrix24.com/ticket.php. On-premise Bitrix24 editions are also available for purchase.",
+      "consultado": "2026-11-09",
+      "captura": "B-2-6-bitrix24-1-alojamiento-en-estados-unidos.png"
+    },
+    {
+      "url": "https://www.bitrix24.com/privacy/",
+      "cita": "Alaio may process User Personal Data outside European Union area subject to appropriate safeguards under article 46 GDPR (specifically by the standard data protection clauses adopted by the European Commission in accordance with the examination procedure).",
+      "consultado": "2026-11-09",
+      "captura": "B-2-6-bitrix24-2-clausulas-de-la-comision-europea.png"
+    },
+    {
+      "url": "https://www.argentina.gob.ar/normativa/nacional/267922/texto",
+      "cita": "ARTÍCULO 3° — A los fines de la aplicación de la presente disposición se consideran países con legislación adecuada a los siguientes: Estados miembros de la UNIÓN EUROPEA y miembros del espacio económico europeo (EEE), CONFEDERACIÓN SUIZA, GUERNSEY, JERSEY, ISLA DE MAN, ISLAS FEROE, CANADÁ sólo respecto de su sector privado, PRINCIPADO DE ANDORRA, NUEVA ZELANDA, REPÚBLICA ORIENTAL DEL URUGUAY y ESTADO DE ISRAEL sólo respecto de los datos que reciban un tratamiento automatizado.",
+      "consultado": "2026-11-09",
+      "captura": "B-2-6-bitrix24-3-paises-adecuados-segun-argentina.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "Basic desde US$ 69 desde US$ 49 incluye 5 usuarios Empezar Empezar",
+      "consultado": "2026-11-09",
+      "captura": "B-2-6-bitrix24-basic-precio-1.png"
+    }
+  ],
+  "criterioNombre": "Alojamiento de los datos en un país con protección adecuada",
   "licencia": null,
-  "conPlan": [],
   "evidencia": [],
-  "momento": "2026-10-30T08:54:10.525Z",
-  "resumen": "Los datos se alojan en Virginia o en Fráncfort, a elección al crear el portal; cambiar de región exige migrar a un portal nuevo."
+  "momento": "2026-11-10T02:18:05.287Z"
 }

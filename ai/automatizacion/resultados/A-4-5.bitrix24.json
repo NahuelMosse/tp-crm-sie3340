@@ -2,6 +2,7 @@
   "criterio": "A.4.5",
   "plataforma": "bitrix24",
   "cumple": 1,
+  "reparo": "parcial",
   "costo": 2,
   "resumen": "Trae los comentarios de la página de Facebook de la compañía al CRM, pero no sigue menciones en canales públicos ni de la competencia; eso requiere una herramienta externa.",
   "comoLoHace": "Lo más cercano es el conector «Facebook: Comentarios» del centro de contacto, disponible en la edición gratuita, que trae los comentarios de la página propia de la compañía al CRM: cubre lo que se dice en sus propios canales, y solo ahí. El catálogo de aplicaciones tampoco ofrece una de escucha: para «menciones», «social listening» y «brand monitoring» no aparece ninguna.",

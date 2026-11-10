@@ -1,8 +1,8 @@
-<!-- Cifras de referencia de los criterios que las necesitan. generar-matriz.mjs inserta cada bloque en la sección 6, debajo del «qué resuelve» de su criterio. -->
+<!-- Cifras de referencia de los criterios que las necesitan. generar-matriz.mjs inserta cada bloque en la sección 5, debajo del «qué resuelve» de su criterio. -->
 
 ## A.10.5
 
-**Cifra de referencia: 500 operaciones diarias.** Son las altas, los cambios de estado y los cierres de reclamo de una jornada sobre la cartera de la compañía.
+**Cifra de referencia: 500 operaciones diarias.** Son las altas, los cambios de estado y los cierres de reclamo de una jornada sobre la cartera de una compañía promedio.
 
 | 2 | 1 | 0 |
 |---|---|---|
@@ -34,7 +34,7 @@
 
 ## B.2.4
 
-**Cifra de referencia: 25.000 registros.** En los ramos patrimoniales del mercado argentino se paga por año un siniestro cada nueve pólizas vigentes, según la Superintendencia de Seguros de la Nación. Las aseguradoras tienen entre 1,2 y 1,7 pólizas por cliente, según relevamientos de McKinsey & Company y del mercado español. Con unos quinientos clientes, la compañía suma unas setecientas cincuenta pólizas y ochenta reclamos por año: poco más de mil seiscientos registros con cinco años de reclamos. La cartera de referencia es unas quince veces esa cifra, para cubrir el crecimiento: cinco mil asegurados con dos pólizas y media cada uno, más sus reclamos.
+**Cifra de referencia: 25.000 registros.** En los ramos patrimoniales del mercado argentino se paga por año un siniestro cada nueve pólizas vigentes, según la Superintendencia de Seguros de la Nación {{https://www.argentina.gob.ar/superintendencia-de-seguros/estadisticas/polizas-siniestros-y-primas}}. Las aseguradoras tienen entre 1,2 y 1,7 pólizas por cliente, según relevamientos de McKinsey & Company {{https://karriere.mckinsey.de/industries/financial-services/our-insights/unlocking-the-potential-of-deeper-customer-agent-insurer-relationships}} y del mercado español {{https://www.muysegura.com/reflexiones-sobre-la-venta-cruzada-de-seguros/}}. Con unos quinientos clientes, una compañía promedio suma unas setecientas cincuenta pólizas y ochenta reclamos por año: poco más de mil seiscientos registros con cinco años de reclamos. La cartera de referencia es unas quince veces esa cifra, para cubrir el crecimiento: cinco mil asegurados con dos pólizas y media cada uno, más sus reclamos.
 
 | 2 | 1 | 0 |
 |---|---|---|

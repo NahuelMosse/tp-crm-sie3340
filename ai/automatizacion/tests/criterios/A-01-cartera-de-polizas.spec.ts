@@ -353,9 +353,10 @@ test('A.1.5 — Aviso anticipado de vencimiento', async ({ page, browser }, info
     criterio: 'A.1.5',
     plataforma,
     cumple: 1,
+    reparo: 'manual',
     resumen:
       'No emite avisos solos: los vencimientos se consultan en un listado que alguien debe abrir cada día. ' +
-      'El motor de flujos que los emitiría es una extensión.',
+      'Los emite la extensión paga Advanced Pack.',
     comoLoHace:
       'La necesidad se cubre con la consulta del listado —vence en ' +
       'los próximos 30 días, y su equivalente sobre el plazo de los reclamos—, que devuelve exactamente lo que ' +

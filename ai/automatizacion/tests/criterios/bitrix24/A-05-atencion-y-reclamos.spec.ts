@@ -3,7 +3,8 @@ import { registrar } from '../../evaluar';
 import { entrar, plataformaDe } from '../../sesion';
 import { soloEn, capturar } from '../comun';
 import { menuLateral, pestana, panel, cerrarPaneles } from '../../bitrix24/navegar';
-import { rest, textoDe, altaDeNegociacion, guardarFormulario, descartarAvisos, negociaciones, borrarNegociaciones } from '../../bitrix24/ui';
+import { rest, textoDe, altaDeNegociacion, guardarFormulario, descartarAvisos, negociaciones, borrarNegociaciones, campoDeNegociacion, elegirEnLista, escribirEn } from '../../bitrix24/ui';
+import { enDias, isoEnDias, asegurarCampos, abrirListado, agregarCamposAlFiltro, escribirFecha, abrirFiltro, filasDelListado, restaurarFiltro } from '../../bitrix24/negociaciones';
 import {
   altaDeContacto, llenarContacto, guardarContacto, contactos, borrarContactos, abrirContacto, borrarTareas, tareas, crearTareaPara,
 } from '../../bitrix24/actividades';
@@ -79,7 +80,8 @@ test('A.5.1 — Reclamo como caso con identidad propia', async ({ page }, info) 
     criterio: 'A.5.1',
     plataforma,
     cumple: 1,
-    resumen: 'Lleva el reclamo registrado como si fuera una venta, con número, ficha y vínculo con el asegurado, pero comparte listado con pólizas y oportunidades, y se separa a mano en cada consulta.',
+    reparo: 'parcial',
+    resumen: 'El reclamo, registrado como si fuera una venta, tiene número, ficha y vínculo con el asegurado, pero no listado propio: comparte el de pólizas y oportunidades.',
     comoLoHace:
       'El reclamo se lleva entonces como una negociación con el asegurado como cliente: recibe un ' +
       'número propio, abre su propia ficha y queda asociada al contacto.',
@@ -87,9 +89,9 @@ test('A.5.1 — Reclamo como caso con identidad propia', async ({ page }, info) 
       'No tiene listado propio: comparte el de las demás negociaciones —pólizas y oportunidades—, y hay ' +
       'que distinguirlo por el nombre o con un filtro en cada uso.',
     justificacion:
-      'La edición gratuita no permite crear una entidad Reclamo ni vincular tareas al asegurado: «Tareas en ' +
-      'CRM» requiere al menos el plan Basic. El reclamo se lleva igual como una negociación con número y ' +
-      'ficha propios, pero mezclado con pólizas y oportunidades, y hay que separarlo en cada consulta.',
+      'El procedimiento pide número, listado y ficha propios. La edición gratuita no permite crear una entidad ' +
+      'Reclamo ni vincular tareas al asegurado: «Tareas en CRM» requiere al menos el plan Basic. El reclamo se ' +
+      'lleva como una negociación, con número y ficha, pero comparte el listado con las pólizas y las oportunidades.',
     evidencia: [capFormulario, capFicha, capListado, capTarea],
     medicion: `reclamo n.º ${reclamo?.ID}`,
   });
@@ -140,8 +142,9 @@ const cambiosEnLinea = await panel(page).getByText('Etapa cambiada').count();
   registrar({
     criterio: 'A.5.2',
     plataforma,
-    cumple: 1,
-    resumen: 'Conserva en la línea de tiempo cada cambio de etapa con hora y usuario, pero los estados son las etapas del embudo de ventas, compartidas con pólizas y oportunidades.',
+    cumple: 2,
+    costo: 0,
+    resumen: 'Conserva en la línea de tiempo del reclamo cada cambio de etapa, en orden, con la etapa anterior y la nueva, la hora y el usuario.',
     comoLoHace:
       'El reclamo pasa por las etapas del embudo y el sistema conserva la posición de cada una en ' +
       'orden, sin configurar nada.',
@@ -149,9 +152,9 @@ const cambiosEnLinea = await panel(page).getByText('Etapa cambiada').count();
       'Cada cambio de etapa de la negociación —que hace de reclamo— queda anotado en la línea de tiempo de ' +
       'su ficha como «Etapa cambiada», con la etapa anterior y la nueva, la hora y el usuario.',
     justificacion:
-      'El reparo es que los estados no son propios del reclamo: son las etapas del embudo de ventas (En ' +
-      'desarrollo, Crear documentos, Factura…), compartidas con las pólizas y las oportunidades, y la ' +
-      'pestaña «Historial» de la ficha, que concentra el seguimiento, no se abre en la edición gratuita.',
+      'El procedimiento pide que el sistema conserve la secuencia de estados: la línea de tiempo de la ficha ' +
+      'registra las tres transiciones en orden, sin configurar nada. Las etapas son las del embudo, con los ' +
+      'nombres que trae; que el reclamo comparta el listado con las pólizas se evalúa en A.5.1.',
     evidencia: [capLinea],
     medicion: `secuencia: ${transiciones.join(' > ')}`,
   });
@@ -494,5 +497,133 @@ test('A.5.6 — Aviso al usuario al que se le asigna una tarea', async ({ page, 
     });
   } finally {
     await contexto.close();
+  }
+});
+
+// ── A.5.7 ────────────────────────────────────────────────────────────────────
+test('A.5.7 — Registro de reclamos con los datos que exige la Superintendencia', async ({ page }, info) => {
+  // «Cargar un reclamo y comprobar que recibe un número de orden correlativo y que registra fecha, datos del
+  //  reclamante, carácter del reclamante, ramo, póliza, motivo y resolución final; después, obtener los reclamos
+  //  que llevan más de diez días hábiles sin resolver»
+  const plataforma = plataformaDe(info.project.name);
+  soloEn(plataforma, 'bitrix24');
+  test.setTimeout(1_200_000);
+
+  const CAMPOS = [
+    { tipo: 'Lista', nombre: 'Carácter del reclamante', valores: ['Asegurado', 'Tomador', 'Tercero damnificado', 'Beneficiario'] },
+    { tipo: 'Lista', nombre: 'Ramo', valores: ['Automotor', 'Hogar', 'Vida', 'Salud'] },
+    { tipo: 'Cadena', nombre: 'Póliza del reclamo' },
+    { tipo: 'Cadena', nombre: 'Motivo del reclamo' },
+    { tipo: 'Cadena', nombre: 'Resolución final' },
+    { tipo: 'Fecha', nombre: 'Fecha de recepción del reclamo' },
+  ];
+
+  await entrar(page, plataforma);
+  await borrarNegociaciones(page, /^RCL7-/);
+  await borrarContactos(page, /^RCL7-/);
+
+  try {
+    // Los campos del reclamo se agregan una vez, desde el formulario de la negociación
+    await asegurarCampos(page, CAMPOS);
+
+    // El reclamante, como contacto del CRM
+    await altaDeContacto(page);
+    await llenarContacto(page, 'RCL7-Marta', 'Quiroga');
+    await guardarContacto(page);
+    await cerrarPaneles(page);
+
+    // El reclamo, cargado por pantalla, recibido hace dieciséis días corridos
+    const recibido = enDias(-16);
+    await altaDeNegociacion(page);
+    const f = panel(page);
+    await f.locator('input[name="TITLE"]').fill('RCL7-1 Granizo sobre el vehículo');
+    const cliente = f.getByPlaceholder(/Nombre de contacto/).first();
+    await cliente.click();
+    await cliente.pressSequentially('RCL7-', { delay: 60 });
+    await page.waitForTimeout(3000);
+    await f.getByText(/RCL7-Marta/).filter({ visible: true }).first().click();
+    await page.waitForTimeout(1500);
+    await elegirEnLista(page, 'Carácter del reclamante', 'Asegurado');
+    await elegirEnLista(page, 'Ramo', 'Automotor');
+    await escribirEn(page, 'Póliza del reclamo', 'AUT-000123');
+    await escribirEn(page, 'Motivo del reclamo', 'Daños por granizo no reconocidos');
+    await escribirEn(page, 'Resolución final', 'Pendiente');
+    await escribirFecha(page, 'Fecha de recepción del reclamo', recibido);
+    const capFormulario = await capturar(page, 'A.5.7', plataforma, '1-formulario');
+    await guardarFormulario(page);
+    const capFicha = await capturar(page, 'A.5.7', plataforma, '2-ficha');
+    await cerrarPaneles(page);
+
+    // Otros dos reclamos, de preparación: uno reciente y otro viejo pero ya resuelto
+    const [asegurado] = await contactos(page, /^RCL7-/, ['ID', 'NAME', 'LAST_NAME']);
+    const campo = async (e: string) => (await campoDeNegociacion(page, e)).FIELD_NAME as string;
+    const uf = { fecha: await campo('Fecha de recepción del reclamo'), res: await campo('Resolución final'), motivo: await campo('Motivo del reclamo') };
+    const idReciente = await rest<number>(page, 'crm.deal.add', { fields: {
+      TITLE: 'RCL7-2 Robo de accesorios', CONTACT_ID: asegurado.ID, [uf.fecha]: isoEnDias(-2), [uf.motivo]: 'Robo de accesorios', [uf.res]: 'Pendiente' } });
+    const idResuelto = await rest<number>(page, 'crm.deal.add', { fields: {
+      TITLE: 'RCL7-3 Rotura de cristal', CONTACT_ID: asegurado.ID, STAGE_ID: 'WON', [uf.fecha]: isoEnDias(-20), [uf.motivo]: 'Rotura de cristal', [uf.res]: 'Resuelto a favor del asegurado' } });
+    const todos = await negociaciones(page, /^RCL7-/, ['*', 'UF_*']);
+    const r1 = todos.find(n => n.TITLE.startsWith('RCL7-1'))!;
+    const ids = todos.map(n => Number(n.ID)).sort((a, b) => a - b);
+    console.log(`    números de orden: ${ids.join(', ')} (reciente ${idReciente}, resuelto ${idResuelto})`);
+    console.log(`    reclamo 1: fecha de creación ${r1.DATE_CREATE} · contacto ${r1.CONTACT_ID} · ${JSON.stringify(Object.fromEntries(Object.entries(r1).filter(([k]) => k.startsWith('UF_'))))}`);
+
+    // La consulta: reclamos sin resolver con más de diez días hábiles. El filtro no cuenta días hábiles: la
+    // persona calcula la fecha de corte (catorce días corridos) y la escribe como fin de un rango
+    await abrirListado(page);
+    await agregarCamposAlFiltro(page, ['Fecha de recepción del reclamo']);
+    await abrirFiltro(page);
+    const rango = page.locator('.main-ui-filter-wield-with-label').filter({ has: page.locator('.main-ui-control-field-label', { hasText: /^Fecha de recepción del reclamo$/ }) }).first();
+    await rango.locator('.main-ui-control').first().click();
+    await page.waitForTimeout(1000);
+    await page.locator('.main-ui-select-inner-item, .main-ui-popup-item').filter({ hasText: /^\s*Rango de fecha\s*$/ }).filter({ visible: true }).first().click();
+    await page.waitForTimeout(1200);
+    const hasta = rango.locator('input.main-ui-date-input[name$="_to"]');
+    await hasta.click();
+    await hasta.pressSequentially(enDias(-14), { delay: 90 });
+    await page.waitForTimeout(800);
+    // Un clic en el espacio libre del panel cierra el calendario y confirma la fecha escrita
+    await page.locator('.main-ui-filter-field-container-list').first().click({ position: { x: 5, y: 5 }, force: true }).catch(() => {});
+    await page.waitForTimeout(800);
+    await page.locator('button.main-ui-filter-find').filter({ visible: true }).first().click({ force: true });
+    await page.waitForTimeout(4000);
+    const sinResolver = await filasDelListado(page, /^RCL7-\d /);
+    console.log(`    reclamos de más de diez días hábiles sin resolver: ${sinResolver.join(' | ') || 'ninguno'}`);
+    const capConsulta = await capturar(page, 'A.5.7', plataforma, '3-sin-resolver-mas-de-diez-dias');
+
+    expect(sinResolver, 'la consulta debe devolver solo el reclamo viejo y sin resolver').toEqual(['RCL7-1 Granizo sobre el vehículo']);
+    expect(ids.every((n, i) => i === 0 || n > ids[i - 1]), 'los números de orden deben crecer').toBeTruthy();
+    const correlativo = ids.every((n, i) => i === 0 || n === ids[i - 1] + 1);
+    console.log(`    números consecutivos: ${correlativo}`);
+    expect(correlativo, 'se esperaba que los números tuvieran saltos').toBeFalsy();
+    expect(r1.CONTACT_ID, 'el reclamo debe quedar asociado al reclamante').toBe(String(asegurado.ID));
+    registrar({
+      criterio: 'A.5.7',
+      plataforma,
+      cumple: 1,
+      reparo: 'parcial',
+      resumen: 'Registra el reclamo con todos los datos pedidos y lista los que llevan más de diez días sin resolver, pero el número de orden salta y la antigüedad se calcula a mano en días corridos.',
+      comoLoHace:
+        'El reclamo se carga como una negociación con el reclamante como cliente. Los datos que pide la normativa ' +
+        'se agregan una vez como campos propios del formulario: carácter del reclamante (lista), ramo, póliza, ' +
+        'motivo, resolución final y fecha de recepción. La consulta de los pendientes se arma en el filtro del ' +
+        'listado: etapa en progreso y fecha de recepción hasta la fecha de corte.',
+      caracteristicas:
+        `El número de orden es el de la negociación: único y creciente, pero compartido con todas las ventas del portal y con ` +
+        `saltos (${ids.join(', ')}). La póliza es un texto, sin vínculo con la ficha de la póliza. Los reclamos resueltos ` +
+        'quedan fuera de la consulta al cerrar la negociación.',
+      justificacion:
+        'Los datos se registran y se consultan sin escribir código, pero el reclamo no tiene numeración propia: el número ' +
+        'es el de las negociaciones de todo el portal y avanza de a saltos, de modo que no sirve como número de orden ' +
+        'correlativo de reclamos. Además el filtro no cuenta días hábiles: la persona calcula la fecha de corte ' +
+        'cada vez que consulta. Cubre una parte de lo que se necesita.',
+      evidencia: [capFormulario, capFicha, capConsulta],
+      medicion: `números de orden ${ids.join(', ')}; sin resolver con más de 14 días corridos: ${sinResolver.length}`,
+    });
+  } finally {
+    await cerrarPaneles(page).catch(() => {});
+    await restaurarFiltro(page).catch(() => {});
+    await borrarNegociaciones(page, /^RCL7-/);
+    await borrarContactos(page, /^RCL7-/);
   }
 });

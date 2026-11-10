@@ -300,6 +300,7 @@ test('A.9.2 — Autenticación de los usuarios bajo control de la compañía', a
     criterio: 'A.9.2',
     plataforma,
     cumple: 1,
+    reparo: 'parcial',
     resumen: 'Ofrece autenticación de dos factores obligatoria, pero no una política de contraseñas configurable; el inicio de sesión único con el directorio de la compañía exige el plan Enterprise.',
     comoLoHace:
       'La pantalla no ofrece ninguna política de contraseñas configurable —longitud, complejidad, ' +

@@ -2,6 +2,7 @@
   "criterio": "A.2.6",
   "plataforma": "bitrix24",
   "cumple": 1,
+  "reparo": "manual",
   "resumen": "Obtiene las pólizas próximas a vencer filtrando por fecha de fin, pero no puede preguntar qué clientes tienen un ramo y no otro: se comparan a mano dos listas.",
   "comoLoHace": "El conjunto de los próximos a vencer sale directo: el filtro del listado de negociaciones sobre la fecha de fin de vigencia, «próximos 30 días», trae las pólizas que vencen en ese plazo y deja afuera las demás, con su cliente en el listado.",
   "caracteristicas": "El otro conjunto no: el filtro del listado de contactos solo ofrece campos del propio contacto, no las pólizas que tiene, así que «tiene automotor y no hogar» no se puede preguntar.",

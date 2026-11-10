@@ -2,10 +2,11 @@
   "criterio": "A.5.1",
   "plataforma": "bitrix24",
   "cumple": 1,
-  "resumen": "Lleva el reclamo registrado como si fuera una venta, con número, ficha y vínculo con el asegurado, pero comparte listado con pólizas y oportunidades, y se separa a mano en cada consulta.",
+  "reparo": "parcial",
+  "resumen": "El reclamo, registrado como si fuera una venta, tiene número, ficha y vínculo con el asegurado, pero no listado propio: comparte el de pólizas y oportunidades.",
   "comoLoHace": "El reclamo se lleva entonces como una negociación con el asegurado como cliente: recibe un número propio, abre su propia ficha y queda asociada al contacto.",
   "caracteristicas": "No tiene listado propio: comparte el de las demás negociaciones —pólizas y oportunidades—, y hay que distinguirlo por el nombre o con un filtro en cada uso.",
-  "justificacion": "La edición gratuita no permite crear una entidad Reclamo ni vincular tareas al asegurado: «Tareas en CRM» requiere al menos el plan Basic. El reclamo se lleva igual como una negociación con número y ficha propios, pero mezclado con pólizas y oportunidades, y hay que separarlo en cada consulta.",
+  "justificacion": "El procedimiento pide número, listado y ficha propios. La edición gratuita no permite crear una entidad Reclamo ni vincular tareas al asegurado: «Tareas en CRM» requiere al menos el plan Basic. El reclamo se lleva como una negociación, con número y ficha, pero comparte el listado con las pólizas y las oportunidades.",
   "evidencia": [
     "A-5-1-bitrix24-1-formulario.png",
     "A-5-1-bitrix24-2-ficha.png",

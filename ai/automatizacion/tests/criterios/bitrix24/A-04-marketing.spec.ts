@@ -456,6 +456,7 @@ test('A.4.5 — Escucha de menciones en canales públicos', async ({ page, brows
     criterio: 'A.4.5',
     plataforma,
     cumple: 1,
+    reparo: 'parcial',
     costo: 2,
     resumen: 'Trae los comentarios de la página de Facebook de la compañía al CRM, pero no sigue menciones en canales públicos ni de la competencia; eso requiere una herramienta externa.',
     comoLoHace:

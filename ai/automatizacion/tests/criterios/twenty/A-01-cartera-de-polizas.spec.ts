@@ -183,18 +183,17 @@ test('A.1.3 — Prima con importe y moneda', async ({ page, browser }, info) => 
     cumple: 2,
     costo: 1,
     resumen:
-      'Ofrece un campo de importe con moneda y centavos; hay que definirlo con formato ' +
-      'completo y dos decimales, porque el de fábrica guarda el importe multiplicado por ' +
-      'cien.',
+      'Ofrece un campo de importe con moneda; hay que configurarlo una vez con dos decimales, ' +
+      'porque el de fábrica descarta la coma y una prima de 15.250,50 queda como 1.525.050.',
     comoLoHace:
       'Desde Configuración › Modelo de datos se agrega la prima como campo de importe en pesos ' +
       'argentinos: guarda el importe con centavos y su moneda. Para eso el campo se define una vez con ' +
       'formato completo y dos decimales.',
     caracteristicas:
       'El modelo de datos tiene un tipo de campo de importe con moneda. Con la definición de fábrica ' +
-      '—formato corto, sin decimales— el editor descarta el separador decimal y guarda el importe ' +
-      'multiplicado por cien sin avisar, un error que el fabricante tiene registrado; quien define el ' +
-      'campo tiene que saberlo.',
+      '—formato corto, sin decimales— el editor descarta la coma decimal sin avisar: un importe con ' +
+      'centavos como 45.250,75 queda guardado como 4.525.075. Es un error que el fabricante tiene ' +
+      'registrado; quien define el campo tiene que saberlo.',
     justificacion:
       'Definirlo bien es trabajo de una sola vez.',
     evidencia: [capConfiguracion, capFicha],
@@ -419,7 +418,7 @@ test('A.1.5 — Aviso anticipado de vencimiento', async ({ page, browser }, info
     cumple: 2,
     costo: 1,
     resumen:
-      'Avisa solo, con un flujo programado, de las pólizas que vencen en treinta días y de ' +
+      'Avisa solo, con una automatización programada, de las pólizas que vencen en treinta días y de ' +
       'los reclamos cuyo plazo vence en dos, dejando una tarea por cada uno.',
     comoLoHace:
       'Un flujo de trabajo activado avisa sin que nadie intervenga, en cada corrida del programador, ' +

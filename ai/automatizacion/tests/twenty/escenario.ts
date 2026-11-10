@@ -42,7 +42,7 @@ export async function alistarMiembro(
   await clicReal(page, page.getByText(/^Copiar enlace$|^Copy link$/).first());
   const enlace = await page.evaluate(() => navigator.clipboard.readText());
 
-  const contexto = await navegador.newContext({ locale: 'es-AR', viewport: { width: 1440, height: 900 } });
+  const contexto = await navegador.newContext({ locale: 'es-AR', viewport: { width: 1440, height: 900 }, storageState: { cookies: [], origins: [] } });
   const otra = await contexto.newPage();
   try {
     await otra.goto(enlace, { waitUntil: 'domcontentloaded' });
@@ -101,6 +101,13 @@ const opciones = (etiquetas: string[]) => etiquetas.map((label, position) => ({
  * test posterior corre solo, los encuentra igual.
  */
 export async function alistarCamposPoliza(api: APIRequestContext) {
+  if (!(await objeto(api, 'poliza'))) {
+    const r = await api.post('metadata/objects', { data: {
+      nameSingular: 'poliza', namePlural: 'polizas', labelSingular: 'Póliza', labelPlural: 'Pólizas',
+      description: 'Contrato de seguro emitido a un asegurado', icon: 'IconShieldCheck',
+    } });
+    if (!r.ok()) throw new Error(`No se pudo crear el objeto Póliza: ${r.status()} ${await r.text()}`);
+  }
   await campo(api, 'poliza', { name: 'ramo', label: 'Ramo', type: 'SELECT', options: opciones(RAMOS) });
   await campo(api, 'poliza', { name: 'estadoDePago', label: 'Estado de pago', type: 'SELECT', options: opciones(ESTADOS) });
   await campo(api, 'poliza', { name: 'prima', label: 'Prima', type: 'CURRENCY', defaultValue: { amountMicros: null, currencyCode: "'ARS'" } });

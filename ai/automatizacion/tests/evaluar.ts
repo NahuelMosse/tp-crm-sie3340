@@ -91,6 +91,11 @@ export interface Evaluacion {
   plataforma: Plataforma;
   cumple: Cumplimiento;
   /**
+   * Por qué un criterio funcional cumple con reparo: exige código, exige una tarea manual en
+   * cada uso, o resuelve solo una parte. Solo con cumple 1.
+   */
+  reparo?: 'codigo' | 'manual' | 'parcial';
+  /**
    * Costo de implementación. No lo llevan los criterios no funcionales.
    * Con cumple 0 no corresponde; con cumple 1 es siempre 2.
    */

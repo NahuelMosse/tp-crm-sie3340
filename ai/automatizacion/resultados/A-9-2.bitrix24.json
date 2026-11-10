@@ -2,6 +2,7 @@
   "criterio": "A.9.2",
   "plataforma": "bitrix24",
   "cumple": 1,
+  "reparo": "parcial",
   "resumen": "Ofrece autenticación de dos factores obligatoria, pero no una política de contraseñas configurable; el inicio de sesión único con el directorio de la compañía exige el plan Enterprise.",
   "comoLoHace": "La pantalla no ofrece ninguna política de contraseñas configurable —longitud, complejidad, vencimiento—.",
   "caracteristicas": "Los ajustes de seguridad del portal ofrecen la autenticación de dos factores, que el administrador puede volver obligatoria para todos los empleados con un plazo para habilitarla, y una confirmación adicional del inicio de sesión en el dispositivo de confianza.",

@@ -174,12 +174,9 @@ test('A.4.2 — Diseño de campañas sobre un segmento', async ({ page, browser 
   registrar({
     criterio: 'A.4.2',
     plataforma,
-    cumple: 1,
-    costo: 2,
-    resumen:
-      'No trae campañas en la edición evaluada: cada una es un flujo que envía correos ' +
-      'personalizados a los registros marcados, sin programación, baja de destinatarios ni ' +
-      'resultados.',
+    cumple: 2,
+    costo: 1,
+    resumen: 'Arma la campaña con una automatización que envía correos personalizados a los asegurados del segmento guardado, sin programar.',
     comoLoHace:
       'Una campaña se arma con un flujo de trabajo que se lanza sobre los registros marcados y le ' +
       'envía a cada uno un correo desde la casilla comercial, con su nombre en el asunto: se abre el ' +
@@ -187,9 +184,7 @@ test('A.4.2 — Diseño de campañas sobre un segmento', async ({ page, browser 
       'personalizado.',
     caracteristicas:
       'La edición evaluada no trae campañas: el fabricante las tiene en beta y las habilita a pedido.',
-    justificacion:
-      'Funciona, pero cada campaña nueva es un flujo nuevo que alguien tiene que armar, y no hay dónde ' +
-      'programarla, darle de baja a un destinatario ni ver sus resultados.',
+    justificacion: 'El procedimiento pide crear una campaña dirigida a un segmento guardado y personalizar su contenido, y se logra con una automatización configurada una vez. La baja de destinatarios y la medición se evalúan en B.2.9 y A.4.3.',
     evidencia: [capCampana, capEnviada],
     documentacion: await citar(browser, {
       url: 'https://docs.twenty.com/user-guide/email-campaigns/overview',
@@ -240,11 +235,9 @@ test('A.4.3 — Medición de los resultados de la campaña', async ({ page, brow
   registrar({
     criterio: 'A.4.3',
     plataforma,
-    cumple: 1,
-    costo: 2,
-    resumen:
-      'Cada envío queda como una corrida con el resultado de cada paso; no registra aperturas ' +
-      'ni reúne cuántos recibieron o contestaron.',
+    cumple: 2,
+    costo: 1,
+    resumen: 'Registra cada envío como una corrida con el resultado de cada paso, y las respuestas llegan a la ficha del asegurado; no registra aperturas ni reúne los resultados.',
     comoLoHace:
       conRespuesta
         ? 'Las respuestas llegan: la casilla sincronizada trae la respuesta del asegurado a su ficha.'
@@ -254,8 +247,7 @@ test('A.4.3 — Medición de los resultados de la campaña', async ({ page, brow
       'corrida con el resultado de cada paso. ' +
       'Las aperturas no se registran, y nada reúne los resultados de la campaña: cuántos la recibieron, cuántos ' +
       'contestaron.',
-    justificacion:
-      'Saberlo exige revisar las corridas y las fichas, una por una, después de cada envío.',
+    justificacion: 'El procedimiento pide registrar envíos, aperturas o respuestas: registra los envíos y las respuestas, con la automatización configurada una vez.',
     evidencia: [capCorridas, capRespuesta],
     medicion: `${corridas.length} corrida(s) registradas; respuesta en la ficha: ${conRespuesta ? 'sí' : 'no'}`,
   });
@@ -323,9 +315,10 @@ test('A.4.4 — Captación de interesados desde redes sociales', async ({ page, 
     criterio: 'A.4.4',
     plataforma,
     cumple: 1,
+    reparo: 'parcial',
     costo: 2,
     resumen:
-      'No se conecta con redes sociales; un flujo con una dirección de entrada da de alta a la persona con los ' +
+      'No se conecta con redes sociales; una automatización con una dirección de entrada da de alta a la persona con los ' +
       'datos que envíe un intermediario, que la compañía contrata y mantiene.',
     comoLoHace:
       'Lo que sí trae es un disparador de flujos por webhook: un flujo recibe nombre, apellido y ' +

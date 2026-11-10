@@ -1,0 +1,19 @@
+{
+  "criterio": "B.2.9",
+  "plataforma": "espocrm",
+  "cumple": 2,
+  "resumen": "El correo del asegurado se marca como dado de baja desde su ficha y las campañas lo excluyen solas; cada mensaje trae el enlace para que el asegurado se dé de baja.",
+  "comoLoHace": "Se marca el correo del asegurado como dado de baja en su ficha. Al enviar una campaña a una lista que lo incluye, el sistema no le manda el mensaje y sí lo manda al otro asegurado de la lista.",
+  "caracteristicas": "La exclusión rige para todas las campañas y listas. Los mensajes de campaña llevan un enlace de baja que, al usarlo el asegurado, marca su correo como dado de baja sin intervención de nadie.",
+  "justificacion": "Viene de fábrica: no requiere configurar nada para que la baja se respete, que es lo que la ley exige para cualquier medio de publicidad.",
+  "evidencia": [
+    "B-2-9-espocrm-1-asegurado-dado-de-baja.png",
+    "B-2-9-espocrm-2-resultado-de-la-campana.png"
+  ],
+  "medicion": "GreenMail: 1 mensaje al asegurado vigente y 0 al dado de baja; enlace de baja: sí",
+  "criterioNombre": "Baja de las comunicaciones comerciales por medio",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-11-10T03:43:02.858Z"
+}

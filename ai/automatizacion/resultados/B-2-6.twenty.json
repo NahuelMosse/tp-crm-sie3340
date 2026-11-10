@@ -2,27 +2,27 @@
   "criterio": "B.2.6",
   "plataforma": "twenty",
   "cumple": 2,
-  "resumen": "En la instalación propia la compañía decide en qué servidor y país reside la base y dónde van los adjuntos, y asume la seguridad de esos datos.",
-  "comoLoHace": "En la instalación propia la base de datos reside donde la compañía instala el sistema: en su propio servidor o en el proveedor que ella elija, en el país que ella elija, y los adjuntos van al disco del servidor o al almacenamiento que ella configure.",
-  "caracteristicas": "La contracara es que la seguridad de esos datos queda también a su cargo.",
-  "justificacion": "Sabe en todo momento dónde están los datos de sus asegurados y lo decide ella, que es lo que exige el tratamiento de datos sensibles de los seguros de personas.",
+  "resumen": "En la instalación propia los datos quedan en el servidor de la compañía, en el país que ella elija, y el fabricante no los recibe: no hay transferencia al exterior que autorizar.",
+  "comoLoHace": "Con la instalación propia, la base de datos y los archivos residen en el servidor donde la compañía instala el sistema. Si lo aloja en Argentina, los datos no salen del país. El fabricante declara que no recoge ni accede a los datos de una instalación propia.",
+  "caracteristicas": "La compañía elige el país de alojamiento. Si decidiera alojarlo en el exterior, la transferencia sería una decisión suya y no del fabricante.",
+  "justificacion": "No hay un tercero que reciba los datos, así que la compañía puede mantenerlos en un país que le resulte adecuado. La seguridad física y lógica del servidor queda a su cargo.",
   "documentacion": [
     {
-      "url": "https://docs.twenty.com/user-guide/billing/capabilities/pricing-plans",
-      "cita": "Host Twenty on your own infrastructure at no cost:",
-      "consultado": "2026-10-30",
-      "captura": "B-2-6-twenty-1-infraestructura-propia.png"
+      "url": "https://docs.twenty.com/developers/self-host/self-host.md",
+      "cita": "> ## Documentation Index > Fetch the complete documentation index at: https://docs.twenty.com/llms.txt > Use this file to discover all available pages before exploring further. # Self-Host > Deploy and manage Twenty on your own infrastructure. ## Overview Twenty can be self-hosted on your own infrastructure, giving you full control over your data and deployment. ## Why Self-Host? * **Data ownership**: Keep all CRM data on your own servers * **Compliance**: Meet regulatory requirements for data residency * **Customization**: Full access to modify and extend the platform ## Getting Started > [card] > > Docker Compose > Quick setup with Docker > > [Open](https://docs.twenty.com/developers/self-host/capabilities/docker-compose.md) This documentation is built and hosted on [Mintlify](https://mintlify.com), a developer documentation platform.",
+      "consultado": "2026-11-10",
+      "captura": "B-2-6-twenty-1-datos-en-servidores-propios.png"
     },
     {
-      "url": "https://docs.twenty.com/developers/self-host/capabilities/setup",
-      "cita": "Custom endpoint URL. Only for S3-compatible services such as http://minio:9000, or for an AWS VPC interface endpoint. Leave unset for native AWS S3, where the SDK derives the endpoint from the region.",
-      "consultado": "2026-10-30",
-      "captura": "B-2-6-twenty-2-archivos-donde-se-elija.png"
+      "url": "https://twenty.com/legal/privacy",
+      "cita": "2. Customer Data (CRM Data): If you are using Twenty’s cloud-based CRM application, you may input or upload personal information about third parties (such as your customers, leads, or contacts) into our Service. This Customer Data may include names, contact details, communications, transaction histories, and other information relevant to customer relationship management. In these cases, you (or your organization) act as the Data Controller for such Customer Data, and Twenty acts as a Data Processor on your behalf. We process this data solely to provide our CRM services to you and in accordance with your instructions. If you use Twenty in a self-hosted environment, we do not collect or have access to the Customer Data in your self-hosted instance; all such data remains under your control on your own servers. (Note: We may collect limited information from self-hosted deployments, such as workspace or user emails for license verification and optional telemetry, but this does not include your customer records. Telemetry is optional and can be disabled by you at any time)",
+      "consultado": "2026-11-10",
+      "captura": "B-2-6-twenty-2-el-fabricante-no-accede.png"
     }
   ],
-  "criterioNombre": "Conocimiento y decisión sobre dónde residen los datos",
+  "criterioNombre": "Alojamiento de los datos en un país con protección adecuada",
   "licencia": null,
   "conPlan": [],
   "evidencia": [],
-  "momento": "2026-10-30T08:19:01.356Z"
+  "momento": "2026-11-10T03:35:18.079Z"
 }

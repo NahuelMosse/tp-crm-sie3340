@@ -2,6 +2,7 @@
   "criterio": "A.7.2",
   "plataforma": "twenty",
   "cumple": 1,
+  "reparo": "manual",
   "costo": 2,
   "resumen": "Crea personas desde el correo sincronizado, pero no importa la agenda de contactos de ninguna cuenta: hay que exportarla a archivo e importarla cada vez.",
   "comoLoHace": "Lo que ofrece es crear personas a partir del correo sincronizado —cada dirección externa con la que se intercambian mensajes o reuniones pasa a ser un contacto—, que alcanza a quien ya escribió, no a la agenda entera.",

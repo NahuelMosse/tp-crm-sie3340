@@ -268,6 +268,7 @@ test('A.8.2 — Campos calculados sobre datos propios', async ({ page, browser }
       criterio: 'A.8.2',
       plataforma,
       cumple: sigue ? 1 : 2,
+      reparo: (sigue ? 1 : 2) === 1 ? 'parcial' : undefined,
       costo: sigue ? 2 : 1,
       resumen: sigue
         ? 'Calcula el valor derivado con reglas que corren al llegar a una etapa, sin campos calculados: no acompaña los cambios posteriores del dato de partida.'

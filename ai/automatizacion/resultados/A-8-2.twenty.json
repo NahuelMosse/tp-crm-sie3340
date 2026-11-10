@@ -1,12 +1,13 @@
 {
   "criterio": "A.8.2",
   "plataforma": "twenty",
-  "cumple": 2,
+  "cumple": 1,
+  "reparo": "codigo",
   "costo": 2,
-  "resumen": "No tiene campos calculados: el cálculo se arma con un flujo y un paso de código en TypeScript, que exige desarrollo y habilitar la ejecución de funciones.",
+  "resumen": "No tiene campos calculados: el cálculo se arma con una automatización y un paso de código en TypeScript, que exige desarrollo y habilitar la ejecución de funciones.",
   "comoLoHace": "El cálculo se arma con un flujo de trabajo que corre cada vez que se guarda la prima de una póliza, con un paso de código que multiplica la prima mensual por doce y un paso que escribe el resultado en el campo de la prima anual: al cargar la prima desde la ficha, el sistema completa la anual sin intervención.",
   "caracteristicas": "Twenty no tiene campos calculados: ningún tipo de campo deriva su valor de otro. La necesidad queda resuelta desde el sistema, pero exige escribir una función en TypeScript —con la prima guardada en millonésimas— y, en la instalación propia, habilitar la ejecución de funciones, que viene deshabilitada.",
-  "justificacion": "Es desarrollo, breve, que alguien tiene que saber leer y mantener.",
+  "justificacion": "El cálculo solo se consigue con un paso de código dentro del flujo: es desarrollo, breve, que alguien tiene que saber leer y mantener.",
   "evidencia": [
     "A-8-2-twenty-1-tipos-de-campo.png",
     "A-8-2-twenty-2-codigo-del-calculo.png",

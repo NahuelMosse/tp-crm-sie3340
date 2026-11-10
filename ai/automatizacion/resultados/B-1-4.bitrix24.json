@@ -2,6 +2,7 @@
   "criterio": "B.1.4",
   "plataforma": "bitrix24",
   "cumple": 1,
+  "reparo": "parcial",
   "costo": 2,
   "resumen": "Incluye videollamada, pero no telefonía: la línea propia y la numeración son de los planes pagos, o se conecta una central externa por desarrollo.",
   "comoLoHace": "Desde la ficha de una negociación se inicia una reunión con video, sin salir del sistema.",

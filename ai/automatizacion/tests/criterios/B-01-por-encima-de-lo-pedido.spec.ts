@@ -144,6 +144,7 @@ test('B.1.3 — Suite de trabajo integrada', async ({ page }, info) => {
     criterio: 'B.1.3',
     plataforma,
     cumple: 1,
+    reparo: 'parcial',
     costo: 2,
     resumen:
       `Reúne ${herramientas.slice(0, -1).join(', ')} y ${herramientas.at(-1)} sobre los mismos datos del asegurado; no trae mensajería ` +

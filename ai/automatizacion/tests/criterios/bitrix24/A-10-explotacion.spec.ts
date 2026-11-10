@@ -158,6 +158,7 @@ test('A.10.1 — Indicadores sobre la operación', async ({ page, browser }, inf
     criterio: 'A.10.1',
     plataforma,
     cumple: 1,
+    reparo: 'parcial',
     resumen: 'Arma sin programar totales por estado de cobranza, pero solo sobre el importe nativo; no calcula el tiempo promedio de resolución. Los paneles de analítica exigen el plan Standard.',
     comoLoHace:
       'El asistente de informes del CRM, que viene en la edición gratuita, arma sin programar el ' +
@@ -175,12 +176,11 @@ test('A.10.1 — Indicadores sobre la operación', async ({ page, browser }, inf
     medicion: `Primas por estado: ${Object.entries(mostrado).filter(([k]) => ['Al día', 'Vencida', 'En gestión'].includes(k)).map(([k, v]) => `${k} ${v}`).join(' · ')}`,
     conPlan: [conPlanDe(BITRIX24_STANDARD, {
       cumple: 2,
-      costo: 2,
+      costo: 1,
       justificacion:
         'Con el plan Standard se habilita BI Builder, donde cada conjunto de datos de negociaciones trae las fechas de ' +
         'creación y de cierre y admite columnas calculadas con fórmulas, según el fabricante: el tiempo de resolución se ' +
-        'obtiene definiendo esa columna y promediándola. Hay que escribir la fórmula, y por eso el costo es el de ' +
-        'desarrollo.',
+        'obtiene definiendo esa columna y promediándola. Definir la columna es configuración de una vez.',
     })],
   });
 });

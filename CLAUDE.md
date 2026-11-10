@@ -24,14 +24,13 @@ Todo vive acá: informe, automatización, resultados y evidencia. Remoto: `githu
 | `00-portada.md` | Portada |
 | `00-resumen-ejecutivo.md` | Una carilla para quien no lee el resto; va después del índice |
 | `01-objetivo-y-alcance.md` | Objetivo y alcance |
-| `02-plataformas.md` | Las tres plataformas evaluadas |
-| `03-metodologia-y-trazabilidad.md` | Escalas, ponderación y trazabilidad |
-| `04-criterios-de-analisis.md` | El catálogo: cada criterio con qué resuelve y su procedimiento |
-| `05-matriz-de-veredictos.md` | **Generado.** Por tipo, origen y grupo, con subtotales |
-| `06-detalle-por-requerimiento.md` | **Generado.** Qué resuelve, cómo lo hace, características y justificación |
-| `07-analisis.md` | Lectura de la tabla para un lector no técnico, por plataforma |
-| `08-conclusiones.md` | Una carilla como máximo; se corrige empezando por acá |
-| `09-fuentes.md` | **Generado** desde las constancias de los resultados |
+| `02-metodologia-y-trazabilidad.md` | Escalas, ponderación y trazabilidad |
+| `03-criterios-de-analisis.md` | El catálogo: cada criterio con qué resuelve y su procedimiento |
+| `04-matriz-de-veredictos.md` | **Generado.** Por tipo, origen y grupo, con subtotales |
+| `05-detalle-por-requerimiento.md` | **Generado.** Qué resuelve, cómo lo hace, características y justificación |
+| `06-analisis.md` | Lectura de la tabla para un lector no técnico, por plataforma |
+| `07-conclusiones.md` | Una carilla como máximo; se corrige empezando por acá |
+| `08-fuentes.md` | **Generado** desde las constancias de los resultados |
 
 ### Cómo se escribe
 
@@ -44,10 +43,10 @@ Todo vive acá: informe, automatización, resultados y evidencia. Remoto: `githu
 
 ## Las escalas
 
-Dos escalas de tres valores, definidas en la sección 3. **Si cambian, cambian ahí primero**, y después en `evaluar.ts` y `generar-matriz.mjs`.
+Dos escalas de tres valores, definidas en la sección 2. **Si cambian, cambian ahí primero**, y después en `evaluar.ts` y `generar-matriz.mjs`.
 
 **Cumplimiento** — ¿queda resuelta la necesidad? `2` cumple · `1` cumple con reparo · `0` no cumple. No cumplir vale cero para que el resultado recorra de 0 a 100: si el minimo sumara, ninguna plataforma podria quedar en cero.
-Configurar una vez es **2**: lo que distingue al 2 del 1 es si el trabajo extra se hace una vez o en cada uso.
+Configurar una vez desde las pantallas es **2**, aunque sea armando un flujo o una fórmula de planilla. Escribir código —un guion, un paso de código en un flujo— o repetir una tarea manual en cada uso es **1**: ahí lo resuelve alguien, no el sistema.
 
 **Costo de implementación** — ¿cuánto trabajo cuesta dejarlo funcionando? `0` viene listo · `1` configuración · `2` desarrollo o trabajo permanente. **Corre al reves que el cumplimiento**: mide costo, no merito, asi que acá el cero es lo bueno.
 No lo llevan los criterios no funcionales ni los que no cumplen.
@@ -56,7 +55,7 @@ No lo llevan los criterios no funcionales ni los que no cumplen.
 
 **Lo que un plan pago cambiaría se registra en `conPlan` como comentario, y no puntúa.** Lleva el precio del plan y cómo quedaría el valor. Cuando algo no está en la versión evaluada se recorren **todos** los planes hasta el primero que lo resuelve: no es lo mismo resolverlo con el de entrada que necesitar el más caro. Un plan que solo agrega volumen no genera comentario.
 
-**Cuando un procedimiento devuelve un número, el número es evidencia y no el veredicto.** El valor sale de la misma pregunta de la sección 3, anclada en lo que la compañía puede sostener; `humanos/informe/cifras-de-referencia.md` declara la cifra y qué significa cada valor en esos criterios, y `generar-matriz.mjs` la muestra en la sección 6 junto a su criterio. **No inventes cortes numéricos** —"hasta ocho pasos vale 3"—: parecen objetivos, pero alguien eligió el ocho y esa elección decide el resultado sin que nadie pueda discutirla. Es justo lo que la escala de tres valores evita.
+**Cuando un procedimiento devuelve un número, el número es evidencia y no el veredicto.** El valor sale de la misma pregunta de la sección 2, anclada en lo que la compañía puede sostener; `humanos/informe/cifras-de-referencia.md` declara la cifra y qué significa cada valor en esos criterios, y `generar-matriz.mjs` la muestra en la sección 5 junto a su criterio. **No inventes cortes numéricos** —"hasta ocho pasos vale 3"—: parecen objetivos, pero alguien eligió el ocho y esa elección decide el resultado sin que nadie pueda discutirla. Es justo lo que la escala de tres valores evita.
 
 **Ponderación en tres niveles:** el criterio da su nota, el grupo promedia las de sus criterios, y la parte promedia las de sus grupos. **Todos los grupos pesan igual** —el pedido del cliente no jerarquiza sus necesidades y el análisis no las jerarquiza por él— y entre partes rige 85 % / 15 %. Que un grupo tenga más criterios no lo hace pesar más: así el catálogo se puede afinar sin mover ningún resultado.
 
@@ -70,26 +69,26 @@ Desde `ai/automatizacion/`:
 npx playwright test --project=espocrm  # evalúa los criterios sobre una plataforma
 NARRAR=1 npx playwright test           # video didáctico con carteles
 node verificar-resultados.mjs          # control de los veredictos y avance por plataforma
-node generar-matriz.mjs ../..          # secciones 5, 6 y 9 del informe
+node generar-matriz.mjs ../..          # secciones 5, 5 y 8 del informe
 node generar-doc.mjs ../..             # documentación HTML de las pruebas
 python exportar-informe.py ../..       # entregable: .docx con el formato del equipo y PDF por Word
 ```
 
 El video de cada criterio lo conserva `videos.reporter.ts` en `evidencia/videos/`, porque Playwright vacía `test-results/` en cada corrida. **No pases `--reporter` por línea de comandos**: reemplaza los de la configuración y el video no se guarda.
 
-`generar-matriz.mjs` lee `resultados/*.json` —uno por evaluación, escrito por los tests— y produce las secciones 5, 6 y 9. **Sin el argumento `../..` escribe fuera del repositorio.**
+`generar-matriz.mjs` lee `resultados/*.json` —uno por evaluación, escrito por los tests— y produce las secciones 5, 5 y 8. **Sin el argumento `../..` escribe fuera del repositorio.**
 
 Ningún número del informe se escribe a mano. Transcribir la matriz ya produjo cuatro errores de recuento, uno de los cuales sostenía una afirmación falsa sobre qué plataforma cubría menos.
 
-El texto de cada veredicto se escribe **en el test**, junto al código que comprueba el hecho: lo redacta quien vio el resultado. Son tres campos de `registrar()`: `comoLoHace` (el camino concreto en el sistema, o qué ofrece en su lugar), `caracteristicas` (lo que trae la solución; obligatorio si cumple) y `justificacion` (por qué ese valor y ese costo). El «qué resuelve» de cada criterio vive en la columna homónima de la sección 4.
+El texto de cada veredicto se escribe **en el test**, junto al código que comprueba el hecho: lo redacta quien vio el resultado. Son tres campos de `registrar()`: `comoLoHace` (el camino concreto en el sistema, o qué ofrece en su lugar), `caracteristicas` (lo que trae la solución; obligatorio si cumple) y `justificacion` (por qué ese valor y ese costo). El «qué resuelve» de cada criterio vive en la columna homónima de la sección 3.
 
-**El catálogo vive en la sección 4 y en ningún otro lado.** `catalogo.cjs` lo lee de `04-criterios-de-analisis.md` en cada corrida, y de ahí lo toman la matriz, la trazabilidad y el verificador. Agregar o renombrar un criterio se hace en el informe; la automatización lo sigue sola.
+**El catálogo vive en la sección 3 y en ningún otro lado.** `catalogo.cjs` lo lee de `03-criterios-de-analisis.md` en cada corrida, y de ahí lo toman la matriz, la trazabilidad y el verificador. Agregar o renombrar un criterio se hace en el informe; la automatización lo sigue sola.
 
-**Las reglas de la sección 3 viven en `reglas.cjs`**, y las aplican tanto los tests al registrar como `verificar-resultados.mjs` sobre los archivos ya escritos. Un resultado editado a mano pasa por el mismo control.
+**Las reglas de la sección 2 viven en `reglas.cjs`**, y las aplican tanto los tests al registrar como `verificar-resultados.mjs` sobre los archivos ya escritos. Un resultado editado a mano pasa por el mismo control.
 
 ## Cómo se evalúa un criterio
 
-Un archivo por grupo en `tests/criterios/`, con cada criterio como un test que **cita textual el procedimiento de la sección 4**. Las plataformas todavía sin evaluar se saltan con `soloEn(...)`: saltar no escribe resultado, y sin resultado el criterio figura como sin verificar. Twenty tiene sus propios archivos, con los mismos nombres, en `tests/criterios/twenty/`, y sus ayudantes en `tests/twenty/` (`ui.ts`, `flujos.ts`, `tableros.ts`, `escenario.ts`, `aprendizaje.ts`).
+Un archivo por grupo en `tests/criterios/`, con cada criterio como un test que **cita textual el procedimiento de la sección 3**. Las plataformas todavía sin evaluar se saltan con `soloEn(...)`: saltar no escribe resultado, y sin resultado el criterio figura como sin verificar. Twenty tiene sus propios archivos, con los mismos nombres, en `tests/criterios/twenty/`, y sus ayudantes en `tests/twenty/` (`ui.ts`, `flujos.ts`, `tableros.ts`, `escenario.ts`, `aprendizaje.ts`).
 
 ### Toda prueba se hace como la haría una persona
 
@@ -118,9 +117,9 @@ Los tramos en que la prueba no hace nada —la preparación, las esperas al sist
 ## Al evaluar una plataforma
 
 - **Una prueba que falla no prueba que la plataforma falle.** Descartá primero el procedimiento, el instrumento y la configuración propia.
-- **El 0 se respalda igual que el 2**: con la captura de lo que ocurre al intentarlo en la versión evaluada —la función ausente, el aviso de que exige otro plan— o con la constancia del fabricante de que esa versión no la incluye. Lo que no se pudo comprobar queda como no verificado, nunca como 0 ni como 2, salvo que la prueba no pueda completarse por una condición ajena a la plataforma —las credenciales de un servicio que contrata la compañía—: ahí el valor se sostiene en la documentación oficial citada textual y se declara en la sección 3.9.
+- **El 0 se respalda igual que el 2**: con la captura de lo que ocurre al intentarlo en la versión evaluada —la función ausente, el aviso de que exige otro plan— o con la constancia del fabricante de que esa versión no la incluye. Lo que no se pudo comprobar queda como no verificado, nunca como 0 ni como 2, salvo que la prueba no pueda completarse por una condición ajena a la plataforma —las credenciales de un servicio que contrata la compañía—: ahí el valor se sostiene en la documentación oficial citada textual y se declara en la sección 2.5.
 - **El muro de pago se determina completando la operación**, no buscando texto en la página: Bitrix24 tiene un botón fijo "Mejore su plan" en la barra lateral que da falso positivo siempre.
-- La evidencia de las tres plataformas no es simétrica. Las instalables se inspeccionan por dentro; el servicio en la nube se evalúa por su comportamiento. La sección 3 lo reconoce explícitamente.
+- La evidencia de las tres plataformas no es simétrica. Las instalables se inspeccionan por dentro; el servicio en la nube se evalúa por su comportamiento. La sección 2 lo reconoce explícitamente.
 
 ## Entorno
 
@@ -130,7 +129,9 @@ Los tramos en que la prueba no hace nada —la preparación, las esperas al sist
 | Twenty v2.37.4 | http://localhost:8704 | `tp@unimoron.test` / `TpCrm2026!`; productor `pgomez@aseguradora.test` / `Productor1234!` |
 | Bitrix24 Free | https://b24-orshha.bitrix24.es | sesión en `auth-bitrix.json` |
 
-Las dos primeras corren en Docker. Los puertos se piden con `rg_port`; no se hardcodean.
+Las dos primeras corren en Docker: EspoCRM con `ai/automatizacion/docker-compose.yml` y Twenty con su propio compose, fuera del repositorio (`D:\tp-crm\twenty-docker`). Los puertos se piden con `rg_port`; no se hardcodean.
+
+A.7.1 de Twenty arma la planilla `.xlsx` con Python y `openpyxl`: sin ellos esa prueba falla.
 
 **Bitrix24 se elimina a los 50 días sin ingreso**, con los datos adentro. Entrar una vez por mes.
 

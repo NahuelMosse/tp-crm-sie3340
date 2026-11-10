@@ -2,6 +2,7 @@
   "criterio": "A.10.2",
   "plataforma": "twenty",
   "cumple": 1,
+  "reparo": "manual",
   "costo": 2,
   "resumen": "Arma informes con criterios elegidos, como primas por productor en un período, y los guarda; el gráfico no se exporta, solo el listado de pólizas a un archivo.",
   "comoLoHace": "El informe se arma desde un tablero, eligiendo los criterios sin programar: un gráfico con la suma de la prima de las pólizas agrupada por productor, filtrado por las que empezaron su vigencia en un período dado.",

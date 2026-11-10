@@ -1,12 +1,13 @@
 {
   "criterio": "A.11.1",
   "plataforma": "espocrm",
-  "cumple": 2,
+  "cumple": 1,
+  "reparo": "codigo",
   "costo": 2,
-  "resumen": "No emite la póliza al ganar una oportunidad: un guion breve escrito en el sistema la crea con los datos negociados, ligada al asegurado y a la oportunidad.",
+  "resumen": "No emite la póliza al ganar una oportunidad: código escrito en el sistema la crea con los datos negociados, ligada al asegurado y a la oportunidad.",
   "comoLoHace": "Ganar la oportunidad no emite nada por sí solo: el producto trae la conversión del solicitante en asegurado y oportunidad, y de ahí en adelante la póliza se carga aparte. La emisión se resuelve con un guion en la fórmula de la entidad Oportunidad (Administración › Entidades › Oportunidad › Fórmula) que, cuando la etapa pasa a «Cerrada ganada», crea la póliza con el nombre, el importe como prima, la fecha de cierre como inicio de vigencia y el responsable de la oportunidad, y la liga al asegurado y a la oportunidad de origen. Al marcar ganada la oportunidad desde la ficha, la póliza aparece sola en el panel de pólizas de la oportunidad y en la ficha del asegurado.",
   "caracteristicas": "La póliza nace vinculada al asegurado y a la oportunidad que la originó, con la prima tomada del importe negociado y sin volver a escribir ningún dato. El guion corre solo cuando la etapa cambia a ganada: guardar otra vez la oportunidad no emite una segunda póliza. Necesita definir antes la relación entre póliza y oportunidad y ubicarla en las pantallas. El ramo y el número definitivo no figuran en la oportunidad: la póliza nace con el ramo que la lista propone por defecto y con el nombre de la venta como número, hasta que se completen o los traiga el sistema central.",
-  "justificacion": "La necesidad queda resuelta desde el sistema, sin reescribir lo negociado. El costo es 2 porque exige escribir un guion con funciones del sistema —crear un registro, buscar el asegurado relacionado— que alguien tiene que mantener cuando cambie el modelo de la póliza; sin él, marcar ganada una oportunidad no deja ninguna póliza.",
+  "justificacion": "La póliza se emite sola al ganar la oportunidad, pero solo con código escrito en el sistema: el producto no lo resuelve sin programar. Ese código usa funciones del sistema —crear un registro, buscar el asegurado relacionado— y alguien tiene que mantenerlo cuando cambie el modelo de la póliza.",
   "evidencia": [
     "A-11-1-espocrm-1-guion.png",
     "A-11-1-espocrm-2-oportunidad-con-su-poliza.png",

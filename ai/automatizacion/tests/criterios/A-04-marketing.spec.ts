@@ -380,6 +380,7 @@ test('A.4.4 — Captación de interesados desde redes sociales', async ({ page, 
     criterio: 'A.4.4',
     plataforma,
     cumple: 1,
+    reparo: 'manual',
     costo: 2,
     resumen:
       'No se conecta con ninguna red social; trae un formulario web que carga solo a quien lo completa, y ' +

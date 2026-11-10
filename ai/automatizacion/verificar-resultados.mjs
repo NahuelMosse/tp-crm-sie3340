@@ -4,7 +4,7 @@
  *
  *   node verificar-resultados.mjs [--plataforma espocrm]
  *
- * Aplica las reglas de la sección 3 sobre los archivos ya escritos, de modo
+ * Aplica las reglas de la sección 2 sobre los archivos ya escritos, de modo
  * que un resultado editado a mano pase por el mismo control que uno recién
  * generado, e informa qué falta medir en cada plataforma.
  *
@@ -35,7 +35,7 @@ if (SOLO && !PLATAFORMAS.includes(SOLO)) {
 const problemas = [];
 const registros = [];
 
-// ── cada archivo contra la sección 3 ─────────────────────────────────────────
+// ── cada archivo contra la sección 2 ─────────────────────────────────────────
 if (existsSync(RESULTADOS)) {
   for (const f of readdirSync(RESULTADOS).filter(x => x.endsWith('.json')).sort()) {
     let d;
@@ -101,4 +101,4 @@ if (problemas.length) {
   for (const [f, mal] of problemas) console.log(`  ${f}\n    - ${mal.join('\n    - ')}`);
   process.exit(1);
 }
-console.log(`\n${registros.length} resultado(s) registrados, todos conformes con la sección 3.`);
+console.log(`\n${registros.length} resultado(s) registrados, todos conformes con la sección 2.`);

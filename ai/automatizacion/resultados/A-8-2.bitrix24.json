@@ -2,6 +2,7 @@
   "criterio": "A.8.2",
   "plataforma": "bitrix24",
   "cumple": 1,
+  "reparo": "parcial",
   "costo": 2,
   "resumen": "Calcula el valor derivado con reglas que corren al llegar a una etapa, sin campos calculados: no acompaña los cambios posteriores del dato de partida.",
   "comoLoHace": "El cálculo se arma con dos reglas de automatización de la etapa «En progreso»: «Ejecutar operaciones matemáticas» multiplica la prima neta por el factor del recargo y deja el resultado en una variable, y «Modificar elemento» lo escribe en el campo «Prima total». Al pasar una póliza a esa etapa desde su ficha, sin intervención, la prima total queda calculada.",

@@ -1,0 +1,27 @@
+{
+  "criterio": "B.2.9",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "resumen": "La baja se marca con un campo propio y un segmento filtrado la respeta, pero ningún envío la aplica por sí solo: cada campaña debe lanzarse sobre ese segmento.",
+  "comoLoHace": "La ficha no trae dónde registrar la baja: se agrega un campo de verdadero o falso, que viene en verdadero. Para dar de baja a un asegurado se pasa a falso en su ficha. El segmento de la campaña se arma con un filtro por ese campo, y entonces el asegurado dado de baja no figura entre los destinatarios.",
+  "caracteristicas": "La baja es un dato del asegurado, sin fecha ni medio de contacto, y no se aplica al enviar: el listado completo sigue incluyendo al dado de baja, así que quien lance una campaña sobre él lo alcanza. Los envíos masivos con baja del destinatario están en una función de campañas todavía en prueba.",
+  "justificacion": "La compañía puede registrar la baja y excluirla del segmento, pero debe asumir que la exclusión depende de que cada campaña se arme sobre la vista filtrada. No se completó el envío de prueba hasta el buzón porque exige cambiar una variable de seguridad del servidor.",
+  "documentacion": [
+    {
+      "url": "https://docs.twenty.com/user-guide/email-campaigns/overview",
+      "cita": "Campaigns come from an address on your domain, so people know who sent them. Twenty walks you through domain verification and puts the unsubscribe page on your domain too.",
+      "consultado": "2026-11-10",
+      "captura": "B-2-9-twenty-5-campanas-con-baja-en-beta.png"
+    }
+  ],
+  "evidencia": [
+    "B-2-9-twenty-1-ficha-sin-campo-de-baja.png",
+    "B-2-9-twenty-2-asegurado-dado-de-baja.png",
+    "B-2-9-twenty-3-segmento-completo.png",
+    "B-2-9-twenty-4-segmento-filtrado.png"
+  ],
+  "criterioNombre": "Baja de las comunicaciones comerciales por medio",
+  "licencia": null,
+  "conPlan": [],
+  "momento": "2026-11-10T04:22:01.390Z"
+}

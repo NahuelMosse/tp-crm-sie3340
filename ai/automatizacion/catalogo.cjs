@@ -1,7 +1,7 @@
 /**
- * El catálogo de criterios, leído de la sección 4 del informe.
+ * El catálogo de criterios, leído de la sección 3 del informe.
  *
- * La sección 4 es la definición: acá no se transcribe nada. Afinar el catálogo
+ * La sección 3 es la definición: acá no se transcribe nada. Afinar el catálogo
  * —agregar un criterio, renombrarlo, moverlo de grupo— se hace en el informe y
  * la automatización lo sigue sola.
  *
@@ -14,7 +14,7 @@ const { join } = require('node:path');
 /** Raíz del repositorio, desde ai/automatizacion. */
 const RAIZ = join(__dirname, '..', '..');
 
-const SECCION4 = join(RAIZ, 'humanos', 'informe', '04-criterios-de-analisis.md');
+const SECCION4 = join(RAIZ, 'humanos', 'informe', '03-criterios-de-analisis.md');
 
 /**
  * @typedef  {object} Criterio
@@ -28,7 +28,7 @@ const SECCION4 = join(RAIZ, 'humanos', 'informe', '04-criterios-de-analisis.md')
  * @property {string}     id         'A.1'
  * @property {string}     nombre
  * @property {'A'|'B'}    parte
- * @property {boolean}    funcional  Lo declara el propio grupo en la sección 4
+ * @property {boolean}    funcional  Lo declara el propio grupo en la sección 3
  * @property {Criterio[]} criterios
  */
 function leer() {
@@ -65,11 +65,11 @@ function leer() {
 
   if (!grupos.length) throw new Error(`No se leyó ningún grupo de ${SECCION4}`);
   const huecos = grupos.filter(g => !g.criterios.length).map(g => g.id);
-  if (huecos.length) throw new Error(`Grupos sin criterios en la sección 4: ${huecos.join(', ')}`);
+  if (huecos.length) throw new Error(`Grupos sin criterios en la sección 3: ${huecos.join(', ')}`);
   return grupos;
 }
 
-/** Grupos del catálogo, en el orden de la sección 4. */
+/** Grupos del catálogo, en el orden de la sección 3. */
 const GRUPOS = leer();
 
 /** Todos los criterios, aplanados, cada uno con el grupo y la parte a la que pertenece. */

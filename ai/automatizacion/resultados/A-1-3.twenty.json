@@ -3,9 +3,9 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "resumen": "Ofrece un campo de importe con moneda y centavos; hay que definirlo con formato completo y dos decimales, porque el de fábrica guarda el importe multiplicado por cien.",
+  "resumen": "Ofrece un campo de importe con moneda; hay que configurarlo una vez con dos decimales, porque el de fábrica descarta la coma y una prima de 15.250,50 queda como 1.525.050.",
   "comoLoHace": "Desde Configuración › Modelo de datos se agrega la prima como campo de importe en pesos argentinos: guarda el importe con centavos y su moneda. Para eso el campo se define una vez con formato completo y dos decimales.",
-  "caracteristicas": "El modelo de datos tiene un tipo de campo de importe con moneda. Con la definición de fábrica —formato corto, sin decimales— el editor descarta el separador decimal y guarda el importe multiplicado por cien sin avisar, un error que el fabricante tiene registrado; quien define el campo tiene que saberlo.",
+  "caracteristicas": "El modelo de datos tiene un tipo de campo de importe con moneda. Con la definición de fábrica —formato corto, sin decimales— el editor descarta la coma decimal sin avisar: un importe con centavos como 45.250,75 queda guardado como 4.525.075. Es un error que el fabricante tiene registrado; quien define el campo tiene que saberlo.",
   "justificacion": "Definirlo bien es trabajo de una sola vez.",
   "evidencia": [
     "A-1-3-twenty-1-campo-configurado.png",

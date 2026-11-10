@@ -1,11 +1,11 @@
 {
   "criterio": "A.12.13",
   "plataforma": "bitrix24",
-  "cumple": 1,
-  "resumen": "Publica un compromiso de plazos de respuesta por severidad, pero cubre caídas de la plataforma y no consultas puntuales; el soporte por chat o ticket es de los planes pagos.",
+  "cumple": 0,
+  "resumen": "El compromiso de plazos de respuesta ante fallas rige para las cuentas con licencia paga; la edición gratuita no tiene un canal de soporte con plazo comprometido.",
   "comoLoHace": "El fabricante publica un acuerdo de nivel de servicio con plazos de respuesta por severidad del incidente —una hora, veinticuatro horas o setenta y dos horas—, pero ese compromiso cubre las caídas de la plataforma, no una consulta puntual de una compañía sobre su cuenta.",
   "caracteristicas": "El soporte personalizado, por chat o por ticket, queda reservado a los planes pagos, y la edición gratuita se apoya en la documentación y en la comunidad.",
-  "justificacion": "La condición se satisface parcialmente: existe un compromiso público de plazo, pero no alcanza el tipo de consulta que un productor o un administrador hace en el día a día.",
+  "justificacion": "El acuerdo de nivel de servicio cubre a los usuarios con licencia paga, y la edición gratuita se apoya en la documentación y en la comunidad: no hay un canal con plazo comprometido.",
   "documentacion": [
     {
       "url": "https://www.bitrix24.com/privacy/sla.php",
@@ -24,11 +24,25 @@
       "cita": "72 hours",
       "consultado": "2026-10-30",
       "captura": "A-12-13-bitrix24-3-sla-severidad-baja.png"
+    },
+    {
+      "url": "https://www.bitrix24.es/prices/",
+      "cita": "Basic Ideal para emprendedores individuales y equipos pequeños que están empezando US$ 69 US$ 69 US$ 49 / compañía / mes / facturado mensualmente / compañía / mes / facturación anual Un pago de US$ 588 / año Ahorra US$ 240 al año incluye 5 usuarios Comprar Comprar Todo lo incluido en Free, más: Almacenamiento de 24 GB IA para el trabajo diario en Bitrix24 Embudos de ventas Negociaciones recurrentes Pagos en línea Integración de correo electrónico Integración de WhatsApp Integración de telefonía",
+      "consultado": "2026-09-30",
+      "captura": "A-9-1-bitrix24-basic-precio-1.png"
     }
   ],
   "criterioNombre": "Soporte técnico con compromiso de respuesta",
   "licencia": null,
-  "conPlan": [],
+  "conPlan": [
+    {
+      "plan": "Bitrix24 Basic",
+      "monto": "US$ 69 por mes, hasta 5 usuarios",
+      "modalidad": "recurrente",
+      "cumple": 2,
+      "justificacion": "Con el plan Basic, el primero con licencia paga, rige el acuerdo de nivel de servicio del fabricante, con plazos de respuesta por severidad de la falla: una hora para las críticas y altas, veinticuatro horas para las medias y setenta y dos horas para las bajas."
+    }
+  ],
   "evidencia": [],
   "momento": "2026-10-30T08:52:59.432Z"
 }

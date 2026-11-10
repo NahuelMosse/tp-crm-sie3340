@@ -96,7 +96,7 @@ test('A.3.1 — Registro de productores y asignación de cartera', async ({ page
 });
 
 // ── A.3.2 ────────────────────────────────────────────────────────────────────
-test('A.3.2 — Bitácora de la actividad con el cliente', async ({ page }, info) => {
+test('A.3.2 — Historial de la actividad con el cliente', async ({ page }, info) => {
   // «Registrar una llamada y una reunión sobre un asegurado, y comprobar que
   //  ambas quedan visibles en orden cronológico con su autor»
   const plataforma = plataformaDe(info.project.name);
@@ -129,18 +129,20 @@ test('A.3.2 — Bitácora de la actividad con el cliente', async ({ page }, info
   registrar({
     criterio: 'A.3.2',
     plataforma,
-    cumple: 1,
-    resumen: 'Registra las actividades con autor y momento en la línea de tiempo, pero llamada y reunión no son tipos propios: el tipo se escribe en el texto de cada pendiente.',
+    cumple: 2,
+    costo: 0,
+    resumen: 'Registra la llamada y la reunión en la línea de tiempo de la ficha, en orden y con autor y momento; el tipo se indica en el texto de cada una.',
     comoLoHace:
-      'En la edición gratuita, sin embargo, la ficha no ofrece la llamada ni la reunión como tipos de ' +
-      'actividad propios: la pestaña «Actividad» carga un pendiente de texto libre, y la llamada nativa ' +
-      'exige telefonía y la reunión, una integración de videoconferencia.',
+      'Desde la pestaña «Actividad» de la ficha se registran la llamada y la reunión como pendientes que ' +
+      'indican el tipo en su texto; la línea de tiempo las muestra en orden cronológico, con su autor y su ' +
+      'momento.',
     caracteristicas:
       'La línea de tiempo del contacto registra actividades con su autor y su momento, en orden ' +
-      'cronológico, sin configurar nada.',
+      'cronológico, sin configurar nada. En la edición gratuita la llamada y la reunión no son tipos de ' +
+      'actividad propios: la llamada nativa exige telefonía y la reunión, una integración de videoconferencia.',
     justificacion:
-      'La llamada y la reunión se registran como pendientes que indican el tipo en el texto, de modo que ' +
-      'el usuario debe escribirlo cada vez y no se puede filtrar el historial por tipo.',
+      'El procedimiento pide que la llamada y la reunión queden visibles en orden cronológico con su autor, ' +
+      'y así quedan sin configurar nada; que no sean tipos propios no impide registrarlas.',
     evidencia: [capFicha, capLlamada, capReunion],
     medicion: `${historial.length} actividades registradas`,
   });
@@ -272,6 +274,7 @@ test('A.3.4 — Proyección de los movimientos comerciales', async ({ page }, in
     criterio: 'A.3.4',
     plataforma,
     cumple: 1,
+    reparo: 'manual',
     resumen: 'Guarda monto y probabilidad de cada oportunidad, pero no calcula el total proyectado por período: la proyección se hace fuera del sistema. El informe de tendencia exige otro plan.',
     comoLoHace:
       'La negociación, que hace de oportunidad comercial, se carga con su monto y su probabilidad, ' +

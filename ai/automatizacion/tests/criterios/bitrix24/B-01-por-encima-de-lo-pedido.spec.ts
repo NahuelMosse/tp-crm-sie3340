@@ -168,6 +168,7 @@ test('B.1.3 — Suite de trabajo integrada', async ({ page, browser }, info) => 
     criterio: 'B.1.3',
     plataforma,
     cumple: 1,
+    reparo: 'parcial',
     costo: 2,
     resumen: 'Integra mensajería, tareas, calendario, documentos y base de conocimientos sobre los mismos contactos, pero la edición colaborativa de documentos y la firma electrónica exigen planes pagos o aplicaciones.',
     comoLoHace:
@@ -231,6 +232,7 @@ test('B.1.4 — Telefonía y videollamada integradas', async ({ page, browser },
     criterio: 'B.1.4',
     plataforma,
     cumple: 1,
+    reparo: 'parcial',
     costo: 2,
     resumen: 'Incluye videollamada, pero no telefonía: la línea propia y la numeración son de los planes pagos, o se conecta una central externa por desarrollo.',
     comoLoHace:

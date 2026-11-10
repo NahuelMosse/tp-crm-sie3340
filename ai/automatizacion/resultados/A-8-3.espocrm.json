@@ -1,12 +1,13 @@
 {
   "criterio": "A.8.3",
   "plataforma": "espocrm",
-  "cumple": 2,
+  "cumple": 1,
+  "reparo": "codigo",
   "costo": 2,
-  "resumen": "Ejecuta una acción automática ante un evento mediante un guion escrito en el sistema, que exige desarrollo. El motor de flujos del fabricante lo haría desde pantallas.",
+  "resumen": "Ejecuta una acción automática ante un evento mediante código escrito en el sistema, que exige desarrollo. La extensión paga Advanced Pack lo hace desde pantallas.",
   "comoLoHace": "Se define una acción automática sobre un evento: cuando la cobranza de una póliza pasa a vencida, el sistema crea una tarea de gestión a su productor. Al cambiar el estado desde la ficha, la tarea aparece sola, asignada al productor y vinculada a la póliza.",
   "caracteristicas": "La edición gratuita lo resuelve, pero con la fórmula de la entidad, que para esto exige escribir un script con condiciones y funciones del sistema: es desarrollo, aunque sea breve, y lo tiene que mantener alguien que sepa leerlo.",
-  "justificacion": "El fabricante vende un motor de flujos de trabajo que define la misma regla desde pantallas, sin escribir código.",
+  "justificacion": "La acción automática solo se consigue escribiendo código: en la edición gratuita no hay forma de definirla sin programar. El fabricante vende un motor de flujos de trabajo que define la misma regla desde pantallas.",
   "evidencia": [
     "A-8-3-espocrm-1-regla.png",
     "A-8-3-espocrm-2-tarea-creada-sola.png"

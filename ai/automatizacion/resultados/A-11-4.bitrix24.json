@@ -1,12 +1,12 @@
 {
   "criterio": "A.11.4",
   "plataforma": "bitrix24",
-  "cumple": 1,
-  "costo": 2,
-  "resumen": "Un mismo contacto es solicitante y asegurado, con su historia en una ficha; sin prospectos, la llamada se registra como pendiente con el tipo escrito a mano.",
+  "cumple": 2,
+  "costo": 0,
+  "resumen": "Un mismo contacto es solicitante y asegurado: la llamada que se registró al principio sigue en su ficha junto a la póliza, sin conversión que lo duplique.",
   "comoLoHace": "El solicitante se registra como contacto y la llamada se anota en la pestaña «Actividad» de su ficha, como un pendiente de texto libre. Para emitirle la póliza se crea la negociación desde esa misma ficha, que queda a su nombre. En la ficha del asegurado la llamada sigue estando, junto a la póliza.",
   "caracteristicas": "El mismo contacto es solicitante y asegurado, sin conversión que lo mueva ni lo duplique; su ficha reúne actividades y negociaciones.",
-  "justificacion": "Sin el módulo de prospectos, no hay una etapa de solicitante que se convierta, y la llamada se registra como un pendiente con el tipo escrito en el texto, no como una llamada. Ese tipo se escribe a mano en cada registro.",
+  "justificacion": "El procedimiento pide que la llamada figure en la ficha del asegurado, y figura sin configurar nada. Que no haya una etapa de solicitante ni un tipo propio de llamada no impide seguir la historia.",
   "evidencia": [
     "A-11-4-bitrix24-1-llamada-registrada.png",
     "A-11-4-bitrix24-2-ficha-del-asegurado.png"
@@ -25,16 +25,7 @@
       "captura": "A-11-4-bitrix24-standard-precio-1.png"
     }
   ],
-  "conPlan": [
-    {
-      "plan": "Bitrix24 Standard",
-      "monto": "US$ 144 por mes, hasta 50 usuarios",
-      "modalidad": "recurrente",
-      "cumple": 2,
-      "costo": 1,
-      "justificacion": "El plan Standard incluye prospectos ilimitados: el solicitante se registra como prospecto con sus llamadas y, al convertirlo, el historial pasa al contacto y a la negociación. Usarlo no requiere más configuración que la de las etapas."
-    }
-  ],
+  "conPlan": [],
   "criterioNombre": "Historia del cliente desde el primer contacto",
   "licencia": null,
   "momento": "2026-11-08T17:18:13.416Z"

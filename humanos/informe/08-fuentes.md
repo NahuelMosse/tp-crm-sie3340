@@ -1,6 +1,6 @@
-# 9. Fuentes
+# 8. Fuentes
 
-## 9.1 Documentación oficial de las plataformas
+## 8.1 Documentación oficial de las plataformas
 
 
 ### EspoCRM
@@ -59,6 +59,7 @@
 - https://docs.twenty.com/developers/self-host/capabilities/docker-compose
 - https://docs.twenty.com/developers/self-host/capabilities/setup
 - https://docs.twenty.com/developers/self-host/capabilities/upgrade-guide
+- https://docs.twenty.com/developers/self-host/self-host.md
 - https://docs.twenty.com/es/user-guide/permissions-access/capabilities/permissions
 - https://docs.twenty.com/getting-started/core-concepts/ai
 - https://docs.twenty.com/getting-started/core-concepts/apps
@@ -95,6 +96,7 @@
 - https://github.com/twentyhq/twenty/discussions/28492
 - https://github.com/twentyhq/twenty/issues/25870
 - https://play.google.com/store/search?q=twenty%20crm&c=apps
+- https://twenty.com/legal/privacy
 - https://twenty.com/pricing
 
 ### Bitrix24
@@ -123,6 +125,7 @@
 - https://dev.1c-bitrix.ru/community/forums/forum23/topic164568/
 - https://dev.1c-bitrix.ru/community/forums/forum23/topic164572/
 - https://dev.1c-bitrix.ru/community/forums/forum23/topic164588/
+- https://helpdesk.bitrix24.com/open/14294110/
 - https://helpdesk.bitrix24.com/open/14954920/
 - https://helpdesk.bitrix24.com/open/18346126/
 - https://helpdesk.bitrix24.com/open/19542946/
@@ -142,7 +145,10 @@
 - https://helpdesk.bitrix24.es/open/18295168/
 - https://helpdesk.bitrix24.es/open/20616588/
 - https://helpdesk.bitrix24.es/open/22084704/
+- https://www.argentina.gob.ar/normativa/nacional/267922/texto
 - https://www.bitrix24.com/articles/don-t-let-one-tweet-ruin-everything-10-social-media-crisis-hacks-you-need-to-know.php
+- https://www.bitrix24.com/gdpr/
+- https://www.bitrix24.com/privacy/
 - https://www.bitrix24.com/privacy/sla.php
 - https://www.bitrix24.com/promo/professional/
 - https://www.bitrix24.com/security/
@@ -153,11 +159,19 @@
 - https://www.bitrix24.es/prices/
 - https://www.bitrix24.es/prices/compare_cloud_plans.php
 
-## 9.2 Marco normativo
+## 8.2 Marco normativo
 
-- Ley 25.326 de Protección de Datos Personales, República Argentina.
+- https://www.argentina.gob.ar/normativa/nacional/39520/texto — Ley 17.418 de Seguros, República Argentina.
+- https://www.argentina.gob.ar/normativa/nacional/238219/texto — Superintendencia de Seguros de la Nación, *Reglamento General de la Actividad Aseguradora* (Resolución SSN 38.708/2014).
+- https://www.argentina.gob.ar/sites/default/files/ssn_reso225_2022.pdf — Superintendencia de Seguros de la Nación, Resolución 225/2022, *Manual Operativo y de Procedimientos para la Tramitación de Consultas y Denuncias*.
+- https://servicios.infoleg.gob.ar/infolegInternet/anexos/60000-64999/64790/texact.htm — Ley 25.326 de Protección de los Datos Personales, República Argentina, texto actualizado en InfoLEG.
+- https://www.argentina.gob.ar/normativa/nacional/decreto-1558-2001-70368/texto — Decreto 1558/2001, reglamentario de la Ley 25.326.
+- https://www.argentina.gob.ar/normativa/nacional/267922/texto — Dirección Nacional de Protección de Datos Personales, Disposición 60-E/2016, países con protección adecuada y cláusulas contractuales tipo.
+- https://www.boletinoficial.gob.ar/detalleAviso/primera/202373/20190226 — Agencia de Acceso a la Información Pública, Resolución 34/2019, actualización de la lista de países con protección adecuada.
+- https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-47-2018-312662/texto — Agencia de Acceso a la Información Pública, Resolución 47/2018, *Medidas de seguridad recomendadas para el tratamiento y conservación de los datos personales*.
+- https://www.bcra.gob.ar/archivos/Pdfs/Texord/t-rmgcti.pdf — Banco Central de la República Argentina, *Requisitos mínimos para la gestión y control de los riesgos de tecnología y seguridad de la información*, texto ordenado. Rige para entidades financieras; se cita como referencia de buenas prácticas.
 
-## 9.3 Datos del mercado asegurador
+## 8.3 Datos del mercado asegurador
 
 - https://www.argentina.gob.ar/superintendencia-de-seguros/estadisticas/polizas-siniestros-y-primas — Superintendencia de Seguros de la Nación, *Pólizas y Cantidad de Siniestros, 1er trimestre de 2026* (IF-2026-59950848-APN-GEYE#SSN).
 - https://karriere.mckinsey.de/industries/financial-services/our-insights/unlocking-the-potential-of-deeper-customer-agent-insurer-relationships — McKinsey & Company, *Unlocking the potential of deeper customer-agent-insurer relationships*.

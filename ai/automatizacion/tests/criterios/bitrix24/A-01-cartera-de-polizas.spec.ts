@@ -236,7 +236,7 @@ test('A.1.3 — Prima con importe y moneda', async ({ page }, info) => {
     plataforma,
     cumple: 2,
     costo: 1,
-    resumen: 'Guarda la prima como importe con centavos y moneda en un mismo campo. El peso argentino no viene incluido: se agrega una vez con su cotización.',
+    resumen: 'Guarda la prima como importe con centavos y moneda en un mismo campo. El peso argentino no viene incluido: se agrega una vez en la configuración, y la prima queda en pesos.',
     comoLoHace:
       'El peso argentino no viene entre las monedas del portal: se agrega desde la configuración ' +
       'del CRM, eligiéndolo de la lista de monedas y cargando su cotización. El campo de prima ' +

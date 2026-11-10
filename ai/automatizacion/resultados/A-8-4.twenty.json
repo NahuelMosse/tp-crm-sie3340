@@ -3,7 +3,7 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 0,
-  "resumen": "La actualización de versión migra sola objetos, campos, relaciones, vistas, flujos y registros propios, sin rehacer ni reconfigurar nada de lo parametrizado.",
+  "resumen": "La actualización de versión migra sola objetos, campos, relaciones, vistas, automatizaciones y registros propios, sin rehacer ni reconfigurar nada de lo parametrizado.",
   "comoLoHace": "Con el procedimiento oficial, la versión se actualiza cambiando la imagen y volviendo a levantar los contenedores, y el servidor corre solo sus migraciones al arrancar. Después de actualizar, los objetos propios y sus campos siguen en el modelo de datos, los flujos de trabajo siguen definidos, los registros cargados siguen en su lugar con todos sus valores, una póliza dada de alta de nuevo admite sus campos propios y un flujo activado en la versión nueva sigue operando, como el que crea la tarea de cobranza al pasar una póliza a vencida.",
   "caracteristicas": "Lo que la compañía parametriza —objetos, campos, relaciones, vistas y flujos— es parte del modelo de datos del espacio de trabajo, no del código del producto: la actualización lo migra con los registros, sin pasos manuales.",
   "justificacion": "Al pasar de una versión a la siguiente no hay que rehacer ni reconfigurar nada de lo parametrizado, de modo que la conservación no suma trabajo.",

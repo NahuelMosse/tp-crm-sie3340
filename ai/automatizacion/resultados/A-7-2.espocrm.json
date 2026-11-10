@@ -2,6 +2,7 @@
   "criterio": "A.7.2",
   "plataforma": "espocrm",
   "cumple": 1,
+  "reparo": "manual",
   "costo": 2,
   "resumen": "No trae contactos desde la agenda de ningún correo: las extensiones para Google y Outlook solo envían contactos a la agenda. La vía es exportar la agenda e importarla.",
   "comoLoHace": "Las extensiones del fabricante para Google y Outlook sincronizan calendario y correo, y para los contactos hacen el camino inverso: envían los del sistema a la agenda, no los incorporan.",

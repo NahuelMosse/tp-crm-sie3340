@@ -2,6 +2,7 @@
   "criterio": "A.11.1",
   "plataforma": "bitrix24",
   "cumple": 1,
+  "reparo": "manual",
   "costo": 2,
   "resumen": "Emite la póliza al ganar la venta, pero sin el asegurado, que se vincula a mano cada vez.",
   "comoLoHace": "Una regla de automatización de la etapa «Cerrado Ganado» del embudo —«Crear un elemento CRM» de tipo negociación— crea la póliza con el nombre y el importe de la venta como variables del documento. El campo «Contacto» de la regla solo ofrece elegir contactos concretos, no una variable. Al marcar ganada la venta desde su ficha, la regla crea la negociación con el importe de la venta, sin el asegurado: se vincula a mano en cada venta.",

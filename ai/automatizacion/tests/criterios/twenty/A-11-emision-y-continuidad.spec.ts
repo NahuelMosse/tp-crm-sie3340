@@ -160,9 +160,9 @@ test('A.11.1 — Emisión de la póliza al cerrar la venta', async ({ page, brow
     cumple: llevaMonto ? 2 : 1,
     costo: 1,
     resumen: llevaMonto
-      ? 'Al pasar una oportunidad a la etapa de venta ganada, un flujo emite solo la póliza, ' +
+      ? 'Al pasar una oportunidad a la etapa de venta ganada, una automatización emite sola la póliza, ' +
         'ligada al asegurado y con la prima de la oportunidad.'
-      : 'Al pasar una oportunidad a la etapa de venta ganada, un flujo emite solo la póliza, ' +
+      : 'Al pasar una oportunidad a la etapa de venta ganada, una automatización emite sola la póliza, ' +
         'ligada al asegurado, pero la prima queda vacía y se carga en cada venta.',
     comoLoHace: `Un flujo de trabajo se dispara al actualizarse una oportunidad, filtra por la etapa «${ganada.label}» y crea un registro de Pólizas con el nombre de la oportunidad, el asegurado como titular${llevaMonto ? ' y el monto como prima' : ''}, tomados con el selector de variables. Al pasar la oportunidad a esa etapa desde su ficha, la póliza aparece vinculada al asegurado y se ve en su ficha${llevaMonto ? ', con la prima de la oportunidad' : '; la prima quedó vacía y hay que cargarla'}.`,
     caracteristicas: llevaMonto

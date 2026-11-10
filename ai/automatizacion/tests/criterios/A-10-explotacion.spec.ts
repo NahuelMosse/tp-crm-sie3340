@@ -254,10 +254,11 @@ test('A.10.1 — Indicadores sobre la operación', async ({ page, browser }, inf
     criterio: 'A.10.1',
     plataforma,
     cumple: 1,
+    reparo: 'manual',
     costo: 2,
     resumen:
       'No suma ni promedia pólizas ni reclamos: los indicadores son de ventas y lo demás se calcula ' +
-      'exportando a XLSX o CSV. Lo resuelve el módulo de informes.',
+      'exportando a XLSX o CSV. Lo resuelve la extensión paga Advanced Pack.',
     comoLoHace:
       'Para obtener el total de primas por estado de cobranza o el tiempo promedio de resolución hay que ' +
       `exportar el listado —${formatos.join(' o ')}— y calcularlo en una planilla, cada vez que se quiere ` +
@@ -304,6 +305,7 @@ test('A.10.2 — Generación de informes definidos por el usuario', async ({ pag
     criterio: 'A.10.2',
     plataforma,
     cumple: 1,
+    reparo: 'manual',
     costo: 2,
     resumen:
       'Filtra el listado de pólizas por productor y período y lo exporta a XLSX o CSV, pero no suma: el ' +
@@ -354,10 +356,11 @@ test('A.10.3 — Informe paramétrico reutilizable', async ({ page, browser }, i
     criterio: 'A.10.3',
     plataforma,
     cumple: 1,
+    reparo: 'manual',
     costo: 2,
     resumen:
       'Guarda búsquedas con período relativo, pero no informes con parámetro: para otro período se cambia ' +
-      'la condición y el total se calcula afuera. Lo resuelve el módulo de informes.',
+      'la condición y el total se calcula afuera. Lo resuelve la extensión paga Advanced Pack.',
     comoLoHace:
       'Pero no es un informe con parámetro: para verlo sobre otro período hay que cambiar la condición, y ' +
       'el resultado sigue siendo un listado que hay que exportar y totalizar afuera.',

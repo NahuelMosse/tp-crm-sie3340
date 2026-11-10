@@ -1,0 +1,21 @@
+{
+  "criterio": "B.2.8",
+  "plataforma": "espocrm",
+  "cumple": 1,
+  "resumen": "Exporta al asegurado y sus pólizas, corrige un dato y borra sus datos personales, pero exige una exportación por tipo de registro y las correcciones no quedan en el historial.",
+  "comoLoHace": "Los datos del asegurado se exportan a una planilla desde el listado de contactos, y los de su póliza desde el de pólizas. El dato se corrige en la ficha. La ventana de datos personales de la ficha permite borrar los campos personales, que quedan reemplazados por una marca de borrado y la ficha subsiste. Cada corrección queda en un registro de acciones —quién, cuándo y qué registro—, que no tiene pantalla propia en la administración; el borrado de datos personales no deja en él una entrada propia.",
+  "caracteristicas": "La exportación admite todos los campos y formato CSV o planilla. El borrado deja la ficha y sus pólizas, con nombre, correo y teléfono reemplazados. El registro de acciones anota quién modificó la ficha y cuándo, sin el valor anterior, y no anota el borrado; el historial de la ficha solo conserva la creación, porque el teléfono no se audita de fábrica.",
+  "justificacion": "El pedido se atiende, con una limitación que la compañía asume: no hay una descarga única con todo lo del titular, sino una exportación por cada tipo de registro (el contacto no trae sus pólizas), y la constancia de qué valor cambió, y del borrado, exige marcar los campos como auditados o llevarla aparte.",
+  "evidencia": [
+    "B-2-8-espocrm-1-datos-personales.png",
+    "B-2-8-espocrm-2-exportacion-del-asegurado.png",
+    "B-2-8-espocrm-2-borrar-datos.png",
+    "B-2-8-espocrm-4-historial-de-la-ficha.png"
+  ],
+  "medicion": "1 modificación anotada en el registro de acciones (borrado sin anotar); 0 cambios en el historial de la ficha",
+  "criterioNombre": "Atención de los derechos del titular de los datos",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-11-10T03:32:55.641Z"
+}

@@ -2,6 +2,7 @@
   "criterio": "A.3.4",
   "plataforma": "twenty",
   "cumple": 1,
+  "reparo": "manual",
   "costo": 2,
   "resumen": "Los tableros suman montos por etapa y fecha de cierre, pero no hay probabilidad de cierre ni campos calculados, así que el total ponderado se calcula fuera.",
   "comoLoHace": "Los tableros suman los montos por etapa y por fecha de cierre, de modo que muestran cuánto hay en juego en cada período, pero no el total ponderado por la probabilidad de cerrarlo.",

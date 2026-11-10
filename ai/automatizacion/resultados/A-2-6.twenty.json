@@ -2,6 +2,7 @@
   "criterio": "A.2.6",
   "plataforma": "twenty",
   "cumple": 1,
+  "reparo": "manual",
   "costo": 2,
   "resumen": "Lista las pólizas próximas a vencer con su titular; no puede preguntar «tiene automotor y no hogar», porque el filtro de asegurados no ve sus pólizas.",
   "comoLoHace": "El conjunto de los próximos a vencer sale directo: el listado de pólizas filtrado por vencimiento en los próximos treinta días muestra cada póliza con su titular.",

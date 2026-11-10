@@ -61,7 +61,7 @@ const ORIGEN = {
   'A.4.1': 'REQ 11, REQ 16', 'A.4.2': 'REQ 10', 'A.4.3': 'REQ 10',
   'A.4.4': 'REQ 13', 'A.4.5': 'REQ 14, REQ 13', 'A.4.6': 'REQ 14', 'A.4.7': 'REQ 5',
   'A.5.1': 'REQ 12', 'A.5.2': 'REQ 12', 'A.5.3': 'REQ 12',
-  'A.5.4': 'REQ 15', 'A.5.5': 'REQ 20', 'A.5.6': 'REQ 20',
+  'A.5.4': 'REQ 15', 'A.5.5': 'REQ 20', 'A.5.6': 'REQ 20', 'A.5.7': 'REQ 12, RUBRO',
   'A.6.1': 'REQ 2, REQ 7', 'A.6.2': 'REQ 7', 'A.6.3': 'REQ 16, REQ 14', 'A.6.4': 'REQ 7, RUBRO',
   'A.7.1': 'REQ 18, CRIT 7', 'A.7.2': 'REQ 18', 'A.7.3': 'REQ 19', 'A.7.4': 'REQ 19',
   'A.7.5': 'CRIT 7',
@@ -76,7 +76,7 @@ const ORIGEN = {
   'A.11.1': 'REQ 1, REQ 17', 'A.11.2': 'REQ 2', 'A.11.3': 'CRIT 11, CRIT 12, RUBRO',
   'A.11.4': 'REQ 7, REQ 4', 'A.11.5': 'REQ 15, REQ 12, REQ 5',
   'B.2.1': 'RUBRO', 'B.2.2': 'RUBRO', 'B.2.3': 'RUBRO', 'B.2.4': 'RUBRO',
-  'B.2.5': 'RUBRO', 'B.2.6': 'RUBRO', 'B.2.7': 'RUBRO',
+  'B.2.5': 'RUBRO', 'B.2.6': 'RUBRO', 'B.2.7': 'RUBRO', 'B.2.8': 'RUBRO', 'B.2.9': 'RUBRO, REQ 10',
   'B.1.1': 'OBS', 'B.1.2': 'OBS', 'B.1.3': 'OBS', 'B.1.4': 'OBS',
 };
 
@@ -96,7 +96,7 @@ const cubren = (etiqueta) =>
 // ── Documento ────────────────────────────────────────────────────────────────
 const l = [];
 l.push('# Trazabilidad de los criterios', '');
-l.push('**Material de auditoría, no del informe.** Comprueba que el catálogo de la sección 4');
+l.push('**Material de auditoría, no del informe.** Comprueba que el catálogo de la sección 3');
 l.push('cubre todo lo pedido y que ningún criterio se inventó sin fuente.', '');
 l.push('> Generado por `ai/automatizacion/generar-trazabilidad.mjs`. **Los enunciados se extraen');
 l.push('> de los PDF en cada corrida**, nunca se copian a mano: una cita parafraseada volvería');

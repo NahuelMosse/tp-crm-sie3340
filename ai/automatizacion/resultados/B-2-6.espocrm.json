@@ -2,27 +2,28 @@
   "criterio": "B.2.6",
   "plataforma": "espocrm",
   "cumple": 2,
-  "resumen": "Los datos residen donde la compañía instala el sistema, en el servidor, proveedor y país que elija; su seguridad queda también a cargo de ella.",
-  "comoLoHace": "En la instalación propia la base de datos reside donde la compañía instala el sistema: en su propio servidor o en el proveedor que ella elija, en el país que ella elija.",
-  "caracteristicas": "La contracara, que el fabricante declara, es que la seguridad de esos datos queda también a su cargo.",
-  "justificacion": "Sabe en todo momento dónde están los datos de sus asegurados y lo decide ella, que es lo que exige el tratamiento de datos sensibles de los seguros de personas.",
+  "resumen": "En la instalación propia los datos quedan en el servidor que elige la compañía, por ejemplo uno en la Argentina, sin transferirse al fabricante; la seguridad de ese servidor queda a su cargo.",
+  "comoLoHace": "El sistema y su base de datos corren donde la compañía los instala. En la prueba corren como dos contenedores de un equipo propio, sin que el fabricante intervenga ni reciba los datos; la compañía decide en qué servidor y en qué país los aloja.",
+  "caracteristicas": "El fabricante declara que los datos quedan en el servidor de quien instala el sistema y que su seguridad es responsabilidad de esa compañía. Alojar en un servidor dentro del país elimina la transferencia internacional.",
+  "justificacion": "No hay transferencia de datos a otro país que justificar: el país es el que la compañía elige, y uno argentino cumple la condición de la ley de protección de datos personales.",
   "documentacion": [
     {
       "url": "https://www.espocrm.com/self-hosted-vs-cloud-crm/",
-      "cita": "CRM database is stored locally",
-      "consultado": "2026-10-30",
-      "captura": "B-2-6-espocrm-1-base-local.png"
+      "cita": "Self-hosted (on-premise) — You install the software and have all the data stored on your own server. All the server maintenance, as well as data security, will be your responsibility.",
+      "consultado": "2026-11-09",
+      "captura": "B-2-6-espocrm-1-datos-en-servidor-propio.png"
     },
     {
       "url": "https://www.espocrm.com/self-hosted-vs-cloud-crm/",
       "cita": "Self-hosted (on-premise) — You install the software and have all the data stored on your own server. All the server maintenance, as well as data security, will be your responsibility.",
-      "consultado": "2026-10-30",
+      "consultado": "2026-11-09",
       "captura": "B-2-6-espocrm-2-responsabilidad.png"
     }
   ],
-  "criterioNombre": "Conocimiento y decisión sobre dónde residen los datos",
+  "medicion": "Instalación en contenedores tp-espocrm (espocrm/espocrm:10.0.4), tp-espocrm-db (mariadb:11) sobre el equipo «docker-desktop»",
+  "criterioNombre": "Alojamiento de los datos en un país con protección adecuada",
   "licencia": null,
   "conPlan": [],
   "evidencia": [],
-  "momento": "2026-10-30T06:08:13.910Z"
+  "momento": "2026-11-10T02:22:00.776Z"
 }

@@ -1,12 +1,13 @@
 {
   "criterio": "A.6.4",
   "plataforma": "espocrm",
-  "cumple": 2,
+  "cumple": 1,
+  "reparo": "codigo",
   "costo": 2,
-  "resumen": "De fábrica busca duplicados por nombre y correo, no por documento. Advertirlos exige escribir un guion breve en la fórmula de la entidad.",
+  "resumen": "De fábrica busca duplicados por nombre y correo, no por documento. Advertirlos exige escribir código en la fórmula de la entidad.",
   "comoLoHace": "De fábrica el producto busca duplicados por nombre y correo, pero no por documento: dos fichas con el mismo documento y el apellido escrito distinto se aceptan sin advertencia.",
   "caracteristicas": "La pantalla de fórmula de cada entidad trae un guion que se ejecuta antes de guardar, pensado para validaciones y comprobación de duplicados; con tres líneas que buscan el documento, la segunda carga mostró el aviso de posible duplicado y remitió a la ficha existente.",
-  "justificacion": "La necesidad queda resuelta desde el sistema, pero exige escribir el guion de la fórmula de la entidad: es desarrollo, breve, que alguien tiene que saber leer y mantener.",
+  "justificacion": "El aviso de duplicado por documento solo se consigue escribiendo código en la fórmula de la entidad: es desarrollo, breve, que alguien tiene que saber leer y mantener.",
   "evidencia": [
     "A-6-4-espocrm-1-sin-configurar.png",
     "A-6-4-espocrm-2-comprobacion-por-documento.png",

@@ -3,7 +3,7 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 0,
-  "resumen": "Registra al solicitante como contacto, con nombre, teléfono, correo y dirección desglosada. El módulo de prospectos no está en la edición gratuita.",
+  "resumen": "Registra al solicitante como contacto, con nombre, teléfono, correo y dirección desglosada.",
   "comoLoHace": "La edición gratuita no incluye el módulo de prospectos: el solicitante se registra como un contacto, igual que el asegurado, con todos sus datos desde el formulario, y la búsqueda del listado lo encuentra por su nombre.",
   "caracteristicas": "El formulario del contacto trae nombre y apellido, teléfono, correo y dirección desglosada en código postal, país, provincia, ciudad y calle.",
   "justificacion": "Viene listo: no hay nada que configurar.",

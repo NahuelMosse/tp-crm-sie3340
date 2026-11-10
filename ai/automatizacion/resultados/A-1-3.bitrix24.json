@@ -3,7 +3,7 @@
   "plataforma": "bitrix24",
   "cumple": 2,
   "costo": 1,
-  "resumen": "Guarda la prima como importe con centavos y moneda en un mismo campo. El peso argentino no viene incluido: se agrega una vez con su cotización.",
+  "resumen": "Guarda la prima como importe con centavos y moneda en un mismo campo. El peso argentino no viene incluido: se agrega una vez en la configuración, y la prima queda en pesos.",
   "comoLoHace": "El peso argentino no viene entre las monedas del portal: se agrega desde la configuración del CRM, eligiéndolo de la lista de monedas y cargando su cotización. El campo de prima guarda el importe con centavos y su moneda.",
   "caracteristicas": "El formulario de la negociación, que hace de póliza en la edición gratuita, admite campos de tipo dinero: importe y moneda en el mismo campo.",
   "justificacion": "Agregar la moneda y el campo es configuración de una vez.",

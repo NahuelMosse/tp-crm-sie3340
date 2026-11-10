@@ -1,0 +1,22 @@
+{
+  "criterio": "A.5.7",
+  "plataforma": "bitrix24",
+  "cumple": 1,
+  "reparo": "parcial",
+  "resumen": "Registra el reclamo con todos los datos pedidos y lista los que llevan más de diez días sin resolver, pero el número de orden salta y la antigüedad se calcula a mano en días corridos.",
+  "comoLoHace": "El reclamo se carga como una negociación con el reclamante como cliente. Los datos que pide la normativa se agregan una vez como campos propios del formulario: carácter del reclamante (lista), ramo, póliza, motivo, resolución final y fecha de recepción. La consulta de los pendientes se arma en el filtro del listado: etapa en progreso y fecha de recepción hasta la fecha de corte.",
+  "caracteristicas": "El número de orden es el de la negociación: único y creciente, pero compartido con todas las ventas del portal y con saltos (287666, 287668, 287670). La póliza es un texto, sin vínculo con la ficha de la póliza. Los reclamos resueltos quedan fuera de la consulta al cerrar la negociación.",
+  "justificacion": "Los datos se registran y se consultan sin escribir código, pero el reclamo no tiene numeración propia: el número es el de las negociaciones de todo el portal y avanza de a saltos, de modo que no sirve como número de orden correlativo de reclamos. Además el filtro no cuenta días hábiles: la persona calcula la fecha de corte cada vez que consulta. Cubre una parte de lo que se necesita.",
+  "evidencia": [
+    "A-5-7-bitrix24-1-formulario.png",
+    "A-5-7-bitrix24-2-ficha.png",
+    "A-5-7-bitrix24-3-sin-resolver-mas-de-diez-dias.png"
+  ],
+  "medicion": "números de orden 287666, 287668, 287670; sin resolver con más de 14 días corridos: 1",
+  "criterioNombre": "Registro de reclamos con los datos que exige la Superintendencia",
+  "costo": 2,
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-11-10T02:10:31.648Z"
+}

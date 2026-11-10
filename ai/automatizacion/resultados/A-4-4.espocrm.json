@@ -2,6 +2,7 @@
   "criterio": "A.4.4",
   "plataforma": "espocrm",
   "cumple": 1,
+  "reparo": "manual",
   "costo": 2,
   "resumen": "No se conecta con ninguna red social; trae un formulario web que carga solo a quien lo completa, y los interesados que escriben por mensaje se cargan a mano.",
   "comoLoHace": "Lo que sí trae es la captura de posibles clientes, un formulario web propio que carga solo a cada interesado que lo completa.",

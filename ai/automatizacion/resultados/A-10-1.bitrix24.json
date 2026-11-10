@@ -2,6 +2,7 @@
   "criterio": "A.10.1",
   "plataforma": "bitrix24",
   "cumple": 1,
+  "reparo": "parcial",
   "resumen": "Arma sin programar totales por estado de cobranza, pero solo sobre el importe nativo; no calcula el tiempo promedio de resolución. Los paneles de analítica exigen el plan Standard.",
   "comoLoHace": "El asistente de informes del CRM, que viene en la edición gratuita, arma sin programar el total de primas por estado de cobranza: se agrupa por el campo de lista y se suma el importe de la negociación, y el informe muestra por cada estado la suma de las negociaciones.",
   "caracteristicas": "La suma va sobre el importe nativo: el campo propio de tipo dinero solo admite contarse. El tiempo promedio de resolución, en cambio, no se puede mostrar: sobre las fechas de la negociación el asistente ofrece solo Mínimo, Máximo, Único, sin promedio ni diferencia entre dos fechas.",
@@ -39,8 +40,8 @@
       "monto": "US$ 144 por mes, hasta 50 usuarios",
       "modalidad": "recurrente",
       "cumple": 2,
-      "costo": 2,
-      "justificacion": "Con el plan Standard se habilita BI Builder, donde cada conjunto de datos de negociaciones trae las fechas de creación y de cierre y admite columnas calculadas con fórmulas, según el fabricante: el tiempo de resolución se obtiene definiendo esa columna y promediándola. Hay que escribir la fórmula, y por eso el costo es el de desarrollo."
+      "costo": 1,
+      "justificacion": "Con el plan Standard se habilita BI Builder, donde cada conjunto de datos de negociaciones trae las fechas de creación y de cierre y admite columnas calculadas con fórmulas, según el fabricante: el tiempo de resolución se obtiene definiendo esa columna y promediándola. Definir la columna es configuración de una vez."
     }
   ],
   "criterioNombre": "Indicadores sobre la operación",

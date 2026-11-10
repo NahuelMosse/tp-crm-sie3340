@@ -203,11 +203,13 @@ export const asistenteDeImportacion = (page: Page) => page.frames().find(x => x.
  * Importa un archivo CSV con el asistente del listado: «Importar datos CSV
  * personalizados», el botón «Subir archivo» con su ventana de archivos y los
  * pasos hasta el resultado. `duplicados` elige qué hacer con los repetidos.
+ * `codificacion` elige en el primer paso la codificación del archivo.
  * Devuelve el texto del resultado.
  */
 export async function importarCsv(
   page: Page, archivo: string, duplicados?: 'Skip' | 'Merge' | 'Replace',
   mapa: Record<string, string | RegExp> = { 'E-mail del trabajo': 'Correo electrónico' },
+  codificacion?: RegExp,
 ) {
   await abrirMenuDelListado(page);
   await elegirEnMenuDelListado(page, /^Importar datos CSV personalizados$/);
@@ -219,6 +221,13 @@ export async function importarCsv(
   ]);
   await ventana.setFiles(archivo);
   await page.waitForTimeout(5000);
+  if (codificacion) {
+    // La codificación del archivo es un desplegable del primer paso del asistente
+    await f.getByRole('button', { name: /Cambiar/ }).first().click();
+    await page.waitForTimeout(2000);
+    await f.getByText(codificacion).filter({ visible: true }).first().click();
+    await page.waitForTimeout(3500);
+  }
   const siguiente = () => f.locator('button, .ui-btn, span').filter({ hasText: /^\s*(Siguiente|Continuar|Importar)\s*$/i }).filter({ visible: true }).first();
   await siguiente().click({ force: true });
   await page.waitForTimeout(5000);

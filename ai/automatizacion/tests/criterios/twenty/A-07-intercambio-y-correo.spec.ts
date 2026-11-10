@@ -1,6 +1,7 @@
 import { test, expect, Page } from '../../humano';
 import { writeFileSync, readFileSync, mkdtempSync } from 'node:fs';
 import { join } from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { registrar } from '../../evaluar';
 import { entrar, plataformaDe } from '../../sesion';
@@ -109,24 +110,52 @@ test('A.7.1 — Importación de contactos desde planilla de cálculo', async ({ 
 
   expect(deUtf8, 'la planilla en UTF-8 debe ingresar completa y sin pérdida').toBe(5);
 
+  // La planilla de cálculo propiamente dicha: un libro .xlsx con los diez asegurados
+  for (const p of await dePlanilla(e.api)) await borrarRegistro(e.api, 'people', p.id);
+  const libro = join(dir, 'asegurados.xlsx');
+  const generador = join(dir, 'generar_xlsx.py');
+  writeFileSync(generador,
+    'import sys, json\nfrom openpyxl import Workbook\n' +
+    'filas = json.load(open(sys.argv[1], encoding="utf-8"))\n' +
+    'wb = Workbook()\nws = wb.active\nws.title = "Asegurados"\n' +
+    'for f in filas: ws.append(f)\nwb.save(sys.argv[2])\n');
+  const datos = join(dir, 'asegurados.json');
+  writeFileSync(datos, JSON.stringify(PLANILLA), 'utf8');
+  execFileSync('python', ['-I', generador, datos, libro]);
+  const deXlsx = await importar(page, 'people', 'People', libro, COLUMNAS);
+  const capXlsx = await capturar(page, 'A.7.1', plataforma, '3-planilla-xlsx');
+  const cargadosX = await dePlanilla(e.api);
+  const xlsxIntactos = PLANILLA.slice(1).filter(f => {
+    const c = cargadosX.find(x => x.emails?.primaryEmail === f[2]);
+    return c && c.name.firstName === f[0] && c.name.lastName === f[1] && c.domicilio?.addressCity === f[4] &&
+      c.phones?.primaryPhoneNumber?.replace(/\D/g, '').endsWith(f[3].replace(/\D/g, '').slice(-8));
+  }).length;
+  console.log(`    xlsx: cargados ${cargadosX.length} de 10 · intactos ${xlsxIntactos}/10 · errores marcados: ${deXlsx.conErrores} · sin reconocer: ${deXlsx.sinReconocer}`);
+
   registrar({
     criterio: 'A.7.1',
     plataforma,
-    cumple: deWindows === 5 ? 2 : 1,
-    costo: deWindows === 5 ? 1 : 2,
-    resumen: deWindows === 5
-      ? 'Importa planillas y archivos CSV, también en la codificación de Windows; los ' +
-        'encabezados en español no se reconocen y las columnas se asignan a mano en cada ' +
-        'importación.'
-      : 'Importa planillas y archivos CSV; con la codificación de Windows corrompe los acentos ' +
+    cumple: xlsxIntactos === 10 ? 2 : 1,
+    reparo: xlsxIntactos === 10 ? undefined : 'manual',
+    costo: xlsxIntactos === 10 ? 1 : 2,
+    resumen: xlsxIntactos === 10
+      ? 'Importa libros de planilla (.xlsx) y archivos CSV; el libro ingresa completo, con tildes y campos intactos, ' +
+        'asignando las columnas en el asistente.'
+      : 'Importa planillas y archivos CSV; con la codificación de Windows corrompe las tildes ' +
         'y descarta filas, y en cada importación hay que asignar las columnas a mano.',
     comoLoHace:
-      'Guardada en UTF-8, la planilla ingresa completa: cada columna en su campo, con tildes y eñes ' +
-      'intactas.',
+      xlsxIntactos === 10
+        ? 'Un libro de planilla (.xlsx) con diez asegurados ingresa completo: cada columna en su campo, con tildes y ' +
+          'eñes intactas.'
+        : 'Guardada en UTF-8, la planilla ingresa completa: cada columna en su campo, con tildes y eñes intactas.',
     caracteristicas:
-      'El listado de personas tiene un asistente de importación que acepta planillas de cálculo y archivos de ' +
+      'El listado de personas tiene un asistente de importación que acepta libros de planilla (.xlsx) y archivos de ' +
       'texto separados por comas. ' +
-      (deWindows === 5
+      (xlsxIntactos === 10
+        ? `El libro con diez filas ingresó con ${xlsxIntactos} nombres, correos, teléfonos y ciudades intactos. Un CSV guardado con la ` +
+          `codificación predeterminada de las planillas en Windows no se lee bien: ${deWindows} de 5 filas ingresaron intactas, con letras ` +
+          'acentuadas corrompidas y columnas corridas, y el sistema no lo advirtió; guardado en UTF-8 ingresa completo. '
+        : deWindows === 5
         ? 'Guardada con la codificación predeterminada de las planillas en Windows también ingresó sin pérdida. '
         : 'Guardada con la codificación predeterminada de las planillas en Windows, el asistente leyó mal el ' +
           'archivo: las letras acentuadas llegaron corrompidas y en varias filas las columnas quedaron corridas o ' +
@@ -137,12 +166,14 @@ test('A.7.1 — Importación de contactos desde planilla de cálculo', async ({ 
       `El asistente no reconoció los encabezados en español: dejó las ${deUtf.sinReconocer} columnas sin asignar ` +
       'y hubo que indicar a mano a qué campo va cada una, abriendo las partes del nombre, del correo, del teléfono ' +
       'y del domicilio.',
-    justificacion: deWindows === 5
+    justificacion: xlsxIntactos === 10
+      ? 'La planilla ingresa completa y sin pérdida; asignar las columnas en el asistente es parte de la importación y es configuración.'
+      : deWindows === 5
       ? 'Asignar las columnas es trabajo que se repite en cada importación, pero breve.'
       : 'La necesidad queda resuelta con un procedimiento que se repite en cada importación: guardar la planilla ' +
         'con la codificación correcta y asignar sus columnas.',
-    evidencia: [capWindows, capUtf8],
-    medicion: `UTF-8: ${deUtf8}/5 intactos · codificación de Windows: ${deVentana}/5 ingresadas, ${deWindows}/5 intactas, ` +
+    evidencia: [capXlsx, capWindows, capUtf8],
+    medicion: `.xlsx: ${xlsxIntactos}/10 intactos · UTF-8: ${deUtf8}/5 intactos · codificación de Windows: ${deVentana}/5 ingresadas, ${deWindows}/5 intactas, ` +
       `${mezcladas} con la fila entera en el nombre · ${deUtf.sinReconocer} columnas sin reconocer`,
   });
 });
@@ -186,6 +217,7 @@ test('A.7.2 — Importación de contactos desde las agendas de correo', async ({
     criterio: 'A.7.2',
     plataforma,
     cumple: 1,
+    reparo: 'manual',
     costo: 2,
     resumen:
       'Crea personas desde el correo sincronizado, pero no importa la agenda de contactos de ' +
@@ -349,8 +381,8 @@ test('A.7.5 — Exportación de la cartera sin pérdida de datos', async ({ page
       'nombre, apellido, correo y ciudad, y con las tildes y eñes intactas.',
     caracteristicas:
       'El archivo trae todas las columnas de la vista, con los campos compuestos separados en sus ' +
-      'partes, y la marca de codificación que la planilla necesita para abrirlo sin alterar los ' +
-      'acentos.',
+      'partes, y la marca de codificación que la planilla necesita para abrirlo sin alterar las ' +
+      'tildes.',
     justificacion:
       'La exportación viene de fábrica en todos los listados.',
     evidencia: [capExportacion],

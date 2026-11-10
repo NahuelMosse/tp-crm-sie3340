@@ -164,10 +164,11 @@ test('A.8.2 — Campos calculados sobre datos propios', async ({ page, browser }
   registrar({
     criterio: 'A.8.2',
     plataforma,
-    cumple: 2,
+    cumple: 1,
+    reparo: 'codigo',
     costo: 2,
     resumen:
-      'No tiene campos calculados: el cálculo se arma con un flujo y un paso de código en ' +
+      'No tiene campos calculados: el cálculo se arma con una automatización y un paso de código en ' +
       'TypeScript, que exige desarrollo y habilitar la ejecución de funciones.',
     comoLoHace:
       'El cálculo se arma con un flujo de trabajo que corre cada vez que se guarda la prima de una ' +
@@ -180,7 +181,8 @@ test('A.8.2 — Campos calculados sobre datos propios', async ({ page, browser }
       'guardada en millonésimas— y, en la instalación propia, habilitar la ejecución de funciones, que ' +
       'viene deshabilitada.',
     justificacion:
-      'Es desarrollo, breve, que alguien tiene que saber leer y mantener.',
+      'El cálculo solo se consigue con un paso de código dentro del flujo: es desarrollo, breve, que alguien ' +
+      'tiene que saber leer y mantener.',
     evidencia: [capTipos, capCodigo, capFlujo, capFicha],
     medicion: `Prima anual calculada al guardar: ${calculada}, ${segundos} segundos después`,
   });
@@ -266,7 +268,7 @@ test('A.8.3 — Automatización de procesos', async ({ page, browser }, info) =>
     cumple: 2,
     costo: 1,
     resumen:
-      'Los flujos de trabajo, armados en un editor visual sin código, reaccionan a cambios en ' +
+      'Las automatizaciones, armadas en un editor visual sin código, reaccionan a cambios en ' +
       'registros, como un estado de pago vencido, y crean tareas asignadas al productor.',
     comoLoHace:
       'Un flujo de trabajo escucha las actualizaciones de las pólizas, con la condición de que el ' +
@@ -517,8 +519,7 @@ test('A.8.4 — Conservación de la parametrización al actualizar', async ({ pa
       cumple: 2,
       costo: 0,
       resumen:
-        'La actualización de versión migra sola objetos, campos, relaciones, vistas, flujos y ' +
-        'registros propios, sin rehacer ni reconfigurar nada de lo parametrizado.',
+        'La actualización de versión migra sola objetos, campos, relaciones, vistas, automatizaciones y registros propios, sin rehacer ni reconfigurar nada de lo parametrizado.',
       comoLoHace:
         'Con el procedimiento oficial, la versión se actualiza cambiando la imagen y volviendo a ' +
         'levantar los contenedores, y el servidor corre solo sus migraciones al arrancar. Después de ' +

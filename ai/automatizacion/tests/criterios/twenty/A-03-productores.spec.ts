@@ -66,7 +66,7 @@ test('A.3.1 — Registro de productores y asignación de cartera', async ({ page
 });
 
 // ── A.3.2 ────────────────────────────────────────────────────────────────────
-test('A.3.2 — Bitácora de la actividad con el cliente', async ({ page, browser }, info) => {
+test('A.3.2 — Historial de la actividad con el cliente', async ({ page, browser }, info) => {
   // «Registrar una llamada y una reunión sobre un asegurado, y comprobar que
   //  ambas quedan visibles en orden cronológico con su autor»
   const plataforma = plataformaDe(info.project.name);
@@ -220,6 +220,7 @@ test('A.3.4 — Proyección de los movimientos comerciales', async ({ page, brow
     criterio: 'A.3.4',
     plataforma,
     cumple: 1,
+    reparo: 'manual',
     costo: 2,
     resumen:
       'Los tableros suman montos por etapa y fecha de cierre, pero no hay probabilidad de ' +

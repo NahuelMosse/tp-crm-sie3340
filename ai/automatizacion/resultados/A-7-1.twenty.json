@@ -1,20 +1,21 @@
 {
   "criterio": "A.7.1",
   "plataforma": "twenty",
-  "cumple": 1,
-  "costo": 2,
-  "resumen": "Importa planillas y archivos CSV; con la codificación de Windows corrompe los acentos y descarta filas, y en cada importación hay que asignar las columnas a mano.",
-  "comoLoHace": "Guardada en UTF-8, la planilla ingresa completa: cada columna en su campo, con tildes y eñes intactas.",
-  "caracteristicas": "El listado de personas tiene un asistente de importación que acepta planillas de cálculo y archivos de texto separados por comas. Guardada con la codificación predeterminada de las planillas en Windows, el asistente leyó mal el archivo: las letras acentuadas llegaron corrompidas y en varias filas las columnas quedaron corridas o con la fila entera en el nombre; marcó algunas como erróneas y, al confirmar, las descartó. De las 5 filas ingresaron 4, 0 con nombres y domicilios intactos, y el sistema no advirtió la corrupción de las que aceptó. El asistente no reconoció los encabezados en español: dejó las 5 columnas sin asignar y hubo que indicar a mano a qué campo va cada una, abriendo las partes del nombre, del correo, del teléfono y del domicilio.",
-  "justificacion": "La necesidad queda resuelta con un procedimiento que se repite en cada importación: guardar la planilla con la codificación correcta y asignar sus columnas.",
+  "cumple": 2,
+  "costo": 1,
+  "resumen": "Importa libros de planilla (.xlsx) y archivos CSV; el libro ingresa completo, con tildes y campos intactos, asignando las columnas en el asistente.",
+  "comoLoHace": "Un libro de planilla (.xlsx) con diez asegurados ingresa completo: cada columna en su campo, con tildes y eñes intactas.",
+  "caracteristicas": "El listado de personas tiene un asistente de importación que acepta libros de planilla (.xlsx) y archivos de texto separados por comas. El libro con diez filas ingresó con 10 nombres, correos, teléfonos y ciudades intactos. Un CSV guardado con la codificación predeterminada de las planillas en Windows no se lee bien: 0 de 5 filas ingresaron intactas, con letras acentuadas corrompidas y columnas corridas, y el sistema no lo advirtió; guardado en UTF-8 ingresa completo. El asistente no reconoció los encabezados en español: dejó las 5 columnas sin asignar y hubo que indicar a mano a qué campo va cada una, abriendo las partes del nombre, del correo, del teléfono y del domicilio.",
+  "justificacion": "La planilla ingresa completa y sin pérdida; asignar las columnas en el asistente es parte de la importación y es configuración.",
   "evidencia": [
+    "A-7-1-twenty-3-planilla-xlsx.png",
     "A-7-1-twenty-1-planilla-de-windows.png",
     "A-7-1-twenty-2-planilla-utf8.png"
   ],
-  "medicion": "UTF-8: 5/5 intactos · codificación de Windows: 4/5 ingresadas, 0/5 intactas, 3 con la fila entera en el nombre · 5 columnas sin reconocer",
+  "medicion": ".xlsx: 10/10 intactos · UTF-8: 5/5 intactos · codificación de Windows: 4/5 ingresadas, 0/5 intactas, 3 con la fila entera en el nombre · 5 columnas sin reconocer",
   "criterioNombre": "Importación de contactos desde planilla de cálculo",
   "licencia": null,
   "conPlan": [],
   "documentacion": [],
-  "momento": "2026-10-30T07:31:39.089Z"
+  "momento": "2026-11-10T05:02:25.112Z"
 }

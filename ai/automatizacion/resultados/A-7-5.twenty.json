@@ -5,7 +5,7 @@
   "costo": 0,
   "resumen": "Exporta cualquier vista del listado a un archivo con todas sus filas, los campos compuestos separados en partes y la codificación que conserva tildes y eñes en la planilla.",
   "comoLoHace": "La vista del listado de personas se exporta a un archivo con todas sus filas, cada una con nombre, apellido, correo y ciudad, y con las tildes y eñes intactas.",
-  "caracteristicas": "El archivo trae todas las columnas de la vista, con los campos compuestos separados en sus partes, y la marca de codificación que la planilla necesita para abrirlo sin alterar los acentos.",
+  "caracteristicas": "El archivo trae todas las columnas de la vista, con los campos compuestos separados en sus partes, y la marca de codificación que la planilla necesita para abrirlo sin alterar las tildes.",
   "justificacion": "La exportación viene de fábrica en todos los listados.",
   "evidencia": [
     "A-7-5-twenty-1-exportacion.png"

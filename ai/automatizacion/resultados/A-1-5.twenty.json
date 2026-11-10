@@ -3,7 +3,7 @@
   "plataforma": "twenty",
   "cumple": 2,
   "costo": 1,
-  "resumen": "Avisa solo, con un flujo programado, de las pólizas que vencen en treinta días y de los reclamos cuyo plazo vence en dos, dejando una tarea por cada uno.",
+  "resumen": "Avisa solo, con una automatización programada, de las pólizas que vencen en treinta días y de los reclamos cuyo plazo vence en dos, dejando una tarea por cada uno.",
   "comoLoHace": "Un flujo de trabajo activado avisa sin que nadie intervenga, en cada corrida del programador, de las pólizas por vencer y de los reclamos que alcanzan su plazo; no avisa de las pólizas que vencen más adelante ni de los reclamos con plazo lejano.",
   "caracteristicas": "Los flujos de trabajo de la edición gratuita alcanzan para el aviso, armados desde el lienzo sin escribir código: un disparador programado busca las pólizas cuyo fin de vigencia cae en los próximos treinta días y los reclamos cuyo plazo de resolución vence en los próximos dos, y por cada uno deja una tarea con su nombre.",
   "justificacion": "Armar el flujo es trabajo de una sola vez.",

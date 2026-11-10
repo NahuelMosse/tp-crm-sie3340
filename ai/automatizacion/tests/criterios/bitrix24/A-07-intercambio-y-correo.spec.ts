@@ -23,7 +23,7 @@ test.describe.configure({ mode: 'default' });
 const CARPETA = join(__dirname, '..', '..', 'bitrix24', '_tmp');
 const APELLIDOS = ['Álvarez', 'Muñoz', 'Peña', 'Gómez', 'Núñez', 'Ibáñez', 'Pérez', 'Martínez', 'Ramírez', 'Suárez'];
 
-/** La planilla de prueba: diez asegurados con acentos y eñes, separada por punto y coma. */
+/** La planilla de prueba: diez asegurados con tildes y eñes, separada por punto y coma. */
 function filas(desde: number, hasta: number) {
   return APELLIDOS.slice(desde, hasta).map((a, i) => `ACT-IMP-${String(desde + i + 1).padStart(2, '0')};${a};act.imp${desde + i + 1}@aseguradora-test.com`);
 }
@@ -47,7 +47,7 @@ test('A.7.1 — Importación de contactos desde planilla de cálculo', async ({ 
   await entrar(page, plataforma);
   await borrarContactos(page, /^ACT-IMP-/);
 
-  const resWindows = await importarCsv(page, planilla(0, 5, 'latin1'), undefined, { 'E-mail del trabajo': /^Correo electr.{0,2}nico$/ });
+  const resWindows = await importarCsv(page, planilla(0, 5, 'latin1'), undefined, { 'E-mail del trabajo': /^Correo electr.{0,2}nico$/ }, /^Windows-1252$/);
   const capWindows = await capturar(page, 'A.7.1', plataforma, '1-planilla-de-windows');
   await cerrarPaneles(page);
   const resUtf8 = await importarCsv(page, planilla(5, 10, 'utf8'));
@@ -70,21 +70,22 @@ test('A.7.1 — Importación de contactos desde planilla de cálculo', async ({ 
     criterio: 'A.7.1',
     plataforma,
     cumple: deWindows === 5 ? 2 : 1,
+    reparo: (deWindows === 5 ? 2 : 1) === 1 ? 'manual' : undefined,
     costo: deWindows === 5 ? 1 : 2,
     resumen: deWindows === 5
-      ? 'Importa planillas CSV con tildes y eñes intactas, también en la codificación de Windows; reconoce nombre y apellido solos y la columna del correo se relaciona a mano en cada importación.'
-      : 'Importa planillas CSV; las guardadas con la codificación de Windows pierden tildes y eñes, y la columna del correo se relaciona a mano en cada importación.',
+      ? 'Importa planillas CSV con tildes y eñes intactas, en UTF-8 o con la codificación de Windows elegida en el asistente; la columna del correo se relaciona en el paso de mapeo.'
+      : 'Importa planillas CSV; las guardadas con la codificación de Windows pierden tildes y eñes aun eligiendo esa codificación en el asistente, y la columna del correo se relaciona a mano en cada importación.',
     comoLoHace:
-      'Se sube el archivo con el botón «Subir archivo», se elige la codificación y el delimitador, ' +
-      'se relacionan las columnas con los campos y se importa. La columna del correo, con otro ' +
-      'rótulo, se relaciona a mano con «E-mail del trabajo» en el paso de mapeo.',
+      'Se sube el archivo con el botón «Subir archivo»; en el mismo paso se elige la codificación del archivo ' +
+      '(ofrece ASCII, UTF-8, UTF-16, Windows-1251 y 1252, ISO-8859-1 a 15 y KOI8-R; propone Windows-1251) y el delimitador. ' +
+      'Luego se relacionan las columnas con los campos —la del correo, con otro rótulo, se relaciona con «E-mail del trabajo»— y se importa.',
     caracteristicas:
       'El listado de contactos trae un asistente de importación de planillas CSV, sin configurar nada. ' +
       (deWindows === 5
-        ? 'Una planilla de diez asegurados con tildes y eñes en los apellidos, guardada en UTF-8 o con la codificación predeterminada de Windows, ingresó completa con sus correos y la acentuación intacta.'
-        : `Guardada en UTF-8, la planilla de asegurados ingresó completa con sus correos y la acentuación intacta; guardada con la codificación predeterminada de Windows, ingresaron ${deWindows} de 5 filas con los apellidos intactos.`),
+        ? 'Una planilla de diez asegurados con tildes y eñes en los apellidos ingresó completa con sus correos y la acentuación intacta: la guardada en UTF-8 con la codificación UTF-8, y la guardada con la codificación predeterminada de Windows eligiendo Windows-1252 en el primer paso del asistente.'
+        : `Guardada en UTF-8, la planilla de asegurados ingresó completa con sus correos y la acentuación intacta; guardada con la codificación predeterminada de Windows y eligiendo Windows-1252, ingresaron ${deWindows} de 5 filas con los apellidos intactos.`),
     justificacion: deWindows === 5
-      ? 'La cartera entra completa con el asistente que trae el producto. Reconoce solo nombre y apellido, y relacionar la columna del correo es un paso breve que se repite en cada importación.'
+      ? 'La cartera entra completa con el asistente que trae el producto. Elegir la codificación y relacionar la columna del correo son opciones del propio asistente, parte de usar la pantalla y no una tarea aparte.'
       : 'La necesidad queda resuelta con un procedimiento que se repite en cada importación: guardar la planilla con la codificación correcta y relacionar la columna del correo.',
     evidencia: [capWindows, capUtf8],
     medicion: `UTF-8: ${deUtf8}/5 intactos · codificación de Windows: ${deWindows}/5 intactos · ${importados.length} de 10 ingresados`,
@@ -115,6 +116,7 @@ test('A.7.2 — Importación de contactos desde las agendas de correo', async ({
     criterio: 'A.7.2',
     plataforma,
     cumple: 1,
+    reparo: 'manual',
     resumen: 'Ofrece importar desde Gmail, Outlook y Yahoo!, pero siempre a partir de un CSV que el usuario exporta antes; no hay conexión que lea la agenda.',
     comoLoHace:
       'Incorporar los contactos de la compañía exige, en cada carga, exportar el archivo desde el correo web ' +

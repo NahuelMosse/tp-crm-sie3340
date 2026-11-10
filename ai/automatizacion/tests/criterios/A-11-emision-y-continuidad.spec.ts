@@ -279,10 +279,11 @@ test('A.11.1 — Emisión de la póliza al cerrar la venta', async ({ page, brow
     registrar({
       criterio: 'A.11.1',
       plataforma,
-      cumple: 2,
+      cumple: 1,
+      reparo: 'codigo',
       costo: 2,
       resumen:
-        'No emite la póliza al ganar una oportunidad: un guion breve escrito en el sistema la crea con los datos ' +
+        'No emite la póliza al ganar una oportunidad: código escrito en el sistema la crea con los datos ' +
         'negociados, ligada al asegurado y a la oportunidad.',
       comoLoHace:
         'Ganar la oportunidad no emite nada por sí solo: el producto trae la conversión del solicitante en ' +
@@ -300,10 +301,9 @@ test('A.11.1 — Emisión de la póliza al cerrar la venta', async ({ page, brow
         'oportunidad: la póliza nace con el ramo que la lista propone por defecto y con el nombre de la venta ' +
         'como número, hasta que se completen o los traiga el sistema central.',
       justificacion:
-        'La necesidad queda resuelta desde el sistema, sin reescribir lo negociado. El costo es 2 porque ' +
-        'exige escribir un guion con funciones del sistema —crear un registro, buscar el asegurado ' +
-        'relacionado— que alguien tiene que mantener cuando cambie el modelo de la póliza; sin él, marcar ' +
-        'ganada una oportunidad no deja ninguna póliza.',
+        'La póliza se emite sola al ganar la oportunidad, pero solo con código escrito en el sistema: el ' +
+        'producto no lo resuelve sin programar. Ese código usa funciones del sistema —crear un registro, buscar el ' +
+        'asegurado relacionado— y alguien tiene que mantenerlo cuando cambie el modelo de la póliza.',
       evidencia: [capGuion, capOportunidad, capPoliza, capAsegurado],
       documentacion: fuentes,
       medicion: `Póliza ${poliza.name} con prima ${poliza.prima} ${poliza.primaCurrency}, titular y oportunidad de origen`,
@@ -691,9 +691,7 @@ test('A.11.5 — Satisfacción después de la atención', async ({ page }, info)
     plataforma,
     cumple: 2,
     costo: 1,
-    resumen:
-      'Registra la satisfacción del asegurado al cerrar un reclamo mediante un campo de lista propio, ' +
-      'visible en su ficha; no envía la encuesta ni recibe la respuesta por formulario.',
+    resumen: 'Registra la satisfacción del asegurado al cerrar un reclamo en un campo de lista propio, visible en su ficha; la respuesta se carga a mano, porque el sistema no envía la encuesta.',
     comoLoHace:
       'El producto no trae encuestas: entre sus entidades no figura ninguna. Se agrega al reclamo un campo ' +
       'de lista «Satisfacción con la atención» con el Administrador de Campos y se lo ubica en el ' +
@@ -704,9 +702,7 @@ test('A.11.5 — Satisfacción después de la atención', async ({ page }, info)
       'La respuesta es un valor de una lista cerrada —muy satisfecho, satisfecho, insatisfecho—, de modo que se ' +
       'puede filtrar y contar por reclamo. Se registra a mano al cerrar: el producto no envía la encuesta ni ' +
       'recibe la respuesta por un formulario o un enlace.',
-    justificacion:
-      'Registrar la respuesta queda resuelto con un campo, configurado una vez y sin programar. El envío ' +
-      'automático al cerrar el reclamo no existe en la edición evaluada y no se necesita para registrar.',
+    justificacion: 'El procedimiento pide enviar o registrar la encuesta y que la respuesta quede en la ficha del asegurado: se registra en un campo configurado una vez, sin programar, y queda en la ficha.',
     evidencia: [capEntidades, capCierre, capFicha],
     medicion: `Reclamo cerrado con satisfacción «${guardado.cSatisfaccion}» visible en la ficha del asegurado`,
   });

@@ -1,0 +1,21 @@
+{
+  "criterio": "A.5.7",
+  "plataforma": "twenty",
+  "cumple": 1,
+  "reparo": "manual",
+  "costo": 2,
+  "resumen": "El reclamo no trae número de orden ni plazo en días hábiles: ambos se cargan a mano en cada alta. Los demás datos se agregan como campos y el listado filtra los vencidos sin resolver.",
+  "comoLoHace": "El reclamo se carga como registro del objeto propio. Se le agregaron como campos el número de orden, la fecha del reclamo, el carácter del reclamante, el ramo, el motivo y la resolución final, y la relación con la póliza; el reclamante es el asegurado vinculado. Un reclamo nuevo nace sin número: quien lo carga lo escribe, y también calcula y escribe el plazo de diez días hábiles. El listado filtra los reclamos con plazo en el pasado y estado abierto.",
+  "caracteristicas": "Los datos exigidos se definen una vez como campos del reclamo y se completan en su ficha. Ningún tipo de campo se numera solo: el número es un campo numérico común.",
+  "justificacion": "Con campos y filtros se registra y se consulta, pero el número correlativo y el vencimiento hábil dependen de que cada persona los calcule y los escriba en cada reclamo: un error de tipeo rompe la correlatividad. Resolverlos solos exigiría desarrollar código.",
+  "evidencia": [
+    "A-5-7-twenty-1-alta-del-reclamo.png",
+    "A-5-7-twenty-2-ficha-con-sus-datos.png",
+    "A-5-7-twenty-3-reclamos-vencidos-sin-resolver.png"
+  ],
+  "criterioNombre": "Registro de reclamos con los datos que exige la Superintendencia",
+  "licencia": null,
+  "conPlan": [],
+  "documentacion": [],
+  "momento": "2026-11-10T04:32:17.983Z"
+}

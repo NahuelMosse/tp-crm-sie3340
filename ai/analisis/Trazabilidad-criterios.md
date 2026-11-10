@@ -1,6 +1,6 @@
 # Trazabilidad de los criterios
 
-**Material de auditoría, no del informe.** Comprueba que el catálogo de la sección 4
+**Material de auditoría, no del informe.** Comprueba que el catálogo de la sección 3
 cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 
 > Generado por `ai/automatizacion/generar-trazabilidad.mjs`. **Los enunciados se extraen
@@ -29,9 +29,9 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | **7** | Conocer la información del cliente, centralizarla y centrar a la organización alrededor del cliente. | A.6.1, A.6.2, A.6.4, A.11.4 |
 | **8** | Optimizar las actividades de los vendedores. | A.3.3, A.8.3 |
 | **9** | Pronosticar todos los movimientos comerciales. | A.3.4 |
-| **10** | Diseñar campañas de marketing personalizables. Análisis de campañas realizadas. | A.4.2, A.4.3 |
+| **10** | Diseñar campañas de marketing personalizables. Análisis de campañas realizadas. | A.4.2, A.4.3, B.2.9 |
 | **11** | Segmentación de clientes. | A.4.1 |
-| **12** | Manejar quejas y reclamaciones. | A.5.1, A.5.2, A.5.3, A.11.5 |
+| **12** | Manejar quejas y reclamaciones. | A.5.1, A.5.2, A.5.3, A.5.7, A.11.5 |
 | **13** | Información de los clientes y conseguir nuevos, así como conocer a la competencia que esté presente en las redes. | A.4.4, A.4.5 |
 | **14** | Conseguir cambiar la imagen y reputación, a partir de las opiniones y comentarios de los clientes y tener mayor repercusión en las redes. | A.4.5, A.4.6, A.6.3 |
 | **15** | Mejora de la calidad del servicio y la atención al cliente. | A.5.4, A.10.1, A.11.5 |
@@ -77,7 +77,7 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | A.2.5 | Embudos diferenciados por ramo | `REQ 6, RUBRO` |
 | A.2.6 | Oportunidades de cambio y ampliación sobre la cartera | `REQ 2, REQ 17, REQ 6` |
 | A.3.1 | Registro de productores y asignación de cartera | `REQ 4` |
-| A.3.2 | Bitácora de la actividad con el cliente | `REQ 4` |
+| A.3.2 | Historial de la actividad con el cliente | `REQ 4` |
 | A.3.3 | Agenda y carga de trabajo del productor | `REQ 8` |
 | A.3.4 | Proyección de los movimientos comerciales | `REQ 9` |
 | A.4.1 | Segmentación reutilizable de la cartera | `REQ 11, REQ 16` |
@@ -93,6 +93,7 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | A.5.4 | Base de conocimiento para la atención | `REQ 15` |
 | A.5.5 | Tareas asignables con responsable y vencimiento | `REQ 20` |
 | A.5.6 | Aviso al usuario al que se le asigna una tarea | `REQ 20` |
+| A.5.7 | Registro de reclamos con los datos que exige la Superintendencia | `REQ 12, RUBRO` |
 | A.6.1 | Vinculación de la póliza con su titular | `REQ 2, REQ 7` |
 | A.6.2 | Vista única del asegurado | `REQ 7` |
 | A.6.3 | Campos propios del rubro en la ficha | `REQ 16, REQ 14` |
@@ -142,17 +143,19 @@ cubre todo lo pedido y que ningún criterio se inventó sin fuente.
 | B.2.3 | Copia periódica sin intervención manual | `RUBRO` |
 | B.2.4 | Búsqueda y operación con volumen productivo | `RUBRO` |
 | B.2.5 | Previsibilidad de los cambios del sistema | `RUBRO` |
-| B.2.6 | Conocimiento y decisión sobre dónde residen los datos | `RUBRO` |
+| B.2.6 | Alojamiento de los datos en un país con protección adecuada | `RUBRO` |
 | B.2.7 | Continuidad de la atención ante una caída del enlace | `RUBRO` |
+| B.2.8 | Atención de los derechos del titular de los datos | `RUBRO` |
+| B.2.9 | Baja de las comunicaciones comerciales por medio | `RUBRO, REQ 10` |
 
 ## Sin fuente externa
 
 | Origen | Criterios |
 |---|---|
-| `RUBRO` | A.1.3, A.1.4, A.2.5, A.6.4, A.8.1, A.8.4, A.11.3, A.12.6, A.12.14, B.2.1, B.2.2, B.2.3, B.2.4, B.2.5, B.2.6, B.2.7 |
+| `RUBRO` | A.1.3, A.1.4, A.2.5, A.5.7, A.6.4, A.8.1, A.8.4, A.11.3, A.12.6, A.12.14, B.2.1, B.2.2, B.2.3, B.2.4, B.2.5, B.2.6, B.2.7, B.2.8, B.2.9 |
 | `OBS` | B.1.1, B.1.2, B.1.3, B.1.4 |
 
 ## Resultado
 
 - **33 fuentes**: todas cubiertas.
-- **81 criterios**, todos con origen declarado.
+- **84 criterios**, todos con origen declarado.

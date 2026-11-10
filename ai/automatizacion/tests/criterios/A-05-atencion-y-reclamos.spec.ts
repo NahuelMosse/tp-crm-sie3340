@@ -3,8 +3,11 @@ import { registrar } from '../evaluar';
 import { entrar, entrarComo, plataformaDe } from '../sesion';
 import { cargarCartera, PRODUCTOR, ASEGURADOS, rolProductor } from '../datos';
 import { apiEspo, listar } from '../api';
-import { soloEn, capturar, textoDe, elegirLista, listadoLimpio, filasDelListado } from './comun';
+import { soloEn, capturar, textoDe, elegirLista, listadoLimpio, filasDelListado, agregarFiltro, comparacionesDe,
+  comparar, filtrarPorLista, aplicarFiltros } from './comun';
 import { alta, ficha, edicion, inicio } from '../espocrm/navegar';
+import { escribirGuion, guardarGuion } from '../formula';
+import { montarPoliza, montarReclamo, aseguradoConPoliza } from '../espocrm/escenario';
 
 /**
  * A.5 — Atención al asegurado y reclamos
@@ -22,6 +25,7 @@ const RECLAMO = 'Reclamo por granizo sobre vehículo asegurado';
 
 test.beforeAll(async ({}, info) => {
   if (plataformaDe(info.project.name) !== 'espocrm') return;
+  await montarPoliza(await apiEspo());
   const { api } = await cargarCartera();
   const { list } = await listar(api, 'User', { maxSize: 200 });
   productorId = list.find((u: any) => u.userName === PRODUCTOR.userName).id;
@@ -357,5 +361,145 @@ test('A.5.6 — Aviso al usuario al que se le asigna una tarea', async ({ page }
     justificacion:
       'Es lo que asegura que el responsable se entere en el momento, y no cuando se le ocurre revisar.',
     evidencia: [capAvisos],
+  });
+});
+
+// ── A.5.7 ────────────────────────────────────────────────────────────────────
+test('A.5.7 — Registro de reclamos con los datos que exige la Superintendencia', async ({ page }, info) => {
+  // «Cargar un reclamo y comprobar que recibe un número de orden correlativo y que registra fecha,
+  //  datos del reclamante, carácter del reclamante, ramo, póliza, motivo y resolución final;
+  //  después, obtener los reclamos que llevan más de diez días hábiles sin resolver»
+  const plataforma = plataformaDe(info.project.name);
+  soloEn(plataforma, 'espocrm');
+  test.setTimeout(900_000);
+
+  const PREFIJO = 'A57 ';
+  const hoy = new Date();
+  const hace = (d: number) => new Date(hoy.getTime() - d * 86_400_000);
+  const iso = (f: Date) => `${f.getFullYear()}-${String(f.getMonth() + 1).padStart(2, '0')}-${String(f.getDate()).padStart(2, '0')}`;
+  const dmy = (f: Date) => `${String(f.getDate()).padStart(2, '0')}.${String(f.getMonth() + 1).padStart(2, '0')}.${f.getFullYear()}`;
+
+  // Escenario: el modelo del reclamo y la póliza del asegurado. Agregar los campos que el caso no trae
+  // es configuración de una vez y entra en el costo
+  const api = await apiEspo();
+  const { poliza: vinculoPoliza } = await montarReclamo(api);
+  const reclamante = ASEGURADOS[0];
+  const { contactoId, polizaId } = await aseguradoConPoliza(api, reclamante, 'POL-A57-HOGAR');
+  const { list: previos } = await listar(api, 'Case', { maxSize: 200 });
+  for (const c of previos.filter((c: any) => c.name.startsWith(PREFIJO))) await api.delete(`Case/${c.id}`);
+
+  await entrar(page, plataforma);
+  // El plazo se calcula con una expresión de la fórmula del caso, sobre el calendario laboral del sistema
+  await escribirGuion(page, 'Case', 'beforeSaveCustomScript',
+    'ifThen(\ncFechaReclamo,\ncFechaLimite = ext\\workingTime\\addWorkingDays(cFechaReclamo, 10)\n);');
+  const capFormula = await capturar(page, 'A.5.7', plataforma, '1-plazo-en-dias-habiles');
+  await guardarGuion(page);
+
+  // Reclamos que ya estaban cargados: uno vencido sin resolver, uno vencido ya resuelto y uno reciente
+  const sembrar = async (nombre: string, dias: number, estado: string) => {
+    const r = await api.post('Case', { data: { name: PREFIJO + nombre, status: estado, cFechaReclamo: iso(hace(dias)),
+      contactsIds: [contactoId] } });
+    if (!r.ok()) throw new Error(`No se pudo sembrar el reclamo: ${r.status()} ${await r.text()}`);
+    return (await api.get(`Case/${(await r.json()).id}`)).json();
+  };
+  const vencido = await sembrar('vencido sin resolver', 30, 'Pending');
+  const resuelto = await sembrar('vencido resuelto', 30, 'Closed');
+  const reciente = await sembrar('reciente sin resolver', 3, 'New');
+
+  // El reclamo nuevo, cargado en el formulario
+  const NUEVO = `${PREFIJO}granizo sobre vehículo asegurado`;
+  await alta(page, 'Case');
+  const nombre = page.locator('.field[data-name="name"] input[data-name="name"]').first();
+  await nombre.waitFor({ state: 'visible', timeout: 40_000 });
+  await nombre.pressSequentially(NUEVO, { delay: 20 });
+  await vincular(page, 'contacts', reclamante.lastName);
+  const fecha = page.locator('.field[data-name="cFechaReclamo"] input[data-name="cFechaReclamo"]').first();
+  await fecha.click();
+  await fecha.pressSequentially(dmy(hace(5)), { delay: 30 });
+  await fecha.press('Tab');
+  await elegirLista(page, 'cCaracterReclamante', 'Asegurado');
+  await elegirLista(page, 'cRamo', 'Hogar');
+  await elegirLista(page, 'cMotivo', 'Demora en el pago de un siniestro');
+  await vincular(page, vinculoPoliza, 'POL-A57');
+  const capAlta = await capturar(page, 'A.5.7', plataforma, '2-alta-del-reclamo');
+  await page.getByRole('button', { name: /^Guardar$/ }).first().click();
+  await page.waitForURL(/#Case\/view\//, { timeout: 30_000 });
+  await page.waitForTimeout(3000);
+  const nuevoId = page.url().split('/').pop()!;
+
+  // La resolución final se registra al cerrar el reclamo
+  await edicion(page, 'Case', nuevoId);
+  await elegirLista(page, 'status', 'Closed');
+  const resolucion = page.locator('.field[data-name="cResolucionFinal"] textarea').first();
+  await resolucion.click();
+  await resolucion.pressSequentially('Se abonó el siniestro y se informó al asegurado.', { delay: 15 });
+  await page.getByRole('button', { name: /^Guardar$/ }).first().click();
+  await page.waitForTimeout(4000);
+  const capFicha = await capturar(page, 'A.5.7', plataforma, '3-ficha-con-sus-datos');
+
+  const guardado = await (await api.get(`Case/${nuevoId}`)).json();
+  const ficha57 = await textoDe(page);
+  expect(guardado.number, 'el reclamo nuevo debe seguir en el número al último cargado').toBe(reciente.number + 1);
+  expect(reciente.number, 'los números de orden deben ser correlativos').toBe(resuelto.number + 1);
+  expect(resuelto.number).toBe(vencido.number + 1);
+  expect(guardado.createdAt, 'el reclamo debe registrar cuándo se cargó').toBeTruthy();
+  expect(guardado.cFechaReclamo).toBe(iso(hace(5)));
+  expect(guardado.contactsIds).toContain(contactoId);
+  expect(guardado.cCaracterReclamante).toBe('Asegurado');
+  expect(guardado.cRamo).toBe('Hogar');
+  expect(guardado[vinculoPoliza + 'Id']).toBe(polizaId);
+  expect(guardado.cMotivo).toBe('Demora en el pago de un siniestro');
+  expect(guardado.cResolucionFinal).toContain('Se abonó el siniestro');
+  expect(ficha57).toContain(reclamante.lastName);
+
+  // El plazo lo calculó el sistema con el calendario laboral: diez días hábiles son al menos catorce corridos
+  expect(guardado.cFechaLimite, 'el sistema debe calcular la fecha límite').toBeTruthy();
+  const limite = new Date(`${guardado.cFechaLimite}T12:00:00`);
+  let habiles = 0;
+  for (const d = new Date(`${guardado.cFechaReclamo}T12:00:00`); d < limite;) {
+    d.setDate(d.getDate() + 1);
+    if (![0, 6].includes(d.getDay())) habiles++;
+  }
+  expect(habiles, 'la fecha límite debe estar a diez días hábiles de la del reclamo').toBe(10);
+
+  // Los reclamos con más de diez días hábiles sin resolver: plazo vencido y estado abierto
+  await listadoLimpio(page, 'Case');
+  await agregarFiltro(page, 'cFechaLimite');
+  const comparaciones = await comparacionesDe(page, 'cFechaLimite');
+  console.log(`    comparaciones de fecha: ${comparaciones.map(c => c.valor).join(', ')}`);
+  await comparar(page, 'cFechaLimite', 'past');
+  await agregarFiltro(page, 'status');
+  await filtrarPorLista(page, 'status', 'New', 'Assigned', 'Pending');
+  await aplicarFiltros(page);
+  const vencidos = await filasDelListado(page);
+  const capVencidos = await capturar(page, 'A.5.7', plataforma, '4-reclamos-vencidos-sin-resolver');
+  console.log(`    vencidos: ${vencidos.join(' | ')}`);
+
+  expect(vencidos, 'debe traer el reclamo vencido sin resolver').toContain(PREFIJO + 'vencido sin resolver');
+  expect(vencidos, 'no debe traer el vencido ya resuelto').not.toContain(PREFIJO + 'vencido resuelto');
+  expect(vencidos, 'no debe traer el reciente').not.toContain(PREFIJO + 'reciente sin resolver');
+  expect(vencidos, 'no debe traer el reclamo cerrado').not.toContain(NUEVO);
+
+  registrar({
+    criterio: 'A.5.7',
+    plataforma,
+    cumple: 1,
+    reparo: 'codigo',
+    costo: 2,
+    resumen: 'El caso trae número correlativo, fecha, reclamante, póliza y estado, y los demás datos se agregan como campos; listar los vencidos a diez días hábiles exige escribir código en la fórmula.',
+    comoLoHace:
+      'El reclamo se carga como caso: el sistema le asigna un número de orden correlativo y registra cuándo se cargó. ' +
+      'Se le agregaron como campos la fecha del reclamo, el carácter del reclamante, el ramo, el motivo y la ' +
+      'resolución final, y la relación con la póliza; el reclamante es el contacto vinculado. Una expresión en la ' +
+      'fórmula del caso calcula la fecha límite sumando diez días hábiles según el calendario laboral, y el ' +
+      'listado filtra los casos con plazo vencido y estado abierto.',
+    caracteristicas:
+      'Número de orden, fecha de carga, contacto, estado y listado propios del caso; los demás datos exigidos se ' +
+      'definen una vez como campos y se ubican en el formulario. El plazo usa el calendario laboral del sistema, ' +
+      'que admite cargar feriados, de modo que los días hábiles no se cuentan a mano.',
+    justificacion: 'Registrar los datos exigidos es configuración, pero contar los diez días hábiles exige código en la fórmula del caso, con condiciones y funciones del sistema, de la misma clase que el que se valora como código en A.6.4 y A.8.3.',
+    evidencia: [capFormula, capAlta, capFicha, capVencidos],
+    medicion: `Reclamos ${vencido.number}, ${resuelto.number}, ${reciente.number} y ${guardado.number}: correlativos; ` +
+              `fecha límite del último ${guardado.cFechaLimite}`,
   });
 });

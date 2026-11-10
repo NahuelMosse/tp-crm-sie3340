@@ -149,7 +149,7 @@ test('A.12.3 — Puesta en marcha sin perfil técnico especializado', async ({ p
     cumple: 1,
     resumen:
       'Exige instalar el motor de contenedores, completar variables del archivo y activar ' +
-      'variables apagadas, como las del correo en red propia y el código de flujos.',
+      'variables apagadas, como las del correo en red propia y el código de las automatizaciones.',
     comoLoHace:
       'La instalación se lleva de cero a operativa por esa vía, pero no la completa alguien sin perfil ' +
       'técnico: hay que instalar el motor de contenedores, completar las variables del archivo ' +
@@ -424,10 +424,11 @@ test('A.12.8 — Operación concurrente sobre la misma cartera', async ({ page, 
   const poliza = await crearRegistro(api, 'polizas', { name: NOMBRE });
 
   // Tres sesiones abren la misma póliza a la vez
-  const sesiones = await Promise.all([0, 1, 2].map(async () => {
-    const contexto = await browser.newContext({ baseURL: BASE, locale: 'es-AR', viewport: { width: 1440, height: 900 } });
-    const pagina = await contexto.newPage();
-    await entrar(pagina, plataforma);
+  // La primera sesión es la de la prueba, la que queda grabada en el video; las otras dos son navegadores aparte
+  const sesiones = await Promise.all([0, 1, 2].map(async (n) => {
+    const contexto = n === 0 ? page.context() : await browser.newContext({ baseURL: BASE, locale: 'es-AR', viewport: { width: 1440, height: 900 } });
+    const pagina = n === 0 ? page : await contexto.newPage();
+    if (n) await entrar(pagina, plataforma);
     await abrirFicha(pagina, 'poliza', poliza.id);
     return { contexto, pagina };
   }));
@@ -436,6 +437,14 @@ test('A.12.8 — Operación concurrente sobre la misma cartera', async ({ page, 
   const ramoEnPantalla = (pagina: Page) => pagina.locator('[id^="fields-"][id$="-ramo"]').first().innerText().catch(() => '');
   const vistas: string[] = [];
   let captura = '';
+  const SIMULTANEOS_ETIQUETA = ['Automotor', 'Hogar', 'Vida'];
+  let capSimultaneo = '';
+  let ganador: string | undefined;
+  let ramoSecuencial: string | undefined;
+  let difMs = 0;
+  let ordenGuardado: string[] = [];
+  let avisadas: string[] = [];
+  const pantallas: string[] = [];
   try {
     for (const [i, { pagina }] of sesiones.entries()) {
       vistas.push(await ramoEnPantalla(pagina));
@@ -446,42 +455,76 @@ test('A.12.8 — Operación concurrente sobre la misma cartera', async ({ page, 
     await sesiones[0].pagina.waitForTimeout(5000);
     vistas.push(await ramoEnPantalla(sesiones[0].pagina));
     captura = await capturar(sesiones[0].pagina, 'A.12.8', plataforma, '1-primera-sesion-despues');
+    ramoSecuencial = (await registros(api, 'polizas')).find(p => p.id === poliza.id)?.ramo;
+
+    // Segundo caso: las tres sesiones editan el mismo campo a la vez, cada una sobre el valor que ya tenía
+    // en pantalla. Se recargan para que las tres partan de lo mismo y se eligen valores distintos en
+    // paralelo, de modo que los guardados caen con pocos milisegundos de diferencia.
+    for (const { pagina } of sesiones) await abrirFicha(pagina, 'poliza', poliza.id);
+    const SIMULTANEOS = SIMULTANEOS_ETIQUETA;
+    const avisos: string[] = [];
+    const guardados: number[] = [];
+    const orden: string[] = [];
+    await Promise.all(sesiones.map(async ({ pagina }, i) => {
+      await elegirEnFicha(pagina, 'ramo', SIMULTANEOS[i]);
+      guardados.push(Date.now());
+      orden.push(SIMULTANEOS[i]);
+    }));
+    ordenGuardado = orden;
+    ganador = (await registros(api, 'polizas')).find(p => p.id === poliza.id)?.ramo;
+    await sesiones[0].pagina.waitForTimeout(6000);
+    for (const [i, { pagina }] of sesiones.entries()) {
+      const cuerpo = (await pagina.locator('body').innerText()).replace(/\s+/g, ' ');
+      if (/modificad|actualizad|conflict|otro usuario|another user|modified|outdated|stale/i.test(cuerpo)) avisos.push(`sesión ${i + 1}`);
+      pantallas.push(await ramoEnPantalla(pagina));
+    }
+    difMs = Math.max(...guardados) - Math.min(...guardados);
+    capSimultaneo = await capturar(sesiones[2].pagina, 'A.12.8', plataforma, '2-edicion-simultanea');
+    avisadas = avisos;
   } finally {
-    for (const s of sesiones) await s.contexto.close();
+    for (const s of sesiones.slice(1)) await s.contexto.close();
   }
-  const guardada = (await registros(api, 'polizas')).find(p => p.id === poliza.id);
-  const final = { AUTOMOTOR: 'Automotor', HOGAR: 'Hogar', VIDA: 'Vida', SALUD: 'Salud' }[guardada?.ramo as string] ?? guardada?.ramo;
+  const nombreRamo = (r?: string) => ({ AUTOMOTOR: 'Automotor', HOGAR: 'Hogar', VIDA: 'Vida', SALUD: 'Salud' } as Record<string, string>)[r as string] ?? r;
+  const final = nombreRamo(ramoSecuencial);
   const alDia = vistas.slice(1, 3).map((v, k) => v.includes(RAMOS_POR_SESION[k]));
   const primeraVeFinal = vistas[3].includes('Salud');
   console.log(`    final «${final}» · lo que veía cada sesión antes de cambiar: ${vistas.slice(0, 3).map(v => `«${v.replace(/\s+/g, ' ')}»`).join(', ')} · ` +
     `la primera ve «${vistas[3].replace(/\s+/g, ' ')}» sin recargar`);
   await borrarRegistro(api, 'polizas', poliza.id);
+  console.log(`    simultáneo: guardados con ${difMs} ms de diferencia · quedó «${nombreRamo(ganador)}» · pantallas: ${pantallas.map(v => `«${v.replace(/\s+/g, ' ')}»`).join(', ')} · avisos: ${avisadas.length ? avisadas.join(', ') : 'ninguno'}`);
 
   expect(final, 'debe quedar el último cambio').toBe('Salud');
 
   const envivo = alDia.every(Boolean) && primeraVeFinal;
+  // Si dos sesiones guardan el mismo campo antes de ver el cambio de la otra, ¿lo advierte o se pisan?
+  const pisan = avisadas.length === 0;
+  const valores = SIMULTANEOS_ETIQUETA.join(', ');
   registrar({
     criterio: 'A.12.8',
     plataforma,
-    cumple: envivo ? 2 : 1,
-    resumen: envivo
-      ? 'Varias sesiones editan a la vez la misma póliza y cada una ve en vivo, sin recargar, ' +
-        'el cambio de las otras: nadie pisa trabajo ajeno sin verlo.'
-      : 'Varias sesiones editan a la vez la misma póliza, pero no se avisa que otro modificó el ' +
-        'registro: cada guardado reemplaza al anterior y gana el último.',
+    cumple: envivo && !pisan ? 2 : 1,
+    resumen: envivo && !pisan
+      ? 'Varias sesiones editan a la vez la misma póliza, cada una ve en vivo el cambio de las otras y el ' +
+        'sistema advierte cuando dos guardan el mismo dato.'
+      : 'Varias sesiones editan a la vez la misma póliza y ven en vivo los cambios ajenos, pero si dos ' +
+        'guardan el mismo campo a la vez gana el último sin aviso.',
     comoLoHace:
-      'Varias sesiones pueden abrir a la vez la misma póliza y cambiar su ramo una detrás de otra, ' +
-      'desde la ficha.',
+      'Varias sesiones pueden abrir a la vez la misma póliza y cambiar su ramo, desde la ficha; las demás ' +
+      'sesiones reciben el cambio en la pantalla sin recargar.',
     caracteristicas:
-      `Quedó el último cambio, ${final}.`,
-    justificacion: envivo
-      ? 'Cada sesión ve aparecer el cambio de la anterior en su pantalla, sin recargar, antes de hacer el ' +
-        'suyo: el sistema actualiza en vivo lo que otros modifican, así que nadie pisa el trabajo de otro sin verlo.'
-      : 'El sistema no avisa que otro usuario modificó el registro mientras estaba abierto: cada guardado ' +
-        'reemplaza al anterior sin advertencia, y una sesión puede estar mirando un valor viejo. La condición se ' +
-        'satisface con una limitación: cuando dos personas trabajan la misma póliza, gana la última que guarda.',
-    evidencia: [captura],
-    medicion: `Final: ${final} · actualización en vivo en las otras sesiones: ${envivo ? 'sí' : 'no'}`,
+      `Una detrás de otra, las tres sesiones vieron el cambio anterior antes de hacer el suyo y quedó el último, ${final}. ` +
+      `Con las tres sesiones eligiendo un valor distinto del mismo campo (${valores}) con ${difMs} ms entre el primero y ` +
+      `el último guardado, quedó «${nombreRamo(ganador)}» (orden de guardado: ${ordenGuardado.join(', ')}) y ` +
+      `${pisan ? 'ninguna sesión recibió aviso de que otra había modificado el campo' : `avisaron: ${avisadas.join(', ')}`}.`,
+    justificacion: envivo && !pisan
+      ? 'El sistema actualiza en vivo lo que otros modifican y advierte los guardados cruzados.'
+      : 'La actualización en vivo evita pisar trabajo ajeno cuando la pantalla alcanza a refrescarse, pero no ' +
+        'protege el caso en que dos personas guardan el mismo campo con el valor anterior aún en pantalla: ' +
+        'el sistema acepta ambos guardados sin advertir y el último reemplaza al otro. La condición se satisface ' +
+        'con esa limitación.',
+    evidencia: [captura, capSimultaneo],
+    medicion: `Secuencial: ${final}, actualización en vivo: ${envivo ? 'sí' : 'no'} · simultáneo (${difMs} ms): ` +
+      `${nombreRamo(ganador)}, avisos: ${pisan ? 'ninguno' : avisadas.join(', ')}`,
   });
 });
 

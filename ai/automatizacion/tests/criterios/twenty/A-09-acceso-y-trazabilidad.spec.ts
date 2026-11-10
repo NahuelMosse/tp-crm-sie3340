@@ -124,11 +124,10 @@ test('A.9.2 — Autenticación de los usuarios bajo control de la compañía', a
   registrar({
     criterio: 'A.9.2',
     plataforma,
-    cumple: 2,
-    costo: 1,
-    resumen:
-      'Permite exigir segundo factor a todos y apagar el ingreso con contraseña para entrar ' +
-      'solo con cuenta de Google o Microsoft; SAML u OIDC es del plan Organization.',
+    cumple: 1,
+    reparo: 'parcial',
+    costo: 2,
+    resumen: 'Permite exigir segundo factor a todos y entrar solo con cuenta de Google o Microsoft, pero no ofrece una política de contraseñas que se configure.',
     comoLoHace:
       'La seguridad del espacio de trabajo permite imponer el segundo factor a todos los usuarios en ' +
       'cada ingreso y apagar el ingreso con correo y contraseña, de modo que solo se entre con la ' +
@@ -139,8 +138,7 @@ test('A.9.2 — Autenticación de los usuarios bajo control de la compañía', a
       'servicios; la conexión por SAML u OIDC con cualquier otro directorio es del plan Organization. ' +
       'No hay una política de contraseñas que se configure —largo, vencimiento—, que deja de importar ' +
       'si el ingreso es con la cuenta de la compañía y segundo factor.',
-    justificacion:
-      'Es configuración de una sola vez.',
+    justificacion: 'El procedimiento pide política de contraseñas, segundo factor y acceso unificado con el directorio: resuelve los dos últimos, pero no la política de contraseñas, que solo deja de importar si la compañía usa Google o Microsoft.',
     evidencia: [capSeguridad],
     documentacion: fuentes,
   });
