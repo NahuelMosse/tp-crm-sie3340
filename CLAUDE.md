@@ -71,7 +71,7 @@ NARRAR=1 npx playwright test           # video didáctico con carteles
 node verificar-resultados.mjs          # control de los veredictos y avance por plataforma
 node generar-matriz.mjs ../..          # secciones 5, 5 y 8 del informe
 node generar-doc.mjs ../..             # documentación HTML de las pruebas
-python exportar-informe.py ../..       # entregable: .docx con el formato del equipo y PDF por Word
+python exportar-informe.py ../..       # entregable: los dos PDF, armados en HTML e impresos con Chromium
 ```
 
 El video de cada criterio lo conserva `videos.reporter.ts` en `evidencia/videos/`, porque Playwright vacía `test-results/` en cada corrida. **No pases `--reporter` por línea de comandos**: reemplaza los de la configuración y el video no se guarda.

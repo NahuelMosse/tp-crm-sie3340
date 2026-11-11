@@ -153,16 +153,16 @@ Las dos primeras corren en Docker en una máquina del grupo; no son públicas.
 
 ## Exportar el informe
 
-Desde `ai/automatizacion/`, con Word y `python-docx` instalados:
+Desde `ai/automatizacion/`, con `pypdf` instalado y las dependencias de Node del directorio:
 
 ```bash
 python exportar-informe.py ../..
 ```
 
-Arma el informe con el formato de los informes de análisis del equipo: carátula, índice con
-páginas, resumen ejecutivo, tablas con encabezado oscuro, la matriz con un rótulo por grupo y
-las fuentes numeradas, a las que remiten las citas de la sección 5. Word rellena el índice y
-exporta el PDF a `humanos/entregas/`, que se versiona: es lo que se entrega. El `.docx` queda en
-la raíz y no se versiona.
+Arma cada versión como una página HTML y la imprime a PDF con el Chromium de Playwright: portada,
+índice con páginas, resumen ejecutivo, tablas con filete fino y encabezado gris, la matriz con un
+rótulo por grupo y las fuentes numeradas, a las que remiten las citas de la sección 5. La letra es
+la de la portada (Gambarino y General Sans), que viaja dentro de la página: no hay que instalar
+nada. Los dos PDF quedan en `humanos/entregas/`, que se versiona: es lo que se entrega.
 
 El formato vive en el script y el texto en `humanos/informe/`: lo que se corrige es el markdown.

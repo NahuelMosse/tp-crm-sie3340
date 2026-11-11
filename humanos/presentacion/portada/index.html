@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>Portada del informe · Selección de un sistema CRM</title>
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+  /* An A4 page: the report's own verdicts, all 258, are the picture of its cover */
+  @page { size: A4; margin: 0; }
+  :root { --ink: #161616; --muted: #626262; --soft: #c9c9c9; --paper: #ffffff;
+    --display: "Gambarino", Georgia, serif; --text: "General Sans", "Segoe UI", sans-serif; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #e9e9e7; }
+  .page { width: 210mm; height: 297mm; margin: 0 auto; background: var(--paper); color: var(--ink); position: relative; overflow: hidden;
+    font-family: var(--text); padding: 22mm 20mm 18mm; display: grid; grid-template-rows: auto auto 1fr auto; }
+  @media print { html, body { background: none; } .page { margin: 0; } }
+
+  .label { font-size: 9.5pt; color: var(--muted); letter-spacing: 0; }
+  .label b { color: var(--ink); font-weight: 500; }
+  h1 { font: 400 43pt/0.98 var(--display); letter-spacing: -0.02em; margin: 14mm 0 0; max-width: 18ch; }
+  .sub { font-size: 12.5pt; line-height: 1.45; color: var(--ink); margin: 7mm 0 0; max-width: 34em; }
+
+  /* The matrix: one column per platform, one mark per criterion, read from top to bottom */
+  .matrix { align-self: center; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10mm; margin: 12mm 0 8mm; }
+  .col h2 { font: 500 10pt/1 var(--text); margin: 0 0 3.6mm; }
+  .col svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .key { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 2.5mm 7mm; font-size: 9pt; color: var(--ink); margin-top: 2mm; }
+  .key span { display: inline-flex; align-items: center; gap: 2mm; }
+  .key svg { width: 3.6mm; height: 3.6mm; overflow: visible; }
+  .key .aside { color: var(--muted); }
+
+  .facts { display: grid; grid-template-columns: 38mm 1fr; row-gap: 2.4mm; column-gap: 6mm; font-size: 10pt; line-height: 1.35; }
+  .facts dt { font-weight: 500; }
+  .facts dd { margin: 0; }
+  .note { grid-column: 1 / -1; margin-top: 7mm; font-size: 8.5pt; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="page">
+  <p class="label" data-label></p>
+  <header>
+    <h1 data-title></h1>
+    <p class="sub" data-sub></p>
+  </header>
+  <section class="matrix" aria-label="Los veredictos de los criterios en cada plataforma"></section>
+  <dl class="facts"></dl>
+</div>
+<script src="../data/data.js"></script>
+<script>
+  // ?completa marks the full version, as the report does on its cover
+  const D = window.DATA, full = new URLSearchParams(location.search).has('completa');
+  const sentence = (s) => s.charAt(0) + s.slice(1).toLowerCase();
+  document.querySelector('[data-label]').innerHTML = `${sentence(D.cover.label)}${full ? ' · <b>versión completa</b>' : ''}`;
+  document.querySelector('[data-title]').textContent = D.cover.title;
+  document.querySelector('[data-sub]').textContent = D.cover.subtitle;
+  // Each verdict is a vector circle, so the half-filled one stays sharp in the PDF: full, half or ring
+  const S = 8, R = S / 2, CELL = 11, STROKE = 0.95, COLS = 10, INK = '#161616';
+  const mark = (v, x, y) => {
+    const cx = x + R, cy = y + R;
+    const ring = `<circle cx="${cx}" cy="${cy}" r="${R - STROKE / 2}" fill="none" stroke="${INK}" stroke-width="${STROKE}"/>`;
+    if (v === 2) return `<circle cx="${cx}" cy="${cy}" r="${R}" fill="${INK}"/>`;
+    if (v === 1) return `<path d="M${cx} ${cy - R}A${R} ${R} 0 0 0 ${cx} ${cy + R}Z" fill="${INK}"/>${ring}`;
+    return ring;
+  };
+  const height = Math.ceil(D.criteria.length / COLS) * CELL - (CELL - S);
+  const svg = (p) => `<svg viewBox="0 0 ${(COLS - 1) * CELL + S} ${height}" role="img" aria-label="Veredictos de ${p.name}">${
+    D.criteria.map((c, i) => mark(c.platforms[p.key]?.value, (i % COLS) * CELL, Math.floor(i / COLS) * CELL)).join('')}</svg>`;
+  const keyMark = (v) => `<svg viewBox="0 0 ${S} ${S}" aria-hidden="true">${mark(v, 0, 0)}</svg>`;
+  document.querySelector('.matrix').innerHTML = D.platforms.map((p) => `<div class="col"><h2>${p.name}</h2>${svg(p)}</div>`).join('')
+    + `<p class="key"><span>${keyMark(2)}cumple</span><span>${keyMark(1)}cumple con reparo</span><span>${keyMark(0)}no cumple</span>`
+    + `<span class="aside">Cada marca es uno de los ${D.criteria.length} criterios.</span></p>`;
+  document.querySelector('.facts').innerHTML = D.cover.rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('') + `<p class="note">${D.cover.note}</p>`;
+</script>
+</body>
+</html>

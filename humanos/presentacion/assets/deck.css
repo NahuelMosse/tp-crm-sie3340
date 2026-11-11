@@ -1,0 +1,90 @@
+:root {
+  --bg: #ffffff; --surface: #f4f4f4; --surface-2: #e9e9e9; --ink: #111111; --muted: #5f5f5f;
+  --accent: #1a4be0; --accent-ink: #ffffff; --field: #111111; --field-ink: #ffffff; --field-muted: #b5b5b5;
+  --display: "Gambarino", Georgia, serif; --text: "General Sans", "Segoe UI", system-ui, sans-serif;
+  --ease: cubic-bezier(.22, 1, .36, 1); --dur: 240ms;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: #1c1c1c; color: var(--ink); font-family: var(--text); overflow: hidden; }
+a { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* The stage keeps a 1920 × 1080 coordinate system and scales to the window */
+.stage { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform-origin: 0 0; }
+.slide { position: absolute; inset: 0; background: var(--bg); padding: 88px 96px 96px; display: none; overflow: hidden; }
+.slide.is-active { display: block; }
+.slide.is-field { background: var(--field); color: var(--field-ink); }
+.slide.is-field .muted, .slide.is-field .side { color: var(--field-muted); }
+
+/* Axis at 42 % of the width: headings start on it, the left zone holds side notes */
+.axis { position: absolute; left: 806px; right: 96px; }
+.side { position: absolute; left: 96px; width: 620px; color: var(--muted); font-size: 26px; line-height: 1.45; }
+
+h1, h2 { font-family: var(--display); font-weight: 400; letter-spacing: -0.02em; line-height: 0.95; margin: 0; }
+h1 { font-size: 136px; }
+h2 { font-size: 92px; }
+p { margin: 0; }
+.lead { font-size: 34px; line-height: 1.4; max-width: 30ch; }
+.body { font-size: 28px; line-height: 1.5; max-width: 40ch; }
+.muted { color: var(--muted); }
+.small { font-size: 22px; line-height: 1.45; }
+.num { font-variant-numeric: tabular-nums lining-nums; }
+
+/* Verdict signs drawn as shapes, so they look the same in every font */
+.v { display: inline-block; width: 0.78em; height: 0.78em; border-radius: 50%; border: 0.12em solid currentColor; vertical-align: -0.08em; }
+.v2 { background: currentColor; }
+.v1 { background: linear-gradient(90deg, currentColor 50%, transparent 50%); } /* taste-skill-ignore: the half-filled verdict sign is drawn, not decorated */
+.v0 { background: transparent; }
+.up { font-weight: 600; margin-left: 2px; }
+.with-up { position: relative; display: inline-block; line-height: 1; }
+.with-up > .up { position: absolute; left: 100%; top: 50%; transform: translateY(-55%); margin-left: .18em; font-size: .72em; }
+
+/* Tables of results */
+table { border-collapse: collapse; font-size: 26px; }
+th, td { padding: 13px 20px; text-align: left; vertical-align: middle; }
+thead th { font-weight: 500; color: var(--muted); font-size: 22px; padding-bottom: 10px; }
+tbody tr { background: var(--surface); }
+tbody tr:nth-child(n) td { border-top: 6px solid var(--bg); }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; width: 190px; }
+td.best { font-weight: 600; }
+table.compact { font-size: 22px; }
+table.compact td { padding: 8px 20px; }
+table.compact thead th { font-size: 19px; }
+tr.total td { background: var(--field); color: var(--field-ink); font-weight: 500; }
+tr.total td.best { font-weight: 600; }
+.is-field tbody tr { background: #222; }
+.is-field tbody tr td { border-top-color: var(--field); }
+
+/* Pictures: square corners, one treatment */
+.shot { display: block; width: 100%; object-fit: cover; object-position: top left; background: var(--surface); }
+.caption { font-size: 20px; color: var(--muted); margin-top: 10px; }
+
+.foot { position: absolute; left: 96px; bottom: 40px; font-size: 18px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.is-field .foot { color: var(--field-muted); }
+
+/* Entrance: each part rises a little, staggered, once per visit */
+.slide.is-active [data-in] { animation: rise var(--dur) var(--ease) both; animation-delay: calc(var(--i, 0) * 70ms); }
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .slide.is-active [data-in] { animation: fade 1ms both; } @keyframes fade { from { opacity: 1; } } }
+
+/* Speaker notes */
+.button { display: inline-block; font: 500 32px/1 var(--text); color: var(--accent-ink); background: var(--accent); text-decoration: none; padding: 26px 40px;
+  transition: transform 140ms var(--ease), background var(--dur) var(--ease); }
+.button:hover { background: #1540c4; }
+.button:active { transform: scale(.98); }
+.notes { display: none; }
+.notes-panel { position: fixed; left: 0; right: 0; bottom: 0; max-height: 42vh; overflow: auto; background: #f4f4f4; color: #111;
+  padding: 20px 28px 24px; font: 400 18px/1.55 var(--text); box-shadow: 0 -8px 24px rgba(0,0,0,.25); transform: translateY(100%); /* taste-skill-ignore: the notes panel is a real overlay */
+  transition: transform var(--dur) var(--ease); z-index: 10; }
+.notes-panel.is-open { transform: none; }
+.notes-panel h3 { font: 500 15px/1.2 var(--text); color: #5f5f5f; margin: 0 0 8px; }
+.notes-panel p { max-width: 90ch; margin: 0 0 10px; }
+
+.nav { position: fixed; right: 20px; bottom: 16px; display: flex; gap: 8px; z-index: 11; }
+.nav button { font: 500 15px/1 var(--text); color: #eaeaea; background: #2b2b2b; border: 0; padding: 12px 14px; min-width: 44px; min-height: 44px; cursor: pointer;
+  transition: background var(--dur) var(--ease), transform 120ms var(--ease); }
+.nav button:hover { background: #3a3a3a; }
+.nav button:active { transform: scale(.96); }
+@media (prefers-reduced-motion: reduce) { .notes-panel, .nav button { transition: none; } }

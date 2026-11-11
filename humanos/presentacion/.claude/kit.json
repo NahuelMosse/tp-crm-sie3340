@@ -1,0 +1,134 @@
+{
+  "kit": "6.45.3",
+  "stack": null,
+  "e2e": "apps/e2e",
+  "rulePaths": {
+    "architecture": [
+      "apps/**",
+      "src/**",
+      "packages/**",
+      "lib/**"
+    ],
+    "design": [
+      "**/*.css",
+      "**/*.tsx",
+      "**/*.jsx",
+      "**/*.vue",
+      "**/*.svelte",
+      "**/*.html"
+    ],
+    "interface": [
+      "**/*.css",
+      "**/*.tsx",
+      "**/*.jsx",
+      "**/*.vue",
+      "**/*.svelte",
+      "**/*.html"
+    ],
+    "speed": [
+      "apps/**",
+      "src/**",
+      "packages/**",
+      "lib/**"
+    ]
+  },
+  "source": {
+    "path": "D:\\Temp\\dev-kit",
+    "commit": "8d92976cbe72e554c4ffd1eb979f222367a8b0dd"
+  },
+  "modules": {
+    "ui": {
+      "state": "on",
+      "version": "1.0.0",
+      "since": "install 2026-11-10"
+    },
+    "api": {
+      "state": "off",
+      "reason": "profile backend not chosen at install",
+      "by": "person",
+      "at": "2026-11-10",
+      "signalsAtDecision": []
+    },
+    "data": {
+      "state": "off",
+      "reason": "profile backend not chosen at install",
+      "by": "person",
+      "at": "2026-11-10",
+      "signalsAtDecision": []
+    },
+    "infra": {
+      "state": "off",
+      "reason": "profile backend not chosen at install",
+      "by": "person",
+      "at": "2026-11-10",
+      "signalsAtDecision": []
+    },
+    "ci": {
+      "state": "off",
+      "reason": "not chosen at install: no signal found in the repo",
+      "by": "person",
+      "at": "2026-11-10",
+      "signalsAtDecision": []
+    },
+    "observability": {
+      "state": "off",
+      "reason": "profile backend not chosen at install",
+      "by": "person",
+      "at": "2026-11-10",
+      "signalsAtDecision": []
+    },
+    "docs": {
+      "state": "off",
+      "reason": "not chosen at install: no signal found in the repo",
+      "by": "person",
+      "at": "2026-11-10",
+      "signalsAtDecision": []
+    },
+    "i18n": {
+      "state": "off",
+      "reason": "no signal found in the repo",
+      "by": "person",
+      "at": "2026-11-10",
+      "signalsAtDecision": []
+    },
+    "security-l2": {
+      "state": "off",
+      "reason": "opt-in module, not chosen at install",
+      "by": "person",
+      "at": "2026-11-10",
+      "signalsAtDecision": []
+    }
+  },
+  "grade": {
+    "level": "poc",
+    "reason": "Presentación del TP: fachada visual con datos reales, sin lógica de negocio",
+    "by": "person",
+    "at": "2026-11-10",
+    "history": []
+  },
+  "profiles": {
+    "web": {
+      "state": "on",
+      "since": "install 2026-11-10",
+      "reason": "chosen at install",
+      "mcp": {
+        "motion": {
+          "type": "http",
+          "url": "https://mcp.motion.dev"
+        }
+      }
+    },
+    "backend": {
+      "state": "off",
+      "reason": "not chosen at install",
+      "by": "person",
+      "at": "2026-11-10"
+    },
+    "flutter": {
+      "state": "off",
+      "reason": "not chosen at install",
+      "by": "person",
+      "at": "2026-11-10"
+    }
+  }
+}
